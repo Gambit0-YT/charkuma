@@ -422,8 +422,11 @@
     .review-badge{
       position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:999px;
       background:rgba(245,200,69,.14);border:1px solid rgba(245,200,69,.4);color:var(--yellow);
-      font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap
+      font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;
+      cursor:pointer;font-family:inherit;transition:.2s background,.2s transform
     }
+    .review-badge:hover{background:rgba(245,200,69,.28);transform:scale(1.04)}
+    .review-badge:active{transform:scale(.96)}
     .geek-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
     .geek-info{flex:1;min-width:0}
     .geek-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
@@ -1198,7 +1201,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · REACCIÓN · MARVEL<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · REACCIÓN · MARVEL<span class="review-badge" data-review-id="rf-reaccion-4f" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-reaccion-4f')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎬 REACCIONANDO AL TRÁILER DE LOS 4 FANTÁSTICOS</h2>
           <p class="section-sub">
             Primeras impresiones en caliente, fotograma a fotograma, del tráiler.
@@ -1232,7 +1235,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · CURIOSIDAD · MARVEL<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · CURIOSIDAD · MARVEL<span class="review-badge" data-review-id="rf-curiosidades-spiderman" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-curiosidades-spiderman')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🕸️ 5 CURIOSIDADES QUE NO SABÍAS DEL TRAJE DE SPIDER-MAN</h2>
           <p class="section-sub">
             Datos de cómic y de rodaje que seguramente se te han pasado por alto.
@@ -1259,7 +1262,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · OPINIÓN · MARVEL<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · OPINIÓN · MARVEL<span class="review-badge" data-review-id="rf-opinion-multiverso" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-opinion-multiverso')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🌀 LA SAGA DEL MULTIVERSO: ¿DE VERDAD HA MERECIDO LA PENA?</h2>
           <p class="section-sub">
             Repaso honesto a lo que Marvel prometió con el multiverso y lo que realmente ha dado.
@@ -1287,7 +1290,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · FANCAST · MARVEL<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · FANCAST · MARVEL<span class="review-badge" data-review-id="rf-fancast-wolverine" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-fancast-wolverine')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🐾 FANCAST: ¿QUIÉN DEBERÍA SER EL PRÓXIMO WOLVERINE?</h2>
           <p class="section-sub">
             Tres candidatos con argumentos a favor, y mi favorito personal razonado
@@ -1319,7 +1322,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · OPINIÓN · THE BOYS<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · OPINIÓN · THE BOYS<span class="review-badge" data-review-id="rf-boys-vs-marvel" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-boys-vs-marvel')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🩸 THE BOYS VS MARVEL: POR QUÉ ESTA SERIE ME HA ENGANCHADO MÁS</h2>
           <p class="section-sub">
             Por qué, pese a lo dura que es, The Boys me está gustando más que el rumbo
@@ -1350,7 +1353,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · CURIOSIDAD · THE BOYS<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · CURIOSIDAD · THE BOYS<span class="review-badge" data-review-id="rf-curiosidades-homelander" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-curiosidades-homelander')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🦸 LO QUE NO SABÍAS SOBRE HOMELANDER</h2>
           <p class="section-sub">
             Inspiración real y detalles de guion detrás del villano más inquietante de la serie.
@@ -1376,7 +1379,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">RINCÓN DEL FRIKI · BATALLA · CRUCE<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">RINCÓN DEL FRIKI · BATALLA · CRUCE<span class="review-badge" data-review-id="rf-batalla-homelander-thanos" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('rf-batalla-homelander-thanos')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">⚔️ HOMELANDER VS THANOS: ¿QUIÉN GANARÍA?</h2>
           <p class="section-sub">
             Comparativa de poderes, debilidades y escenario de combate entre los dos.
@@ -1648,7 +1651,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">CHARKUMA LAB · PROYECTO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CHARKUMA LAB · PROYECTO<span class="review-badge" data-review-id="lab-overlay-redesign" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('lab-overlay-redesign')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎨 REDISEÑO DEL OVERLAY DE STREAMING</h2>
           <p class="section-sub">
             La historia detrás de por qué el overlay antiguo dejó de valerme, y cómo llegué
@@ -1686,7 +1689,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">CHARKUMA LAB · HERRAMIENTA<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CHARKUMA LAB · HERRAMIENTA<span class="review-badge" data-review-id="lab-generador-miniaturas" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('lab-generador-miniaturas')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🤖 GENERADOR DE MINIATURAS CON IA</h2>
           <p class="section-sub">
             El flujo de trabajo completo que sigo para sacar una miniatura nueva en minutos,
@@ -1718,7 +1721,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">CHARKUMA LAB · BITÁCORA<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CHARKUMA LAB · BITÁCORA<span class="review-badge" data-review-id="lab-comfyui" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('lab-comfyui')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">📓 PROBANDO COMFYUI POR PRIMERA VEZ</h2>
           <p class="section-sub">
             Primeras impresiones montando flujos de generación de imagen con nodos. Va para largo.
@@ -1757,7 +1760,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">CHARKUMA LAB · PROYECTO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CHARKUMA LAB · PROYECTO<span class="review-badge" data-review-id="lab-bot-discord" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('lab-bot-discord')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🕹️ BOT DE DISCORD PARA EL SERVIDOR DE CHARKUMA</h2>
           <p class="section-sub">
             Comandos básicos, roles automáticos y aviso cuando sube un vídeo nuevo.
@@ -1834,7 +1837,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT<span class="review-badge" data-review-id="ia-prompt-reaccion" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ia-prompt-reaccion')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">📝 PROMPT PARA GUIONES DE REACCIÓN</h2>
           <p class="section-sub">
             La plantilla que uso para no quedarme en blanco antes de grabar una reacción:
@@ -1882,7 +1885,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VÍDEO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VÍDEO<span class="review-badge" data-review-id="ia-video-intro" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ia-video-intro')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎬 VÍDEO GENERADO CON IA: INTRO ALTERNATIVA</h2>
           <p class="section-sub">
             Bitácora honesta de probar si una IA de texto-a-vídeo podía sacarme una intro
@@ -1928,7 +1931,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VISUAL<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VISUAL<span class="review-badge" data-review-id="ia-visual-retro" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ia-visual-retro')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🖼️ GENERANDO PERSONAJES RETRO CON IA</h2>
           <p class="section-sub">
             Todo lo que aprendí probando generadores de imagen gratuitos para ilustrar
@@ -1975,7 +1978,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · AUTOMATIZACIÓN<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">IA & EXPERIMENTOS · AUTOMATIZACIÓN<span class="review-badge" data-review-id="ia-auto-discord" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ia-auto-discord')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">⚙️ AVISO AUTOMÁTICO A DISCORD</h2>
           <p class="section-sub">
             Automatización sencilla y gratis para que el servidor de Discord se entere solo,
@@ -2020,7 +2023,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT<span class="review-badge" data-review-id="ia-prompt-miniaturas" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ia-prompt-miniaturas')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎨 PROMPT PARA MINIATURAS CHARKUMA</h2>
           <p class="section-sub">
             La receta de prompt que uso para que cualquier IA de imágenes me saque miniaturas
@@ -2095,7 +2098,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
-          <div class="section-kicker">CREATOR TOOLS · OVERLAY<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CREATOR TOOLS · OVERLAY<span class="review-badge" data-review-id="ct-overlay-directo" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ct-overlay-directo')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎥 OVERLAY DE DIRECTO CHARKUMA</h2>
           <p class="section-sub">
             La capa gráfica que uso en los directos: pensada para que, aunque cambie el juego,
@@ -2133,7 +2136,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
-          <div class="section-kicker">CREATOR TOOLS · CONFIG OBS<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CREATOR TOOLS · CONFIG OBS<span class="review-badge" data-review-id="ct-obs-retro" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ct-obs-retro')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎛️ ESCENAS DE OBS PARA SESIONES RETRO</h2>
           <p class="section-sub">
             La colección de escenas que tengo montada para grabar los días de
@@ -2171,7 +2174,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
-          <div class="section-kicker">CREATOR TOOLS · PLANTILLA<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CREATOR TOOLS · PLANTILLA<span class="review-badge" data-review-id="ct-plantilla-friki" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ct-plantilla-friki')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">📐 PLANTILLA DE MINIATURA PARA RINCÓN DEL FRIKI</h2>
           <p class="section-sub">
             Estructura fija para no tener que pensar el diseño desde cero cada vez que subo
@@ -2202,7 +2205,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
-          <div class="section-kicker">CREATOR TOOLS · RECURSO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CREATOR TOOLS · RECURSO<span class="review-badge" data-review-id="ct-stingers" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ct-stingers')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🔌 PACK DE STINGERS Y SONIDOS DE TRANSICIÓN</h2>
           <p class="section-sub">
             Pequeños efectos de sonido para marcar cambios de escena y momentos clave sin
@@ -2240,7 +2243,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
-          <div class="section-kicker">CREATOR TOOLS · OVERLAY<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">CREATOR TOOLS · OVERLAY<span class="review-badge" data-review-id="ct-overlay-retro365" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('ct-overlay-retro365')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎥 OVERLAY ESPECIAL PARA MARATONES DE RETRO 365</h2>
           <p class="section-sub">
             Una variante del overlay principal pensada para las sesiones largas donde grabo
@@ -2308,7 +2311,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
-          <div class="section-kicker">HECHO A MANO · TUFTING<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">HECHO A MANO · TUFTING<span class="review-badge" data-review-id="hm-alfombra-logo" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('hm-alfombra-logo')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🧶 ALFOMBRA TUFTING DEL LOGO DE CHARKUMA</h2>
           <p class="section-sub">
             La primera pieza grande: el lagarto de la marca convertido en alfombra, punto por punto.
@@ -2344,7 +2347,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
-          <div class="section-kicker">HECHO A MANO · DISEÑO PERSONALIZADO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">HECHO A MANO · DISEÑO PERSONALIZADO<span class="review-badge" data-review-id="hm-parche-retro" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('hm-parche-retro')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎨 PARCHE BORDADO RETRO GAMER</h2>
           <p class="section-sub">
             Diseño de parche inspirado en los cartuchos de las consolas clásicas, pensado
@@ -2381,7 +2384,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
-          <div class="section-kicker">HECHO A MANO · OBJETO FÍSICO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">HECHO A MANO · OBJETO FÍSICO<span class="review-badge" data-review-id="hm-figura-3d" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('hm-figura-3d')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">📦 FIGURA IMPRESA EN 3D DE MASCOTA</h2>
           <p class="section-sub">
             La primera figura física de la mascota de CHARKUMA, impresa capa a capa y
@@ -2415,7 +2418,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
-          <div class="section-kicker">HECHO A MANO · TUFTING<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">HECHO A MANO · TUFTING<span class="review-badge" data-review-id="hm-cojin-mando" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('hm-cojin-mando')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎮 COJÍN TUFTING DE UN MANDO RETRO</h2>
           <p class="section-sub">
             Segunda pieza de tufting: un mando de NES en forma de cojín, para decorar
@@ -2450,7 +2453,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
-          <div class="section-kicker">HECHO A MANO · DISEÑO PERSONALIZADO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <div class="section-kicker">HECHO A MANO · DISEÑO PERSONALIZADO<span class="review-badge" data-review-id="hm-taza-merch" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;cursor:pointer;" onclick="markReviewedAndRerender('hm-taza-merch')" title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">☕ DISEÑO DE MERCH: TAZA CHARKUMA</h2>
           <p class="section-sub">
             Primer boceto de merchandising: una taza con el lagarto de la marca
@@ -3022,11 +3025,54 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       fancast:"🟢 Fancast", batalla:"🟠 Batalla"
     };
 
+    // ──────────────────────────────────────────────────────────
+    // Insignias "Pendiente de revisión" — ahora interactivas: al pulsarlas
+    // se marcan como revisadas para siempre (localStorage, este navegador)
+    // y desaparecen, sin tener que decírmelo por chat.
+    // ──────────────────────────────────────────────────────────
+    const REVIEWED_KEY = 'charkuma_reviewed_items';
+
+    function loadReviewedSet(){
+      try { return new Set(JSON.parse(localStorage.getItem(REVIEWED_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+
+    function isReviewed(id){
+      return loadReviewedSet().has(id);
+    }
+
+    function markReviewed(id){
+      const set = loadReviewedSet();
+      set.add(id);
+      try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); }
+      catch (e) { /* localStorage no disponible: seguimos sin recordarlo, sin romper nada */ }
+    }
+
+    function markReviewedAndRerender(id){
+      markReviewed(id);
+      // Quita al instante cualquier insignia con este id que esté en pantalla
+      // ahora mismo (la tarjeta de la lista y/o la de dentro de la página).
+      document.querySelectorAll(`[data-review-id="${id}"]`).forEach(el => el.remove());
+    }
+
+    // Al cargar la página, oculta las insignias estáticas de las páginas de
+    // detalle que ya se marcaron como revisadas en una visita anterior.
+    function hideAlreadyReviewedBadges(){
+      document.querySelectorAll('.review-badge[data-review-id]').forEach(el => {
+        if (isReviewed(el.dataset.reviewId)) el.remove();
+      });
+    }
+
     // Insignia reutilizable: marca contenido generado por Claude que el
     // usuario todavía no ha revisado a mano. Pon reviewed:false en cualquier
     // entrada de cualquier array de contenido para que aparezca aquí.
     function reviewBadgeHTML(item){
-      return item.reviewed === false ? `<span class="review-badge">⏳ Pendiente de revisión</span>` : '';
+      if (item.reviewed !== false) return '';
+      const rid = item.internalView || item.title;
+      if (isReviewed(rid)) return '';
+      return `<button type="button" class="review-badge" data-review-id="${rid}"
+                onclick="event.stopPropagation(); markReviewedAndRerender('${rid}')"
+                title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</button>`;
     }
 
     function geekCardHTML(item){
@@ -4195,6 +4241,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     }
 
     reorderProjectCards();
+    hideAlreadyReviewedBadges();
   </script>
 </body>
 </html>
