@@ -1414,8 +1414,155 @@
             <code>labContent</code> en el <code>&lt;script&gt;</code> de este archivo.
             Cada entrada lleva <code>title</code>, <code>type</code>
             (<code>proyecto</code> / <code>herramienta</code> / <code>bitacora</code>),
-            <code>date</code>, <code>summary</code>, <code>thumbnail</code> (un emoji) y
-            <code>link</code>. Los ejemplos de ahora son solo para mostrar el diseño.
+            <code>date</code>, <code>summary</code>, <code>thumbnail</code> (un emoji), y
+            <code>internalView</code> (página propia) o <code>link</code> (externo).
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARKUMA LAB · detalle: Rediseño overlay ══════════ -->
+    <div id="view-lab-overlay-redesign" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">CHARKUMA LAB · PROYECTO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🎨 REDISEÑO DEL OVERLAY DE STREAMING</h2>
+          <p class="section-sub">
+            La historia detrás de por qué el overlay antiguo dejó de valerme, y cómo llegué
+            al diseño que ves ahora en <span class="type-chip chip-orange">Creator Tools</span>.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Por qué tocaba rediseñarlo</h3>
+            <p>
+              El overlay que usaba antes no tenía nada que ver con los colores que acabé
+              eligiendo para la web (morado + naranja) — se notaba que eran dos cosas hechas
+              en momentos distintos y sin plan. Al montar la web, decidí que todo debía sentirse
+              como una sola marca: mismos colores, mismo logo, mismo tono.
+            </p>
+            <h3>El proceso</h3>
+            <ol class="ia-steps">
+              <li>Sacar los colores exactos de la web (<code>#8b5cf6</code> y <code>#ff7a18</code>) y usarlos tal cual, sin "parecidos".</li>
+              <li>Simplificar: menos elementos en pantalla que el overlay antiguo, para no saturar mientras juego.</li>
+              <li>Probarlo en directo real, no solo en el editor, para ver si molestaba a la vista tras horas de stream.</li>
+            </ol>
+            <p>
+              El resultado final, con la ficha técnica completa, está en
+              <a href="javascript:void(0)" onclick="showView('ct-overlay-directo')">Creator Tools → Overlay de directo CHARKUMA</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARKUMA LAB · detalle: Generador miniaturas ══════════ -->
+    <div id="view-lab-generador-miniaturas" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">CHARKUMA LAB · HERRAMIENTA<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🤖 GENERADOR DE MINIATURAS CON IA</h2>
+          <p class="section-sub">
+            El flujo de trabajo completo que sigo para sacar una miniatura nueva en minutos,
+            no el prompt suelto (eso está en IA & Experimentos).
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>El flujo completo</h3>
+            <ol class="ia-steps">
+              <li>Pego el <a href="javascript:void(0)" onclick="showView('ia-prompt-miniaturas')">prompt guardado de miniaturas</a> en ChatGPT, cambiando solo la parte del tema del vídeo.</li>
+              <li>Genero 2-3 variantes y me quedo con la que mejor se lee en pequeño (la pruebo achicada en el móvil antes de decidir).</li>
+              <li>La recorto a 1280×720 y le añado el logo en la esquina que dejé libre a propósito.</li>
+              <li>Guardo la miniatura final con un nombre claro (fecha + tema) para no perder el hilo de cuál es cuál.</li>
+            </ol>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> de momento este último paso lo hago a mano en un editor de
+            imágenes — si veo que se repite mucho, valoraré automatizarlo.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARKUMA LAB · detalle: Bitácora ComfyUI ══════════ -->
+    <div id="view-lab-comfyui" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">CHARKUMA LAB · BITÁCORA<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">📓 PROBANDO COMFYUI POR PRIMERA VEZ</h2>
+          <p class="section-sub">
+            Primeras impresiones montando flujos de generación de imagen con nodos. Va para largo.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>¿Qué es ComfyUI, en corto?</h3>
+            <p>
+              Una interfaz para generar imágenes con IA basada en "nodos" que conectas entre
+              sí (como un diagrama de flujo) en vez de escribir solo un prompt y pulsar un botón.
+              Da mucho más control, pero también muchas más piezas que entender.
+            </p>
+            <h3>Primeras impresiones</h3>
+            <ul class="ia-steps">
+              <li>😵 La primera pantalla, con el flujo por defecto lleno de cajas conectadas, intimida bastante.</li>
+              <li>🐢 Necesita bastante más potencia de ordenador que los generadores web sencillos.</li>
+              <li>🎛️ Una vez entiendes qué hace cada nodo, sí notas mucho más control sobre el resultado final que con un prompt suelto.</li>
+              <li>📚 Hace falta ver algún tutorial antes de tocarlo — no es una herramienta de "entrar y ya".</li>
+            </ul>
+            <h3>¿Para qué lo quiero?</h3>
+            <p>
+              La idea es usarlo más adelante para tener control fino sobre el estilo de las
+              miniaturas y las imágenes de <a href="javascript:void(0)" onclick="showView('calcarte')">CalcArte</a>,
+              en vez de depender de servicios gratuitos que no siguen bien las instrucciones de estilo.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARKUMA LAB · detalle: Bot de Discord ══════════ -->
+    <div id="view-lab-bot-discord" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">CHARKUMA LAB · PROYECTO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🕹️ BOT DE DISCORD PARA EL SERVIDOR DE CHARKUMA</h2>
+          <p class="section-sub">
+            Comandos básicos, roles automáticos y aviso cuando sube un vídeo nuevo.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Qué hace el bot</h3>
+            <ul class="ia-steps">
+              <li><strong>Roles automáticos</strong>: al entrar, cualquiera puede reaccionar a un mensaje para elegir sus roles (Marvel, The Boys, Retro, HELQUIDGAMES...) sin pedírmelo a mí.</li>
+              <li><strong>Aviso de vídeo nuevo</strong>: exactamente la automatización descrita en
+                <a href="javascript:void(0)" onclick="showView('ia-auto-discord')">IA & Experimentos → Aviso automático a Discord</a>,
+                integrada como parte del propio bot en vez de un webhook suelto.</li>
+              <li><strong>Comandos de utilidad</strong>: por ejemplo, preguntar "qué día vamos de Retro 365" y que responda con el progreso actual.</li>
+            </ul>
+            <h3>Con qué está hecho</h3>
+            <p>
+              Node.js + la librería discord.js, alojado de momento en un servicio gratuito de
+              hosting para bots pequeños — suficiente mientras el servidor no sea muy grande.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> el comando de "progreso de Retro 365" todavía es manual —
+            la idea a futuro es que lea los datos directamente de la web, igual que hace el
+            propio sitio.
           </div>
         </div>
       </section>
@@ -3354,7 +3501,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         date: "2026-08-20",
         summary: "Nueva capa gráfica para los directos: alertas, cámara y marcador a juego con la estética de la web.",
         thumbnail: "🎨",
-        link: "#"
+        internalView: "lab-overlay-redesign", reviewed: false
       },
       {
         title: "Generador de miniaturas con IA",
@@ -3362,7 +3509,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         date: "2026-08-28",
         summary: "Prompt afinado para sacar miniaturas de vídeo con look consistente en un par de intentos.",
         thumbnail: "🤖",
-        link: "#"
+        internalView: "lab-generador-miniaturas", reviewed: false
       },
       {
         title: "Bitácora: probando ComfyUI por primera vez",
@@ -3370,7 +3517,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         date: "2026-09-02",
         summary: "Primeras impresiones montando flujos de generación de imagen con nodos. Va para largo.",
         thumbnail: "📓",
-        link: "#"
+        internalView: "lab-comfyui", reviewed: false
       },
       {
         title: "Bot de Discord para el servidor de CHARKUMA",
@@ -3378,7 +3525,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         date: "2026-09-04",
         summary: "Comandos básicos, roles automáticos y aviso cuando sube un vídeo nuevo.",
         thumbnail: "🕹️",
-        link: "#"
+        internalView: "lab-bot-discord", reviewed: false
       }
       // { title:"...", type:"proyecto|herramienta|bitacora", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🧪", link:"..." },
