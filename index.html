@@ -2658,7 +2658,7 @@
       setTimeout(() => { leverBtn.classList.remove('pulled'); }, 220);
       setTimeout(() => {
         document.getElementById('calcResultText').textContent = `${chosenChar.emoji} ${chosenChar.text} ${chosenAction.emoji} ${chosenAction.text}`;
-        calcCurrentPrompt = `Genérame una imagen: un boceto sencillo en blanco y negro de ${chosenChar.text} ${chosenAction.text}. Instrucciones: solo líneas de contorno limpias y gruesas, sin sombras, sin color y sin fondo, estilo dibujo para colorear tipo "coloring book", pensado para calcarlo fácilmente a mano. Créala directamente, sin hacerme preguntas antes.`;
+        calcCurrentPrompt = `Genérame una imagen: un boceto sencillo en blanco y negro de ${chosenChar.text} ${chosenAction.text}. Instrucciones: solo líneas de contorno limpias y gruesas, sin sombras, sin color, con el fondo totalmente blanco (sin ningún elemento ni textura de fondo), estilo dibujo para colorear tipo "coloring book", pensado para calcarlo fácilmente a mano. Créala directamente, sin hacerme preguntas antes.`;
         document.getElementById('calcPromptField').value = calcCurrentPrompt;
         resultCard.hidden = false;
         playCalcResultChime();
