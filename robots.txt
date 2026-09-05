@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gambit0-yt.github.io/charkuma/sitemap.xml

@@ -101,6 +101,11 @@
 
     a{color:inherit;text-decoration:none}
     button{font:inherit}
+    /* Accesibilidad: indicador de foco visible al navegar con teclado
+       (no aparece en clics de ratón, gracias a :focus-visible), salvo
+       en los pocos controles que ya tienen su propio estado de foco
+       (inputs con borde naranja al enfocar, definidos más abajo). */
+    :focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:4px}
     .container{width:min(1160px,calc(100% - 34px));margin:auto}
 
     .nav{
@@ -703,6 +708,11 @@
       border:1px solid var(--line);box-shadow:var(--shadow);
     }
     .yt-sidebar h4{margin:0 0 14px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
+    .yt-sub-count{margin:-8px 0 14px;font-size:12px;color:var(--muted);font-weight:700}
+    .yt-sub-count[hidden]{display:none}
+    .twitch-live-badge{display:inline-block;margin:2px 0 10px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--line)}
+    .twitch-live-badge[hidden]{display:none}
+    .twitch-live-badge.is-live{background:rgba(255,95,109,.16);color:var(--red);border-color:rgba(255,95,109,.4)}
     .yt-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line3)}
     .yt-video:first-of-type{border-top:none;padding-top:0}
     .yt-thumb{width:96px;height:54px;border-radius:8px;object-fit:cover;flex:none;background:var(--panel)}
@@ -827,6 +837,7 @@
   <div class="sidebar-stack" id="sidebarStack">
     <aside class="yt-sidebar" id="ytSidebar">
       <h4 id="ytSidebarTitle">▶️ Últimos vídeos</h4>
+      <p class="yt-sub-count" id="ytSubCount" hidden></p>
       <div id="ytVideoList">
         <p class="yt-empty">Cargando...</p>
       </div>
@@ -868,6 +879,31 @@
             </div>
           </div>
           <div id="globalSearchResults" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CALENDARIO DE PUBLICACIÓN ══════════ -->
+    <div id="view-calendario" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">PLANIFICACIÓN</div>
+          <h2 class="section-title">📅 CALENDARIO DE PUBLICACIÓN</h2>
+          <p class="section-sub">
+            Un vistazo rápido a lo próximo: el siguiente juego de Retro 365 y el contenido
+            de las demás secciones que todavía está "pendiente de revisión" (generado como
+            base, a falta de que le des tu toque final antes de grabarlo).
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <h3 class="subheading">🎮 Retro 365 — lo siguiente</h3>
+          <div id="calendarRetroList" class="recent-list"></div>
+
+          <h3 class="subheading" style="margin-top:30px">🧪 En el resto de secciones</h3>
+          <div id="calendarPendingList" class="recent-list"></div>
         </div>
       </section>
     </div>
@@ -1143,6 +1179,7 @@
                 </div>
                 <a class="visit" href="https://www.twitch.tv/kiddcolors" target="_blank" rel="noopener">Ver canal ↗</a>
               </div>
+              <span class="twitch-live-badge" id="twitchLiveBadge" hidden></span>
               <div class="latest-label">Último directo</div>
               <div class="latest-card">
                 <div class="latest-thumb">🔴</div>
@@ -1162,6 +1199,22 @@
             actualicen solos también, esas plataformas piden APIs bastante más complicadas de
             configurar que la de YouTube, así que lo dejamos para cuando te interese de verdad.
           </div>
+
+          <div class="panel" style="margin-top:24px">
+            <h3 style="margin-top:0">💬 Buzón de sugerencias</h3>
+            <p style="color:var(--muted);margin-bottom:16px">
+              ¿Se te ocurre una idea de vídeo, un juego para Retro 365 o algo que mejorarías
+              de la web? Este sitio todavía no tiene comentarios propios (necesitaría un
+              backend), así que de momento la vía más directa es escribirme por donde ya
+              me sigues:
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <a class="btn btn-secondary" href="https://www.youtube.com/@mrchakurma" target="_blank" rel="noopener">▶️ YouTube</a>
+              <a class="btn btn-secondary" href="https://www.tiktok.com/@kiddcolors" target="_blank" rel="noopener">🎵 TikTok</a>
+              <a class="btn btn-secondary" href="https://www.instagram.com/kiddcolors/" target="_blank" rel="noopener">📸 Instagram</a>
+              <a class="btn btn-secondary" href="https://www.twitch.tv/kiddcolors" target="_blank" rel="noopener">🕹️ Twitch</a>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -1172,7 +1225,7 @@
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
           <div class="section-kicker">PROYECTO 001</div>
-          <h2 class="section-title"><span class="secret-trigger" onclick="openSecretList()">🎮</span> RETRO 365</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openSecretList()" role="button" tabindex="0" aria-label="Abrir la chuleta secreta de Retro 365">🎮</span> RETRO 365</h2>
           <p class="section-sub">
             El reto: recomendar 365 videojuegos, uno por día, durante un año entero.
             Cada día que sube el vídeo de un juego, su casilla se desbloquea aquí abajo.
@@ -1295,7 +1348,7 @@
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
           <div class="section-kicker">PROYECTO 002</div>
-          <h2 class="section-title"><span class="secret-trigger" onclick="openRinconSecretList()">🦸</span> RINCÓN DEL FRIKI</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openRinconSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Rincón del Friki">🦸</span> RINCÓN DEL FRIKI</h2>
           <p class="section-sub">
             Series, superhéroes, cómics y algo de anime. Noticias, opiniones y vídeos —
             pero el corazón de esta sección son los superhéroes, sobre todo Marvel y The Boys.
@@ -2739,6 +2792,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         <a class="social" href="javascript:void(0)" onclick="showView('redes')">TikTok</a>
         <a class="social" href="javascript:void(0)" onclick="showView('redes')">Instagram</a>
         <a class="social" href="javascript:void(0)" onclick="showView('redes')">Twitch</a>
+        <a class="social" href="javascript:void(0)" onclick="showView('calendario')">📅 Calendario</a>
       </div>
     </div>
   </footer>
@@ -2879,6 +2933,11 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         if (document.getElementById('view-buscar') && document.getElementById('view-buscar').classList.contains('active')) {
           goHome('inicio');
         }
+      } else if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.getAttribute && e.target.getAttribute('role') === 'button') {
+        // Accesibilidad: los "role=button" a mano (como los emojis
+        // secretos) también se activan con teclado, no solo con clic.
+        e.preventDefault();
+        e.target.click();
       }
     });
 
@@ -2954,6 +3013,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       if (opts.resetScroll !== false) window.scrollTo({top:0});
       updateSidebar(id);
       updateViewChrome(id, target);
+      if (id === 'calendario' && typeof renderCalendarView === 'function') renderCalendarView();
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -2977,9 +3037,13 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       const titleEl = pageHead.querySelector('.section-title');
       const kickerText = (kickerEl && kickerEl.childNodes[0]) ? kickerEl.childNodes[0].textContent.trim() : '';
       const rawTitle = titleEl ? titleEl.textContent.trim() : '';
-      // Quita el primer "token" del título (normalmente el emoji) para
-      // dejarlo limpio en la pestaña y en la miga de pan.
-      const titleText = rawTitle.replace(/^\S+\s+/, '').trim() || rawTitle;
+      // Quita el primer "token" del título SOLO si es un emoji/símbolo
+      // decorativo (sin ninguna letra) — si el título empieza por una
+      // palabra normal (p. ej. "REDES SOCIALES", sin emoji), se deja tal cual.
+      const firstTokenMatch = rawTitle.match(/^(\S+)\s+(.*)$/);
+      const titleText = (firstTokenMatch && !/\p{L}/u.test(firstTokenMatch[1]))
+        ? firstTokenMatch[2].trim()
+        : rawTitle;
 
       document.title = titleText ? `${titleText} · CHARKUMA` : 'CHARKUMA — Gaming, cultura geek y creatividad';
 
@@ -4748,7 +4812,8 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         { title:'Ruleta del 11', summary:'Sorteador de una alineación de fútbol con base de datos real de jugadores.', view:'ruleta11', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Fútbol'], emoji:'⚽' },
         { title:'CalcArte', summary:'Máquina de ideas al azar para dibujos para colorear, con prompt listo para IA.', view:'calcarte', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Arte','IA'], emoji:'🎰' },
         { title:'Rincón del Friki', summary:'Series, superhéroes, cómics y anime — Marvel y The Boys por encima de todo.', view:'rincon', section:'Rincón del Friki', sectionEmoji:'🦸', tags:['Marvel','The Boys'], emoji:'🦸' },
-        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱' }
+        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱' },
+        { title:'Calendario de publicación', summary:'Lo próximo: el siguiente día de Retro 365 y el contenido pendiente de revisión del resto de secciones.', view:'calendario', section:'General', sectionEmoji:'📅', tags:['Planificación'], emoji:'📅' }
       );
       return index;
     }
@@ -4812,6 +4877,70 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       });
     }
 
+    // ──────────────────────────────────────────────────────────
+    // CALENDARIO DE PUBLICACIÓN: un vistazo simple a "lo próximo" —
+    // el siguiente día decidido de Retro 365, y el contenido de las
+    // demás secciones que sigue "pendiente de revisión" (generado
+    // como base, a falta del toque final de Charkuma).
+    // ──────────────────────────────────────────────────────────
+    function renderCalendarView(){
+      const retroList = document.getElementById('calendarRetroList');
+      const pendingList = document.getElementById('calendarPendingList');
+      if (!retroList || !pendingList) return;
+
+      const plannedDays = Object.keys(plannedGames).map(Number).sort((a, b) => a - b);
+      retroList.innerHTML = plannedDays.length
+        ? plannedDays.map(day => {
+            const g = plannedGames[day];
+            return `
+              <div class="geek-card">
+                <div class="geek-thumb">${g.emoji || '📝'}</div>
+                <div class="geek-info">
+                  <div class="geek-badges">
+                    <span class="type-chip chip-purple">DÍA ${String(day).padStart(3,'0')}</span>
+                    <span class="type-chip diff-${g.difficulty}">${DIFF_LABELS[g.difficulty] || g.difficulty}</span>
+                  </div>
+                  <h4>${g.name}</h4>
+                  <p>${g.summary}</p>
+                </div>
+              </div>`;
+          }).join('')
+        : `<p class="yt-empty">No hay ningún día decidido sin grabar ahora mismo — abre la chuleta secreta de Retro 365 para añadir más.</p>`;
+
+      const pendingSources = [
+        [geekContent, 'Rincón del Friki', '🦸'],
+        [iaContent, 'IA & Experimentos', '🤖'],
+        [creatorContent, 'Creator Tools', '🛠️'],
+        [hechoContent, 'Hecho a Mano', '🧶'],
+        [labContent, 'Charkuma Lab', '🧪']
+      ];
+      const pending = [];
+      pendingSources.forEach(([arr, section, emoji]) => {
+        arr.forEach(item => {
+          const rid = item.internalView || item.title;
+          if (item.reviewed === false && !isReviewed(rid)) {
+            pending.push({ item, section, emoji });
+          }
+        });
+      });
+      pending.sort((a, b) => new Date(b.item.date || 0) - new Date(a.item.date || 0));
+
+      pendingList.innerHTML = pending.length
+        ? pending.map(({item, section, emoji}) => `
+            <div class="geek-card">
+              <div class="geek-thumb">${item.thumbnail || emoji}</div>
+              <div class="geek-info">
+                <div class="geek-badges">
+                  <span class="type-chip chip-purple">${emoji} ${section}</span>
+                  ${reviewBadgeHTML(item)}
+                </div>
+                <h4><a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a></h4>
+                <p>${item.summary}</p>
+              </div>
+            </div>`).join('')
+        : `<p class="yt-empty">Todo revisado por aquí — nada pendiente ahora mismo.</p>`;
+    }
+
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
     document.getElementById('assignBtn').addEventListener('click', assignPlayer);
     document.getElementById('resetRuletaBtn').addEventListener('click', resetRuleta);
@@ -4871,13 +5000,24 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       }
 
       try {
+        // Pedimos "statistics" a la vez que "contentDetails" (misma
+        // llamada) para poder mostrar el nº de suscriptores sin gastar
+        // una segunda petición a la API.
         const channelRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
+          `https://www.googleapis.com/youtube/v3/channels?part=contentDetails,statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
         ).then(r => r.json());
 
-        const uploadsId = channelRes.items && channelRes.items[0] &&
-          channelRes.items[0].contentDetails.relatedPlaylists.uploads;
+        const channelItem = channelRes.items && channelRes.items[0];
+        const uploadsId = channelItem && channelItem.contentDetails.relatedPlaylists.uploads;
         if (!uploadsId) throw new Error("Canal no encontrado");
+
+        const stats = channelItem.statistics;
+        const subCountEl = document.getElementById('ytSubCount');
+        if (subCountEl && stats && !stats.hiddenSubscriberCount && stats.subscriberCount) {
+          const formatted = new Intl.NumberFormat('es-ES').format(Number(stats.subscriberCount));
+          subCountEl.textContent = `👥 ${formatted} suscriptores`;
+          subCountEl.hidden = false;
+        }
 
         const videosRes = await fetch(
           `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${uploadsId}&key=${YT_API_KEY}`
@@ -4892,7 +5032,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
               const date = new Date(s.publishedAt).toLocaleDateString('es-ES', {day:'numeric', month:'short'});
               return `
                 <a class="yt-video" href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
-                  <img class="yt-thumb" src="${thumb}" alt="">
+                  <img class="yt-thumb" src="${thumb}" alt="Miniatura del vídeo: ${s.title}" loading="lazy">
                   <div class="yt-info">
                     <strong>${s.title}</strong>
                     <span>${date}</span>
@@ -4910,7 +5050,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
           const redesTitle = document.getElementById('redesYtTitle');
           const redesDate = document.getElementById('redesYtDate');
           const redesCard = document.getElementById('redesYtCard');
-          if (redesThumb) redesThumb.outerHTML = `<img class="latest-thumb" id="redesYtThumb" src="${thumb0}" alt="">`;
+          if (redesThumb) redesThumb.outerHTML = `<img class="latest-thumb" id="redesYtThumb" src="${thumb0}" alt="Miniatura del vídeo: ${s0.title}" loading="lazy">`;
           if (redesTitle) redesTitle.textContent = s0.title;
           if (redesDate) redesDate.textContent = date0;
           if (redesCard) redesCard.onclick = () => window.open(`https://www.youtube.com/watch?v=${s0.resourceId.videoId}`, '_blank');
@@ -4937,7 +5077,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
               return `
                 <a class="yt-video" href="${item.link}" target="_blank" rel="noopener">
                   ${thumb
-                    ? `<img class="yt-thumb" src="${thumb}" alt="">`
+                    ? `<img class="yt-thumb" src="${thumb}" alt="Imagen de la noticia: ${item.title}" loading="lazy">`
                     : `<div class="yt-thumb" style="display:grid;place-items:center;font-size:22px">📰</div>`}
                   <div class="yt-info">
                     <strong>${item.title}</strong>
@@ -5048,6 +5188,29 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
 
     reorderProjectCards();
     hideAlreadyReviewedBadges();
+
+    // ──────────────────────────────────────────────────────────
+    // Estado "en directo" de Twitch, sin necesitar tu propia API key:
+    // decapi.me es un servicio público y gratuito (sin autenticación)
+    // muy usado para overlays de streaming, que solo dice si el canal
+    // está emitiendo ahora mismo y desde cuándo. Si algún día prefieres
+    // tu propia app de Twitch (Client ID + token), esta es la función
+    // a sustituir.
+    // ──────────────────────────────────────────────────────────
+    async function loadTwitchLiveStatus(){
+      const badge = document.getElementById('twitchLiveBadge');
+      if (!badge) return;
+      try {
+        const text = (await fetch('https://decapi.me/twitch/uptime/kiddcolors').then(r => r.text())).trim();
+        const isLive = text && !/offline|no existe|not found/i.test(text);
+        badge.hidden = false;
+        badge.classList.toggle('is-live', !!isLive);
+        badge.textContent = isLive ? `🔴 En directo ahora mismo (${text})` : '⚫ Ahora mismo no está en directo';
+      } catch (err) {
+        badge.hidden = true; // servicio no disponible: no mostramos nada raro
+      }
+    }
+    loadTwitchLiveStatus();
   </script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Nota: CHARKUMA es una single-page app — todas las secciones viven en
+  index.html y se navega entre ellas cambiando el hash (#view=...), no
+  con URLs distintas. Los buscadores no indexan fragmentos de hash como
+  páginas separadas, así que este sitemap solo puede listar honestamente
+  la URL raíz. Si en el futuro cada sección tuviera su propia URL real
+  (con un pequeño cambio de arquitectura o un prerender), este archivo
+  sería el sitio para añadir esas URLs.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gambit0-yt.github.io/charkuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
