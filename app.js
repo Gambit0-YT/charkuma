@@ -21,6 +21,50 @@
     // Puedes cambiarla por cualquier otro feed RSS que prefieras.
     const GEEK_NEWS_FEED = "https://www.zonanegativa.com/feed/";
 
+    // ──────────────────────────────────────────────────────────
+    // RADAR DE ESTRENOS (sección "Cultura pop que se viene" del inicio)
+    // ──────────────────────────────────────────────────────────
+    // TMDB (The Movie Database) tiene una API gratuita para estrenos
+    // reales. Pide una clave gratis en https://www.themoviedb.org/settings/api
+    // (cuenta gratuita, clave al momento) y pégala aquí para activar la
+    // lista "en vivo". Sin clave, esa lista se queda con un aviso.
+    const TMDB_API_KEY = "PON_AQUI_TU_CLAVE_DE_TMDB";
+    // Géneros TMDB que encajan con la temática del canal: Acción (28),
+    // Aventura (12), Fantasía (14), Ciencia ficción (878).
+    const TMDB_GENRES = "28,12,14,878";
+
+    // Lista a mano para dos casos que TMDB no cubre bien: "bombazos"
+    // fuera de la temática de superhéroes que sí merece la pena comentar
+    // (aunque sea excepcionalmente), y películas que ya has visto y
+    // quieres criticar/recomendar en vídeo. status: "estreno" | "visto".
+    // Añade aquí las tuyas — imdbUrl es opcional pero recomendado.
+    const customPremieres = [
+      {
+        title: "Barbie", status: "estreno", emoji: "💗",
+        note: "Fuera de la temática habitual, pero fue un bombazo total — del tipo que merece comentario aunque no sea de superhéroes.",
+        imdbUrl: "https://www.imdb.com/title/tt1517268/"
+      },
+      {
+        title: "Oppenheimer", status: "estreno", emoji: "💥",
+        note: "Mismo caso que Barbie: estreno enorme fuera de tema, pero con el impacto cultural suficiente como para hacer vídeo.",
+        imdbUrl: "https://www.imdb.com/title/tt15398776/"
+      },
+      {
+        title: "Torrente", status: "visto", emoji: "🚔",
+        note: "Ya vista — no me ha gustado, pero justo por eso da para un vídeo de crítica con gancho.",
+        imdbUrl: "https://www.imdb.com/title/tt0163187/"
+      }
+      // { title:"...", status:"estreno|visto", emoji:"🎬",
+      //   note:"...", imdbUrl:"https://www.imdb.com/title/..." },
+    ];
+
+    // Enlace a tu carpeta de Google Drive para clips/recursos de edición
+    // (botón "📁 Recursos" en Redes Sociales). Esta web no tiene
+    // almacenamiento propio — solo enlaza a donde ya subas tú los
+    // archivos. Pega el enlace de una carpeta compartida ("cualquiera
+    // con el enlace puede ver") y listo.
+    const DRIVE_FOLDER_URL = "PON_AQUI_TU_ENLACE_DE_DRIVE";
+
     // Estado del widget lateral
     let currentSidebarMode = 'videos'; // 'videos' | 'news'
     let cachedVideosHTML = null;
@@ -214,6 +258,7 @@
       updateSidebar(id);
       updateViewChrome(id, target);
       if (id === 'calendario' && typeof renderCalendarView === 'function') renderCalendarView();
+      if (id === 'hub-secreto' && typeof renderMasterHub === 'function') renderMasterHub();
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -1008,6 +1053,83 @@
     document.getElementById('geekSagaFilter').addEventListener('change', renderGeekContent);
     document.getElementById('geekTypeFilter').addEventListener('change', renderGeekContent);
     renderGeekContent();
+
+    // ──────────────────────────────────────────────────────────
+    // RANKING FRIKI: minijuego de votos por personaje. Los números de
+    // salida son una estimación mía orientativa de fama general (no
+    // existe un dato público de "visitas históricas totales en Google"
+    // al que se pueda acceder de verdad) — sirven solo para tener un
+    // orden inicial razonable antes de que lleguen votos reales.
+    // Guardado en localStorage: por navegador, no compartido entre
+    // visitantes (ver nota en la propia página).
+    // ──────────────────────────────────────────────────────────
+    const RANKING_KEY = 'charkuma_anime_ranking';
+    const RANKING_SEED = {
+      "Goku": 98, "Pikachu": 96, "Naruto Uzumaki": 95, "Batman": 92,
+      "Spider-Man": 93, "Iron Man": 91, "Luffy": 90, "Homer Simpson": 88,
+      "Wolverine": 86, "Vegeta": 87, "Deadpool": 85, "Gojo Satoru": 83,
+      "Tanjiro Kamado": 82, "Eren Yeager": 81, "Saitama": 80,
+      "Light Yagami": 79, "Levi Ackerman": 78, "Homelander": 75,
+      "Master Chief": 70, "Starlight": 62
+    };
+
+    function loadRanking(){
+      try {
+        const saved = JSON.parse(localStorage.getItem(RANKING_KEY));
+        if (saved && typeof saved === 'object') return Object.assign({}, RANKING_SEED, saved);
+      } catch(e) { /* usamos solo la semilla */ }
+      return Object.assign({}, RANKING_SEED);
+    }
+    function saveRanking(ranking){
+      try { localStorage.setItem(RANKING_KEY, JSON.stringify(ranking)); }
+      catch(e) { /* seguimos sin persistir */ }
+    }
+
+    function renderRankingTop8(){
+      const container = document.getElementById('rankingTop8');
+      if (!container) return;
+      const ranking = loadRanking();
+      const top8 = Object.entries(ranking)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+      container.innerHTML = top8.map(([name, score], i) => `
+        <div class="ranking-row">
+          <div class="ranking-rank">${i + 1}</div>
+          <div class="ranking-name">${name}</div>
+          <span class="ranking-score">${score} pts</span>
+          <button type="button" class="ranking-vote-btn" onclick="voteRankingCharacter('${name.replace(/'/g, "\\'")}')" aria-label="Votar por ${name}" title="Votar por ${name}">👍</button>
+        </div>`).join('');
+    }
+
+    function voteRankingCharacter(name){
+      const ranking = loadRanking();
+      if (!(name in ranking)) return;
+      ranking[name] += 1;
+      saveRanking(ranking);
+      renderRankingTop8();
+    }
+
+    function addRankingCharacter(){
+      const input = document.getElementById('rankingNewCharacter');
+      const name = input.value.trim();
+      if (!name) return;
+      const ranking = loadRanking();
+      // Si ya existe (comparando sin mayúsculas), le suma un voto en vez
+      // de crear un duplicado.
+      const existingKey = Object.keys(ranking).find(k => k.toLowerCase() === name.toLowerCase());
+      if (existingKey) ranking[existingKey] += 1;
+      else ranking[name] = 1;
+      saveRanking(ranking);
+      input.value = '';
+      renderRankingTop8();
+    }
+    const rankingInput = document.getElementById('rankingNewCharacter');
+    if (rankingInput) {
+      rankingInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') addRankingCharacter();
+      });
+    }
+    renderRankingTop8();
 
     // ──────────────────────────────────────────────────────────
     // Easter egg: banco secreto de 50 ideas de vídeo para Rincón
@@ -2340,6 +2462,9 @@
           view: item.internalView || item.link,
           external: !item.internalView,
           section, sectionEmoji,
+          type: item.type,
+          date: item.date || null,
+          reviewed: item.reviewed !== false, // true = ya revisado/definitivo
           tags: [labelsMap && labelsMap[item.type]].filter(Boolean),
           emoji: item.thumbnail || sectionEmoji
         }));
@@ -2352,12 +2477,12 @@
 
       // Páginas "hub" o fijas que no vienen de un array de contenido.
       index.push(
-        { title:'Retro 365', summary:'Reto de recomendar un juego distinto cada día, con calendario público y progreso.', view:'retro365', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Retro 365','Juegos'], emoji:'🎮' },
-        { title:'Ruleta del 11', summary:'Sorteador de una alineación de fútbol con base de datos real de jugadores.', view:'ruleta11', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Fútbol'], emoji:'⚽' },
-        { title:'CalcArte', summary:'Máquina de ideas al azar para dibujos para colorear, con prompt listo para IA.', view:'calcarte', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Arte','IA'], emoji:'🎰' },
-        { title:'Rincón del Friki', summary:'Series, superhéroes, cómics y anime — Marvel y The Boys por encima de todo.', view:'rincon', section:'Rincón del Friki', sectionEmoji:'🦸', tags:['Marvel','The Boys'], emoji:'🦸' },
-        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱' },
-        { title:'Calendario de publicación', summary:'Lo próximo: el siguiente día de Retro 365 y el contenido pendiente de revisión del resto de secciones.', view:'calendario', section:'General', sectionEmoji:'📅', tags:['Planificación'], emoji:'📅' }
+        { title:'Retro 365', summary:'Reto de recomendar un juego distinto cada día, con calendario público y progreso.', view:'retro365', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Retro 365','Juegos'], emoji:'🎮', date:null, reviewed:true },
+        { title:'Ruleta del 11', summary:'Sorteador de una alineación de fútbol con base de datos real de jugadores.', view:'ruleta11', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Fútbol'], emoji:'⚽', date:null, reviewed:true },
+        { title:'CalcArte', summary:'Máquina de ideas al azar para dibujos para colorear, con prompt listo para IA.', view:'calcarte', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Arte','IA'], emoji:'🎰', date:null, reviewed:true },
+        { title:'Rincón del Friki', summary:'Series, superhéroes, cómics y anime — Marvel y The Boys por encima de todo.', view:'rincon', section:'Rincón del Friki', sectionEmoji:'🦸', tags:['Marvel','The Boys'], emoji:'🦸', date:null, reviewed:true },
+        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱', date:null, reviewed:true },
+        { title:'Calendario de publicación', summary:'Lo próximo: el siguiente día de Retro 365 y el contenido pendiente de revisión del resto de secciones.', view:'calendario', section:'General', sectionEmoji:'📅', tags:['Planificación'], emoji:'📅', date:null, reviewed:true }
       );
       return index;
     }
@@ -2427,15 +2552,74 @@
     // demás secciones que sigue "pendiente de revisión" (generado
     // como base, a falta del toque final de Charkuma).
     // ──────────────────────────────────────────────────────────
+    // ──────────────────────────────────────────────────────────
+    // "Añadir a Google Calendar": no hace falta ninguna API key ni
+    // OAuth — es la misma URL con plantilla que usa el propio botón
+    // "Add to Calendar" de Google. Al abrirse, Google Calendar ya crea
+    // el evento con título, fecha, duración y descripción rellenos;
+    // en cuanto el evento existe en tu calendario, las notificaciones
+    // al teléfono las manda la propia app de Calendar con tus ajustes
+    // habituales — no hace falta nada más para eso.
+    // ──────────────────────────────────────────────────────────
+    function googleCalendarLink(cfg){
+      // Formato UTC "AAAAMMDDTHHmmssZ" que espera Google Calendar — al
+      // llevar la Z, la propia Google Calendar la convierte y la
+      // muestra en la hora local de quien abra el enlace.
+      const fmt = d => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      const start = new Date(cfg.date);
+      const end = new Date(start.getTime() + (cfg.durationMinutes || 60) * 60000);
+      const params = new URLSearchParams({
+        action: 'TEMPLATE',
+        text: cfg.title,
+        dates: `${fmt(start)}/${fmt(end)}`,
+        details: cfg.details || ''
+      });
+      return `https://calendar.google.com/calendar/render?${params.toString()}`;
+    }
+
+    function taskDescriptionFor(item, sectionLabel){
+      const url = item.internalView ? (location.origin + location.pathname + '#view=' + item.internalView) : '';
+      return [
+        `Sección: ${sectionLabel}`,
+        '',
+        item.summary,
+        url ? `\nToda la info (guion/prompt/recursos) está en la propia página:\n${url}` : '',
+        '',
+        'Instrucciones generales: revisa y ajusta el contenido de la página antes de grabar, ' +
+        'prepara los recursos que se mencionen en ella (plantillas, overlays, prompts de IA...) ' +
+        'y edita siguiendo tu flujo habitual de Creator Tools.'
+      ].filter(Boolean).join('\n');
+    }
+
+    // Reparte una lista de tareas en fechas concretas empezando mañana,
+    // una cada "gapDays" días — un calendario editorial simple y
+    // automático a partir de hoy.
+    function scheduleFrom(items, gapDays){
+      const base = new Date();
+      base.setHours(10, 0, 0, 0);
+      base.setDate(base.getDate() + 1);
+      return items.map((it, i) => {
+        const d = new Date(base);
+        d.setDate(d.getDate() + i * gapDays);
+        return Object.assign({}, it, { scheduledDate: d });
+      });
+    }
+
+    function formatScheduledDate(d){
+      return d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
+    }
+
     function renderCalendarView(){
       const retroList = document.getElementById('calendarRetroList');
       const pendingList = document.getElementById('calendarPendingList');
       if (!retroList || !pendingList) return;
 
       const plannedDays = Object.keys(plannedGames).map(Number).sort((a, b) => a - b);
-      retroList.innerHTML = plannedDays.length
-        ? plannedDays.map(day => {
-            const g = plannedGames[day];
+      const scheduledRetro = scheduleFrom(plannedDays.map(day => ({day, g: plannedGames[day]})), 3);
+      retroList.innerHTML = scheduledRetro.length
+        ? scheduledRetro.map(({day, g, scheduledDate}) => {
+            const details = taskDescriptionFor({ summary: g.summary }, 'Retro 365');
+            const calLink = googleCalendarLink({ title: `Grabar Retro 365 · ${g.name}`, date: scheduledDate, durationMinutes: 90, details });
             return `
               <div class="geek-card">
                 <div class="geek-thumb">${g.emoji || '📝'}</div>
@@ -2443,9 +2627,11 @@
                   <div class="geek-badges">
                     <span class="type-chip chip-purple">DÍA ${String(day).padStart(3,'0')}</span>
                     <span class="type-chip diff-${g.difficulty}">${DIFF_LABELS[g.difficulty] || g.difficulty}</span>
+                    <span class="type-chip chip-neutral">📅 ${formatScheduledDate(scheduledDate)}</span>
                   </div>
                   <h4>${g.name}</h4>
                   <p>${g.summary}</p>
+                  <a class="btn btn-secondary" style="margin-top:8px;display:inline-flex" href="${calLink}" target="_blank" rel="noopener">📅 Añadir a Google Calendar</a>
                 </div>
               </div>`;
           }).join('')
@@ -2468,22 +2654,160 @@
         });
       });
       pending.sort((a, b) => new Date(b.item.date || 0) - new Date(a.item.date || 0));
+      const scheduledPending = scheduleFrom(pending, 2);
 
-      pendingList.innerHTML = pending.length
-        ? pending.map(({item, section, emoji}) => `
+      pendingList.innerHTML = scheduledPending.length
+        ? scheduledPending.map(({item, section, emoji, scheduledDate}) => {
+            const details = taskDescriptionFor(item, section);
+            const calLink = googleCalendarLink({ title: `${section}: ${item.title}`, date: scheduledDate, durationMinutes: 60, details });
+            return `
             <div class="geek-card">
               <div class="geek-thumb">${item.thumbnail || emoji}</div>
               <div class="geek-info">
                 <div class="geek-badges">
                   <span class="type-chip chip-purple">${emoji} ${section}</span>
+                  <span class="type-chip chip-neutral">📅 ${formatScheduledDate(scheduledDate)}</span>
                   ${reviewBadgeHTML(item)}
                 </div>
                 <h4><a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a></h4>
                 <p>${item.summary}</p>
+                <a class="btn btn-secondary" style="margin-top:8px;display:inline-flex" href="${calLink}" target="_blank" rel="noopener">📅 Añadir a Google Calendar</a>
               </div>
-            </div>`).join('')
+            </div>`;
+          }).join('')
         : `<p class="yt-empty">Todo revisado por aquí — nada pendiente ahora mismo.</p>`;
     }
+
+    // ──────────────────────────────────────────────────────────
+    // MAPA MAESTRO DE PROYECTOS (easter egg 🗺️ de la cabecera)
+    // ──────────────────────────────────────────────────────────
+    function renderMasterHub(){
+      const promptsList = document.getElementById('hubPromptsList');
+      const banksList = document.getElementById('hubIdeaBanksList');
+      const projectsList = document.getElementById('hubProjectsList');
+      if (!promptsList || !banksList || !projectsList) return;
+
+      const index = buildSiteIndex();
+
+      // 1) Prompts guardados (cualquier sección con type === 'prompt')
+      const prompts = index.filter(i => i.type === 'prompt');
+      promptsList.innerHTML = prompts.length
+        ? prompts.map(searchResultCardHTML).join('')
+        : `<p class="yt-empty">No hay prompts guardados todavía.</p>`;
+
+      // 2) Bancos secretos de ideas: total de ideas vivas (ni hechas ni
+      // descartadas) por banco, con acceso directo a cada uno.
+      const banks = [
+        { bank:'rincon', label:'Rincón del Friki', emoji:'🦸', view:'rf-secret', ideas:rinconSecretIdeas },
+        { bank:'retro365planned', label:'Retro 365', emoji:'🎮', view:'retro-secret', ideas:{planned:Object.keys(plannedGames)} },
+        { bank:'helquid', label:'HELQUIDGAMES', emoji:'🎮', view:'helquid-secret', ideas:helquidSecretIdeas },
+        { bank:'lab', label:'Charkuma Lab', emoji:'🧪', view:'lab-secret', ideas:labSecretIdeas },
+        { bank:'ia', label:'IA & Experimentos', emoji:'🤖', view:'ia-secret', ideas:iaSecretIdeas },
+        { bank:'creator', label:'Creator Tools', emoji:'🖥️', view:'creator-secret', ideas:creatorSecretIdeas },
+        { bank:'hecho', label:'Hecho a Mano', emoji:'🧶', view:'hecho-secret', ideas:hechoSecretIdeas }
+      ];
+      const allBanksState = loadIdeaBanks();
+      banksList.innerHTML = banks.map(b => {
+        const total = Object.values(b.ideas).reduce((sum, arr) => sum + arr.length, 0);
+        const state = allBanksState[b.bank] || {};
+        const doneOrDiscarded = Object.values(state).filter(s => s.done || s.discarded).length;
+        const pendingCount = Math.max(0, total - doneOrDiscarded);
+        return `
+          <div class="template-card" style="cursor:pointer" onclick="showView('${b.view}')">
+            <div class="template-head"><span class="type-chip chip-purple">${b.emoji} ${b.label}</span></div>
+            <p style="margin:0"><strong>${pendingCount}</strong> / ${total} ideas todavía sin hacer ni descartar</p>
+          </div>`;
+      }).join('');
+
+      // 3) Todos los proyectos, por fecha (los que no tienen fecha van al final)
+      const withDate = index.filter(i => i.date).sort((a, b) => new Date(a.date) - new Date(b.date));
+      const withoutDate = index.filter(i => !i.date);
+      const ordered = withDate.concat(withoutDate);
+      projectsList.innerHTML = ordered.map(item => {
+        const dateLabel = item.date
+          ? new Date(item.date).toLocaleDateString('es-ES', { day:'numeric', month:'short', year:'numeric' })
+          : '—';
+        const statusChip = item.reviewed
+          ? `<span class="type-chip chip-green">✅ Definitivo</span>`
+          : `<span class="type-chip chip-yellow">⏳ Pendiente</span>`;
+        const titleLink = item.external
+          ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
+          : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
+        return `
+          <div class="geek-card">
+            <div class="geek-thumb">${item.emoji}</div>
+            <div class="geek-info">
+              <div class="geek-badges">
+                <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
+                <span class="type-chip chip-neutral">📅 ${dateLabel}</span>
+                ${statusChip}
+              </div>
+              <h4>${titleLink}</h4>
+              <p>${item.summary}</p>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // "Explorar universo" del botón de la cabecera: en vez de ir siempre
+    // a "Mis proyectos", salta directamente a uno al azar de los 10
+    // contenidos más recientes que sigan "pendientes de revisión" (no
+    // enseña ni contenido ya definitivo ni el catálogo completo). Si no
+    // hay ninguno pendiente ahora mismo, cae de vuelta a "Mis proyectos".
+    function exploreRandomPending(){
+      const pending = buildSiteIndex()
+        .filter(i => !i.reviewed && i.view && !i.external)
+        .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
+        .slice(0, 10);
+      if (!pending.length) { goHome('proyectos'); return; }
+      const pick = pending[Math.floor(Math.random() * pending.length)];
+      showView(pick.view);
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // Carrusel "en qué estoy trabajando ahora" — clic en la mascota
+    // de la portada. Muestra, con flechas, todos los proyectos que
+    // siguen "en proceso" (pendientes de revisión) ahora mismo.
+    // ──────────────────────────────────────────────────────────
+    let inProgressItems = [];
+    let inProgressIndex = 0;
+
+    function openInProgressCarousel(){
+      inProgressItems = buildSiteIndex().filter(i => !i.reviewed && i.view && !i.external);
+      inProgressIndex = 0;
+      document.getElementById('inProgressModal').hidden = false;
+      renderInProgressSlide();
+    }
+    function closeInProgressCarousel(){
+      document.getElementById('inProgressModal').hidden = true;
+    }
+    function stepInProgressCarousel(dir){
+      if (!inProgressItems.length) return;
+      inProgressIndex = (inProgressIndex + dir + inProgressItems.length) % inProgressItems.length;
+      renderInProgressSlide();
+    }
+    function renderInProgressSlide(){
+      const titleEl = document.getElementById('inProgressTitle');
+      const cardEl = document.getElementById('inProgressCard');
+      const counterEl = document.getElementById('inProgressCounter');
+      if (!inProgressItems.length) {
+        titleEl.textContent = 'Nada en proceso ahora mismo';
+        cardEl.innerHTML = `<p class="yt-empty">Todo está revisado y definitivo — buena señal 🎉</p>`;
+        counterEl.textContent = '';
+        return;
+      }
+      const item = inProgressItems[inProgressIndex];
+      titleEl.textContent = item.title;
+      cardEl.innerHTML = searchResultCardHTML(item);
+      counterEl.textContent = `${inProgressIndex + 1} / ${inProgressItems.length}`;
+    }
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('inProgressModal');
+      if (!modal || modal.hidden) return;
+      if (e.key === 'Escape') closeInProgressCarousel();
+      else if (e.key === 'ArrowLeft') stepInProgressCarousel(-1);
+      else if (e.key === 'ArrowRight') stepInProgressCarousel(1);
+    });
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
     document.getElementById('assignBtn').addEventListener('click', assignPlayer);
@@ -2638,6 +2962,76 @@
     }
 
     if (!cameFromHash) updateSidebar('home');
+
+    // ──────────────────────────────────────────────────────────
+    // RADAR DE ESTRENOS: lista fija ("otros que quiero cubrir") +
+    // lista en vivo desde TMDB (si hay clave configurada).
+    // ──────────────────────────────────────────────────────────
+    function renderCustomPremieres(){
+      const container = document.getElementById('premieresCustomList');
+      if (!container) return;
+      container.innerHTML = customPremieres.map(p => `
+        <div class="geek-card">
+          <div class="geek-thumb">${p.emoji || '🎬'}</div>
+          <div class="geek-info">
+            <div class="geek-badges">
+              <span class="type-chip ${p.status === 'visto' ? 'chip-green' : 'chip-orange'}">${p.status === 'visto' ? '✅ Ya vista' : '🎬 Bombazo'}</span>
+            </div>
+            <h4>${p.imdbUrl ? `<a href="${p.imdbUrl}" target="_blank" rel="noopener">${p.title} ↗ IMDb</a>` : p.title}</h4>
+            <p>${p.note}</p>
+          </div>
+        </div>`).join('');
+    }
+    renderCustomPremieres();
+
+    async function loadLivePremieres(){
+      const container = document.getElementById('premieresLiveList');
+      if (!container) return;
+      const notConfigured = !TMDB_API_KEY || TMDB_API_KEY.indexOf('PON_AQUI') === 0;
+      if (notConfigured) {
+        container.innerHTML = `<p class="yt-empty">
+          Configura <code>TMDB_API_KEY</code> en el &lt;script&gt; (app.js) para activar
+          esta lista en vivo — instrucciones justo encima, en el código.
+        </p>`;
+        return;
+      }
+      try {
+        const today = new Date().toISOString().slice(0, 10);
+        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_API_KEY}` +
+          `&with_genres=${TMDB_GENRES}&sort_by=popularity.desc&language=es-ES` +
+          `&primary_release_date.gte=${today}&region=ES`;
+        const res = await fetch(url).then(r => r.json());
+        const movies = (res.results || []).slice(0, 6);
+        container.innerHTML = movies.length
+          ? movies.map(m => `
+              <div class="geek-card">
+                ${m.poster_path
+                  ? `<img class="geek-thumb" style="object-fit:cover" src="https://image.tmdb.org/t/p/w200${m.poster_path}" alt="Póster de ${m.title}" loading="lazy">`
+                  : `<div class="geek-thumb">🎬</div>`}
+                <div class="geek-info">
+                  <div class="geek-badges">
+                    <span class="type-chip chip-purple">📅 ${m.release_date || 'sin fecha'}</span>
+                  </div>
+                  <h4><a href="https://www.themoviedb.org/movie/${m.id}" target="_blank" rel="noopener">${m.title} ↗</a></h4>
+                  <p>${m.overview || 'Sin sinopsis disponible todavía.'}</p>
+                </div>
+              </div>`).join('')
+          : `<p class="yt-empty">TMDB no devuelve estrenos próximos de este tipo ahora mismo.</p>`;
+      } catch (err) {
+        container.innerHTML = `<p class="yt-empty">No se pudieron cargar los estrenos ahora mismo.</p>`;
+      }
+    }
+    loadLivePremieres();
+
+    (function initDriveButton(){
+      const btn = document.getElementById('driveFolderBtn');
+      const notice = document.getElementById('driveNotConfigured');
+      if (!btn || !notice) return;
+      const configured = DRIVE_FOLDER_URL && DRIVE_FOLDER_URL.indexOf('PON_AQUI') !== 0;
+      btn.hidden = !configured;
+      notice.hidden = configured;
+      if (configured) btn.href = DRIVE_FOLDER_URL;
+    })();
 
     // ──────────────────────────────────────────────────────────
     // BLOC DE NOTAS — se guarda en este navegador (localStorage).

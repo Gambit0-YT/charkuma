@@ -223,6 +223,7 @@
       display:inline-flex;align-items:center;gap:10px
     }
     .btn:hover{transform:translateY(-2px)}
+    .btn[hidden]{display:none}
     .btn-primary{
       background:linear-gradient(135deg,var(--orange),#ff5f1f);
       color:white;box-shadow:0 12px 34px rgba(255,122,24,.22)
@@ -253,10 +254,19 @@
       border:1px solid rgba(255,255,255,.09);
       box-shadow:var(--shadow);
       transform:rotate(2deg);
+      cursor:pointer;transition:.2s transform;
     }
+    .mascot:hover{transform:rotate(2deg) scale(1.02)}
     .mascot .emoji{font-size:96px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.4))}
     .mascot h3{font-size:32px;margin:10px 0 4px}
     .mascot p{font-size:13px;line-height:1.5;color:var(--muted)}
+
+    /* ── Carrusel "en proceso ahora" (modal) ── */
+    .modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.6);display:grid;place-items:center;padding:20px}
+    .modal-overlay[hidden]{display:none}
+    .modal-card{position:relative;width:min(560px,100%);max-height:86vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:28px}
+    .modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;font-size:14px;padding:0}
+    .modal-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
     .tag{
       position:absolute;z-index:4;
       padding:10px 14px;border-radius:13px;
@@ -468,7 +478,7 @@
 
     .day-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
     .diff-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em}
-    .diff-chip.chip-neutral{background:var(--panel);border:1px solid var(--line2);color:var(--muted)}
+    .diff-chip.chip-neutral, .chip-neutral{background:var(--panel);border:1px solid var(--line2);color:var(--muted)}
     .diff-facil{background:rgba(56,217,154,.12);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .diff-media{background:rgba(245,200,69,.12);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
     .diff-dificil{background:rgba(255,95,109,.12);color:var(--red);border:1px solid rgba(255,95,109,.35)}
@@ -481,6 +491,22 @@
     .template-card ol{margin:0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.6}
     .template-card ol li{margin-bottom:4px}
     .template-card strong{color:var(--accent-text)}
+
+    /* ── Ranking friki (minijuego de votos) ── */
+    .ranking-panel{margin-bottom:10px}
+    .ranking-add-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .ranking-add-row input{flex:1;min-width:200px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-family:inherit;font-size:14px}
+    .ranking-list{display:flex;flex-direction:column;gap:8px}
+    .ranking-row{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+    .ranking-rank{flex:0 0 auto;width:30px;height:30px;border-radius:999px;background:rgba(139,92,246,.18);color:var(--accent-text);font-weight:900;font-size:13px;display:grid;place-items:center}
+    .ranking-row:nth-child(1) .ranking-rank{background:var(--orange);color:#1a1120}
+    .ranking-row:nth-child(2) .ranking-rank{background:#c9c9d6;color:#1a1120}
+    .ranking-row:nth-child(3) .ranking-rank{background:#cd8a4f;color:#1a1120}
+    .ranking-name{flex:1;font-weight:800;font-size:14px}
+    .ranking-score{font-size:12px;color:var(--muted);font-weight:700;margin-right:6px}
+    .ranking-vote-btn{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:10px;padding:8px 12px;font-size:15px;cursor:pointer;transition:.15s background,.15s transform}
+    .ranking-vote-btn:hover{background:rgba(139,92,246,.14);border-color:var(--purple)}
+    .ranking-vote-btn:active{transform:scale(.92)}
 
     /* ── Bancos secretos de ideas: marcar como hecha / descartar ── */
     .idea-discard-counter{font-size:12px;color:var(--muted);font-weight:700;margin-top:4px}
@@ -787,17 +813,18 @@
       </a>
       <div class="nav-links">
         <a href="javascript:void(0)" onclick="goHome('proyectos')">Proyectos</a>
-        <a href="javascript:void(0)" onclick="goHome('random')">Random</a>
         <a href="javascript:void(0)" onclick="goHome('lab')">Laboratorio</a>
+        <a href="javascript:void(0)" onclick="goHome('random')">Random</a>
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
       </div>
       <div class="nav-tools">
         <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
+        <button type="button" class="nav-icon-btn" id="navHubBtn" onclick="showView('hub-secreto')" title="Mapa maestro de proyectos" aria-label="Abrir el mapa maestro de proyectos">🗺️</button>
         <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
         <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
       </div>
-      <a class="nav-cta" href="javascript:void(0)" onclick="goHome('proyectos')">Explorar universo ↗</a>
+      <a class="nav-cta" href="javascript:void(0)" onclick="exploreRandomPending()">Explorar universo ↗</a>
     </div>
 
     <div class="settings-panel" id="settingsPanel" hidden>
@@ -851,6 +878,22 @@
       </div>
       <div id="notesList" class="notes-list"></div>
     </aside>
+  </div>
+
+  <!-- Carrusel "en qué estoy trabajando ahora" — se abre al hacer clic
+       en la mascota de la portada. -->
+  <div class="modal-overlay" id="inProgressModal" hidden onclick="if(event.target===this) closeInProgressCarousel()">
+    <div class="modal-card">
+      <button type="button" class="modal-close" onclick="closeInProgressCarousel()" aria-label="Cerrar">✕</button>
+      <div class="section-kicker">EN PROCESO AHORA MISMO</div>
+      <h3 id="inProgressTitle" style="margin:6px 0 16px">Cargando...</h3>
+      <div id="inProgressCard"></div>
+      <div class="modal-nav">
+        <button type="button" class="btn btn-secondary" onclick="stepInProgressCarousel(-1)" aria-label="Anterior">← Anterior</button>
+        <span id="inProgressCounter" class="yt-empty" style="margin:0"></span>
+        <button type="button" class="btn btn-secondary" onclick="stepInProgressCarousel(1)" aria-label="Siguiente">Siguiente →</button>
+      </div>
+    </div>
   </div>
 
   <main>
@@ -908,6 +951,41 @@
       </section>
     </div>
 
+    <!-- ══════════ MAPA MAESTRO DE PROYECTOS (easter egg 🗺️) ══════════ -->
+    <div id="view-hub-secreto" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🗺️ MAPA MAESTRO DE PROYECTOS</h2>
+          <p class="section-sub">
+            Todo en un mismo sitio: los prompts guardados, los 7 bancos secretos de ideas
+            y el listado completo de proyectos ordenado por fecha. Tampoco enlazado desde
+            ningún sitio visible — solo tú (y el icono 🗺️ de la cabecera) sabéis que existe.
+          </p>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container">
+          <h3 class="subheading">🎨 Prompts guardados</h3>
+          <div id="hubPromptsList" class="recent-list"></div>
+
+          <h3 class="subheading" style="margin-top:30px">💡 Bancos secretos de ideas</h3>
+          <div id="hubIdeaBanksList" class="template-grid"></div>
+
+          <h3 class="subheading" style="margin-top:30px">📅 Todos los proyectos, por fecha</h3>
+          <div class="note" style="margin-bottom:16px">
+            <strong>Nota:</strong> la fecha es la de creación/decisión de cada contenido
+            (<code>date</code> en el código), no una fecha de lanzamiento oficial —
+            es la mejor referencia cronológica que existe ahora mismo en la web.
+            Las páginas "hub" (Retro 365, Ruleta, CalcArte...) no tienen fecha y aparecen al final.
+          </div>
+          <div id="hubProjectsList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ INICIO ══════════ -->
     <div id="view-home" class="app-view active">
       <section class="hero" id="inicio">
@@ -929,13 +1007,30 @@
           <div class="hero-visual reveal">
             <div class="orb"></div>
             <div class="tag tag-a">🕹️ RETRO ADDICT</div>
-            <div class="mascot">
+            <div class="mascot" id="mascotCard" onclick="openInProgressCarousel()" role="button" tabindex="0" aria-label="Ver los proyectos en proceso ahora mismo" title="Clic para ver en qué estoy trabajando ahora mismo">
               <div class="emoji">🦎</div>
               <h3>CHARKUMA</h3>
               <p>Gaming · Geek · Creatividad · Tecnología</p>
             </div>
             <div class="tag tag-b">🧪 IDEAS EN PROCESO</div>
           </div>
+        </div>
+      </section>
+
+      <section id="estrenos">
+        <div class="container">
+          <div class="section-kicker reveal">🎬 RADAR DE ESTRENOS</div>
+          <h2 class="section-title reveal">CULTURA POP QUE SE VIENE</h2>
+          <p class="section-sub reveal">
+            Estrenos de superhéroes/acción-aventura sacados en vivo de TMDB, más una lista
+            aparte con "bombazos" fuera de esa temática y películas ya vistas que quiero
+            comentar en vídeo.
+          </p>
+          <h3 class="subheading">🍿 Próximos estrenos (en vivo)</h3>
+          <div id="premieresLiveList" class="recent-list"></div>
+
+          <h3 class="subheading" style="margin-top:26px">📌 Otros que quiero cubrir</h3>
+          <div id="premieresCustomList" class="recent-list"></div>
         </div>
       </section>
 
@@ -1215,6 +1310,20 @@
               <a class="btn btn-secondary" href="https://www.twitch.tv/kiddcolors" target="_blank" rel="noopener">🕹️ Twitch</a>
             </div>
           </div>
+
+          <div class="panel" style="margin-top:24px">
+            <h3 style="margin-top:0">📁 Recursos (Google Drive)</h3>
+            <p style="color:var(--muted);margin-bottom:16px">
+              Esta web vive en GitHub Pages: solo sirve archivos estáticos del repositorio,
+              no tiene "nube" propia tipo Drive/Dropbox para subir clips o material de edición.
+              Lo más sencillo es seguir usando tu Google Drive de siempre y enlazarlo aquí.
+            </p>
+            <a class="btn btn-primary" id="driveFolderBtn" href="#" target="_blank" rel="noopener">📁 Abrir carpeta de Drive</a>
+            <p class="yt-empty" id="driveNotConfigured" style="margin-top:10px">
+              Todavía no está configurado — pega tu enlace de carpeta de Drive en
+              <code>DRIVE_FOLDER_URL</code> (app.js) para activar este botón.
+            </p>
+          </div>
         </div>
       </section>
     </div>
@@ -1359,7 +1468,30 @@
       <section class="detail-section">
         <div class="container">
 
-          <h3 class="subheading">📋 Plantillas de vídeo (chuleta rápida)</h3>
+          <h3 class="subheading">🏆 Ranking friki: vota a tu personaje favorito</h3>
+          <div class="panel ranking-panel">
+            <p style="color:var(--muted);margin-top:0">
+              Un top 8 de personajes de cultura pop/anime. Cada clic en 👍 suma un punto;
+              si tu favorito no está, añádelo tú mismo. La lista interna guarda todos los
+              personajes votados — solo se muestran los 8 primeros.
+            </p>
+            <div class="ranking-add-row">
+              <input type="text" id="rankingNewCharacter" placeholder="Nombre de un personaje que falte..." maxlength="40" />
+              <button type="button" class="btn btn-primary" onclick="addRankingCharacter()">➕ Añadir y votar</button>
+            </div>
+            <div id="rankingTop8" class="ranking-list"></div>
+            <div class="note" style="margin-top:16px">
+              <strong>Nota:</strong> la puntuación de salida es una estimación orientativa mía
+              de popularidad general (no hay forma de acceder a datos reales de volumen de
+              búsqueda histórico de Google) y los votos se guardan en este navegador — no es
+              (todavía) un contador compartido entre todas las personas que visitan la web.
+              Si quieres un ranking de verdad combinado entre todos los visitantes, hace falta
+              una base de datos real (gratis, pero necesita que crees una cuenta, como con la
+              clave de YouTube) — dímelo cuando quieras montarlo.
+            </div>
+          </div>
+
+          <h3 class="subheading" style="margin-top:30px">📋 Plantillas de vídeo (chuleta rápida)</h3>
           <div class="template-grid">
             <div class="template-card">
               <div class="template-head"><span class="type-chip type-reaccion">🔴 Reacción</span></div>
