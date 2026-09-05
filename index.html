@@ -396,6 +396,17 @@
     .template-card ol li{margin-bottom:4px}
     .template-card strong{color:#d9ceff}
 
+    /* ── Bancos secretos de ideas: marcar como hecha / descartar ── */
+    .idea-discard-counter{font-size:12px;color:var(--muted);font-weight:700;margin-top:4px}
+    .idea-card{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:16px;border-radius:16px;background:#110c19;border:1px solid var(--line);transition:.2s opacity,.2s filter}
+    .idea-card.is-discarded{opacity:.4;filter:grayscale(1)}
+    .idea-check{flex:0 0 auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#0d0914;font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s background,.2s border-color}
+    .idea-check.is-done{background:#1f9d55;border-color:#1f9d55}
+    .idea-body{flex:1 1 200px;min-width:0}
+    .idea-discard-btn{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+    .idea-discard-btn:hover{border-color:var(--red);color:var(--red)}
+    .idea-card.is-discarded .idea-discard-btn{border-color:#3ecf72;color:#3ecf72}
+
     .type-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .type-reaccion{background:rgba(255,95,109,.14);color:var(--red);border:1px solid rgba(255,95,109,.35)}
     .type-curiosidad{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
@@ -1211,7 +1222,10 @@
 
           <div class="progress-panel">
             <div class="progress-head">
-              <strong>Banco de ideas</strong>
+              <div>
+                <strong>Banco de ideas</strong>
+                <div id="rfDiscardCounter" class="idea-discard-counter">🗑️ 0 descartadas</div>
+              </div>
               <span id="rfSecretSummary">50 ideas · 5 tipos de contenido</span>
             </div>
           </div>
@@ -3230,22 +3244,80 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       ]
     };
 
+    // ──────────────────────────────────────────────────────────
+    // Bancos secretos de ideas: "hecha" (✅ verde, en el cuadrado del
+    // emoticono) y "descartar" (oscurece la tarjeta), con contador de
+    // descartadas. Guardado en localStorage por banco (data-idea-id =
+    // tipo + índice) para poder reutilizar este mismo patrón cuando se
+    // añadan bancos de ideas a otras secciones más adelante.
+    // ──────────────────────────────────────────────────────────
+    const IDEA_BANKS_KEY = 'charkuma_idea_banks';
+
+    function loadIdeaBanks(){
+      try { return JSON.parse(localStorage.getItem(IDEA_BANKS_KEY)) || {}; }
+      catch(e){ return {}; }
+    }
+    function saveIdeaBanks(banks){
+      try { localStorage.setItem(IDEA_BANKS_KEY, JSON.stringify(banks)); }
+      catch(e){ /* localStorage no disponible: seguimos sin persistir */ }
+    }
+    function setIdeaState(bank, id, patch){
+      const banks = loadIdeaBanks();
+      if (!banks[bank]) banks[bank] = {};
+      banks[bank][id] = Object.assign({}, banks[bank][id], patch);
+      saveIdeaBanks(banks);
+    }
+
+    const IDEA_BANK_RENDERERS = {};
+
+    function toggleIdeaDone(bank, id){
+      const state = (loadIdeaBanks()[bank] || {})[id] || {};
+      setIdeaState(bank, id, {done: !state.done});
+      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+    function toggleIdeaDiscard(bank, id){
+      const state = (loadIdeaBanks()[bank] || {})[id] || {};
+      setIdeaState(bank, id, {discarded: !state.discarded});
+      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+
     function renderRinconSecret(){
       const container = document.getElementById('rfSecretContainer');
       if (!container) return;
+      const bank = 'rincon';
+      const bankState = loadIdeaBanks()[bank] || {};
+
+      // No perder qué acordeones estaban abiertos al volver a pintar.
+      const openTypes = new Set(
+        [...container.querySelectorAll('details.month')].filter(d => d.open).map(d => d.dataset.type)
+      );
+
+      let discardedCount = 0;
       let html = "";
       Object.keys(rinconSecretIdeas).forEach(type => {
         const ideas = rinconSecretIdeas[type];
-        const rows = ideas.map((idea, i) => `
-          <div class="template-card">
-            <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-              <span class="type-chip type-${type}">${TYPE_LABELS[type]}</span>
-              <span class="count">#${i + 1}</span>
+        const emoji = (TYPE_LABELS[type] || '💡').split(' ')[0];
+        const rows = ideas.map((idea, i) => {
+          const id = `${type}-${i}`;
+          const s = bankState[id] || {};
+          if (s.discarded) discardedCount++;
+          return `
+          <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
+            <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
+              onclick="toggleIdeaDone('${bank}','${id}')"
+              title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
+            <div class="idea-body">
+              <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <span class="type-chip type-${type}">${TYPE_LABELS[type]}</span>
+                <span class="count">#${i + 1}</span>
+              </div>
+              <p style="margin:6px 0 0">${idea}</p>
             </div>
-            <p style="margin:0">${idea}</p>
-          </div>`).join('');
+            <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
+          </div>`;
+        }).join('');
         html += `
-          <details class="month">
+          <details class="month" data-type="${type}"${openTypes.has(type) ? ' open' : ''}>
             <summary>
               <span>${TYPE_LABELS[type]}</span>
               <span class="count">${ideas.length} ideas</span>
@@ -3254,7 +3326,11 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
           </details>`;
       });
       container.innerHTML = html;
+
+      const counterEl = document.getElementById('rfDiscardCounter');
+      if (counterEl) counterEl.textContent = `🗑️ ${discardedCount} descartada${discardedCount === 1 ? '' : 's'}`;
     }
+    IDEA_BANK_RENDERERS.rincon = renderRinconSecret;
     renderRinconSecret();
 
     // ──────────────────────────────────────────────────────────
