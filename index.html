@@ -388,6 +388,34 @@
     .diff-dificil{background:rgba(255,95,109,.12);color:var(--red);border:1px solid rgba(255,95,109,.35)}
     .diff-muydificil{background:rgba(192,38,211,.14);color:#e879f9;border:1px solid rgba(192,38,211,.4)}
 
+    /* ── Rincón del Friki: plantillas + contenido ── */
+    .template-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+    .template-card{padding:18px;border-radius:18px;background:#110c19;border:1px solid var(--line)}
+    .template-head{margin-bottom:10px}
+    .template-card ol{margin:0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.6}
+    .template-card ol li{margin-bottom:4px}
+    .template-card strong{color:#d9ceff}
+
+    .type-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
+    .type-reaccion{background:rgba(255,95,109,.14);color:var(--red);border:1px solid rgba(255,95,109,.35)}
+    .type-curiosidad{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
+    .type-opinion{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .type-fancast{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
+    .type-batalla{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
+
+    .saga-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
+    .saga-marvel{background:rgba(237,29,36,.15);color:#ff6b6f;border:1px solid rgba(237,29,36,.4)}
+    .saga-boys{background:rgba(255,255,255,.08);color:#f0f0f0;border:1px solid rgba(255,255,255,.28)}
+    .saga-cruce{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+
+    .geek-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:#0d0914;border:1px solid #241a34}
+    .geek-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
+    .geek-info{flex:1;min-width:0}
+    .geek-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+    .geek-info h4{margin:0 0 6px;font-size:16px}
+    .geek-info h4 a:hover{color:var(--orange2);text-decoration:underline}
+    .geek-info p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.55}
+
     .search-panel{margin-top:30px}
     .search-row{display:flex;gap:12px;flex-wrap:wrap}
     .search-row input, .search-row select{
@@ -867,22 +895,95 @@
           <div class="section-kicker">PROYECTO 002</div>
           <h2 class="section-title">🦸 RINCÓN DEL FRIKI</h2>
           <p class="section-sub">
-            Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.
+            Series, superhéroes, cómics y algo de anime. Noticias, opiniones y vídeos —
+            pero el corazón de esta sección son los superhéroes, sobre todo Marvel y The Boys.
           </p>
         </div>
       </section>
+
       <section class="detail-section">
         <div class="container">
-          <div class="panel">
-            <h3>Sobre este proyecto</h3>
-            <p>
-              Aquí irá el contenido del Rincón del Friki: teorías, análisis, opiniones sobre
-              Marvel, series y cine, y todo lo que dé para horas de conversación.
-            </p>
+
+          <h3 class="subheading">📋 Plantillas de vídeo (chuleta rápida)</h3>
+          <div class="template-grid">
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip type-reaccion">🔴 Reacción</span></div>
+              <ol>
+                <li>Hook: el momento más fuerte, sin contexto.</li>
+                <li>Contexto rápido: qué es y por qué importa.</li>
+                <li>Reproducir + reaccionar, pausando en lo clave.</li>
+                <li>3-4 impresiones rápidas.</li>
+                <li>Cierre con pregunta a la audiencia.</li>
+              </ol>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip type-curiosidad">🟡 Curiosidad</span></div>
+              <ol>
+                <li>Formato lista: "X cosas que no sabías de...".</li>
+                <li>Cada dato + por qué sorprende + clip de apoyo.</li>
+                <li>Guarda el dato más fuerte para el final.</li>
+              </ol>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip type-opinion">🟣 Opinión</span></div>
+              <ol>
+                <li>Tesis clara desde el minuto uno.</li>
+                <li>Argumentos a favor, con clips.</li>
+                <li>Argumentos en contra, con clips.</li>
+                <li>Tu conclusión, sin miedo a mojarte.</li>
+                <li><strong>Truco Somos Geek:</strong> remata cortando a una frase real de la película como chiste.</li>
+              </ol>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip type-fancast">🟢 Fancast</span></div>
+              <ol>
+                <li>Presenta el personaje y por qué necesita buen actor.</li>
+                <li>2-3 candidatos, cada uno con argumento.</li>
+                <li>Tu favorito razonado + pregunta a la audiencia.</li>
+              </ol>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip type-batalla">🟠 Batalla</span></div>
+              <ol>
+                <li>Presenta a los dos con sus mejores momentos.</li>
+                <li>Compara: fuerza, velocidad, inteligencia, debilidades.</li>
+                <li>Plantea el escenario del combate.</li>
+                <li>Veredicto razonado, abierto a debate.</li>
+              </ol>
+            </div>
           </div>
+
+          <h3 class="subheading">🔎 Filtrar contenido</h3>
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="geekSearch" placeholder="🔎 Buscar por título..." />
+              <select id="geekSagaFilter">
+                <option value="">Todas las sagas</option>
+                <option value="marvel">🅼 Marvel</option>
+                <option value="boys">🅱️ The Boys</option>
+                <option value="cruce">⚔️ Cruce</option>
+              </select>
+              <select id="geekTypeFilter">
+                <option value="">Todos los tipos</option>
+                <option value="reaccion">🔴 Reacción</option>
+                <option value="curiosidad">🟡 Curiosidad</option>
+                <option value="opinion">🟣 Opinión</option>
+                <option value="fancast">🟢 Fancast</option>
+                <option value="batalla">🟠 Batalla</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="geekContentList" class="recent-list"></div>
+
           <div class="note">
-            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
-            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+            <strong>Nota para editar:</strong> el contenido se genera desde el array
+            <code>geekContent</code> en el <code>&lt;script&gt;</code> de este archivo.
+            Cada vez que subas un vídeo nuevo, añade un objeto con
+            <code>title</code>, <code>saga</code> (<code>marvel</code> / <code>boys</code> / <code>cruce</code>),
+            <code>type</code> (<code>reaccion</code> / <code>curiosidad</code> / <code>opinion</code> /
+            <code>fancast</code> / <code>batalla</code>), <code>summary</code>, <code>thumbnail</code>
+            (un emoji) y <code>videoUrl</code>. Los ejemplos de ahora son solo para mostrar el diseño.
           </div>
         </div>
       </section>
@@ -1376,6 +1477,115 @@
     document.getElementById('gameSearch').addEventListener('input', renderRecent);
     document.getElementById('diffFilter').addEventListener('change', renderRecent);
     renderRecent();
+
+    // ──────────────────────────────────────────────────────────
+    // RINCÓN DEL FRIKI — contenido de Marvel / The Boys / Cruce
+    // Añade aquí cada vídeo nuevo que subas (ver nota en la página).
+    // ──────────────────────────────────────────────────────────
+    const geekContent = [
+      {
+        title: "Reaccionando al tráiler de Los 4 Fantásticos",
+        saga: "marvel",
+        type: "reaccion",
+        summary: "Primeras impresiones en caliente, fotograma a fotograma, del nuevo tráiler.",
+        thumbnail: "🎬",
+        videoUrl: "#"
+      },
+      {
+        title: "5 curiosidades que no sabías del traje de Spider-Man",
+        saga: "marvel",
+        type: "curiosidad",
+        summary: "Datos de rodaje y cómic que seguramente se te han pasado por alto.",
+        thumbnail: "🕸️",
+        videoUrl: "#"
+      },
+      {
+        title: "La Saga del Multiverso: ¿de verdad ha merecido la pena?",
+        saga: "marvel",
+        type: "opinion",
+        summary: "Repaso honesto a lo que Marvel prometió con el multiverso y lo que realmente ha dado.",
+        thumbnail: "🌀",
+        videoUrl: "#"
+      },
+      {
+        title: "Fancast: ¿quién debería ser el próximo Wolverine?",
+        saga: "marvel",
+        type: "fancast",
+        summary: "Tres candidatos con argumentos a favor, y mi favorito personal razonado.",
+        thumbnail: "🐾",
+        videoUrl: "#"
+      },
+      {
+        title: "The Boys vs Marvel: por qué esta serie me ha enganchado más",
+        saga: "boys",
+        type: "opinion",
+        summary: "Por qué, pese a lo dura que es, The Boys me está gustando más que el rumbo actual de Marvel.",
+        thumbnail: "🩸",
+        videoUrl: "#"
+      },
+      {
+        title: "Lo que no sabías sobre Homelander",
+        saga: "boys",
+        type: "curiosidad",
+        summary: "Inspiración real y detalles de guion detrás del villano más inquietante de la serie.",
+        thumbnail: "🦸",
+        videoUrl: "#"
+      },
+      {
+        title: "Homelander vs Thanos: ¿quién ganaría?",
+        saga: "cruce",
+        type: "batalla",
+        summary: "Comparativa de poderes, debilidades y escenario de combate entre los dos.",
+        thumbnail: "⚔️",
+        videoUrl: "#"
+      }
+      // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
+      //   summary:"...", thumbnail:"🎬", videoUrl:"..." },
+    ];
+
+    const SAGA_LABELS = { marvel:"🅼 Marvel", boys:"🅱️ The Boys", cruce:"⚔️ Cruce" };
+    const TYPE_LABELS = {
+      reaccion:"🔴 Reacción", curiosidad:"🟡 Curiosidad", opinion:"🟣 Opinión",
+      fancast:"🟢 Fancast", batalla:"🟠 Batalla"
+    };
+
+    function geekCardHTML(item){
+      return `
+        <div class="geek-card">
+          <div class="geek-thumb">${item.thumbnail || "🎬"}</div>
+          <div class="geek-info">
+            <div class="geek-badges">
+              <span class="saga-chip saga-${item.saga}">${SAGA_LABELS[item.saga] || item.saga}</span>
+              <span class="type-chip type-${item.type}">${TYPE_LABELS[item.type] || item.type}</span>
+            </div>
+            <h4><a href="${item.videoUrl}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+            <p>${item.summary}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderGeekContent(){
+      const query = document.getElementById('geekSearch').value.trim().toLowerCase();
+      const saga = document.getElementById('geekSagaFilter').value;
+      const type = document.getElementById('geekTypeFilter').value;
+
+      const items = geekContent.filter(item => {
+        if (saga && item.saga !== saga) return false;
+        if (type && item.type !== type) return false;
+        if (query && !item.title.toLowerCase().includes(query)) return false;
+        return true;
+      });
+
+      const container = document.getElementById('geekContentList');
+      container.innerHTML = items.length
+        ? items.map(geekCardHTML).join('')
+        : `<p class="yt-empty">Ningún vídeo coincide con la búsqueda.</p>`;
+    }
+
+    document.getElementById('geekSearch').addEventListener('input', renderGeekContent);
+    document.getElementById('geekSagaFilter').addEventListener('change', renderGeekContent);
+    document.getElementById('geekTypeFilter').addEventListener('change', renderGeekContent);
+    renderGeekContent();
 
     // ──────────────────────────────────────────────────────────
     // WIDGET LATERAL — últimos vídeos de YouTube (en vivo)
