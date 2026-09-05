@@ -543,6 +543,16 @@
     }
     .calc-result-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
 
+    /* ── Cajas de prompt reutilizables (IA & Experimentos) ── */
+    .ia-prompt-box{
+      width:100%;min-height:140px;margin:14px 0;padding:16px;border-radius:14px;
+      border:1px solid #2d2240;background:#0d0914;color:var(--text);font-size:13px;
+      line-height:1.7;font-family:inherit;resize:vertical;box-sizing:border-box
+    }
+    .ia-steps{margin:0;padding-left:20px;color:var(--muted);line-height:1.9}
+    .ia-steps li{margin-bottom:6px}
+    .ia-steps code{background:#0d0914;padding:2px 6px;border-radius:5px;font-size:12px;color:#d9ceff}
+
     .calc-materials-body ul{padding-left:20px;margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.7}
     .calc-materials-body p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
     .calc-materials-body a{color:var(--orange2);text-decoration:underline}
@@ -1437,8 +1447,232 @@
             <strong>Nota para editar:</strong> el contenido sale del array <code>iaContent</code>
             en el <code>&lt;script&gt;</code>. Cada entrada lleva <code>title</code>,
             <code>type</code> (<code>prompt</code> / <code>automatizacion</code> / <code>visual</code> /
-            <code>video</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code> y
-            <code>link</code>. Los ejemplos de ahora son solo para mostrar el diseño.
+            <code>video</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code>, y
+            <code>internalView</code> (si tiene su propia página dentro de la web, como estas 5) o
+            <code>link</code> (si apunta a algo externo).
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS · detalle: Prompt guiones de reacción ══════════ -->
+    <div id="view-ia-prompt-reaccion" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
+          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT</div>
+          <h2 class="section-title">📝 PROMPT PARA GUIONES DE REACCIÓN</h2>
+          <p class="section-sub">
+            La plantilla que uso para no quedarme en blanco antes de grabar una reacción:
+            se la paso a ChatGPT junto con el tema del día y me devuelve un guion corto,
+            listo para grabar en menos de 90 segundos.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Cómo lo uso</h3>
+            <p>
+              Copio el prompt de abajo, se lo paso a ChatGPT sustituyendo la última línea
+              por el tráiler/noticia/escena del día, y en segundos tengo la estructura de
+              la <a href="javascript:void(0)" onclick="showView('rincon');return false;">plantilla de Reacción</a>
+              del Rincón del Friki ya rellena con contenido concreto — solo me queda grabar.
+            </p>
+          </div>
+          <textarea class="ia-prompt-box" id="promptReaccionBox" readonly rows="10">Actúa como guionista de vídeos de reacción para YouTube/TikTok sobre cultura geek. Voy a darte el tema del vídeo (un tráiler, una noticia o una escena concreta). Escríbeme un guion corto (máximo 90 segundos hablados) con esta estructura exacta:
+
+1. HOOK (0-5s): una frase impactante o polémica sobre el tema, sin dar contexto todavía, para enganchar.
+2. CONTEXTO (5-20s): qué es, cuándo sale y por qué importa, en dos frases máximo.
+3. REACCIÓN (20-60s): 3-4 momentos concretos a comentar mientras se reproduce el material, con una frase corta de reacción para cada uno.
+4. IMPRESIONES (60-80s): tres puntos rápidos — qué me ha gustado, qué me preocupa, qué esperaba.
+5. CIERRE (80-90s): una pregunta directa a la audiencia para generar comentarios.
+
+Tono: cercano, con humor, sin tecnicismos, como si hablara con un amigo friki.
+
+Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
+          <div class="calc-result-actions">
+            <button class="btn btn-secondary" id="copyReaccionBtn">📋 Copiar prompt</button>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> cuanto más concreto seas en la última línea (enlace, cita textual,
+            captura...), mejor sale el guion. Si el resultado se queda soso, pide "hazlo más ácido"
+            o "más gamberro" y ChatGPT ajusta el tono.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS · detalle: Vídeo IA intro ══════════ -->
+    <div id="view-ia-video-intro" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
+          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VÍDEO</div>
+          <h2 class="section-title">🎬 VÍDEO GENERADO CON IA: INTRO ALTERNATIVA</h2>
+          <p class="section-sub">
+            Bitácora honesta de probar si una IA de texto-a-vídeo podía sacarme una intro
+            decente para el canal sin tener que grabarla ni animarla yo.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>El experimento</h3>
+            <p>
+              La idea era simple: describir en texto la intro que tengo en la cabeza (el lagarto
+              de CHARKUMA apareciendo entre un resplandor morado y naranja, estilo gaming) y ver
+              si una herramienta de generación de vídeo por IA me la sacaba directamente, sin
+              tener que animarla a mano.
+            </p>
+            <h3>El resultado, sin filtros</h3>
+            <p>
+              Como ya vi de cerca con <a href="javascript:void(0)" onclick="showView('calcarte');return false;">CalcArte</a>
+              al probar generación de imágenes, aquí pasa algo parecido pero peor: la IA entiende
+              la idea general (colores, ambiente) pero el movimiento sale torpe, la mascota cambia
+              de forma entre fotogramas, y el texto/logo se deforma. Nada usable tal cual todavía.
+            </p>
+            <h3>Conclusión</h3>
+            <p>
+              Por ahora la generación de vídeo con IA me sirve como <strong>previsualización de
+              concepto</strong> (para enseñarle a alguien "más o menos la vibra que busco" antes de
+              encargar o montar la intro de verdad), pero no como producto final. Lo dejo anotado
+              para revisarlo dentro de unos meses — esta tecnología avanza rápido.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta entrada se irá actualizando según vaya probando nuevas
+            herramientas. Si algún día sale una intro que sí valga, la subiré aquí mismo.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS · detalle: Generando personajes retro ══════════ -->
+    <div id="view-ia-visual-retro" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
+          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VISUAL</div>
+          <h2 class="section-title">🖼️ GENERANDO PERSONAJES RETRO CON IA</h2>
+          <p class="section-sub">
+            Todo lo que aprendí probando generadores de imagen gratuitos para ilustrar
+            juegos clásicos — y por qué al final los uso solo como boceto de apoyo, no
+            como resultado final.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Por qué empecé a probarlo</h3>
+            <p>
+              Quería ilustraciones rápidas para acompañar los días de
+              <a href="javascript:void(0)" onclick="showView('retro365');return false;">Retro 365</a>
+              sin depender de capturas de pantalla sueltas. La idea: describir el juego y que
+              una IA gratuita me sacara algo parecido a un boceto.
+            </p>
+            <h3>Lo que descubrí probando varios prompts</h3>
+            <ol class="ia-steps">
+              <li>Los generadores <strong>gratuitos y sin registro</strong> (probé con Pollinations.ai) funcionan, pero no siguen bien instrucciones de estilo concretas como "solo líneas, sin sombras, sin color".</li>
+              <li>Cuanto más simple y directo el prompt, mejores resultados — las instrucciones muy largas y con muchas negaciones ("sin esto, sin lo otro") confunden al modelo.</li>
+              <li>Para un estilo realmente limpio y fácil de reutilizar, herramientas de chat como ChatGPT siguen las instrucciones de estilo mucho mejor que los generadores directos gratuitos.</li>
+            </ol>
+            <h3>Dónde lo terminé aplicando</h3>
+            <p>
+              Esta misma investigación es la que usé para montar
+              <a href="javascript:void(0)" onclick="showView('calcarte');return false;">CalcArte</a>,
+              el juego de HELQUIDGAMES — ahí lo puedes ver funcionando en vivo, con el prompt
+              final ya afinado con todo lo aprendido aquí.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> sigo dejando aquí solo lo que compruebo de verdad, no lo que
+            "debería" funcionar en teoría — por eso este apartado a veces suena a "esto no ha ido
+            tan bien como esperaba".
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS · detalle: Aviso Discord ══════════ -->
+    <div id="view-ia-auto-discord" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
+          <div class="section-kicker">IA & EXPERIMENTOS · AUTOMATIZACIÓN</div>
+          <h2 class="section-title">⚙️ AVISO AUTOMÁTICO A DISCORD</h2>
+          <p class="section-sub">
+            Automatización sencilla y gratis para que el servidor de Discord se entere solo,
+            sin que tenga que acordarme de avisar cada vez que subo un vídeo.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Piezas que necesitas (las tres gratis)</h3>
+            <ol class="ia-steps">
+              <li><strong>Un Webhook de Discord</strong>: en el canal donde quieras el aviso →
+                ⚙️ Editar canal → Integraciones → Webhooks → "Nuevo Webhook" → copiar la URL.</li>
+              <li><strong>El feed RSS de tu canal de YouTube</strong>, que ya existe sin hacer nada:
+                <code>https://www.youtube.com/feeds/videos.xml?channel_id=TU_CHANNEL_ID</code></li>
+              <li><strong>Un disparador gratuito</strong> que compruebe el RSS cada cierto tiempo y,
+                si hay vídeo nuevo, mande un mensaje al Webhook — por ejemplo IFTTT (tiene una
+                integración directa "YouTube → Discord") o un Google Apps Script con un disparador
+                por tiempo.</li>
+            </ol>
+            <h3>El mensaje que se manda</h3>
+            <p>Al Webhook se le manda un POST sencillo en JSON, algo así:</p>
+          </div>
+          <textarea class="ia-prompt-box" id="discordPayloadBox" readonly rows="6">{
+  "content": "🎬 ¡Nuevo vídeo en el canal! **{título del vídeo}**\n👉 {enlace del vídeo}"
+}</textarea>
+          <div class="calc-result-actions">
+            <button class="btn btn-secondary" id="copyDiscordBtn">📋 Copiar ejemplo</button>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> con IFTTT no hace falta ni tocar JSON — su applet
+            "YouTube new video → Discord" ya rellena el título y el enlace automáticamente.
+            La opción de Google Apps Script da más control, pero requiere un poquito de código.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS · detalle: Prompt miniaturas ══════════ -->
+    <div id="view-ia-prompt-miniaturas" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
+          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT</div>
+          <h2 class="section-title">🎨 PROMPT PARA MINIATURAS CHARKUMA</h2>
+          <p class="section-sub">
+            La receta de prompt que uso para que cualquier IA de imágenes me saque miniaturas
+            con los mismos colores y estilo de la web, sin tener que repetir la descripción cada vez.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Por qué un prompt fijo</h3>
+            <p>
+              Para que el canal se vea reconocible de un vídeo a otro, todas las miniaturas
+              comparten los mismos colores de marca: morado <code>#8b5cf6</code> y naranja
+              <code>#ff7a18</code> sobre fondo casi negro. En vez de acordarme de los códigos
+              cada vez, tengo este prompt guardado y solo cambio el tema del vídeo.
+            </p>
+          </div>
+          <textarea class="ia-prompt-box" id="promptMiniaturaBox" readonly rows="9">Diseña una miniatura de YouTube en formato horizontal 16:9. Fondo oscuro con degradado de morado (#8b5cf6) hacia negro azulado (#09070f), con un resplandor naranja (#ff7a18) apareciendo desde una esquina. Estilo gaming moderno, alto contraste, look "dark mode". Añade como elemento visual principal: [DESCRIBE AQUÍ EL TEMA DEL VÍDEO]. Incluye un texto grande y muy legible incluso en tamaño pequeño, en tipografía gruesa sin serifas, con el texto en degradado de naranja a morado. Deja una esquina despejada, sin elementos, para poder añadir después el logo (un lagarto verde estilo gamer). Nada de texturas ni relleno recargado — limpio y directo.</textarea>
+          <div class="calc-result-actions">
+            <button class="btn btn-secondary" id="copyMiniaturaBtn">📋 Copiar prompt</button>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> el resultado varía según la IA que uses — con ChatGPT/DALL·E
+            suele respetar bien los colores exactos; con generadores más simples, a veces hay
+            que insistir en el código de color en vez del nombre ("morado").
           </div>
         </div>
       </section>
@@ -2704,6 +2938,42 @@
     });
 
     // ──────────────────────────────────────────────────────────
+    // Botón "Copiar" genérico reutilizable (IA & Experimentos)
+    // ──────────────────────────────────────────────────────────
+    function wireCopyButton(buttonId, fieldId, defaultLabel){
+      const btn = document.getElementById(buttonId);
+      const field = document.getElementById(fieldId);
+      if (!btn || !field) return;
+
+      function flashLabel(label){
+        btn.textContent = label;
+        setTimeout(() => { btn.textContent = defaultLabel; }, 1600);
+      }
+
+      btn.addEventListener('click', async () => {
+        const text = field.value;
+        try {
+          if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard API no disponible');
+          await navigator.clipboard.writeText(text);
+          flashLabel('¡Copiado!');
+        } catch (err) {
+          try {
+            field.removeAttribute('disabled');
+            field.focus();
+            field.select();
+            field.setSelectionRange(0, text.length);
+            if (document.execCommand('copy')) { flashLabel('¡Copiado!'); return; }
+          } catch (err2) { /* seguimos al aviso manual */ }
+          flashLabel('Mantén pulsado el texto de arriba y copia');
+        }
+      });
+    }
+
+    wireCopyButton('copyReaccionBtn', 'promptReaccionBox', '📋 Copiar prompt');
+    wireCopyButton('copyDiscordBtn', 'discordPayloadBox', '📋 Copiar ejemplo');
+    wireCopyButton('copyMiniaturaBtn', 'promptMiniaturaBox', '📋 Copiar prompt');
+
+    // ──────────────────────────────────────────────────────────
     // CHARKUMA LAB — proyectos, herramientas y bitácora
     // ──────────────────────────────────────────────────────────
     const labContent = [
@@ -2787,6 +3057,9 @@
     // ──────────────────────────────────────────────────────────
     function genericCardHTML(item, labelsMap, colorsMap){
       const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      const titleLink = item.internalView
+        ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
+        : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;
       return `
         <div class="geek-card">
           <div class="geek-thumb">${item.thumbnail || "🧪"}</div>
@@ -2795,7 +3068,7 @@
               <span class="type-chip ${colorsMap[item.type] || 'chip-purple'}">${labelsMap[item.type] || item.type}</span>
               <span class="yt-empty" style="margin:0">${date}</span>
             </div>
-            <h4><a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+            <h4>${titleLink}</h4>
             <p>${item.summary}</p>
           </div>
         </div>`;
@@ -2829,34 +3102,34 @@
         title: "Prompt para miniaturas con estética CHARKUMA",
         type: "prompt", date: "2026-08-15",
         summary: "La receta de prompt que uso para sacar miniaturas con el mismo estilo morado/naranja de la web.",
-        thumbnail: "🎨", link: "#"
+        thumbnail: "🎨", internalView: "ia-prompt-miniaturas"
       },
       {
         title: "Aviso automático a Discord cuando subo vídeo",
         type: "automatizacion", date: "2026-08-25",
         summary: "Automatización sencilla que avisa al servidor en cuanto se publica un vídeo nuevo.",
-        thumbnail: "⚙️", link: "#"
+        thumbnail: "⚙️", internalView: "ia-auto-discord"
       },
       {
         title: "Generando personajes retro con IA",
         type: "visual", date: "2026-09-01",
         summary: "Pruebas de generación de imagen para ilustrar juegos clásicos de Retro 365.",
-        thumbnail: "🖼️", link: "#"
+        thumbnail: "🖼️", internalView: "ia-visual-retro"
       },
       {
         title: "Vídeo generado con IA: intro alternativa del canal",
         type: "video", date: "2026-09-03",
         summary: "Prueba de una intro corta hecha con generación de vídeo, comparada con la actual.",
-        thumbnail: "🎬", link: "#"
+        thumbnail: "🎬", internalView: "ia-video-intro"
       },
       {
         title: "Prompt para guiones cortos de reacción",
         type: "prompt", date: "2026-09-05",
         summary: "Plantilla de prompt para estructurar rápido un guion de reacción antes de grabar.",
-        thumbnail: "📝", link: "#"
+        thumbnail: "📝", internalView: "ia-prompt-reaccion"
       }
       // { title:"...", type:"prompt|automatizacion|visual|video", date:"AAAA-MM-DD",
-      //   summary:"...", thumbnail:"🤖", link:"..." },
+      //   summary:"...", thumbnail:"🤖", link:"..." },  // "link" para externo, o "internalView" para página propia
     ];
     const IA_LABELS = { prompt:'🎨 Prompt', automatizacion:'⚙️ Automatización', visual:'🖼️ Generación visual', video:'🎬 Generación vídeo' };
     const IA_COLORS = { prompt:'chip-purple', automatizacion:'chip-green', visual:'chip-yellow', video:'chip-orange' };
