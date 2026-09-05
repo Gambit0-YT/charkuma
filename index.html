@@ -543,16 +543,6 @@
     }
     .calc-result-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
 
-    .calc-image-preview{
-      margin:16px 0 10px;min-height:140px;display:flex;align-items:center;justify-content:center;
-      border-radius:16px;background:#0d0914;border:1px solid #2d2240;overflow:hidden
-    }
-    .calc-image-status{color:var(--muted);font-size:13px;padding:20px;margin:0;text-align:center}
-    .calc-image-preview img{width:100%;display:block}
-    .calc-image-caption{font-size:11px;color:var(--muted);line-height:1.6;margin:0 0 12px}
-    .calc-regen-btn{margin:0 0 16px;font-size:12px;padding:8px 16px}
-    .calc-regen-btn[hidden]{display:none}
-
     .calc-materials-body ul{padding-left:20px;margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.7}
     .calc-materials-body p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
     .calc-materials-body a{color:var(--orange2);text-decoration:underline}
@@ -1341,17 +1331,6 @@
           <div class="calc-result-card" id="calcResultCard" hidden>
             <p class="calc-result-label">Tu reto</p>
             <h3 id="calcResultText">—</h3>
-
-            <div class="calc-image-preview" id="calcImagePreview">
-              <p class="calc-image-status" id="calcImageStatus">🎨 Generando vista previa con IA...</p>
-              <img id="calcGeneratedImage" alt="Vista previa generada por IA" hidden />
-            </div>
-            <p class="calc-image-caption">
-              Vista previa rápida y orientativa. Para un boceto de líneas limpias más fácil de calcar,
-              copia el prompt de abajo y pégalo en tu IA de imágenes favorita (ChatGPT, DALL·E...).
-            </p>
-            <button class="btn btn-secondary calc-regen-btn" id="calcRegenBtn" hidden>🔄 Generar otra vez</button>
-
             <p class="calc-result-hint">Tira de la palanca otra vez para el siguiente reto</p>
             <input type="text" id="calcPromptField" class="calc-prompt-field" readonly aria-label="Prompt para la IA">
             <div class="calc-result-actions">
@@ -2533,54 +2512,6 @@
     let calcCurrentPrompt = '';
     let calcIsSpinning = false;
 
-    // Vista previa automática con IA (gratis, sin clave — Pollinations.ai).
-    // La calidad es orientativa: para un boceto de líneas limpias de verdad,
-    // el prompt de abajo sigue disponible para copiar y pegar en otra IA.
-    let calcImageRequestId = 0;
-
-    function generateCalcImage(charText, actionText){
-      const myRequestId = ++calcImageRequestId;
-      const img = document.getElementById('calcGeneratedImage');
-      const status = document.getElementById('calcImageStatus');
-      const regenBtn = document.getElementById('calcRegenBtn');
-
-      img.hidden = true;
-      regenBtn.hidden = true;
-      status.hidden = false;
-      status.textContent = '🎨 Generando vista previa con IA...';
-
-      const stylePrompt = `black and white line art, thick clean outlines, no shading, no color, no background, simple coloring book page: ${charText} ${actionText}`;
-      const seed = Math.floor(Math.random() * 1000000);
-      const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(stylePrompt)}?width=512&height=512&nologo=true&seed=${seed}`;
-
-      const timeoutId = setTimeout(() => {
-        if (myRequestId !== calcImageRequestId) return;
-        status.textContent = '⚠️ Está tardando más de lo normal. Puedes esperar un poco más o usar el prompt de abajo en tu IA favorita.';
-        regenBtn.hidden = false;
-      }, 20000);
-
-      img.onload = () => {
-        if (myRequestId !== calcImageRequestId) return;
-        clearTimeout(timeoutId);
-        status.hidden = true;
-        img.hidden = false;
-        regenBtn.hidden = false;
-      };
-      img.onerror = () => {
-        if (myRequestId !== calcImageRequestId) return;
-        clearTimeout(timeoutId);
-        status.textContent = '⚠️ No se pudo generar la vista previa ahora mismo. Usa el prompt de abajo en tu IA favorita.';
-        regenBtn.hidden = false;
-      };
-      img.src = url;
-    }
-
-    let calcLastChar = null, calcLastAction = null;
-
-    document.getElementById('calcRegenBtn').addEventListener('click', () => {
-      if (calcLastChar && calcLastAction) generateCalcImage(calcLastChar.text, calcLastAction.text);
-    });
-
     function runCalcSpin(){
       if (calcIsSpinning) return;
       calcIsSpinning = true;
@@ -2593,14 +2524,11 @@
       const chosenAction = calcSpinReel(calcActionReel);
       setTimeout(() => { leverBtn.classList.remove('pulled'); }, 220);
       setTimeout(() => {
-        calcLastChar = chosenChar;
-        calcLastAction = chosenAction;
         document.getElementById('calcResultText').textContent = `${chosenChar.emoji} ${chosenChar.text} ${chosenAction.emoji} ${chosenAction.text}`;
         calcCurrentPrompt = `Genérame una imagen: un boceto sencillo en blanco y negro de ${chosenChar.text} ${chosenAction.text}. Instrucciones: solo líneas de contorno limpias y gruesas, sin sombras, sin color y sin fondo, estilo dibujo para colorear tipo "coloring book", pensado para calcarlo fácilmente a mano. Créala directamente, sin hacerme preguntas antes.`;
         document.getElementById('calcPromptField').value = calcCurrentPrompt;
         resultCard.hidden = false;
         playCalcResultChime();
-        generateCalcImage(chosenChar.text, chosenAction.text);
         calcIsSpinning = false;
       }, calcSpinDuration);
     }
