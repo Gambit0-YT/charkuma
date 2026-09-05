@@ -37,6 +37,41 @@
       --line:#2a1f3c;
       --shadow:0 18px 60px rgba(0,0,0,.35);
       --green:#38d99a; --yellow:#f5c845; --red:#ff5f6d;
+
+      /* Superficies reutilizadas por tarjetas/paneles en toda la web.
+         En oscuro (por defecto) valen lo mismo que los hex sueltos que
+         sustituyen, así que este cambio no toca ni un píxel del modo
+         oscuro — solo hace posible definir un modo claro real más abajo. */
+      --panel:#0d0914;
+      --panel2:#110c19;
+      --line2:#2d2240;
+      --line3:#241a34;
+      --nav-bg:rgba(9,7,15,.72);
+      --grid-line:rgba(255,255,255,.025);
+      --accent-text:#d9ceff;
+    }
+
+    /* Modo claro: se activa por preferencia del sistema (si el usuario no
+       ha elegido nada explícitamente) o al marcarlo a mano con el botón
+       🌙/☀️ de la cabecera (guarda la elección en localStorage como
+       data-theme en <html>). */
+    @media (prefers-color-scheme:light){
+      :root:not([data-theme="dark"]){
+        --bg:#f5f2fb; --bg2:#ffffff; --card:#ffffffdd;
+        --text:#211a30; --muted:#5b5270; --line:#ddd4ee;
+        --shadow:0 14px 40px rgba(80,60,120,.12);
+        --panel:#ffffff; --panel2:#f3effa; --line2:#e2d8f2; --line3:#e9e0f5;
+        --nav-bg:rgba(255,255,255,.82); --grid-line:rgba(80,60,120,.05);
+        --accent-text:#5b21b6;
+      }
+    }
+    :root[data-theme="light"]{
+      --bg:#f5f2fb; --bg2:#ffffff; --card:#ffffffdd;
+      --text:#211a30; --muted:#5b5270; --line:#ddd4ee;
+      --shadow:0 14px 40px rgba(80,60,120,.12);
+      --panel:#ffffff; --panel2:#f3effa; --line2:#e2d8f2; --line3:#e9e0f5;
+      --nav-bg:rgba(255,255,255,.82); --grid-line:rgba(80,60,120,.05);
+      --accent-text:#5b21b6;
     }
 
     *{box-sizing:border-box}
@@ -48,7 +83,7 @@
       background:
         radial-gradient(circle at 15% 10%, rgba(139,92,246,.16), transparent 28%),
         radial-gradient(circle at 85% 15%, rgba(255,122,24,.12), transparent 24%),
-        linear-gradient(180deg,var(--bg),#0b0812 45%,#0a0710);
+        linear-gradient(180deg,var(--bg),var(--bg2));
       overflow-x:hidden;
     }
 
@@ -58,8 +93,8 @@
       inset:0;
       pointer-events:none;
       background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+        linear-gradient(var(--grid-line) 1px,transparent 1px),
+        linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
       background-size:34px 34px;
       mask-image:linear-gradient(to bottom,black,transparent 85%);
     }
@@ -70,7 +105,7 @@
 
     .nav{
       position:sticky;top:0;z-index:50;
-      background:rgba(9,7,15,.72);
+      background:var(--nav-bg);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
@@ -98,6 +133,52 @@
       color:white;background:rgba(255,122,24,.08);cursor:pointer;text-transform:uppercase;letter-spacing:.02em
     }
 
+    /* ── Herramientas de cabecera: buscador, tema, ajustes ── */
+    .nav-tools{display:flex;align-items:center;gap:8px}
+    .nav-icon-btn{
+      width:38px;height:38px;border-radius:10px;border:1px solid var(--line);
+      background:rgba(255,255,255,.03);color:var(--text);font-size:16px;
+      display:grid;place-items:center;cursor:pointer;transition:.2s background,.2s border-color;padding:0
+    }
+    .nav-icon-btn:hover{border-color:var(--purple);background:rgba(139,92,246,.14)}
+    .settings-panel{border-top:1px solid var(--line);background:var(--nav-bg)}
+    .settings-panel[hidden]{display:none}
+    .settings-panel-inner{padding:18px 0;display:flex;flex-direction:column;gap:14px}
+    .settings-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--line)}
+    .settings-row:last-child{border-bottom:none}
+    .settings-row strong{display:block;font-size:14px;margin-bottom:2px}
+    .settings-row p{margin:0;color:var(--muted);font-size:12px;max-width:52ch}
+
+    /* ── Migas de pan + botón compartir (inyectados por JS en cada vista) ── */
+    .breadcrumb-bar{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    .breadcrumb-bar a{cursor:pointer}
+    .breadcrumb-bar a:hover{color:var(--text)}
+    .breadcrumb-bar .sep{opacity:.5}
+    .share-view-btn{
+      border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;
+      padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer;margin-left:10px;display:inline-flex;align-items:center;gap:6px
+    }
+    .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
+
+    /* ── Transición suave entre vistas ──
+       .active se marca al instante (para no romper nada de lo que ya
+       depende de esa clase); .view-visible se añade un frame después
+       desde showView(), así el navegador sí llega a pintar el estado
+       opacity:0 antes de animar hacia opacity:1. */
+    .app-view.active{opacity:0;transform:translateY(6px);transition:opacity .28s ease,transform .28s ease}
+    .app-view.active.view-visible{opacity:1;transform:translateY(0)}
+    @media (prefers-reduced-motion:reduce){
+      .app-view.active{transition:none;opacity:1;transform:none}
+    }
+
+    /* ── Modo presentación: oculta easter eggs y paneles internos ── */
+    body.presentation-mode .secret-trigger,
+    body.presentation-mode .review-badge,
+    body.presentation-mode .idea-check,
+    body.presentation-mode .idea-discard-btn,
+    body.presentation-mode .discarded-panel,
+    body.presentation-mode .hide-discarded-label{visibility:hidden;pointer-events:none}
+
     .hero{
       min-height:calc(100vh - 74px);
       display:grid;align-items:center;
@@ -112,7 +193,7 @@
       padding:8px 12px;border-radius:999px;
       border:1px solid rgba(139,92,246,.34);
       background:rgba(139,92,246,.08);
-      color:#d9ceff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase
+      color:var(--accent-text);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase
     }
     h1{
       font-size:clamp(54px,8vw,104px);
@@ -142,7 +223,7 @@
       color:white;box-shadow:0 12px 34px rgba(255,122,24,.22)
     }
     .btn-secondary{
-      color:white;background:#171022;border:1px solid #332447
+      color:white;background:var(--panel2);border:1px solid #332447
     }
 
     .hero-visual{
@@ -202,15 +283,15 @@
     .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
     .chip{
       padding:9px 12px;border-radius:999px;border:1px solid #332847;
-      color:#ddd3ed;background:#100b18;font-size:13px;font-weight:800
+      color:var(--accent-text);background:var(--panel);font-size:13px;font-weight:800
     }
 
     .mini-grid{
       display:grid;grid-template-columns:repeat(2,1fr);gap:14px
     }
     .mini{
-      min-height:138px;padding:18px;border-radius:18px;background:#100b18;
-      border:1px solid #2d2240;display:flex;flex-direction:column;justify-content:space-between
+      min-height:138px;padding:18px;border-radius:18px;background:var(--panel);
+      border:1px solid var(--line2);display:flex;flex-direction:column;justify-content:space-between
     }
     .mini .icon{font-size:28px}
     .mini strong{font-size:15px}
@@ -221,7 +302,7 @@
     }
     .project{
       display:block;min-height:280px;padding:28px;border-radius:26px;position:relative;overflow:hidden;
-      background:linear-gradient(145deg,#171022,#0f0b16);
+      background:linear-gradient(145deg,var(--panel2),#0f0b16);
       border:1px solid #312342;
       transition:.3s transform,.3s border-color;cursor:pointer
     }
@@ -252,7 +333,7 @@
         #ff943f 240deg 300deg,
         #1b1227 300deg 360deg
       );
-      border:10px solid #171022;
+      border:10px solid var(--panel2);
       box-shadow:0 0 0 2px #39234f,0 30px 70px rgba(0,0,0,.35);
       transition:2.6s cubic-bezier(.16,.8,.22,1);
       position:relative;
@@ -269,15 +350,15 @@
     }
     .random-box h3{font-size:28px;margin-top:0}
     #result{
-      min-height:70px;padding:18px;border-radius:15px;background:#0d0914;border:1px solid #2d2140;
-      color:#e7dfff;display:flex;align-items:center;font-weight:800;margin:18px 0
+      min-height:70px;padding:18px;border-radius:15px;background:var(--panel);border:1px solid #2d2140;
+      color:var(--accent-text);display:flex;align-items:center;font-weight:800;margin:18px 0
     }
 
     .lab-grid{
       display:grid;grid-template-columns:repeat(3,1fr);gap:16px
     }
     .lab-card{
-      display:block;padding:24px;border-radius:20px;border:1px solid var(--line);background:#110c19;
+      display:block;padding:24px;border-radius:20px;border:1px solid var(--line);background:var(--panel2);
       min-height:190px;transition:.3s transform,.3s border-color;cursor:pointer
     }
     .lab-card:hover{transform:translateY(-5px);border-color:#5a3c7c}
@@ -323,8 +404,8 @@
     .detail-section{padding:0 0 88px}
 
     .note{margin-top:26px;padding:20px 24px;border-radius:18px;border:1px dashed #45305f;background:rgba(139,92,246,.06);color:var(--muted);font-size:14px;line-height:1.7}
-    .note strong{color:#d9ceff}
-    .note code{background:#0d0914;padding:2px 6px;border-radius:6px;font-size:12px}
+    .note strong{color:var(--accent-text)}
+    .note code{background:var(--panel);padding:2px 6px;border-radius:6px;font-size:12px}
 
     /* ── redes sociales ── */
     .platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -337,11 +418,11 @@
     .platform.twitch .platform-badge{background:linear-gradient(135deg,#9146ff,#5c2ea8)}
     .platform h3{margin:0;font-size:19px}
     .platform .handle{font-size:12px;color:var(--muted);font-weight:700}
-    .visit{padding:8px 13px;border-radius:10px;border:1px solid #332447;background:#100b18;font-size:12px;font-weight:800;color:white}
+    .visit{padding:8px 13px;border-radius:10px;border:1px solid #332447;background:var(--panel);font-size:12px;font-weight:800;color:white}
     .visit:hover{border-color:#5a3c7c}
     .latest-label{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
-    .latest-card{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:#100b18;border:1px solid #2d2240;margin-bottom:10px}
-    .latest-thumb{width:64px;height:64px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:26px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
+    .latest-card{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:var(--panel);border:1px solid var(--line2);margin-bottom:10px}
+    .latest-thumb{width:64px;height:64px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:26px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
     .latest-info strong{display:block;font-size:14px;line-height:1.4}
     .latest-info span{font-size:12px;color:var(--muted)}
 
@@ -350,12 +431,12 @@
     .progress-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px}
     .progress-head strong{font-size:16px}
     .progress-head span{color:var(--muted);font-size:14px;font-weight:700}
-    .progress-track{height:12px;border-radius:999px;background:#0d0914;border:1px solid #2d2240;overflow:hidden}
+    .progress-track{height:12px;border-radius:999px;background:var(--panel);border:1px solid var(--line2);overflow:hidden}
     .progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--orange),var(--purple));transition:width .6s ease}
     .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:12px;color:var(--muted);font-weight:700}
     .legend span{display:inline-flex;align-items:center;gap:6px}
 
-    .month{margin-top:22px;border-radius:20px;border:1px solid var(--line);background:#110c19;overflow:hidden}
+    .month{margin-top:22px;border-radius:20px;border:1px solid var(--line);background:var(--panel2);overflow:hidden}
     .month > summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:15px;letter-spacing:.02em}
     .month > summary::-webkit-details-marker{display:none}
     .month > summary .count{font-size:12px;color:var(--muted);font-weight:700}
@@ -363,8 +444,8 @@
     .month[open] > summary::after{transform:rotate(180deg)}
     .month-body{padding:6px 18px 20px;display:grid;grid-template-columns:1fr;gap:12px}
 
-    .day-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:#0d0914;border:1px solid #241a34}
-    .day-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
+    .day-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:var(--panel);border:1px solid var(--line3)}
+    .day-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
     .day-card.unlocked{border-color:#3a2a52}
     .day-card.unlocked .day-thumb{background:linear-gradient(145deg,rgba(255,122,24,.18),rgba(139,92,246,.22))}
     .day-card.locked{opacity:.55}
@@ -382,7 +463,7 @@
 
     .day-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
     .diff-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em}
-    .diff-chip.chip-neutral{background:#100b18;border:1px solid #2d2240;color:var(--muted)}
+    .diff-chip.chip-neutral{background:var(--panel);border:1px solid var(--line2);color:var(--muted)}
     .diff-facil{background:rgba(56,217,154,.12);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .diff-media{background:rgba(245,200,69,.12);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
     .diff-dificil{background:rgba(255,95,109,.12);color:var(--red);border:1px solid rgba(255,95,109,.35)}
@@ -390,17 +471,17 @@
 
     /* ── Rincón del Friki: plantillas + contenido ── */
     .template-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-    .template-card{padding:18px;border-radius:18px;background:#110c19;border:1px solid var(--line)}
+    .template-card{padding:18px;border-radius:18px;background:var(--panel2);border:1px solid var(--line)}
     .template-head{margin-bottom:10px}
     .template-card ol{margin:0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.6}
     .template-card ol li{margin-bottom:4px}
-    .template-card strong{color:#d9ceff}
+    .template-card strong{color:var(--accent-text)}
 
     /* ── Bancos secretos de ideas: marcar como hecha / descartar ── */
     .idea-discard-counter{font-size:12px;color:var(--muted);font-weight:700;margin-top:4px}
-    .idea-card{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:16px;border-radius:16px;background:#110c19;border:1px solid var(--line);transition:.2s opacity,.2s filter}
+    .idea-card{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:16px;border-radius:16px;background:var(--panel2);border:1px solid var(--line);transition:.2s opacity,.2s filter}
     .idea-card.is-discarded, .day-card.is-discarded{opacity:.4;filter:grayscale(1)}
-    .idea-check{flex:0 0 auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#0d0914;font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s background,.2s border-color;padding:0}
+    .idea-check{flex:0 0 auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s background,.2s border-color;padding:0}
     .idea-check.is-done{background:#1f9d55;border-color:#1f9d55}
     .idea-body{flex:1 1 200px;min-width:0}
     .idea-discard-btn{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
@@ -420,16 +501,16 @@
     .type-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .type-reaccion{background:rgba(255,95,109,.14);color:var(--red);border:1px solid rgba(255,95,109,.35)}
     .type-curiosidad{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
-    .type-opinion{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .type-opinion{background:rgba(139,92,246,.16);color:var(--accent-text);border:1px solid rgba(139,92,246,.4)}
     .type-fancast{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .type-batalla{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
 
-    .type-proyecto{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .type-proyecto{background:rgba(139,92,246,.16);color:var(--accent-text);border:1px solid rgba(139,92,246,.4)}
     .type-herramienta{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .type-bitacora{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
 
     /* chips genéricos reutilizables para IA/Creator Tools/Hecho a Mano */
-    .chip-purple{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .chip-purple{background:rgba(139,92,246,.16);color:var(--accent-text);border:1px solid rgba(139,92,246,.4)}
     .chip-green{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .chip-yellow{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
     .chip-orange{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
@@ -437,9 +518,9 @@
     .saga-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .saga-marvel{background:rgba(237,29,36,.15);color:#ff6b6f;border:1px solid rgba(237,29,36,.4)}
     .saga-boys{background:rgba(255,255,255,.08);color:#f0f0f0;border:1px solid rgba(255,255,255,.28)}
-    .saga-cruce{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .saga-cruce{background:rgba(139,92,246,.16);color:var(--accent-text);border:1px solid rgba(139,92,246,.4)}
 
-    .geek-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:#0d0914;border:1px solid #241a34;position:relative}
+    .geek-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:var(--panel);border:1px solid var(--line3);position:relative}
     .review-badge{
       position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:999px;
       background:rgba(245,200,69,.14);border:1px solid rgba(245,200,69,.4);color:var(--yellow);
@@ -448,7 +529,7 @@
     }
     .review-badge:hover{background:rgba(245,200,69,.28);transform:scale(1.04)}
     .review-badge:active{transform:scale(.96)}
-    .geek-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
+    .geek-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
     .geek-info{flex:1;min-width:0}
     .geek-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
     .geek-info h4{margin:0 0 6px;font-size:16px}
@@ -459,21 +540,21 @@
     .ruleta-panel{margin-top:30px;text-align:center}
     .ruleta-teams-setup{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
     .team-name-input{
-      padding:10px 14px;border-radius:12px;background:#0d0914;border:1px solid #2d2240;
+      padding:10px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line2);
       color:var(--text);font-size:15px;font-weight:800;text-align:center;font-family:inherit;width:180px
     }
     .team-name-input:focus{outline:none;border-color:var(--orange)}
     .ruleta-vs{font-weight:900;color:var(--muted);font-size:13px}
     .ruleta-turn{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
     .ruleta-result{
-      min-height:60px;padding:18px;border-radius:15px;background:#0d0914;border:1px solid #2d2140;
-      color:#e7dfff;display:flex;align-items:center;justify-content:center;font-weight:800;
+      min-height:60px;padding:18px;border-radius:15px;background:var(--panel);border:1px solid #2d2140;
+      color:var(--accent-text);display:flex;align-items:center;justify-content:center;font-weight:800;
       font-size:16px;margin-bottom:16px;text-align:center
     }
     .ruleta-assign{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
     .ruleta-assign[hidden]{display:none}
     .ruleta-assign input{
-      padding:11px 14px;border-radius:12px;background:#0d0914;border:1px solid #2d2240;
+      padding:11px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line2);
       color:var(--text);font-size:14px;font-family:inherit;min-width:220px
     }
     .ruleta-assign input:focus{outline:none;border-color:var(--orange)}
@@ -492,14 +573,14 @@
     .board-line-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
     .board-slot{
       display:flex;justify-content:space-between;gap:8px;padding:8px 12px;border-radius:9px;
-      background:#0d0914;border:1px solid #241a34;font-size:13px;margin-bottom:6px
+      background:var(--panel);border:1px solid var(--line3);font-size:13px;margin-bottom:6px
     }
     .board-slot .slot-pos{color:var(--muted);font-weight:700}
     .board-slot .slot-name{font-weight:800;color:var(--text)}
     .board-slot.empty .slot-name{color:#4a3f5c;font-weight:600}
 
     .used-players{display:flex;flex-wrap:wrap;gap:10px}
-    .used-chip{padding:8px 13px;border-radius:999px;border:1px solid #332847;color:#ddd3ed;background:#100b18;font-size:13px;font-weight:800}
+    .used-chip{padding:8px 13px;border-radius:999px;border:1px solid #332847;color:var(--accent-text);background:var(--panel);font-size:13px;font-weight:800}
 
     @media (max-width:900px){
       .teams-boards{grid-template-columns:1fr}
@@ -508,7 +589,7 @@
     /* ── CalcArte (HELQUIDGAMES · Juego 002) ── */
     .calc-steps{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 30px}
     .calc-steps span{
-      display:flex;align-items:center;gap:8px;background:#100b18;border:1px solid #2d2240;
+      display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line2);
       border-radius:14px;padding:8px 14px 8px 8px;font-size:13px;font-weight:700;color:var(--muted)
     }
     .calc-steps span b{
@@ -527,19 +608,19 @@
       background:rgba(255,255,255,.1);color:var(--text);font-size:13px;cursor:pointer;
       display:flex;align-items:center;justify-content:center
     }
-    .calc-marquee{display:flex;align-items:center;justify-content:center;gap:8px;background:#0d0914;border-radius:14px;padding:8px 14px;margin-bottom:14px}
+    .calc-marquee{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--panel);border-radius:14px;padding:8px 14px;margin-bottom:14px}
     .calc-marquee-text{font-weight:900;letter-spacing:.08em;font-size:16px}
     .calc-bulb{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 6px 2px rgba(255,122,24,.6);animation:calc-blink 1.6s infinite ease-in-out}
     .calc-bulb:nth-child(odd){animation-delay:.4s;background:var(--purple);box-shadow:0 0 6px 2px rgba(139,92,246,.6)}
     @keyframes calc-blink{0%,100%{opacity:.35}50%{opacity:1}}
 
-    .calc-reels-window{display:flex;align-items:flex-start;justify-content:center;background:#0d0914;border-radius:16px;padding:14px;box-shadow:inset 0 4px 10px rgba(0,0,0,.5)}
+    .calc-reels-window{display:flex;align-items:flex-start;justify-content:center;background:var(--panel);border-radius:16px;padding:14px;box-shadow:inset 0 4px 10px rgba(0,0,0,.5)}
     .calc-reel-col{display:flex;flex-direction:column;align-items:center;gap:8px}
     .calc-reel-caption{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--muted)}
     .calc-reel-divider{width:2px;background:rgba(255,255,255,.08);margin:0 14px;align-self:stretch}
     .calc-reel-window{
       width:clamp(120px,34vw,165px);height:88px;overflow:hidden;position:relative;
-      background:#171022;border-radius:10px;box-shadow:inset 0 0 0 2px #2d2240
+      background:var(--panel2);border-radius:10px;box-shadow:inset 0 0 0 2px var(--line2)
     }
     .calc-reel-window::before,.calc-reel-window::after{content:"";position:absolute;left:0;right:0;height:18px;z-index:2;pointer-events:none}
     .calc-reel-window::before{top:0;background:linear-gradient(rgba(0,0,0,.4),transparent)}
@@ -567,20 +648,20 @@
     #calcResultText{font-size:clamp(20px,4.6vw,28px);margin:0;text-transform:uppercase}
     .calc-result-hint{font-size:13px;color:var(--muted);margin:10px 0 0}
     .calc-prompt-field{
-      width:100%;margin-top:12px;padding:10px 12px;border-radius:10px;border:1px solid #2d2240;
-      font-size:12px;color:var(--muted);background:#0d0914;text-align:center;font-family:inherit;box-sizing:border-box
+      width:100%;margin-top:12px;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);
+      font-size:12px;color:var(--muted);background:var(--panel);text-align:center;font-family:inherit;box-sizing:border-box
     }
     .calc-result-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
 
     /* ── Cajas de prompt reutilizables (IA & Experimentos) ── */
     .ia-prompt-box{
       width:100%;min-height:140px;margin:14px 0;padding:16px;border-radius:14px;
-      border:1px solid #2d2240;background:#0d0914;color:var(--text);font-size:13px;
+      border:1px solid var(--line2);background:var(--panel);color:var(--text);font-size:13px;
       line-height:1.7;font-family:inherit;resize:vertical;box-sizing:border-box
     }
     .ia-steps{margin:0;padding-left:20px;color:var(--muted);line-height:1.9}
     .ia-steps li{margin-bottom:6px}
-    .ia-steps code{background:#0d0914;padding:2px 6px;border-radius:5px;font-size:12px;color:#d9ceff}
+    .ia-steps code{background:var(--panel);padding:2px 6px;border-radius:5px;font-size:12px;color:var(--accent-text)}
 
     .calc-materials-body ul{padding-left:20px;margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.7}
     .calc-materials-body p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
@@ -598,7 +679,7 @@
     .search-row{display:flex;gap:12px;flex-wrap:wrap}
     .search-row input, .search-row select{
       flex:1;min-width:200px;padding:12px 16px;border-radius:12px;
-      background:#0d0914;border:1px solid #2d2240;color:var(--text);
+      background:var(--panel);border:1px solid var(--line2);color:var(--text);
       font-size:14px;font-family:inherit
     }
     .search-row input::placeholder{color:var(--muted)}
@@ -609,7 +690,7 @@
     .video-link{padding:6px 12px;border-radius:9px;background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);font-size:12px;font-weight:800;color:white}
     .video-link:hover{background:rgba(255,122,24,.2)}
     .lock-note{font-size:11px;color:var(--muted);font-style:italic}
-    .undecided-row{padding:10px 16px;border-radius:12px;background:#0d0914;border:1px dashed #241a34;color:var(--muted);font-size:12px;font-weight:700}
+    .undecided-row{padding:10px 16px;border-radius:12px;background:var(--panel);border:1px dashed var(--line3);color:var(--muted);font-size:12px;font-weight:700}
 
     /* ── lateral: últimos vídeos / noticias + notas ── */
     .sidebar-stack{
@@ -622,28 +703,28 @@
       border:1px solid var(--line);box-shadow:var(--shadow);
     }
     .yt-sidebar h4{margin:0 0 14px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
-    .yt-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid #241a34}
+    .yt-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line3)}
     .yt-video:first-of-type{border-top:none;padding-top:0}
-    .yt-thumb{width:96px;height:54px;border-radius:8px;object-fit:cover;flex:none;background:#100b18}
+    .yt-thumb{width:96px;height:54px;border-radius:8px;object-fit:cover;flex:none;background:var(--panel)}
     .yt-info strong{
       font-size:13px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;
       -webkit-box-orient:vertical;overflow:hidden
     }
     .yt-info span{font-size:11px;color:var(--muted)}
     .yt-empty{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
-    .yt-empty code{background:#0d0914;padding:2px 5px;border-radius:5px}
+    .yt-empty code{background:var(--panel);padding:2px 5px;border-radius:5px}
 
     /* ── bloc de notas (guardado en este navegador) ── */
     .notes-input-row{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
     .notes-input-row textarea{
       resize:vertical;min-height:60px;padding:10px 12px;border-radius:10px;
-      background:#0d0914;border:1px solid #2d2240;color:var(--text);
+      background:var(--panel);border:1px solid var(--line2);color:var(--text);
       font-family:inherit;font-size:13px;line-height:1.5
     }
     .notes-input-row textarea:focus{outline:none;border-color:var(--orange)}
     .notes-save-btn{align-self:flex-end;padding:9px 18px;font-size:12px}
     .notes-list{display:flex;flex-direction:column;gap:10px;max-height:320px;overflow-y:auto}
-    .note-item{padding:12px 30px 12px 14px;border-radius:12px;background:#0d0914;border:1px solid #241a34;position:relative}
+    .note-item{padding:12px 30px 12px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line3);position:relative}
     .note-item p{margin:0 0 6px;font-size:13px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
     .note-item span{font-size:10px;color:var(--muted)}
     .note-delete{
@@ -674,6 +755,17 @@
       .day-thumb{width:100%;height:64px}
     }
   </style>
+  <script>
+    // Aplica el tema guardado ANTES de pintar la página, para que no haya
+    // un parpadeo del tema equivocado al cargar (si no hay nada guardado,
+    // se respeta la preferencia del sistema vía el @media de arriba).
+    try {
+      const savedTheme = localStorage.getItem('charkuma_theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    } catch(e) { /* localStorage no disponible: nos quedamos con la preferencia del sistema */ }
+  </script>
 </head>
 <body>
 
@@ -690,7 +782,45 @@
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
       </div>
+      <div class="nav-tools">
+        <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
+        <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
+        <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
+      </div>
       <a class="nav-cta" href="javascript:void(0)" onclick="goHome('proyectos')">Explorar universo ↗</a>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel" hidden>
+      <div class="container settings-panel-inner">
+        <div class="settings-row">
+          <div>
+            <strong>🌙 Tema</strong>
+            <p>Oscuro (por defecto) o claro. Se recuerda en este navegador.</p>
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="toggleTheme()">Cambiar tema</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🎥 Modo presentación</strong>
+            <p>Oculta easter eggs, badges de revisión y paneles internos — para compartir pantalla o grabar.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="presentationModeToggle" onchange="setPresentationMode(this.checked)">
+            Activar
+          </label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>💾 Copia de seguridad de tus datos</strong>
+            <p>Notas, banco de ideas, revisiones y progreso de la ruleta — todo lo que este navegador tiene guardado localmente.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button type="button" class="btn btn-secondary" onclick="exportSiteData()">⬇️ Exportar</button>
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('importFileInput').click()">⬆️ Importar</button>
+            <input type="file" id="importFileInput" accept="application/json" hidden onchange="importSiteData(this.files[0])">
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -713,6 +843,34 @@
   </div>
 
   <main>
+
+    <!-- ══════════ BUSCADOR GLOBAL ══════════ -->
+    <div id="view-buscar" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">TODO EL CONTENIDO</div>
+          <h2 class="section-title">🔎 BUSCADOR</h2>
+          <p class="section-sub">
+            Busca por título, resumen o etiqueta en todas las secciones de la web a la vez —
+            Rincón del Friki, IA & Experimentos, Creator Tools, Hecho a Mano, Charkuma Lab y más.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="globalSearchInput" placeholder="🔎 Escribe para buscar en todo el sitio..." autocomplete="off" />
+              <select id="globalSearchSection">
+                <option value="">Todas las secciones</option>
+              </select>
+            </div>
+          </div>
+          <div id="globalSearchResults" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
 
     <!-- ══════════ INICIO ══════════ -->
     <div id="view-home" class="app-view active">
@@ -2620,6 +2778,111 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     let historyInitialized = false;
 
     // ──────────────────────────────────────────────────────────
+    // TEMA OSCURO/CLARO — el <script> del <head> ya aplicó el guardado
+    // (si lo hay) antes de pintar; esto solo gestiona el botón y guarda
+    // el cambio para la próxima visita.
+    // ──────────────────────────────────────────────────────────
+    function currentTheme(){
+      const attr = document.documentElement.getAttribute('data-theme');
+      if (attr === 'light' || attr === 'dark') return attr;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    function updateThemeButtonIcon(){
+      const btn = document.getElementById('navThemeBtn');
+      if (btn) btn.textContent = currentTheme() === 'light' ? '☀️' : '🌙';
+    }
+    function toggleTheme(){
+      const next = currentTheme() === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('charkuma_theme', next); } catch(e) { /* seguimos sin guardar */ }
+      updateThemeButtonIcon();
+    }
+    updateThemeButtonIcon();
+
+    // ──────────────────────────────────────────────────────────
+    // Panel de ajustes de la cabecera (⚙️): tema, modo presentación,
+    // exportar/importar datos guardados en este navegador.
+    // ──────────────────────────────────────────────────────────
+    function toggleSettingsPanel(){
+      const panel = document.getElementById('settingsPanel');
+      if (!panel) return;
+      panel.hidden = !panel.hidden;
+    }
+
+    const PRESENTATION_MODE_KEY = 'charkuma_presentation_mode';
+    function setPresentationMode(on){
+      document.body.classList.toggle('presentation-mode', on);
+      try { localStorage.setItem(PRESENTATION_MODE_KEY, on ? '1' : '0'); } catch(e) { /* seguimos sin guardar */ }
+    }
+    (function initPresentationMode(){
+      let saved = false;
+      try { saved = localStorage.getItem(PRESENTATION_MODE_KEY) === '1'; } catch(e) { /* por defecto desactivado */ }
+      document.body.classList.toggle('presentation-mode', saved);
+      const checkbox = document.getElementById('presentationModeToggle');
+      if (checkbox) checkbox.checked = saved;
+    })();
+
+    // Exportar/importar: TODO lo que la web guarda en este navegador
+    // (notas, banco de ideas, revisiones, progreso de la ruleta...) en
+    // un único archivo .json, para no perderlo si cambias de navegador,
+    // borras el caché o quieres pasarlo a otro dispositivo.
+    const EXPORTABLE_KEY_PREFIX = 'charkuma_';
+    function exportSiteData(){
+      const data = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.indexOf(EXPORTABLE_KEY_PREFIX) === 0) data[key] = localStorage.getItem(key);
+      }
+      const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), data }, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `charkuma-datos-${new Date().toISOString().slice(0,10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+    function importSiteData(file){
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          const data = parsed && parsed.data ? parsed.data : parsed;
+          if (!data || typeof data !== 'object') throw new Error('Formato no válido');
+          Object.keys(data).forEach(key => {
+            if (key.indexOf(EXPORTABLE_KEY_PREFIX) === 0) localStorage.setItem(key, data[key]);
+          });
+          alert('Datos importados. La página se va a recargar para aplicarlos.');
+          location.reload();
+        } catch (err) {
+          alert('No se ha podido leer ese archivo como copia de seguridad de CHARKUMA.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // Atajos de teclado: "/" abre el buscador, "Esc" cierra
+    // buscador/ajustes o vuelve al inicio si ya estás en una vista.
+    // ──────────────────────────────────────────────────────────
+    document.addEventListener('keydown', (e) => {
+      const tag = (e.target && e.target.tagName || '').toLowerCase();
+      const typing = tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        openSearchView();
+      } else if (e.key === 'Escape') {
+        const settingsPanel = document.getElementById('settingsPanel');
+        if (settingsPanel && !settingsPanel.hidden) { settingsPanel.hidden = true; return; }
+        if (document.getElementById('view-buscar') && document.getElementById('view-buscar').classList.contains('active')) {
+          goHome('inicio');
+        }
+      }
+    });
+
+    // ──────────────────────────────────────────────────────────
     // SONIDO DE RULETA — generado con Web Audio API (sin archivos
     // externos): una serie de "tics" que se van espaciando, como una
     // ruleta real perdiendo velocidad. Se reutiliza en todas las
@@ -2676,11 +2939,21 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     // ──────────────────────────────────────────────────────────
     function showView(id, opts){
       opts = opts || {};
-      document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.app-view').forEach(v => {
+        v.classList.remove('active');
+        v.classList.remove('view-visible');
+      });
       const target = document.getElementById('view-' + id);
-      if (target) target.classList.add('active');
+      if (target) {
+        target.classList.add('active');
+        // Doble rAF: deja que el navegador pinte el estado inicial
+        // (opacity:0) antes de animar hacia opacity:1 — si añadimos
+        // "view-visible" en el mismo tick, no hay nada que transicionar.
+        requestAnimationFrame(() => requestAnimationFrame(() => target.classList.add('view-visible')));
+      }
       if (opts.resetScroll !== false) window.scrollTo({top:0});
       updateSidebar(id);
+      updateViewChrome(id, target);
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -2688,6 +2961,57 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         if (!history.state || history.state.view !== id) {
           history.pushState({view:id}, '', '#view=' + id);
         }
+      }
+    }
+
+    // Migas de pan + botón "compartir enlace" + título de pestaña,
+    // generados leyendo el propio contenido de la vista (kicker + h2).
+    // Así no hace falta tocar a mano cada página de detalle para
+    // añadirlos: funciona para todas, actuales y futuras.
+    function updateViewChrome(id, target){
+      if (!target) return;
+      const pageHead = target.querySelector('.page-head .container');
+      if (!pageHead) { document.title = 'CHARKUMA — Gaming, cultura geek y creatividad'; return; }
+
+      const kickerEl = pageHead.querySelector('.section-kicker');
+      const titleEl = pageHead.querySelector('.section-title');
+      const kickerText = (kickerEl && kickerEl.childNodes[0]) ? kickerEl.childNodes[0].textContent.trim() : '';
+      const rawTitle = titleEl ? titleEl.textContent.trim() : '';
+      // Quita el primer "token" del título (normalmente el emoji) para
+      // dejarlo limpio en la pestaña y en la miga de pan.
+      const titleText = rawTitle.replace(/^\S+\s+/, '').trim() || rawTitle;
+
+      document.title = titleText ? `${titleText} · CHARKUMA` : 'CHARKUMA — Gaming, cultura geek y creatividad';
+
+      let crumb = pageHead.querySelector('.breadcrumb-bar');
+      if (id === 'home') {
+        if (crumb) crumb.remove();
+        return;
+      }
+      if (!crumb) {
+        crumb = document.createElement('div');
+        crumb.className = 'breadcrumb-bar';
+        const backLink = pageHead.querySelector('.back');
+        if (backLink) backLink.insertAdjacentElement('afterend', crumb);
+        else pageHead.insertBefore(crumb, pageHead.firstChild);
+      }
+      const parts = [`<a onclick="goHome('inicio')">🏠 Inicio</a>`];
+      if (kickerText) parts.push(`<span class="sep">›</span><span>${kickerText}</span>`);
+      if (titleText) parts.push(`<span class="sep">›</span><span>${titleText}</span>`);
+      crumb.innerHTML = parts.join(' ') +
+        `<button type="button" class="share-view-btn" onclick="shareCurrentView('${id}', this)">🔗 Copiar enlace</button>`;
+    }
+
+    // Botón "compartir": copia un enlace directo a la vista actual
+    // (#view=id) al portapapeles.
+    function shareCurrentView(id, btnEl){
+      const url = location.origin + location.pathname + '#view=' + id;
+      const original = btnEl.textContent;
+      const flash = (label) => { btnEl.textContent = label; setTimeout(() => { btnEl.textContent = original; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => flash('✅ Enlace copiado')).catch(() => flash('No se pudo copiar'));
+      } else {
+        flash('No se pudo copiar');
       }
     }
 
@@ -2727,8 +3051,13 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       const initialView = match ? match[1] : 'home';
       history.replaceState({view: initialView}, '', location.pathname + location.search + (match ? '#view=' + initialView : ''));
       historyInitialized = true;
-      if (match) { showView(initialView, {resetScroll:false}); return true; }
-      return false;
+      // Siempre pasamos por showView (incluso para "home" sin hash): así
+      // se añade la clase "view-visible" que dispara la animación de
+      // entrada, las migas de pan y el título de la pestaña — si no, la
+      // vista de inicio se queda con opacity:0 (invisible) en la primera
+      // carga, porque nunca se ha llamado a showView() para ella.
+      showView(initialView, {resetScroll:false});
+      return !!match;
     })();
 
     // Botón "atrás"/"adelante" del navegador (o el botón lateral del
@@ -4183,6 +4512,9 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
 
     function labCardHTML(item){
       const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      const titleLink = item.internalView
+        ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
+        : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;
       return `
         <div class="geek-card">
           ${reviewBadgeHTML(item)}
@@ -4192,7 +4524,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
               <span class="type-chip type-${item.type}">${LAB_TYPE_LABELS[item.type] || item.type}</span>
               <span class="yt-empty" style="margin:0">${date}</span>
             </div>
-            <h4><a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+            <h4>${titleLink}</h4>
             <p>${item.summary}</p>
           </div>
         </div>`;
@@ -4383,6 +4715,102 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     setupFilterableFeed({ searchId:'iaSearch', typeId:'iaTypeFilter', listId:'iaContentList', data:iaContent, labels:IA_LABELS, colors:IA_COLORS });
     setupFilterableFeed({ searchId:'creatorSearch', typeId:'creatorTypeFilter', listId:'creatorContentList', data:creatorContent, labels:CREATOR_LABELS, colors:CREATOR_COLORS });
     setupFilterableFeed({ searchId:'hechoSearch', typeId:'hechoTypeFilter', listId:'hechoContentList', data:hechoContent, labels:HECHO_LABELS, colors:HECHO_COLORS });
+
+    // ──────────────────────────────────────────────────────────
+    // BUSCADOR GLOBAL: junta el contenido de todas las secciones (más
+    // unas cuantas entradas fijas para las páginas que no vienen de un
+    // array) en un único índice buscable por título, resumen o etiqueta.
+    // Se reconstruye cada vez que se abre el buscador — el sitio es
+    // pequeño, así que no hace falta cachearlo.
+    // ──────────────────────────────────────────────────────────
+    function buildSiteIndex(){
+      const index = [];
+      const addFrom = (arr, section, sectionEmoji, labelsMap) => {
+        arr.forEach(item => index.push({
+          title: item.title,
+          summary: item.summary,
+          view: item.internalView || item.link,
+          external: !item.internalView,
+          section, sectionEmoji,
+          tags: [labelsMap && labelsMap[item.type]].filter(Boolean),
+          emoji: item.thumbnail || sectionEmoji
+        }));
+      };
+      addFrom(geekContent, 'Rincón del Friki', '🦸', TYPE_LABELS);
+      addFrom(iaContent, 'IA & Experimentos', '🤖', IA_LABELS);
+      addFrom(creatorContent, 'Creator Tools', '🛠️', CREATOR_LABELS);
+      addFrom(hechoContent, 'Hecho a Mano', '🧶', HECHO_LABELS);
+      addFrom(labContent, 'Charkuma Lab', '🧪', LAB_TYPE_LABELS);
+
+      // Páginas "hub" o fijas que no vienen de un array de contenido.
+      index.push(
+        { title:'Retro 365', summary:'Reto de recomendar un juego distinto cada día, con calendario público y progreso.', view:'retro365', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Retro 365','Juegos'], emoji:'🎮' },
+        { title:'Ruleta del 11', summary:'Sorteador de una alineación de fútbol con base de datos real de jugadores.', view:'ruleta11', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Fútbol'], emoji:'⚽' },
+        { title:'CalcArte', summary:'Máquina de ideas al azar para dibujos para colorear, con prompt listo para IA.', view:'calcarte', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Arte','IA'], emoji:'🎰' },
+        { title:'Rincón del Friki', summary:'Series, superhéroes, cómics y anime — Marvel y The Boys por encima de todo.', view:'rincon', section:'Rincón del Friki', sectionEmoji:'🦸', tags:['Marvel','The Boys'], emoji:'🦸' },
+        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱' }
+      );
+      return index;
+    }
+
+    function searchResultCardHTML(item){
+      const titleLink = item.external
+        ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
+        : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
+      const tagChips = item.tags.map(t => `<span class="type-chip universe-chip">${t}</span>`).join('');
+      return `
+        <div class="geek-card">
+          <div class="geek-thumb">${item.emoji}</div>
+          <div class="geek-info">
+            <div class="geek-badges">
+              <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
+              ${tagChips}
+            </div>
+            <h4>${titleLink}</h4>
+            <p>${item.summary}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderGlobalSearch(){
+      const query = document.getElementById('globalSearchInput').value.trim().toLowerCase();
+      const section = document.getElementById('globalSearchSection').value;
+      const index = buildSiteIndex();
+
+      const sectionSelect = document.getElementById('globalSearchSection');
+      if (sectionSelect.options.length <= 1) {
+        [...new Set(index.map(i => i.section))].sort().forEach(sec => {
+          const opt = document.createElement('option');
+          opt.value = sec; opt.textContent = sec;
+          sectionSelect.appendChild(opt);
+        });
+      }
+
+      const results = index.filter(item => {
+        if (section && item.section !== section) return false;
+        if (!query) return true;
+        const haystack = (item.title + ' ' + item.summary + ' ' + item.tags.join(' ')).toLowerCase();
+        return haystack.includes(query);
+      });
+
+      const container = document.getElementById('globalSearchResults');
+      container.innerHTML = results.length
+        ? results.map(searchResultCardHTML).join('')
+        : `<p class="yt-empty">Nada coincide con esa búsqueda todavía.</p>`;
+    }
+
+    document.getElementById('globalSearchInput').addEventListener('input', renderGlobalSearch);
+    document.getElementById('globalSearchSection').addEventListener('change', renderGlobalSearch);
+
+    // Abre el buscador (icono de la cabecera o el atajo "/").
+    function openSearchView(){
+      showView('buscar');
+      renderGlobalSearch();
+      requestAnimationFrame(() => {
+        const input = document.getElementById('globalSearchInput');
+        if (input) input.focus();
+      });
+    }
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
     document.getElementById('assignBtn').addEventListener('click', assignPlayer);
