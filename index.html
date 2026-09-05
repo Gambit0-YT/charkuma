@@ -433,27 +433,49 @@
     .lock-note{font-size:11px;color:var(--muted);font-style:italic}
     .undecided-row{padding:10px 16px;border-radius:12px;background:#0d0914;border:1px dashed #241a34;color:var(--muted);font-size:12px;font-weight:700}
 
-    /* ── widget lateral: últimos vídeos de YouTube ── */
-    .yt-sidebar{
-      display:none;position:fixed;top:100px;right:24px;width:270px;
+    /* ── lateral: últimos vídeos / noticias + notas ── */
+    .sidebar-stack{
+      display:none;position:fixed;top:100px;right:24px;width:340px;
       max-height:calc(100vh - 130px);overflow-y:auto;
-      padding:18px;border-radius:20px;background:var(--card);
-      border:1px solid var(--line);box-shadow:var(--shadow);z-index:40;
+      flex-direction:column;gap:16px;z-index:40;
     }
-    .yt-sidebar h4{margin:0 0 14px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
-    .yt-video{display:flex;gap:10px;padding:10px 0;border-top:1px solid #241a34}
+    .yt-sidebar{
+      flex:none;padding:20px;border-radius:20px;background:var(--card);
+      border:1px solid var(--line);box-shadow:var(--shadow);
+    }
+    .yt-sidebar h4{margin:0 0 14px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
+    .yt-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid #241a34}
     .yt-video:first-of-type{border-top:none;padding-top:0}
-    .yt-thumb{width:84px;height:47px;border-radius:8px;object-fit:cover;flex:none;background:#100b18}
+    .yt-thumb{width:96px;height:54px;border-radius:8px;object-fit:cover;flex:none;background:#100b18}
     .yt-info strong{
-      font-size:12px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;
+      font-size:13px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;
       -webkit-box-orient:vertical;overflow:hidden
     }
-    .yt-info span{font-size:10px;color:var(--muted)}
-    .yt-empty{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+    .yt-info span{font-size:11px;color:var(--muted)}
+    .yt-empty{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
     .yt-empty code{background:#0d0914;padding:2px 5px;border-radius:5px}
 
-    @media (min-width:1850px){
-      .yt-sidebar{display:block}
+    /* ── bloc de notas (guardado en este navegador) ── */
+    .notes-input-row{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+    .notes-input-row textarea{
+      resize:vertical;min-height:60px;padding:10px 12px;border-radius:10px;
+      background:#0d0914;border:1px solid #2d2240;color:var(--text);
+      font-family:inherit;font-size:13px;line-height:1.5
+    }
+    .notes-input-row textarea:focus{outline:none;border-color:var(--orange)}
+    .notes-save-btn{align-self:flex-end;padding:9px 18px;font-size:12px}
+    .notes-list{display:flex;flex-direction:column;gap:10px;max-height:320px;overflow-y:auto}
+    .note-item{padding:12px 30px 12px 14px;border-radius:12px;background:#0d0914;border:1px solid #241a34;position:relative}
+    .note-item p{margin:0 0 6px;font-size:13px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+    .note-item span{font-size:10px;color:var(--muted)}
+    .note-delete{
+      position:absolute;top:10px;right:10px;background:none;border:0;color:var(--muted);
+      cursor:pointer;font-size:15px;line-height:1;padding:2px
+    }
+    .note-delete:hover{color:var(--red)}
+
+    @media (min-width:1900px){
+      .sidebar-stack{display:flex}
     }
 
     @media (max-width:900px){
@@ -494,12 +516,23 @@
     </div>
   </nav>
 
-  <aside class="yt-sidebar" id="ytSidebar">
-    <h4 id="ytSidebarTitle">▶️ Últimos vídeos</h4>
-    <div id="ytVideoList">
-      <p class="yt-empty">Cargando...</p>
-    </div>
-  </aside>
+  <div class="sidebar-stack" id="sidebarStack">
+    <aside class="yt-sidebar" id="ytSidebar">
+      <h4 id="ytSidebarTitle">▶️ Últimos vídeos</h4>
+      <div id="ytVideoList">
+        <p class="yt-empty">Cargando...</p>
+      </div>
+    </aside>
+
+    <aside class="yt-sidebar notes-widget" id="notesWidget">
+      <h4>📝 Notas rápidas</h4>
+      <div class="notes-input-row">
+        <textarea id="noteInput" rows="2" placeholder="Escribe una nota o recordatorio..."></textarea>
+        <button class="btn btn-primary notes-save-btn" id="noteSaveBtn">Guardar</button>
+      </div>
+      <div id="notesList" class="notes-list"></div>
+    </aside>
+  </div>
 
   <main>
 
@@ -1717,6 +1750,68 @@
     }
 
     if (!cameFromHash) updateSidebar('home');
+
+    // ──────────────────────────────────────────────────────────
+    // BLOC DE NOTAS — se guarda en este navegador (localStorage).
+    // No se sincroniza entre dispositivos ni navegadores distintos.
+    // ──────────────────────────────────────────────────────────
+    const NOTES_KEY = 'charkuma_notes';
+
+    function loadNotes(){
+      try { return JSON.parse(localStorage.getItem(NOTES_KEY)) || []; }
+      catch (e) { return []; }
+    }
+
+    function saveNotes(notes){
+      try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); }
+      catch (e) { /* localStorage no disponible (modo privado, etc.) */ }
+    }
+
+    function escapeHTML(str){
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function renderNotes(){
+      const notes = loadNotes();
+      const list = document.getElementById('notesList');
+      list.innerHTML = notes.length
+        ? notes.slice().reverse().map(note => `
+            <div class="note-item">
+              <button class="note-delete" onclick="deleteNote('${note.id}')" title="Borrar nota">✕</button>
+              <p>${escapeHTML(note.text)}</p>
+              <span>${note.date}</span>
+            </div>`).join('')
+        : `<p class="yt-empty">Todavía no tienes notas. Escribe la primera arriba 👆</p>`;
+    }
+
+    function addNote(){
+      const input = document.getElementById('noteInput');
+      const text = input.value.trim();
+      if (!text) return;
+      const notes = loadNotes();
+      notes.push({
+        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+        text,
+        date: new Date().toLocaleString('es-ES', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'})
+      });
+      saveNotes(notes);
+      input.value = '';
+      renderNotes();
+    }
+
+    function deleteNote(id){
+      saveNotes(loadNotes().filter(n => n.id !== id));
+      renderNotes();
+    }
+
+    document.getElementById('noteSaveBtn').addEventListener('click', addNote);
+    document.getElementById('noteInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) addNote();
+    });
+
+    renderNotes();
   </script>
 </body>
 </html>
