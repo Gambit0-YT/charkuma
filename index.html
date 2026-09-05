@@ -10,15 +10,15 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A6%8E</text></svg>" />
 
   <!-- Open Graph / Twitter Card: vista previa al compartir el enlace -->
-  <!-- IMPORTANTE: cuando publiques la web online, actualiza "og:url" con tu
-       dominio real y añade una imagen "og-image.jpg" (1200x630px, por ejemplo
-       una captura del hero) en esta misma carpeta para que "og:image" funcione. -->
+  <!-- PENDIENTE: falta subir una imagen real "og-image.jpg" (1200x630px, por
+       ejemplo una captura del hero) a esta misma carpeta para que "og:image"
+       funcione. El resto ya está configurado con el dominio real. -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CHARKUMA" />
   <meta property="og:title" content="CHARKUMA — Gaming, cultura geek y creatividad" />
   <meta property="og:description" content="Gamer, creador y friki profesional: videojuegos, cultura geek, Marvel, series, tecnología y proyectos creativos." />
-  <meta property="og:image" content="og-image.jpg" />
-  <meta property="og:url" content="https://tu-dominio-cuando-lo-publiques.com/" />
+  <meta property="og:image" content="https://gambit0-yt.github.io/charkuma/og-image.jpg" />
+  <meta property="og:url" content="https://gambit0-yt.github.io/charkuma/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CHARKUMA — Gaming, cultura geek y creatividad" />
   <meta name="twitter:description" content="Gamer, creador y friki profesional: videojuegos, cultura geek, Marvel, series, tecnología y proyectos creativos." />
@@ -797,17 +797,17 @@
                   <div class="platform-badge">▶️</div>
                   <div>
                     <h3>YouTube</h3>
-                    <div class="handle">@charkuma</div>
+                    <div class="handle">@mrchakurma</div>
                   </div>
                 </div>
-                <a class="visit" href="#" target="_blank" rel="noopener">Ver canal ↗</a>
+                <a class="visit" href="https://www.youtube.com/@mrchakurma" target="_blank" rel="noopener">Ver canal ↗</a>
               </div>
               <div class="latest-label">Último vídeo</div>
-              <div class="latest-card">
-                <div class="latest-thumb">🎬</div>
+              <div class="latest-card" id="redesYtCard">
+                <div class="latest-thumb" id="redesYtThumb">🎬</div>
                 <div class="latest-info">
-                  <strong>Título del último vídeo</strong>
-                  <span>Hace 2 días · 12:34 min</span>
+                  <strong id="redesYtTitle">Cargando...</strong>
+                  <span id="redesYtDate"></span>
                 </div>
               </div>
             </div>
@@ -818,10 +818,10 @@
                   <div class="platform-badge">🎵</div>
                   <div>
                     <h3>TikTok</h3>
-                    <div class="handle">@charkuma</div>
+                    <div class="handle">@kiddcolors</div>
                   </div>
                 </div>
-                <a class="visit" href="#" target="_blank" rel="noopener">Ver perfil ↗</a>
+                <a class="visit" href="https://www.tiktok.com/@kiddcolors" target="_blank" rel="noopener">Ver perfil ↗</a>
               </div>
               <div class="latest-label">Último post</div>
               <div class="latest-card">
@@ -839,10 +839,10 @@
                   <div class="platform-badge">📸</div>
                   <div>
                     <h3>Instagram</h3>
-                    <div class="handle">@charkuma</div>
+                    <div class="handle">@kiddcolors</div>
                   </div>
                 </div>
-                <a class="visit" href="#" target="_blank" rel="noopener">Ver perfil ↗</a>
+                <a class="visit" href="https://www.instagram.com/kiddcolors/" target="_blank" rel="noopener">Ver perfil ↗</a>
               </div>
               <div class="latest-label">Último post</div>
               <div class="latest-card">
@@ -860,10 +860,10 @@
                   <div class="platform-badge">🕹️</div>
                   <div>
                     <h3>Twitch</h3>
-                    <div class="handle">charkuma</div>
+                    <div class="handle">kiddcolors</div>
                   </div>
                 </div>
-                <a class="visit" href="#" target="_blank" rel="noopener">Ver canal ↗</a>
+                <a class="visit" href="https://www.twitch.tv/kiddcolors" target="_blank" rel="noopener">Ver canal ↗</a>
               </div>
               <div class="latest-label">Último directo</div>
               <div class="latest-card">
@@ -878,9 +878,11 @@
           </div>
 
           <div class="note">
-            <strong>Nota:</strong> los enlaces y el contenido de "último vídeo/post" son de ejemplo.
-            Cuando quieras que se actualicen solos, podemos conectar esta vista a las APIs de
-            YouTube/TikTok/Instagram/Twitch.
+            <strong>Nota:</strong> los 4 enlaces ya son reales y llevan a tus perfiles.
+            El "Último vídeo" de YouTube ya se actualiza solo (misma fuente que el lateral).
+            Los de TikTok, Instagram y Twitch siguen siendo de ejemplo — cuando quieras que se
+            actualicen solos también, esas plataformas piden APIs bastante más complicadas de
+            configurar que la de YouTube, así que lo dejamos para cuando te interese de verdad.
           </div>
         </div>
       </section>
@@ -1847,7 +1849,28 @@
       };
     }
 
-    let ruletaState = freshRuletaState();
+    // Guardado de partida (localStorage): si recargas la página a mitad de
+    // partida, la recuperas tal cual la dejaste.
+    const RULETA_STORAGE_KEY = 'charkuma_ruleta11_partida';
+
+    function saveRuletaState(){
+      try { localStorage.setItem(RULETA_STORAGE_KEY, JSON.stringify(ruletaState)); }
+      catch (e) { /* localStorage no disponible */ }
+    }
+
+    function loadRuletaState(){
+      try {
+        const raw = localStorage.getItem(RULETA_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) { return null; }
+    }
+
+    function clearRuletaState(){
+      try { localStorage.removeItem(RULETA_STORAGE_KEY); }
+      catch (e) { /* nada que hacer */ }
+    }
+
+    let ruletaState = loadRuletaState() || freshRuletaState();
 
     function openCategoriesFor(team){
       const openSlots = FORMATION_SLOTS.filter(s => !(s.id in team.slots));
@@ -1878,6 +1901,7 @@
       document.getElementById('playerNameInput').value = '';
       document.getElementById('playerNameInput').focus();
       document.getElementById('spinRuletaBtn').disabled = true;
+      saveRuletaState();
     }
 
     function showRuletaError(msg){
@@ -1917,6 +1941,7 @@
 
       advanceTurn();
       renderRuleta();
+      saveRuletaState();
     }
 
     function advanceTurn(){
@@ -1988,6 +2013,23 @@
       document.getElementById('ruletaResult').textContent = 'Pulsa "Girar" para conocer tu posición y club/selección.';
       document.getElementById('spinRuletaBtn').disabled = false;
       renderRuleta();
+      clearRuletaState();
+    }
+
+    // Si al cargar la página había una partida guardada, restaura también
+    // los nombres de los equipos y, si había un giro a medio resolver, el
+    // formulario de asignar jugador.
+    function restoreRuletaUI(){
+      document.getElementById('teamNameInput0').value = ruletaState.teams[0].name;
+      document.getElementById('teamNameInput1').value = ruletaState.teams[1].name;
+
+      if (ruletaState.pending) {
+        const p = ruletaState.pending;
+        document.getElementById('ruletaResult').innerHTML =
+          `Te toca: <br><strong>${CATEGORY_LABELS[p.category]} (${p.slotLabel})</strong> — <strong>${p.club}</strong>`;
+        document.getElementById('ruletaAssign').hidden = false;
+        document.getElementById('spinRuletaBtn').disabled = true;
+      }
     }
 
     // ──────────────────────────────────────────────────────────
@@ -2238,9 +2280,11 @@
       document.getElementById(id).addEventListener('change', (e) => {
         ruletaState.teams[i].name = e.target.value.trim() || `Equipo ${i + 1}`;
         renderRuleta();
+        saveRuletaState();
       });
     });
 
+    restoreRuletaUI();
     renderRuleta();
 
     // ──────────────────────────────────────────────────────────
@@ -2314,6 +2358,22 @@
                 </a>`;
             }).join('')
           : `<p class="yt-empty">Todavía no hay vídeos publicados.</p>`;
+
+        // Reutiliza el primer vídeo también en la tarjeta de la página Redes Sociales
+        if (videos.length) {
+          const s0 = videos[0].snippet;
+          const thumb0 = (s0.thumbnails.medium || s0.thumbnails.default).url;
+          const date0 = new Date(s0.publishedAt).toLocaleDateString('es-ES', {day:'numeric', month:'short'});
+          const redesThumb = document.getElementById('redesYtThumb');
+          const redesTitle = document.getElementById('redesYtTitle');
+          const redesDate = document.getElementById('redesYtDate');
+          const redesCard = document.getElementById('redesYtCard');
+          if (redesThumb) redesThumb.outerHTML = `<img class="latest-thumb" id="redesYtThumb" src="${thumb0}" alt="">`;
+          if (redesTitle) redesTitle.textContent = s0.title;
+          if (redesDate) redesDate.textContent = date0;
+          if (redesCard) redesCard.onclick = () => window.open(`https://www.youtube.com/watch?v=${s0.resourceId.videoId}`, '_blank');
+          if (redesCard) redesCard.style.cursor = 'pointer';
+        }
       } catch (err) {
         cachedVideosHTML = `<p class="yt-empty">No se pudieron cargar los vídeos ahora mismo (revisa la API key y el Channel ID).</p>`;
       }
