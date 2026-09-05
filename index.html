@@ -1100,7 +1100,7 @@
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
           <div class="section-kicker">PROYECTO 002</div>
-          <h2 class="section-title">🦸 RINCÓN DEL FRIKI</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openRinconSecretList()">🦸</span> RINCÓN DEL FRIKI</h2>
           <p class="section-sub">
             Series, superhéroes, cómics y algo de anime. Noticias, opiniones y vídeos —
             pero el corazón de esta sección son los superhéroes, sobre todo Marvel y The Boys.
@@ -1192,6 +1192,35 @@
             <code>fancast</code> / <code>batalla</code>), <code>summary</code>, <code>thumbnail</code>
             (un emoji), y <code>internalView</code> (página propia) o <code>videoUrl</code> (externo).
           </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ RINCÓN DEL FRIKI · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-rf-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('rincon')">← Volver a Rincón del Friki</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
+          <p class="section-sub">
+            Esta vista tampoco está enlazada desde ningún sitio del site — otro rincón para nadie
+            salvo tú (y quien lea el código). Cincuenta ideas de vídeo listas para cuando te quedes
+            en blanco, organizadas por tipo de contenido.
+          </p>
+
+          <div class="progress-panel">
+            <div class="progress-head">
+              <strong>Banco de ideas</strong>
+              <span id="rfSecretSummary">50 ideas · 5 tipos de contenido</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container">
+          <div id="rfSecretContainer"></div>
         </div>
       </section>
     </div>
@@ -2611,6 +2640,11 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       showView('retro-secret');
     }
 
+    // Easter egg: clic en el 🦸 de "RINCÓN DEL FRIKI" → banco secreto de 50 ideas
+    function openRinconSecretList(){
+      showView('rf-secret');
+    }
+
     // Permite enlazar directamente a una vista con #view=nombre (por si
     // alguna vez compartes un enlace a una sección concreta)
     const cameFromHash = (function initFromHash(){
@@ -3120,6 +3154,102 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     document.getElementById('geekSagaFilter').addEventListener('change', renderGeekContent);
     document.getElementById('geekTypeFilter').addEventListener('change', renderGeekContent);
     renderGeekContent();
+
+    // ──────────────────────────────────────────────────────────
+    // Easter egg: banco secreto de 50 ideas de vídeo para Rincón
+    // del Friki, agrupadas por los mismos 5 tipos de contenido
+    // (10 ideas por tipo). Mismo patrón que la chuleta de Retro 365
+    // — pensado para poder repetirse en el resto de secciones.
+    // ──────────────────────────────────────────────────────────
+    const rinconSecretIdeas = {
+      reaccion: [
+        "Reaccionando al tráiler más reciente de una serie o película Marvel.",
+        "Reacción al último capítulo de The Boys, minuto a minuto.",
+        "Reaccionando a la escena post-créditos más comentada del UCM.",
+        "Primera vez viendo el ataque de Homelander en el metro (reacción real).",
+        "Reaccionando al tráiler de un anime que está petándolo estas semanas.",
+        "Reaccionando a los primeros minutos de una peli Marvel \"infravalorada\".",
+        "Reacción al anuncio de un nuevo fichaje de actor para un personaje icónico.",
+        "Reaccionando a la escena más bestia de The Boys (con aviso de contenido).",
+        "Reaccionando a un tráiler filtrado de un videojuego de superhéroes.",
+        "Reaccionando a la comparación de un traje: cómic vs película."
+      ],
+      curiosidad: [
+        "10 datos que no sabías sobre el origen de un personaje concreto de Marvel.",
+        "Cosas que la serie de The Boys cambia respecto al cómic original.",
+        "Easter eggs escondidos en una película que casi nadie pilló.",
+        "Por qué un actor casi rechaza el papel que le hizo famoso.",
+        "El presupuesto real de una escena icónica y en qué se fue el dinero.",
+        "Diferencias entre el traje del cómic y el de la peli, explicadas.",
+        "El origen real (mitológico o histórico) que inspiró a un superhéroe.",
+        "Anécdotas de rodaje que se salieron de guion y se quedaron en la peli.",
+        "Por qué cierto villano iba a ser completamente distinto en el guion original.",
+        "Curiosidades sobre un crossover entre dos universos (cómic o teoría fan)."
+      ],
+      opinion: [
+        "Por qué esta fase del UCM es la más floja, con argumentos.",
+        "Homelander es el mejor villano de superhéroes de la última década — así lo defiendo.",
+        "Por qué The Boys hace mejor sátira social que cualquier peli \"seria\" de superhéroes.",
+        "El personaje que Marvel está desaprovechando y cómo lo arreglaría yo.",
+        "Por qué las películas de origen ya no funcionan (y qué formato sí).",
+        "Este anime está sobrevalorado — mi opinión impopular.",
+        "El final de temporada que se sintió como una traición al personaje.",
+        "Por qué el multiverso ha hecho más mal que bien a las historias.",
+        "El crossover que todo el mundo pide pero que nunca debería pasar.",
+        "Por qué prefiero los villanos \"grises\" a los puramente malos."
+      ],
+      fancast: [
+        "Fancast: quién debería interpretar al próximo gran villano Marvel.",
+        "Si rehicieran The Boys desde cero, este sería mi reparto ideal.",
+        "Fancast de una heroína clásica que todavía no ha tenido su adaptación.",
+        "Actor infravalorado que merece un papel de superhéroe ya.",
+        "Si Marvel adaptara este cómic poco conocido, así lo castearía.",
+        "Fancast de villana para la próxima gran saga.",
+        "Quién debería doblar a este personaje de anime en su adaptación live-action.",
+        "El actor \"de otra franquicia\" que encajaría perfecto en este papel.",
+        "Fancast generacional: reemplazo para un héroe veterano que se retira.",
+        "Si hicieran una serie de este equipo secundario, este sería el reparto."
+      ],
+      batalla: [
+        "Homelander vs Omni-Man: ¿quién gana en serio?",
+        "El villano de Marvel más fuerte físicamente, ranking razonado.",
+        "The Boys (el equipo) vs los Vengadores en un enfrentamiento directo.",
+        "Batalla imposible: un héroe cósmico contra un héroe callejero, ¿hay opción?",
+        "El combate más infravalorado del UCM, revisitado y analizado.",
+        "Ranking de los villanos más letales si pelearan entre ellos.",
+        "Starlight vs una heroína Marvel de poder similar — análisis de poderes.",
+        "El plan que un villano casi ejecuta a la perfección (y por qué falló).",
+        "Un equipo de 3 héroes random vs Homelander: ¿sobreviven?",
+        "La pelea que los fans llevan años pidiendo y nunca ha pasado."
+      ]
+    };
+
+    function renderRinconSecret(){
+      const container = document.getElementById('rfSecretContainer');
+      if (!container) return;
+      let html = "";
+      Object.keys(rinconSecretIdeas).forEach(type => {
+        const ideas = rinconSecretIdeas[type];
+        const rows = ideas.map((idea, i) => `
+          <div class="template-card">
+            <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+              <span class="type-chip type-${type}">${TYPE_LABELS[type]}</span>
+              <span class="count">#${i + 1}</span>
+            </div>
+            <p style="margin:0">${idea}</p>
+          </div>`).join('');
+        html += `
+          <details class="month">
+            <summary>
+              <span>${TYPE_LABELS[type]}</span>
+              <span class="count">${ideas.length} ideas</span>
+            </summary>
+            <div class="month-body">${rows}</div>
+          </details>`;
+      });
+      container.innerHTML = html;
+    }
+    renderRinconSecret();
 
     // ──────────────────────────────────────────────────────────
     // HELQUIDGAMES · RULETA DEL 11
