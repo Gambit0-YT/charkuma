@@ -1714,8 +1714,184 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
             <strong>Nota para editar:</strong> el contenido sale del array <code>creatorContent</code>
             en el <code>&lt;script&gt;</code>. Cada entrada lleva <code>title</code>,
             <code>type</code> (<code>overlay</code> / <code>obs</code> / <code>plantilla</code> /
-            <code>recurso</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code> y
-            <code>link</code>. Los ejemplos de ahora son solo para mostrar el diseño.
+            <code>recurso</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code>, y
+            <code>internalView</code> (página propia) o <code>link</code> (externo).
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · detalle: Overlay de directo ══════════ -->
+    <div id="view-ct-overlay-directo" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">CREATOR TOOLS · OVERLAY<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🎥 OVERLAY DE DIRECTO CHARKUMA</h2>
+          <p class="section-sub">
+            La capa gráfica que uso en los directos: pensada para que, aunque cambie el juego,
+            siempre se note que es un directo de CHARKUMA.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Qué incluye</h3>
+            <ul class="ia-steps">
+              <li><strong>Marco de cámara</strong>: esquina inferior con borde en degradado morado→naranja, a juego con el logo.</li>
+              <li><strong>Caja de alertas</strong>: nuevos seguidores/subs, con el lagarto asomando y un sonido corto.</li>
+              <li><strong>Marcador de "en directo"</strong>: esquina superior, fondo casi negro con el texto en degradado, sin distraer del juego.</li>
+              <li><strong>Barra inferior de recientes</strong>: últimos 3 eventos (follow, sub, donación) deslizándose.</li>
+            </ul>
+            <h3>Herramientas usadas</h3>
+            <p>
+              Diseño base en Canva/Figma con los colores de marca (morado <code>#8b5cf6</code>,
+              naranja <code>#ff7a18</code>), y montaje final directamente en OBS como fuentes de
+              imagen + Navegador para las alertas animadas.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> en cuanto tenga el archivo final exportado, lo enlazo aquí para
+            poder descargarlo directamente.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · detalle: Escenas OBS retro ══════════ -->
+    <div id="view-ct-obs-retro" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">CREATOR TOOLS · CONFIG OBS<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🎛️ ESCENAS DE OBS PARA SESIONES RETRO</h2>
+          <p class="section-sub">
+            La colección de escenas que tengo montada para grabar los días de
+            Retro 365 sin perder tiempo cambiando cosas a mitad de grabación.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Las escenas</h3>
+            <ol class="ia-steps">
+              <li><code>INTRO</code> — logo animado + música corta, transición a...</li>
+              <li><code>GAMEPLAY + CAM</code> — captura de juego a pantalla completa, cámara en esquina inferior derecha.</li>
+              <li><code>SOLO CÁMARA</code> — para los tramos de opinión directa a cámara entre partidas.</li>
+              <li><code>OUTRO</code> — pantalla de cierre con "dale like si te ha gustado" y redes sociales.</li>
+            </ol>
+            <h3>Transición</h3>
+            <p>
+              Uso un <em>Stinger</em> corto (menos de medio segundo) con el lagarto cruzando la
+              pantalla, en vez de un fundido genérico — ayuda a que el editor sepa exactamente
+              dónde cortar luego en la edición.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> cuando exporte la colección de escenas como archivo <code>.json</code>
+            de OBS, lo dejo descargable aquí mismo.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · detalle: Plantilla miniatura Rincón del Friki ══════════ -->
+    <div id="view-ct-plantilla-friki" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">CREATOR TOOLS · PLANTILLA<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">📐 PLANTILLA DE MINIATURA PARA RINCÓN DEL FRIKI</h2>
+          <p class="section-sub">
+            Estructura fija para no tener que pensar el diseño desde cero cada vez que subo
+            un vídeo de Marvel o The Boys.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>La estructura</h3>
+            <ul class="ia-steps">
+              <li><strong>Fondo</strong>: recorte del personaje o escena principal, a toda pantalla.</li>
+              <li><strong>Cara de reacción</strong>: mi cara en una esquina, con una expresión exagerada (sorpresa, indignación...).</li>
+              <li><strong>Texto</strong>: máximo 4 palabras, en mayúsculas, con un pequeño contorno de color según la saga — rojo/azul para Marvel, negro/blanco para The Boys.</li>
+              <li><strong>Sello de saga</strong>: un icono pequeño en la esquina (🅼 o 🅱️) para identificar de un vistazo de qué franquicia habla el vídeo.</li>
+            </ul>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> en cuanto tenga la plantilla exportada en Canva/Photoshop, dejo aquí el enlace para reutilizarla.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · detalle: Pack de stingers ══════════ -->
+    <div id="view-ct-stingers" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">CREATOR TOOLS · RECURSO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🔌 PACK DE STINGERS Y SONIDOS DE TRANSICIÓN</h2>
+          <p class="section-sub">
+            Pequeños efectos de sonido para marcar cambios de escena y momentos clave sin
+            depender de packs genéricos que suenan en todos los canales.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Qué lleva el pack</h3>
+            <ul class="ia-steps">
+              <li>🔀 Transición corta entre escenas (menos de 1 segundo).</li>
+              <li>🎉 Sonido de "logro/victoria" para clips destacados.</li>
+              <li>⚠️ Aviso corto para momentos de "esto no me lo esperaba".</li>
+              <li>👋 Cierre suave para el final de los vídeos.</li>
+            </ul>
+            <h3>Cómo los hago</h3>
+            <p>
+              Sintetizados con herramientas gratuitas tipo <em>Bfxr</em> o <em>ChipTone</em> (pensadas
+              para sonidos de videojuegos retro) y retocados en Audacity para que encajen con el
+              tono general del canal.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> subiré aquí los archivos <code>.wav</code> del pack en cuanto
+            estén rematados del todo.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · detalle: Overlay maratón Retro 365 ══════════ -->
+    <div id="view-ct-overlay-retro365" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">CREATOR TOOLS · OVERLAY<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
+          <h2 class="section-title">🎥 OVERLAY ESPECIAL PARA MARATONES DE RETRO 365</h2>
+          <p class="section-sub">
+            Una variante del overlay principal pensada para las sesiones largas donde grabo
+            varios días de Retro 365 seguidos.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>La diferencia con el overlay normal</h3>
+            <ul class="ia-steps">
+              <li><strong>Contador de progreso</strong>: "Día X / 365" siempre visible en una esquina, igual que en la web.</li>
+              <li><strong>Barra de progreso</strong>: la misma barra morado→naranja de la sección de Retro 365, actualizada a mano antes de cada sesión.</li>
+              <li><strong>Miniatura del juego actual</strong>: para que quien entre a mitad de directo sepa de qué juego se está hablando sin preguntar.</li>
+            </ul>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> pendiente de automatizar el contador para que se actualice
+            solo leyendo los datos de <code>completedGames</code> en vez de tocarlo a mano cada vez.
           </div>
         </div>
       </section>
@@ -2307,6 +2483,9 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
 
     function geekCardHTML(item){
       const date = item.date ? new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short'}) : '';
+      const titleLink = item.internalView
+        ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
+        : `<a href="${item.videoUrl}" target="_blank" rel="noopener">${item.title} ↗</a>`;
       return `
         <div class="geek-card">
           ${reviewBadgeHTML(item)}
@@ -2317,7 +2496,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
               <span class="type-chip type-${item.type}">${TYPE_LABELS[item.type] || item.type}</span>
               ${date ? `<span class="yt-empty" style="margin:0">${date}</span>` : ''}
             </div>
-            <h4><a href="${item.videoUrl}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+            <h4>${titleLink}</h4>
             <p>${item.summary}</p>
           </div>
         </div>`;
@@ -3159,31 +3338,31 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         title: "Overlay de directo CHARKUMA",
         type: "overlay", date: "2026-08-10",
         summary: "Capa gráfica completa para streaming: alertas, cámara y marcador a juego con la web.",
-        thumbnail: "🎥", link: "#"
+        thumbnail: "🎥", internalView: "ct-overlay-directo", reviewed: false
       },
       {
         title: "Escenas de OBS para sesiones retro",
         type: "obs", date: "2026-08-22",
         summary: "Configuración de escenas y transiciones pensada para grabar Retro 365.",
-        thumbnail: "🎛️", link: "#"
+        thumbnail: "🎛️", internalView: "ct-obs-retro", reviewed: false
       },
       {
         title: "Plantilla de miniatura para Rincón del Friki",
         type: "plantilla", date: "2026-09-03",
         summary: "Plantilla editable para sacar miniaturas de vídeos de Marvel/The Boys en minutos.",
-        thumbnail: "📐", link: "#"
+        thumbnail: "📐", internalView: "ct-plantilla-friki", reviewed: false
       },
       {
         title: "Pack de stingers y sonidos de transición",
         type: "recurso", date: "2026-09-04",
         summary: "Efectos de sonido cortos para cambios de escena, hechos a medida para el canal.",
-        thumbnail: "🔌", link: "#"
+        thumbnail: "🔌", internalView: "ct-stingers", reviewed: false
       },
       {
         title: "Overlay especial para maratones de Retro 365",
         type: "overlay", date: "2026-09-06",
         summary: "Variante del overlay principal con contador de días y progreso del reto en pantalla.",
-        thumbnail: "🎥", link: "#"
+        thumbnail: "🎥", internalView: "ct-overlay-retro365", reviewed: false
       }
       // { title:"...", type:"overlay|obs|plantilla|recurso", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🖥️", link:"..." },
