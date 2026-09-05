@@ -90,12 +90,12 @@
       font-size:22px;
     }
     .brand span strong{color:var(--orange)}
-    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px;font-weight:700}
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
     .nav-links a{cursor:pointer}
     .nav-links a:hover{color:white}
     .nav-cta{
       padding:10px 15px;border:1px solid rgba(255,122,24,.38);border-radius:12px;
-      color:white;background:rgba(255,122,24,.08);cursor:pointer
+      color:white;background:rgba(255,122,24,.08);cursor:pointer;text-transform:uppercase;letter-spacing:.02em
     }
 
     .hero{
@@ -648,8 +648,8 @@
         <a href="javascript:void(0)" onclick="goHome('proyectos')">Proyectos</a>
         <a href="javascript:void(0)" onclick="goHome('random')">Random</a>
         <a href="javascript:void(0)" onclick="goHome('lab')">Laboratorio</a>
-        <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
+        <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
       </div>
       <a class="nav-cta" href="javascript:void(0)" onclick="goHome('proyectos')">Explorar universo ↗</a>
     </div>
@@ -1683,6 +1683,32 @@
     const spinBtn = document.getElementById('spinBtn');
     let rotation = 0;
 
+    // Solo una tirada al día por visitante (localStorage, por navegador).
+    const RANDOM_SPIN_KEY = 'charkuma_random_last_spin';
+
+    function todayKey(){
+      return new Date().toISOString().slice(0, 10); // AAAA-MM-DD
+    }
+
+    function checkDailySpinUsed(){
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(RANDOM_SPIN_KEY)); } catch (e) { /* ignorar */ }
+      if (saved && saved.date === todayKey()) {
+        spinBtn.disabled = true;
+        spinBtn.textContent = '✅ Ya has tirado hoy';
+        result.textContent = `${saved.pick}  —  Vuelve mañana para otra tirada.`;
+        return true;
+      }
+      return false;
+    }
+
+    function markDailySpinUsed(pick){
+      try { localStorage.setItem(RANDOM_SPIN_KEY, JSON.stringify({date: todayKey(), pick})); }
+      catch (e) { /* localStorage no disponible: no pasa nada, simplemente no se recordará */ }
+    }
+
+    checkDailySpinUsed();
+
     spinBtn.addEventListener('click', () => {
       spinBtn.disabled = true;
       result.textContent = "🦎 CHARKUMA está decidiendo...";
@@ -1693,7 +1719,8 @@
       setTimeout(() => {
         const pick = options[Math.floor(Math.random() * options.length)];
         result.textContent = pick;
-        spinBtn.disabled = false;
+        markDailySpinUsed(pick);
+        checkDailySpinUsed(); // bloquea el botón y cambia el texto ya con la tirada guardada
       }, 2600);
     });
 
@@ -2195,6 +2222,8 @@
     // simplemente sin autocompletar ni avisar.
     let playersDB = null; // Set con los nombres conocidos, en minúsculas
 
+    let playersDisplayNames = null; // array de nombres, para filtrar mientras se escribe
+
     async function loadPlayersDB(){
       try {
         const data = await fetch('players-data.json').then(r => r.json());
@@ -2207,15 +2236,35 @@
           lookupKeys.add(`${p.f} ${p.l}`.toLowerCase());
         });
         playersDB = lookupKeys;
-
-        const datalist = document.getElementById('playersDatalist');
-        datalist.innerHTML = Array.from(displayNames).sort()
-          .map(n => `<option value="${n.replace(/"/g, '&quot;')}">`).join('');
+        playersDisplayNames = Array.from(displayNames).sort();
       } catch (err) {
         playersDB = null;
+        playersDisplayNames = null;
       }
     }
     loadPlayersDB();
+
+    // El <datalist> solo se rellena a partir de 3 letras escritas — con
+    // miles de jugadores, mostrarlos todos desde la primera letra hacía
+    // que el menú de sugerencias fuera enorme y molesto.
+    const PLAYERS_AUTOCOMPLETE_MIN_CHARS = 3;
+    const PLAYERS_AUTOCOMPLETE_MAX_RESULTS = 50;
+
+    document.getElementById('playerNameInput').addEventListener('input', (e) => {
+      const datalist = document.getElementById('playersDatalist');
+      const query = e.target.value.trim().toLowerCase();
+
+      if (!playersDisplayNames || query.length < PLAYERS_AUTOCOMPLETE_MIN_CHARS) {
+        datalist.innerHTML = '';
+        return;
+      }
+
+      const matches = playersDisplayNames
+        .filter(n => n.toLowerCase().includes(query))
+        .slice(0, PLAYERS_AUTOCOMPLETE_MAX_RESULTS);
+
+      datalist.innerHTML = matches.map(n => `<option value="${n.replace(/"/g, '&quot;')}">`).join('');
+    });
 
     function assignPlayer(){
       const pending = ruletaState.pending;
