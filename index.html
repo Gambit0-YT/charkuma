@@ -403,6 +403,10 @@
     .type-fancast{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .type-batalla{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
 
+    .type-proyecto{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .type-herramienta{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
+    .type-bitacora{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
+
     .saga-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .saga-marvel{background:rgba(237,29,36,.15);color:#ff6b6f;border:1px solid rgba(237,29,36,.4)}
     .saga-boys{background:rgba(255,255,255,.08);color:#f0f0f0;border:1px solid rgba(255,255,255,.28)}
@@ -1168,22 +1172,35 @@
           <div class="section-kicker">PROYECTO 004</div>
           <h2 class="section-title">🧪 CHARKUMA LAB</h2>
           <p class="section-sub">
-            Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.
+            Tres cosas en un mismo sitio: proyectos y experimentos terminados, mini-herramientas
+            sueltas, y una bitácora de lo que voy probando por el camino.
           </p>
         </div>
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="panel">
-            <h3>Sobre este proyecto</h3>
-            <p>
-              Aquí irá el contenido de Charkuma Lab: experimentos con IA, herramientas para
-              creadores, prototipos de webs y cualquier idea rara que merezca la pena probar.
-            </p>
+
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="labSearch" placeholder="🔎 Buscar por título..." />
+              <select id="labTypeFilter">
+                <option value="">Todo</option>
+                <option value="proyecto">🟣 Proyecto</option>
+                <option value="herramienta">🟢 Herramienta</option>
+                <option value="bitacora">🟡 Bitácora</option>
+              </select>
+            </div>
           </div>
+
+          <div id="labContentList" class="recent-list"></div>
+
           <div class="note">
-            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
-            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+            <strong>Nota para editar:</strong> el contenido se genera desde el array
+            <code>labContent</code> en el <code>&lt;script&gt;</code> de este archivo.
+            Cada entrada lleva <code>title</code>, <code>type</code>
+            (<code>proyecto</code> / <code>herramienta</code> / <code>bitacora</code>),
+            <code>date</code>, <code>summary</code>, <code>thumbnail</code> (un emoji) y
+            <code>link</code>. Los ejemplos de ahora son solo para mostrar el diseño.
           </div>
         </div>
       </section>
@@ -1941,6 +1958,84 @@
       document.getElementById('spinRuletaBtn').disabled = false;
       renderRuleta();
     }
+
+    // ──────────────────────────────────────────────────────────
+    // CHARKUMA LAB — proyectos, herramientas y bitácora
+    // ──────────────────────────────────────────────────────────
+    const labContent = [
+      {
+        title: "Rediseño del overlay de streaming",
+        type: "proyecto",
+        date: "2026-08-20",
+        summary: "Nueva capa gráfica para los directos: alertas, cámara y marcador a juego con la estética de la web.",
+        thumbnail: "🎨",
+        link: "#"
+      },
+      {
+        title: "Generador de miniaturas con IA",
+        type: "herramienta",
+        date: "2026-08-28",
+        summary: "Prompt afinado para sacar miniaturas de vídeo con look consistente en un par de intentos.",
+        thumbnail: "🤖",
+        link: "#"
+      },
+      {
+        title: "Bitácora: probando ComfyUI por primera vez",
+        type: "bitacora",
+        date: "2026-09-02",
+        summary: "Primeras impresiones montando flujos de generación de imagen con nodos. Va para largo.",
+        thumbnail: "📓",
+        link: "#"
+      },
+      {
+        title: "Bot de Discord para el servidor de CHARKUMA",
+        type: "proyecto",
+        date: "2026-09-04",
+        summary: "Comandos básicos, roles automáticos y aviso cuando sube un vídeo nuevo.",
+        thumbnail: "🕹️",
+        link: "#"
+      }
+      // { title:"...", type:"proyecto|herramienta|bitacora", date:"AAAA-MM-DD",
+      //   summary:"...", thumbnail:"🧪", link:"..." },
+    ];
+
+    const LAB_TYPE_LABELS = {
+      proyecto: '🟣 Proyecto', herramienta: '🟢 Herramienta', bitacora: '🟡 Bitácora'
+    };
+
+    function labCardHTML(item){
+      const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      return `
+        <div class="geek-card">
+          <div class="geek-thumb">${item.thumbnail || "🧪"}</div>
+          <div class="geek-info">
+            <div class="geek-badges">
+              <span class="type-chip type-${item.type}">${LAB_TYPE_LABELS[item.type] || item.type}</span>
+              <span class="yt-empty" style="margin:0">${date}</span>
+            </div>
+            <h4><a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+            <p>${item.summary}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderLabContent(){
+      const query = document.getElementById('labSearch').value.trim().toLowerCase();
+      const type = document.getElementById('labTypeFilter').value;
+
+      const items = labContent
+        .filter(item => (!type || item.type === type) && (!query || item.title.toLowerCase().includes(query)))
+        .sort((a, b) => new Date(b.date) - new Date(a.date)); // más reciente primero
+
+      const container = document.getElementById('labContentList');
+      container.innerHTML = items.length
+        ? items.map(labCardHTML).join('')
+        : `<p class="yt-empty">Nada por aquí todavía con esos filtros.</p>`;
+    }
+
+    document.getElementById('labSearch').addEventListener('input', renderLabContent);
+    document.getElementById('labTypeFilter').addEventListener('change', renderLabContent);
+    renderLabContent();
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
     document.getElementById('assignBtn').addEventListener('click', assignPlayer);
