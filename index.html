@@ -919,6 +919,21 @@
 
       <section class="detail-section">
         <div class="container">
+
+          <h3 class="subheading">📋 Plantilla de vídeo (formato TikTok, &lt;1:30-2:00)</h3>
+          <div class="template-grid">
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip chip-orange">🎬 Estructura corta</span></div>
+              <ol>
+                <li>Hook (0-3s): la imagen o momento más icónico del juego, sin texto.</li>
+                <li>Qué es en una frase (género + año/plataforma).</li>
+                <li>Por qué mola / qué lo hace especial.</li>
+                <li>Dificultad + a quién se lo recomiendas.</li>
+                <li>Cierre con el nombre del juego bien grande en pantalla.</li>
+              </ol>
+            </div>
+          </div>
+
           <div class="panel search-panel">
             <div class="search-row">
               <input type="text" id="gameSearch" placeholder="🔎 Buscar un juego por nombre..." />
@@ -1374,6 +1389,51 @@
     let cachedNewsHTML = null;
 
     // ──────────────────────────────────────────────────────────
+    // SONIDO DE RULETA — generado con Web Audio API (sin archivos
+    // externos): una serie de "tics" que se van espaciando, como una
+    // ruleta real perdiendo velocidad. Se reutiliza en todas las
+    // ruletas de la web.
+    // ──────────────────────────────────────────────────────────
+    let sharedAudioCtx = null;
+    function getAudioCtx(){
+      if (!sharedAudioCtx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return null;
+        sharedAudioCtx = new AudioCtx();
+      }
+      if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+      return sharedAudioCtx;
+    }
+
+    function playRouletteSound(durationMs){
+      const ctx = getAudioCtx();
+      if (!ctx) return; // navegador sin soporte de audio: seguimos sin sonido, sin romper nada
+
+      durationMs = durationMs || 900;
+      let elapsed = 0;
+      let interval = 55; // ms entre "tics", empieza rápido
+
+      function tick(){
+        if (elapsed >= durationMs) return;
+        const t = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(950, t);
+        gain.gain.setValueAtTime(0.12, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.045);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.05);
+
+        interval *= 1.09; // se va espaciando, como al frenar
+        elapsed += interval;
+        setTimeout(tick, interval);
+      }
+      tick();
+    }
+
+    // ──────────────────────────────────────────────────────────
     // NAVEGACIÓN INTERNA (SPA): cambia de "página" sin recargar,
     // manteniendo siempre la cabecera fija arriba.
     // ──────────────────────────────────────────────────────────
@@ -1450,6 +1510,7 @@
       result.textContent = "🦎 CHARKUMA está decidiendo...";
       rotation += 900 + Math.floor(Math.random() * 720);
       wheel.style.transform = `rotate(${rotation}deg)`;
+      playRouletteSound(2600);
 
       setTimeout(() => {
         const pick = options[Math.floor(Math.random() * options.length)];
@@ -1470,6 +1531,8 @@
         summary: "Plataformas de precisión sobre subir una montaña... y superarse a uno mismo por el camino.",
         difficulty: "dificil", // facil | media | dificil | muydificil
         emoji: "🏔️",
+        duration: "1:24", // duración del vídeo, formato m:ss
+        platform: "tiktok", // tiktok | youtube — dónde vive el vídeo
         steamUrl: "https://store.steampowered.com/app/504230/Celeste/",
         videoUrl: "#" // sustituye por el enlace real de tu vídeo
       },
@@ -1478,6 +1541,8 @@
         summary: "Granja, pesca, minas y vida de pueblo. El juego perfecto para desconectar sin darte cuenta de las horas.",
         difficulty: "facil",
         emoji: "🌾",
+        duration: "1:47",
+        platform: "tiktok",
         steamUrl: "https://store.steampowered.com/app/413150/Stardew_Valley/",
         videoUrl: "#"
       },
@@ -1486,10 +1551,13 @@
         summary: "Metroidvania oscuro y precioso en el reino de los insectos. Explorar da tanto miedo como ganas de seguir.",
         difficulty: "media",
         emoji: "🕷️",
+        duration: "1:52",
+        platform: "tiktok",
         steamUrl: "https://store.steampowered.com/app/367520/Hollow_Knight/",
         videoUrl: "#"
       }
-      // 4: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "...", videoUrl: "..." },
+      // 4: { name:"...", summary:"...", difficulty:"...", emoji:"...", duration:"m:ss",
+      //   platform:"tiktok|youtube", steamUrl:"...", videoUrl:"..." },
     };
 
     // Base de datos SECRETA (solo tuya): juegos ya decididos para días
@@ -1520,6 +1588,8 @@
       muydificil: "🟣 Muy difícil"
     };
 
+    const PLATFORM_LABELS = { tiktok: "🎵 TikTok", youtube: "▶️ YouTube" };
+
     // Días por mes de un año no bisiesto (365 días)
     const MONTHS = [
       ["Enero",31],["Febrero",28],["Marzo",31],["Abril",30],["Mayo",31],["Junio",30],
@@ -1544,6 +1614,8 @@
               <p>${game.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${game.difficulty}">${DIFF_LABELS[game.difficulty] || game.difficulty}</span>
+                ${game.duration ? `<span class="diff-chip">⏱️ ${game.duration}</span>` : ''}
+                ${game.platform ? `<span class="diff-chip">${PLATFORM_LABELS[game.platform] || game.platform}</span>` : ''}
                 <a class="video-link" href="${game.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
               </div>
             </div>
@@ -1613,6 +1685,8 @@
               <p>${published.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${published.difficulty}">${DIFF_LABELS[published.difficulty] || published.difficulty}</span>
+                ${published.duration ? `<span class="diff-chip">⏱️ ${published.duration}</span>` : ''}
+                ${published.platform ? `<span class="diff-chip">${PLATFORM_LABELS[published.platform] || published.platform}</span>` : ''}
                 <a class="video-link" href="${published.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
               </div>
             </div>
@@ -1893,6 +1967,7 @@
       const slot = nextSlotForCategory(team, category);
 
       ruletaState.pending = { slotId: slot.id, slotLabel: slot.label, category, club };
+      playRouletteSound(900);
 
       document.getElementById('ruletaResult').innerHTML =
         `Te toca: <br><strong>${CATEGORY_LABELS[category]} (${slot.label})</strong> — <strong>${club}</strong>`;
