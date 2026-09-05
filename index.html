@@ -132,10 +132,10 @@
     .brand span strong{color:var(--orange)}
     .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
     .nav-links a{cursor:pointer}
-    .nav-links a:hover{color:white}
+    .nav-links a:hover{color:var(--text)}
     .nav-cta{
       padding:10px 15px;border:1px solid rgba(255,122,24,.38);border-radius:12px;
-      color:white;background:rgba(255,122,24,.08);cursor:pointer;text-transform:uppercase;letter-spacing:.02em
+      color:var(--text);background:rgba(255,122,24,.08);cursor:pointer;text-transform:uppercase;letter-spacing:.02em
     }
 
     /* ── Herramientas de cabecera: buscador, tema, ajustes ── */
@@ -182,7 +182,8 @@
     body.presentation-mode .idea-check,
     body.presentation-mode .idea-discard-btn,
     body.presentation-mode .discarded-panel,
-    body.presentation-mode .hide-discarded-label{visibility:hidden;pointer-events:none}
+    body.presentation-mode .hide-discarded-label,
+    body.presentation-mode #navHubBtn{visibility:hidden;pointer-events:none}
 
     .hero{
       min-height:calc(100vh - 74px);
@@ -229,7 +230,7 @@
       color:white;box-shadow:0 12px 34px rgba(255,122,24,.22)
     }
     .btn-secondary{
-      color:white;background:var(--panel2);border:1px solid #332447
+      color:var(--text);background:var(--panel2);border:1px solid #332447
     }
 
     .hero-visual{
@@ -394,7 +395,7 @@
     .footer-grid{
       display:flex;justify-content:space-between;gap:26px;align-items:end;flex-wrap:wrap
     }
-    .footer-logo{font-size:30px;font-weight:1000;color:white}
+    .footer-logo{font-size:30px;font-weight:1000;color:var(--text)}
     .footer-logo strong{color:var(--orange)}
     .socials{display:flex;gap:10px;flex-wrap:wrap}
     .social{
@@ -414,7 +415,7 @@
 
     /* ── páginas de detalle (proyectos / laboratorio / redes) ── */
     .back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:800;margin-bottom:22px;cursor:pointer}
-    .back:hover{color:white}
+    .back:hover{color:var(--text)}
     .page-head{padding:56px 0 20px}
     .detail-section{padding:0 0 88px}
 
@@ -433,7 +434,7 @@
     .platform.twitch .platform-badge{background:linear-gradient(135deg,#9146ff,#5c2ea8)}
     .platform h3{margin:0;font-size:19px}
     .platform .handle{font-size:12px;color:var(--muted);font-weight:700}
-    .visit{padding:8px 13px;border-radius:10px;border:1px solid #332447;background:var(--panel);font-size:12px;font-weight:800;color:white}
+    .visit{padding:8px 13px;border-radius:10px;border:1px solid #332447;background:var(--panel);font-size:12px;font-weight:800;color:var(--text)}
     .visit:hover{border-color:#5a3c7c}
     .latest-label{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
     .latest-card{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:var(--panel);border:1px solid var(--line2);margin-bottom:10px}
@@ -718,7 +719,7 @@
     .subheading{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
     .recent-list{display:grid;gap:12px}
 
-    .video-link{padding:6px 12px;border-radius:9px;background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);font-size:12px;font-weight:800;color:white}
+    .video-link{padding:6px 12px;border-radius:9px;background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);font-size:12px;font-weight:800;color:var(--text)}
     .video-link:hover{background:rgba(255,122,24,.2)}
     .lock-note{font-size:11px;color:var(--muted);font-style:italic}
     .undecided-row{padding:10px 16px;border-radius:12px;background:var(--panel);border:1px dashed var(--line3);color:var(--muted);font-size:12px;font-weight:700}
@@ -783,6 +784,9 @@
     }
     @media (max-width:560px){
       .nav-cta{display:none}
+      .nav-tools{gap:4px}
+      .nav-icon-btn{width:32px;height:32px;font-size:14px}
+      .nav-inner{gap:8px}
       .hero-actions .btn{width:100%;justify-content:center}
       .mini-grid{grid-template-columns:1fr}
       section{padding:70px 0}
@@ -882,7 +886,7 @@
 
   <!-- Carrusel "en qué estoy trabajando ahora" — se abre al hacer clic
        en la mascota de la portada. -->
-  <div class="modal-overlay" id="inProgressModal" hidden onclick="if(event.target===this) closeInProgressCarousel()">
+  <div class="modal-overlay" id="inProgressModal" hidden role="dialog" aria-modal="true" aria-labelledby="inProgressTitle" onclick="if(event.target===this) closeInProgressCarousel()">
     <div class="modal-card">
       <button type="button" class="modal-close" onclick="closeInProgressCarousel()" aria-label="Cerrar">✕</button>
       <div class="section-kicker">EN PROCESO AHORA MISMO</div>

@@ -1085,6 +1085,14 @@
       catch(e) { /* seguimos sin persistir */ }
     }
 
+    // Escapa texto para meterlo dentro de un atributo HTML entre
+    // comillas dobles (distinto de escapeHTML, que solo vale para texto
+    // suelto: un nombre de personaje con comillas dentro rompería el
+    // atributo si no se escapa también " y &).
+    function escapeAttr(str){
+      return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
     function renderRankingTop8(){
       const container = document.getElementById('rankingTop8');
       if (!container) return;
@@ -1095,9 +1103,9 @@
       container.innerHTML = top8.map(([name, score], i) => `
         <div class="ranking-row">
           <div class="ranking-rank">${i + 1}</div>
-          <div class="ranking-name">${name}</div>
+          <div class="ranking-name">${escapeHTML(name)}</div>
           <span class="ranking-score">${score} pts</span>
-          <button type="button" class="ranking-vote-btn" onclick="voteRankingCharacter('${name.replace(/'/g, "\\'")}')" aria-label="Votar por ${name}" title="Votar por ${name}">👍</button>
+          <button type="button" class="ranking-vote-btn" data-char="${escapeAttr(name)}" onclick="voteRankingCharacter(this.dataset.char)" aria-label="Votar por ${escapeAttr(name)}" title="Votar por ${escapeAttr(name)}">👍</button>
         </div>`).join('');
     }
 
@@ -1507,7 +1515,7 @@
               const filled = team.slots[s.id];
               return `<div class="board-slot ${filled ? '' : 'empty'}">
                 <span class="slot-pos">${s.label}</span>
-                <span class="slot-name">${filled || '—'}</span>
+                <span class="slot-name">${filled ? escapeHTML(filled) : '—'}</span>
               </div>`;
             }).join('')}
           </div>`;
@@ -1515,7 +1523,7 @@
 
       return `
         <div class="team-board ${isActive ? 'active-team' : ''} ${team.complete ? 'complete' : ''}">
-          <h4>${team.name}</h4>
+          <h4>${escapeHTML(team.name)}</h4>
           <div class="team-status">${team.complete ? '✅ Once completo' : (isActive ? '🎯 Tu turno' : 'Esperando turno')}</div>
           ${linesHTML}
         </div>`;
@@ -2464,7 +2472,11 @@
           section, sectionEmoji,
           type: item.type,
           date: item.date || null,
-          reviewed: item.reviewed !== false, // true = ya revisado/definitivo
+          // true = ya revisado/definitivo — cuenta tanto el campo original
+          // (reviewed:false en el array) como el botón interactivo "⏳
+          // Pendiente de revisión" que el propio Charkuma puede pulsar
+          // para marcarlo hecho sin tocar el código.
+          reviewed: item.reviewed !== false || isReviewed(item.internalView || item.title),
           tags: [labelsMap && labelsMap[item.type]].filter(Boolean),
           emoji: item.thumbnail || sectionEmoji
         }));
