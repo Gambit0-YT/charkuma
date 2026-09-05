@@ -163,6 +163,10 @@
       border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;
       padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer;margin-left:10px;display:inline-flex;align-items:center;gap:6px
     }
+
+    /* ── Controles grandes de Aprobar/Descartar en la propia página ── */
+    .review-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 20px;padding:14px 16px;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
+    .review-approve-btn, .review-discard-btn{padding:8px 14px;font-size:12px}
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 
     /* ── Transición suave entre vistas ──
@@ -546,6 +550,7 @@
     .chip-green{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .chip-yellow{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
     .chip-orange{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
+    .chip-red{background:rgba(255,95,109,.14);color:var(--red);border:1px solid rgba(255,95,109,.35)}
 
     .saga-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .saga-marvel{background:rgba(237,29,36,.15);color:#ff6b6f;border:1px solid rgba(237,29,36,.4)}
@@ -900,6 +905,22 @@
     </div>
   </div>
 
+  <!-- Contraseña del control secreto maestro (doble clic en "PLAYER 1
+       READY"). Aviso honesto: esto es un candado "de andar por casa" —
+       cualquiera que mire el código de la página vería igualmente el
+       contenido. No es autenticación real, solo evita que un visitante
+       normal entre sin querer. -->
+  <div class="modal-overlay" id="masterControlPasswordModal" hidden role="dialog" aria-modal="true" aria-labelledby="masterControlPasswordTitle" onclick="if(event.target===this) closeMasterControlPrompt()">
+    <div class="modal-card" style="max-width:360px">
+      <button type="button" class="modal-close" onclick="closeMasterControlPrompt()" aria-label="Cerrar">✕</button>
+      <h3 id="masterControlPasswordTitle" style="margin:6px 0 4px">🔒 Control secreto maestro</h3>
+      <p style="color:var(--muted);font-size:13px;margin-top:0">Introduce el código para entrar.</p>
+      <input type="password" id="masterControlPasswordInput" inputmode="numeric" placeholder="••••" class="ranking-add-row-input" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-family:inherit;font-size:16px;letter-spacing:.2em;text-align:center">
+      <p id="masterControlPasswordError" class="yt-empty" style="color:var(--red);margin:10px 0 0" hidden>Código incorrecto.</p>
+      <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px" onclick="submitMasterControlPassword()">Entrar</button>
+    </div>
+  </div>
+
   <main>
 
     <!-- ══════════ BUSCADOR GLOBAL ══════════ -->
@@ -990,12 +1011,39 @@
       </section>
     </div>
 
+    <!-- ══════════ CONTROL SECRETO MAESTRO (doble clic + contraseña) ══════════ -->
+    <div id="view-master-control" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
+          <h2 class="section-title">🕹️ CONTROL SECRETO MAESTRO</h2>
+          <p class="section-sub">
+            La lista completa y cronológica de todo lo que hay integrado en la web —
+            pendiente, aprobado y descartado — en un único sitio. Se llega aquí con
+            doble clic en "🎮 Player 1 Ready" y el código, no hay ningún enlace visible.
+          </p>
+          <div class="note">
+            <strong>Aviso honesto:</strong> esto es un candado de andar por casa, no
+            seguridad real — la web sigue siendo un sitio estático y cualquiera que mire
+            el código fuente vería este contenido igualmente. Sirve para que un visitante
+            normal no se tropiece con esto sin querer, no para protegerlo de verdad.
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="masterControlProjectsList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ INICIO ══════════ -->
     <div id="view-home" class="app-view active">
       <section class="hero" id="inicio">
         <div class="container hero-grid">
           <div class="reveal">
-            <div class="eyebrow">🎮 PLAYER 1 READY</div>
+            <div class="eyebrow" ondblclick="openMasterControlPrompt()" title="🎮 Player 1 Ready">🎮 PLAYER 1 READY</div>
             <h1>HEY, SOY <a href="javascript:void(0)" class="gradient" title="Ir a la sección Identidad" onclick="goToIdentity()">CHARKUMA.</a></h1>
             <p>
               Gamer, creador y friki profesional. Este es mi rincón de Internet:

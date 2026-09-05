@@ -259,6 +259,7 @@
       updateViewChrome(id, target);
       if (id === 'calendario' && typeof renderCalendarView === 'function') renderCalendarView();
       if (id === 'hub-secreto' && typeof renderMasterHub === 'function') renderMasterHub();
+      if (id === 'master-control' && typeof renderProjectsByDate === 'function') renderProjectsByDate('masterControlProjectsList');
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -309,6 +310,20 @@
       if (titleText) parts.push(`<span class="sep">›</span><span>${titleText}</span>`);
       crumb.innerHTML = parts.join(' ') +
         `<button type="button" class="share-view-btn" onclick="shareCurrentView('${id}', this)">🔗 Copiar enlace</button>`;
+
+      // Controles grandes de "Aprobar / Descartar" para cualquier página
+      // que sea contenido revisable (viene de uno de los arrays de
+      // contenido) — se pintan siempre debajo de la miga de pan, no solo
+      // la insignia pequeña del kicker.
+      const controls = pageHead.querySelector('.review-controls');
+      const item = findContentItemByView(id);
+      if (item) {
+        const html = reviewControlsHTML(item);
+        if (controls) controls.outerHTML = html;
+        else crumb.insertAdjacentHTML('afterend', html);
+      } else if (controls) {
+        controls.remove();
+      }
     }
 
     // Botón "compartir": copia un enlace directo a la vista actual
@@ -994,6 +1009,88 @@
       document.querySelectorAll('.review-badge[data-review-id]').forEach(el => {
         if (isReviewed(el.dataset.reviewId)) el.remove();
       });
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // DESCARTAR contenido ya generado (distinto de "revisado"): marca
+    // que ese vídeo/idea concreto NO se va a hacer, para que deje de
+    // salir en "Explorar universo", el carrusel "en proceso" y el
+    // calendario. Mismo patrón que isReviewed/markReviewed.
+    // ──────────────────────────────────────────────────────────
+    const DISCARDED_CONTENT_KEY = 'charkuma_discarded_content';
+
+    function loadDiscardedContentSet(){
+      try { return new Set(JSON.parse(localStorage.getItem(DISCARDED_CONTENT_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+    function isContentDiscarded(id){
+      return loadDiscardedContentSet().has(id);
+    }
+    function setContentDiscarded(id, discarded){
+      const set = loadDiscardedContentSet();
+      if (discarded) set.add(id); else set.delete(id);
+      try { localStorage.setItem(DISCARDED_CONTENT_KEY, JSON.stringify(Array.from(set))); }
+      catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
+    }
+
+    // Busca, en todos los arrays de contenido, el objeto que corresponde
+    // a una vista concreta (por su internalView) — para saber si esa
+    // página es "contenido revisable" y poder pintar sus controles.
+    function findContentItemByView(viewId){
+      const sources = [geekContent, iaContent, creatorContent, hechoContent, labContent];
+      for (const arr of sources) {
+        const found = arr.find(i => i.internalView === viewId);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    // Bloque grande de "✅ Aprobar / 🗑️ Descartar" que se inyecta en la
+    // cabecera de la propia página de detalle (no solo la insignia
+    // pequeña del kicker) — reversible en los dos sentidos.
+    function reviewControlsHTML(item){
+      const rid = item.internalView || item.title;
+      const approved = item.reviewed !== false || isReviewed(rid);
+      const discarded = isContentDiscarded(rid);
+      let statusChip;
+      if (discarded) statusChip = `<span class="type-chip chip-red">🗑️ Descartada</span>`;
+      else if (approved) statusChip = `<span class="type-chip chip-green">✅ Aprobada</span>`;
+      else statusChip = `<span class="type-chip chip-yellow">⏳ Pendiente</span>`;
+      return `
+        <div class="review-controls" data-review-id="${rid}">
+          ${statusChip}
+          <button type="button" class="btn btn-secondary review-approve-btn" onclick="toggleContentApproved('${rid}')">
+            ${approved ? '↩️ Quitar aprobación' : '✅ Aprobar'}
+          </button>
+          <button type="button" class="btn btn-secondary review-discard-btn" onclick="toggleContentDiscarded('${rid}')">
+            ${discarded ? '↩️ Restaurar' : '🗑️ Descartar idea'}
+          </button>
+        </div>`;
+    }
+
+    function toggleContentApproved(rid){
+      if (isReviewed(rid)) {
+        // "Quitar aprobación": no hay un unmarkReviewed ya hecho — lo
+        // montamos aquí mismo, reutilizando el mismo Set.
+        const set = loadReviewedSet();
+        set.delete(rid);
+        try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); } catch(e) {}
+      } else {
+        markReviewed(rid);
+      }
+      refreshReviewControls();
+    }
+    function toggleContentDiscarded(rid){
+      setContentDiscarded(rid, !isContentDiscarded(rid));
+      refreshReviewControls();
+    }
+    // Vuelve a pintar el bloque de controles de la vista activa (y quita
+    // las insignias pequeñas del kicker si ya no hacen falta).
+    function refreshReviewControls(){
+      const active = document.querySelector('.app-view.active');
+      if (!active) return;
+      updateViewChrome(active.id.replace(/^view-/, ''), active);
+      hideAlreadyReviewedBadges();
     }
 
     // Insignia reutilizable: marca contenido generado por Claude que el
@@ -2477,6 +2574,7 @@
           // Pendiente de revisión" que el propio Charkuma puede pulsar
           // para marcarlo hecho sin tocar el código.
           reviewed: item.reviewed !== false || isReviewed(item.internalView || item.title),
+          discarded: isContentDiscarded(item.internalView || item.title),
           tags: [labelsMap && labelsMap[item.type]].filter(Boolean),
           emoji: item.thumbnail || sectionEmoji
         }));
@@ -2660,7 +2758,7 @@
       pendingSources.forEach(([arr, section, emoji]) => {
         arr.forEach(item => {
           const rid = item.internalView || item.title;
-          if (item.reviewed === false && !isReviewed(rid)) {
+          if (item.reviewed === false && !isReviewed(rid) && !isContentDiscarded(rid)) {
             pending.push({ item, section, emoji });
           }
         });
@@ -2693,11 +2791,49 @@
     // ──────────────────────────────────────────────────────────
     // MAPA MAESTRO DE PROYECTOS (easter egg 🗺️ de la cabecera)
     // ──────────────────────────────────────────────────────────
+    // Lista completa de contenido ordenada por fecha, con su estado
+    // (⏳ pendiente / ✅ aprobado / 🗑️ descartado) — la usan tanto el
+    // mapa maestro (🗺️) como el control secreto maestro (doble clic +
+    // contraseña), para no mantener la misma lógica dos veces.
+    function renderProjectsByDate(containerId){
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const index = buildSiteIndex();
+      const withDate = index.filter(i => i.date).sort((a, b) => new Date(a.date) - new Date(b.date));
+      const withoutDate = index.filter(i => !i.date);
+      const ordered = withDate.concat(withoutDate);
+      container.innerHTML = ordered.map(item => {
+        const dateLabel = item.date
+          ? new Date(item.date).toLocaleDateString('es-ES', { day:'numeric', month:'short', year:'numeric' })
+          : '—';
+        const statusChip = item.discarded
+          ? `<span class="type-chip chip-red">🗑️ Descartada</span>`
+          : item.reviewed
+            ? `<span class="type-chip chip-green">✅ Definitivo</span>`
+            : `<span class="type-chip chip-yellow">⏳ Pendiente</span>`;
+        const titleLink = item.external
+          ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
+          : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
+        return `
+          <div class="geek-card">
+            <div class="geek-thumb">${item.emoji}</div>
+            <div class="geek-info">
+              <div class="geek-badges">
+                <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
+                <span class="type-chip chip-neutral">📅 ${dateLabel}</span>
+                ${statusChip}
+              </div>
+              <h4>${titleLink}</h4>
+              <p>${item.summary}</p>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
     function renderMasterHub(){
       const promptsList = document.getElementById('hubPromptsList');
       const banksList = document.getElementById('hubIdeaBanksList');
-      const projectsList = document.getElementById('hubProjectsList');
-      if (!promptsList || !banksList || !projectsList) return;
+      if (!promptsList || !banksList) return;
 
       const index = buildSiteIndex();
 
@@ -2732,33 +2868,7 @@
       }).join('');
 
       // 3) Todos los proyectos, por fecha (los que no tienen fecha van al final)
-      const withDate = index.filter(i => i.date).sort((a, b) => new Date(a.date) - new Date(b.date));
-      const withoutDate = index.filter(i => !i.date);
-      const ordered = withDate.concat(withoutDate);
-      projectsList.innerHTML = ordered.map(item => {
-        const dateLabel = item.date
-          ? new Date(item.date).toLocaleDateString('es-ES', { day:'numeric', month:'short', year:'numeric' })
-          : '—';
-        const statusChip = item.reviewed
-          ? `<span class="type-chip chip-green">✅ Definitivo</span>`
-          : `<span class="type-chip chip-yellow">⏳ Pendiente</span>`;
-        const titleLink = item.external
-          ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
-          : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
-        return `
-          <div class="geek-card">
-            <div class="geek-thumb">${item.emoji}</div>
-            <div class="geek-info">
-              <div class="geek-badges">
-                <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
-                <span class="type-chip chip-neutral">📅 ${dateLabel}</span>
-                ${statusChip}
-              </div>
-              <h4>${titleLink}</h4>
-              <p>${item.summary}</p>
-            </div>
-          </div>`;
-      }).join('');
+      renderProjectsByDate('hubProjectsList');
     }
 
     // "Explorar universo" del botón de la cabecera: en vez de ir siempre
@@ -2768,7 +2878,7 @@
     // hay ninguno pendiente ahora mismo, cae de vuelta a "Mis proyectos".
     function exploreRandomPending(){
       const pending = buildSiteIndex()
-        .filter(i => !i.reviewed && i.view && !i.external)
+        .filter(i => !i.reviewed && !i.discarded && i.view && !i.external)
         .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
         .slice(0, 10);
       if (!pending.length) { goHome('proyectos'); return; }
@@ -2785,7 +2895,7 @@
     let inProgressIndex = 0;
 
     function openInProgressCarousel(){
-      inProgressItems = buildSiteIndex().filter(i => !i.reviewed && i.view && !i.external);
+      inProgressItems = buildSiteIndex().filter(i => !i.reviewed && !i.discarded && i.view && !i.external);
       inProgressIndex = 0;
       document.getElementById('inProgressModal').hidden = false;
       renderInProgressSlide();
@@ -2819,6 +2929,47 @@
       if (e.key === 'Escape') closeInProgressCarousel();
       else if (e.key === 'ArrowLeft') stepInProgressCarousel(-1);
       else if (e.key === 'ArrowRight') stepInProgressCarousel(1);
+    });
+
+    // ──────────────────────────────────────────────────────────
+    // CONTROL SECRETO MAESTRO: doble clic en "🎮 Player 1 Ready" pide un
+    // código; si acierta, entra a la lista cronológica completa con
+    // estado (pendiente/aprobado/descartado) de todo lo integrado en la
+    // web. Aviso honesto: candado "de andar por casa", no seguridad real
+    // — el contenido sigue estando en el código fuente de la página.
+    // ──────────────────────────────────────────────────────────
+    const MASTER_CONTROL_PASSWORD = '1987';
+
+    function openMasterControlPrompt(){
+      const modal = document.getElementById('masterControlPasswordModal');
+      const input = document.getElementById('masterControlPasswordInput');
+      const error = document.getElementById('masterControlPasswordError');
+      input.value = '';
+      error.hidden = true;
+      modal.hidden = false;
+      requestAnimationFrame(() => input.focus());
+    }
+    function closeMasterControlPrompt(){
+      document.getElementById('masterControlPasswordModal').hidden = true;
+    }
+    function submitMasterControlPassword(){
+      const input = document.getElementById('masterControlPasswordInput');
+      const error = document.getElementById('masterControlPasswordError');
+      if (input.value.trim() === MASTER_CONTROL_PASSWORD) {
+        closeMasterControlPrompt();
+        showView('master-control');
+      } else {
+        error.hidden = false;
+        input.value = '';
+        input.focus();
+      }
+    }
+    document.getElementById('masterControlPasswordInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitMasterControlPassword();
+    });
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('masterControlPasswordModal');
+      if (modal && !modal.hidden && e.key === 'Escape') closeMasterControlPrompt();
     });
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
