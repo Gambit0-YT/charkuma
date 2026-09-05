@@ -407,6 +407,12 @@
     .type-herramienta{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .type-bitacora{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
 
+    /* chips genéricos reutilizables para IA/Creator Tools/Hecho a Mano */
+    .chip-purple{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
+    .chip-green{background:rgba(56,217,154,.14);color:var(--green);border:1px solid rgba(56,217,154,.35)}
+    .chip-yellow{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
+    .chip-orange{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
+
     .saga-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .saga-marvel{background:rgba(237,29,36,.15);color:#ff6b6f;border:1px solid rgba(237,29,36,.4)}
     .saga-boys{background:rgba(255,255,255,.08);color:#f0f0f0;border:1px solid rgba(255,255,255,.28)}
@@ -1220,17 +1226,25 @@
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="panel">
-            <h3>Sobre este experimento</h3>
-            <p>
-              Aquí irá el contenido de IA & Experimentos: prompts que funcionan, pruebas de
-              generación de imagen y vídeo, automatizaciones y cualquier truco de IA que
-              merezca la pena compartir.
-            </p>
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="iaSearch" placeholder="🔎 Buscar por título..." />
+              <select id="iaTypeFilter">
+                <option value="">Todo</option>
+                <option value="prompt">🎨 Prompt</option>
+                <option value="automatizacion">⚙️ Automatización</option>
+                <option value="visual">🖼️ Generación visual</option>
+                <option value="video">🎬 Generación vídeo</option>
+              </select>
+            </div>
           </div>
+          <div id="iaContentList" class="recent-list"></div>
           <div class="note">
-            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
-            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+            <strong>Nota para editar:</strong> el contenido sale del array <code>iaContent</code>
+            en el <code>&lt;script&gt;</code>. Cada entrada lleva <code>title</code>,
+            <code>type</code> (<code>prompt</code> / <code>automatizacion</code> / <code>visual</code> /
+            <code>video</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code> y
+            <code>link</code>. Los ejemplos de ahora son solo para mostrar el diseño.
           </div>
         </div>
       </section>
@@ -1250,16 +1264,25 @@
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="panel">
-            <h3>Sobre este experimento</h3>
-            <p>
-              Aquí irá el contenido de Creator Tools: overlays para streaming, plantillas para
-              vídeos, configuraciones de OBS y cualquier herramienta útil para creadores.
-            </p>
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="creatorSearch" placeholder="🔎 Buscar por título..." />
+              <select id="creatorTypeFilter">
+                <option value="">Todo</option>
+                <option value="overlay">🎥 Overlay</option>
+                <option value="obs">🎛️ Config OBS</option>
+                <option value="plantilla">📐 Plantilla</option>
+                <option value="recurso">🔌 Recurso</option>
+              </select>
+            </div>
           </div>
+          <div id="creatorContentList" class="recent-list"></div>
           <div class="note">
-            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
-            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+            <strong>Nota para editar:</strong> el contenido sale del array <code>creatorContent</code>
+            en el <code>&lt;script&gt;</code>. Cada entrada lleva <code>title</code>,
+            <code>type</code> (<code>overlay</code> / <code>obs</code> / <code>plantilla</code> /
+            <code>recurso</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code> y
+            <code>link</code>. Los ejemplos de ahora son solo para mostrar el diseño.
           </div>
         </div>
       </section>
@@ -1279,16 +1302,24 @@
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="panel">
-            <h3>Sobre este experimento</h3>
-            <p>
-              Aquí irá el contenido de Hecho a Mano: piezas de tufting, diseños personalizados,
-              objetos físicos y cualquier proyecto que se salga de la pantalla para materializarse.
-            </p>
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="hechoSearch" placeholder="🔎 Buscar por título..." />
+              <select id="hechoTypeFilter">
+                <option value="">Todo</option>
+                <option value="tufting">🧶 Tufting</option>
+                <option value="diseno">🎨 Diseño personalizado</option>
+                <option value="objeto">📦 Objeto físico</option>
+              </select>
+            </div>
           </div>
+          <div id="hechoContentList" class="recent-list"></div>
           <div class="note">
-            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
-            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+            <strong>Nota para editar:</strong> el contenido sale del array <code>hechoContent</code>
+            en el <code>&lt;script&gt;</code>. Cada entrada lleva <code>title</code>,
+            <code>type</code> (<code>tufting</code> / <code>diseno</code> / <code>objeto</code>),
+            <code>date</code>, <code>summary</code>, <code>thumbnail</code> y <code>link</code>.
+            Los ejemplos de ahora son solo para mostrar el diseño.
           </div>
         </div>
       </section>
@@ -2036,6 +2067,130 @@
     document.getElementById('labSearch').addEventListener('input', renderLabContent);
     document.getElementById('labTypeFilter').addEventListener('change', renderLabContent);
     renderLabContent();
+
+    // ──────────────────────────────────────────────────────────
+    // Constructor genérico de tarjetas "tipo + fecha + título + resumen"
+    // reutilizado por IA & Experimentos, Creator Tools y Hecho a Mano.
+    // ──────────────────────────────────────────────────────────
+    function genericCardHTML(item, labelsMap, colorsMap){
+      const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      return `
+        <div class="geek-card">
+          <div class="geek-thumb">${item.thumbnail || "🧪"}</div>
+          <div class="geek-info">
+            <div class="geek-badges">
+              <span class="type-chip ${colorsMap[item.type] || 'chip-purple'}">${labelsMap[item.type] || item.type}</span>
+              <span class="yt-empty" style="margin:0">${date}</span>
+            </div>
+            <h4><a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+            <p>${item.summary}</p>
+          </div>
+        </div>`;
+    }
+
+    function setupFilterableFeed(cfg){
+      const searchEl = document.getElementById(cfg.searchId);
+      const typeEl = document.getElementById(cfg.typeId);
+      const listEl = document.getElementById(cfg.listId);
+
+      function render(){
+        const query = searchEl.value.trim().toLowerCase();
+        const type = typeEl.value;
+        const items = cfg.data
+          .filter(item => (!type || item.type === type) && (!query || item.title.toLowerCase().includes(query)))
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        listEl.innerHTML = items.length
+          ? items.map(item => genericCardHTML(item, cfg.labels, cfg.colors)).join('')
+          : `<p class="yt-empty">Nada por aquí todavía con esos filtros.</p>`;
+      }
+
+      searchEl.addEventListener('input', render);
+      typeEl.addEventListener('change', render);
+      render();
+    }
+
+    // ── IA & Experimentos ──
+    const iaContent = [
+      {
+        title: "Prompt para miniaturas con estética CHARKUMA",
+        type: "prompt", date: "2026-08-15",
+        summary: "La receta de prompt que uso para sacar miniaturas con el mismo estilo morado/naranja de la web.",
+        thumbnail: "🎨", link: "#"
+      },
+      {
+        title: "Aviso automático a Discord cuando subo vídeo",
+        type: "automatizacion", date: "2026-08-25",
+        summary: "Automatización sencilla que avisa al servidor en cuanto se publica un vídeo nuevo.",
+        thumbnail: "⚙️", link: "#"
+      },
+      {
+        title: "Generando personajes retro con IA",
+        type: "visual", date: "2026-09-01",
+        summary: "Pruebas de generación de imagen para ilustrar juegos clásicos de Retro 365.",
+        thumbnail: "🖼️", link: "#"
+      }
+      // { title:"...", type:"prompt|automatizacion|visual|video", date:"AAAA-MM-DD",
+      //   summary:"...", thumbnail:"🤖", link:"..." },
+    ];
+    const IA_LABELS = { prompt:'🎨 Prompt', automatizacion:'⚙️ Automatización', visual:'🖼️ Generación visual', video:'🎬 Generación vídeo' };
+    const IA_COLORS = { prompt:'chip-purple', automatizacion:'chip-green', visual:'chip-yellow', video:'chip-orange' };
+
+    // ── Creator Tools ──
+    const creatorContent = [
+      {
+        title: "Overlay de directo CHARKUMA",
+        type: "overlay", date: "2026-08-10",
+        summary: "Capa gráfica completa para streaming: alertas, cámara y marcador a juego con la web.",
+        thumbnail: "🎥", link: "#"
+      },
+      {
+        title: "Escenas de OBS para sesiones retro",
+        type: "obs", date: "2026-08-22",
+        summary: "Configuración de escenas y transiciones pensada para grabar Retro 365.",
+        thumbnail: "🎛️", link: "#"
+      },
+      {
+        title: "Plantilla de miniatura para Rincón del Friki",
+        type: "plantilla", date: "2026-09-03",
+        summary: "Plantilla editable para sacar miniaturas de vídeos de Marvel/The Boys en minutos.",
+        thumbnail: "📐", link: "#"
+      }
+      // { title:"...", type:"overlay|obs|plantilla|recurso", date:"AAAA-MM-DD",
+      //   summary:"...", thumbnail:"🖥️", link:"..." },
+    ];
+    const CREATOR_LABELS = { overlay:'🎥 Overlay', obs:'🎛️ Config OBS', plantilla:'📐 Plantilla', recurso:'🔌 Recurso' };
+    const CREATOR_COLORS = { overlay:'chip-purple', obs:'chip-green', plantilla:'chip-yellow', recurso:'chip-orange' };
+
+    // ── Hecho a Mano ──
+    const hechoContent = [
+      {
+        title: "Alfombra tufting del logo de CHARKUMA",
+        type: "tufting", date: "2026-08-05",
+        summary: "Primera pieza grande: el lagarto de la marca hecho alfombra, punto por punto.",
+        thumbnail: "🧶", link: "#"
+      },
+      {
+        title: "Parche bordado retro gamer",
+        type: "diseno", date: "2026-08-18",
+        summary: "Diseño de parche inspirado en cartuchos de consola clásicos.",
+        thumbnail: "🎨", link: "#"
+      },
+      {
+        title: "Figura impresa en 3D de mascota",
+        type: "objeto", date: "2026-08-30",
+        summary: "Primera figura física de la mascota CHARKUMA, impresa y pintada a mano.",
+        thumbnail: "📦", link: "#"
+      }
+      // { title:"...", type:"tufting|diseno|objeto", date:"AAAA-MM-DD",
+      //   summary:"...", thumbnail:"🧶", link:"..." },
+    ];
+    const HECHO_LABELS = { tufting:'🧶 Tufting', diseno:'🎨 Diseño personalizado', objeto:'📦 Objeto físico' };
+    const HECHO_COLORS = { tufting:'chip-purple', diseno:'chip-green', objeto:'chip-yellow' };
+
+    setupFilterableFeed({ searchId:'iaSearch', typeId:'iaTypeFilter', listId:'iaContentList', data:iaContent, labels:IA_LABELS, colors:IA_COLORS });
+    setupFilterableFeed({ searchId:'creatorSearch', typeId:'creatorTypeFilter', listId:'creatorContentList', data:creatorContent, labels:CREATOR_LABELS, colors:CREATOR_COLORS });
+    setupFilterableFeed({ searchId:'hechoSearch', typeId:'hechoTypeFilter', listId:'hechoContentList', data:hechoContent, labels:HECHO_LABELS, colors:HECHO_COLORS });
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
     document.getElementById('assignBtn').addEventListener('click', assignPlayer);
