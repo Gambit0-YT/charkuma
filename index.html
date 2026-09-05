@@ -416,6 +416,53 @@
     .geek-info h4 a:hover{color:var(--orange2);text-decoration:underline}
     .geek-info p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.55}
 
+    /* ── Ruleta del 11 ── */
+    .ruleta-panel{margin-top:30px;text-align:center}
+    .ruleta-teams-setup{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+    .team-name-input{
+      padding:10px 14px;border-radius:12px;background:#0d0914;border:1px solid #2d2240;
+      color:var(--text);font-size:15px;font-weight:800;text-align:center;font-family:inherit;width:180px
+    }
+    .team-name-input:focus{outline:none;border-color:var(--orange)}
+    .ruleta-vs{font-weight:900;color:var(--muted);font-size:13px}
+    .ruleta-turn{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+    .ruleta-result{
+      min-height:60px;padding:18px;border-radius:15px;background:#0d0914;border:1px solid #2d2140;
+      color:#e7dfff;display:flex;align-items:center;justify-content:center;font-weight:800;
+      font-size:16px;margin-bottom:16px;text-align:center
+    }
+    .ruleta-assign{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+    .ruleta-assign input{
+      padding:11px 14px;border-radius:12px;background:#0d0914;border:1px solid #2d2240;
+      color:var(--text);font-size:14px;font-family:inherit;min-width:220px
+    }
+    .ruleta-assign input:focus{outline:none;border-color:var(--orange)}
+    .ruleta-error{color:var(--red);font-size:13px;font-weight:700;margin:0 0 14px}
+    .ruleta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+    .teams-boards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:30px}
+    .team-board{padding:22px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);transition:.3s border-color}
+    .team-board.active-team{border-color:var(--orange)}
+    .team-board h4{margin:0 0 4px;font-size:18px}
+    .team-board .team-status{font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
+    .team-board.complete .team-status{color:var(--green)}
+    .board-line{margin-bottom:14px}
+    .board-line-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .board-slot{
+      display:flex;justify-content:space-between;gap:8px;padding:8px 12px;border-radius:9px;
+      background:#0d0914;border:1px solid #241a34;font-size:13px;margin-bottom:6px
+    }
+    .board-slot .slot-pos{color:var(--muted);font-weight:700}
+    .board-slot .slot-name{font-weight:800;color:var(--text)}
+    .board-slot.empty .slot-name{color:#4a3f5c;font-weight:600}
+
+    .used-players{display:flex;flex-wrap:wrap;gap:10px}
+    .used-chip{padding:8px 13px;border-radius:999px;border:1px solid #332847;color:#ddd3ed;background:#100b18;font-size:13px;font-weight:800}
+
+    @media (max-width:900px){
+      .teams-boards{grid-template-columns:1fr}
+    }
+
     .search-panel{margin-top:30px}
     .search-row{display:flex;gap:12px;flex-wrap:wrap}
     .search-row input, .search-row select{
@@ -590,11 +637,11 @@
               <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
             </a>
 
-            <a class="project reveal" href="javascript:void(0)" onclick="showView('ruleta')">
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('helquidgames')">
               <div class="num">PROYECTO 003</div>
               <div class="open">↗</div>
-              <h3>⚽ RULETA DEL 11</h3>
-              <p>Fútbol convertido en juego: jugadores, decisiones, rankings y caos competitivo.</p>
+              <h3>🎮 HELQUIDGAMES</h3>
+              <p>El hub de mis juegos propios. El primero: Ruleta del 11, fútbol convertido en caos competitivo.</p>
             </a>
 
             <a class="project orange reveal" href="javascript:void(0)" onclick="showView('charkumalab')">
@@ -1022,30 +1069,91 @@
       </section>
     </div>
 
-    <!-- ══════════ RULETA DEL 11 ══════════ -->
-    <div id="view-ruleta" class="app-view">
+    <!-- ══════════ HELQUIDGAMES (hub de juegos) ══════════ -->
+    <div id="view-helquidgames" class="app-view">
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
           <div class="section-kicker">PROYECTO 003</div>
-          <h2 class="section-title">⚽ RULETA DEL 11</h2>
+          <h2 class="section-title">🎮 HELQUIDGAMES</h2>
           <p class="section-sub">
-            Fútbol convertido en juego: jugadores, decisiones, rankings y caos competitivo.
+            El hub de los juegos que voy creando. Cada uno vive en su propia página —
+            este es el primero.
           </p>
         </div>
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="panel">
-            <h3>Sobre este proyecto</h3>
-            <p>
-              Aquí irá el contenido de la Ruleta del 11: el juego, rankings, resultados,
-              retos de jugadores y todo el caos futbolero que se te ocurra.
-            </p>
+          <div class="projects">
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('ruleta11')">
+              <div class="num">JUEGO 001</div>
+              <div class="open">↗</div>
+              <h3>⚽ RULETA DEL 11</h3>
+              <p>El reto viral de TikTok: gira posición y club/selección, y arma tu once sin repetir jugador con el rival.</p>
+            </a>
           </div>
           <div class="note">
-            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
-            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+            <strong>Nota:</strong> aquí irán apareciendo los próximos juegos según los vaya creando,
+            cada uno como una tarjeta más en esta cuadrícula.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ RULETA DEL 11 (juego) ══════════ -->
+    <div id="view-ruleta11" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
+          <div class="section-kicker">HELQUIDGAMES · JUEGO 001</div>
+          <h2 class="section-title">⚽ RULETA DEL 11</h2>
+          <p class="section-sub">
+            Gira la ruleta, te toca una posición y un club/selección. Nombra un jugador real que
+            cumpla las dos condiciones y no esté ya usado. Turnos alternos hasta completar el 4-3-3.
+          </p>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container">
+
+          <div class="panel ruleta-panel">
+            <div class="ruleta-teams-setup">
+              <input type="text" id="teamNameInput0" class="team-name-input" value="Equipo 1" />
+              <span class="ruleta-vs">VS</span>
+              <input type="text" id="teamNameInput1" class="team-name-input" value="Equipo 2" />
+            </div>
+
+            <div class="ruleta-turn" id="ruletaTurn">Turno de: Equipo 1</div>
+
+            <div class="ruleta-result" id="ruletaResult">
+              Pulsa "Girar" para conocer tu posición y club/selección.
+            </div>
+
+            <div class="ruleta-assign" id="ruletaAssign" hidden>
+              <input type="text" id="playerNameInput" placeholder="Nombre del jugador..." />
+              <button class="btn btn-primary" id="assignBtn">Asignar ✔</button>
+            </div>
+
+            <p class="ruleta-error" id="ruletaError" hidden></p>
+
+            <div class="ruleta-actions">
+              <button class="btn btn-primary" id="spinRuletaBtn">🎲 Girar</button>
+              <button class="btn btn-secondary" id="resetRuletaBtn">🔄 Reiniciar partida</button>
+            </div>
+          </div>
+
+          <div class="teams-boards" id="teamsBoards"></div>
+
+          <h3 class="subheading">📋 Jugadores ya usados</h3>
+          <div id="usedPlayersList" class="used-players">
+            <p class="yt-empty">Todavía no se ha usado ningún jugador.</p>
+          </div>
+
+          <div class="note">
+            <strong>Nota:</strong> la app hace de árbitro (ruletas, turnos, alineación y control de
+            repetidos) pero no valida si el jugador que escribes es correcto de verdad —
+            eso, como en el reto original, lo juzgáis vosotros.
           </div>
         </div>
       </section>
@@ -1621,6 +1729,200 @@
     document.getElementById('geekSagaFilter').addEventListener('change', renderGeekContent);
     document.getElementById('geekTypeFilter').addEventListener('change', renderGeekContent);
     renderGeekContent();
+
+    // ──────────────────────────────────────────────────────────
+    // HELQUIDGAMES · RULETA DEL 11
+    // ──────────────────────────────────────────────────────────
+    const FORMATION_SLOTS = [
+      {id:'gk',  label:'Portero',          category:'portero',   line:'Portero'},
+      {id:'lb',  label:'Lateral Izq.',     category:'lateral',   line:'Defensa'},
+      {id:'cb1', label:'Defensa Central',  category:'central',   line:'Defensa'},
+      {id:'cb2', label:'Defensa Central',  category:'central',   line:'Defensa'},
+      {id:'rb',  label:'Lateral Der.',     category:'lateral',   line:'Defensa'},
+      {id:'cm1', label:'Centrocampista',   category:'medio',     line:'Centrocampo'},
+      {id:'cm2', label:'Centrocampista',   category:'medio',     line:'Centrocampo'},
+      {id:'cm3', label:'Centrocampista',   category:'medio',     line:'Centrocampo'},
+      {id:'lw',  label:'Extremo Izq.',     category:'extremo',   line:'Ataque'},
+      {id:'st',  label:'Delantero Centro', category:'delantero', line:'Ataque'},
+      {id:'rw',  label:'Extremo Der.',     category:'extremo',   line:'Ataque'}
+    ];
+
+    const CATEGORY_LABELS = {
+      portero:'🧤 Portero', lateral:'🏃 Lateral', central:'🛡️ Defensa Central',
+      medio:'⚙️ Centrocampista', extremo:'🌀 Extremo', delantero:'⚔️ Delantero Centro'
+    };
+
+    const CLUB_POOL = [
+      "Real Madrid","FC Barcelona","Atlético de Madrid","Manchester United","Manchester City",
+      "Liverpool","Chelsea","Bayern Múnich","Juventus","AC Milan","Inter de Milán","PSG",
+      "🇪🇸 España","🇦🇷 Argentina","🇧🇷 Brasil","🇫🇷 Francia","🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra","🇵🇹 Portugal"
+    ];
+
+    function freshRuletaState(){
+      return {
+        teams: [
+          { name: "Equipo 1", slots: {}, complete: false },
+          { name: "Equipo 2", slots: {}, complete: false }
+        ],
+        currentTeam: 0,
+        usedPlayers: [], // [{display, key}]
+        pending: null    // {slotId, slotLabel, category, club}
+      };
+    }
+
+    let ruletaState = freshRuletaState();
+
+    function openCategoriesFor(team){
+      const openSlots = FORMATION_SLOTS.filter(s => !(s.id in team.slots));
+      return [...new Set(openSlots.map(s => s.category))];
+    }
+
+    function nextSlotForCategory(team, category){
+      return FORMATION_SLOTS.find(s => s.category === category && !(s.id in team.slots));
+    }
+
+    function spinRuleta(){
+      hideRuletaError();
+      const team = ruletaState.teams[ruletaState.currentTeam];
+      if (!team || team.complete || ruletaState.pending) return;
+
+      const cats = openCategoriesFor(team);
+      if (!cats.length) return;
+
+      const category = cats[Math.floor(Math.random() * cats.length)];
+      const club = CLUB_POOL[Math.floor(Math.random() * CLUB_POOL.length)];
+      const slot = nextSlotForCategory(team, category);
+
+      ruletaState.pending = { slotId: slot.id, slotLabel: slot.label, category, club };
+
+      document.getElementById('ruletaResult').innerHTML =
+        `Te toca: <br><strong>${CATEGORY_LABELS[category]} (${slot.label})</strong> — <strong>${club}</strong>`;
+      document.getElementById('ruletaAssign').hidden = false;
+      document.getElementById('playerNameInput').value = '';
+      document.getElementById('playerNameInput').focus();
+      document.getElementById('spinRuletaBtn').disabled = true;
+    }
+
+    function showRuletaError(msg){
+      const el = document.getElementById('ruletaError');
+      el.textContent = msg;
+      el.hidden = false;
+    }
+    function hideRuletaError(){
+      document.getElementById('ruletaError').hidden = true;
+    }
+
+    function assignPlayer(){
+      const pending = ruletaState.pending;
+      if (!pending) return;
+      const input = document.getElementById('playerNameInput');
+      const name = input.value.trim();
+
+      if (!name) { showRuletaError('Escribe un nombre antes de asignar.'); return; }
+
+      const key = name.toLowerCase();
+      if (ruletaState.usedPlayers.some(p => p.key === key)) {
+        showRuletaError(`"${name}" ya ha sido usado. Elige otro jugador.`);
+        return;
+      }
+
+      hideRuletaError();
+      const team = ruletaState.teams[ruletaState.currentTeam];
+      team.slots[pending.slotId] = name;
+      ruletaState.usedPlayers.push({ display: name, key });
+
+      if (Object.keys(team.slots).length >= FORMATION_SLOTS.length) team.complete = true;
+
+      ruletaState.pending = null;
+      document.getElementById('ruletaAssign').hidden = true;
+      document.getElementById('ruletaResult').textContent = 'Pulsa "Girar" para conocer tu posición y club/selección.';
+      document.getElementById('spinRuletaBtn').disabled = false;
+
+      advanceTurn();
+      renderRuleta();
+    }
+
+    function advanceTurn(){
+      const teams = ruletaState.teams;
+      if (teams.every(t => t.complete)) return; // partida terminada
+      let next = (ruletaState.currentTeam + 1) % teams.length;
+      let guard = 0;
+      while (teams[next].complete && guard < teams.length) { next = (next + 1) % teams.length; guard++; }
+      ruletaState.currentTeam = next;
+    }
+
+    function boardHTML(team, index){
+      const lines = ['Portero', 'Defensa', 'Centrocampo', 'Ataque'];
+      const isActive = index === ruletaState.currentTeam && !team.complete && !ruletaState.teams.every(t => t.complete);
+      const linesHTML = lines.map(line => {
+        const slots = FORMATION_SLOTS.filter(s => s.line === line);
+        return `
+          <div class="board-line">
+            <div class="board-line-label">${line}</div>
+            ${slots.map(s => {
+              const filled = team.slots[s.id];
+              return `<div class="board-slot ${filled ? '' : 'empty'}">
+                <span class="slot-pos">${s.label}</span>
+                <span class="slot-name">${filled || '—'}</span>
+              </div>`;
+            }).join('')}
+          </div>`;
+      }).join('');
+
+      return `
+        <div class="team-board ${isActive ? 'active-team' : ''} ${team.complete ? 'complete' : ''}">
+          <h4>${team.name}</h4>
+          <div class="team-status">${team.complete ? '✅ Once completo' : (isActive ? '🎯 Tu turno' : 'Esperando turno')}</div>
+          ${linesHTML}
+        </div>`;
+    }
+
+    function renderRuleta(){
+      document.getElementById('teamsBoards').innerHTML =
+        ruletaState.teams.map((t, i) => boardHTML(t, i)).join('');
+
+      const usedContainer = document.getElementById('usedPlayersList');
+      usedContainer.innerHTML = ruletaState.usedPlayers.length
+        ? ruletaState.usedPlayers.map(p => `<span class="used-chip">${p.display}</span>`).join('')
+        : `<p class="yt-empty">Todavía no se ha usado ningún jugador.</p>`;
+
+      const allComplete = ruletaState.teams.every(t => t.complete);
+      const turnEl = document.getElementById('ruletaTurn');
+      if (allComplete) {
+        turnEl.textContent = '🏆 ¡Partida completada! Pulsa "Reiniciar partida" para jugar otra vez.';
+        document.getElementById('spinRuletaBtn').disabled = true;
+      } else {
+        turnEl.textContent = `Turno de: ${ruletaState.teams[ruletaState.currentTeam].name}`;
+      }
+    }
+
+    function resetRuleta(){
+      const name0 = document.getElementById('teamNameInput0').value.trim() || 'Equipo 1';
+      const name1 = document.getElementById('teamNameInput1').value.trim() || 'Equipo 2';
+      ruletaState = freshRuletaState();
+      ruletaState.teams[0].name = name0;
+      ruletaState.teams[1].name = name1;
+      hideRuletaError();
+      document.getElementById('ruletaAssign').hidden = true;
+      document.getElementById('ruletaResult').textContent = 'Pulsa "Girar" para conocer tu posición y club/selección.';
+      document.getElementById('spinRuletaBtn').disabled = false;
+      renderRuleta();
+    }
+
+    document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
+    document.getElementById('assignBtn').addEventListener('click', assignPlayer);
+    document.getElementById('resetRuletaBtn').addEventListener('click', resetRuleta);
+    document.getElementById('playerNameInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') assignPlayer();
+    });
+    ['teamNameInput0', 'teamNameInput1'].forEach((id, i) => {
+      document.getElementById(id).addEventListener('change', (e) => {
+        ruletaState.teams[i].name = e.target.value.trim() || `Equipo ${i + 1}`;
+        renderRuleta();
+      });
+    });
+
+    renderRuleta();
 
     // ──────────────────────────────────────────────────────────
     // WIDGET LATERAL — últimos vídeos de YouTube (en vivo)
