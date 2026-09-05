@@ -495,7 +495,7 @@
   </nav>
 
   <aside class="yt-sidebar" id="ytSidebar">
-    <h4>▶️ Últimos vídeos</h4>
+    <h4 id="ytSidebarTitle">▶️ Últimos vídeos</h4>
     <div id="ytVideoList">
       <p class="yt-empty">Cargando...</p>
     </div>
@@ -1164,6 +1164,7 @@
       const target = document.getElementById('view-' + id);
       if (target) target.classList.add('active');
       if (opts.resetScroll !== false) window.scrollTo({top:0});
+      updateSidebar(id);
     }
 
     function goHome(anchorId){
@@ -1189,9 +1190,10 @@
 
     // Permite enlazar directamente a una vista con #view=nombre (por si
     // alguna vez compartes un enlace a una sección concreta)
-    (function initFromHash(){
+    const cameFromHash = (function initFromHash(){
       const match = location.hash.match(/view=([\w-]+)/);
-      if (match) showView(match[1], {resetScroll:false});
+      if (match) { showView(match[1], {resetScroll:false}); return true; }
+      return false;
     })();
 
     // ──────────────────────────────────────────────────────────
@@ -1603,18 +1605,47 @@
     const YT_API_KEY = "AIzaSyDwJpcqg6PymrQU-lki7DSTjKARK5LsKaw";
     const YT_CHANNEL_ID = "UCMxeCf-_CpgmmIiyHCwMeYw"; // mrChakurma
 
-    async function loadLatestVideos(){
+    // Fuente de noticias geek/cómics para el lateral de Rincón del Friki.
+    // Zona Negativa: sitio español dedicado a cómics y cultura geek, con RSS público.
+    // Puedes cambiarla por cualquier otro feed RSS que prefieras.
+    const GEEK_NEWS_FEED = "https://www.zonanegativa.com/feed/";
+
+    let currentSidebarMode = 'videos'; // 'videos' | 'news' — controla qué vista "es dueña" del lateral ahora mismo
+    let cachedVideosHTML = null;
+    let cachedNewsHTML = null;
+
+    // El lateral muestra "Últimos vídeos" en todo el sitio, EXCEPTO dentro
+    // de Rincón del Friki, donde muestra "Noticias Geek" en su lugar.
+    function updateSidebar(viewId){
       const list = document.getElementById('ytVideoList');
+      const title = document.getElementById('ytSidebarTitle');
+      if (!list || !title) return;
+
+      if (viewId === 'rincon') {
+        currentSidebarMode = 'news';
+        title.textContent = '📰 Noticias Geek';
+        if (cachedNewsHTML) list.innerHTML = cachedNewsHTML;
+        else { list.innerHTML = `<p class="yt-empty">Cargando noticias...</p>`; loadGeekNews(); }
+      } else {
+        currentSidebarMode = 'videos';
+        title.textContent = '▶️ Últimos vídeos';
+        if (cachedVideosHTML) list.innerHTML = cachedVideosHTML;
+        else { list.innerHTML = `<p class="yt-empty">Cargando...</p>`; loadLatestVideos(); }
+      }
+    }
+
+    async function loadLatestVideos(){
       const notConfigured =
         !YT_API_KEY || YT_API_KEY.indexOf("PON_AQUI") === 0 ||
         !YT_CHANNEL_ID || YT_CHANNEL_ID.indexOf("PON_AQUI") === 0;
 
       if (notConfigured) {
-        list.innerHTML = `<p class="yt-empty">
+        cachedVideosHTML = `<p class="yt-empty">
           Configura <code>YT_API_KEY</code> y <code>YT_CHANNEL_ID</code>
           en el &lt;script&gt; de este archivo para activar esta sección
           (instrucciones justo encima, en el código).
         </p>`;
+        if (currentSidebarMode === 'videos') document.getElementById('ytVideoList').innerHTML = cachedVideosHTML;
         return;
       }
 
@@ -1632,31 +1663,60 @@
         ).then(r => r.json());
 
         const videos = videosRes.items || [];
-        if (!videos.length) {
-          list.innerHTML = `<p class="yt-empty">Todavía no hay vídeos publicados.</p>`;
-          return;
-        }
-
-        list.innerHTML = videos.map(v => {
-          const s = v.snippet;
-          const videoId = s.resourceId.videoId;
-          const thumb = (s.thumbnails.medium || s.thumbnails.default).url;
-          const date = new Date(s.publishedAt).toLocaleDateString('es-ES', {day:'numeric', month:'short'});
-          return `
-            <a class="yt-video" href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
-              <img class="yt-thumb" src="${thumb}" alt="">
-              <div class="yt-info">
-                <strong>${s.title}</strong>
-                <span>${date}</span>
-              </div>
-            </a>`;
-        }).join('');
+        cachedVideosHTML = videos.length
+          ? videos.map(v => {
+              const s = v.snippet;
+              const videoId = s.resourceId.videoId;
+              const thumb = (s.thumbnails.medium || s.thumbnails.default).url;
+              const date = new Date(s.publishedAt).toLocaleDateString('es-ES', {day:'numeric', month:'short'});
+              return `
+                <a class="yt-video" href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
+                  <img class="yt-thumb" src="${thumb}" alt="">
+                  <div class="yt-info">
+                    <strong>${s.title}</strong>
+                    <span>${date}</span>
+                  </div>
+                </a>`;
+            }).join('')
+          : `<p class="yt-empty">Todavía no hay vídeos publicados.</p>`;
       } catch (err) {
-        list.innerHTML = `<p class="yt-empty">No se pudieron cargar los vídeos ahora mismo (revisa la API key y el Channel ID).</p>`;
+        cachedVideosHTML = `<p class="yt-empty">No se pudieron cargar los vídeos ahora mismo (revisa la API key y el Channel ID).</p>`;
       }
+
+      if (currentSidebarMode === 'videos') document.getElementById('ytVideoList').innerHTML = cachedVideosHTML;
     }
 
-    loadLatestVideos();
+    async function loadGeekNews(){
+      try {
+        const res = await fetch(
+          `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(GEEK_NEWS_FEED)}`
+        ).then(r => r.json());
+
+        const items = (res.items || []).slice(0, 6);
+        cachedNewsHTML = items.length
+          ? items.map(item => {
+              const date = new Date(item.pubDate).toLocaleDateString('es-ES', {day:'numeric', month:'short'});
+              const thumb = item.thumbnail || (item.enclosure && item.enclosure.link) || "";
+              return `
+                <a class="yt-video" href="${item.link}" target="_blank" rel="noopener">
+                  ${thumb
+                    ? `<img class="yt-thumb" src="${thumb}" alt="">`
+                    : `<div class="yt-thumb" style="display:grid;place-items:center;font-size:22px">📰</div>`}
+                  <div class="yt-info">
+                    <strong>${item.title}</strong>
+                    <span>${date}</span>
+                  </div>
+                </a>`;
+            }).join('')
+          : `<p class="yt-empty">No hay noticias disponibles ahora mismo.</p>`;
+      } catch (err) {
+        cachedNewsHTML = `<p class="yt-empty">No se pudieron cargar las noticias ahora mismo.</p>`;
+      }
+
+      if (currentSidebarMode === 'news') document.getElementById('ytVideoList').innerHTML = cachedNewsHTML;
+    }
+
+    if (!cameFromHash) updateSidebar('home');
   </script>
 </body>
 </html>
