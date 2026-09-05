@@ -1489,6 +1489,188 @@
       </section>
     </div>
 
+    <!-- ══════════ HELQUIDGAMES · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-helquid-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
+          <p class="section-sub">
+            Ideas para el próximo juego o formato de HELQUIDGAMES, listas para cuando te
+            quedes en blanco, organizadas por tipo.
+          </p>
+          <div class="progress-panel">
+            <div class="progress-head">
+              <div>
+                <strong>Banco de ideas</strong>
+                <div id="helquidDiscardCounter" class="idea-discard-counter">🗑️ 0 descartadas</div>
+              </div>
+              <span>40 ideas · 4 tipos de contenido</span>
+            </div>
+            <details class="month discarded-panel" id="helquidDiscardedPanel">
+              <summary><span>🗑️ Ideas descartadas</span><span class="count" id="helquidDiscardedCount">0</span></summary>
+              <div class="month-body" id="helquidDiscardedListBody"></div>
+            </details>
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="helquidHideDiscarded" onchange="setHideDiscardedPref('helquid','helquidSecretContainer', this.checked)">
+              Ocultar las ideas descartadas de la lista de abajo
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="helquidSecretContainer"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARKUMA LAB · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-lab-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver a Charkuma Lab</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
+          <p class="section-sub">
+            Ideas para nuevos proyectos, herramientas o entradas de bitácora de Charkuma Lab.
+          </p>
+          <div class="progress-panel">
+            <div class="progress-head">
+              <div>
+                <strong>Banco de ideas</strong>
+                <div id="labDiscardCounter" class="idea-discard-counter">🗑️ 0 descartadas</div>
+              </div>
+              <span>30 ideas · 3 tipos de contenido</span>
+            </div>
+            <details class="month discarded-panel" id="labDiscardedPanel">
+              <summary><span>🗑️ Ideas descartadas</span><span class="count" id="labDiscardedCount">0</span></summary>
+              <div class="month-body" id="labDiscardedListBody"></div>
+            </details>
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="labHideDiscarded" onchange="setHideDiscardedPref('lab','labSecretContainer', this.checked)">
+              Ocultar las ideas descartadas de la lista de abajo
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="labSecretContainer"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-ia-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
+          <p class="section-sub">
+            Ideas de prompts, automatizaciones y experimentos con IA para cuando te quedes
+            en blanco.
+          </p>
+          <div class="progress-panel">
+            <div class="progress-head">
+              <div>
+                <strong>Banco de ideas</strong>
+                <div id="iaDiscardCounter" class="idea-discard-counter">🗑️ 0 descartadas</div>
+              </div>
+              <span>40 ideas · 4 tipos de contenido</span>
+            </div>
+            <details class="month discarded-panel" id="iaDiscardedPanel">
+              <summary><span>🗑️ Ideas descartadas</span><span class="count" id="iaDiscardedCount">0</span></summary>
+              <div class="month-body" id="iaDiscardedListBody"></div>
+            </details>
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="iaHideDiscarded" onchange="setHideDiscardedPref('ia','iaSecretContainer', this.checked)">
+              Ocultar las ideas descartadas de la lista de abajo
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="iaSecretContainer"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-creator-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
+          <p class="section-sub">
+            Ideas de overlays, configuraciones de OBS, plantillas y recursos para el canal.
+          </p>
+          <div class="progress-panel">
+            <div class="progress-head">
+              <div>
+                <strong>Banco de ideas</strong>
+                <div id="creatorDiscardCounter" class="idea-discard-counter">🗑️ 0 descartadas</div>
+              </div>
+              <span>40 ideas · 4 tipos de contenido</span>
+            </div>
+            <details class="month discarded-panel" id="creatorDiscardedPanel">
+              <summary><span>🗑️ Ideas descartadas</span><span class="count" id="creatorDiscardedCount">0</span></summary>
+              <div class="month-body" id="creatorDiscardedListBody"></div>
+            </details>
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="creatorHideDiscarded" onchange="setHideDiscardedPref('creator','creatorSecretContainer', this.checked)">
+              Ocultar las ideas descartadas de la lista de abajo
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="creatorSecretContainer"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ HECHO A MANO · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-hecho-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
+          <p class="section-sub">
+            Ideas de tufting, diseños personalizados y objetos físicos para hacer a mano.
+          </p>
+          <div class="progress-panel">
+            <div class="progress-head">
+              <div>
+                <strong>Banco de ideas</strong>
+                <div id="hechoDiscardCounter" class="idea-discard-counter">🗑️ 0 descartadas</div>
+              </div>
+              <span>30 ideas · 3 tipos de contenido</span>
+            </div>
+            <details class="month discarded-panel" id="hechoDiscardedPanel">
+              <summary><span>🗑️ Ideas descartadas</span><span class="count" id="hechoDiscardedCount">0</span></summary>
+              <div class="month-body" id="hechoDiscardedListBody"></div>
+            </details>
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="hechoHideDiscarded" onchange="setHideDiscardedPref('hecho','hechoSecretContainer', this.checked)">
+              Ocultar las ideas descartadas de la lista de abajo
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="hechoSecretContainer"></div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ RINCÓN DEL FRIKI · detalle: Reacción 4 Fantásticos ══════════ -->
     <div id="view-rf-reaccion-4f" class="app-view">
       <section class="page-head">
@@ -1717,7 +1899,7 @@
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
           <div class="section-kicker">PROYECTO 003</div>
-          <h2 class="section-title">🎮 HELQUIDGAMES</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openHelquidSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de HELQUIDGAMES">🎮</span> HELQUIDGAMES</h2>
           <p class="section-sub">
             El hub de los juegos que voy creando. Cada uno vive en su propia página,
             con la misma estética de siempre.
@@ -1903,7 +2085,7 @@
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
           <div class="section-kicker">PROYECTO 004</div>
-          <h2 class="section-title">🧪 CHARKUMA LAB</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openLabSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Charkuma Lab">🧪</span> CHARKUMA LAB</h2>
           <p class="section-sub">
             Tres cosas en un mismo sitio: proyectos y experimentos terminados, mini-herramientas
             sueltas, y una bitácora de lo que voy probando por el camino.
@@ -2092,7 +2274,7 @@
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
           <div class="section-kicker">LABORATORIO</div>
-          <h2 class="section-title">🤖 IA & EXPERIMENTOS</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openIaSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de IA & Experimentos">🤖</span> IA & EXPERIMENTOS</h2>
           <p class="section-sub">
             Prompts, generación visual, automatizaciones y nuevas formas de crear.
           </p>
@@ -2354,7 +2536,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
           <div class="section-kicker">LABORATORIO</div>
-          <h2 class="section-title">🖥️ CREATOR TOOLS</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openCreatorSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Creator Tools">🖥️</span> CREATOR TOOLS</h2>
           <p class="section-sub">
             Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.
           </p>
@@ -2568,7 +2750,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
           <div class="section-kicker">LABORATORIO</div>
-          <h2 class="section-title">🧶 HECHO A MANO</h2>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openHechoSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Hecho a Mano">🧶</span> HECHO A MANO</h2>
           <p class="section-sub">
             Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.
           </p>
@@ -3105,6 +3287,14 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       showView('rf-secret');
     }
 
+    // Mismo patrón de easter egg, repetido en el resto de secciones tal
+    // como se planeó cuando se hizo el de Rincón del Friki.
+    function openHelquidSecretList(){ showView('helquid-secret'); }
+    function openLabSecretList(){ showView('lab-secret'); }
+    function openIaSecretList(){ showView('ia-secret'); }
+    function openCreatorSecretList(){ showView('creator-secret'); }
+    function openHechoSecretList(){ showView('hecho-secret'); }
+
     // Permite enlazar directamente a una vista con #view=nombre (por si
     // alguna vez compartes un enlace a una sección concreta). De paso,
     // fija la entrada base del historial (home, o la vista del enlace)
@@ -3426,6 +3616,68 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       const state = (loadIdeaBanks()[bank] || {})[id] || {};
       setIdeaState(bank, id, {discarded: !state.discarded});
       if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+
+    // Renderer genérico para un banco secreto "de tipo simple" (sin
+    // etiqueta de universo, solo agrupado por tipo) — se usa en los
+    // bancos de ideas de HELQUIDGAMES, Charkuma Lab, IA & Experimentos,
+    // Creator Tools y Hecho a Mano, para no repetir la misma función
+    // cinco veces. cfg = { bank, ideasByType, typeLabels, containerId,
+    // summaryId, discardCounterId, discardedCountId, discardedListId,
+    // hideCheckboxId }.
+    function renderTypedIdeaBank(cfg){
+      const container = document.getElementById(cfg.containerId);
+      if (!container) return;
+      const bankState = loadIdeaBanks()[cfg.bank] || {};
+
+      const openTypes = new Set(
+        [...container.querySelectorAll('details.month')].filter(d => d.open).map(d => d.dataset.type)
+      );
+
+      const discardedItems = [];
+      let html = "";
+      Object.keys(cfg.ideasByType).forEach(type => {
+        const ideas = cfg.ideasByType[type];
+        const emoji = (cfg.typeLabels[type] || '💡').split(' ')[0];
+        const rows = ideas.map((idea, i) => {
+          const id = `${type}-${i}`;
+          const s = bankState[id] || {};
+          if (s.discarded) discardedItems.push({id, label: idea});
+          return `
+          <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
+            <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
+              onclick="toggleIdeaDone('${cfg.bank}','${id}')"
+              title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
+            <div class="idea-body">
+              <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <span class="type-chip type-${type}">${cfg.typeLabels[type]}</span>
+                <span class="count">#${i + 1}</span>
+              </div>
+              <p style="margin:6px 0 0">${idea}</p>
+            </div>
+            <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${cfg.bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
+          </div>`;
+        }).join('');
+        html += `
+          <details class="month" data-type="${type}"${openTypes.has(type) ? ' open' : ''}>
+            <summary>
+              <span>${cfg.typeLabels[type]}</span>
+              <span class="count">${ideas.length} ideas</span>
+            </summary>
+            <div class="month-body">${rows}</div>
+          </details>`;
+      });
+      container.innerHTML = html;
+      container.classList.toggle('hide-discarded', getHideDiscardedPref(cfg.bank));
+
+      const counterEl = document.getElementById(cfg.discardCounterId);
+      if (counterEl) counterEl.textContent = `🗑️ ${discardedItems.length} descartada${discardedItems.length === 1 ? '' : 's'}`;
+      const discardedCountEl = document.getElementById(cfg.discardedCountId);
+      if (discardedCountEl) discardedCountEl.textContent = discardedItems.length;
+      const discardedListEl = document.getElementById(cfg.discardedListId);
+      if (discardedListEl) discardedListEl.innerHTML = discardedListHTML(cfg.bank, discardedItems);
+      const hideCheckbox = document.getElementById(cfg.hideCheckboxId);
+      if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(cfg.bank);
     }
 
     // ──────────────────────────────────────────────────────────
@@ -4779,6 +5031,280 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     setupFilterableFeed({ searchId:'iaSearch', typeId:'iaTypeFilter', listId:'iaContentList', data:iaContent, labels:IA_LABELS, colors:IA_COLORS });
     setupFilterableFeed({ searchId:'creatorSearch', typeId:'creatorTypeFilter', listId:'creatorContentList', data:creatorContent, labels:CREATOR_LABELS, colors:CREATOR_COLORS });
     setupFilterableFeed({ searchId:'hechoSearch', typeId:'hechoTypeFilter', listId:'hechoContentList', data:hechoContent, labels:HECHO_LABELS, colors:HECHO_COLORS });
+
+    // ──────────────────────────────────────────────────────────
+    // BANCOS SECRETOS DE IDEAS del resto de secciones — mismo patrón
+    // que el de Rincón del Friki (🦸), ahora repetido tal como se dejó
+    // planeado: HELQUIDGAMES, Charkuma Lab, IA & Experimentos,
+    // Creator Tools y Hecho a Mano. Los tipos reutilizan las mismas
+    // etiquetas/colores que ya usa cada sección en su feed normal.
+    // ──────────────────────────────────────────────────────────
+    const HELQUID_IDEA_LABELS = { reto:'🏆 Reto', formato:'🎮 Formato nuevo', colab:'🤝 Colab', especial:'✨ Especial' };
+    const helquidSecretIdeas = {
+      reto: [
+        "Terminar un roguelike sin morir ni una vez en directo (o hasta rendirte).",
+        "Completar un juego clásico usando solo el teclado, sin mando.",
+        "Reto de \"un intento\": si mueres al primer fallo grave, se acaba el vídeo.",
+        "Speedrun casual de un juego de Retro 365, sin practicar antes.",
+        "Jugar un juego entero sin mirar ninguna guía ni tutorial.",
+        "Reto de dificultad: pasar un nivel concreto en el modo más difícil disponible.",
+        "24 horas de un mismo juego: cuánto se puede avanzar en un día.",
+        "Reto \"solo objetos random\": usar únicamente lo primero que encuentres.",
+        "Terminar un juego de terror sin pausar ni una vez.",
+        "Reto comunidad: la audiencia decide la siguiente decisión del juego."
+      ],
+      formato: [
+        "\"Primeros 10 minutos\": primeras impresiones de un juego recién anunciado.",
+        "Comparativa rápida: dos juegos del mismo género, cara a cara.",
+        "\"¿Vale la pena en 2026?\": revisando un juego con unos años ya encima.",
+        "Ranking personal: mis 5 juegos favoritos de un género concreto.",
+        "\"Adivina el juego\" con pistas cada vez más fáciles.",
+        "Probar un juego hecho por un solo desarrollador (indie).",
+        "\"Lo que nadie te cuenta\" de un juego popular: mecánicas ocultas.",
+        "Sesión de preguntas de la audiencia mientras juegas.",
+        "\"De 0 a experto\": aprendiendo un juego competitivo desde cero.",
+        "Probar mods o contenido creado por la comunidad de un juego ya conocido."
+      ],
+      colab: [
+        "Torneo amistoso 1 vs 1 con otro creador de contenido.",
+        "Reacción cruzada: reaccionamos juntos al mismo tráiler o anuncio.",
+        "Ronda de preguntas rápidas con otro streamer o creador invitado.",
+        "Partida cooperativa con un invitado en un juego multijugador.",
+        "Intercambio de recomendaciones: cada uno prueba el juego favorito del otro.",
+        "Reto conjunto: los dos intentamos el mismo desafío por separado y comparamos.",
+        "Entrevista corta a otro creador sobre cómo empezó en esto.",
+        "Colab de dibujo o arte con alguien de Charkuma Lab aplicada a un juego.",
+        "Directo conjunto sorteando algo entre las dos comunidades.",
+        "Versus por turnos: cada uno elige un reto para que el otro lo cumpla."
+      ],
+      especial: [
+        "Especial de aniversario del canal: repaso de los mejores momentos.",
+        "Especial de Navidad o fin de año jugando algo con temática festiva.",
+        "Vídeo de \"detrás de cámaras\": cómo se graba y edita normalmente.",
+        "Especial de hito de suscriptores: agradecimiento + sorteo.",
+        "Recopilatorio de los mejores fails y momentos random del canal.",
+        "Especial \"responde la comunidad\": Q&A largo sobre el canal y HELQUIDGAMES.",
+        "Probar el primer juego que jugaste de pequeño, con ojos de adulto.",
+        "Especial de Halloween: maratón de juegos de terror cortos.",
+        "Vídeo \"un año de HELQUIDGAMES\": qué ha cambiado y qué viene.",
+        "Especial cruce: un día jugando algo pedido por Rincón del Friki."
+      ]
+    };
+    IDEA_BANK_RENDERERS.helquid = () => renderTypedIdeaBank({
+      bank:'helquid', ideasByType:helquidSecretIdeas, typeLabels:HELQUID_IDEA_LABELS,
+      containerId:'helquidSecretContainer', discardCounterId:'helquidDiscardCounter',
+      discardedCountId:'helquidDiscardedCount', discardedListId:'helquidDiscardedListBody',
+      hideCheckboxId:'helquidHideDiscarded'
+    });
+    IDEA_BANK_RENDERERS.helquid();
+
+    const labSecretIdeas = {
+      proyecto: [
+        "Rediseñar la pantalla de \"empieza el directo\" a juego con la estética de la web.",
+        "Crear un bot simple que salude a quien entra por primera vez al directo.",
+        "Montar un dashboard propio con las estadísticas del canal en una sola pantalla.",
+        "Diseñar un sistema de puntos o logros para la comunidad del Discord.",
+        "Crear una landing page mini para cada nuevo proyecto que se anuncie.",
+        "Construir un generador de miniaturas semi-automático con plantillas.",
+        "Hacer una extensión de navegador tonta pero útil para el flujo de grabación.",
+        "Montar un \"modo invitado\" en la web para mostrarla en entrevistas o colabs.",
+        "Crear un sistema de votaciones para que la comunidad elija el próximo proyecto.",
+        "Diseñar alertas personalizadas para donaciones o subs con la mascota CHARKUMA."
+      ],
+      herramienta: [
+        "Script que recorta automáticamente los mejores momentos de un directo.",
+        "Plantilla de guion reutilizable para vídeos cortos tipo reacción.",
+        "Herramienta que sugiere horarios de publicación según la audiencia activa.",
+        "Generador de nombres de vídeo con varias opciones de título por idea.",
+        "Checklist interactivo de \"antes de publicar\" (miniatura, tags, descripción...).",
+        "Comparador de dos miniaturas para decidir cuál usar antes de publicar.",
+        "Herramienta que recuerda qué juegos de Retro 365 llevan más tiempo sin tocar.",
+        "Conversor rápido de notas sueltas a guion con estructura.",
+        "Plantilla de respuesta rápida para comentarios frecuentes.",
+        "Cronómetro de \"tiempo de pantalla vs tiempo hablando\" para calibrar el ritmo."
+      ],
+      bitacora: [
+        "Primeras impresiones probando un motor de vídeo con IA por primera vez.",
+        "Lo que he aprendido montando el buscador global de la web.",
+        "Registro de errores graciosos al programar la web (bugs memorables).",
+        "Cómo decidí la paleta de colores y la estética morada/naranja de CHARKUMA.",
+        "Bitácora de una semana probando una herramienta nueva de edición.",
+        "Qué tal ha ido migrar la web a GitHub Pages, con los tropiezos incluidos.",
+        "Diario de a bordo: una semana completa de creación de contenido, sin editar.",
+        "Probando por primera vez a programar algo sin ayuda externa (o con ella).",
+        "Registro de cómo evoluciona el banco de ideas secreto mes a mes.",
+        "Reflexión sincera sobre qué proyecto de Charkuma Lab ha sido el más útil."
+      ]
+    };
+    IDEA_BANK_RENDERERS.lab = () => renderTypedIdeaBank({
+      bank:'lab', ideasByType:labSecretIdeas, typeLabels:LAB_TYPE_LABELS,
+      containerId:'labSecretContainer', discardCounterId:'labDiscardCounter',
+      discardedCountId:'labDiscardedCount', discardedListId:'labDiscardedListBody',
+      hideCheckboxId:'labHideDiscarded'
+    });
+    IDEA_BANK_RENDERERS.lab();
+
+    const iaSecretIdeas = {
+      prompt: [
+        "Prompt para convertir una idea suelta en guion de 60 segundos.",
+        "Prompt para generar 10 títulos de vídeo a partir de un tema.",
+        "Prompt para resumir un directo largo en los 5 mejores momentos.",
+        "Prompt para escribir la descripción de YouTube optimizada para SEO.",
+        "Prompt para generar preguntas de Q&A a partir de comentarios reales.",
+        "Prompt para adaptar un guion largo a formato corto (Reels/TikTok).",
+        "Prompt para generar ideas de miniatura a partir del título del vídeo.",
+        "Prompt para escribir un post anunciando un vídeo nuevo.",
+        "Prompt para convertir notas de voz transcritas en guion limpio.",
+        "Prompt para generar variantes de un mismo chiste o gancho inicial."
+      ],
+      automatizacion: [
+        "Aviso automático a Discord cuando cambia el estado de \"en directo\" en Twitch.",
+        "Publicar automáticamente en redes cuando sale un vídeo nuevo de YouTube.",
+        "Guardar en una hoja de cálculo las ideas descartadas de los bancos secretos.",
+        "Recordatorio automático semanal de qué falta por revisar en la web.",
+        "Backup automático semanal de los datos guardados en localStorage (exportado).",
+        "Generar automáticamente el changelog de la web a partir de los commits.",
+        "Alerta automática si un enlace de la web deja de funcionar.",
+        "Automatizar el redimensionado de miniaturas a los tamaños de cada plataforma.",
+        "Bot que resuma los comentarios nuevos de un vídeo cada mañana.",
+        "Automatizar el paso de \"guion aprobado\" a tarea en el calendario de publicación."
+      ],
+      visual: [
+        "Generar variaciones del logo de CHARKUMA para distintas estaciones del año.",
+        "Probar estilos de miniatura distintos para el mismo vídeo y comparar clics.",
+        "Generar arte conceptual para una skin especial de la mascota lagarto.",
+        "Crear iconos personalizados para cada sección de la web con IA.",
+        "Probar generación de fondos para overlays de streaming.",
+        "Generar variantes de la mascota reaccionando a juegos de Retro 365.",
+        "Crear stickers para Discord con la estética del canal.",
+        "Probar la generación de miniaturas \"estilo cómic\" para Rincón del Friki.",
+        "Generar ilustraciones para las portadas del banco de ideas secreto.",
+        "Experimentar con estilos pixel-art para representar juegos de Retro 365."
+      ],
+      video: [
+        "Probar una intro generada con IA para un vídeo de Rincón del Friki.",
+        "Generar un adelanto corto de la semana con clips ya grabados.",
+        "Probar subtítulos automáticos y comparar precisión en español.",
+        "Generar una transición animada entre secciones de un mismo vídeo.",
+        "Probar voces de IA para narrar una curiosidad corta de Rincón del Friki.",
+        "Generar un resumen en vídeo de los cambios nuevos de la web.",
+        "Probar herramientas de mejora automática de audio en grabaciones antiguas.",
+        "Generar una versión corta (Shorts/Reels) automática de un vídeo largo.",
+        "Probar el doblaje automático de un clip a otro idioma, solo por curiosidad.",
+        "Generar b-roll genérico (paisajes, texturas) para rellenar cortes de edición."
+      ]
+    };
+    IDEA_BANK_RENDERERS.ia = () => renderTypedIdeaBank({
+      bank:'ia', ideasByType:iaSecretIdeas, typeLabels:IA_LABELS,
+      containerId:'iaSecretContainer', discardCounterId:'iaDiscardCounter',
+      discardedCountId:'iaDiscardedCount', discardedListId:'iaDiscardedListBody',
+      hideCheckboxId:'iaHideDiscarded'
+    });
+    IDEA_BANK_RENDERERS.ia();
+
+    const creatorSecretIdeas = {
+      overlay: [
+        "Overlay especial para las colabs, con hueco para el logo del invitado.",
+        "Overlay temático para maratones de terror en Halloween.",
+        "Overlay minimalista para clips cortos, sin cámara ni chat.",
+        "Overlay con contador de días restantes de un reto en curso.",
+        "Overlay para Q&A con las preguntas destacadas en pantalla.",
+        "Overlay de \"modo viajando\": versión ligera del set para grabar fuera de casa.",
+        "Overlay festivo intercambiable para fechas señaladas.",
+        "Overlay especial para anuncios grandes (nuevo proyecto, nueva sección).",
+        "Overlay con marcador tipo \"torneo\" para los retos 1 vs 1.",
+        "Overlay reducido para pantalla compartida en formato vertical (móvil)."
+      ],
+      obs: [
+        "Escena rápida de \"volviendo en 5 minutos\" con la estética de la web.",
+        "Configuración de escenas para grabar tutoriales paso a paso.",
+        "Preset de cámara + juego a partes iguales para reacciones.",
+        "Escena de \"empezando pronto\" con cuenta atrás integrada.",
+        "Configuración multi-cámara para las colabs presenciales.",
+        "Escena dedicada para mostrar la pantalla del móvil (apps, juegos móviles).",
+        "Preset de audio equilibrado para directos largos sin fatiga de voz.",
+        "Escena de \"encuesta en pantalla\" para decisiones de la comunidad en directo.",
+        "Configuración ligera para grabar rápido sin montar todo el set completo.",
+        "Escena de despedida con resumen del directo y próximos vídeos."
+      ],
+      plantilla: [
+        "Plantilla de miniatura para el banco de ideas de HELQUIDGAMES.",
+        "Plantilla de miniatura para vídeos de Charkuma Lab.",
+        "Plantilla de portada para clips cortos de Retro 365.",
+        "Plantilla de guion para vídeos tipo \"primeras impresiones\".",
+        "Plantilla de descripción de YouTube reutilizable, con huecos para rellenar.",
+        "Plantilla de post para redes anunciando un vídeo nuevo.",
+        "Plantilla de miniatura para las colabs, con espacio para dos personas.",
+        "Plantilla de calendario editorial semanal, sencilla y visual.",
+        "Plantilla de \"ficha de reto\" para los desafíos de HELQUIDGAMES.",
+        "Plantilla de captura de pantalla anotada para tutoriales de Creator Tools."
+      ],
+      recurso: [
+        "Pack de transiciones cortas a juego con la paleta morada/naranja.",
+        "Banco de sonidos de UI (clics, aciertos, fallos) para overlays interactivos.",
+        "Pack de iconos para redes sociales a juego con la estética CHARKUMA.",
+        "Plantilla de hoja de cálculo para seguimiento de ideas y estados.",
+        "Pack de marcos y bordes para clips cortos verticales.",
+        "Paleta de colores exportada para usar en cualquier editor.",
+        "Pack de emotes básicos para Discord/Twitch con la mascota lagarto.",
+        "Banco de música libre de derechos ya filtrada por tipo de vídeo.",
+        "Plantilla de brief para pedir colabs a otros creadores.",
+        "Checklist descargable de \"todo lo que lleva publicar un vídeo\"."
+      ]
+    };
+    IDEA_BANK_RENDERERS.creator = () => renderTypedIdeaBank({
+      bank:'creator', ideasByType:creatorSecretIdeas, typeLabels:CREATOR_LABELS,
+      containerId:'creatorSecretContainer', discardCounterId:'creatorDiscardCounter',
+      discardedCountId:'creatorDiscardedCount', discardedListId:'creatorDiscardedListBody',
+      hideCheckboxId:'creatorHideDiscarded'
+    });
+    IDEA_BANK_RENDERERS.creator();
+
+    const hechoSecretIdeas = {
+      tufting: [
+        "Alfombra tufting de la mascota lagarto en versión mini, para el escritorio.",
+        "Cojín tufting con el logo de HELQUIDGAMES.",
+        "Alfombra tufting inspirada en un juego concreto de Retro 365.",
+        "Posavasos de tufting a juego con la paleta de la web.",
+        "Tapiz de pared tufting con el eslogan del canal.",
+        "Alfombra tufting temática de Rincón del Friki (con permiso creativo).",
+        "Funda de cojín tufting para silla gaming.",
+        "Alfombra de baño tufting con un diseño pixel-art sencillo.",
+        "Colgante de puerta tufting pequeño con la cara de la mascota.",
+        "Alfombra tufting a juego con el overlay de streaming, para el fondo del set."
+      ],
+      diseno: [
+        "Diseño de merch: sudadera con el lagarto en modo \"gamer\".",
+        "Pegatinas para portátil con los iconos de cada sección de la web.",
+        "Diseño de fondo de pantalla (móvil y escritorio) con la estética CHARKUMA.",
+        "Diseño de carcasa de móvil personalizada con el logo.",
+        "Diseño de llavero con la mascota en distintas poses.",
+        "Diseño de funda para mando de consola a juego con la web.",
+        "Diseño de tarjetas de presentación para colabs y eventos.",
+        "Diseño de parche bordado para HELQUIDGAMES, estilo retro gamer.",
+        "Diseño de agenda o cuaderno con la paleta morada/naranja.",
+        "Diseño de banner para el canal de Discord, a juego con la web."
+      ],
+      objeto: [
+        "Figura 3D de la mascota en pose \"listo para grabar\" (auriculares puestos).",
+        "Soporte para móvil impreso en 3D con el logo de CHARKUMA.",
+        "Base para teclado o ratón impresa a juego con el set de streaming.",
+        "Figura conmemorativa de un hito del canal (por ejemplo, suscriptores).",
+        "Organizador de escritorio impreso en 3D con hueco para micro y cascos.",
+        "Réplica en miniatura de un objeto icónico de un juego de Retro 365.",
+        "Portalápices con la forma del lagarto de la marca.",
+        "Placa o trofeo impreso en 3D para ganadores de retos de HELQUIDGAMES.",
+        "Soporte para cámara o luz de streaming personalizado.",
+        "Pin o insignia física con el logo, para llevar a eventos."
+      ]
+    };
+    IDEA_BANK_RENDERERS.hecho = () => renderTypedIdeaBank({
+      bank:'hecho', ideasByType:hechoSecretIdeas, typeLabels:HECHO_LABELS,
+      containerId:'hechoSecretContainer', discardCounterId:'hechoDiscardCounter',
+      discardedCountId:'hechoDiscardedCount', discardedListId:'hechoDiscardedListBody',
+      hideCheckboxId:'hechoHideDiscarded'
+    });
+    IDEA_BANK_RENDERERS.hecho();
 
     // ──────────────────────────────────────────────────────────
     // BUSCADOR GLOBAL: junta el contenido de todas las secciones (más
