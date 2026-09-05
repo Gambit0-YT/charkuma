@@ -1926,6 +1926,10 @@
     }
 
     function resetRuleta(){
+      const hasProgress = ruletaState.usedPlayers.length > 0;
+      if (hasProgress && !confirm('¿Seguro que quieres reiniciar la partida?\n\nSe borrarán las dos alineaciones y la lista de jugadores usados. Esta acción no se puede deshacer.')) {
+        return;
+      }
       const name0 = document.getElementById('teamNameInput0').value.trim() || 'Equipo 1';
       const name1 = document.getElementById('teamNameInput1').value.trim() || 'Equipo 2';
       ruletaState = freshRuletaState();
