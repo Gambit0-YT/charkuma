@@ -1296,6 +1296,13 @@
   </footer>
 
   <script>
+    // Estado del widget lateral (declarado aquí arriba para que esté
+    // disponible desde el primer momento, incluso si se entra por un
+    // enlace directo del tipo #view=... que llama a showView() muy pronto).
+    let currentSidebarMode = 'videos'; // 'videos' | 'news'
+    let cachedVideosHTML = null;
+    let cachedNewsHTML = null;
+
     // ──────────────────────────────────────────────────────────
     // NAVEGACIÓN INTERNA (SPA): cambia de "página" sin recargar,
     // manteniendo siempre la cabecera fija arriba.
@@ -1945,10 +1952,6 @@
     // Zona Negativa: sitio español dedicado a cómics y cultura geek, con RSS público.
     // Puedes cambiarla por cualquier otro feed RSS que prefieras.
     const GEEK_NEWS_FEED = "https://www.zonanegativa.com/feed/";
-
-    let currentSidebarMode = 'videos'; // 'videos' | 'news' — controla qué vista "es dueña" del lateral ahora mismo
-    let cachedVideosHTML = null;
-    let cachedNewsHTML = null;
 
     // El lateral muestra "Últimos vídeos" en todo el sitio, EXCEPTO dentro
     // de Rincón del Friki, donde muestra "Noticias Geek" en su lugar.
