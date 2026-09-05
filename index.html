@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHARKUMA — Gaming, cultura geek y creatividad</title>
+  <meta name="description" content="CHARKUMA: gaming, cultura geek, Marvel, series, creatividad, tecnología y proyectos." />
+
+  <!-- Favicon (emoji, sin necesidad de subir ninguna imagen) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A6%8E</text></svg>" />
+
+  <!-- Open Graph / Twitter Card: vista previa al compartir el enlace -->
+  <!-- IMPORTANTE: cuando publiques la web online, actualiza "og:url" con tu
+       dominio real y añade una imagen "og-image.jpg" (1200x630px, por ejemplo
+       una captura del hero) en esta misma carpeta para que "og:image" funcione. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CHARKUMA" />
+  <meta property="og:title" content="CHARKUMA — Gaming, cultura geek y creatividad" />
+  <meta property="og:description" content="Gamer, creador y friki profesional: videojuegos, cultura geek, Marvel, series, tecnología y proyectos creativos." />
+  <meta property="og:image" content="og-image.jpg" />
+  <meta property="og:url" content="https://tu-dominio-cuando-lo-publiques.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CHARKUMA — Gaming, cultura geek y creatividad" />
+  <meta name="twitter:description" content="Gamer, creador y friki profesional: videojuegos, cultura geek, Marvel, series, tecnología y proyectos creativos." />
+  <meta name="twitter:image" content="og-image.jpg" />
+
+  <style>
+    :root{
+      --bg:#09070f;
+      --bg2:#120d1f;
+      --card:#161022cc;
+      --purple:#8b5cf6;
+      --purple2:#6d28d9;
+      --orange:#ff7a18;
+      --orange2:#ff9d3d;
+      --text:#f7f4ff;
+      --muted:#b7acc9;
+      --line:#2a1f3c;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --green:#38d99a; --yellow:#f5c845; --red:#ff5f6d;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(139,92,246,.16), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(255,122,24,.12), transparent 24%),
+        linear-gradient(180deg,var(--bg),#0b0812 45%,#0a0710);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(to bottom,black,transparent 85%);
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1160px,calc(100% - 34px));margin:auto}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(9,7,15,.72);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:74px;
+      gap:24px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.08em;cursor:pointer
+    }
+    .brand-badge{
+      width:42px;height:42px;border-radius:13px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--orange),var(--purple));
+      box-shadow:0 0 28px rgba(139,92,246,.28);
+      font-size:22px;
+    }
+    .brand span strong{color:var(--orange)}
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px;font-weight:700}
+    .nav-links a{cursor:pointer}
+    .nav-links a:hover{color:white}
+    .nav-cta{
+      padding:10px 15px;border:1px solid rgba(255,122,24,.38);border-radius:12px;
+      color:white;background:rgba(255,122,24,.08);cursor:pointer
+    }
+
+    .hero{
+      min-height:calc(100vh - 74px);
+      display:grid;align-items:center;
+      padding:84px 0 70px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(139,92,246,.34);
+      background:rgba(139,92,246,.08);
+      color:#d9ceff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase
+    }
+    h1{
+      font-size:clamp(54px,8vw,104px);
+      line-height:.92;
+      margin:22px 0 22px;
+      letter-spacing:-.055em;
+    }
+    .gradient{
+      background:linear-gradient(90deg,var(--orange),#ffb15f 34%,#b993ff 72%,var(--purple));
+      -webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer
+    }
+    .hero p{
+      font-size:clamp(18px,2vw,22px);line-height:1.65;
+      color:var(--muted);max-width:720px;margin:0;
+    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+    .btn{
+      border:0;cursor:pointer;
+      padding:14px 20px;border-radius:14px;
+      font-weight:900;letter-spacing:.02em;
+      transition:.25s transform,.25s box-shadow,.25s background;
+      display:inline-flex;align-items:center;gap:10px
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--orange),#ff5f1f);
+      color:white;box-shadow:0 12px 34px rgba(255,122,24,.22)
+    }
+    .btn-secondary{
+      color:white;background:#171022;border:1px solid #332447
+    }
+
+    .hero-visual{
+      min-height:500px;position:relative;display:grid;place-items:center
+    }
+    .orb{
+      position:absolute;width:390px;height:390px;border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 30%,rgba(255,255,255,.18),transparent 20%),
+        radial-gradient(circle at 60% 35%,rgba(255,122,24,.42),transparent 38%),
+        radial-gradient(circle at 45% 70%,rgba(139,92,246,.48),transparent 42%);
+      filter:blur(2px);
+      box-shadow:0 0 100px rgba(139,92,246,.16);
+    }
+    .mascot{
+      width:min(360px,82vw);aspect-ratio:1/1.08;
+      position:relative;z-index:2;
+      border-radius:34px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:28px;
+      background:linear-gradient(145deg,rgba(28,18,41,.86),rgba(15,10,23,.9));
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+      transform:rotate(2deg);
+    }
+    .mascot .emoji{font-size:96px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.4))}
+    .mascot h3{font-size:32px;margin:10px 0 4px}
+    .mascot p{font-size:13px;line-height:1.5;color:var(--muted)}
+    .tag{
+      position:absolute;z-index:4;
+      padding:10px 14px;border-radius:13px;
+      background:#120d1e;border:1px solid #35294a;
+      box-shadow:var(--shadow);font-weight:800;font-size:13px
+    }
+    .tag-a{top:58px;right:0;transform:rotate(5deg)}
+    .tag-b{bottom:58px;left:0;transform:rotate(-5deg)}
+
+    section{padding:88px 0}
+    .section-kicker{
+      color:var(--orange);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.15em
+    }
+    .section-title{
+      font-size:clamp(34px,5vw,58px);line-height:1;margin:10px 0 16px;letter-spacing:-.04em
+    }
+    .section-sub{
+      max-width:760px;color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 34px
+    }
+
+    .about-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;gap:28px
+    }
+    .panel{
+      padding:28px;border-radius:24px;background:var(--card);
+      border:1px solid var(--line);box-shadow:var(--shadow)
+    }
+    .panel p{color:var(--muted);line-height:1.8}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .chip{
+      padding:9px 12px;border-radius:999px;border:1px solid #332847;
+      color:#ddd3ed;background:#100b18;font-size:13px;font-weight:800
+    }
+
+    .mini-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:14px
+    }
+    .mini{
+      min-height:138px;padding:18px;border-radius:18px;background:#100b18;
+      border:1px solid #2d2240;display:flex;flex-direction:column;justify-content:space-between
+    }
+    .mini .icon{font-size:28px}
+    .mini strong{font-size:15px}
+    .mini span{font-size:12px;color:var(--muted)}
+
+    .projects{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:18px
+    }
+    .project{
+      display:block;min-height:280px;padding:28px;border-radius:26px;position:relative;overflow:hidden;
+      background:linear-gradient(145deg,#171022,#0f0b16);
+      border:1px solid #312342;
+      transition:.3s transform,.3s border-color;cursor:pointer
+    }
+    .project:hover{transform:translateY(-5px);border-color:#5a3c7c}
+    .project::after{
+      content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+      right:-58px;bottom:-72px;
+      background:radial-gradient(circle,rgba(139,92,246,.26),transparent 68%)
+    }
+    .project.orange::after{background:radial-gradient(circle,rgba(255,122,24,.28),transparent 68%)}
+    .project .num{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.15em}
+    .project h3{font-size:31px;margin:48px 0 8px}
+    .project p{color:var(--muted);line-height:1.6;max-width:500px}
+    .project .open{position:absolute;right:22px;top:20px;font-size:22px}
+
+    .roulette{
+      display:grid;grid-template-columns:.8fr 1.2fr;gap:26px;align-items:center
+    }
+    .wheel-wrap{display:grid;place-items:center}
+    .wheel{
+      width:min(350px,80vw);aspect-ratio:1;border-radius:50%;
+      display:grid;place-items:center;
+      background:conic-gradient(
+        var(--purple) 0 60deg,
+        #25183c 60deg 120deg,
+        var(--orange) 120deg 180deg,
+        #39205d 180deg 240deg,
+        #ff943f 240deg 300deg,
+        #1b1227 300deg 360deg
+      );
+      border:10px solid #171022;
+      box-shadow:0 0 0 2px #39234f,0 30px 70px rgba(0,0,0,.35);
+      transition:2.6s cubic-bezier(.16,.8,.22,1);
+      position:relative;
+    }
+    .wheel::before{
+      content:"";width:84px;height:84px;border-radius:50%;background:#0f0b16;
+      border:7px solid #2a1d3d;position:absolute
+    }
+    .wheel::after{
+      content:"🦎";font-size:37px;position:absolute
+    }
+    .random-box{
+      padding:30px;border-radius:24px;border:1px solid #332447;background:#120c1c
+    }
+    .random-box h3{font-size:28px;margin-top:0}
+    #result{
+      min-height:70px;padding:18px;border-radius:15px;background:#0d0914;border:1px solid #2d2140;
+      color:#e7dfff;display:flex;align-items:center;font-weight:800;margin:18px 0
+    }
+
+    .lab-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+    }
+    .lab-card{
+      display:block;padding:24px;border-radius:20px;border:1px solid var(--line);background:#110c19;
+      min-height:190px;transition:.3s transform,.3s border-color;cursor:pointer
+    }
+    .lab-card:hover{transform:translateY(-5px);border-color:#5a3c7c}
+    .lab-card .icon{font-size:34px}
+    .lab-card h4{font-size:20px;margin:26px 0 8px}
+    .lab-card p{color:var(--muted);font-size:14px;line-height:1.6}
+
+    .quote{
+      margin:44px 0 0;padding:28px;border-left:4px solid var(--orange);
+      background:linear-gradient(90deg,rgba(255,122,24,.07),transparent);
+      font-size:clamp(22px,3vw,34px);font-weight:900;line-height:1.3
+    }
+
+    footer{
+      padding:54px 0 34px;border-top:1px solid rgba(255,255,255,.07);
+      color:var(--muted)
+    }
+    .footer-grid{
+      display:flex;justify-content:space-between;gap:26px;align-items:end;flex-wrap:wrap
+    }
+    .footer-logo{font-size:30px;font-weight:1000;color:white}
+    .footer-logo strong{color:var(--orange)}
+    .socials{display:flex;gap:10px;flex-wrap:wrap}
+    .social{
+      padding:9px 12px;border-radius:11px;border:1px solid #2e2240;background:#110c18;
+      font-size:13px;font-weight:800;cursor:pointer
+    }
+
+    .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    #sobre-mi{display:none}
+    #sobre-mi.unlocked{display:block}
+
+    /* ── sistema de vistas (SPA sin recargar página) ── */
+    .app-view{display:none}
+    .app-view.active{display:block}
+
+    /* ── páginas de detalle (proyectos / laboratorio / redes) ── */
+    .back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:800;margin-bottom:22px;cursor:pointer}
+    .back:hover{color:white}
+    .page-head{padding:56px 0 20px}
+    .detail-section{padding:0 0 88px}
+
+    .note{margin-top:26px;padding:20px 24px;border-radius:18px;border:1px dashed #45305f;background:rgba(139,92,246,.06);color:var(--muted);font-size:14px;line-height:1.7}
+    .note strong{color:#d9ceff}
+    .note code{background:#0d0914;padding:2px 6px;border-radius:6px;font-size:12px}
+
+    /* ── redes sociales ── */
+    .platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .platform{padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .platform-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .platform-id{display:flex;align-items:center;gap:12px}
+    .platform-badge{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,var(--purple),var(--purple2))}
+    .platform.tiktok .platform-badge{background:linear-gradient(135deg,#25f4ee,#111)}
+    .platform.instagram .platform-badge{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)}
+    .platform.twitch .platform-badge{background:linear-gradient(135deg,#9146ff,#5c2ea8)}
+    .platform h3{margin:0;font-size:19px}
+    .platform .handle{font-size:12px;color:var(--muted);font-weight:700}
+    .visit{padding:8px 13px;border-radius:10px;border:1px solid #332447;background:#100b18;font-size:12px;font-weight:800;color:white}
+    .visit:hover{border-color:#5a3c7c}
+    .latest-label{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+    .latest-card{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:#100b18;border:1px solid #2d2240;margin-bottom:10px}
+    .latest-thumb{width:64px;height:64px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:26px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
+    .latest-info strong{display:block;font-size:14px;line-height:1.4}
+    .latest-info span{font-size:12px;color:var(--muted)}
+
+    /* ── retro 365 ── */
+    .progress-panel{padding:26px 28px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);margin-top:30px}
+    .progress-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+    .progress-head strong{font-size:16px}
+    .progress-head span{color:var(--muted);font-size:14px;font-weight:700}
+    .progress-track{height:12px;border-radius:999px;background:#0d0914;border:1px solid #2d2240;overflow:hidden}
+    .progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--orange),var(--purple));transition:width .6s ease}
+    .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:12px;color:var(--muted);font-weight:700}
+    .legend span{display:inline-flex;align-items:center;gap:6px}
+
+    .month{margin-top:22px;border-radius:20px;border:1px solid var(--line);background:#110c19;overflow:hidden}
+    .month > summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:15px;letter-spacing:.02em}
+    .month > summary::-webkit-details-marker{display:none}
+    .month > summary .count{font-size:12px;color:var(--muted);font-weight:700}
+    .month > summary::after{content:"▾";color:var(--muted);font-size:14px;transition:.25s transform}
+    .month[open] > summary::after{transform:rotate(180deg)}
+    .month-body{padding:6px 18px 20px;display:grid;grid-template-columns:1fr;gap:12px}
+
+    .day-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:#0d0914;border:1px solid #241a34}
+    .day-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
+    .day-card.unlocked{border-color:#3a2a52}
+    .day-card.unlocked .day-thumb{background:linear-gradient(145deg,rgba(255,122,24,.18),rgba(139,92,246,.22))}
+    .day-card.locked{opacity:.55}
+    .day-card.locked .day-thumb{filter:grayscale(1)}
+    .day-card.next .day-thumb{box-shadow:0 0 0 2px var(--orange)}
+    .day-card.planned{border-color:#4c2f78}
+    .day-card.planned .day-thumb{background:linear-gradient(145deg,rgba(139,92,246,.3),rgba(139,92,246,.12))}
+
+    .day-info{flex:1;min-width:0}
+    .day-badge{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--muted)}
+    .day-info h4{margin:4px 0 6px;font-size:17px}
+    .day-info h4 a:hover{color:var(--orange2);text-decoration:underline}
+    .day-info p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.55}
+    .locked-title{color:var(--muted);font-weight:800}
+
+    .day-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+    .diff-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em}
+    .diff-facil{background:rgba(56,217,154,.12);color:var(--green);border:1px solid rgba(56,217,154,.35)}
+    .diff-media{background:rgba(245,200,69,.12);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
+    .diff-dificil{background:rgba(255,95,109,.12);color:var(--red);border:1px solid rgba(255,95,109,.35)}
+    .diff-muydificil{background:rgba(192,38,211,.14);color:#e879f9;border:1px solid rgba(192,38,211,.4)}
+
+    .search-panel{margin-top:30px}
+    .search-row{display:flex;gap:12px;flex-wrap:wrap}
+    .search-row input, .search-row select{
+      flex:1;min-width:200px;padding:12px 16px;border-radius:12px;
+      background:#0d0914;border:1px solid #2d2240;color:var(--text);
+      font-size:14px;font-family:inherit
+    }
+    .search-row input::placeholder{color:var(--muted)}
+    .search-row input:focus, .search-row select:focus{outline:none;border-color:var(--orange)}
+    .subheading{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
+    .recent-list{display:grid;gap:12px}
+
+    .video-link{padding:6px 12px;border-radius:9px;background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);font-size:12px;font-weight:800;color:white}
+    .video-link:hover{background:rgba(255,122,24,.2)}
+    .lock-note{font-size:11px;color:var(--muted);font-style:italic}
+    .undecided-row{padding:10px 16px;border-radius:12px;background:#0d0914;border:1px dashed #241a34;color:var(--muted);font-size:12px;font-weight:700}
+
+    /* ── widget lateral: últimos vídeos de YouTube ── */
+    .yt-sidebar{
+      display:none;position:fixed;top:100px;right:24px;width:270px;
+      max-height:calc(100vh - 130px);overflow-y:auto;
+      padding:18px;border-radius:20px;background:var(--card);
+      border:1px solid var(--line);box-shadow:var(--shadow);z-index:40;
+    }
+    .yt-sidebar h4{margin:0 0 14px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
+    .yt-video{display:flex;gap:10px;padding:10px 0;border-top:1px solid #241a34}
+    .yt-video:first-of-type{border-top:none;padding-top:0}
+    .yt-thumb{width:84px;height:47px;border-radius:8px;object-fit:cover;flex:none;background:#100b18}
+    .yt-info strong{
+      font-size:12px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;
+      -webkit-box-orient:vertical;overflow:hidden
+    }
+    .yt-info span{font-size:10px;color:var(--muted)}
+    .yt-empty{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+    .yt-empty code{background:#0d0914;padding:2px 5px;border-radius:5px}
+
+    @media (min-width:1850px){
+      .yt-sidebar{display:block}
+    }
+
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .hero-grid,.about-grid,.roulette,.platforms{grid-template-columns:1fr}
+      .hero{padding-top:56px}
+      .hero-visual{min-height:440px}
+      .projects{grid-template-columns:1fr}
+      .lab-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .nav-cta{display:none}
+      .hero-actions .btn{width:100%;justify-content:center}
+      .mini-grid{grid-template-columns:1fr}
+      section{padding:70px 0}
+      .project h3{margin-top:34px;font-size:27px}
+      .day-card{flex-direction:column}
+      .day-thumb{width:100%;height:64px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="javascript:void(0)" onclick="goHome('inicio')">
+        <div class="brand-badge">🦎</div>
+        <span>CHAR<strong>KUMA</strong></span>
+      </a>
+      <div class="nav-links">
+        <a href="javascript:void(0)" onclick="goHome('proyectos')">Proyectos</a>
+        <a href="javascript:void(0)" onclick="goHome('random')">Random</a>
+        <a href="javascript:void(0)" onclick="goHome('lab')">Laboratorio</a>
+        <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
+        <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
+      </div>
+      <a class="nav-cta" href="javascript:void(0)" onclick="goHome('proyectos')">Explorar universo ↗</a>
+    </div>
+  </nav>
+
+  <aside class="yt-sidebar" id="ytSidebar">
+    <h4>▶️ Últimos vídeos</h4>
+    <div id="ytVideoList">
+      <p class="yt-empty">Cargando...</p>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- ══════════ INICIO ══════════ -->
+    <div id="view-home" class="app-view active">
+      <section class="hero" id="inicio">
+        <div class="container hero-grid">
+          <div class="reveal">
+            <div class="eyebrow">🎮 PLAYER 1 READY</div>
+            <h1>HEY, SOY <a href="javascript:void(0)" class="gradient" title="Ir a la sección Identidad" onclick="goToIdentity()">CHARKUMA.</a></h1>
+            <p>
+              Gamer, creador y friki profesional. Este es mi rincón de Internet:
+              videojuegos, cultura geek, Marvel, series, tecnología, proyectos creativos
+              y todas esas ideas que aparecen cuando debería estar durmiendo.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#proyectos">🚀 Ver mis proyectos</a>
+              <a class="btn btn-secondary" href="#lab">🎲 Sorpréndeme</a>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="orb"></div>
+            <div class="tag tag-a">🕹️ RETRO ADDICT</div>
+            <div class="mascot">
+              <div class="emoji">🦎</div>
+              <h3>CHARKUMA</h3>
+              <p>Gaming · Geek · Creatividad · Tecnología</p>
+            </div>
+            <div class="tag tag-b">🧪 IDEAS EN PROCESO</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proyectos">
+        <div class="container">
+          <div class="section-kicker reveal">01 · UNIVERSO CHARKUMA</div>
+          <h2 class="section-title reveal">MIS PROYECTOS</h2>
+          <p class="section-sub reveal">
+            Algunas ideas se quedan en una libreta. Estas consiguieron escapar.
+          </p>
+
+          <div class="projects">
+            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('retro365')">
+              <div class="num">PROYECTO 001</div>
+              <div class="open">↗</div>
+              <h3>🎮 RETRO 365</h3>
+              <p>Un viaje continuo por videojuegos, clásicos, joyas ocultas y nostalgia.</p>
+            </a>
+
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('rincon')">
+              <div class="num">PROYECTO 002</div>
+              <div class="open">↗</div>
+              <h3>🦸 RINCÓN DEL FRIKI</h3>
+              <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
+            </a>
+
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('ruleta')">
+              <div class="num">PROYECTO 003</div>
+              <div class="open">↗</div>
+              <h3>⚽ RULETA DEL 11</h3>
+              <p>Fútbol convertido en juego: jugadores, decisiones, rankings y caos competitivo.</p>
+            </a>
+
+            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('charkumalab')">
+              <div class="num">PROYECTO 004</div>
+              <div class="open">↗</div>
+              <h3>🧪 CHARKUMA LAB</h3>
+              <p>Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="random">
+        <div class="container">
+          <div class="section-kicker reveal">02 · MODO RANDOM</div>
+          <h2 class="section-title reveal">¿QUÉ HACEMOS HOY?</h2>
+          <p class="section-sub reveal">Pulsa el botón y deja que CHARKUMA decida por ti.</p>
+
+          <div class="roulette">
+            <div class="wheel-wrap reveal">
+              <div class="wheel" id="wheel"></div>
+            </div>
+
+            <div class="random-box reveal">
+              <h3>🎰 GENERADOR DE PLAN</h3>
+              <div id="result">Pulsa el botón. El caos se encargará del resto.</div>
+              <button class="btn btn-primary" id="spinBtn">TIRAR DE LA PALANCA 🎲</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="lab">
+        <div class="container">
+          <div class="section-kicker reveal">03 · EXPERIMENTOS</div>
+          <h2 class="section-title reveal">EL LABORATORIO</h2>
+          <p class="section-sub reveal">
+            El lugar donde una idea absurda puede terminar convirtiéndose en una web, un vídeo,
+            un diseño o una obsesión de tres semanas.
+          </p>
+
+          <div class="lab-grid">
+            <a class="lab-card reveal" href="javascript:void(0)" onclick="showView('ia')">
+              <div class="icon">🤖</div>
+              <h4>IA & EXPERIMENTOS</h4>
+              <p>Prompts, generación visual, automatizaciones y nuevas formas de crear.</p>
+            </a>
+            <a class="lab-card reveal" href="javascript:void(0)" onclick="showView('creator')">
+              <div class="icon">🖥️</div>
+              <h4>CREATOR TOOLS</h4>
+              <p>Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.</p>
+            </a>
+            <a class="lab-card reveal" href="javascript:void(0)" onclick="showView('hecho')">
+              <div class="icon">🧶</div>
+              <h4>HECHO A MANO</h4>
+              <p>Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.</p>
+            </a>
+          </div>
+
+          <div class="quote reveal">
+            “Demasiadas aficiones para tener una sola personalidad.”
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre-mi">
+        <div class="container">
+          <div class="section-kicker reveal">04 · IDENTIDAD</div>
+          <h2 class="section-title reveal">¿QUIÉN COÑO ES CHARKUMA?</h2>
+          <p class="section-sub reveal">
+            No soy una empresa. Soy un tío con demasiadas ideas, demasiadas aficiones
+            y demasiadas pestañas abiertas en el navegador.
+          </p>
+
+          <div class="about-grid">
+            <div class="panel reveal">
+              <p>
+                Llevo años creando contenido, jugando, diseñando, hablando de superhéroes,
+                probando tecnología y convirtiendo obsesiones personales en proyectos.
+                Aquí cabe lo retro, lo nuevo, lo raro y lo que simplemente me hace gracia.
+              </p>
+              <p>
+                CHARKUMA es el punto donde se cruzan mis videojuegos, la cultura pop,
+                Marvel, las series, el streaming, el diseño, el tufting y mis experimentos
+                digitales.
+              </p>
+              <div class="chips">
+                <span class="chip">🎮 Gaming</span>
+                <span class="chip">🦸 Marvel</span>
+                <span class="chip">📺 Series</span>
+                <span class="chip">💻 Tech</span>
+                <span class="chip">🎨 Diseño</span>
+                <span class="chip">🧶 Tufting</span>
+                <span class="chip">🤖 IA</span>
+              </div>
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini reveal">
+                <div class="icon">🎮</div>
+                <div><strong>GAMING</strong><br><span>Retro, Nintendo, PC y lo que caiga.</span></div>
+              </div>
+              <div class="mini reveal">
+                <div class="icon">🦸</div>
+                <div><strong>CULTURA GEEK</strong><br><span>Marvel, series, personajes y teorías.</span></div>
+              </div>
+              <div class="mini reveal">
+                <div class="icon">🎨</div>
+                <div><strong>CREATIVIDAD</strong><br><span>Diseño, contenido y proyectos visuales.</span></div>
+              </div>
+              <div class="mini reveal">
+                <div class="icon">💻</div>
+                <div><strong>TECH</strong><br><span>Streaming, webs, herramientas y experimentos.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ REDES SOCIALES ══════════ -->
+    <div id="view-redes" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">05 · CHARKUMA EN TODAS PARTES</div>
+          <h2 class="section-title">REDES SOCIALES</h2>
+          <p class="section-sub">
+            Todo lo que subo, publico y transmito, reunido en un solo sitio.
+            Últimos vídeos y últimos posts de cada plataforma.
+          </p>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container">
+          <div class="platforms">
+
+            <div class="platform youtube">
+              <div class="platform-head">
+                <div class="platform-id">
+                  <div class="platform-badge">▶️</div>
+                  <div>
+                    <h3>YouTube</h3>
+                    <div class="handle">@charkuma</div>
+                  </div>
+                </div>
+                <a class="visit" href="#" target="_blank" rel="noopener">Ver canal ↗</a>
+              </div>
+              <div class="latest-label">Último vídeo</div>
+              <div class="latest-card">
+                <div class="latest-thumb">🎬</div>
+                <div class="latest-info">
+                  <strong>Título del último vídeo</strong>
+                  <span>Hace 2 días · 12:34 min</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="platform tiktok">
+              <div class="platform-head">
+                <div class="platform-id">
+                  <div class="platform-badge">🎵</div>
+                  <div>
+                    <h3>TikTok</h3>
+                    <div class="handle">@charkuma</div>
+                  </div>
+                </div>
+                <a class="visit" href="#" target="_blank" rel="noopener">Ver perfil ↗</a>
+              </div>
+              <div class="latest-label">Último post</div>
+              <div class="latest-card">
+                <div class="latest-thumb">📱</div>
+                <div class="latest-info">
+                  <strong>Descripción del último TikTok</strong>
+                  <span>Hace 1 día · 24.3k reproducciones</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="platform instagram">
+              <div class="platform-head">
+                <div class="platform-id">
+                  <div class="platform-badge">📸</div>
+                  <div>
+                    <h3>Instagram</h3>
+                    <div class="handle">@charkuma</div>
+                  </div>
+                </div>
+                <a class="visit" href="#" target="_blank" rel="noopener">Ver perfil ↗</a>
+              </div>
+              <div class="latest-label">Último post</div>
+              <div class="latest-card">
+                <div class="latest-thumb">🖼️</div>
+                <div class="latest-info">
+                  <strong>Pie de foto del último post</strong>
+                  <span>Hace 3 días · 890 me gusta</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="platform twitch">
+              <div class="platform-head">
+                <div class="platform-id">
+                  <div class="platform-badge">🕹️</div>
+                  <div>
+                    <h3>Twitch</h3>
+                    <div class="handle">charkuma</div>
+                  </div>
+                </div>
+                <a class="visit" href="#" target="_blank" rel="noopener">Ver canal ↗</a>
+              </div>
+              <div class="latest-label">Último directo</div>
+              <div class="latest-card">
+                <div class="latest-thumb">🔴</div>
+                <div class="latest-info">
+                  <strong>Título del último directo</strong>
+                  <span>Hace 5 días · 2h 10min</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="note">
+            <strong>Nota:</strong> los enlaces y el contenido de "último vídeo/post" son de ejemplo.
+            Cuando quieras que se actualicen solos, podemos conectar esta vista a las APIs de
+            YouTube/TikTok/Instagram/Twitch.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ RETRO 365 ══════════ -->
+    <div id="view-retro365" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">PROYECTO 001</div>
+          <h2 class="section-title"><span class="secret-trigger" onclick="openSecretList()">🎮</span> RETRO 365</h2>
+          <p class="section-sub">
+            El reto: recomendar 365 videojuegos, uno por día, durante un año entero.
+            Cada día que sube el vídeo de un juego, su casilla se desbloquea aquí abajo.
+            Hasta entonces, queda en secreto 🔒.
+          </p>
+
+          <div class="progress-panel">
+            <div class="progress-head">
+              <strong>Progreso del reto</strong>
+              <span id="progressLabel">0 / 365 días desbloqueados</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill" style="width:0%"></div>
+            </div>
+            <div class="legend">
+              <span>🔓 Desbloqueado — ya tiene vídeo</span>
+              <span>🔒 Bloqueado — todavía sin anunciar</span>
+              <span>🟠 Próximo — el siguiente en publicarse</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="gameSearch" placeholder="🔎 Buscar un juego por nombre..." />
+              <select id="diffFilter">
+                <option value="">Todas las dificultades</option>
+                <option value="facil">🟢 Fácil</option>
+                <option value="media">🟡 Media</option>
+                <option value="dificil">🔴 Difícil</option>
+                <option value="muydificil">🟣 Muy difícil</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="subheading">🆕 Últimos subidos (el más reciente primero)</h3>
+          <div id="recentList" class="recent-list"></div>
+
+          <h3 class="subheading">📅 Calendario completo</h3>
+          <div id="monthsContainer"></div>
+
+          <div class="note">
+            <strong>Nota para editar:</strong> los 365 días se generan automáticamente. Para desbloquear uno,
+            añade su entrada dentro del objeto <code>completedGames</code> en el
+            <code>&lt;script&gt;</code> de este archivo, con el número de día como clave
+            (nombre, resumen, dificultad, emoji/imagen, enlace de Steam y enlace al vídeo).
+            Los 3 primeros días de este ejemplo son solo para mostrar cómo queda el diseño —
+            sustitúyelos por tus recomendaciones reales cuando quieras.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ RETRO 365 · LISTA SECRETA (easter egg) ══════════ -->
+    <div id="view-retro-secret" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('retro365')">← Volver a Retro 365</a>
+          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <h2 class="section-title">🕵️ LA CHULETA SECRETA</h2>
+          <p class="section-sub">
+            Esta vista no está enlazada desde ningún sitio del site — solo tú sabes que existe
+            (y ahora, cualquiera que lea el código). Aquí ves el plan completo de los 365 días:
+            lo ya publicado, lo decidido pero aún sin grabar, y lo que todavía está por pensar.
+          </p>
+
+          <div class="progress-panel">
+            <div class="progress-head">
+              <strong>Estado real del reto</strong>
+              <span id="secretSummary">Cargando...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container">
+          <div id="secretMonthsContainer"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ RINCÓN DEL FRIKI ══════════ -->
+    <div id="view-rincon" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">PROYECTO 002</div>
+          <h2 class="section-title">🦸 RINCÓN DEL FRIKI</h2>
+          <p class="section-sub">
+            Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Sobre este proyecto</h3>
+            <p>
+              Aquí irá el contenido del Rincón del Friki: teorías, análisis, opiniones sobre
+              Marvel, series y cine, y todo lo que dé para horas de conversación.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
+            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ RULETA DEL 11 ══════════ -->
+    <div id="view-ruleta" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">PROYECTO 003</div>
+          <h2 class="section-title">⚽ RULETA DEL 11</h2>
+          <p class="section-sub">
+            Fútbol convertido en juego: jugadores, decisiones, rankings y caos competitivo.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Sobre este proyecto</h3>
+            <p>
+              Aquí irá el contenido de la Ruleta del 11: el juego, rankings, resultados,
+              retos de jugadores y todo el caos futbolero que se te ocurra.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
+            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARKUMA LAB ══════════ -->
+    <div id="view-charkumalab" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
+          <div class="section-kicker">PROYECTO 004</div>
+          <h2 class="section-title">🧪 CHARKUMA LAB</h2>
+          <p class="section-sub">
+            Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Sobre este proyecto</h3>
+            <p>
+              Aquí irá el contenido de Charkuma Lab: experimentos con IA, herramientas para
+              creadores, prototipos de webs y cualquier idea rara que merezca la pena probar.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
+            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ IA & EXPERIMENTOS ══════════ -->
+    <div id="view-ia" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
+          <div class="section-kicker">LABORATORIO</div>
+          <h2 class="section-title">🤖 IA & EXPERIMENTOS</h2>
+          <p class="section-sub">
+            Prompts, generación visual, automatizaciones y nuevas formas de crear.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Sobre este experimento</h3>
+            <p>
+              Aquí irá el contenido de IA & Experimentos: prompts que funcionan, pruebas de
+              generación de imagen y vídeo, automatizaciones y cualquier truco de IA que
+              merezca la pena compartir.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
+            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS ══════════ -->
+    <div id="view-creator" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
+          <div class="section-kicker">LABORATORIO</div>
+          <h2 class="section-title">🖥️ CREATOR TOOLS</h2>
+          <p class="section-sub">
+            Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Sobre este experimento</h3>
+            <p>
+              Aquí irá el contenido de Creator Tools: overlays para streaming, plantillas para
+              vídeos, configuraciones de OBS y cualquier herramienta útil para creadores.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
+            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ HECHO A MANO ══════════ -->
+    <div id="view-hecho" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
+          <div class="section-kicker">LABORATORIO</div>
+          <h2 class="section-title">🧶 HECHO A MANO</h2>
+          <p class="section-sub">
+            Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Sobre este experimento</h3>
+            <p>
+              Aquí irá el contenido de Hecho a Mano: piezas de tufting, diseños personalizados,
+              objetos físicos y cualquier proyecto que se salga de la pantalla para materializarse.
+            </p>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> esta es una página plantilla. Cuando me digas qué contenido
+            quieres mostrar aquí (texto, vídeos, imágenes, enlaces...), la rellenamos juntos.
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">CHAR<strong>KUMA</strong></div>
+        <p>Gaming · Geek · Creatividad · Tecnología</p>
+        <small>© 2026 CHARKUMA. Hecho con demasiadas ideas.</small>
+      </div>
+      <div class="socials">
+        <a class="social" href="javascript:void(0)" onclick="showView('redes')">YouTube</a>
+        <a class="social" href="javascript:void(0)" onclick="showView('redes')">TikTok</a>
+        <a class="social" href="javascript:void(0)" onclick="showView('redes')">Instagram</a>
+        <a class="social" href="javascript:void(0)" onclick="showView('redes')">Twitch</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ──────────────────────────────────────────────────────────
+    // NAVEGACIÓN INTERNA (SPA): cambia de "página" sin recargar,
+    // manteniendo siempre la cabecera fija arriba.
+    // ──────────────────────────────────────────────────────────
+    function showView(id, opts){
+      opts = opts || {};
+      document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById('view-' + id);
+      if (target) target.classList.add('active');
+      if (opts.resetScroll !== false) window.scrollTo({top:0});
+    }
+
+    function goHome(anchorId){
+      showView('home', {resetScroll:false});
+      requestAnimationFrame(() => {
+        const el = document.getElementById(anchorId);
+        if (el) el.scrollIntoView({behavior:'smooth'});
+      });
+    }
+
+    function goToIdentity(){
+      showView('home', {resetScroll:false});
+      document.getElementById('sobre-mi').classList.add('unlocked');
+      requestAnimationFrame(() => {
+        document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'});
+      });
+    }
+
+    // Easter egg: clic en el 🎮 de "RETRO 365" → lista secreta de los 365 días
+    function openSecretList(){
+      showView('retro-secret');
+    }
+
+    // Permite enlazar directamente a una vista con #view=nombre (por si
+    // alguna vez compartes un enlace a una sección concreta)
+    (function initFromHash(){
+      const match = location.hash.match(/view=([\w-]+)/);
+      if (match) showView(match[1], {resetScroll:false});
+    })();
+
+    // ──────────────────────────────────────────────────────────
+    // Animaciones de aparición al hacer scroll
+    // ──────────────────────────────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, {threshold:.12});
+    reveals.forEach(el => observer.observe(el));
+
+    // ──────────────────────────────────────────────────────────
+    // Ruleta / Modo Random
+    // ──────────────────────────────────────────────────────────
+    const options = [
+      "🎮 Juega a un clásico que tengas pendiente.",
+      "🦸 Ponte una película o serie de superhéroes.",
+      "📺 Graba una idea para Rincón del Friki.",
+      "🧪 Empieza ese proyecto raro que llevas días pensando.",
+      "🎨 Diseña algo para CHARKUMA.",
+      "🕹️ Busca una joya retro que nunca hayas probado.",
+      "🤖 Haz un experimento creativo con IA.",
+      "🧶 Diseña un rug que jamás compraría una persona normal."
+    ];
+
+    const wheel = document.getElementById('wheel');
+    const result = document.getElementById('result');
+    const spinBtn = document.getElementById('spinBtn');
+    let rotation = 0;
+
+    spinBtn.addEventListener('click', () => {
+      spinBtn.disabled = true;
+      result.textContent = "🦎 CHARKUMA está decidiendo...";
+      rotation += 900 + Math.floor(Math.random() * 720);
+      wheel.style.transform = `rotate(${rotation}deg)`;
+
+      setTimeout(() => {
+        const pick = options[Math.floor(Math.random() * options.length)];
+        result.textContent = pick;
+        spinBtn.disabled = false;
+      }, 2600);
+    });
+
+    // ──────────────────────────────────────────────────────────
+    // RETRO 365 — base de datos pública (lo ya publicado)
+    // Clave = número de día (1 a 365). Solo hace falta añadir
+    // los días que ya tienen vídeo publicado; el resto se
+    // rellena solo como "bloqueado".
+    // ──────────────────────────────────────────────────────────
+    const completedGames = {
+      1: {
+        name: "Celeste",
+        summary: "Plataformas de precisión sobre subir una montaña... y superarse a uno mismo por el camino.",
+        difficulty: "dificil", // facil | media | dificil | muydificil
+        emoji: "🏔️",
+        steamUrl: "https://store.steampowered.com/app/504230/Celeste/",
+        videoUrl: "#" // sustituye por el enlace real de tu vídeo
+      },
+      2: {
+        name: "Stardew Valley",
+        summary: "Granja, pesca, minas y vida de pueblo. El juego perfecto para desconectar sin darte cuenta de las horas.",
+        difficulty: "facil",
+        emoji: "🌾",
+        steamUrl: "https://store.steampowered.com/app/413150/Stardew_Valley/",
+        videoUrl: "#"
+      },
+      3: {
+        name: "Hollow Knight",
+        summary: "Metroidvania oscuro y precioso en el reino de los insectos. Explorar da tanto miedo como ganas de seguir.",
+        difficulty: "media",
+        emoji: "🕷️",
+        steamUrl: "https://store.steampowered.com/app/367520/Hollow_Knight/",
+        videoUrl: "#"
+      }
+      // 4: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "...", videoUrl: "..." },
+    };
+
+    // Base de datos SECRETA (solo tuya): juegos ya decididos para días
+    // futuros pero que aún no tienen vídeo grabado. No se muestran en la
+    // lista pública — solo en la "chuleta secreta" del 🎮 easter egg.
+    const plannedGames = {
+      4: {
+        name: "Hades",
+        summary: "Roguelike de mazmorras del inframundo: ritmo endiablado y una historia que se cuenta muriendo una y otra vez.",
+        difficulty: "dificil",
+        emoji: "🔥",
+        steamUrl: "https://store.steampowered.com/app/1145360/Hades/"
+      },
+      5: {
+        name: "Unpacking",
+        summary: "Desempaquetas cajas de mudanza y, sin una sola palabra, cuentas una vida entera.",
+        difficulty: "facil",
+        emoji: "📦",
+        steamUrl: "https://store.steampowered.com/app/1135690/Unpacking/"
+      }
+      // 6: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+    };
+
+    const DIFF_LABELS = {
+      facil: "🟢 Fácil",
+      media: "🟡 Media",
+      dificil: "🔴 Difícil",
+      muydificil: "🟣 Muy difícil"
+    };
+
+    // Días por mes de un año no bisiesto (365 días)
+    const MONTHS = [
+      ["Enero",31],["Febrero",28],["Marzo",31],["Abril",30],["Mayo",31],["Junio",30],
+      ["Julio",31],["Agosto",31],["Septiembre",30],["Octubre",31],["Noviembre",30],["Diciembre",31]
+    ];
+
+    const totalDays = 365;
+    const unlockedDays = Object.keys(completedGames).map(Number);
+    const lastUnlocked = unlockedDays.length ? Math.max(...unlockedDays) : 0;
+    const nextDay = lastUnlocked + 1;
+
+    function dayCardHTML(day){
+      const game = completedGames[day];
+
+      if (game) {
+        return `
+          <div class="day-card unlocked">
+            <div class="day-thumb">${game.emoji || "🎮"}</div>
+            <div class="day-info">
+              <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 🔓 DESBLOQUEADO</div>
+              <h4><a href="${game.steamUrl}" target="_blank" rel="noopener">${game.name} ↗</a></h4>
+              <p>${game.summary}</p>
+              <div class="day-meta">
+                <span class="diff-chip diff-${game.difficulty}">${DIFF_LABELS[game.difficulty] || game.difficulty}</span>
+                <a class="video-link" href="${game.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      const isNext = day === nextDay;
+      return `
+        <div class="day-card locked${isNext ? " next" : ""}">
+          <div class="day-thumb">${isNext ? "🟠" : "🔒"}</div>
+          <div class="day-info">
+            <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ${isNext ? "🟠 PRÓXIMO" : "🔒 BLOQUEADO"}</div>
+            <h4 class="locked-title">${isNext ? "El siguiente en publicarse" : "Todavía sin anunciar"}</h4>
+            <p class="lock-note">Se desbloqueará en cuanto suba el vídeo de este día.</p>
+          </div>
+        </div>`;
+    }
+
+    function renderPublic(){
+      const container = document.getElementById('monthsContainer');
+      let day = 1;
+      let html = "";
+
+      MONTHS.forEach(([name, daysInMonth], i) => {
+        const start = day;
+        const end = day + daysInMonth - 1;
+        let monthUnlocked = 0;
+        let cards = "";
+        for (let d = start; d <= end; d++){
+          if (completedGames[d]) monthUnlocked++;
+          cards += dayCardHTML(d);
+        }
+        const openAttr = (nextDay >= start && nextDay <= end) || i === 0 ? " open" : "";
+        html += `
+          <details class="month"${openAttr}>
+            <summary>
+              <span>${name}</span>
+              <span class="count">${monthUnlocked} / ${daysInMonth} desbloqueados</span>
+            </summary>
+            <div class="month-body">${cards}</div>
+          </details>`;
+        day = end + 1;
+      });
+
+      container.innerHTML = html;
+
+      const pct = Math.round((unlockedDays.length / totalDays) * 100);
+      document.getElementById('progressFill').style.width = pct + "%";
+      document.getElementById('progressLabel').textContent =
+        `${unlockedDays.length} / ${totalDays} días desbloqueados (${pct}%)`;
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // RETRO 365 — vista secreta (easter egg 🎮)
+    // ──────────────────────────────────────────────────────────
+    function secretDayCardHTML(day){
+      const published = completedGames[day];
+      const planned = plannedGames[day];
+
+      if (published) {
+        return `
+          <div class="day-card unlocked">
+            <div class="day-thumb">${published.emoji || "🎮"}</div>
+            <div class="day-info">
+              <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ✅ PUBLICADO</div>
+              <h4><a href="${published.steamUrl}" target="_blank" rel="noopener">${published.name} ↗</a></h4>
+              <p>${published.summary}</p>
+              <div class="day-meta">
+                <span class="diff-chip diff-${published.difficulty}">${DIFF_LABELS[published.difficulty] || published.difficulty}</span>
+                <a class="video-link" href="${published.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      if (planned) {
+        return `
+          <div class="day-card planned">
+            <div class="day-thumb">${planned.emoji || "📝"}</div>
+            <div class="day-info">
+              <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 📝 DECIDIDO (sin grabar)</div>
+              <h4><a href="${planned.steamUrl}" target="_blank" rel="noopener">${planned.name} ↗</a></h4>
+              <p>${planned.summary}</p>
+              <div class="day-meta">
+                <span class="diff-chip diff-${planned.difficulty}">${DIFF_LABELS[planned.difficulty] || planned.difficulty}</span>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      return `<div class="undecided-row">DÍA ${String(day).padStart(3,"0")} · ❔ aún sin decidir</div>`;
+    }
+
+    function renderSecret(){
+      const container = document.getElementById('secretMonthsContainer');
+      let day = 1;
+      let html = "";
+      let publishedCount = 0, plannedCount = 0;
+
+      MONTHS.forEach(([name, daysInMonth]) => {
+        const start = day;
+        const end = day + daysInMonth - 1;
+        let cards = "";
+        for (let d = start; d <= end; d++){
+          if (completedGames[d]) publishedCount++;
+          else if (plannedGames[d]) plannedCount++;
+          cards += secretDayCardHTML(d);
+        }
+        html += `
+          <details class="month">
+            <summary>
+              <span>${name}</span>
+              <span class="count">Días ${start}–${end}</span>
+            </summary>
+            <div class="month-body">${cards}</div>
+          </details>`;
+        day = end + 1;
+      });
+
+      container.innerHTML = html;
+      document.getElementById('secretSummary').textContent =
+        `✅ ${publishedCount} publicados · 📝 ${plannedCount} decididos sin grabar · ❔ ${totalDays - publishedCount - plannedCount} por decidir`;
+    }
+
+    renderPublic();
+    renderSecret();
+
+    // ──────────────────────────────────────────────────────────
+    // BUSCADOR / FILTRO + "ÚLTIMOS SUBIDOS" (orden inverso: el
+    // vídeo más reciente primero, el primero que subiste al final)
+    // ──────────────────────────────────────────────────────────
+    function renderRecent(){
+      const query = document.getElementById('gameSearch').value.trim().toLowerCase();
+      const diff = document.getElementById('diffFilter').value;
+
+      const days = Object.keys(completedGames)
+        .map(Number)
+        .sort((a, b) => b - a) // más reciente (día más alto) primero
+        .filter(day => {
+          const game = completedGames[day];
+          if (diff && game.difficulty !== diff) return false;
+          if (query && !game.name.toLowerCase().includes(query)) return false;
+          return true;
+        });
+
+      const container = document.getElementById('recentList');
+      container.innerHTML = days.length
+        ? days.map(d => dayCardHTML(d)).join('')
+        : `<p class="yt-empty">Ningún juego publicado coincide con la búsqueda.</p>`;
+    }
+
+    document.getElementById('gameSearch').addEventListener('input', renderRecent);
+    document.getElementById('diffFilter').addEventListener('change', renderRecent);
+    renderRecent();
+
+    // ──────────────────────────────────────────────────────────
+    // WIDGET LATERAL — últimos vídeos de YouTube (en vivo)
+    //
+    // Cómo activarlo:
+    // 1) Ve a https://console.cloud.google.com/ → crea un proyecto (o usa uno).
+    // 2) "APIs y servicios" → "Biblioteca" → busca "YouTube Data API v3" → Activar.
+    // 3) "Credenciales" → "Crear credenciales" → "Clave de API". Cópiala.
+    //    (Recomendado: en esa clave, restringe "Restricciones de API" a
+    //    "YouTube Data API v3" para que solo sirva para esto.)
+    // 4) Tu Channel ID (empieza por "UC...") lo encuentras entrando en tu
+    //    cuenta de YouTube y visitando: https://www.youtube.com/account_advanced
+    // 5) Pega ambos valores aquí abajo, entre las comillas.
+    // ──────────────────────────────────────────────────────────
+    const YT_API_KEY = "PON_AQUI_TU_API_KEY";
+    const YT_CHANNEL_ID = "PON_AQUI_TU_CHANNEL_ID";
+
+    async function loadLatestVideos(){
+      const list = document.getElementById('ytVideoList');
+      const notConfigured =
+        !YT_API_KEY || YT_API_KEY.indexOf("PON_AQUI") === 0 ||
+        !YT_CHANNEL_ID || YT_CHANNEL_ID.indexOf("PON_AQUI") === 0;
+
+      if (notConfigured) {
+        list.innerHTML = `<p class="yt-empty">
+          Configura <code>YT_API_KEY</code> y <code>YT_CHANNEL_ID</code>
+          en el &lt;script&gt; de este archivo para activar esta sección
+          (instrucciones justo encima, en el código).
+        </p>`;
+        return;
+      }
+
+      try {
+        const channelRes = await fetch(
+          `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
+        ).then(r => r.json());
+
+        const uploadsId = channelRes.items && channelRes.items[0] &&
+          channelRes.items[0].contentDetails.relatedPlaylists.uploads;
+        if (!uploadsId) throw new Error("Canal no encontrado");
+
+        const videosRes = await fetch(
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${uploadsId}&key=${YT_API_KEY}`
+        ).then(r => r.json());
+
+        const videos = videosRes.items || [];
+        if (!videos.length) {
+          list.innerHTML = `<p class="yt-empty">Todavía no hay vídeos publicados.</p>`;
+          return;
+        }
+
+        list.innerHTML = videos.map(v => {
+          const s = v.snippet;
+          const videoId = s.resourceId.videoId;
+          const thumb = (s.thumbnails.medium || s.thumbnails.default).url;
+          const date = new Date(s.publishedAt).toLocaleDateString('es-ES', {day:'numeric', month:'short'});
+          return `
+            <a class="yt-video" href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
+              <img class="yt-thumb" src="${thumb}" alt="">
+              <div class="yt-info">
+                <strong>${s.title}</strong>
+                <span>${date}</span>
+              </div>
+            </a>`;
+        }).join('');
+      } catch (err) {
+        list.innerHTML = `<p class="yt-empty">No se pudieron cargar los vídeos ahora mismo (revisa la API key y el Channel ID).</p>`;
+      }
+    }
+
+    loadLatestVideos();
+  </script>
+</body>
+</html>
