@@ -382,6 +382,7 @@
 
     .day-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
     .diff-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em}
+    .diff-chip.chip-neutral{background:#100b18;border:1px solid #2d2240;color:var(--muted)}
     .diff-facil{background:rgba(56,217,154,.12);color:var(--green);border:1px solid rgba(56,217,154,.35)}
     .diff-media{background:rgba(245,200,69,.12);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
     .diff-dificil{background:rgba(255,95,109,.12);color:var(--red);border:1px solid rgba(255,95,109,.35)}
@@ -1614,8 +1615,8 @@
               <p>${game.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${game.difficulty}">${DIFF_LABELS[game.difficulty] || game.difficulty}</span>
-                ${game.duration ? `<span class="diff-chip">⏱️ ${game.duration}</span>` : ''}
-                ${game.platform ? `<span class="diff-chip">${PLATFORM_LABELS[game.platform] || game.platform}</span>` : ''}
+                ${game.duration ? `<span class="diff-chip chip-neutral">⏱️ ${game.duration}</span>` : ''}
+                ${game.platform ? `<span class="diff-chip chip-neutral">${PLATFORM_LABELS[game.platform] || game.platform}</span>` : ''}
                 <a class="video-link" href="${game.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
               </div>
             </div>
@@ -1685,8 +1686,8 @@
               <p>${published.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${published.difficulty}">${DIFF_LABELS[published.difficulty] || published.difficulty}</span>
-                ${published.duration ? `<span class="diff-chip">⏱️ ${published.duration}</span>` : ''}
-                ${published.platform ? `<span class="diff-chip">${PLATFORM_LABELS[published.platform] || published.platform}</span>` : ''}
+                ${published.duration ? `<span class="diff-chip chip-neutral">⏱️ ${published.duration}</span>` : ''}
+                ${published.platform ? `<span class="diff-chip chip-neutral">${PLATFORM_LABELS[published.platform] || published.platform}</span>` : ''}
                 <a class="video-link" href="${published.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
               </div>
             </div>
