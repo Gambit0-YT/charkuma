@@ -418,7 +418,12 @@
     .saga-boys{background:rgba(255,255,255,.08);color:#f0f0f0;border:1px solid rgba(255,255,255,.28)}
     .saga-cruce{background:rgba(139,92,246,.16);color:#c9b6ff;border:1px solid rgba(139,92,246,.4)}
 
-    .geek-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:#0d0914;border:1px solid #241a34}
+    .geek-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:#0d0914;border:1px solid #241a34;position:relative}
+    .review-badge{
+      position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:999px;
+      background:rgba(245,200,69,.14);border:1px solid rgba(245,200,69,.4);color:var(--yellow);
+      font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap
+    }
     .geek-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,#120b1a);border:1px solid #2d2240}
     .geek-info{flex:1;min-width:0}
     .geek-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
@@ -1460,7 +1465,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT</div>
+          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">📝 PROMPT PARA GUIONES DE REACCIÓN</h2>
           <p class="section-sub">
             La plantilla que uso para no quedarme en blanco antes de grabar una reacción:
@@ -1508,7 +1513,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VÍDEO</div>
+          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VÍDEO<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎬 VÍDEO GENERADO CON IA: INTRO ALTERNATIVA</h2>
           <p class="section-sub">
             Bitácora honesta de probar si una IA de texto-a-vídeo podía sacarme una intro
@@ -1554,7 +1559,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VISUAL</div>
+          <div class="section-kicker">IA & EXPERIMENTOS · GENERACIÓN VISUAL<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🖼️ GENERANDO PERSONAJES RETRO CON IA</h2>
           <p class="section-sub">
             Todo lo que aprendí probando generadores de imagen gratuitos para ilustrar
@@ -1601,7 +1606,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · AUTOMATIZACIÓN</div>
+          <div class="section-kicker">IA & EXPERIMENTOS · AUTOMATIZACIÓN<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">⚙️ AVISO AUTOMÁTICO A DISCORD</h2>
           <p class="section-sub">
             Automatización sencilla y gratis para que el servidor de Discord se entere solo,
@@ -1646,7 +1651,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT</div>
+          <div class="section-kicker">IA & EXPERIMENTOS · PROMPT<span class="review-badge" style="position:static;display:inline-block;margin-left:10px;vertical-align:middle;">⏳ Pendiente de revisión</span></div>
           <h2 class="section-title">🎨 PROMPT PARA MINIATURAS CHARKUMA</h2>
           <p class="section-sub">
             La receta de prompt que uso para que cualquier IA de imágenes me saque miniaturas
@@ -2293,10 +2298,18 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       fancast:"🟢 Fancast", batalla:"🟠 Batalla"
     };
 
+    // Insignia reutilizable: marca contenido generado por Claude que el
+    // usuario todavía no ha revisado a mano. Pon reviewed:false en cualquier
+    // entrada de cualquier array de contenido para que aparezca aquí.
+    function reviewBadgeHTML(item){
+      return item.reviewed === false ? `<span class="review-badge">⏳ Pendiente de revisión</span>` : '';
+    }
+
     function geekCardHTML(item){
       const date = item.date ? new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short'}) : '';
       return `
         <div class="geek-card">
+          ${reviewBadgeHTML(item)}
           <div class="geek-thumb">${item.thumbnail || "🎬"}</div>
           <div class="geek-info">
             <div class="geek-badges">
@@ -3021,6 +3034,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
       return `
         <div class="geek-card">
+          ${reviewBadgeHTML(item)}
           <div class="geek-thumb">${item.thumbnail || "🧪"}</div>
           <div class="geek-info">
             <div class="geek-badges">
@@ -3062,6 +3076,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;
       return `
         <div class="geek-card">
+          ${reviewBadgeHTML(item)}
           <div class="geek-thumb">${item.thumbnail || "🧪"}</div>
           <div class="geek-info">
             <div class="geek-badges">
@@ -3097,39 +3112,43 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     }
 
     // ── IA & Experimentos ──
+    // "reviewed:false" = contenido que ha generado Claude y que Charkuma
+    // todavía no ha revisado/afinado a mano. Quítalo (o ponlo a true) en
+    // cuanto le hayas dado el visto bueno a esa entrada.
     const iaContent = [
       {
         title: "Prompt para miniaturas con estética CHARKUMA",
         type: "prompt", date: "2026-08-15",
         summary: "La receta de prompt que uso para sacar miniaturas con el mismo estilo morado/naranja de la web.",
-        thumbnail: "🎨", internalView: "ia-prompt-miniaturas"
+        thumbnail: "🎨", internalView: "ia-prompt-miniaturas", reviewed: false
       },
       {
         title: "Aviso automático a Discord cuando subo vídeo",
         type: "automatizacion", date: "2026-08-25",
         summary: "Automatización sencilla que avisa al servidor en cuanto se publica un vídeo nuevo.",
-        thumbnail: "⚙️", internalView: "ia-auto-discord"
+        thumbnail: "⚙️", internalView: "ia-auto-discord", reviewed: false
       },
       {
         title: "Generando personajes retro con IA",
         type: "visual", date: "2026-09-01",
         summary: "Pruebas de generación de imagen para ilustrar juegos clásicos de Retro 365.",
-        thumbnail: "🖼️", internalView: "ia-visual-retro"
+        thumbnail: "🖼️", internalView: "ia-visual-retro", reviewed: false
       },
       {
         title: "Vídeo generado con IA: intro alternativa del canal",
         type: "video", date: "2026-09-03",
         summary: "Prueba de una intro corta hecha con generación de vídeo, comparada con la actual.",
-        thumbnail: "🎬", internalView: "ia-video-intro"
+        thumbnail: "🎬", internalView: "ia-video-intro", reviewed: false
       },
       {
         title: "Prompt para guiones cortos de reacción",
         type: "prompt", date: "2026-09-05",
         summary: "Plantilla de prompt para estructurar rápido un guion de reacción antes de grabar.",
-        thumbnail: "📝", internalView: "ia-prompt-reaccion"
+        thumbnail: "📝", internalView: "ia-prompt-reaccion", reviewed: false
       }
       // { title:"...", type:"prompt|automatizacion|visual|video", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🤖", link:"..." },  // "link" para externo, o "internalView" para página propia
+      // Añade reviewed:false si lo genera Claude y aún no lo has revisado.
     ];
     const IA_LABELS = { prompt:'🎨 Prompt', automatizacion:'⚙️ Automatización', visual:'🖼️ Generación visual', video:'🎬 Generación vídeo' };
     const IA_COLORS = { prompt:'chip-purple', automatizacion:'chip-green', visual:'chip-yellow', video:'chip-orange' };
