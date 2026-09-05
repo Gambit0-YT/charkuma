@@ -2416,7 +2416,6 @@
       {emoji:'🕷️', text:'Spider-Man', cat:'superhéroe Marvel'},
       {emoji:'🦇', text:'Batman', cat:'superhéroe DC'},
       {emoji:'🦸', text:'Superman', cat:'superhéroe DC'},
-      {emoji:'🦾', text:'Iron Man', cat:'superhéroe Marvel'},
       {emoji:'🗡️', text:'Wolverine', cat:'superhéroe Marvel'},
       {emoji:'🔫', text:'Deadpool', cat:'superhéroe Marvel'},
       {emoji:'💚', text:'Hulk', cat:'superhéroe Marvel'},
@@ -2424,13 +2423,9 @@
       {emoji:'🛡️', text:'Capitán América', cat:'superhéroe Marvel'},
       {emoji:'🃏', text:'Joker', cat:'villano DC'},
       {emoji:'💣', text:'Harley Quinn', cat:'villana DC'},
-      {emoji:'🇺🇸', text:'Homelander', cat:'superhéroe de The Boys'},
       {emoji:'⚔️', text:'Wonder Woman', cat:'superheroína DC'},
       {emoji:'🏃', text:'Flash', cat:'superhéroe DC'},
-      {emoji:'🐆', text:'Black Panther', cat:'superhéroe Marvel'},
       {emoji:'🔱', text:'Aquaman', cat:'superhéroe DC'},
-      {emoji:'✨', text:'Doctor Strange', cat:'superhéroe Marvel'},
-      {emoji:'🕸️', text:'Venom', cat:'antihéroe Marvel'},
       {emoji:'🍥', text:'Naruto', cat:'protagonista de anime'},
       {emoji:'🐉', text:'Goku', cat:'protagonista de anime'},
       // Cultura geek
@@ -2449,18 +2444,24 @@
       {emoji:'🪄', text:'Hermione Granger', cat:'personaje de fantasía'},
       {emoji:'❄️', text:'Elsa', cat:'princesa Disney'},
       {emoji:'🌸', text:'Mulan', cat:'princesa Disney'},
-      {emoji:'🏺', text:'Lara Croft', cat:'personaje de videojuego'},
       {emoji:'🌙', text:'Sailor Moon', cat:'heroína de anime'},
       {emoji:'🕵️‍♀️', text:'Velma', cat:'personaje de serie animada'},
       {emoji:'🎷', text:'Lisa Simpson', cat:'personaje de serie animada'},
       {emoji:'🖤', text:'Wednesday Addams', cat:'personaje de TV/cine'},
-      {emoji:'🐲', text:'Daenerys Targaryen', cat:'personaje de serie de fantasía'},
       {emoji:'👑', text:'Princesa Peach', cat:'personaje de videojuego'},
-      {emoji:'🏹', text:'Katniss Everdeen', cat:'personaje de cine/libros'},
       {emoji:'🧡', text:'Merida', cat:'princesa Disney/Pixar'},
-      {emoji:'💋', text:'Jessica Rabbit', cat:'personaje de animación'},
-      {emoji:'🥋', text:'Chun-Li', cat:'personaje de videojuego'},
-      {emoji:'🗾', text:'Mikasa Ackerman', cat:'heroína de anime'},
+      // Series infantiles (diseños simples, ideales para calcar)
+      {emoji:'🐷', text:'Peppa Pig', cat:'personaje infantil animado'},
+      {emoji:'👦', text:'George Pig', cat:'personaje infantil animado'},
+      {emoji:'🐶', text:'Bluey', cat:'personaje infantil animado'},
+      {emoji:'🧽', text:'Bob Esponja', cat:'personaje infantil animado'},
+      {emoji:'⭐', text:'Patricio Estrella', cat:'personaje infantil animado'},
+      {emoji:'🔵', text:'Doraemon', cat:'personaje infantil animado'},
+      {emoji:'🎀', text:'Hello Kitty', cat:'personaje infantil animado'},
+      {emoji:'🧸', text:'Winnie the Pooh', cat:'personaje infantil animado'},
+      {emoji:'🗺️', text:'Dora la Exploradora', cat:'personaje infantil animado'},
+      {emoji:'🐤', text:'Piolín', cat:'personaje infantil animado'},
+      {emoji:'🐰', text:'Miffy', cat:'personaje infantil animado'},
       // Animales
       {emoji:'🐘', text:'Un elefante', cat:'animal'},
       {emoji:'🦁', text:'Un león', cat:'animal'},
@@ -2662,7 +2663,7 @@
       setTimeout(() => {
         document.getElementById('calcResultText').textContent = `${chosenChar.emoji} ${chosenChar.text} ${chosenAction.emoji} ${chosenAction.text}`;
         const calcCatClause = chosenChar.cat ? ` (un personaje de tipo "${chosenChar.cat}")` : '';
-        calcCurrentPrompt = `Genérame una imagen: tu propia interpretación conceptual, NO una réplica exacta con derechos de autor, de un personaje inspirado en ${chosenChar.text}${calcCatClause}, ${chosenAction.text}. No copies el diseño oficial al detalle: haz tu propia versión genérica reconocible del concepto. Debe ser un boceto sencillo en blanco y negro. Instrucciones: solo líneas de contorno limpias y gruesas, sin sombras, sin color, con el fondo totalmente blanco (sin ningún elemento ni textura de fondo), estilo dibujo para colorear tipo "coloring book", pensado para calcarlo fácilmente a mano. Créala directamente, sin hacerme preguntas antes.`;
+        calcCurrentPrompt = `Genérame una imagen: tu propia interpretación conceptual, NO una réplica exacta con derechos de autor, de un personaje inspirado en ${chosenChar.text}${calcCatClause}, ${chosenAction.text}. No copies el diseño oficial al detalle: haz tu propia versión genérica reconocible del concepto. Debe ser un boceto sencillo en blanco y negro. Estilo de dibujo: minimalista tipo chibi/Sanrio (como Hello Kitty o Miffy) — proporciones simplificadas, formas grandes y redondeadas, el mínimo número de líneas posible, sin patrones ni texturas en la ropa ni el cuerpo, lo más fácil posible de calcar y colorear a mano. Instrucciones: solo líneas de contorno limpias y gruesas, sin sombras, sin color, con el fondo totalmente blanco (sin ningún elemento ni textura de fondo), estilo dibujo para colorear tipo "coloring book", pensado para calcarlo fácilmente a mano. Créala directamente, sin hacerme preguntas antes.`;
         document.getElementById('calcPromptField').value = calcCurrentPrompt;
         resultCard.hidden = false;
         playCalcResultChime();
