@@ -515,7 +515,7 @@
     .calc-reel-window::before,.calc-reel-window::after{content:"";position:absolute;left:0;right:0;height:18px;z-index:2;pointer-events:none}
     .calc-reel-window::before{top:0;background:linear-gradient(rgba(0,0,0,.4),transparent)}
     .calc-reel-window::after{bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.4))}
-    .calc-reel-track{list-style:none;margin:0;padding:0;transition:transform 4s cubic-bezier(.15,.65,.15,1);will-change:transform}
+    .calc-reel-track{list-style:none;margin:0;padding:0;transition:transform 2s cubic-bezier(.15,.65,.15,1);will-change:transform}
     .calc-reel-track li{height:88px;display:flex;align-items:center;justify-content:center;padding:0 10px}
     .calc-reel-track li span{
       display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
@@ -2507,7 +2507,54 @@
       {emoji:'🛒', text:'robando en el supermercado'},
       {emoji:'😱', text:'gritando de pánico'},
       {emoji:'🕶️', text:'haciéndose el chulo con gafas de sol'},
-      {emoji:'🎤', text:'cantando fatal en un karaoke'}
+      {emoji:'🎤', text:'cantando fatal en un karaoke'},
+      // Cotidianas
+      {emoji:'😴', text:'durmiendo la siesta'},
+      {emoji:'📚', text:'estudiando para un examen'},
+      {emoji:'🛒', text:'haciendo la compra'},
+      {emoji:'🐕', text:'paseando al perro'},
+      {emoji:'🍽️', text:'lavando los platos'},
+      {emoji:'🚗', text:'conduciendo a toda pastilla'},
+      {emoji:'🚲', text:'montando en bici'},
+      {emoji:'📖', text:'leyendo un libro'},
+      {emoji:'☕', text:'tomando un café bien cargado'},
+      {emoji:'📓', text:'escribiendo su diario secreto'},
+      {emoji:'🧳', text:'haciendo la maleta a última hora'},
+      {emoji:'📺', text:'tirado en el sofá viendo la tele'},
+      {emoji:'👕', text:'planchando la ropa'},
+      {emoji:'🎂', text:'horneando una tarta'},
+      {emoji:'🎮', text:'jugando a videojuegos hasta las tantas'},
+      {emoji:'🏋️', text:'sudando en el gimnasio'},
+      {emoji:'🎸', text:'tocando la guitarra eléctrica'},
+      {emoji:'🧗', text:'escalando una montaña'},
+      {emoji:'🏊', text:'nadando en la piscina'},
+      {emoji:'🏃‍♂️', text:'corriendo una maratón'},
+      // Absurdas
+      {emoji:'💡', text:'discutiendo con una farola'},
+      {emoji:'🏃', text:'persiguiendo su propia sombra'},
+      {emoji:'🪽', text:'intentando volar sin ningún éxito'},
+      {emoji:'🪴', text:'hablando con las plantas'},
+      {emoji:'🔑', text:'buscando las llaves como un loco'},
+      {emoji:'🤸', text:'tropezando con sus propios pies'},
+      {emoji:'🪞', text:'haciendo muecas raras al espejo'},
+      {emoji:'🖨️', text:'peleándose con la impresora'},
+      {emoji:'☁️', text:'gritándole a las nubes'},
+      {emoji:'🕺', text:'bailando solo en su cuarto'},
+      // Más gamberras
+      {emoji:'🎱', text:'jugando al billar en un bar cutre'},
+      {emoji:'🐎', text:'apostándolo todo en una carrera de caballos'},
+      {emoji:'✈️', text:'montando un numerito en el aeropuerto'},
+      {emoji:'💿', text:'rompiendo la pista de baile'},
+      {emoji:'🟨', text:'discutiendo a gritos con el árbitro'},
+      {emoji:'🎫', text:'colándose en un concierto'},
+      {emoji:'🏨', text:'destrozando la habitación de un hotel'},
+      {emoji:'🎊', text:'organizando una fiesta que acaba fatal'},
+      {emoji:'📺', text:'peleándose por el mando de la tele'},
+      {emoji:'😈', text:'planeando su venganza'},
+      // Frikis
+      {emoji:'🐲', text:'luchando contra el jefe final'},
+      {emoji:'🍿', text:'maratoneando una serie entera'},
+      {emoji:'🎭', text:'haciendo cosplay en una convención'}
     ];
 
     const CALC_ITEM_HEIGHT = 88;
@@ -2531,7 +2578,7 @@
       calcCharReel.track.style.transitionDuration = '0.6s';
       calcActionReel.track.style.transitionDuration = '0.6s';
     }
-    const calcSpinDuration = calcReduceMotion ? 650 : 4050;
+    const calcSpinDuration = calcReduceMotion ? 650 : 2150;
 
     function calcSpinReel(reel){
       const n = reel.n;
