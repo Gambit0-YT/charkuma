@@ -1296,9 +1296,30 @@
   </footer>
 
   <script>
-    // Estado del widget lateral (declarado aquí arriba para que esté
-    // disponible desde el primer momento, incluso si se entra por un
-    // enlace directo del tipo #view=... que llama a showView() muy pronto).
+    // ──────────────────────────────────────────────────────────
+    // CONFIGURACIÓN DEL WIDGET LATERAL (vídeos de YouTube + noticias).
+    // Declarado aquí arriba a propósito: si se entra por un enlace directo
+    // del tipo #view=..., showView() se ejecuta muy pronto y necesita que
+    // esto ya exista (si no, error "before initialization").
+    //
+    // Cómo activar los vídeos de YouTube:
+    // 1) Ve a https://console.cloud.google.com/ → crea un proyecto (o usa uno).
+    // 2) "APIs y servicios" → "Biblioteca" → busca "YouTube Data API v3" → Activar.
+    // 3) "Credenciales" → "Crear credenciales" → "Clave de API". Cópiala.
+    //    (Recomendado: restringe esa clave a "YouTube Data API v3".)
+    // 4) Tu Channel ID (empieza por "UC...") lo encuentras entrando en tu
+    //    cuenta de YouTube y visitando: https://www.youtube.com/account_advanced
+    // 5) Pega ambos valores aquí abajo, entre las comillas.
+    // ──────────────────────────────────────────────────────────
+    const YT_API_KEY = "AIzaSyDwJpcqg6PymrQU-lki7DSTjKARK5LsKaw";
+    const YT_CHANNEL_ID = "UCMxeCf-_CpgmmIiyHCwMeYw"; // mrChakurma
+
+    // Fuente de noticias geek/cómics para el lateral de Rincón del Friki.
+    // Zona Negativa: sitio español dedicado a cómics y cultura geek, con RSS público.
+    // Puedes cambiarla por cualquier otro feed RSS que prefieras.
+    const GEEK_NEWS_FEED = "https://www.zonanegativa.com/feed/";
+
+    // Estado del widget lateral
     let currentSidebarMode = 'videos'; // 'videos' | 'news'
     let cachedVideosHTML = null;
     let cachedNewsHTML = null;
@@ -1934,24 +1955,9 @@
 
     // ──────────────────────────────────────────────────────────
     // WIDGET LATERAL — últimos vídeos de YouTube (en vivo)
-    //
-    // Cómo activarlo:
-    // 1) Ve a https://console.cloud.google.com/ → crea un proyecto (o usa uno).
-    // 2) "APIs y servicios" → "Biblioteca" → busca "YouTube Data API v3" → Activar.
-    // 3) "Credenciales" → "Crear credenciales" → "Clave de API". Cópiala.
-    //    (Recomendado: en esa clave, restringe "Restricciones de API" a
-    //    "YouTube Data API v3" para que solo sirva para esto.)
-    // 4) Tu Channel ID (empieza por "UC...") lo encuentras entrando en tu
-    //    cuenta de YouTube y visitando: https://www.youtube.com/account_advanced
-    // 5) Pega ambos valores aquí abajo, entre las comillas.
+    // (La configuración YT_API_KEY / YT_CHANNEL_ID / GEEK_NEWS_FEED
+    // está arriba del todo del script — instrucciones justo ahí.)
     // ──────────────────────────────────────────────────────────
-    const YT_API_KEY = "AIzaSyDwJpcqg6PymrQU-lki7DSTjKARK5LsKaw";
-    const YT_CHANNEL_ID = "UCMxeCf-_CpgmmIiyHCwMeYw"; // mrChakurma
-
-    // Fuente de noticias geek/cómics para el lateral de Rincón del Friki.
-    // Zona Negativa: sitio español dedicado a cómics y cultura geek, con RSS público.
-    // Puedes cambiarla por cualquier otro feed RSS que prefieras.
-    const GEEK_NEWS_FEED = "https://www.zonanegativa.com/feed/";
 
     // El lateral muestra "Últimos vídeos" en todo el sitio, EXCEPTO dentro
     // de Rincón del Friki, donde muestra "Noticias Geek" en su lugar.
