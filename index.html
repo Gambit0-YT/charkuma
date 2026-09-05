@@ -399,13 +399,23 @@
     /* ── Bancos secretos de ideas: marcar como hecha / descartar ── */
     .idea-discard-counter{font-size:12px;color:var(--muted);font-weight:700;margin-top:4px}
     .idea-card{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:16px;border-radius:16px;background:#110c19;border:1px solid var(--line);transition:.2s opacity,.2s filter}
-    .idea-card.is-discarded{opacity:.4;filter:grayscale(1)}
-    .idea-check{flex:0 0 auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#0d0914;font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s background,.2s border-color}
+    .idea-card.is-discarded, .day-card.is-discarded{opacity:.4;filter:grayscale(1)}
+    .idea-check{flex:0 0 auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#0d0914;font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.2s background,.2s border-color;padding:0}
     .idea-check.is-done{background:#1f9d55;border-color:#1f9d55}
     .idea-body{flex:1 1 200px;min-width:0}
     .idea-discard-btn{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
     .idea-discard-btn:hover{border-color:var(--red);color:var(--red)}
-    .idea-card.is-discarded .idea-discard-btn{border-color:#3ecf72;color:#3ecf72}
+    .idea-card.is-discarded .idea-discard-btn, .day-card.is-discarded .idea-discard-btn{border-color:#3ecf72;color:#3ecf72}
+    .universe-chip{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--line)}
+
+    /* Lista colapsable de descartados + casilla para ocultarlos */
+    .discarded-panel{margin-top:14px}
+    .discarded-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .discarded-row:last-child{border-bottom:none}
+    .hide-discarded-label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:700;margin-top:12px;cursor:pointer}
+    .hide-discarded-label input{cursor:pointer}
+    #rfSecretContainer.hide-discarded .idea-card.is-discarded,
+    #secretMonthsContainer.hide-discarded .day-card.is-discarded{display:none}
 
     .type-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .type-reaccion{background:rgba(255,95,109,.14);color:var(--red);border:1px solid rgba(255,95,109,.35)}
@@ -1091,9 +1101,25 @@
 
           <div class="progress-panel">
             <div class="progress-head">
-              <strong>Estado real del reto</strong>
+              <div>
+                <strong>Estado real del reto</strong>
+                <div id="retroDiscardCounter" class="idea-discard-counter">🗑️ 0 juegos descartados</div>
+              </div>
               <span id="secretSummary">Cargando...</span>
             </div>
+
+            <details class="month discarded-panel" id="retroDiscardedPanel">
+              <summary>
+                <span>🗑️ Juegos decididos que he descartado</span>
+                <span class="count" id="retroDiscardedCount">0</span>
+              </summary>
+              <div class="month-body" id="retroDiscardedListBody"></div>
+            </details>
+
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="retroHideDiscarded" onchange="setHideDiscardedPref('retro365planned','secretMonthsContainer', this.checked)">
+              Ocultar los juegos descartados de la lista de abajo
+            </label>
           </div>
         </div>
       </section>
@@ -1228,6 +1254,19 @@
               </div>
               <span id="rfSecretSummary">50 ideas · 5 tipos de contenido</span>
             </div>
+
+            <details class="month discarded-panel" id="rfDiscardedPanel">
+              <summary>
+                <span>🗑️ Ideas descartadas</span>
+                <span class="count" id="rfDiscardedCount">0</span>
+              </summary>
+              <div class="month-body" id="rfDiscardedListBody"></div>
+            </details>
+
+            <label class="hide-discarded-label">
+              <input type="checkbox" id="rfHideDiscarded" onchange="setHideDiscardedPref('rincon','rfSecretContainer', this.checked)">
+              Ocultar las ideas descartadas de la lista de abajo
+            </label>
           </div>
         </div>
       </section>
@@ -2575,6 +2614,11 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     let cachedVideosHTML = null;
     let cachedNewsHTML = null;
 
+    // Marca cuándo ya se estableció el estado base del historial del
+    // navegador (ver showView más abajo), para que el botón "atrás"
+    // —incluido el botón lateral del ratón— funcione correctamente.
+    let historyInitialized = false;
+
     // ──────────────────────────────────────────────────────────
     // SONIDO DE RULETA — generado con Web Audio API (sin archivos
     // externos): una serie de "tics" que se van espaciando, como una
@@ -2623,6 +2667,12 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     // ──────────────────────────────────────────────────────────
     // NAVEGACIÓN INTERNA (SPA): cambia de "página" sin recargar,
     // manteniendo siempre la cabecera fija arriba.
+    //
+    // Además, cada cambio de vista queda registrado en el historial del
+    // navegador (history.pushState). Así, el botón "atrás" del navegador
+    // —incluido el botón lateral/4º botón del ratón, o el gesto de atrás
+    // en móvil— te devuelve al apartado en el que estabas antes, en vez
+    // de mandarte siempre al inicio de la página.
     // ──────────────────────────────────────────────────────────
     function showView(id, opts){
       opts = opts || {};
@@ -2631,6 +2681,14 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       if (target) target.classList.add('active');
       if (opts.resetScroll !== false) window.scrollTo({top:0});
       updateSidebar(id);
+
+      // No tocar el historial cuando venimos de un popstate (el navegador
+      // ya está gestionando esa entrada) ni antes de fijar el estado base.
+      if (!opts.fromPopState && historyInitialized) {
+        if (!history.state || history.state.view !== id) {
+          history.pushState({view:id}, '', '#view=' + id);
+        }
+      }
     }
 
     function goHome(anchorId){
@@ -2660,12 +2718,26 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     }
 
     // Permite enlazar directamente a una vista con #view=nombre (por si
-    // alguna vez compartes un enlace a una sección concreta)
+    // alguna vez compartes un enlace a una sección concreta). De paso,
+    // fija la entrada base del historial (home, o la vista del enlace)
+    // ANTES de que ningún clic pueda pushear nada — así el primer "atrás"
+    // siempre tiene a dónde volver dentro de la web.
     const cameFromHash = (function initFromHash(){
       const match = location.hash.match(/view=([\w-]+)/);
-      if (match) { showView(match[1], {resetScroll:false}); return true; }
+      const initialView = match ? match[1] : 'home';
+      history.replaceState({view: initialView}, '', location.pathname + location.search + (match ? '#view=' + initialView : ''));
+      historyInitialized = true;
+      if (match) { showView(initialView, {resetScroll:false}); return true; }
       return false;
     })();
+
+    // Botón "atrás"/"adelante" del navegador (o el botón lateral del
+    // ratón, que dispara el mismo evento): vuelve a la vista guardada en
+    // el historial en vez de dejar la web en el estado en que ya estaba.
+    window.addEventListener('popstate', (e) => {
+      const id = (e.state && e.state.view) || 'home';
+      showView(id, {resetScroll:false, fromPopState:true});
+    });
 
     // ──────────────────────────────────────────────────────────
     // Animaciones de aparición al hacer scroll
@@ -2891,14 +2963,93 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     }
 
     // ──────────────────────────────────────────────────────────
+    // Bancos secretos de ideas: "hecha" (✅ verde, en el cuadrado del
+    // emoticono) y "descartar" (oscurece la tarjeta), con contador de
+    // descartadas, lista desplegable de descartadas y casilla para
+    // ocultarlas. Guardado en localStorage por banco (data-idea-id =
+    // tipo + índice, o "day-N" en el caso de Retro 365) para poder
+    // reutilizar este mismo patrón en bancos de ideas de otras secciones.
+    // Declarado aquí (antes de secretDayCardHTML/renderSecret) porque
+    // esos ya lo usan al arrancar la página.
+    // ──────────────────────────────────────────────────────────
+    const IDEA_BANKS_KEY = 'charkuma_idea_banks';
+    const HIDE_DISCARDED_KEY = 'charkuma_idea_hide_discarded';
+
+    function loadIdeaBanks(){
+      try { return JSON.parse(localStorage.getItem(IDEA_BANKS_KEY)) || {}; }
+      catch(e){ return {}; }
+    }
+    function saveIdeaBanks(banks){
+      try { localStorage.setItem(IDEA_BANKS_KEY, JSON.stringify(banks)); }
+      catch(e){ /* localStorage no disponible: seguimos sin persistir */ }
+    }
+    function setIdeaState(bank, id, patch){
+      const banks = loadIdeaBanks();
+      if (!banks[bank]) banks[bank] = {};
+      banks[bank][id] = Object.assign({}, banks[bank][id], patch);
+      saveIdeaBanks(banks);
+    }
+
+    function loadHideDiscardedPrefs(){
+      try { return JSON.parse(localStorage.getItem(HIDE_DISCARDED_KEY)) || {}; }
+      catch(e){ return {}; }
+    }
+    function saveHideDiscardedPrefs(prefs){
+      try { localStorage.setItem(HIDE_DISCARDED_KEY, JSON.stringify(prefs)); }
+      catch(e){ /* localStorage no disponible: seguimos sin persistir */ }
+    }
+    function getHideDiscardedPref(bank){
+      return !!loadHideDiscardedPrefs()[bank];
+    }
+    // Llamado directamente desde la casilla "Ocultar descartadas": solo
+    // toca una clase CSS, no hace falta volver a pintar toda la lista.
+    function setHideDiscardedPref(bank, containerId, checked){
+      const prefs = loadHideDiscardedPrefs();
+      prefs[bank] = checked;
+      saveHideDiscardedPrefs(prefs);
+      const container = document.getElementById(containerId);
+      if (container) container.classList.toggle('hide-discarded', checked);
+    }
+
+    // Fila de la lista desplegable de "descartadas" (con su propio botón
+    // para restaurar sin tener que buscar la tarjeta original).
+    function discardedListHTML(bank, items){
+      if (!items.length) return `<p class="yt-empty" style="margin:0">Nada descartado todavía.</p>`;
+      return items.map(it => `
+        <div class="discarded-row">
+          <span>${it.label}</span>
+          <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${it.id}')">↩️ Restaurar</button>
+        </div>`).join('');
+    }
+
+    const IDEA_BANK_RENDERERS = {};
+
+    function toggleIdeaDone(bank, id){
+      const state = (loadIdeaBanks()[bank] || {})[id] || {};
+      setIdeaState(bank, id, {done: !state.done});
+      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+    function toggleIdeaDiscard(bank, id){
+      const state = (loadIdeaBanks()[bank] || {})[id] || {};
+      setIdeaState(bank, id, {discarded: !state.discarded});
+      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+
+    // ──────────────────────────────────────────────────────────
     // RETRO 365 — vista secreta (easter egg 🎮)
     // ──────────────────────────────────────────────────────────
-    function secretDayCardHTML(day){
+    const RETRO_PLANNED_BANK = 'retro365planned';
+
+    // Para los días PUBLICADOS y SIN DECIDIR, el markup no cambia. Para
+    // los días DECIDIDOS (📝, aún sin grabar) el cuadrado del emoji hace
+    // de botón "confirmar" (✅ verde) y se añade "Descartar" — son juegos
+    // ya elegidos que todavía puedes cambiar de opinión sobre ellos.
+    function secretDayCardHTML(day, plannedBankState){
       const published = completedGames[day];
       const planned = plannedGames[day];
 
       if (published) {
-        return `
+        return { html: `
           <div class="day-card unlocked">
             <div class="day-thumb">${published.emoji || "🎮"}</div>
             <div class="day-info">
@@ -2912,13 +3063,18 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <a class="video-link" href="${published.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
               </div>
             </div>
-          </div>`;
+          </div>` };
       }
 
       if (planned) {
-        return `
-          <div class="day-card planned">
-            <div class="day-thumb">${planned.emoji || "📝"}</div>
+        const id = `day-${day}`;
+        const s = (plannedBankState && plannedBankState[id]) || {};
+        return {
+          html: `
+          <div class="day-card planned${s.discarded ? ' is-discarded' : ''}">
+            <button type="button" class="day-thumb idea-check${s.done ? ' is-done' : ''}"
+              onclick="toggleIdeaDone('${RETRO_PLANNED_BANK}','${id}')"
+              title="${s.done ? 'Quitar confirmación' : 'Confirmar que sigues queriendo este juego para este día'}">${s.done ? '✅' : (planned.emoji || "📝")}</button>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 📝 DECIDIDO (sin grabar)</div>
               <h4><a href="${planned.steamUrl}" target="_blank" rel="noopener">${planned.name} ↗</a></h4>
@@ -2927,17 +3083,24 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <span class="diff-chip diff-${planned.difficulty}">${DIFF_LABELS[planned.difficulty] || planned.difficulty}</span>
               </div>
             </div>
-          </div>`;
+            <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${RETRO_PLANNED_BANK}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
+          </div>`,
+          discarded: !!s.discarded,
+          id,
+          label: `Día ${String(day).padStart(3,"0")} · ${planned.name}`
+        };
       }
 
-      return `<div class="undecided-row">DÍA ${String(day).padStart(3,"0")} · ❔ aún sin decidir</div>`;
+      return { html: `<div class="undecided-row">DÍA ${String(day).padStart(3,"0")} · ❔ aún sin decidir</div>` };
     }
 
     function renderSecret(){
       const container = document.getElementById('secretMonthsContainer');
+      const plannedBankState = loadIdeaBanks()[RETRO_PLANNED_BANK] || {};
       let day = 1;
       let html = "";
       let publishedCount = 0, plannedCount = 0;
+      const discardedItems = [];
 
       MONTHS.forEach(([name, daysInMonth]) => {
         const start = day;
@@ -2946,7 +3109,9 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         for (let d = start; d <= end; d++){
           if (completedGames[d]) publishedCount++;
           else if (plannedGames[d]) plannedCount++;
-          cards += secretDayCardHTML(d);
+          const card = secretDayCardHTML(d, plannedBankState);
+          cards += card.html;
+          if (card.discarded) discardedItems.push({id: card.id, label: card.label});
         }
         html += `
           <details class="month">
@@ -2960,9 +3125,21 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       });
 
       container.innerHTML = html;
+      container.classList.toggle('hide-discarded', getHideDiscardedPref(RETRO_PLANNED_BANK));
+
       document.getElementById('secretSummary').textContent =
         `✅ ${publishedCount} publicados · 📝 ${plannedCount} decididos sin grabar · ❔ ${totalDays - publishedCount - plannedCount} por decidir`;
+
+      const counterEl = document.getElementById('retroDiscardCounter');
+      if (counterEl) counterEl.textContent = `🗑️ ${discardedItems.length} juego${discardedItems.length === 1 ? '' : 's'} descartado${discardedItems.length === 1 ? '' : 's'}`;
+      const discardedCountEl = document.getElementById('retroDiscardedCount');
+      if (discardedCountEl) discardedCountEl.textContent = discardedItems.length;
+      const discardedListEl = document.getElementById('retroDiscardedListBody');
+      if (discardedListEl) discardedListEl.innerHTML = discardedListHTML(RETRO_PLANNED_BANK, discardedItems);
+      const hideCheckbox = document.getElementById('retroHideDiscarded');
+      if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(RETRO_PLANNED_BANK);
     }
+    IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
 
     renderPublic();
     renderSecret();
@@ -3181,105 +3358,84 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     // y Reacción al final, ya que reaccionar pide algo de contexto ya construido.
     // Las ideas están planteadas sobre "lo que esté de actualidad" en cada
     // momento, no sobre tramas concretas ya superadas.
-    const rinconSecretIdeas = {
-      opinion: [
-        "Por qué deberías empezar a ver The Boys ya mismo (presentación sin destripar la trama).",
-        "Homelander, explicado desde cero: por qué es de los villanos más interesantes de la ficción actual.",
-        "Por qué la peli o serie Marvel del momento merece que le des una oportunidad.",
-        "El anime que está petándolo ahora mismo: por qué recomendarlo desde el primer capítulo.",
-        "Por qué prefiero las historias de superhéroes \"sucias\" (tipo The Boys) a las clásicas, para quien no ha visto ninguna.",
-        "Mi opinión sincera sobre el estreno más comentado del mes, sin dar nada por sabido.",
-        "Este personaje secundario merece su propio hueco: presentación para quien no lo conoce.",
-        "El villano de moda ahora mismo: quién es y por qué funciona tan bien, explicado desde cero.",
-        "Por qué esta saga que lleva años corriendo sigue mereciendo la pena empezar hoy.",
-        "Por dónde empezar en Marvel o en The Boys si no has visto nada todavía (mi ranking)."
-      ],
-      curiosidad: [
-        "10 datos curiosos sobre el origen de un personaje que está de actualidad.",
-        "Cosas que cambia respecto al cómic la serie o película que se está estrenando ahora.",
-        "Easter eggs escondidos en el estreno más comentado del momento.",
-        "Datos curiosos del actor o actriz protagonista de lo que está en boca de todos.",
-        "El presupuesto real de la escena más comentada del estreno actual, y en qué se fue.",
-        "Diferencias entre el diseño del cómic y el de la adaptación que se estrena ahora.",
-        "El origen real (mitológico o histórico) que inspiró al personaje del momento.",
-        "Anécdotas de rodaje del estreno más comentado que se han vuelto virales.",
-        "Por qué el villano de la serie o película actual iba a ser muy distinto en el guion original.",
-        "Curiosidades sobre el crossover o la teoría fan que está circulando ahora mismo."
-      ],
-      fancast: [
-        "Fancast: quién debería interpretar al próximo gran villano que se anuncie.",
-        "Si adaptaran la serie o el cómic que está de moda ahora, este sería mi reparto ideal.",
-        "Fancast de una heroína clásica que todavía no ha tenido su adaptación.",
-        "Actor infravalorado que merece un papel de superhéroe, con lo que se está rumoreando ahora.",
-        "Si adaptaran este cómic poco conocido, así lo castearía yo.",
-        "Fancast de villana para la próxima gran saga que se viene.",
-        "Quién debería doblar al personaje de moda en su adaptación live-action.",
-        "El actor \"de otra franquicia\" que encajaría perfecto en el papel que se rumorea ahora.",
-        "Fancast generacional: quién sustituiría al héroe veterano si se retira, según los rumores actuales.",
-        "Si hicieran serie del equipo secundario que la gente pide en redes, este sería el reparto."
-      ],
-      batalla: [
-        "Homelander vs el villano más popular del momento: ¿quién gana en serio?",
-        "El villano más fuerte físicamente ahora mismo, ranking razonado.",
-        "The Boys (el equipo) vs los Vengadores en un enfrentamiento directo.",
-        "Batalla imposible: el héroe cósmico de moda contra un héroe callejero, ¿hay opción?",
-        "El combate más infravalorado del estreno actual, revisitado y analizado.",
-        "Ranking de los villanos más letales de lo que se está emitiendo ahora mismo.",
-        "Starlight vs la heroína Marvel del momento — análisis de poderes.",
-        "El plan que un villano actual casi ejecuta a la perfección (y por qué falló).",
-        "Un equipo de 3 héroes random vs el villano de moda: ¿sobreviven?",
-        "La pelea que los fans llevan pidiendo en redes ahora mismo y nunca ha pasado."
-      ],
-      reaccion: [
-        "Primera reacción al tráiler más reciente que se ha estrenado esta semana.",
-        "Reaccionando por primera vez a la escena post-créditos más comentada ahora mismo.",
-        "Primera vez viendo la escena más viral de un estreno reciente, reacción real y sin spoilers previos.",
-        "Reaccionando al tráiler de un anime recién anunciado que está petándolo.",
-        "Reaccionando a los primeros minutos del estreno del que todo el mundo habla esta semana.",
-        "Reacción al anuncio de casting más comentado del momento.",
-        "Reaccionando a la escena más bestia del estreno actual (con aviso de contenido).",
-        "Reaccionando a un tráiler filtrado que se ha vuelto viral esta semana.",
-        "Reaccionando a la comparación de un traje o diseño que se está comentando en redes.",
-        "Primera reacción a un capítulo suelto de una serie que se está estrenando ahora, sin dar nada por sabido de antes."
-      ]
+    // Etiqueta de universo/franquicia: a qué IP pertenece cada idea, para
+    // poder verlo de un vistazo (Marvel, The Boys, anime...). Se define
+    // aquí en general —con Disney y DreamWorks incluidos— para poder
+    // reutilizar el mismo mapa de etiquetas en futuros bancos de ideas de
+    // otras secciones, aunque en Rincón del Friki hoy solo usemos las que
+    // encajan con su temática (Marvel, The Boys, anime, cine geek, cruces).
+    const IDEA_UNIVERSE_LABELS = {
+      marvel: '🅼 Marvel',
+      boys: '🅱️ The Boys',
+      anime: '🎌 Anime',
+      disney: '🏰 Disney',
+      dreamworks: '🐉 DreamWorks',
+      cruce: '⚔️ Cruce',
+      geek: '🎬 Cine geek'
     };
 
-    // ──────────────────────────────────────────────────────────
-    // Bancos secretos de ideas: "hecha" (✅ verde, en el cuadrado del
-    // emoticono) y "descartar" (oscurece la tarjeta), con contador de
-    // descartadas. Guardado en localStorage por banco (data-idea-id =
-    // tipo + índice) para poder reutilizar este mismo patrón cuando se
-    // añadan bancos de ideas a otras secciones más adelante.
-    // ──────────────────────────────────────────────────────────
-    const IDEA_BANKS_KEY = 'charkuma_idea_banks';
-
-    function loadIdeaBanks(){
-      try { return JSON.parse(localStorage.getItem(IDEA_BANKS_KEY)) || {}; }
-      catch(e){ return {}; }
-    }
-    function saveIdeaBanks(banks){
-      try { localStorage.setItem(IDEA_BANKS_KEY, JSON.stringify(banks)); }
-      catch(e){ /* localStorage no disponible: seguimos sin persistir */ }
-    }
-    function setIdeaState(bank, id, patch){
-      const banks = loadIdeaBanks();
-      if (!banks[bank]) banks[bank] = {};
-      banks[bank][id] = Object.assign({}, banks[bank][id], patch);
-      saveIdeaBanks(banks);
-    }
-
-    const IDEA_BANK_RENDERERS = {};
-
-    function toggleIdeaDone(bank, id){
-      const state = (loadIdeaBanks()[bank] || {})[id] || {};
-      setIdeaState(bank, id, {done: !state.done});
-      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
-    }
-    function toggleIdeaDiscard(bank, id){
-      const state = (loadIdeaBanks()[bank] || {})[id] || {};
-      setIdeaState(bank, id, {discarded: !state.discarded});
-      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
-    }
+    const rinconSecretIdeas = {
+      opinion: [
+        {universe:'boys', text:"Por qué deberías empezar a ver The Boys ya mismo (presentación sin destripar la trama)."},
+        {universe:'boys', text:"Homelander, explicado desde cero: por qué es de los villanos más interesantes de la ficción actual."},
+        {universe:'marvel', text:"Por qué la peli o serie Marvel del momento merece que le des una oportunidad."},
+        {universe:'anime', text:"El anime que está petándolo ahora mismo: por qué recomendarlo desde el primer capítulo."},
+        {universe:'boys', text:"Por qué prefiero las historias de superhéroes \"sucias\" (tipo The Boys) a las clásicas, para quien no ha visto ninguna."},
+        {universe:'geek', text:"Mi opinión sincera sobre el estreno más comentado del mes, sin dar nada por sabido."},
+        {universe:'marvel', text:"Este personaje secundario merece su propio hueco: presentación para quien no lo conoce."},
+        {universe:'geek', text:"El villano de moda ahora mismo: quién es y por qué funciona tan bien, explicado desde cero."},
+        {universe:'marvel', text:"Por qué esta saga que lleva años corriendo sigue mereciendo la pena empezar hoy."},
+        {universe:'cruce', text:"Por dónde empezar en Marvel o en The Boys si no has visto nada todavía (mi ranking)."}
+      ],
+      curiosidad: [
+        {universe:'geek', text:"10 datos curiosos sobre el origen de un personaje que está de actualidad."},
+        {universe:'marvel', text:"Cosas que cambia respecto al cómic la serie o película que se está estrenando ahora."},
+        {universe:'geek', text:"Easter eggs escondidos en el estreno más comentado del momento."},
+        {universe:'geek', text:"Datos curiosos del actor o actriz protagonista de lo que está en boca de todos."},
+        {universe:'marvel', text:"El presupuesto real de la escena más comentada del estreno actual, y en qué se fue."},
+        {universe:'boys', text:"Diferencias entre el diseño del cómic y el de la adaptación que se estrena ahora."},
+        {universe:'marvel', text:"El origen real (mitológico o histórico) que inspiró al personaje del momento."},
+        {universe:'boys', text:"Anécdotas de rodaje del estreno más comentado que se han vuelto virales."},
+        {universe:'geek', text:"Por qué el villano de la serie o película actual iba a ser muy distinto en el guion original."},
+        {universe:'cruce', text:"Curiosidades sobre el crossover o la teoría fan que está circulando ahora mismo."}
+      ],
+      fancast: [
+        {universe:'marvel', text:"Fancast: quién debería interpretar al próximo gran villano que se anuncie."},
+        {universe:'boys', text:"Si adaptaran la serie o el cómic que está de moda ahora, este sería mi reparto ideal."},
+        {universe:'marvel', text:"Fancast de una heroína clásica que todavía no ha tenido su adaptación."},
+        {universe:'geek', text:"Actor infravalorado que merece un papel de superhéroe, con lo que se está rumoreando ahora."},
+        {universe:'geek', text:"Si adaptaran este cómic poco conocido, así lo castearía yo."},
+        {universe:'marvel', text:"Fancast de villana para la próxima gran saga que se viene."},
+        {universe:'anime', text:"Quién debería doblar al personaje de moda en su adaptación live-action."},
+        {universe:'boys', text:"El actor \"de otra franquicia\" que encajaría perfecto en el papel que se rumorea ahora."},
+        {universe:'marvel', text:"Fancast generacional: quién sustituiría al héroe veterano si se retira, según los rumores actuales."},
+        {universe:'boys', text:"Si hicieran serie del equipo secundario que la gente pide en redes, este sería el reparto."}
+      ],
+      batalla: [
+        {universe:'boys', text:"Homelander vs el villano más popular del momento: ¿quién gana en serio?"},
+        {universe:'geek', text:"El villano más fuerte físicamente ahora mismo, ranking razonado."},
+        {universe:'cruce', text:"The Boys (el equipo) vs los Vengadores en un enfrentamiento directo."},
+        {universe:'marvel', text:"Batalla imposible: el héroe cósmico de moda contra un héroe callejero, ¿hay opción?"},
+        {universe:'geek', text:"El combate más infravalorado del estreno actual, revisitado y analizado."},
+        {universe:'geek', text:"Ranking de los villanos más letales de lo que se está emitiendo ahora mismo."},
+        {universe:'cruce', text:"Starlight vs la heroína Marvel del momento — análisis de poderes."},
+        {universe:'geek', text:"El plan que un villano actual casi ejecuta a la perfección (y por qué falló)."},
+        {universe:'geek', text:"Un equipo de 3 héroes random vs el villano de moda: ¿sobreviven?"},
+        {universe:'geek', text:"La pelea que los fans llevan pidiendo en redes ahora mismo y nunca ha pasado."}
+      ],
+      reaccion: [
+        {universe:'geek', text:"Primera reacción al tráiler más reciente que se ha estrenado esta semana."},
+        {universe:'marvel', text:"Reaccionando por primera vez a la escena post-créditos más comentada ahora mismo."},
+        {universe:'geek', text:"Primera vez viendo la escena más viral de un estreno reciente, reacción real y sin spoilers previos."},
+        {universe:'anime', text:"Reaccionando al tráiler de un anime recién anunciado que está petándolo."},
+        {universe:'geek', text:"Reaccionando a los primeros minutos del estreno del que todo el mundo habla esta semana."},
+        {universe:'geek', text:"Reacción al anuncio de casting más comentado del momento."},
+        {universe:'boys', text:"Reaccionando a la escena más bestia del estreno actual (con aviso de contenido)."},
+        {universe:'geek', text:"Reaccionando a un tráiler filtrado que se ha vuelto viral esta semana."},
+        {universe:'marvel', text:"Reaccionando a la comparación de un traje o diseño que se está comentando en redes."},
+        {universe:'boys', text:"Primera reacción a un capítulo suelto de una serie que se está estrenando ahora, sin dar nada por sabido de antes."}
+      ]
+    };
 
     function renderRinconSecret(){
       const container = document.getElementById('rfSecretContainer');
@@ -3292,7 +3448,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         [...container.querySelectorAll('details.month')].filter(d => d.open).map(d => d.dataset.type)
       );
 
-      let discardedCount = 0;
+      const discardedItems = [];
       let html = "";
       Object.keys(rinconSecretIdeas).forEach(type => {
         const ideas = rinconSecretIdeas[type];
@@ -3300,18 +3456,21 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
-          if (s.discarded) discardedCount++;
+          if (s.discarded) discardedItems.push({id, label: idea.text});
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
               onclick="toggleIdeaDone('${bank}','${id}')"
               title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
             <div class="idea-body">
-              <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-                <span class="type-chip type-${type}">${TYPE_LABELS[type]}</span>
+              <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+                <div style="display:flex;gap:6px;flex-wrap:wrap">
+                  <span class="type-chip type-${type}">${TYPE_LABELS[type]}</span>
+                  <span class="type-chip universe-chip">${IDEA_UNIVERSE_LABELS[idea.universe] || idea.universe}</span>
+                </div>
                 <span class="count">#${i + 1}</span>
               </div>
-              <p style="margin:6px 0 0">${idea}</p>
+              <p style="margin:6px 0 0">${idea.text}</p>
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
@@ -3326,9 +3485,16 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
           </details>`;
       });
       container.innerHTML = html;
+      container.classList.toggle('hide-discarded', getHideDiscardedPref(bank));
 
       const counterEl = document.getElementById('rfDiscardCounter');
-      if (counterEl) counterEl.textContent = `🗑️ ${discardedCount} descartada${discardedCount === 1 ? '' : 's'}`;
+      if (counterEl) counterEl.textContent = `🗑️ ${discardedItems.length} descartada${discardedItems.length === 1 ? '' : 's'}`;
+      const discardedCountEl = document.getElementById('rfDiscardedCount');
+      if (discardedCountEl) discardedCountEl.textContent = discardedItems.length;
+      const discardedListEl = document.getElementById('rfDiscardedListBody');
+      if (discardedListEl) discardedListEl.innerHTML = discardedListHTML(bank, discardedItems);
+      const hideCheckbox = document.getElementById('rfHideDiscarded');
+      if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(bank);
     }
     IDEA_BANK_RENDERERS.rincon = renderRinconSecret;
     renderRinconSecret();
