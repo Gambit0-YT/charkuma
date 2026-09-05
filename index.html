@@ -288,6 +288,11 @@
     .section-title{
       font-size:clamp(34px,5vw,58px);line-height:1;margin:10px 0 16px;letter-spacing:-.04em
     }
+    /* El emoji secreto de cada sección (🎮/🦸/🧪...) — antes no tenía
+       ningún estilo propio y era indistinguible del resto del título;
+       ahora se nota que es clicable. */
+    .secret-trigger{cursor:pointer;display:inline-block;border-radius:10px;transition:.2s transform}
+    .secret-trigger:hover{transform:scale(1.18) rotate(-4deg)}
     .section-sub{
       max-width:760px;color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 34px
     }
@@ -335,6 +340,9 @@
     .project.orange::after{background:radial-gradient(circle,rgba(255,122,24,.28),transparent 68%)}
     .project .num{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.15em}
     .project h3{font-size:31px;margin:48px 0 8px}
+    .project-soon{cursor:default;opacity:.55}
+    .project-soon:hover{transform:none;border-color:#312342}
+    .project-soon::after{background:none}
     .project p{color:var(--muted);line-height:1.6;max-width:500px}
     .project .open{position:absolute;right:22px;top:20px;font-size:22px}
 
@@ -779,6 +787,24 @@
       .sidebar-stack{display:flex}
     }
 
+    /* Mini-ventana del ranking friki: mismo patrón que Noticias Geek/
+       Notas rápidas pero en el lado izquierdo, y solo en Rincón del
+       Friki (JS añade/quita .active según la vista activa). El doble
+       de ancho que la de la derecha, pero necesita más hueco libre en
+       pantalla — por eso su propio breakpoint, más ancho que el de la
+       derecha, para no pisar el contenido central en monitores "solo"
+       anchos. No reutiliza .sidebar-stack a propósito: esa clase ya
+       fuerza display:flex a partir de 1900px para CUALQUIER elemento
+       que la lleve, y eso ignoraría por completo el estado .active.*/
+    .sidebar-stack-left{
+      display:none;position:fixed;top:100px;left:24px;width:680px;
+      max-height:calc(100vh - 130px);overflow-y:auto;
+      flex-direction:column;gap:16px;z-index:40;
+    }
+    @media (min-width:2200px){
+      .sidebar-stack-left.active{display:flex}
+    }
+
     @media (max-width:900px){
       .nav-links{display:none}
       .hero-grid,.about-grid,.roulette,.platforms{grid-template-columns:1fr}
@@ -823,7 +849,7 @@
       <div class="nav-links">
         <a href="javascript:void(0)" onclick="goHome('proyectos')">Proyectos</a>
         <a href="javascript:void(0)" onclick="goHome('lab')">Laboratorio</a>
-        <a href="javascript:void(0)" onclick="goHome('random')">Random</a>
+        <a href="javascript:void(0)" onclick="showView('helquidgames')">Games</a>
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
       </div>
@@ -886,6 +912,20 @@
         <button class="btn btn-primary notes-save-btn" id="noteSaveBtn">Guardar</button>
       </div>
       <div id="notesList" class="notes-list"></div>
+    </aside>
+  </div>
+
+  <!-- Ranking friki: mini-ventana igual que Noticias Geek/Notas rápidas,
+       pero a la izquierda y solo visible en Rincón del Friki. -->
+  <div class="sidebar-stack-left" id="leftSidebarStack">
+    <aside class="yt-sidebar" id="rankingSidebar">
+      <h4>🏆 Ranking friki</h4>
+      <p class="yt-sub-count">Vota tu personaje favorito de cultura pop/anime — top 8.</p>
+      <div class="ranking-add-row">
+        <input type="text" id="rankingNewCharacter" placeholder="Personaje que falte..." maxlength="40" />
+        <button type="button" class="btn btn-primary" onclick="addRankingCharacter()">➕</button>
+      </div>
+      <div id="rankingTop8" class="ranking-list"></div>
     </aside>
   </div>
 
@@ -1109,19 +1149,18 @@
               <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
             </a>
 
-            <a class="project reveal" data-project="helquidgames" href="javascript:void(0)" onclick="showView('helquidgames')">
-              <div class="num">PROYECTO 003</div>
-              <div class="open">↗</div>
-              <h3>🎮 HELQUIDGAMES</h3>
-              <p>El hub de mis juegos propios. El primero: Ruleta del 11, fútbol convertido en caos competitivo.</p>
-            </a>
-
             <a class="project orange reveal" data-project="charkumalab" href="javascript:void(0)" onclick="showView('charkumalab')">
-              <div class="num">PROYECTO 004</div>
+              <div class="num">PROYECTO 003</div>
               <div class="open">↗</div>
               <h3>🧪 CHARKUMA LAB</h3>
               <p>Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.</p>
             </a>
+
+            <div class="project reveal project-soon" data-project="proximamente">
+              <div class="num">PROYECTO 004</div>
+              <h3>🔒 PRÓXIMAMENTE</h3>
+              <p>Todavía en el horno — vuelve más adelante para ver de qué va.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1520,31 +1559,13 @@
       <section class="detail-section">
         <div class="container">
 
-          <h3 class="subheading">🏆 Ranking friki: vota a tu personaje favorito</h3>
-          <div class="panel ranking-panel">
-            <p style="color:var(--muted);margin-top:0">
-              Un top 8 de personajes de cultura pop/anime. Cada clic en 👍 suma un punto;
-              si tu favorito no está, añádelo tú mismo. La lista interna guarda todos los
-              personajes votados — solo se muestran los 8 primeros.
-            </p>
-            <div class="ranking-add-row">
-              <input type="text" id="rankingNewCharacter" placeholder="Nombre de un personaje que falte..." maxlength="40" />
-              <button type="button" class="btn btn-primary" onclick="addRankingCharacter()">➕ Añadir y votar</button>
-            </div>
-            <div id="rankingTop8" class="ranking-list"></div>
-            <div class="note" style="margin-top:16px">
-              <strong>Nota:</strong> la puntuación de salida es una estimación orientativa mía
-              de popularidad general (no hay forma de acceder a datos reales de volumen de
-              búsqueda histórico de Google) y los votos se guardan en este navegador — no es
-              (todavía) un contador compartido entre todas las personas que visitan la web.
-              Si quieres un ranking de verdad combinado entre todos los visitantes, hace falta
-              una base de datos real (gratis, pero necesita que crees una cuenta, como con la
-              clave de YouTube) — dímelo cuando quieras montarlo.
-            </div>
-          </div>
-
-          <h3 class="subheading" style="margin-top:30px">📋 Plantillas de vídeo (chuleta rápida)</h3>
-          <div class="template-grid">
+          <details class="month">
+            <summary>
+              <span>📋 Plantillas de vídeo (chuleta rápida)</span>
+              <span class="count">5 tipos</span>
+            </summary>
+            <div class="month-body">
+            <div class="template-grid">
             <div class="template-card">
               <div class="template-head"><span class="type-chip type-reaccion">🔴 Reacción</span></div>
               <ol>
@@ -1590,7 +1611,9 @@
                 <li>Veredicto razonado, abierto a debate.</li>
               </ol>
             </div>
-          </div>
+            </div>
+            </div>
+          </details>
 
           <h3 class="subheading">🔎 Filtrar contenido</h3>
           <div class="panel search-panel">
@@ -2081,8 +2104,8 @@
     <div id="view-helquidgames" class="app-view">
       <section class="page-head">
         <div class="container">
-          <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">PROYECTO 003</div>
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">PROYECTO 000</div>
           <h2 class="section-title"><span class="secret-trigger" onclick="openHelquidSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de HELQUIDGAMES">🎮</span> HELQUIDGAMES</h2>
           <p class="section-sub">
             El hub de los juegos que voy creando. Cada uno vive en su propia página,
@@ -2268,7 +2291,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('proyectos')">← Volver a proyectos</a>
-          <div class="section-kicker">PROYECTO 004</div>
+          <div class="section-kicker">PROYECTO 003</div>
           <h2 class="section-title"><span class="secret-trigger" onclick="openLabSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Charkuma Lab">🧪</span> CHARKUMA LAB</h2>
           <p class="section-sub">
             Tres cosas en un mismo sitio: proyectos y experimentos terminados, mini-herramientas

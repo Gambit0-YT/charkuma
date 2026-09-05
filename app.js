@@ -2998,6 +2998,9 @@
     // El lateral muestra "Últimos vídeos" en todo el sitio, EXCEPTO dentro
     // de Rincón del Friki, donde muestra "Noticias Geek" en su lugar.
     function updateSidebar(viewId){
+      const leftSidebar = document.getElementById('leftSidebarStack');
+      if (leftSidebar) leftSidebar.classList.toggle('active', viewId === 'rincon');
+
       const list = document.getElementById('ytVideoList');
       const title = document.getElementById('ytSidebarTitle');
       if (!list || !title) return;
