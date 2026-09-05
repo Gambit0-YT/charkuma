@@ -633,29 +633,29 @@
             Algunas ideas se quedan en una libreta. Estas consiguieron escapar.
           </p>
 
-          <div class="projects">
-            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('retro365')">
+          <div class="projects" id="projectsGrid">
+            <a class="project orange reveal" data-project="retro365" href="javascript:void(0)" onclick="showView('retro365')">
               <div class="num">PROYECTO 001</div>
               <div class="open">↗</div>
               <h3>🎮 RETRO 365</h3>
               <p>Un viaje continuo por videojuegos, clásicos, joyas ocultas y nostalgia.</p>
             </a>
 
-            <a class="project reveal" href="javascript:void(0)" onclick="showView('rincon')">
+            <a class="project reveal" data-project="rincon" href="javascript:void(0)" onclick="showView('rincon')">
               <div class="num">PROYECTO 002</div>
               <div class="open">↗</div>
               <h3>🦸 RINCÓN DEL FRIKI</h3>
               <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
             </a>
 
-            <a class="project reveal" href="javascript:void(0)" onclick="showView('helquidgames')">
+            <a class="project reveal" data-project="helquidgames" href="javascript:void(0)" onclick="showView('helquidgames')">
               <div class="num">PROYECTO 003</div>
               <div class="open">↗</div>
               <h3>🎮 HELQUIDGAMES</h3>
               <p>El hub de mis juegos propios. El primero: Ruleta del 11, fútbol convertido en caos competitivo.</p>
             </a>
 
-            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('charkumalab')">
+            <a class="project orange reveal" data-project="charkumalab" href="javascript:void(0)" onclick="showView('charkumalab')">
               <div class="num">PROYECTO 004</div>
               <div class="open">↗</div>
               <h3>🧪 CHARKUMA LAB</h3>
@@ -1534,6 +1534,7 @@
         emoji: "🏔️",
         duration: "1:24", // duración del vídeo, formato m:ss
         platform: "tiktok", // tiktok | youtube — dónde vive el vídeo
+        dateAdded: "2026-08-15", // fecha real en que se publicó este día (para ordenar Proyectos)
         steamUrl: "https://store.steampowered.com/app/504230/Celeste/",
         videoUrl: "#" // sustituye por el enlace real de tu vídeo
       },
@@ -1544,6 +1545,7 @@
         emoji: "🌾",
         duration: "1:47",
         platform: "tiktok",
+        dateAdded: "2026-08-16",
         steamUrl: "https://store.steampowered.com/app/413150/Stardew_Valley/",
         videoUrl: "#"
       },
@@ -1554,11 +1556,12 @@
         emoji: "🕷️",
         duration: "1:52",
         platform: "tiktok",
+        dateAdded: "2026-08-17",
         steamUrl: "https://store.steampowered.com/app/367520/Hollow_Knight/",
         videoUrl: "#"
       }
       // 4: { name:"...", summary:"...", difficulty:"...", emoji:"...", duration:"m:ss",
-      //   platform:"tiktok|youtube", steamUrl:"...", videoUrl:"..." },
+      //   platform:"tiktok|youtube", dateAdded:"AAAA-MM-DD", steamUrl:"...", videoUrl:"..." },
     };
 
     // Base de datos SECRETA (solo tuya): juegos ya decididos para días
@@ -1783,6 +1786,7 @@
         title: "Reaccionando al tráiler de Los 4 Fantásticos",
         saga: "marvel",
         type: "reaccion",
+        date: "2026-08-12",
         summary: "Primeras impresiones en caliente, fotograma a fotograma, del nuevo tráiler.",
         thumbnail: "🎬",
         videoUrl: "#"
@@ -1791,6 +1795,7 @@
         title: "5 curiosidades que no sabías del traje de Spider-Man",
         saga: "marvel",
         type: "curiosidad",
+        date: "2026-08-19",
         summary: "Datos de rodaje y cómic que seguramente se te han pasado por alto.",
         thumbnail: "🕸️",
         videoUrl: "#"
@@ -1799,6 +1804,7 @@
         title: "La Saga del Multiverso: ¿de verdad ha merecido la pena?",
         saga: "marvel",
         type: "opinion",
+        date: "2026-08-24",
         summary: "Repaso honesto a lo que Marvel prometió con el multiverso y lo que realmente ha dado.",
         thumbnail: "🌀",
         videoUrl: "#"
@@ -1807,6 +1813,7 @@
         title: "Fancast: ¿quién debería ser el próximo Wolverine?",
         saga: "marvel",
         type: "fancast",
+        date: "2026-08-29",
         summary: "Tres candidatos con argumentos a favor, y mi favorito personal razonado.",
         thumbnail: "🐾",
         videoUrl: "#"
@@ -1815,6 +1822,7 @@
         title: "The Boys vs Marvel: por qué esta serie me ha enganchado más",
         saga: "boys",
         type: "opinion",
+        date: "2026-09-01",
         summary: "Por qué, pese a lo dura que es, The Boys me está gustando más que el rumbo actual de Marvel.",
         thumbnail: "🩸",
         videoUrl: "#"
@@ -1823,6 +1831,7 @@
         title: "Lo que no sabías sobre Homelander",
         saga: "boys",
         type: "curiosidad",
+        date: "2026-09-04",
         summary: "Inspiración real y detalles de guion detrás del villano más inquietante de la serie.",
         thumbnail: "🦸",
         videoUrl: "#"
@@ -1831,12 +1840,13 @@
         title: "Homelander vs Thanos: ¿quién ganaría?",
         saga: "cruce",
         type: "batalla",
+        date: "2026-09-06",
         summary: "Comparativa de poderes, debilidades y escenario de combate entre los dos.",
         thumbnail: "⚔️",
         videoUrl: "#"
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
-      //   summary:"...", thumbnail:"🎬", videoUrl:"..." },
+      //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
     ];
 
     const SAGA_LABELS = { marvel:"🅼 Marvel", boys:"🅱️ The Boys", cruce:"⚔️ Cruce" };
@@ -1846,6 +1856,7 @@
     };
 
     function geekCardHTML(item){
+      const date = item.date ? new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short'}) : '';
       return `
         <div class="geek-card">
           <div class="geek-thumb">${item.thumbnail || "🎬"}</div>
@@ -1853,6 +1864,7 @@
             <div class="geek-badges">
               <span class="saga-chip saga-${item.saga}">${SAGA_LABELS[item.saga] || item.saga}</span>
               <span class="type-chip type-${item.type}">${TYPE_LABELS[item.type] || item.type}</span>
+              ${date ? `<span class="yt-empty" style="margin:0">${date}</span>` : ''}
             </div>
             <h4><a href="${item.videoUrl}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
             <p>${item.summary}</p>
@@ -1865,12 +1877,14 @@
       const saga = document.getElementById('geekSagaFilter').value;
       const type = document.getElementById('geekTypeFilter').value;
 
-      const items = geekContent.filter(item => {
-        if (saga && item.saga !== saga) return false;
-        if (type && item.type !== type) return false;
-        if (query && !item.title.toLowerCase().includes(query)) return false;
-        return true;
-      });
+      const items = geekContent
+        .filter(item => {
+          if (saga && item.saga !== saga) return false;
+          if (type && item.type !== type) return false;
+          if (query && !item.title.toLowerCase().includes(query)) return false;
+          return true;
+        })
+        .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 
       const container = document.getElementById('geekContentList');
       container.innerHTML = items.length
@@ -2549,6 +2563,37 @@
     });
 
     renderNotes();
+
+    // ──────────────────────────────────────────────────────────
+    // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
+    // (un vídeo, una entrada, un juego...) sale primero.
+    //
+    // HELQUIDGAMES no tiene un array de contenido con fechas propio
+    // (es un hub de juegos, no un feed), así que su fecha se actualiza
+    // a mano aquí abajo cada vez que añadas o toques algo en esa sección.
+    // ──────────────────────────────────────────────────────────
+    const HELQUIDGAMES_LAST_UPDATE = "2026-09-05"; // ← actualiza esta fecha cuando cambies algo en HELQUIDGAMES
+
+    function latestDate(list, field){
+      const dates = list.map(item => new Date(item[field]).getTime()).filter(n => !isNaN(n));
+      return dates.length ? Math.max(...dates) : 0;
+    }
+
+    function reorderProjectCards(){
+      const lastUpdate = {
+        retro365: latestDate(Object.values(completedGames), 'dateAdded'),
+        rincon: latestDate(geekContent, 'date'),
+        helquidgames: new Date(HELQUIDGAMES_LAST_UPDATE).getTime(),
+        charkumalab: latestDate(labContent, 'date')
+      };
+
+      const grid = document.getElementById('projectsGrid');
+      const cards = Array.from(grid.querySelectorAll('[data-project]'));
+      cards.sort((a, b) => (lastUpdate[b.dataset.project] || 0) - (lastUpdate[a.dataset.project] || 0));
+      cards.forEach(card => grid.appendChild(card));
+    }
+
+    reorderProjectCards();
   </script>
 </body>
 </html>
