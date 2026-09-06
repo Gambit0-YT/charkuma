@@ -1650,7 +1650,9 @@
         {universe:'marvel', text:"Este personaje secundario merece su propio hueco: presentación para quien no lo conoce."},
         {universe:'geek', text:"El villano de moda ahora mismo: quién es y por qué funciona tan bien, explicado desde cero."},
         {universe:'marvel', text:"Por qué esta saga que lleva años corriendo sigue mereciendo la pena empezar hoy."},
-        {universe:'cruce', text:"Por dónde empezar en Marvel o en The Boys si no has visto nada todavía (mi ranking)."}
+        {universe:'cruce', text:"Por dónde empezar en Marvel o en The Boys si no has visto nada todavía (mi ranking)."},
+        {universe:'anime', text:"Por qué el anime de la temporada que más se comenta merece una oportunidad aunque no veas anime normalmente."},
+        {universe:'geek', text:"El regreso de una saga clásica: por qué me da más ilusión que miedo, sin dar nada por sabido."}
       ],
       curiosidad: [
         {universe:'geek', text:"10 datos curiosos sobre el origen de un personaje que está de actualidad."},
@@ -1662,7 +1664,9 @@
         {universe:'marvel', text:"El origen real (mitológico o histórico) que inspiró al personaje del momento."},
         {universe:'boys', text:"Anécdotas de rodaje del estreno más comentado que se han vuelto virales."},
         {universe:'geek', text:"Por qué el villano de la serie o película actual iba a ser muy distinto en el guion original."},
-        {universe:'cruce', text:"Curiosidades sobre el crossover o la teoría fan que está circulando ahora mismo."}
+        {universe:'cruce', text:"Curiosidades sobre el crossover o la teoría fan que está circulando ahora mismo."},
+        {universe:'anime', text:"Cosas que cambia el anime respecto al manga original, sin destripar nada gordo."},
+        {universe:'geek', text:"El cameo que casi nadie pilló en el estreno más comentado del mes."}
       ],
       fancast: [
         {universe:'marvel', text:"Fancast: quién debería interpretar al próximo gran villano que se anuncie."},
@@ -1674,7 +1678,9 @@
         {universe:'anime', text:"Quién debería doblar al personaje de moda en su adaptación live-action."},
         {universe:'boys', text:"El actor \"de otra franquicia\" que encajaría perfecto en el papel que se rumorea ahora."},
         {universe:'marvel', text:"Fancast generacional: quién sustituiría al héroe veterano si se retira, según los rumores actuales."},
-        {universe:'boys', text:"Si hicieran serie del equipo secundario que la gente pide en redes, este sería el reparto."}
+        {universe:'boys', text:"Si hicieran serie del equipo secundario que la gente pide en redes, este sería el reparto."},
+        {universe:'anime', text:"Fancast de doblaje: quién debería poner voz al personaje de anime que está en boca de todos."},
+        {universe:'geek', text:"Si convirtieran este videojuego en serie, este sería mi reparto soñado."}
       ],
       batalla: [
         {universe:'boys', text:"Homelander vs el villano más popular del momento: ¿quién gana en serio?"},
@@ -1686,7 +1692,9 @@
         {universe:'cruce', text:"Starlight vs la heroína Marvel del momento — análisis de poderes."},
         {universe:'geek', text:"El plan que un villano actual casi ejecuta a la perfección (y por qué falló)."},
         {universe:'geek', text:"Un equipo de 3 héroes random vs el villano de moda: ¿sobreviven?"},
-        {universe:'geek', text:"La pelea que los fans llevan pidiendo en redes ahora mismo y nunca ha pasado."}
+        {universe:'geek', text:"La pelea que los fans llevan pidiendo en redes ahora mismo y nunca ha pasado."},
+        {universe:'anime', text:"El protagonista de anime más infravalorado en fuerza bruta, defendido con argumentos."},
+        {universe:'cruce', text:"Goku vs el héroe cósmico Marvel del momento: análisis sin favoritismos."}
       ],
       reaccion: [
         {universe:'geek', text:"Primera reacción al tráiler más reciente que se ha estrenado esta semana."},
@@ -1698,7 +1706,9 @@
         {universe:'boys', text:"Reaccionando a la escena más bestia del estreno actual (con aviso de contenido)."},
         {universe:'geek', text:"Reaccionando a un tráiler filtrado que se ha vuelto viral esta semana."},
         {universe:'marvel', text:"Reaccionando a la comparación de un traje o diseño que se está comentando en redes."},
-        {universe:'boys', text:"Primera reacción a un capítulo suelto de una serie que se está estrenando ahora, sin dar nada por sabido de antes."}
+        {universe:'boys', text:"Primera reacción a un capítulo suelto de una serie que se está estrenando ahora, sin dar nada por sabido de antes."},
+        {universe:'anime', text:"Reaccionando al primer capítulo de la temporada de anime más esperada del año."},
+        {universe:'geek', text:"Reaccionando al tráiler final antes del estreno más comentado del mes."}
       ]
     };
 
@@ -2779,7 +2789,10 @@
         "24 horas de un mismo juego: cuánto se puede avanzar en un día.",
         "Reto \"solo objetos random\": usar únicamente lo primero que encuentres.",
         "Terminar un juego de terror sin pausar ni una vez.",
-        "Reto comunidad: la audiencia decide la siguiente decisión del juego."
+        "Reto comunidad: la audiencia decide la siguiente decisión del juego.",
+        "Terminar un juego usando solo el mando al revés (o alguna restricción física parecida), por diversión.",
+        "Reto pacifista: completar un nivel entero sin eliminar a ningún enemigo, si el juego lo permite.",
+        "Superar el jefe final más odiado del canal en el menor número de intentos posible, en directo."
       ],
       formato: [
         "\"Primeros 10 minutos\": primeras impresiones de un juego recién anunciado.",
@@ -2791,7 +2804,9 @@
         "\"Lo que nadie te cuenta\" de un juego popular: mecánicas ocultas.",
         "Sesión de preguntas de la audiencia mientras juegas.",
         "\"De 0 a experto\": aprendiendo un juego competitivo desde cero.",
-        "Probar mods o contenido creado por la comunidad de un juego ya conocido."
+        "Probar mods o contenido creado por la comunidad de un juego ya conocido.",
+        "Blind run: jugar algo elegido a ciegas por el chat, sin saber nada antes de empezar.",
+        "Ranking de los peores/mejores tutoriales de videojuegos que he sufrido nunca."
       ],
       colab: [
         "Torneo amistoso 1 vs 1 con otro creador de contenido.",
@@ -2803,7 +2818,9 @@
         "Entrevista corta a otro creador sobre cómo empezó en esto.",
         "Colab de dibujo o arte con alguien de Charkuma Lab aplicada a un juego.",
         "Directo conjunto sorteando algo entre las dos comunidades.",
-        "Versus por turnos: cada uno elige un reto para que el otro lo cumpla."
+        "Versus por turnos: cada uno elige un reto para que el otro lo cumpla.",
+        "Reto de \"quien pierde dona algo simbólico\" con otro creador, en un juego competitivo corto.",
+        "Maratón conjunta de un juego largo, turnándonos cada 30 minutos con otro streamer."
       ],
       especial: [
         "Especial de aniversario del canal: repaso de los mejores momentos.",
@@ -2815,7 +2832,9 @@
         "Probar el primer juego que jugaste de pequeño, con ojos de adulto.",
         "Especial de Halloween: maratón de juegos de terror cortos.",
         "Vídeo \"un año de HELQUIDGAMES\": qué ha cambiado y qué viene.",
-        "Especial cruce: un día jugando algo pedido por Rincón del Friki."
+        "Especial cruce: un día jugando algo pedido por Rincón del Friki.",
+        "Especial \"vuelvo a intentarlo\": retomar en directo un juego que dejé a medias hace tiempo.",
+        "Especial de estrenos: probamos en directo lo que salga ese día en Retro 365."
       ]
     };
     IDEA_BANK_RENDERERS.helquid = () => renderTypedIdeaBank({
@@ -2837,7 +2856,11 @@
         "Hacer una extensión de navegador tonta pero útil para el flujo de grabación.",
         "Montar un \"modo invitado\" en la web para mostrarla en entrevistas o colabs.",
         "Crear un sistema de votaciones para que la comunidad elija el próximo proyecto.",
-        "Diseñar alertas personalizadas para donaciones o subs con la mascota CHARKUMA."
+        "Diseñar alertas personalizadas para donaciones o subs con la mascota CHARKUMA.",
+        "Mini-juego de navegador basado en el universo de CHARKUMA, jugable desde la propia web.",
+        "Sistema de logros desbloqueables navegando por la web (easter eggs incluidos).",
+        "Rediseño del Control Secreto Maestro con vista de tablero tipo kanban.",
+        "Widget de \"racha de publicación\" visible en la portada de la web."
       ],
       herramienta: [
         "Script que recorta automáticamente los mejores momentos de un directo.",
@@ -2849,7 +2872,10 @@
         "Herramienta que recuerda qué juegos de Retro 365 llevan más tiempo sin tocar.",
         "Conversor rápido de notas sueltas a guion con estructura.",
         "Plantilla de respuesta rápida para comentarios frecuentes.",
-        "Cronómetro de \"tiempo de pantalla vs tiempo hablando\" para calibrar el ritmo."
+        "Cronómetro de \"tiempo de pantalla vs tiempo hablando\" para calibrar el ritmo.",
+        "Generador automático de miniaturas a partir del título y la sección del vídeo.",
+        "Comparador de dos versiones de un guion para ver qué cambió entre borradores.",
+        "Script que avisa si una idea lleva demasiado tiempo en \"pendiente\" sin moverse."
       ],
       bitacora: [
         "Primeras impresiones probando un motor de vídeo con IA por primera vez.",
@@ -2861,7 +2887,10 @@
         "Diario de a bordo: una semana completa de creación de contenido, sin editar.",
         "Probando por primera vez a programar algo sin ayuda externa (o con ella).",
         "Registro de cómo evoluciona el banco de ideas secreto mes a mes.",
-        "Reflexión sincera sobre qué proyecto de Charkuma Lab ha sido el más útil."
+        "Reflexión sincera sobre qué proyecto de Charkuma Lab ha sido el más útil.",
+        "Cómo monté el sistema de bancos de ideas secretos, paso a paso, con los fallos incluidos.",
+        "Una semana usando el Control Secreto Maestro a diario: qué ha cambiado en mi flujo de trabajo.",
+        "Lo que aprendí generando estrenos en vivo con la API de TMDB por primera vez."
       ]
     };
     IDEA_BANK_RENDERERS.lab = () => renderTypedIdeaBank({
@@ -2883,7 +2912,10 @@
         "Prompt para generar ideas de miniatura a partir del título del vídeo.",
         "Prompt para escribir un post anunciando un vídeo nuevo.",
         "Prompt para convertir notas de voz transcritas en guion limpio.",
-        "Prompt para generar variantes de un mismo chiste o gancho inicial."
+        "Prompt para generar variantes de un mismo chiste o gancho inicial.",
+        "Prompt para convertir un comentario de la audiencia en idea de vídeo completa.",
+        "Prompt para generar 5 ganchos distintos para el mismo vídeo y elegir el mejor.",
+        "Prompt para transformar una nota rápida a medias en guion presentable."
       ],
       automatizacion: [
         "Aviso automático a Discord cuando cambia el estado de \"en directo\" en Twitch.",
@@ -2895,7 +2927,9 @@
         "Alerta automática si un enlace de la web deja de funcionar.",
         "Automatizar el redimensionado de miniaturas a los tamaños de cada plataforma.",
         "Bot que resuma los comentarios nuevos de un vídeo cada mañana.",
-        "Automatizar el paso de \"guion aprobado\" a tarea en el calendario de publicación."
+        "Automatizar el paso de \"guion aprobado\" a tarea en el calendario de publicación.",
+        "Aviso automático cuando una idea aprobada lleva más de dos semanas sin empezar guion.",
+        "Sincronizar el estado a \"publicado\" en cuanto se detecta el vídeo ya subido a YouTube."
       ],
       visual: [
         "Generar variaciones del logo de CHARKUMA para distintas estaciones del año.",
@@ -2907,7 +2941,9 @@
         "Crear stickers para Discord con la estética del canal.",
         "Probar la generación de miniaturas \"estilo cómic\" para Rincón del Friki.",
         "Generar ilustraciones para las portadas del banco de ideas secreto.",
-        "Experimentar con estilos pixel-art para representar juegos de Retro 365."
+        "Experimentar con estilos pixel-art para representar juegos de Retro 365.",
+        "Generar variantes de miniatura A/B para el mismo vídeo y comparar cuál engancha más.",
+        "Probar estilos de ilustración distintos para representar cada banco de ideas secreto."
       ],
       video: [
         "Probar una intro generada con IA para un vídeo de Rincón del Friki.",
@@ -2919,7 +2955,10 @@
         "Probar herramientas de mejora automática de audio en grabaciones antiguas.",
         "Generar una versión corta (Shorts/Reels) automática de un vídeo largo.",
         "Probar el doblaje automático de un clip a otro idioma, solo por curiosidad.",
-        "Generar b-roll genérico (paisajes, texturas) para rellenar cortes de edición."
+        "Generar b-roll genérico (paisajes, texturas) para rellenar cortes de edición.",
+        "Probar clonación de voz propia para narrar sin tener que grabar en el momento.",
+        "Generar automáticamente capítulos (timestamps) a partir del guion ya escrito.",
+        "Probar edición asistida por IA para el primer corte en bruto de un vídeo largo."
       ]
     };
     IDEA_BANK_RENDERERS.ia = () => renderTypedIdeaBank({
@@ -2941,7 +2980,9 @@
         "Overlay festivo intercambiable para fechas señaladas.",
         "Overlay especial para anuncios grandes (nuevo proyecto, nueva sección).",
         "Overlay con marcador tipo \"torneo\" para los retos 1 vs 1.",
-        "Overlay reducido para pantalla compartida en formato vertical (móvil)."
+        "Overlay reducido para pantalla compartida en formato vertical (móvil).",
+        "Overlay con marcador de \"racha de días publicando\" a la vista durante el directo.",
+        "Overlay ligero para probar juegos nuevos sin cámara, centrado solo en pantalla y chat."
       ],
       obs: [
         "Escena rápida de \"volviendo en 5 minutos\" con la estética de la web.",
@@ -2953,7 +2994,10 @@
         "Preset de audio equilibrado para directos largos sin fatiga de voz.",
         "Escena de \"encuesta en pantalla\" para decisiones de la comunidad en directo.",
         "Configuración ligera para grabar rápido sin montar todo el set completo.",
-        "Escena de despedida con resumen del directo y próximos vídeos."
+        "Escena de despedida con resumen del directo y próximos vídeos.",
+        "Escena de transición con la mascota reaccionando, para cambios de juego en directo.",
+        "Preset rápido para grabar en vertical pensado directamente para Shorts/Reels.",
+        "Escena de \"repasando comentarios\" con el chat en grande para leer en directo."
       ],
       plantilla: [
         "Plantilla de miniatura para el banco de ideas de HELQUIDGAMES.",
@@ -2965,7 +3009,10 @@
         "Plantilla de miniatura para las colabs, con espacio para dos personas.",
         "Plantilla de calendario editorial semanal, sencilla y visual.",
         "Plantilla de \"ficha de reto\" para los desafíos de HELQUIDGAMES.",
-        "Plantilla de captura de pantalla anotada para tutoriales de Creator Tools."
+        "Plantilla de captura de pantalla anotada para tutoriales de Creator Tools.",
+        "Plantilla de miniatura para vídeos de bitácora de Charkuma Lab.",
+        "Plantilla de guion para vídeos de reacción a estrenos del Radar de estrenos.",
+        "Plantilla de checklist de publicación con casillas, para imprimir o usar digital."
       ],
       recurso: [
         "Pack de transiciones cortas a juego con la paleta morada/naranja.",
@@ -2977,7 +3024,9 @@
         "Pack de emotes básicos para Discord/Twitch con la mascota lagarto.",
         "Banco de música libre de derechos ya filtrada por tipo de vídeo.",
         "Plantilla de brief para pedir colabs a otros creadores.",
-        "Checklist descargable de \"todo lo que lleva publicar un vídeo\"."
+        "Checklist descargable de \"todo lo que lleva publicar un vídeo\".",
+        "Pack de transiciones tipo \"glitch\" a juego con la estética retro de HELQUIDGAMES.",
+        "Banco de preguntas frecuentes ya redactadas, para copiar y pegar en descripciones."
       ]
     };
     IDEA_BANK_RENDERERS.creator = () => renderTypedIdeaBank({
@@ -2999,7 +3048,10 @@
         "Funda de cojín tufting para silla gaming.",
         "Alfombra de baño tufting con un diseño pixel-art sencillo.",
         "Colgante de puerta tufting pequeño con la cara de la mascota.",
-        "Alfombra tufting a juego con el overlay de streaming, para el fondo del set."
+        "Alfombra tufting a juego con el overlay de streaming, para el fondo del set.",
+        "Alfombra tufting con el diseño del Radar de estrenos, versión mini para escritorio.",
+        "Cojín tufting con el emoji secreto 🎮 de HELQUIDGAMES.",
+        "Tapiz tufting con la silueta de la mascota en pose de streaming."
       ],
       diseno: [
         "Diseño de merch: sudadera con el lagarto en modo \"gamer\".",
@@ -3011,7 +3063,11 @@
         "Diseño de tarjetas de presentación para colabs y eventos.",
         "Diseño de parche bordado para HELQUIDGAMES, estilo retro gamer.",
         "Diseño de agenda o cuaderno con la paleta morada/naranja.",
-        "Diseño de banner para el canal de Discord, a juego con la web."
+        "Diseño de banner para el canal de Discord, a juego con la web.",
+        "Diseño de funda de portátil con el lema de CHARKUMA.",
+        "Diseño de pin esmaltado con el logo de Retro 365.",
+        "Diseño de fondo de escritorio a juego con el set de streaming.",
+        "Diseño de camiseta conmemorativa del primer aniversario del canal."
       ],
       objeto: [
         "Figura 3D de la mascota en pose \"listo para grabar\" (auriculares puestos).",
@@ -3023,7 +3079,10 @@
         "Portalápices con la forma del lagarto de la marca.",
         "Placa o trofeo impreso en 3D para ganadores de retos de HELQUIDGAMES.",
         "Soporte para cámara o luz de streaming personalizado.",
-        "Pin o insignia física con el logo, para llevar a eventos."
+        "Pin o insignia física con el logo, para llevar a eventos.",
+        "Lámpara con el logo de CHARKUMA impresa en 3D, con luz interior.",
+        "Base personalizada para el micrófono, a juego con el set.",
+        "Set de imanes de nevera con la mascota en distintas poses."
       ]
     };
     IDEA_BANK_RENDERERS.hecho = () => renderTypedIdeaBank({
