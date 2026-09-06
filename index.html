@@ -96,6 +96,17 @@
       --accent-text:#5b21b6;
     }
 
+    /* ── Alto contraste (backlog #59): refuerza texto secundario, bordes
+       y foco — compatible con cualquiera de los dos temas, así que se
+       define para los tres estados posibles igual que el propio tema. */
+    html.high-contrast:not([data-theme="light"]){ --muted:#e6e0f5; --line:#7a6d9c; --line2:#7a6d9c; --line3:#7a6d9c; }
+    html.high-contrast[data-theme="light"]{ --muted:#241d38; --line:#8f84ab; --line2:#8f84ab; --line3:#8f84ab; }
+    @media (prefers-color-scheme: light){
+      html.high-contrast:not([data-theme="dark"]):not([data-theme="light"]){ --muted:#241d38; --line:#8f84ab; --line2:#8f84ab; --line3:#8f84ab; }
+    }
+    html.high-contrast :focus-visible{ outline:3px solid var(--orange); outline-offset:3px }
+    html.high-contrast{ --shadow:none }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -1140,6 +1151,16 @@
           </div>
           <label class="hide-discarded-label" style="margin:0">
             <input type="checkbox" id="presentationModeToggle" onchange="setPresentationMode(this.checked)">
+            Activar
+          </label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🔲 Alto contraste</strong>
+            <p>Bordes y texto más marcados, compatible con el tema claro u oscuro que tengas.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="highContrastToggle" onchange="setHighContrast(this.checked)">
             Activar
           </label>
         </div>

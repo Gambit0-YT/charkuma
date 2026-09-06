@@ -185,6 +185,25 @@
     updateThemeButtonIcon();
 
     // ──────────────────────────────────────────────────────────
+    // Modo alto contraste (backlog #59): aparte del tema claro/oscuro,
+    // un modo que refuerza bordes, texto y foco para quien lo necesite
+    // más legible. Se guarda como preferencia propia, compatible con
+    // cualquiera de los dos temas.
+    // ──────────────────────────────────────────────────────────
+    const HIGH_CONTRAST_KEY = 'charkuma_high_contrast';
+    function setHighContrast(on){
+      document.documentElement.classList.toggle('high-contrast', on);
+      try { localStorage.setItem(HIGH_CONTRAST_KEY, on ? '1' : '0'); } catch (e) {}
+    }
+    (function initHighContrast(){
+      let on = false;
+      try { on = localStorage.getItem(HIGH_CONTRAST_KEY) === '1'; } catch (e) {}
+      document.documentElement.classList.toggle('high-contrast', on);
+      const toggle = document.getElementById('highContrastToggle');
+      if (toggle) toggle.checked = on;
+    })();
+
+    // ──────────────────────────────────────────────────────────
     // Panel de ajustes de la cabecera (⚙️): tema, modo presentación,
     // exportar/importar datos guardados en este navegador.
     // ──────────────────────────────────────────────────────────
