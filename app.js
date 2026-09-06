@@ -1255,7 +1255,7 @@
                 <a class="video-link" href="${published.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
               </div>
             </div>
-          </div>` };
+          </div>`, difficulty: published.difficulty };
       }
 
       if (planned) {
@@ -1286,16 +1286,18 @@
           discarded: !!s.discarded,
           discardedAt: s.discardedAt,
           id,
-          label: `Día ${String(day).padStart(3,"0")} · ${planned.name}`
+          label: `Día ${String(day).padStart(3,"0")} · ${planned.name}`,
+          difficulty: planned.difficulty
         };
       }
 
-      return { html: `<div class="undecided-row">DÍA ${String(day).padStart(3,"0")} · ❔ aún sin decidir</div>` };
+      return { html: `<div class="undecided-row">DÍA ${String(day).padStart(3,"0")} · ❔ aún sin decidir</div>`, difficulty: null };
     }
 
     function renderSecret(){
       const container = document.getElementById('secretMonthsContainer');
       const plannedBankState = loadIdeaBanks()[RETRO_PLANNED_BANK] || {};
+      const difficultyFilter = document.getElementById('retroDifficultyFilter')?.value || '';
       let day = 1;
       let html = "";
       let publishedCount = 0, plannedCount = 0;
@@ -1309,9 +1311,15 @@
           if (completedGames[d]) publishedCount++;
           else if (plannedGames[d]) plannedCount++;
           const card = secretDayCardHTML(d, plannedBankState);
-          cards += card.html;
           if (card.discarded) discardedItems.push({id: card.id, label: card.label, discardedAt: card.discardedAt});
+          // Filtro de dificultad (mejora #3 del backlog): un día sin
+          // dificultad todavía (sin decidir) no coincide con ningún
+          // filtro concreto, así que se oculta también — el filtro solo
+          // tiene sentido si enseña justo lo que pediste.
+          if (difficultyFilter && card.difficulty !== difficultyFilter) continue;
+          cards += card.html;
         }
+        if (difficultyFilter && !cards) return; // mes entero sin coincidencias: no mostrar el desplegable vacío
         html += `
           <details class="month">
             <summary>
@@ -1327,8 +1335,16 @@
       hydrateGameThumbs(container);
       container.classList.toggle('hide-discarded', getHideDiscardedPref(RETRO_PLANNED_BANK));
 
+      // Racha (mejora #2 del backlog): días consecutivos publicados desde
+      // el día 1 sin ningún hueco — es la racha del reto en sí, no de
+      // fechas de calendario reales (el reto no obliga a un día natural
+      // por entrada).
+      let streak = 0;
+      while (completedGames[streak + 1]) streak++;
+
       document.getElementById('secretSummary').textContent =
-        `✅ ${publishedCount} publicados · 📝 ${plannedCount} decididos sin grabar · ❔ ${totalDays - publishedCount - plannedCount} por decidir`;
+        `✅ ${publishedCount} publicados · 📝 ${plannedCount} decididos sin grabar · ❔ ${totalDays - publishedCount - plannedCount} por decidir` +
+        (streak > 0 ? ` · 🔥 racha de ${streak} día${streak === 1 ? '' : 's'}` : '');
 
       const counterEl = document.getElementById('retroDiscardCounter');
       if (counterEl) counterEl.textContent = `🗑️ ${discardedItems.length} juego${discardedItems.length === 1 ? '' : 's'} descartado${discardedItems.length === 1 ? '' : 's'}`;

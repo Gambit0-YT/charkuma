@@ -752,6 +752,8 @@
     .swipe-counter{font-size:12px;color:var(--muted);font-weight:700;min-width:60px;text-align:center}
     .discarded-row:last-child{border-bottom:none}
     .hide-discarded-label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:700;margin-top:12px;cursor:pointer}
+    .retro-difficulty-filter{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:700;margin-top:12px;flex-wrap:wrap}
+    .retro-difficulty-filter select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700}
     .hide-discarded-label input{cursor:pointer}
     #rfSecretContainer.hide-discarded .idea-card.is-discarded,
     #secretMonthsContainer.hide-discarded .day-card.is-discarded{display:none}
@@ -2096,6 +2098,17 @@
               <input type="checkbox" id="retroHideDiscarded" onchange="setHideDiscardedPref('retro365planned','secretMonthsContainer', this.checked)">
               Ocultar los juegos descartados de la lista de abajo
             </label>
+
+            <div class="retro-difficulty-filter">
+              <label for="retroDifficultyFilter">🎚️ Filtrar por dificultad, para planificar semanas variadas:</label>
+              <select id="retroDifficultyFilter" onchange="renderSecret()">
+                <option value="">Todas</option>
+                <option value="facil">🟢 Fácil</option>
+                <option value="media">🟡 Media</option>
+                <option value="dificil">🟠 Difícil</option>
+                <option value="muydificil">🔴 Muy difícil</option>
+              </select>
+            </div>
           </div>
         </div>
       </section>
