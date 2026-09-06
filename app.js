@@ -29,6 +29,50 @@
     // ──────────────────────────────────────────────────────────
     const AUTONOMOUS_LOOP_ACTIVE = false;
 
+    // ──────────────────────────────────────────────────────────
+    // CARÁTULAS REALES DE JUEGOS (Retro 365) vía RAWG — API gratuita de
+    // videojuegos. Pide una clave gratis en https://rawg.io/apidocs
+    // (cuenta gratuita, clave al momento) y pégala aquí. Sin clave, se
+    // queda con el emoji de siempre — no rompe nada.
+    // Aviso honesto: son carátulas normales (con fondo), no iconos
+    // recortados sin fondo — eso no lo da ninguna API, hay que subirlo
+    // a mano juego por juego si algún día se quiere ese acabado.
+    // ──────────────────────────────────────────────────────────
+    const RAWG_API_KEY = "PON_AQUI_TU_CLAVE_DE_RAWG";
+    const GAME_COVER_CACHE_KEY = 'charkuma_game_covers';
+    function loadGameCoverCache(){
+      try { return JSON.parse(localStorage.getItem(GAME_COVER_CACHE_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveGameCoverCache(cache){
+      try { localStorage.setItem(GAME_COVER_CACHE_KEY, JSON.stringify(cache)); }
+      catch (e) { /* seguimos sin guardar */ }
+    }
+    async function fetchGameCoverUrl(name){
+      const cache = loadGameCoverCache();
+      if (name in cache) return cache[name]; // ya buscado antes, incluso si fue "no hay" (null)
+      if (!RAWG_API_KEY || RAWG_API_KEY.indexOf('PON_AQUI') === 0) return null;
+      try {
+        const res = await fetch(`https://api.rawg.io/api/games?key=${RAWG_API_KEY}&search=${encodeURIComponent(name)}&page_size=1`).then(r => r.json());
+        const url = (res.results && res.results[0] && res.results[0].background_image) || null;
+        cache[name] = url;
+        saveGameCoverCache(cache);
+        return url;
+      } catch (e) { return null; }
+    }
+    // Busca los .day-thumb[data-game] recién pintados en un contenedor y
+    // les pone la carátula real en cuanto llega, sin bloquear el pintado
+    // inicial (que sigue mostrando el emoji mientras tanto). Cacheado en
+    // localStorage, así que solo tarda la primera vez que se ve cada juego.
+    function hydrateGameThumbs(container){
+      if (!container) return;
+      container.querySelectorAll('.day-thumb[data-game]').forEach(async el => {
+        const name = el.dataset.game;
+        const url = await fetchGameCoverUrl(name);
+        if (url) el.innerHTML = `<img src="${url}" alt="Carátula de ${escapeAttr(name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`;
+      });
+    }
+
     // Fuente de noticias geek/cómics para el lateral de Rincón del Friki.
     // Zona Negativa: sitio español dedicado a cómics y cultura geek, con RSS público.
     // Puedes cambiarla por cualquier otro feed RSS que prefieras.
@@ -806,7 +850,7 @@
       if (game) {
         return `
           <div class="day-card unlocked">
-            <div class="day-thumb">${game.emoji || "🎮"}</div>
+            <div class="day-thumb" data-game="${escapeAttr(game.name)}">${game.emoji || "🎮"}</div>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 🔓 DESBLOQUEADO</div>
               <h4><a href="${game.steamUrl}" target="_blank" rel="noopener">${game.name} ↗</a></h4>
@@ -860,6 +904,7 @@
       });
 
       container.innerHTML = html;
+      hydrateGameThumbs(container);
 
       const pct = Math.round((unlockedDays.length / totalDays) * 100);
       document.getElementById('progressFill').style.width = pct + "%";
@@ -1072,7 +1117,7 @@
       if (published) {
         return { html: `
           <div class="day-card unlocked">
-            <div class="day-thumb">${published.emoji || "🎮"}</div>
+            <div class="day-thumb" data-game="${escapeAttr(published.name)}">${published.emoji || "🎮"}</div>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ✅ PUBLICADO</div>
               <h4><a href="${published.steamUrl}" target="_blank" rel="noopener">${published.name} ↗</a></h4>
@@ -1146,6 +1191,7 @@
       });
 
       container.innerHTML = html;
+      hydrateGameThumbs(container);
       container.classList.toggle('hide-discarded', getHideDiscardedPref(RETRO_PLANNED_BANK));
 
       document.getElementById('secretSummary').textContent =
@@ -1187,6 +1233,7 @@
       container.innerHTML = days.length
         ? days.map(d => dayCardHTML(d)).join('')
         : `<p class="yt-empty">Ningún juego publicado coincide con la búsqueda.</p>`;
+      hydrateGameThumbs(container);
     }
 
     document.getElementById('gameSearch').addEventListener('input', renderRecent);
