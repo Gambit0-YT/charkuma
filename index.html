@@ -6,8 +6,8 @@
   <title>CHARKUMA — Gaming, cultura geek y creatividad</title>
   <meta name="description" content="CHARKUMA: gaming, cultura geek, Marvel, series, creatividad, tecnología y proyectos." />
 
-  <!-- Favicon (emoji, sin necesidad de subir ninguna imagen) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A6%8E</text></svg>" />
+  <!-- Favicon (emoji sobre el degradado de marca, sin necesidad de subir ninguna imagen) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%22 stop-color=%22%23ff7a18%22/><stop offset=%221%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22url(%23g)%22/><text x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22>%F0%9F%A6%8E</text></svg>" />
 
   <!-- Open Graph / Twitter Card: vista previa al compartir el enlace -->
   <meta property="og:type" content="website" />
@@ -189,6 +189,9 @@
     .settings-row strong{display:block;font-size:14px;margin-bottom:2px}
     .settings-row p{margin:0;color:var(--muted);font-size:12px;max-width:52ch}
     .settings-row-stack{flex-direction:column;align-items:stretch}
+    .key-summary-list{margin:6px 0 0;padding-left:18px;font-size:12px;color:var(--muted);line-height:1.6;display:flex;flex-direction:column;gap:6px}
+    .key-summary-list strong{color:var(--text)}
+    .key-summary-list code{background:var(--panel);padding:1px 5px;border-radius:5px;font-size:11px}
     .autonomous-loop-status{
       display:inline-block;margin:6px 0 8px;padding:5px 12px;border-radius:999px;
       font-size:11px;font-weight:800;background:rgba(255,255,255,.06);color:var(--muted);
@@ -705,6 +708,7 @@
     /* Lista colapsable de descartados + casilla para ocultarlos */
     .discarded-panel{margin-top:14px}
     .discarded-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .discarded-date{opacity:.7;font-size:11px}
 
     /* ── Mazo estilo Tinder para elegir candidatos de Retro 365 ── */
     .swipe-deck-panel{margin-bottom:30px}
@@ -1161,6 +1165,17 @@
             <p>Todos los proyectos e ideas, con buscador, filtros y estado. Ya no hace falta el doble clic + contraseña para entrar — solo tú usas esta web.</p>
           </div>
           <button type="button" class="btn btn-secondary" onclick="toggleSettingsPanel(); showView('master-control')">Abrir</button>
+        </div>
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🔑 Qué claves son públicas y cuáles no</strong>
+            <p>Resumen rápido, para no tener que buscarlo cada vez que toque tocar alguna.</p>
+          </div>
+          <ul class="key-summary-list">
+            <li><strong>Públicas, en el código (seguras de exponer):</strong> TMDB, RAWG, YouTube Data API, configuración de Firebase — son claves pensadas para usarse desde el navegador.</li>
+            <li><strong>Privadas, solo en local (<code>.secrets/</code>, nunca en el repo):</strong> clave de Steam Web API (va contra sus normas de uso publicarla) y el <em>refresh token</em> de YouTube Analytics OAuth (da acceso a datos privados del canal).</li>
+            <li><strong>Conectores de Claude (VidIQ, Google Drive):</strong> autorizados a nivel de cuenta de Claude, no viven en el código de la web en ningún momento.</li>
+          </ul>
         </div>
         <div class="settings-row">
           <div>

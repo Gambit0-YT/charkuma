@@ -1083,7 +1083,7 @@
       if (!items.length) return `<p class="yt-empty" style="margin:0">Nada descartado todavía.</p>`;
       return items.map(it => `
         <div class="discarded-row">
-          <span>${it.label}</span>
+          <span>${it.label}${it.discardedAt ? `<span class="discarded-date"> · descartado el ${formatDiscardedDate(it.discardedAt)}</span>` : ''}</span>
           <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${it.id}')">↩️ Restaurar</button>
         </div>`).join('');
     }
@@ -1132,8 +1132,18 @@
     }
     function toggleIdeaDiscard(bank, id){
       const state = (loadIdeaBanks()[bank] || {})[id] || {};
-      setIdeaState(bank, id, {discarded: !state.discarded});
+      const discarding = !state.discarded;
+      setIdeaState(bank, id, {discarded: discarding, discardedAt: discarding ? Date.now() : null});
       if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+
+    // Fecha corta y legible para mostrar junto a cada idea descartada
+    // (mejora #29 de la lista de 150: "papelera real, con fecha").
+    function formatDiscardedDate(ts){
+      if (!ts) return '';
+      try {
+        return new Date(ts).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      } catch (e) { return ''; }
     }
 
     // Descarta de golpe TODAS las ideas de un tipo (p. ej. cuando toda
@@ -1176,7 +1186,7 @@
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
-          if (s.discarded) discardedItems.push({id, label: idea});
+          if (s.discarded) discardedItems.push({id, label: idea, discardedAt: s.discardedAt});
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
@@ -1274,6 +1284,7 @@
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${RETRO_PLANNED_BANK}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`,
           discarded: !!s.discarded,
+          discardedAt: s.discardedAt,
           id,
           label: `Día ${String(day).padStart(3,"0")} · ${planned.name}`
         };
@@ -1299,7 +1310,7 @@
           else if (plannedGames[d]) plannedCount++;
           const card = secretDayCardHTML(d, plannedBankState);
           cards += card.html;
-          if (card.discarded) discardedItems.push({id: card.id, label: card.label});
+          if (card.discarded) discardedItems.push({id: card.id, label: card.label, discardedAt: card.discardedAt});
         }
         html += `
           <details class="month">
@@ -2282,7 +2293,7 @@
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
-          if (s.discarded) discardedItems.push({id, label: idea.text});
+          if (s.discarded) discardedItems.push({id, label: idea.text, discardedAt: s.discardedAt});
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
