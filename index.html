@@ -913,6 +913,17 @@
     }
     .note-delete:hover{color:var(--red)}
 
+    /* ── "Pendiente de tu decisión": lista fija que mantengo yo (Claude)
+       editando el código, no localStorage — así sobrevive aunque cambies
+       de navegador. El ✅ solo oculta la entrada en ESTE navegador. ── */
+    .pending-decisions-list{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+    .pending-decision-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,122,24,.08);border:1px solid rgba(255,122,24,.3)}
+    .pending-decision-check{flex:none;background:none;border:1px solid var(--line);border-radius:8px;width:26px;height:26px;cursor:pointer;font-size:13px;color:var(--muted)}
+    .pending-decision-check:hover{border-color:var(--green);color:var(--green)}
+    .pending-decision-text p{margin:0 0 4px;font-size:13px;line-height:1.5}
+    .pending-decision-text span{font-size:10px;color:var(--muted)}
+    .notes-divider{height:1px;background:var(--line);margin:14px 0}
+
     @media (min-width:1900px){
       .sidebar-stack{display:flex}
     }
@@ -1080,6 +1091,16 @@
     </aside>
 
     <aside class="yt-sidebar notes-widget" id="notesWidget">
+      <div id="pendingDecisionsWidget" hidden>
+        <h4>🚧 Pendiente de tu decisión</h4>
+        <p class="yt-sub-count" style="margin-top:-8px">
+          Cosas que he encontrado y no puedo resolver yo solo — necesitan que
+          decidas tú. El ✅ la oculta aquí; para quitarla también del código,
+          dímelo en el chat.
+        </p>
+        <div id="pendingDecisionsList" class="pending-decisions-list"></div>
+        <div class="notes-divider"></div>
+      </div>
       <h4>📝 Notas rápidas</h4>
       <div class="notes-backup-row">
         <button type="button" class="btn btn-secondary" onclick="exportNotes()" title="Descarga tus notas en un archivo, por si el navegador las borra">💾 Exportar</button>

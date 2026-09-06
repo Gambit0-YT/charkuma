@@ -4311,6 +4311,48 @@
       reader.readAsText(file);
     }
 
+    // ──────────────────────────────────────────────────────────
+    // PENDIENTE DE TU DECISIÓN: cosas que Claude encuentra y no puede
+    // resolver por su cuenta (necesitan un criterio o una cuenta externa
+    // que solo tú puedes dar). A propósito NO vive en localStorage como
+    // base — vive aquí, en el código, mantenida a mano por Claude, para
+    // que sobreviva a que cambies de navegador o el navegador borre
+    // datos. El botón ✅ de la web solo la OCULTA en ese navegador
+    // (localStorage aparte, "dismissed"); para quitarla también de aquí
+    // hay que decírselo a Claude en el chat, o él la quita solo en
+    // cuanto la resuelve.
+    // ──────────────────────────────────────────────────────────
+    const pendingDecisions = [
+      { id: 'analytics-provider', date: '2026-09-06', text: 'Elegir proveedor de analítica de visitas (p. ej. Plausible o Umami) antes de añadirlo a la web.' },
+      { id: 'notes-backend-provider', date: '2026-09-06', text: 'Elegir proveedor de backend (Firebase/Supabase/otro) para que las notas y demás datos persistan entre dispositivos sin exportar/importar a mano.' },
+      { id: 'public-community-features', date: '2026-09-06', text: 'Decidir si alguna sección se va a hacer pública antes de construir votaciones o reacciones de comunidad — si no, esas dos mejoras no aplican.' }
+    ];
+    const DISMISSED_PENDING_KEY = 'charkuma_dismissed_pending_decisions';
+    function loadDismissedPending(){
+      try { return new Set(JSON.parse(localStorage.getItem(DISMISSED_PENDING_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+    function dismissPendingDecision(id){
+      const set = loadDismissedPending();
+      set.add(id);
+      try { localStorage.setItem(DISMISSED_PENDING_KEY, JSON.stringify([...set])); } catch (e) {}
+      renderPendingDecisions();
+    }
+    function renderPendingDecisions(){
+      const widget = document.getElementById('pendingDecisionsWidget');
+      const list = document.getElementById('pendingDecisionsList');
+      if (!widget || !list) return;
+      const dismissed = loadDismissedPending();
+      const visible = pendingDecisions.filter(p => !dismissed.has(p.id));
+      widget.hidden = visible.length === 0;
+      list.innerHTML = visible.map(p => `
+        <div class="pending-decision-item">
+          <button type="button" class="pending-decision-check" onclick="dismissPendingDecision('${p.id}')" title="Ocultar en este navegador (para quitarla del código, dilo en el chat)">✅</button>
+          <div class="pending-decision-text"><p>${escapeHTML(p.text)}</p><span>${p.date}</span></div>
+        </div>`).join('');
+    }
+    renderPendingDecisions();
+
     document.getElementById('noteSaveBtn').addEventListener('click', addNote);
     document.getElementById('noteInput').addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) addNote();
