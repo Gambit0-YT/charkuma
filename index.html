@@ -261,6 +261,8 @@
     }
     .btn:hover{transform:translateY(-2px)}
     .btn[hidden]{display:none}
+    .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+    .btn:disabled:hover{transform:none}
     .btn-primary{
       background:linear-gradient(135deg,var(--orange),#ff5f1f);
       color:white;box-shadow:0 12px 34px rgba(255,122,24,.22)
@@ -1202,7 +1204,10 @@
                 <option value="">Todos los estados</option>
                 <option value="pendiente">⏳ Pendiente</option>
                 <option value="aprobado">✅ Aprobado</option>
-                <option value="en-proceso">🎬 En proceso</option>
+                <option value="creando-guion">✍️ Creando guion</option>
+                <option value="editando-video">🎬 Editando vídeo</option>
+                <option value="remates-finales">✨ Remates finales</option>
+                <option value="listo-publicar">🚀 Listo para publicar</option>
                 <option value="publicado">📤 Publicado</option>
                 <option value="descartado">🗑️ Descartado</option>
               </select>

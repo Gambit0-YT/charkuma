@@ -119,7 +119,7 @@
       const notifs = [];
       const index = buildSiteIndex();
 
-      const inProgress = index.filter(i => i.status === 'en-proceso');
+      const inProgress = index.filter(i => CONTENT_STAGE_ORDER.includes(i.status));
       if (inProgress.length) {
         notifs.push({
           title: `🎬 ${inProgress.length} contenido${inProgress.length === 1 ? '' : 's'} en proceso ahora mismo`,
@@ -404,7 +404,14 @@
       // contenido) — se pintan siempre debajo de la miga de pan, no solo
       // la insignia pequeña del kicker.
       const controls = pageHead.querySelector('.review-controls');
-      const item = findContentItemByView(id);
+      // Si se entra por un enlace directo con hash (#view=...), esto
+      // puede ejecutarse ANTES de que los arrays de contenido
+      // (geekContent, iaContent...) estén inicializados — el try/catch
+      // evita que un ReferenceError por TDZ rompa el resto del script
+      // (navegación, botones...) en ese primer pintado muy concreto;
+      // en cualquier otra navegación posterior ya funciona normal.
+      let item = null;
+      try { item = findContentItemByView(id); } catch (e) { item = null; }
       if (item) {
         const html = reviewControlsHTML(item);
         if (controls) controls.outerHTML = html;
@@ -1121,22 +1128,40 @@
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
     }
 
-    // "En proceso": el paso después de aprobado — ya estás con el guion o
-    // la grabación de ese contenido, no solo decidido que se hará.
-    const INPROGRESS_CONTENT_KEY = 'charkuma_inprogress_content';
+    // "En proceso" ya no es un único estado — son 4 fases seguidas
+    // (creando guion → editando vídeo → remates finales → listo para
+    // publicar), cada contenido guarda EN CUÁL está (o ninguna, si
+    // todavía no se ha empezado). Se guarda como un mapa rid→fase en
+    // vez de 4 sets sueltos, porque son fases excluyentes entre sí,
+    // no banderas independientes.
+    const CONTENT_STAGE_KEY = 'charkuma_content_stage';
+    const CONTENT_STAGE_ORDER = ['creando-guion', 'editando-video', 'remates-finales', 'listo-publicar'];
+    const CONTENT_STAGE_LABELS = {
+      'creando-guion': '✍️ Creando guion',
+      'editando-video': '🎬 Editando vídeo',
+      'remates-finales': '✨ Remates finales',
+      'listo-publicar': '🚀 Listo para publicar'
+    };
 
-    function loadInProgressContentSet(){
-      try { return new Set(JSON.parse(localStorage.getItem(INPROGRESS_CONTENT_KEY)) || []); }
-      catch (e) { return new Set(); }
+    function loadContentStageMap(){
+      try { return JSON.parse(localStorage.getItem(CONTENT_STAGE_KEY)) || {}; }
+      catch (e) { return {}; }
     }
-    function isContentInProgress(id){
-      return loadInProgressContentSet().has(id);
-    }
-    function setContentInProgress(id, inProgress){
-      const set = loadInProgressContentSet();
-      if (inProgress) set.add(id); else set.delete(id);
-      try { localStorage.setItem(INPROGRESS_CONTENT_KEY, JSON.stringify(Array.from(set))); }
+    function saveContentStageMap(map){
+      try { localStorage.setItem(CONTENT_STAGE_KEY, JSON.stringify(map)); }
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
+    }
+    function getContentStage(id){
+      return loadContentStageMap()[id] || null;
+    }
+    function setContentStage(id, stage){
+      const map = loadContentStageMap();
+      if (stage) map[id] = stage; else delete map[id];
+      saveContentStageMap(map);
+    }
+    // "En proceso" (en sentido amplio) = está en cualquiera de las 4 fases.
+    function isContentInProgress(id){
+      return CONTENT_STAGE_ORDER.includes(getContentStage(id));
     }
 
     // "Publicado": el vídeo ya está subido de verdad. Se puede marcar a
@@ -1178,39 +1203,45 @@
       rid = rid || item.internalView || item.title;
       if (isContentDiscarded(rid)) return 'descartado';
       if (isContentPublished(rid)) return 'publicado';
-      if (isContentInProgress(rid)) return 'en-proceso';
+      const stage = getContentStage(rid);
+      if (stage) return stage; // creando-guion / editando-video / remates-finales / listo-publicar
       if (item.reviewed !== false || isReviewed(rid)) return 'aprobado';
       return 'pendiente';
     }
-    const CONTENT_STATUS_LABELS = {
+    const CONTENT_STATUS_LABELS = Object.assign({
       pendiente: '⏳ Pendiente', aprobado: '✅ Aprobada',
-      'en-proceso': '🎬 En proceso', publicado: '📤 Publicado', descartado: '🗑️ Descartada'
-    };
-    const CONTENT_STATUS_CHIPCLASS = {
+      publicado: '📤 Publicado', descartado: '🗑️ Descartada'
+    }, CONTENT_STAGE_LABELS);
+    const CONTENT_STATUS_CHIPCLASS = Object.assign({
       pendiente: 'chip-yellow', aprobado: 'chip-green',
-      'en-proceso': 'chip-orange', publicado: 'chip-blue', descartado: 'chip-red'
-    };
+      publicado: 'chip-blue', descartado: 'chip-red'
+    }, Object.fromEntries(CONTENT_STAGE_ORDER.map(s => [s, 'chip-orange'])));
 
-    // Bloque grande de "✅ Aprobar / 🎬 En proceso / 📤 Publicado / 🗑️
-    // Descartar" que se inyecta en la cabecera de la propia página de
-    // detalle (no solo la insignia pequeña del kicker) — reversible en
-    // los cuatro sentidos.
+    // Bloque grande de "✅ Aprobar / fase ◀▶ / 📤 Publicado / 🗑️
+    // Descartar / → Siguiente" que se inyecta en la cabecera de la
+    // propia página de detalle (no solo la insignia pequeña del
+    // kicker) — reversible en todos los sentidos.
     function reviewControlsHTML(item){
       const rid = item.internalView || item.title;
       const status = getContentStatus(item, rid);
       const published = status === 'publicado';
-      const inProgress = status === 'en-proceso' || published;
+      const stageIndex = CONTENT_STAGE_ORDER.indexOf(status);
+      const inProgress = stageIndex !== -1 || published;
       const discarded = status === 'descartado';
-      const approved = status === 'aprobado' || inProgress; // en-proceso/publicado implican ya aprobado
+      const approved = status === 'aprobado' || inProgress; // fase/publicado implican ya aprobado
       const statusChip = `<span class="type-chip ${CONTENT_STATUS_CHIPCLASS[status]}">${CONTENT_STATUS_LABELS[status]}</span>`;
+      const isLastStage = stageIndex === CONTENT_STAGE_ORDER.length - 1;
       return `
         <div class="review-controls" data-review-id="${rid}">
           ${statusChip}
           <button type="button" class="btn btn-secondary review-approve-btn" onclick="toggleContentApproved('${rid}')">
             ${approved ? '↩️ Quitar aprobación' : '✅ Aprobar'}
           </button>
-          <button type="button" class="btn btn-secondary review-progress-btn" onclick="toggleContentInProgress('${rid}')">
-            ${inProgress ? '↩️ Quitar "en proceso"' : '🎬 Empezar guion (en proceso)'}
+          <button type="button" class="btn btn-secondary review-stage-btn" onclick="regressContentStage('${rid}')" ${stageIndex <= 0 ? 'disabled' : ''}>
+            ◀ Fase anterior
+          </button>
+          <button type="button" class="btn btn-secondary review-stage-btn" onclick="advanceContentStage('${rid}')" ${isLastStage ? 'disabled' : ''}>
+            ${stageIndex === -1 ? '✍️ Empezar guion' : 'Fase siguiente ▶'}
           </button>
           <button type="button" class="btn btn-secondary review-published-btn" onclick="toggleContentPublished('${rid}')">
             ${published ? '↩️ Quitar "publicado"' : '📤 Marcar como publicado'}
@@ -1218,18 +1249,41 @@
           <button type="button" class="btn btn-secondary review-discard-btn" onclick="toggleContentDiscarded('${rid}')">
             ${discarded ? '↩️ Restaurar' : '🗑️ Descartar idea'}
           </button>
+          <button type="button" class="btn btn-primary review-next-btn" onclick="goToNextUntouchedContent('${rid}')" title="Saltar al siguiente elemento al que todavía no le has tocado el estado">
+            → Siguiente
+          </button>
         </div>`;
+    }
+
+    // Botón "→ Siguiente" de los controles: te lleva directo al próximo
+    // elemento (proyecto o idea suelta) al que TODAVÍA no le has tocado
+    // el estado — para poder ir aprobando/descartando uno detrás de
+    // otro sin volver cada vez al control secreto maestro. Solo cuentan
+    // "pendiente" y "aprobado" como "sin tocar" — cualquier fase ya
+    // significa que has empezado a trabajar en ese contenido.
+    function goToNextUntouchedContent(currentRid){
+      const all = buildMasterControlIndex();
+      const priorities = ['pendiente', 'aprobado'];
+      for (const status of priorities) {
+        const next = all.find(i => i.status === status && i.view && i.view !== currentRid && i.title !== currentRid);
+        if (next) {
+          if (next.external) window.open(next.view, '_blank');
+          else showView(next.view);
+          return;
+        }
+      }
+      alert('No queda ningún elemento sin tocar — todo tiene ya un estado definido (o está descartado).');
     }
 
     function toggleContentApproved(rid){
       if (isReviewed(rid)) {
         // "Quitar aprobación": no hay un unmarkReviewed ya hecho — lo
-        // montamos aquí mismo, reutilizando el mismo Set. Si estaba "en
-        // proceso" o "publicado", quitar la aprobación también retrocede.
+        // montamos aquí mismo, reutilizando el mismo Set. Si tenía una
+        // fase o estaba publicado, quitar la aprobación también retrocede.
         const set = loadReviewedSet();
         set.delete(rid);
         try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); } catch(e) {}
-        setContentInProgress(rid, false);
+        setContentStage(rid, null);
         setContentPublished(rid, false);
       } else {
         markReviewed(rid);
@@ -1240,19 +1294,35 @@
       const turningOn = !isContentPublished(rid);
       setContentPublished(rid, turningOn);
       // "Publicado" implica los pasos anteriores: si hacía falta,
-      // aprueba y marca "en proceso" automáticamente.
+      // aprueba y deja la fase en la última ("listo para publicar") en
+      // vez de sin fase, para que al "quitar publicado" no vuelva a cero.
       if (turningOn) {
         if (!isReviewed(rid)) markReviewed(rid);
-        if (!isContentInProgress(rid)) setContentInProgress(rid, true);
+        if (!getContentStage(rid)) setContentStage(rid, CONTENT_STAGE_ORDER[CONTENT_STAGE_ORDER.length - 1]);
       }
       refreshReviewControls();
     }
-    function toggleContentInProgress(rid){
-      const turningOn = !isContentInProgress(rid);
-      setContentInProgress(rid, turningOn);
-      // "En proceso" es el paso de después de aprobado: al activarlo,
-      // aprueba automáticamente si todavía no lo estaba.
-      if (turningOn && !isReviewed(rid)) markReviewed(rid);
+    // Avanza una fase (creando guion → editando vídeo → remates finales
+    // → listo para publicar). Si todavía no había empezado ninguna,
+    // aprueba automáticamente y arranca en la primera fase.
+    function advanceContentStage(rid){
+      const current = getContentStage(rid);
+      if (!current) {
+        if (!isReviewed(rid)) markReviewed(rid);
+        setContentStage(rid, CONTENT_STAGE_ORDER[0]);
+      } else {
+        const idx = CONTENT_STAGE_ORDER.indexOf(current);
+        if (idx < CONTENT_STAGE_ORDER.length - 1) setContentStage(rid, CONTENT_STAGE_ORDER[idx + 1]);
+      }
+      refreshReviewControls();
+    }
+    // Retrocede una fase; desde la primera fase vuelve a "aprobado" sin fase.
+    function regressContentStage(rid){
+      const current = getContentStage(rid);
+      if (!current) return;
+      const idx = CONTENT_STAGE_ORDER.indexOf(current);
+      if (idx <= 0) setContentStage(rid, null);
+      else setContentStage(rid, CONTENT_STAGE_ORDER[idx - 1]);
       refreshReviewControls();
     }
     function toggleContentDiscarded(rid){
@@ -3260,7 +3330,7 @@
     let inProgressIndex = 0;
 
     function openInProgressCarousel(){
-      inProgressItems = buildSiteIndex().filter(i => i.status === 'en-proceso' && i.view && !i.external);
+      inProgressItems = buildSiteIndex().filter(i => CONTENT_STAGE_ORDER.includes(i.status) && i.view && !i.external);
       inProgressIndex = 0;
       document.getElementById('inProgressModal').hidden = false;
       renderInProgressSlide();
@@ -3393,7 +3463,10 @@
       return items;
     }
 
-    const MASTER_CONTROL_STATUS_PRIORITY = { 'en-proceso': 0, pendiente: 1, aprobado: 2, publicado: 3, descartado: 4 };
+    const MASTER_CONTROL_STATUS_PRIORITY = Object.assign(
+      Object.fromEntries(CONTENT_STAGE_ORDER.map((s, i) => [s, i])),
+      { pendiente: 10, aprobado: 11, publicado: 12, descartado: 13 }
+    );
 
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
