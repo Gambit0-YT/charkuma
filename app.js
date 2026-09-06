@@ -259,7 +259,7 @@
       updateViewChrome(id, target);
       if (id === 'calendario' && typeof renderCalendarView === 'function') renderCalendarView();
       if (id === 'hub-secreto' && typeof renderMasterHub === 'function') renderMasterHub();
-      if (id === 'master-control' && typeof renderProjectsByDate === 'function') renderProjectsByDate('masterControlProjectsList');
+      if (id === 'master-control' && typeof renderMasterControlList === 'function') renderMasterControlList();
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -1033,6 +1033,24 @@
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
     }
 
+    // "En proceso": el paso después de aprobado — ya estás con el guion o
+    // la grabación de ese contenido, no solo decidido que se hará.
+    const INPROGRESS_CONTENT_KEY = 'charkuma_inprogress_content';
+
+    function loadInProgressContentSet(){
+      try { return new Set(JSON.parse(localStorage.getItem(INPROGRESS_CONTENT_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+    function isContentInProgress(id){
+      return loadInProgressContentSet().has(id);
+    }
+    function setContentInProgress(id, inProgress){
+      const set = loadInProgressContentSet();
+      if (inProgress) set.add(id); else set.delete(id);
+      try { localStorage.setItem(INPROGRESS_CONTENT_KEY, JSON.stringify(Array.from(set))); }
+      catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
+    }
+
     // Busca, en todos los arrays de contenido, el objeto que corresponde
     // a una vista concreta (por su internalView) — para saber si esa
     // página es "contenido revisable" y poder pintar sus controles.
@@ -1045,22 +1063,43 @@
       return null;
     }
 
-    // Bloque grande de "✅ Aprobar / 🗑️ Descartar" que se inyecta en la
-    // cabecera de la propia página de detalle (no solo la insignia
-    // pequeña del kicker) — reversible en los dos sentidos.
+    // Devuelve el estado real (4 posibles) de un contenido, combinando
+    // los tres sets independientes de localStorage. Descartado manda
+    // sobre todo lo demás; en proceso manda sobre aprobado.
+    function getContentStatus(item, rid){
+      rid = rid || item.internalView || item.title;
+      if (isContentDiscarded(rid)) return 'descartado';
+      if (isContentInProgress(rid)) return 'en-proceso';
+      if (item.reviewed !== false || isReviewed(rid)) return 'aprobado';
+      return 'pendiente';
+    }
+    const CONTENT_STATUS_LABELS = {
+      pendiente: '⏳ Pendiente', aprobado: '✅ Aprobada',
+      'en-proceso': '🎬 En proceso', descartado: '🗑️ Descartada'
+    };
+    const CONTENT_STATUS_CHIPCLASS = {
+      pendiente: 'chip-yellow', aprobado: 'chip-green',
+      'en-proceso': 'chip-orange', descartado: 'chip-red'
+    };
+
+    // Bloque grande de "✅ Aprobar / 🎬 En proceso / 🗑️ Descartar" que se
+    // inyecta en la cabecera de la propia página de detalle (no solo la
+    // insignia pequeña del kicker) — reversible en los tres sentidos.
     function reviewControlsHTML(item){
       const rid = item.internalView || item.title;
-      const approved = item.reviewed !== false || isReviewed(rid);
-      const discarded = isContentDiscarded(rid);
-      let statusChip;
-      if (discarded) statusChip = `<span class="type-chip chip-red">🗑️ Descartada</span>`;
-      else if (approved) statusChip = `<span class="type-chip chip-green">✅ Aprobada</span>`;
-      else statusChip = `<span class="type-chip chip-yellow">⏳ Pendiente</span>`;
+      const status = getContentStatus(item, rid);
+      const inProgress = status === 'en-proceso';
+      const discarded = status === 'descartado';
+      const approved = status === 'aprobado' || inProgress; // en-proceso implica ya aprobado
+      const statusChip = `<span class="type-chip ${CONTENT_STATUS_CHIPCLASS[status]}">${CONTENT_STATUS_LABELS[status]}</span>`;
       return `
         <div class="review-controls" data-review-id="${rid}">
           ${statusChip}
           <button type="button" class="btn btn-secondary review-approve-btn" onclick="toggleContentApproved('${rid}')">
             ${approved ? '↩️ Quitar aprobación' : '✅ Aprobar'}
+          </button>
+          <button type="button" class="btn btn-secondary review-progress-btn" onclick="toggleContentInProgress('${rid}')">
+            ${inProgress ? '↩️ Quitar "en proceso"' : '🎬 Empezar guion (en proceso)'}
           </button>
           <button type="button" class="btn btn-secondary review-discard-btn" onclick="toggleContentDiscarded('${rid}')">
             ${discarded ? '↩️ Restaurar' : '🗑️ Descartar idea'}
@@ -1071,13 +1110,23 @@
     function toggleContentApproved(rid){
       if (isReviewed(rid)) {
         // "Quitar aprobación": no hay un unmarkReviewed ya hecho — lo
-        // montamos aquí mismo, reutilizando el mismo Set.
+        // montamos aquí mismo, reutilizando el mismo Set. Si estaba "en
+        // proceso", quitar la aprobación también la retrocede.
         const set = loadReviewedSet();
         set.delete(rid);
         try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); } catch(e) {}
+        setContentInProgress(rid, false);
       } else {
         markReviewed(rid);
       }
+      refreshReviewControls();
+    }
+    function toggleContentInProgress(rid){
+      const turningOn = !isContentInProgress(rid);
+      setContentInProgress(rid, turningOn);
+      // "En proceso" es el paso de después de aprobado: al activarlo,
+      // aprueba automáticamente si todavía no lo estaba.
+      if (turningOn && !isReviewed(rid)) markReviewed(rid);
       refreshReviewControls();
     }
     function toggleContentDiscarded(rid){
@@ -2575,6 +2624,8 @@
           // para marcarlo hecho sin tocar el código.
           reviewed: item.reviewed !== false || isReviewed(item.internalView || item.title),
           discarded: isContentDiscarded(item.internalView || item.title),
+          inProgress: isContentInProgress(item.internalView || item.title),
+          status: getContentStatus(item),
           tags: [labelsMap && labelsMap[item.type]].filter(Boolean),
           emoji: item.thumbnail || sectionEmoji
         }));
@@ -2587,12 +2638,12 @@
 
       // Páginas "hub" o fijas que no vienen de un array de contenido.
       index.push(
-        { title:'Retro 365', summary:'Reto de recomendar un juego distinto cada día, con calendario público y progreso.', view:'retro365', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Retro 365','Juegos'], emoji:'🎮', date:null, reviewed:true },
-        { title:'Ruleta del 11', summary:'Sorteador de una alineación de fútbol con base de datos real de jugadores.', view:'ruleta11', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Fútbol'], emoji:'⚽', date:null, reviewed:true },
-        { title:'CalcArte', summary:'Máquina de ideas al azar para dibujos para colorear, con prompt listo para IA.', view:'calcarte', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Arte','IA'], emoji:'🎰', date:null, reviewed:true },
-        { title:'Rincón del Friki', summary:'Series, superhéroes, cómics y anime — Marvel y The Boys por encima de todo.', view:'rincon', section:'Rincón del Friki', sectionEmoji:'🦸', tags:['Marvel','The Boys'], emoji:'🦸', date:null, reviewed:true },
-        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱', date:null, reviewed:true },
-        { title:'Calendario de publicación', summary:'Lo próximo: el siguiente día de Retro 365 y el contenido pendiente de revisión del resto de secciones.', view:'calendario', section:'General', sectionEmoji:'📅', tags:['Planificación'], emoji:'📅', date:null, reviewed:true }
+        { title:'Retro 365', summary:'Reto de recomendar un juego distinto cada día, con calendario público y progreso.', view:'retro365', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Retro 365','Juegos'], emoji:'🎮', date:null, reviewed:true, status:'aprobado' },
+        { title:'Ruleta del 11', summary:'Sorteador de una alineación de fútbol con base de datos real de jugadores.', view:'ruleta11', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Fútbol'], emoji:'⚽', date:null, reviewed:true, status:'aprobado' },
+        { title:'CalcArte', summary:'Máquina de ideas al azar para dibujos para colorear, con prompt listo para IA.', view:'calcarte', section:'HELQUIDGAMES', sectionEmoji:'🎮', tags:['Arte','IA'], emoji:'🎰', date:null, reviewed:true, status:'aprobado' },
+        { title:'Rincón del Friki', summary:'Series, superhéroes, cómics y anime — Marvel y The Boys por encima de todo.', view:'rincon', section:'Rincón del Friki', sectionEmoji:'🦸', tags:['Marvel','The Boys'], emoji:'🦸', date:null, reviewed:true, status:'aprobado' },
+        { title:'Redes Sociales', summary:'Todos los enlaces a mis redes: YouTube, TikTok, Instagram, Twitch.', view:'redes', section:'General', sectionEmoji:'📱', tags:['Redes'], emoji:'📱', date:null, reviewed:true, status:'aprobado' },
+        { title:'Calendario de publicación', summary:'Lo próximo: el siguiente día de Retro 365 y el contenido pendiente de revisión del resto de secciones.', view:'calendario', section:'General', sectionEmoji:'📅', tags:['Planificación'], emoji:'📅', date:null, reviewed:true, status:'aprobado' }
       );
       return index;
     }
@@ -2806,11 +2857,8 @@
         const dateLabel = item.date
           ? new Date(item.date).toLocaleDateString('es-ES', { day:'numeric', month:'short', year:'numeric' })
           : '—';
-        const statusChip = item.discarded
-          ? `<span class="type-chip chip-red">🗑️ Descartada</span>`
-          : item.reviewed
-            ? `<span class="type-chip chip-green">✅ Definitivo</span>`
-            : `<span class="type-chip chip-yellow">⏳ Pendiente</span>`;
+        const status = item.status || (item.discarded ? 'descartado' : item.reviewed ? 'aprobado' : 'pendiente');
+        const statusChip = `<span class="type-chip ${CONTENT_STATUS_CHIPCLASS[status]}">${CONTENT_STATUS_LABELS[status]}</span>`;
         const titleLink = item.external
           ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
           : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
@@ -2895,7 +2943,7 @@
     let inProgressIndex = 0;
 
     function openInProgressCarousel(){
-      inProgressItems = buildSiteIndex().filter(i => !i.reviewed && !i.discarded && i.view && !i.external);
+      inProgressItems = buildSiteIndex().filter(i => i.status === 'en-proceso' && i.view && !i.external);
       inProgressIndex = 0;
       document.getElementById('inProgressModal').hidden = false;
       renderInProgressSlide();
@@ -2914,7 +2962,7 @@
       const counterEl = document.getElementById('inProgressCounter');
       if (!inProgressItems.length) {
         titleEl.textContent = 'Nada en proceso ahora mismo';
-        cardEl.innerHTML = `<p class="yt-empty">Todo está revisado y definitivo — buena señal 🎉</p>`;
+        cardEl.innerHTML = `<p class="yt-empty">Nada marcado como "en proceso" ahora mismo — apruébalo y pulsa "🎬 Empezar guion" en su página para que aparezca aquí.</p>`;
         counterEl.textContent = '';
         return;
       }
@@ -2971,6 +3019,118 @@
       const modal = document.getElementById('masterControlPasswordModal');
       if (modal && !modal.hidden && e.key === 'Escape') closeMasterControlPrompt();
     });
+
+    // ──────────────────────────────────────────────────────────
+    // ÍNDICE COMPLETO DEL CONTROL SECRETO MAESTRO: junta los proyectos
+    // (buildSiteIndex) con cada idea suelta de los 7 bancos secretos
+    // (que tienen su propio sistema de estado: hecha/descartada vía
+    // loadIdeaBanks), todo con el mismo formato de 4 estados para poder
+    // buscar/filtrar/ordenar en un único sitio.
+    // ──────────────────────────────────────────────────────────
+    function buildMasterControlIndex(){
+      const items = buildSiteIndex().map(i => ({
+        title: i.title, summary: i.summary, section: i.section, sectionEmoji: i.sectionEmoji,
+        emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto'
+      }));
+
+      const ideaBanks = [
+        { bank:'rincon', label:'Rincón del Friki', emoji:'🦸', view:'rf-secret', ideas:rinconSecretIdeas },
+        { bank:'helquid', label:'HELQUIDGAMES', emoji:'🎮', view:'helquid-secret', ideas:helquidSecretIdeas },
+        { bank:'lab', label:'Charkuma Lab', emoji:'🧪', view:'lab-secret', ideas:labSecretIdeas },
+        { bank:'ia', label:'IA & Experimentos', emoji:'🤖', view:'ia-secret', ideas:iaSecretIdeas },
+        { bank:'creator', label:'Creator Tools', emoji:'🖥️', view:'creator-secret', ideas:creatorSecretIdeas },
+        { bank:'hecho', label:'Hecho a Mano', emoji:'🧶', view:'hecho-secret', ideas:hechoSecretIdeas }
+      ];
+      const allBanksState = loadIdeaBanks();
+      ideaBanks.forEach(meta => {
+        const state = allBanksState[meta.bank] || {};
+        Object.keys(meta.ideas).forEach(type => {
+          meta.ideas[type].forEach((rawIdea, i) => {
+            const id = `${type}-${i}`;
+            const s = state[id] || {};
+            const text = typeof rawIdea === 'string' ? rawIdea : rawIdea.text;
+            // Las ideas sueltas no tienen guion propio, así que su
+            // estado es más simple: pendiente / hecha (~aprobada) /
+            // descartada — no hay "en proceso" para un one-liner.
+            const status = s.discarded ? 'descartado' : s.done ? 'aprobado' : 'pendiente';
+            items.push({
+              title: text, summary: '', section: meta.label, sectionEmoji: meta.emoji,
+              emoji: meta.emoji, date: null, status, view: meta.view, external: false, kind: 'Idea'
+            });
+          });
+        });
+      });
+      return items;
+    }
+
+    const MASTER_CONTROL_STATUS_PRIORITY = { 'en-proceso': 0, pendiente: 1, aprobado: 2, descartado: 3 };
+
+    function renderMasterControlList(){
+      const listEl = document.getElementById('masterControlProjectsList');
+      const countEl = document.getElementById('masterControlCount');
+      if (!listEl) return;
+
+      const sectionSelect = document.getElementById('masterControlSection');
+      const query = document.getElementById('masterControlSearch').value.trim().toLowerCase();
+      const sectionFilter = sectionSelect.value;
+      const statusFilter = document.getElementById('masterControlStatus').value;
+      const sortBy = document.getElementById('masterControlSort').value;
+
+      const all = buildMasterControlIndex();
+
+      if (sectionSelect.options.length <= 1) {
+        [...new Set(all.map(i => i.section))].sort().forEach(sec => {
+          const opt = document.createElement('option');
+          opt.value = sec; opt.textContent = sec;
+          sectionSelect.appendChild(opt);
+        });
+      }
+
+      let items = all.filter(i => {
+        if (sectionFilter && i.section !== sectionFilter) return false;
+        if (statusFilter && i.status !== statusFilter) return false;
+        if (query && !i.title.toLowerCase().includes(query)) return false;
+        return true;
+      });
+
+      if (sortBy === 'status') {
+        items.sort((a, b) => MASTER_CONTROL_STATUS_PRIORITY[a.status] - MASTER_CONTROL_STATUS_PRIORITY[b.status]);
+      } else {
+        const withDate = items.filter(i => i.date).sort((a, b) => new Date(a.date) - new Date(b.date));
+        const withoutDate = items.filter(i => !i.date);
+        items = withDate.concat(withoutDate);
+      }
+
+      countEl.textContent = `${items.length} de ${all.length} elementos (proyectos + ideas de los bancos secretos)`;
+
+      listEl.innerHTML = items.length ? items.map(item => {
+        const dateLabel = item.date
+          ? new Date(item.date).toLocaleDateString('es-ES', { day:'numeric', month:'short', year:'numeric' })
+          : '—';
+        const statusChip = `<span class="type-chip ${CONTENT_STATUS_CHIPCLASS[item.status]}">${CONTENT_STATUS_LABELS[item.status]}</span>`;
+        const titleLink = item.external
+          ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
+          : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
+        return `
+          <div class="geek-card">
+            <div class="geek-thumb">${item.emoji}</div>
+            <div class="geek-info">
+              <div class="geek-badges">
+                <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
+                <span class="type-chip universe-chip">${item.kind}</span>
+                <span class="type-chip chip-neutral">📅 ${dateLabel}</span>
+                ${statusChip}
+              </div>
+              <h4>${titleLink}</h4>
+              ${item.summary ? `<p>${item.summary}</p>` : ''}
+            </div>
+          </div>`;
+      }).join('') : `<p class="yt-empty">Nada coincide con esos filtros.</p>`;
+    }
+    document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
+    document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
+    document.getElementById('masterControlStatus').addEventListener('change', renderMasterControlList);
+    document.getElementById('masterControlSort').addEventListener('change', renderMasterControlList);
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);
     document.getElementById('assignBtn').addEventListener('click', assignPlayer);

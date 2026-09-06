@@ -797,7 +797,7 @@
        fuerza display:flex a partir de 1900px para CUALQUIER elemento
        que la lleve, y eso ignoraría por completo el estado .active.*/
     .sidebar-stack-left{
-      display:none;position:fixed;top:100px;left:24px;width:680px;
+      display:none;position:fixed;top:100px;left:24px;width:440px;
       max-height:calc(100vh - 130px);overflow-y:auto;
       flex-direction:column;gap:16px;z-index:40;
     }
@@ -848,7 +848,7 @@
       </a>
       <div class="nav-links">
         <a href="javascript:void(0)" onclick="goHome('proyectos')">Proyectos</a>
-        <a href="javascript:void(0)" onclick="goHome('lab')">Laboratorio</a>
+        <a href="javascript:void(0)" onclick="showView('charkumalab')">Laboratorio</a>
         <a href="javascript:void(0)" onclick="showView('helquidgames')">Games</a>
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
@@ -1059,9 +1059,11 @@
           <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕹️ CONTROL SECRETO MAESTRO</h2>
           <p class="section-sub">
-            La lista completa y cronológica de todo lo que hay integrado en la web —
-            pendiente, aprobado y descartado — en un único sitio. Se llega aquí con
-            doble clic en "🎮 Player 1 Ready" y el código, no hay ningún enlace visible.
+            Todo lo que hay integrado en la web — proyectos completos y cada idea suelta
+            de los 7 bancos secretos — con su estado real (⏳ pendiente, ✅ aprobado,
+            🎬 en proceso o 🗑️ descartado), buscable y filtrable por categoría, estado
+            o fecha. Se llega aquí con doble clic en "🎮 Player 1 Ready" y el código,
+            no hay ningún enlace visible.
           </p>
           <div class="note">
             <strong>Aviso honesto:</strong> esto es un candado de andar por casa, no
@@ -1073,6 +1075,26 @@
       </section>
       <section class="detail-section">
         <div class="container">
+          <div class="panel search-panel">
+            <div class="search-row">
+              <input type="text" id="masterControlSearch" placeholder="🔎 Buscar por título..." />
+              <select id="masterControlSection">
+                <option value="">Todas las categorías</option>
+              </select>
+              <select id="masterControlStatus">
+                <option value="">Todos los estados</option>
+                <option value="pendiente">⏳ Pendiente</option>
+                <option value="aprobado">✅ Aprobado</option>
+                <option value="en-proceso">🎬 En proceso</option>
+                <option value="descartado">🗑️ Descartado</option>
+              </select>
+              <select id="masterControlSort">
+                <option value="date">Ordenar por fecha</option>
+                <option value="status">Ordenar por estado</option>
+              </select>
+            </div>
+          </div>
+          <p class="yt-empty" id="masterControlCount" style="margin-bottom:16px"></p>
           <div id="masterControlProjectsList" class="recent-list"></div>
         </div>
       </section>
@@ -1092,7 +1114,7 @@
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#proyectos">🚀 Ver mis proyectos</a>
-              <a class="btn btn-secondary" href="#lab">🎲 Sorpréndeme</a>
+              <a class="btn btn-secondary" href="javascript:void(0)" onclick="showView('charkumalab')">🎲 Sorpréndeme</a>
             </div>
           </div>
 
@@ -1185,42 +1207,9 @@
         </div>
       </section>
 
-      <section id="lab">
-        <div class="container">
-          <div class="section-kicker reveal">03 · EXPERIMENTOS</div>
-          <h2 class="section-title reveal">EL LABORATORIO</h2>
-          <p class="section-sub reveal">
-            El lugar donde una idea absurda puede terminar convirtiéndose en una web, un vídeo,
-            un diseño o una obsesión de tres semanas.
-          </p>
-
-          <div class="lab-grid">
-            <a class="lab-card reveal" href="javascript:void(0)" onclick="showView('ia')">
-              <div class="icon">🤖</div>
-              <h4>IA & EXPERIMENTOS</h4>
-              <p>Prompts, generación visual, automatizaciones y nuevas formas de crear.</p>
-            </a>
-            <a class="lab-card reveal" href="javascript:void(0)" onclick="showView('creator')">
-              <div class="icon">🖥️</div>
-              <h4>CREATOR TOOLS</h4>
-              <p>Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.</p>
-            </a>
-            <a class="lab-card reveal" href="javascript:void(0)" onclick="showView('hecho')">
-              <div class="icon">🧶</div>
-              <h4>HECHO A MANO</h4>
-              <p>Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.</p>
-            </a>
-          </div>
-
-          <div class="quote reveal">
-            “Demasiadas aficiones para tener una sola personalidad.”
-          </div>
-        </div>
-      </section>
-
       <section id="sobre-mi">
         <div class="container">
-          <div class="section-kicker reveal">04 · IDENTIDAD</div>
+          <div class="section-kicker reveal">03 · IDENTIDAD</div>
           <h2 class="section-title reveal">¿QUIÉN COÑO ES CHARKUMA?</h2>
           <p class="section-sub reveal">
             No soy una empresa. Soy un tío con demasiadas ideas, demasiadas aficiones
@@ -2302,6 +2291,36 @@
       <section class="detail-section">
         <div class="container">
 
+          <div class="section-kicker">03 · EXPERIMENTOS</div>
+          <h2 class="section-title">EL LABORATORIO</h2>
+          <p class="section-sub">
+            El lugar donde una idea absurda puede terminar convirtiéndose en una web, un vídeo,
+            un diseño o una obsesión de tres semanas.
+          </p>
+
+          <div class="lab-grid">
+            <a class="lab-card" href="javascript:void(0)" onclick="showView('ia')">
+              <div class="icon">🤖</div>
+              <h4>IA & EXPERIMENTOS</h4>
+              <p>Prompts, generación visual, automatizaciones y nuevas formas de crear.</p>
+            </a>
+            <a class="lab-card" href="javascript:void(0)" onclick="showView('creator')">
+              <div class="icon">🖥️</div>
+              <h4>CREATOR TOOLS</h4>
+              <p>Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.</p>
+            </a>
+            <a class="lab-card" href="javascript:void(0)" onclick="showView('hecho')">
+              <div class="icon">🧶</div>
+              <h4>HECHO A MANO</h4>
+              <p>Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.</p>
+            </a>
+          </div>
+
+          <div class="quote" style="margin:30px 0">
+            “Demasiadas aficiones para tener una sola personalidad.”
+          </div>
+
+          <h3 class="subheading">🗂️ Proyectos, herramientas y bitácora de Charkuma Lab</h3>
           <div class="panel search-panel">
             <div class="search-row">
               <input type="text" id="labSearch" placeholder="🔎 Buscar por título..." />
@@ -2479,7 +2498,7 @@
     <div id="view-ia" class="app-view">
       <section class="page-head">
         <div class="container">
-          <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver al laboratorio</a>
           <div class="section-kicker">LABORATORIO</div>
           <h2 class="section-title"><span class="secret-trigger" onclick="openIaSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de IA & Experimentos">🤖</span> IA & EXPERIMENTOS</h2>
           <p class="section-sub">
@@ -2741,7 +2760,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     <div id="view-creator" class="app-view">
       <section class="page-head">
         <div class="container">
-          <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver al laboratorio</a>
           <div class="section-kicker">LABORATORIO</div>
           <h2 class="section-title"><span class="secret-trigger" onclick="openCreatorSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Creator Tools">🖥️</span> CREATOR TOOLS</h2>
           <p class="section-sub">
@@ -2955,7 +2974,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     <div id="view-hecho" class="app-view">
       <section class="page-head">
         <div class="container">
-          <a class="back" href="javascript:void(0)" onclick="goHome('lab')">← Volver al laboratorio</a>
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver al laboratorio</a>
           <div class="section-kicker">LABORATORIO</div>
           <h2 class="section-title"><span class="secret-trigger" onclick="openHechoSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de Hecho a Mano">🧶</span> HECHO A MANO</h2>
           <p class="section-sub">
