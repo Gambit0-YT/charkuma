@@ -213,7 +213,13 @@
     }
     .gradient{
       background:linear-gradient(90deg,var(--orange),#ffb15f 34%,#b993ff 72%,var(--purple));
-      -webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer
+      background-size:220% 100%;background-position:0% 50%;
+      -webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;
+      transition:background-position .7s ease;
+    }
+    .gradient:hover{background-position:100% 50%}
+    @media (prefers-reduced-motion:reduce){
+      .gradient{transition:none}
     }
     .hero p{
       font-size:clamp(18px,2vw,22px);line-height:1.65;
@@ -471,6 +477,29 @@
     .month > summary::after{content:"▾";color:var(--muted);font-size:14px;transition:.25s transform}
     .month[open] > summary::after{transform:rotate(180deg)}
     .month-body{padding:6px 18px 20px;display:grid;grid-template-columns:1fr;gap:12px}
+    .log-entry{padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+    .log-entry strong{display:block;color:var(--accent-text);font-size:13px;margin-bottom:6px}
+    .log-entry p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+
+    /* ── Diario de construcción: línea temporal deslizable, con los
+       bordes izq/dcha difuminados en vez de un corte seco, respetando
+       el ancho normal del .container. ── */
+    .timeline-wrap{position:relative;margin:0 -4px}
+    .timeline-scroll{
+      display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;
+      padding:10px 4px 22px;
+      -webkit-mask-image:linear-gradient(90deg,transparent 0,black 32px,black calc(100% - 32px),transparent 100%);
+      mask-image:linear-gradient(90deg,transparent 0,black 32px,black calc(100% - 32px),transparent 100%);
+    }
+    .timeline-card{
+      flex:0 0 auto;width:min(440px,86vw);scroll-snap-align:start;
+      background:var(--card);border:1px solid var(--line);border-radius:24px;
+      padding:26px;box-shadow:var(--shadow);border-top:3px solid var(--orange);
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .timeline-date{font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--orange2)}
+    .timeline-hours{font-size:12px;color:var(--muted);font-weight:700;margin-top:-8px}
+    .timeline-card h4{margin:0 0 4px;font-size:20px}
 
     .day-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:var(--panel);border:1px solid var(--line3)}
     .day-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
@@ -1262,6 +1291,63 @@
               <div class="mini reveal">
                 <div class="icon">💻</div>
                 <div><strong>TECH</strong><br><span>Streaming, webs, herramientas y experimentos.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subheading" style="margin-top:40px">🪵 Diario de construcción de la web</h3>
+          <p style="color:var(--muted);margin-bottom:20px;max-width:760px">
+            Un registro real de cómo se ha ido construyendo esta web, sesión a sesión.
+            Se actualiza cada semana (o cada 15 días si no ha habido grandes cambios).
+            Las horas son un rango entre el primer y el último guardado de esa sesión,
+            no horas de trabajo 100% activo — es la aproximación más honesta posible con
+            los datos reales que existen.
+          </p>
+          <!--
+            NOTA PARA CLAUDE (mantenimiento futuro): esta línea temporal
+            se actualiza cada semana de trabajo real en la web — o cada
+            15 días si esa semana no ha tenido cambios grandes. Para
+            construir cada tarjeta nueva: mirar `git log --reverse
+            --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%ad | %s'`
+            desde la fecha de la última tarjeta hacia hoy, agrupar los
+            commits por sesión (huecos grandes de horas = sesiones
+            distintas), y añadir una <div class="timeline-card"> NUEVA
+            AL FINAL de #devLogTimeline (el scroll empieza por la más
+            antigua a la izquierda y la más reciente queda a la derecha)
+            con el mismo formato que la de abajo: fecha + horas de
+            sesión arriba, y un <div class="log-entry"> por sub-sesión
+            resumiendo qué se construyó (no listar cada commit suelto,
+            agrupar por tema).
+          -->
+          <div class="timeline-wrap">
+            <div class="timeline-scroll" id="devLogTimeline">
+              <div class="timeline-card">
+                <div class="timeline-date">📅 5–6 SEPT 2026</div>
+                <div class="timeline-hours">~10h de sesión</div>
+                <h4>Construcción inicial</h4>
+                <div class="log-entry">
+                  <strong>Antes del repositorio (sin hora exacta)</strong>
+                  <p>Lobby estático inicial → conversión a single-page app → widget de
+                    YouTube y notas rápidas → primera versión de Retro 365 → despliegue
+                    real a GitHub Pages.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>5 sept, 16:26–23:52 (~7h30)</strong>
+                  <p>Repositorio creado. HELQUIDGAMES + Ruleta del 11 (con base de datos
+                    de 2313 jugadores). Feeds filtrables de Charkuma Lab, IA & Experimentos,
+                    Creator Tools y Hecho a Mano. Integración e iteración de CalcArte
+                    (personajes, prompt, estilo de dibujo). Las 26 páginas de detalle con
+                    contenido real. Insignia "Pendiente de revisión". Primer easter egg
+                    secreto (banco de 50 ideas de Rincón del Friki).</p>
+                </div>
+                <div class="log-entry">
+                  <strong>6 sept, 00:09–02:23 (~2h15)</strong>
+                  <p>La tanda grande: buscador global, tema claro/oscuro, calendario de
+                    publicación, banco de ideas en las 5 secciones restantes, JS movido a
+                    archivo aparte, mapa maestro, ranking friki, radar de estrenos,
+                    reestructuración de HELQUIDGAMES, sistema de aprobar/en proceso/
+                    publicado/descartar, control secreto maestro, y pulido de fallos.</p>
+                </div>
               </div>
             </div>
           </div>
