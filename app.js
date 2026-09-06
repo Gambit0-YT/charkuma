@@ -1420,13 +1420,30 @@
     function loadSwipeShortlist(){ try { return JSON.parse(localStorage.getItem(SWIPE_SHORTLIST_KEY)) || []; } catch (e) { return []; } }
     function saveSwipeShortlist(arr){ try { localStorage.setItem(SWIPE_SHORTLIST_KEY, JSON.stringify(arr)); } catch (e) {} }
 
+    // Los teclados móviles (Gboard, iOS) suelen "corregir" comillas rectas
+    // por comillas tipográficas ( " " ' ' ) al escribir o pegar, lo que
+    // rompe JSON.parse aunque el contenido sea correcto — es el bug real
+    // que reportó el usuario desde Android. También limpiamos espacios
+    // raros y caracteres invisibles que a veces vienen al copiar desde
+    // apps de notas.
+    function sanitizeJsonText(text){
+      return text
+        .replace(/[\u201C\u201D\u201E\u201F]/g, '"')   // comillas dobles tipograficas -> rectas
+        .replace(/[\u2018\u2019\u201A\u201B]/g, "'")   // comillas simples tipograficas -> rectas
+        .replace(/[\u00A0\u2007\u202F]/g, ' ')          // espacios especiales -> espacio normal
+        .replace(/[\u200B-\u200D\uFEFF]/g, '');         // caracteres invisibles (zero-width, BOM)
+    }
+
     function importSwipeCandidates(){
       const textarea = document.getElementById('swipeJsonImport');
       const statusEl = document.getElementById('swipeImportStatus');
       if (!textarea || !statusEl) return;
       let parsed;
       try { parsed = JSON.parse(textarea.value); }
-      catch (e) { statusEl.textContent = '❌ Eso no es JSON válido — revisa comillas y comas.'; return; }
+      catch (e) {
+        try { parsed = JSON.parse(sanitizeJsonText(textarea.value)); }
+        catch (e2) { statusEl.textContent = '❌ Eso no es JSON válido — revisa comillas y comas.'; return; }
+      }
       if (!Array.isArray(parsed)) { statusEl.textContent = '❌ Tiene que ser un array de juegos, entre corchetes [ ].'; return; }
 
       const clean = parsed.filter(g => g && g.name).map(g => ({
