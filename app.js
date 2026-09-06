@@ -194,24 +194,84 @@
     // ahora). Preferencia guardada — "alternable" y persistente, tal
     // como se pidió.
     // ──────────────────────────────────────────────────────────
+    // El mismo botón 📌 controla dos cosas a la vez, a petición explícita:
+    // oculta/muestra las columnas laterales (como siempre) Y fija/suelta la
+    // cabecera (nav-pinned). "Fijado" = columnas ocultas + cabecera siempre
+    // visible (modo compacto de una sola franja); "normal" = columnas
+    // visibles + cabecera oculta sola, que aparece al acercar el ratón
+    // arriba (ver initAutoHideNav más abajo).
     const SIDEBARS_HIDDEN_KEY = 'charkuma_sidebars_hidden';
     function updateSidebarsToggleIcon(){
       const btn = document.getElementById('navSidebarsBtn');
       if (!btn) return;
       const hidden = document.body.classList.contains('sidebars-hidden');
-      btn.classList.toggle('is-active', !hidden);
-      btn.title = hidden ? 'Mostrar las columnas laterales' : 'Ocultar las columnas laterales';
+      btn.classList.toggle('is-active', hidden);
+      btn.title = hidden
+        ? 'Mostrar columnas laterales (la cabecera volverá a ocultarse sola)'
+        : 'Ocultar columnas laterales y fijar la cabecera siempre visible';
     }
     function toggleSidebarsVisibility(){
       const hidden = document.body.classList.toggle('sidebars-hidden');
+      document.body.classList.toggle('nav-pinned', hidden);
       try { localStorage.setItem(SIDEBARS_HIDDEN_KEY, hidden ? '1' : '0'); } catch (e) {}
       updateSidebarsToggleIcon();
+      if (hidden) { const nav = document.querySelector('.nav'); if (nav) nav.classList.add('nav-visible'); }
     }
     (function initSidebarsVisibility(){
       let hidden = false;
       try { hidden = localStorage.getItem(SIDEBARS_HIDDEN_KEY) === '1'; } catch (e) {}
       document.body.classList.toggle('sidebars-hidden', hidden);
+      document.body.classList.toggle('nav-pinned', hidden);
       updateSidebarsToggleIcon();
+    })();
+
+    // ──────────────────────────────────────────────────────────
+    // Cabecera oculta por defecto, visible al acercar el ratón arriba del
+    // todo (o mientras tenga el foco por teclado, o mientras un panel suyo
+    // -ajustes/notificaciones- esté abierto). Si está "fijada" (nav-pinned,
+    // ver arriba) no se toca nada: se queda siempre visible. Solo aplica en
+    // pantallas de escritorio — en móvil la cabecera sigue fija como antes
+    // (el hover no existe en táctil).
+    // ──────────────────────────────────────────────────────────
+    (function initAutoHideNav(){
+      const nav = document.querySelector('.nav');
+      if (!nav) return;
+      if (!window.matchMedia('(min-width:761px)').matches) return;
+
+      const REVEAL_ZONE = 64;
+      const HIDE_MARGIN = 140;
+      const HIDE_DELAY = 600;
+      let hideTimer = null;
+
+      function isPinned(){ return document.body.classList.contains('nav-pinned'); }
+      function anyNavPanelOpen(){
+        const settings = document.getElementById('settingsPanel');
+        const notif = document.getElementById('notifPanel');
+        return (settings && !settings.hidden) || (notif && !notif.hidden);
+      }
+      function showNav(){
+        nav.classList.add('nav-visible');
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      }
+      function scheduleHide(){
+        if (isPinned() || anyNavPanelOpen()) return;
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => nav.classList.remove('nav-visible'), HIDE_DELAY);
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        if (isPinned()) return;
+        if (e.clientY <= REVEAL_ZONE) showNav();
+        else if (e.clientY > HIDE_MARGIN) scheduleHide();
+      });
+      nav.addEventListener('focusin', showNav);
+      nav.addEventListener('focusout', () => {
+        if (!nav.contains(document.activeElement)) scheduleHide();
+      });
+
+      // Primer vistazo al cargar la página, luego se oculta sola como siempre.
+      showNav();
+      scheduleHide();
     })();
 
     function toggleSettingsPanel(){

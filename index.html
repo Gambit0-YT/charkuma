@@ -130,11 +130,24 @@
     :focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:4px}
     .container{width:min(1160px,calc(100% - 34px));margin:auto}
 
+    /* ── Cabecera: por defecto se oculta sola y aparece al acercar el ratón
+       arriba del todo (position:fixed, sin reservar espacio — el contenido
+       sube a ocupar ese hueco). El botón 📌 la "fija" (vuelve a position:sticky,
+       como antes, siempre visible y reservando su espacio). En móvil se queda
+       siempre fija de la forma clásica: el hover no existe en pantallas táctiles. */
     .nav{
-      position:sticky;top:0;z-index:50;
+      position:fixed;top:0;left:0;right:0;z-index:50;
       background:var(--nav-bg);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,.06);
+      transform:translateY(-75px);
+      transition:transform .25s ease;
+    }
+    .nav.nav-visible{transform:translateY(0)}
+    body.nav-pinned .nav{position:sticky;transform:none}
+    @media (prefers-reduced-motion:reduce){ .nav{transition:none} }
+    @media (max-width:760px){
+      .nav{position:sticky !important;transform:none !important}
     }
     .nav-inner{
       display:flex;align-items:center;justify-content:space-between;
@@ -248,10 +261,14 @@
     body.presentation-mode #navHubBtn{visibility:hidden;pointer-events:none}
 
     .hero{
-      min-height:calc(100vh - 74px);
+      min-height:100vh;
       display:grid;align-items:center;
       padding:84px 0 70px;
       position:relative;
+    }
+    body.nav-pinned .hero{min-height:calc(100vh - 74px)}
+    @media (max-width:760px){
+      .hero{min-height:calc(100vh - 74px)}
     }
     .hero-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center
@@ -1087,7 +1104,7 @@
             <button type="button" class="btn btn-secondary" style="margin-top:10px;width:100%;justify-content:center" onclick="openNotifInbox()">📬 Abrir bandeja completa</button>
           </div>
         </div>
-        <button type="button" class="nav-icon-btn" id="navSidebarsBtn" onclick="toggleSidebarsVisibility()" title="Mostrar u ocultar las columnas laterales" aria-label="Mostrar u ocultar las columnas laterales">📌</button>
+        <button type="button" class="nav-icon-btn" id="navSidebarsBtn" onclick="toggleSidebarsVisibility()" title="Fijar la cabecera y ocultar las columnas laterales" aria-label="Fijar la cabecera y ocultar o mostrar las columnas laterales">📌</button>
         <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
         <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
       </div>
