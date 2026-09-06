@@ -345,9 +345,20 @@
       if (opts.resetScroll !== false) window.scrollTo({top:0});
       updateSidebar(id);
       updateViewChrome(id, target);
-      if (id === 'calendario' && typeof renderCalendarView === 'function') renderCalendarView();
-      if (id === 'hub-secreto' && typeof renderMasterHub === 'function') renderMasterHub();
-      if (id === 'master-control' && typeof renderMasterControlList === 'function') renderMasterControlList();
+      // Igual que en updateViewChrome: en una carga en frío por hash
+      // (#view=...) estas funciones pueden ejecutarse antes de que los
+      // "const" que usan (arrays de contenido, bancos de ideas...) estén
+      // inicializados. Try/catch defensivo — si falla aquí, se repinta
+      // bien en la siguiente navegación normal dentro de la web.
+      if (id === 'calendario' && typeof renderCalendarView === 'function') {
+        try { renderCalendarView(); } catch (e) { /* ver comentario arriba */ }
+      }
+      if (id === 'hub-secreto' && typeof renderMasterHub === 'function') {
+        try { renderMasterHub(); } catch (e) { /* ver comentario arriba */ }
+      }
+      if (id === 'master-control' && typeof renderMasterControlList === 'function') {
+        try { renderMasterControlList(); } catch (e) { /* ver comentario arriba */ }
+      }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -778,6 +789,41 @@
         </div>`).join('');
     }
 
+    // ──────────────────────────────────────────────────────────
+    // IDEAS "EXTRA" GENÉRICAS (para HELQUIDGAMES, Charkuma Lab, IA &
+    // Experimentos, Creator Tools y Hecho a Mano): mismo patrón que
+    // RINCON_EXTRA_IDEAS_KEY, pero genérico para cualquier banco cuyas
+    // ideas sean strings simples (no objetos con universo). Una clave de
+    // localStorage por banco: charkuma_extra_ideas_<bank>.
+    // ──────────────────────────────────────────────────────────
+    const BANK_EXTRA_IDEAS_PREFIX = 'charkuma_extra_ideas_';
+    function loadBankExtraIdeas(bank){
+      try { return JSON.parse(localStorage.getItem(BANK_EXTRA_IDEAS_PREFIX + bank)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveBankExtraIdeas(bank, data){
+      try { localStorage.setItem(BANK_EXTRA_IDEAS_PREFIX + bank, JSON.stringify(data)); }
+      catch (e) { /* seguimos sin guardarlo, sin romper nada */ }
+    }
+    function getBankIdeasMerged(bank, baseIdeas){
+      const extra = loadBankExtraIdeas(bank);
+      const merged = {};
+      Object.keys(baseIdeas).forEach(type => {
+        merged[type] = baseIdeas[type].concat(extra[type] || []);
+      });
+      Object.keys(extra).forEach(type => {
+        if (!merged[type]) merged[type] = extra[type].slice();
+      });
+      return merged;
+    }
+    function addBankExtraIdeas(bank, additionsByType){
+      const extra = loadBankExtraIdeas(bank);
+      Object.keys(additionsByType).forEach(type => {
+        extra[type] = (extra[type] || []).concat(additionsByType[type]);
+      });
+      saveBankExtraIdeas(bank, extra);
+    }
+
     const IDEA_BANK_RENDERERS = {};
 
     function toggleIdeaDone(bank, id){
@@ -826,7 +872,7 @@
                 <span class="type-chip type-${type}">${cfg.typeLabels[type]}</span>
                 <span class="count">#${i + 1}</span>
               </div>
-              <p style="margin:6px 0 0">${idea}</p>
+              <p style="margin:6px 0 0">${escapeHTML(idea)}</p>
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${cfg.bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
@@ -2689,7 +2735,7 @@
       ]
     };
     IDEA_BANK_RENDERERS.helquid = () => renderTypedIdeaBank({
-      bank:'helquid', ideasByType:helquidSecretIdeas, typeLabels:HELQUID_IDEA_LABELS,
+      bank:'helquid', ideasByType:getBankIdeasMerged('helquid', helquidSecretIdeas), typeLabels:HELQUID_IDEA_LABELS,
       containerId:'helquidSecretContainer', discardCounterId:'helquidDiscardCounter',
       discardedCountId:'helquidDiscardedCount', discardedListId:'helquidDiscardedListBody',
       hideCheckboxId:'helquidHideDiscarded'
@@ -2735,7 +2781,7 @@
       ]
     };
     IDEA_BANK_RENDERERS.lab = () => renderTypedIdeaBank({
-      bank:'lab', ideasByType:labSecretIdeas, typeLabels:LAB_TYPE_LABELS,
+      bank:'lab', ideasByType:getBankIdeasMerged('lab', labSecretIdeas), typeLabels:LAB_TYPE_LABELS,
       containerId:'labSecretContainer', discardCounterId:'labDiscardCounter',
       discardedCountId:'labDiscardedCount', discardedListId:'labDiscardedListBody',
       hideCheckboxId:'labHideDiscarded'
@@ -2793,7 +2839,7 @@
       ]
     };
     IDEA_BANK_RENDERERS.ia = () => renderTypedIdeaBank({
-      bank:'ia', ideasByType:iaSecretIdeas, typeLabels:IA_LABELS,
+      bank:'ia', ideasByType:getBankIdeasMerged('ia', iaSecretIdeas), typeLabels:IA_LABELS,
       containerId:'iaSecretContainer', discardCounterId:'iaDiscardCounter',
       discardedCountId:'iaDiscardedCount', discardedListId:'iaDiscardedListBody',
       hideCheckboxId:'iaHideDiscarded'
@@ -2851,7 +2897,7 @@
       ]
     };
     IDEA_BANK_RENDERERS.creator = () => renderTypedIdeaBank({
-      bank:'creator', ideasByType:creatorSecretIdeas, typeLabels:CREATOR_LABELS,
+      bank:'creator', ideasByType:getBankIdeasMerged('creator', creatorSecretIdeas), typeLabels:CREATOR_LABELS,
       containerId:'creatorSecretContainer', discardCounterId:'creatorDiscardCounter',
       discardedCountId:'creatorDiscardedCount', discardedListId:'creatorDiscardedListBody',
       hideCheckboxId:'creatorHideDiscarded'
@@ -2897,12 +2943,198 @@
       ]
     };
     IDEA_BANK_RENDERERS.hecho = () => renderTypedIdeaBank({
-      bank:'hecho', ideasByType:hechoSecretIdeas, typeLabels:HECHO_LABELS,
+      bank:'hecho', ideasByType:getBankIdeasMerged('hecho', hechoSecretIdeas), typeLabels:HECHO_LABELS,
       containerId:'hechoSecretContainer', discardCounterId:'hechoDiscardCounter',
       discardedCountId:'hechoDiscardedCount', discardedListId:'hechoDiscardedListBody',
       hideCheckboxId:'hechoHideDiscarded'
     });
     IDEA_BANK_RENDERERS.hecho();
+
+    // ──────────────────────────────────────────────────────────
+    // REGISTRO DE ACTIVIDAD (Control Secreto Maestro): un log sencillo
+    // en localStorage donde queda constancia de lo que se ha generado
+    // o encontrado automáticamente — ideas nuevas, fallos, pendientes
+    // de tu decisión. Lo usa tanto el botón "➕ Generar ideas" como
+    // cualquier modo de trabajo autónomo futuro. Tope de 100 entradas
+    // para no crecer sin límite.
+    // ──────────────────────────────────────────────────────────
+    const ACTIVITY_LOG_KEY = 'charkuma_activity_log';
+    function loadActivityLog(){
+      try { return JSON.parse(localStorage.getItem(ACTIVITY_LOG_KEY)) || []; }
+      catch (e) { return []; }
+    }
+    function saveActivityLog(list){
+      try { localStorage.setItem(ACTIVITY_LOG_KEY, JSON.stringify(list.slice(-100))); }
+      catch (e) { /* seguimos sin guardarlo, sin romper nada */ }
+    }
+    function logActivity(message, kind){
+      const list = loadActivityLog();
+      list.push({ ts: new Date().toISOString(), message, kind: kind || 'info' });
+      saveActivityLog(list);
+      renderActivityLog();
+    }
+    function renderActivityLog(){
+      const listEl = document.getElementById('activityLogList');
+      if (!listEl) return;
+      const list = loadActivityLog().slice().reverse();
+      listEl.innerHTML = list.length ? list.map(entry => {
+        const d = new Date(entry.ts);
+        const dateLabel = isNaN(d) ? '' : d.toLocaleString('es-ES', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+        const kindEmoji = entry.kind === 'bug' ? '🐛' : entry.kind === 'pending' ? '⏳' : entry.kind === 'idea' ? '💡' : 'ℹ️';
+        return `<div class="activity-log-row"><span class="activity-log-time">${dateLabel}</span><span>${kindEmoji} ${escapeHTML(entry.message)}</span></div>`;
+      }).join('') : `<p class="yt-empty" style="margin:0">Todavía no hay nada registrado.</p>`;
+    }
+    function clearActivityLog(){
+      if (!confirm('¿Borrar todo el registro de actividad? No se puede deshacer.')) return;
+      saveActivityLog([]);
+      renderActivityLog();
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // GENERADOR DE IDEAS ("➕ Generar ideas" del Control Secreto
+    // Maestro). La web es estática y no llama a ninguna IA en directo,
+    // así que "generar" aquí significa combinar plantillas propias de
+    // cada banco (frase con hueco) con una lista de temas variables,
+    // evitando repetir texto exacto ya existente (base + extra) en ese
+    // banco. El resultado se guarda igual que una importación JSON —
+    // como ideas "extra" — y aparece marcado como pendiente, nunca
+    // aprobado automáticamente.
+    // ──────────────────────────────────────────────────────────
+    const IDEA_GENERATOR_BASE = {
+      helquid: helquidSecretIdeas, lab: labSecretIdeas, ia: iaSecretIdeas,
+      creator: creatorSecretIdeas, hecho: hechoSecretIdeas
+    };
+    const IDEA_GENERATORS = {
+      rincon: {
+        label: 'Rincón del Friki',
+        subjects: ['el villano de moda ahora mismo','el héroe más infravalorado del momento','el antihéroe que todo el mundo comenta','la última incorporación al reparto','el crossover que nadie esperaba','el personaje secundario que se ha vuelto viral','la teoría fan más comentada esta semana','el spin-off recién anunciado','el actor protagonista del estreno actual','la escena que más se ha compartido esta semana'],
+        universes: ['geek','marvel','boys','anime','cruce'],
+        templates: {
+          opinion: ['Mi opinión sincera sobre {s}, para quien no sabe nada todavía.','Por qué {s} merece más atención de la que le están dando.'],
+          curiosidad: ['5 datos curiosos sobre {s} que casi nadie conoce.','Lo que cambia {s} respecto a su versión original en el cómic.'],
+          fancast: ['Fancast: quién debería dar vida a {s} si lo adaptan.','Si tuviera que elegir reparto para {s}, este sería el mío.'],
+          batalla: ['{s} contra el villano más popular del momento: ¿quién gana en serio?','Ranking: dónde queda {s} entre los más fuertes ahora mismo.'],
+          reaccion: ['Primera reacción a todo lo que se sabe sobre {s}.','Reaccionando en directo a la última escena de {s}.']
+        }
+      },
+      helquid: {
+        label: 'HELQUIDGAMES',
+        subjects: ['un juego indie recién salido','un clásico que casi nadie recuerda','el juego más pedido en el Discord','un juego con mecánicas raras de verdad','un roguelike corto','un juego cooperativo para dos personas','un juego con una sola vida de verdad','un juego hecho por un equipo pequeño'],
+        templates: {
+          reto: ['Reto: terminar {s} sin usar ni una guía.','Un solo intento con {s} — si fallo, se acaba el vídeo.'],
+          formato: ['Primeras impresiones jugando {s} por primera vez en directo.','¿Vale la pena en 2026? revisando {s}.'],
+          colab: ['Torneo amistoso con otro creador usando {s}.','Reto cruzado: probamos {s} y comparamos resultados.'],
+          especial: ['Especial jugando {s} elegido por la comunidad.','Maratón corto centrado en {s}.']
+        }
+      },
+      lab: {
+        label: 'Charkuma Lab',
+        subjects: ['el buscador global de la web','el sistema de bancos de ideas','el panel de ajustes','una sección nueva de la web','el flujo de publicación de contenido','una herramienta interna del canal','el sistema de notificaciones','una página nueva del sitio'],
+        templates: {
+          proyecto: ['Rediseñar {s} con una identidad visual propia.','Montar una versión mejorada de {s} desde cero.'],
+          herramienta: ['Pequeño script para automatizar parte de {s}.','Plantilla reutilizable pensada para {s}.'],
+          bitacora: ['Lo que he aprendido montando {s}.','Diario de a bordo mientras construyo {s}.']
+        }
+      },
+      ia: {
+        label: 'IA & Experimentos',
+        subjects: ['un guion corto','una miniatura nueva','un resumen de directo','una descripción de YouTube','un post para redes','una transición de vídeo','una voz narrando una curiosidad','un adelanto semanal'],
+        templates: {
+          prompt: ['Prompt para generar {s} a partir de una idea suelta.','Prompt para mejorar {s} ya existente en dos versiones distintas.'],
+          automatizacion: ['Automatizar la creación de {s} cada semana.','Aviso automático cuando toque preparar {s}.'],
+          visual: ['Generar variantes visuales para {s} con IA.','Probar un estilo nuevo aplicado a {s}.'],
+          video: ['Probar IA para producir {s} más rápido.','Generar una versión corta de {s} de forma automática.']
+        }
+      },
+      creator: {
+        label: 'Creator Tools',
+        subjects: ['las colabs con otros creadores','los directos largos','los clips cortos verticales','los tutoriales paso a paso','los anuncios de proyecto nuevo','las sesiones de Q&A','los maratones temáticos','el material de apoyo para grabar'],
+        templates: {
+          overlay: ['Overlay pensado específicamente para {s}.','Overlay alternativo, más ligero, para {s}.'],
+          obs: ['Escena de OBS dedicada a {s}.','Configuración rápida de escenas para {s}.'],
+          plantilla: ['Plantilla reutilizable de miniatura para {s}.','Plantilla de guion pensada para {s}.'],
+          recurso: ['Pack de recursos (sonidos o iconos) para {s}.','Checklist descargable pensado para {s}.']
+        }
+      },
+      hecho: {
+        label: 'Hecho a Mano',
+        subjects: ['la mascota lagarto','el logo del canal','un juego concreto de Retro 365','el eslogan del canal','la paleta morada y naranja de la web','un hito de suscriptores','el set de streaming','una colab reciente'],
+        templates: {
+          tufting: ['Alfombra tufting pequeña inspirada en {s}.','Cojín tufting a juego con {s}.'],
+          diseno: ['Diseño de merch basado en {s}.','Pegatina o diseño para portátil con {s}.'],
+          objeto: ['Objeto impreso en 3D relacionado con {s}.','Figura o soporte físico inspirado en {s}.']
+        }
+      }
+    };
+
+    function pickRandom(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+    function ideasMergedForBank(bankKey){
+      return bankKey === 'rincon' ? getRinconIdeasMerged() : getBankIdeasMerged(bankKey, IDEA_GENERATOR_BASE[bankKey]);
+    }
+    function ideaCountForBank(bankKey){
+      return Object.values(ideasMergedForBank(bankKey)).reduce((sum, arr) => sum + arr.length, 0);
+    }
+    // Elegimos el banco con menos ideas en total, para que "Generar
+    // ideas" reparta el crecimiento entre todas las secciones en vez de
+    // acumularlo siempre en la misma — en empate, cualquiera de ellas.
+    function pickLeastPopulatedBank(){
+      const counts = Object.keys(IDEA_GENERATORS).map(bank => ({ bank, total: ideaCountForBank(bank) }));
+      const min = Math.min(...counts.map(c => c.total));
+      return pickRandom(counts.filter(c => c.total === min)).bank;
+    }
+
+    function generateIdeasForBank(bankKey, count){
+      const cfg = IDEA_GENERATORS[bankKey];
+      if (!cfg) return { added: 0 };
+
+      const merged = ideasMergedForBank(bankKey);
+      const existingTexts = new Set(
+        Object.values(merged).flat().map(entry => typeof entry === 'string' ? entry : entry.text)
+      );
+
+      const types = Object.keys(cfg.templates);
+      const additions = {};
+      let added = 0, attempts = 0;
+      while (added < count && attempts < count * 25) {
+        attempts++;
+        const type = pickRandom(types);
+        const text = pickRandom(cfg.templates[type]).replace('{s}', pickRandom(cfg.subjects));
+        if (existingTexts.has(text)) continue;
+        existingTexts.add(text);
+        if (!additions[type]) additions[type] = [];
+        additions[type].push(bankKey === 'rincon' ? { universe: pickRandom(cfg.universes), text } : text);
+        added++;
+      }
+
+      if (added > 0) {
+        if (bankKey === 'rincon') {
+          const extra = loadRinconExtraIdeas();
+          Object.keys(additions).forEach(type => { extra[type] = (extra[type] || []).concat(additions[type]); });
+          saveRinconExtraIdeas(extra);
+        } else {
+          addBankExtraIdeas(bankKey, additions);
+        }
+        if (IDEA_BANK_RENDERERS[bankKey]) IDEA_BANK_RENDERERS[bankKey]();
+      }
+
+      return { added, additions, label: cfg.label };
+    }
+
+    function generateIdeaBatchFromMasterControl(){
+      const bankKey = pickLeastPopulatedBank();
+      const result = generateIdeasForBank(bankKey, 5);
+      const statusEl = document.getElementById('masterControlGenerateStatus');
+      if (result.added > 0) {
+        const typesUsed = Object.keys(result.additions).join(', ');
+        const msg = `✅ Añadidas ${result.added} idea${result.added === 1 ? '' : 's'} nueva${result.added === 1 ? '' : 's'} a ${result.label} (${typesUsed}) — pendientes de tu revisión.`;
+        if (statusEl) statusEl.textContent = msg;
+        logActivity(`Generadas ${result.added} idea${result.added === 1 ? '' : 's'} nueva${result.added === 1 ? '' : 's'} para ${result.label}.`, 'idea');
+      } else if (statusEl) {
+        statusEl.textContent = `⚠️ No he encontrado ninguna idea nueva sin repetir para ${result.label} esta vez — vuelve a intentarlo.`;
+      }
+      renderMasterControlList();
+    }
 
     // ──────────────────────────────────────────────────────────
     // BUSCADOR GLOBAL: junta el contenido de todas las secciones (más
@@ -3433,13 +3665,16 @@
         emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto'
       }));
 
+      // Fusionamos siempre con las ideas "extra" (importadas por JSON o
+      // generadas con "➕ Generar ideas") — si no, esas ideas nunca
+      // aparecerían aquí, en el Control Secreto Maestro.
       const ideaBanks = [
-        { bank:'rincon', label:'Rincón del Friki', emoji:'🦸', view:'rf-secret', ideas:rinconSecretIdeas },
-        { bank:'helquid', label:'HELQUIDGAMES', emoji:'🎮', view:'helquid-secret', ideas:helquidSecretIdeas },
-        { bank:'lab', label:'Charkuma Lab', emoji:'🧪', view:'lab-secret', ideas:labSecretIdeas },
-        { bank:'ia', label:'IA & Experimentos', emoji:'🤖', view:'ia-secret', ideas:iaSecretIdeas },
-        { bank:'creator', label:'Creator Tools', emoji:'🖥️', view:'creator-secret', ideas:creatorSecretIdeas },
-        { bank:'hecho', label:'Hecho a Mano', emoji:'🧶', view:'hecho-secret', ideas:hechoSecretIdeas }
+        { bank:'rincon', label:'Rincón del Friki', emoji:'🦸', view:'rf-secret', ideas:getRinconIdeasMerged() },
+        { bank:'helquid', label:'HELQUIDGAMES', emoji:'🎮', view:'helquid-secret', ideas:getBankIdeasMerged('helquid', helquidSecretIdeas) },
+        { bank:'lab', label:'Charkuma Lab', emoji:'🧪', view:'lab-secret', ideas:getBankIdeasMerged('lab', labSecretIdeas) },
+        { bank:'ia', label:'IA & Experimentos', emoji:'🤖', view:'ia-secret', ideas:getBankIdeasMerged('ia', iaSecretIdeas) },
+        { bank:'creator', label:'Creator Tools', emoji:'🖥️', view:'creator-secret', ideas:getBankIdeasMerged('creator', creatorSecretIdeas) },
+        { bank:'hecho', label:'Hecho a Mano', emoji:'🧶', view:'hecho-secret', ideas:getBankIdeasMerged('hecho', hechoSecretIdeas) }
       ];
       const allBanksState = loadIdeaBanks();
       ideaBanks.forEach(meta => {
@@ -3472,6 +3707,7 @@
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
       if (!listEl) return;
+      renderActivityLog();
 
       const sectionSelect = document.getElementById('masterControlSection');
       const query = document.getElementById('masterControlSearch').value.trim().toLowerCase();
@@ -3919,3 +4155,4 @@
     // Ahora sí: RETRO365_START_DATE, plannedGames y buildSiteIndex ya
     // están definidas, así que esta llamada es segura aquí al final.
     renderNotifications();
+    renderActivityLog();

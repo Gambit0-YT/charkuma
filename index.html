@@ -593,6 +593,16 @@
       font-size:12px;line-height:1.6;resize:vertical
     }
     .json-import-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
+
+    /* ── Control Secreto Maestro: "Generar ideas" + registro de actividad ── */
+    .generate-ideas-panel{border:1px solid var(--purple);background:rgba(139,92,246,.06)}
+    .generate-ideas-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .generate-ideas-row > div{flex:1;min-width:220px}
+    .generate-ideas-row .btn{flex:0 0 auto}
+    .activity-log-panel{margin-top:16px}
+    .activity-log-row{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}
+    .activity-log-row:last-child{border-bottom:none}
+    .activity-log-time{flex:0 0 auto;color:var(--muted);font-size:11px;font-weight:700;white-space:nowrap}
     .ranking-add-row input{flex:1;min-width:200px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-family:inherit;font-size:14px}
     .ranking-list{display:flex;flex-direction:column;gap:8px}
     .ranking-row{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
@@ -1194,6 +1204,21 @@
       </section>
       <section class="detail-section">
         <div class="container">
+          <div class="panel generate-ideas-panel">
+            <div class="generate-ideas-row">
+              <div>
+                <strong>➕ Generar ideas</strong>
+                <p class="section-sub" style="margin:4px 0 0">
+                  Genera un lote pequeño de ideas nuevas mezclando plantillas propias de
+                  cada sección (no es una IA en directo, son combinaciones propias del
+                  sitio) y las marca como pendientes en el banco secreto que le toque.
+                  No sustituye tu criterio: solo te deja más material para revisar.
+                </p>
+              </div>
+              <button type="button" class="btn btn-secondary" onclick="generateIdeaBatchFromMasterControl()">➕ Generar ideas</button>
+            </div>
+            <p class="yt-empty" id="masterControlGenerateStatus" style="margin:10px 0 0"></p>
+          </div>
           <div class="panel search-panel">
             <div class="search-row">
               <input type="text" id="masterControlSearch" placeholder="🔎 Buscar por título..." />
@@ -1219,6 +1244,23 @@
           </div>
           <p class="yt-empty" id="masterControlCount" style="margin-bottom:16px"></p>
           <div id="masterControlProjectsList" class="recent-list"></div>
+
+          <details class="month activity-log-panel" style="margin-top:24px">
+            <summary>
+              <span>📋 Registro de actividad</span>
+              <span class="count">ideas generadas, fallos encontrados, pendientes</span>
+            </summary>
+            <div class="month-body">
+              <p class="section-sub" style="margin:0 0 10px">
+                Aquí queda constancia de lo que se ha generado o encontrado
+                automáticamente (por ejemplo, en modo autónomo mientras no estás
+                delante) — 💡 idea nueva, 🐛 fallo encontrado, ⏳ pendiente de tu
+                decisión.
+              </p>
+              <div id="activityLogList"></div>
+              <button type="button" class="btn btn-secondary" style="margin-top:10px" onclick="clearActivityLog()">🗑️ Vaciar registro</button>
+            </div>
+          </details>
         </div>
       </section>
     </div>
