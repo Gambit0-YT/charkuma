@@ -1105,6 +1105,7 @@
           </div>
         </div>
         <button type="button" class="nav-icon-btn" id="navSidebarsBtn" onclick="toggleSidebarsVisibility()" title="Fijar la cabecera y ocultar las columnas laterales" aria-label="Fijar la cabecera y ocultar o mostrar las columnas laterales">📌</button>
+        <button type="button" class="nav-icon-btn" id="navHubBtn" onclick="showView('hub-secreto')" title="Mapa maestro: todo el contenido, prompts y bancos de ideas en un solo sitio" aria-label="Abrir el mapa maestro de proyectos">🗺️</button>
         <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
         <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
       </div>
@@ -1432,13 +1433,14 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🗺️ MAPA MAESTRO DE PROYECTOS</h2>
           <p class="section-sub">
-            Todo en un mismo sitio: los prompts guardados, los 7 bancos secretos de ideas
-            y el listado completo de proyectos ordenado por fecha. Tampoco enlazado desde
-            ningún sitio visible — solo tú (y el icono 🗺️ de la cabecera) sabéis que existe.
+            Todo en un mismo sitio: los prompts guardados, los 7 bancos de ideas y el
+            listado completo de proyectos ordenado por fecha. Se llega aquí con el icono
+            🗺️ de la cabecera — es tu punto de partida para gestionar la web.
           </p>
+          <a class="btn btn-secondary" href="javascript:void(0)" onclick="showView('master-control')" style="margin-top:8px">🕹️ Abrir Control Maestro (todo el contenido con su estado) →</a>
         </div>
       </section>
 
@@ -1473,17 +1475,12 @@
           <p class="yt-empty last-autonomous-activity" style="margin:6px 0 0"></p>
           <p class="section-sub">
             Todo lo que hay integrado en la web — proyectos completos y cada idea suelta
-            de los 7 bancos secretos — con su estado real (⏳ pendiente, ✅ aprobado,
+            de los 7 bancos de ideas — con su estado real (⏳ pendiente, ✅ aprobado,
             🎬 en proceso o 🗑️ descartado), buscable y filtrable por categoría, estado
-            o fecha. Se llega aquí con doble clic en "🎮 Player 1 Ready" y el código,
-            no hay ningún enlace visible.
+            o fecha. Se llega aquí desde el 🗺️ Mapa Maestro de la cabecera, desde
+            Ajustes, o con el guiño nostálgico de siempre: doble clic en "🎮 Player 1
+            Ready".
           </p>
-          <div class="note">
-            <strong>Aviso honesto:</strong> esto es un candado de andar por casa, no
-            seguridad real — la web sigue siendo un sitio estático y cualquiera que mire
-            el código fuente vería este contenido igualmente. Sirve para que un visitante
-            normal no se tropiece con esto sin querer, no para protegerlo de verdad.
-          </div>
         </div>
       </section>
       <section class="detail-section">
@@ -2055,12 +2052,12 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('retro365')">← Volver a Retro 365</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ LA CHULETA SECRETA</h2>
           <p class="section-sub">
-            Esta vista no está enlazada desde ningún sitio del site — solo tú sabes que existe
-            (y ahora, cualquiera que lea el código). Aquí ves el plan completo de los 365 días:
-            lo ya publicado, lo decidido pero aún sin grabar, y lo que todavía está por pensar.
+            Se llega aquí desde el 🗺️ Mapa Maestro de la cabecera. Aquí ves el plan
+            completo de los 365 días: lo ya publicado, lo decidido pero aún sin grabar, y
+            lo que todavía está por pensar.
           </p>
 
           <div class="progress-panel">
@@ -2250,12 +2247,11 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('rincon')">← Volver a Rincón del Friki</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
           <p class="section-sub">
-            Esta vista tampoco está enlazada desde ningún sitio del site — otro rincón para nadie
-            salvo tú (y quien lea el código). Cincuenta ideas de vídeo listas para cuando te quedes
-            en blanco, organizadas por tipo de contenido.
+            Se llega aquí desde el 🗺️ Mapa Maestro de la cabecera. Cincuenta ideas de
+            vídeo listas para cuando te quedes en blanco, organizadas por tipo de contenido.
           </p>
 
           <div class="progress-panel">
@@ -2317,7 +2313,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
           <p class="section-sub">
             Ideas para el próximo juego o formato de HELQUIDGAMES, listas para cuando te
@@ -2354,7 +2350,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver a Charkuma Lab</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
           <p class="section-sub">
             Ideas para nuevos proyectos, herramientas o entradas de bitácora de Charkuma Lab.
@@ -2390,7 +2386,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('ia')">← Volver a IA & Experimentos</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
           <p class="section-sub">
             Ideas de prompts, automatizaciones y experimentos con IA para cuando te quedes
@@ -2427,7 +2423,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
           <p class="section-sub">
             Ideas de overlays, configuraciones de OBS, plantillas y recursos para el canal.
@@ -2463,7 +2459,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('hecho')">← Volver a Hecho a Mano</a>
-          <div class="section-kicker">ARCHIVO CONFIDENCIAL</div>
+          <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕵️ EL BANCO SECRETO DE IDEAS</h2>
           <p class="section-sub">
             Ideas de tufting, diseños personalizados y objetos físicos para hacer a mano.
