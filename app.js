@@ -16,6 +16,19 @@
     const YT_API_KEY = "AIzaSyDwJpcqg6PymrQU-lki7DSTjKARK5LsKaw";
     const YT_CHANNEL_ID = "UCMxeCf-_CpgmmIiyHCwMeYw"; // mrChakurma
 
+    // ──────────────────────────────────────────────────────────
+    // INDICADOR DE TRABAJO AUTÓNOMO ("/loop"): a propósito NO vive en
+    // localStorage — la web es estática y no tiene conexión en directo
+    // con la sesión de Claude Code, así que un indicador basado en
+    // localStorage solo sería exacto en el navegador donde se escribió,
+    // no en cualquier dispositivo. En vez de eso, esta bandera se
+    // enciende/apaga aquí, en el propio código, a mano, cada vez que
+    // empieza/termina una sesión de /loop — se ve igual entres por
+    // donde entres, con el único coste de tardar lo que tarde el
+    // siguiente despliegue (normalmente 30-60s) en reflejarse.
+    // ──────────────────────────────────────────────────────────
+    const AUTONOMOUS_LOOP_ACTIVE = false;
+
     // Fuente de noticias geek/cómics para el lateral de Rincón del Friki.
     // Zona Negativa: sitio español dedicado a cómics y cultura geek, con RSS público.
     // Puedes cambiarla por cualquier otro feed RSS que prefieras.
@@ -3906,11 +3919,21 @@
       { pendiente: 10, aprobado: 11, publicado: 12, descartado: 13 }
     );
 
+    // Pinta el indicador de "/loop" allá donde exista en la página
+    // (Control Maestro y la nota de Ajustes comparten el mismo mensaje).
+    function renderAutonomousLoopStatus(){
+      document.querySelectorAll('.autonomous-loop-status').forEach(el => {
+        el.textContent = AUTONOMOUS_LOOP_ACTIVE ? '🌙 Automatización automática activada' : '⚪ Automatización automática desactivada';
+        el.classList.toggle('is-active', AUTONOMOUS_LOOP_ACTIVE);
+      });
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
       if (!listEl) return;
       renderActivityLog();
+      renderAutonomousLoopStatus();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
@@ -4478,3 +4501,4 @@
     // están definidas, así que esta llamada es segura aquí al final.
     renderNotifications();
     renderActivityLog();
+    renderAutonomousLoopStatus();

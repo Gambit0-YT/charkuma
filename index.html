@@ -176,6 +176,12 @@
     .settings-row strong{display:block;font-size:14px;margin-bottom:2px}
     .settings-row p{margin:0;color:var(--muted);font-size:12px;max-width:52ch}
     .settings-row-stack{flex-direction:column;align-items:stretch}
+    .autonomous-loop-status{
+      display:inline-block;margin:6px 0 8px;padding:5px 12px;border-radius:999px;
+      font-size:11px;font-weight:800;background:rgba(255,255,255,.06);color:var(--muted);
+      border:1px solid var(--line)
+    }
+    .autonomous-loop-status.is-active{background:rgba(139,92,246,.16);color:var(--purple);border-color:var(--purple)}
     .tmdb-genre-checks{display:flex;gap:14px;flex-wrap:wrap}
     .tmdb-genre-checks label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text);cursor:pointer}
 
@@ -1066,11 +1072,14 @@
         </div>
         <div class="settings-row">
           <div>
-            <strong>🌙 Modo de trabajo autónomo (recordatorio)</strong>
+            <strong>🌙 Modo de trabajo autónomo</strong>
+            <span class="autonomous-loop-status"></span>
             <p>
-              Para que Claude siga trabajando solo (generando ideas, revisando fallos)
-              se activa escribiendo <code>/loop</code> en el chat de Claude Code — no
-              es un botón de esta web. Todo lo que haga queda anotado en el
+              Se activa escribiendo <code>/loop</code> en el chat de Claude Code — no
+              es un botón de esta web (la web es estática, no tiene conexión en directo
+              con esa sesión). El estado de arriba lo enciende/apaga Claude a mano en el
+              código al empezar/terminar, así que puede tardar el siguiente despliegue
+              en reflejarse. Todo lo que haga queda anotado en el
               <strong>📋 Registro de actividad</strong> del Control Maestro, y nunca
               aprueba, publica ni descarta nada por su cuenta — eso lo decides tú
               siempre al día siguiente.
@@ -1291,6 +1300,7 @@
           <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
           <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕹️ CONTROL SECRETO MAESTRO</h2>
+          <span class="autonomous-loop-status"></span>
           <p class="section-sub">
             Todo lo que hay integrado en la web — proyectos completos y cada idea suelta
             de los 7 bancos secretos — con su estado real (⏳ pendiente, ✅ aprobado,
