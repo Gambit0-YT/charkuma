@@ -658,6 +658,11 @@
     .idea-discard-btn{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
     .idea-discard-btn:hover{border-color:var(--red);color:var(--red)}
     .idea-card.is-discarded .idea-discard-btn, .day-card.is-discarded .idea-discard-btn{border-color:#3ecf72;color:#3ecf72}
+    .idea-discard-all-btn{
+      display:block;margin:0 0 12px;border:1px dashed var(--line3);background:transparent;color:var(--muted);
+      border-radius:10px;padding:8px 12px;font-size:11px;font-weight:800;cursor:pointer
+    }
+    .idea-discard-all-btn:hover{border-color:var(--red);color:var(--red)}
     .universe-chip{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--line)}
 
     /* Lista colapsable de descartados + casilla para ocultarlos */
@@ -952,6 +957,12 @@
       .sidebar-stack-left.active{display:flex}
     }
 
+    /* Botón 📌 de la cabecera: oculta las dos columnas laterales a la
+       vez (preferencia guardada, no depende del ancho de pantalla). */
+    body.sidebars-hidden .sidebar-stack,
+    body.sidebars-hidden .sidebar-stack-left{display:none!important}
+    #navSidebarsBtn.is-active{background:rgba(139,92,246,.16);border-color:var(--purple)}
+
     @media (max-width:900px){
       .nav-links{display:none}
       .hero-grid,.about-grid,.roulette,.platforms{grid-template-columns:1fr}
@@ -1014,6 +1025,7 @@
             </p>
           </div>
         </div>
+        <button type="button" class="nav-icon-btn" id="navSidebarsBtn" onclick="toggleSidebarsVisibility()" title="Mostrar u ocultar las columnas laterales" aria-label="Mostrar u ocultar las columnas laterales">📌</button>
         <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
         <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
       </div>

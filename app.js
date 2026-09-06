@@ -144,6 +144,32 @@
     // Panel de ajustes de la cabecera (⚙️): tema, modo presentación,
     // exportar/importar datos guardados en este navegador.
     // ──────────────────────────────────────────────────────────
+    // ──────────────────────────────────────────────────────────
+    // Botón 📌 de la cabecera: oculta/muestra las dos columnas
+    // laterales a la vez (por defecto fijas/visibles, como hasta
+    // ahora). Preferencia guardada — "alternable" y persistente, tal
+    // como se pidió.
+    // ──────────────────────────────────────────────────────────
+    const SIDEBARS_HIDDEN_KEY = 'charkuma_sidebars_hidden';
+    function updateSidebarsToggleIcon(){
+      const btn = document.getElementById('navSidebarsBtn');
+      if (!btn) return;
+      const hidden = document.body.classList.contains('sidebars-hidden');
+      btn.classList.toggle('is-active', !hidden);
+      btn.title = hidden ? 'Mostrar las columnas laterales' : 'Ocultar las columnas laterales';
+    }
+    function toggleSidebarsVisibility(){
+      const hidden = document.body.classList.toggle('sidebars-hidden');
+      try { localStorage.setItem(SIDEBARS_HIDDEN_KEY, hidden ? '1' : '0'); } catch (e) {}
+      updateSidebarsToggleIcon();
+    }
+    (function initSidebarsVisibility(){
+      let hidden = false;
+      try { hidden = localStorage.getItem(SIDEBARS_HIDDEN_KEY) === '1'; } catch (e) {}
+      document.body.classList.toggle('sidebars-hidden', hidden);
+      updateSidebarsToggleIcon();
+    })();
+
     function toggleSettingsPanel(){
       const panel = document.getElementById('settingsPanel');
       if (!panel) return;
@@ -921,6 +947,22 @@
       if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
     }
 
+    // Descarta de golpe TODAS las ideas de un tipo (p. ej. cuando toda
+    // una categoría deja de tener sentido a corto plazo, como el
+    // tufting sin máquina) — evita tener que ir una por una. Sigue
+    // siendo reversible: cada una se puede restaurar suelta luego.
+    function discardAllOfType(bank, type, count){
+      if (!confirm(`¿Descartar las ${count} ideas de este tipo? Se pueden restaurar luego, una a una, desde "descartadas".`)) return;
+      const banks = loadIdeaBanks();
+      const bankState = banks[bank] || (banks[bank] = {});
+      for (let i = 0; i < count; i++) {
+        const id = `${type}-${i}`;
+        bankState[id] = Object.assign({}, bankState[id], { discarded: true });
+      }
+      saveIdeaBanks(banks);
+      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+    }
+
     // Renderer genérico para un banco secreto "de tipo simple" (sin
     // etiqueta de universo, solo agrupado por tipo) — se usa en los
     // bancos de ideas de HELQUIDGAMES, Charkuma Lab, IA & Experimentos,
@@ -967,7 +1009,10 @@
               <span>${cfg.typeLabels[type]}</span>
               <span class="count">${ideas.length} ideas</span>
             </summary>
-            <div class="month-body">${rows}</div>
+            <div class="month-body">
+              <button type="button" class="idea-discard-all-btn" onclick="event.preventDefault();discardAllOfType('${cfg.bank}','${type}',${ideas.length})">🗑️ Descartar toda esta categoría</button>
+              ${rows}
+            </div>
           </details>`;
       });
       container.innerHTML = html;
