@@ -154,6 +154,32 @@
     .settings-row strong{display:block;font-size:14px;margin-bottom:2px}
     .settings-row p{margin:0;color:var(--muted);font-size:12px;max-width:52ch}
 
+    /* ── Campana de notificaciones ── */
+    .notif-dot{position:absolute;top:-2px;right:-2px;width:9px;height:9px;border-radius:50%;background:var(--red);border:2px solid var(--bg)}
+    .notif-dot[hidden]{display:none}
+    .notif-panel{
+      position:absolute;top:46px;right:0;width:320px;max-height:70vh;overflow-y:auto;
+      background:var(--bg2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+      padding:18px;z-index:60;
+    }
+    .notif-panel[hidden]{display:none}
+    .notif-panel h4{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+    .notif-item{padding:10px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:12px;color:var(--muted);margin-bottom:8px;cursor:pointer}
+    .notif-item:hover{border-color:var(--purple)}
+    .notif-item strong{display:block;color:var(--text);font-size:12px;margin-bottom:3px}
+
+    /* ── Nube de palabras clave (buscador global) ── */
+    .keyword-group{margin-bottom:16px}
+    .keyword-group h5{margin:0 0 10px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .keyword-cloud{display:flex;flex-wrap:wrap;gap:8px}
+    .keyword-chip{
+      border:1px solid var(--line);background:var(--panel);color:var(--text);
+      border-radius:999px;padding:7px 14px;font-size:12px;font-weight:800;cursor:pointer;
+      transition:.15s border-color,.15s background;
+    }
+    .keyword-chip:hover{border-color:var(--purple);background:rgba(139,92,246,.14)}
+    .keyword-chip-section{border-color:rgba(255,122,24,.35);color:var(--orange2)}
+
     /* ── Migas de pan + botón compartir (inyectados por JS en cada vista) ── */
     .breadcrumb-bar{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
     .breadcrumb-bar a{cursor:pointer}
@@ -885,7 +911,18 @@
       </div>
       <div class="nav-tools">
         <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
-        <button type="button" class="nav-icon-btn" id="navHubBtn" onclick="showView('hub-secreto')" title="Mapa maestro de proyectos" aria-label="Abrir el mapa maestro de proyectos">🗺️</button>
+        <div style="position:relative">
+          <button type="button" class="nav-icon-btn" id="navNotifBtn" onclick="toggleNotifPanel()" title="Notificaciones" aria-label="Ver notificaciones">🔔</button>
+          <span class="notif-dot" id="notifDot" hidden></span>
+          <div class="notif-panel" id="notifPanel" hidden>
+            <h4>🔔 Notificaciones</h4>
+            <div id="notifList"></div>
+            <p class="yt-empty" style="margin-top:10px">
+              De momento es solo un resumen rápido — más adelante esto será una bandeja
+              de entrada propia con historial.
+            </p>
+          </div>
+        </div>
         <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
         <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
       </div>
@@ -921,6 +958,13 @@
             <button type="button" class="btn btn-secondary" onclick="document.getElementById('importFileInput').click()">⬆️ Importar</button>
             <input type="file" id="importFileInput" accept="application/json" hidden onchange="importSiteData(this.files[0])">
           </div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🕹️ Control secreto maestro</strong>
+            <p>Todos los proyectos e ideas, con buscador, filtros y estado. Ya no hace falta el doble clic + contraseña para entrar — solo tú usas esta web.</p>
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="toggleSettingsPanel(); showView('master-control')">Abrir</button>
         </div>
       </div>
     </div>
@@ -967,9 +1011,10 @@
       <div class="section-kicker">EN PROCESO AHORA MISMO</div>
       <h3 id="inProgressTitle" style="margin:6px 0 16px">Cargando...</h3>
       <div id="inProgressCard"></div>
+      <p id="inProgressCounter" class="yt-empty" style="margin:0 0 12px;text-align:center"></p>
       <div class="modal-nav">
         <button type="button" class="btn btn-secondary" onclick="stepInProgressCarousel(-1)" aria-label="Anterior">← Anterior</button>
-        <span id="inProgressCounter" class="yt-empty" style="margin:0"></span>
+        <button type="button" class="btn btn-primary" onclick="goToApprovedInMasterControl()" title="Ver las ideas ya aprobadas, listas para pasar a &quot;en proceso&quot;">➕ Añadir</button>
         <button type="button" class="btn btn-secondary" onclick="stepInProgressCarousel(1)" aria-label="Siguiente">Siguiente →</button>
       </div>
     </div>
@@ -1016,6 +1061,15 @@
               </select>
             </div>
           </div>
+
+          <h3 class="subheading">🏷️ Palabras clave</h3>
+          <p style="color:var(--muted);margin-bottom:16px">
+            Clic en cualquiera de estas para ir directas ahí — secciones enteras, o un tema
+            concreto para filtrar la búsqueda por él.
+          </p>
+          <div id="keywordCloud"></div>
+
+          <h3 class="subheading" style="margin-top:30px">Resultados</h3>
           <div id="globalSearchResults" class="recent-list"></div>
         </div>
       </section>
@@ -2211,10 +2265,63 @@
               <h3>🎨 CALCARTE</h3>
               <p>La tragaperra de los retos imposibles: tira de la palanca, saca personaje + acción, genera la imagen con IA y cálcala.</p>
             </a>
+
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('helquid-draft-arena')">
+              <div class="num">JUEGO 003 · CONCEPTO</div>
+              <div class="open">↗</div>
+              <h3>🎴 DRAFT ARENA</h3>
+              <p>El próximo en la lista: draft para 2 jugadores en el mismo dispositivo, turnos alternos eligiendo de una pool compartida.</p>
+            </a>
           </div>
           <div class="note">
             <strong>Nota:</strong> aquí irán apareciendo los próximos juegos según los vaya creando,
-            cada uno como una tarjeta más en esta cuadrícula.
+            cada uno como una tarjeta más en esta cuadrícula. Los cuatro primeros juegos de
+            HELQUIDGAMES están pensados para jugarse en local, dos personas en el mismo
+            dispositivo — como Ruleta del 11.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ HELQUIDGAMES · concepto: Draft Arena ══════════ -->
+    <div id="view-helquid-draft-arena" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
+          <div class="section-kicker">HELQUIDGAMES · CONCEPTO DE JUEGO</div>
+          <h2 class="section-title">🎴 DRAFT ARENA</h2>
+          <p class="section-sub">
+            Probablemente el próximo juego que se implemente en HELQUIDGAMES —
+            local, 2 jugadores, mismo dispositivo, turnos alternos.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>La idea</h3>
+            <p>
+              Un juego de draft por turnos para dos jugadores en el mismo dispositivo:
+              se muestra una pool compartida de opciones (personajes, juegos retro,
+              villanos, lo que toque según la pool activa) y cada jugador va eligiendo
+              por turnos hasta completar su equipo/lista, sin poder repetir lo que ya
+              cogió el rival — el mismo mecanismo de "elige y no se repite" que ya
+              funciona en Ruleta del 11, pero reutilizable con distintas pools en vez de
+              estar atado solo al fútbol.
+            </p>
+            <h3>Pools iniciales con las que podría lanzarse</h3>
+            <ul>
+              <li>Personajes/villanos de Rincón del Friki (Marvel, The Boys...).</li>
+              <li>Juegos de Retro 365 ya publicados.</li>
+              <li>Una pool "mixta" con un poco de todas las secciones de la web.</li>
+            </ul>
+            <h3>Por qué encaja como siguiente juego</h3>
+            <p>
+              Reutiliza casi toda la mecánica ya construida para Ruleta del 11 (turnos,
+              "no repetir elección del rival", pantalla de resultado final), cambiando
+              solo la fuente de datos de la pool — así que es el que menos trabajo nuevo
+              pide para el cuarto juego de HELQUIDGAMES.
+            </p>
           </div>
         </div>
       </section>

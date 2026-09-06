@@ -108,6 +108,93 @@
       panel.hidden = !panel.hidden;
     }
 
+    // ──────────────────────────────────────────────────────────
+    // CAMPANA DE NOTIFICACIONES: mini resumen de recordatorios,
+    // calculado a partir de los datos reales que ya lleva la web
+    // (estados de contenido, planificación de Retro 365...). De momento
+    // solo es un desplegable rápido — más adelante será una bandeja de
+    // entrada propia con historial (ver nota en memoria del proyecto).
+    // ──────────────────────────────────────────────────────────
+    function buildNotifications(){
+      const notifs = [];
+      const index = buildSiteIndex();
+
+      const inProgress = index.filter(i => i.status === 'en-proceso');
+      if (inProgress.length) {
+        notifs.push({
+          title: `🎬 ${inProgress.length} contenido${inProgress.length === 1 ? '' : 's'} en proceso ahora mismo`,
+          detail: inProgress.slice(0, 3).map(i => i.title).join(' · '),
+          view: 'master-control'
+        });
+      }
+
+      const waiting = index.filter(i => i.status === 'aprobado');
+      if (waiting.length) {
+        notifs.push({
+          title: `✅ ${waiting.length} aprobado${waiting.length === 1 ? '' : 's'} esperando a que empieces el guion`,
+          detail: waiting.slice(0, 3).map(i => i.title).join(' · '),
+          view: 'master-control'
+        });
+      }
+
+      const pendingCount = index.filter(i => i.status === 'pendiente').length;
+      if (pendingCount) {
+        notifs.push({
+          title: `⏳ ${pendingCount} contenidos pendientes de revisión`,
+          detail: 'Repásalos en el calendario o el control secreto maestro.',
+          view: 'calendario'
+        });
+      }
+
+      const msPerDay = 86400000;
+      const daysToRetro = Math.ceil((RETRO365_START_DATE - new Date()) / msPerDay);
+      if (daysToRetro > 0) {
+        notifs.push({
+          title: `📅 Quedan ${daysToRetro} día${daysToRetro === 1 ? '' : 's'} para retomar Retro 365`,
+          detail: 'Arranca el 10 de noviembre de 2026.',
+          view: 'calendario'
+        });
+      } else {
+        const plannedLeft = Object.keys(plannedGames).length;
+        if (plannedLeft) {
+          notifs.push({
+            title: `🎮 Retro 365 ya en marcha`,
+            detail: `${plannedLeft} día(s) decidido(s) todavía sin grabar.`,
+            view: 'calendario'
+          });
+        }
+      }
+
+      return notifs;
+    }
+
+    function renderNotifications(){
+      const list = document.getElementById('notifList');
+      const dot = document.getElementById('notifDot');
+      if (!list || !dot) return;
+      const notifs = buildNotifications();
+      dot.hidden = notifs.length === 0;
+      list.innerHTML = notifs.length
+        ? notifs.map(n => `
+            <div class="notif-item" ${n.view ? `onclick="showView('${n.view}');toggleNotifPanel(false)"` : ''}>
+              <strong>${n.title}</strong>
+              ${n.detail || ''}
+            </div>`).join('')
+        : `<p class="yt-empty">Todo al día — nada pendiente ahora mismo 🎉</p>`;
+    }
+
+    function toggleNotifPanel(force){
+      const panel = document.getElementById('notifPanel');
+      if (!panel) return;
+      const willShow = typeof force === 'boolean' ? force : panel.hidden;
+      panel.hidden = !willShow;
+      if (willShow) renderNotifications();
+    }
+    // OJO: la llamada inicial a renderNotifications() (para que el
+    // puntito rojo salga bien desde la primera carga) va al final del
+    // todo del script, no aquí — usa RETRO365_START_DATE/plannedGames/
+    // buildSiteIndex, que son const declaradas más abajo (TDZ).
+
     const PRESENTATION_MODE_KEY = 'charkuma_presentation_mode';
     function setPresentationMode(on){
       document.body.classList.toggle('presentation-mode', on);
@@ -1076,7 +1163,7 @@
     // a una vista concreta (por su internalView) — para saber si esa
     // página es "contenido revisable" y poder pintar sus controles.
     function findContentItemByView(viewId){
-      const sources = [geekContent, iaContent, creatorContent, hechoContent, labContent];
+      const sources = [geekContent, iaContent, creatorContent, hechoContent, labContent, helquidGamesContent];
       for (const arr of sources) {
         const found = arr.find(i => i.internalView === viewId);
         if (found) return found;
@@ -2159,6 +2246,24 @@
       proyecto: '🟣 Proyecto', herramienta: '🟢 Herramienta', bitacora: '🟡 Bitácora'
     };
 
+    // ── HELQUIDGAMES: conceptos de próximos juegos (no vídeos, juegos
+    // en sí) — igual que labContent/geekContent, para que tengan su
+    // propio estado (pendiente/aprobado/en proceso/publicado/descartado)
+    // con los mismos botones que el resto de contenido.
+    const helquidGamesContent = [
+      {
+        title: "Draft Arena",
+        type: "concepto",
+        date: "2026-09-06",
+        summary: "Draft por turnos para 2 jugadores en el mismo dispositivo, reutilizando la mecánica de Ruleta del 11 con pools intercambiables.",
+        thumbnail: "🎴",
+        internalView: "helquid-draft-arena", reviewed: false
+      }
+      // { title:"...", type:"concepto", date:"AAAA-MM-DD",
+      //   summary:"...", thumbnail:"🎮", internalView:"..." },
+    ];
+    const HELQUID_GAME_LABELS = { concepto: '💡 Concepto de juego' };
+
     function labCardHTML(item){
       const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
       const titleLink = item.internalView
@@ -2674,6 +2779,7 @@
       addFrom(creatorContent, 'Creator Tools', '🛠️', CREATOR_LABELS);
       addFrom(hechoContent, 'Hecho a Mano', '🧶', HECHO_LABELS);
       addFrom(labContent, 'Charkuma Lab', '🧪', LAB_TYPE_LABELS);
+      addFrom(helquidGamesContent, 'HELQUIDGAMES', '🎮', HELQUID_GAME_LABELS);
 
       // Páginas "hub" o fijas que no vienen de un array de contenido.
       index.push(
@@ -2740,10 +2846,82 @@
     function openSearchView(){
       showView('buscar');
       renderGlobalSearch();
+      renderKeywordCloud();
       requestAnimationFrame(() => {
         const input = document.getElementById('globalSearchInput');
         if (input) input.focus();
       });
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // NUBE DE PALABRAS CLAVE: navegación rápida por toda la web —
+    // secciones enteras (van directas a esa vista) y temas/tipos ya
+    // definidos en el propio código (van a la búsqueda filtrada por
+    // ese término). Reutiliza los mapas de etiquetas que ya existen
+    // (TYPE_LABELS, SAGA_LABELS, IA_LABELS...) en vez de mantener una
+    // lista de palabras clave aparte y que se desactualice sola.
+    // ──────────────────────────────────────────────────────────
+    function buildKeywordIndex(){
+      const sectionKeywords = [
+        { label: '🦸 Rincón del Friki', view: 'rincon' },
+        { label: '🎮 HELQUIDGAMES', view: 'helquidgames' },
+        { label: '🧪 Charkuma Lab', view: 'charkumalab' },
+        { label: '🤖 IA & Experimentos', view: 'ia' },
+        { label: '🖥️ Creator Tools', view: 'creator' },
+        { label: '🧶 Hecho a Mano', view: 'hecho' },
+        { label: '🎮 Retro 365', view: 'retro365' },
+        { label: '📱 Redes Sociales', view: 'redes' },
+        { label: '📅 Calendario', view: 'calendario' }
+      ];
+
+      const tagLabelMaps = [
+        TYPE_LABELS, SAGA_LABELS, IA_LABELS, CREATOR_LABELS, HECHO_LABELS,
+        LAB_TYPE_LABELS, HELQUID_IDEA_LABELS, HELQUID_GAME_LABELS, IDEA_UNIVERSE_LABELS
+      ];
+      const seen = new Set();
+      const tagKeywords = [];
+      tagLabelMaps.forEach(map => {
+        Object.values(map).forEach(label => {
+          // Quita el emoji inicial del label para usarlo como término de
+          // búsqueda (p. ej. "🅼 Marvel" → "Marvel").
+          const query = label.replace(/^\S+\s+/, '').trim() || label;
+          const key = query.toLowerCase();
+          if (!seen.has(key)) { seen.add(key); tagKeywords.push({ label, query }); }
+        });
+      });
+      return { sectionKeywords, tagKeywords };
+    }
+
+    function renderKeywordCloud(){
+      const container = document.getElementById('keywordCloud');
+      if (!container) return;
+      const { sectionKeywords, tagKeywords } = buildKeywordIndex();
+      const sectionsHTML = sectionKeywords
+        .map(k => `<button type="button" class="keyword-chip keyword-chip-section" onclick="showView('${k.view}')">${k.label}</button>`)
+        .join('');
+      const tagsHTML = tagKeywords
+        .map(k => `<button type="button" class="keyword-chip" onclick="searchByKeyword('${k.query.replace(/'/g, "\\'")}')">${k.label}</button>`)
+        .join('');
+      container.innerHTML = `
+        <div class="keyword-group">
+          <h5>Secciones</h5>
+          <div class="keyword-cloud">${sectionsHTML}</div>
+        </div>
+        <div class="keyword-group">
+          <h5>Temas</h5>
+          <div class="keyword-cloud">${tagsHTML}</div>
+        </div>`;
+    }
+
+    // Escribe el término en el buscador, lanza la búsqueda y lleva la
+    // vista hasta los resultados — el "ir de una ventana a otra" que
+    // pedía el usuario, sin salir del buscador.
+    function searchByKeyword(term){
+      const input = document.getElementById('globalSearchInput');
+      input.value = term;
+      renderGlobalSearch();
+      const results = document.getElementById('globalSearchResults');
+      if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // ──────────────────────────────────────────────────────────
@@ -2999,6 +3177,19 @@
     }
     function closeInProgressCarousel(){
       document.getElementById('inProgressModal').hidden = true;
+    }
+    // Botón "➕ Añadir" del carrusel: lleva directo al control secreto
+    // maestro ya filtrado por "✅ Aprobado" — la fase justo antes de "en
+    // proceso" — para ir aprobando/promocionando ideas cuando quieras,
+    // sin tener que buscar el filtro a mano cada vez.
+    function goToApprovedInMasterControl(){
+      closeInProgressCarousel();
+      showView('master-control');
+      const statusSelect = document.getElementById('masterControlStatus');
+      if (statusSelect) {
+        statusSelect.value = 'aprobado';
+        statusSelect.dispatchEvent(new Event('change'));
+      }
     }
     function stepInProgressCarousel(dir){
       if (!inProgressItems.length) return;
@@ -3561,3 +3752,7 @@
       }
     }
     loadTwitchLiveStatus();
+
+    // Ahora sí: RETRO365_START_DATE, plannedGames y buildSiteIndex ya
+    // están definidas, así que esta llamada es segura aquí al final.
+    renderNotifications();
