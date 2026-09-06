@@ -148,7 +148,7 @@
     // almacenamiento propio — solo enlaza a donde ya subas tú los
     // archivos. Pega el enlace de una carpeta compartida ("cualquiera
     // con el enlace puede ver") y listo.
-    const DRIVE_FOLDER_URL = "PON_AQUI_TU_ENLACE_DE_DRIVE";
+    const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1TCTkOhxaUCFELOApuRAlOTb2cjksEEcD?usp=drive_link";
 
     // Estado del widget lateral
     let currentSidebarMode = 'videos'; // 'videos' | 'news'
