@@ -1267,11 +1267,198 @@
       if (discardedListEl) discardedListEl.innerHTML = discardedListHTML(RETRO_PLANNED_BANK, discardedItems);
       const hideCheckbox = document.getElementById('retroHideDiscarded');
       if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(RETRO_PLANNED_BANK);
+      renderSwipeDeck();
     }
     IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
 
+    // ──────────────────────────────────────────────────────────
+    // MAZO ESTILO TINDER (chuleta secreta de Retro 365): forma rápida
+    // de repasar un JSON grande de candidatos (pensado para cientos,
+    // incluso miles) y quedarte solo con los que te interesan — ❤️ los
+    // guarda en una "preselección", ✖️ simplemente pasa al siguiente sin
+    // guardarlo. Solo se pinta UNA tarjeta a la vez (nunca la lista
+    // entera), así que aguanta mazos grandes sin problema de rendimiento.
+    // Todo vive en localStorage: es una herramienta de curación personal
+    // tuya, no contenido que otros dispositivos necesiten ver igual.
+    // ──────────────────────────────────────────────────────────
+    const SWIPE_CANDIDATES_KEY = 'charkuma_retro365_swipe_candidates';
+    const SWIPE_INDEX_KEY = 'charkuma_retro365_swipe_index';
+    const SWIPE_SHORTLIST_KEY = 'charkuma_retro365_swipe_shortlist';
+
+    function loadSwipeCandidates(){ try { return JSON.parse(localStorage.getItem(SWIPE_CANDIDATES_KEY)) || []; } catch (e) { return []; } }
+    function saveSwipeCandidates(arr){ try { localStorage.setItem(SWIPE_CANDIDATES_KEY, JSON.stringify(arr)); } catch (e) { /* seguimos sin guardar */ } }
+    function loadSwipeIndex(){ try { return Number(localStorage.getItem(SWIPE_INDEX_KEY)) || 0; } catch (e) { return 0; } }
+    function saveSwipeIndex(i){ try { localStorage.setItem(SWIPE_INDEX_KEY, String(i)); } catch (e) {} }
+    function loadSwipeShortlist(){ try { return JSON.parse(localStorage.getItem(SWIPE_SHORTLIST_KEY)) || []; } catch (e) { return []; } }
+    function saveSwipeShortlist(arr){ try { localStorage.setItem(SWIPE_SHORTLIST_KEY, JSON.stringify(arr)); } catch (e) {} }
+
+    function importSwipeCandidates(){
+      const textarea = document.getElementById('swipeJsonImport');
+      const statusEl = document.getElementById('swipeImportStatus');
+      if (!textarea || !statusEl) return;
+      let parsed;
+      try { parsed = JSON.parse(textarea.value); }
+      catch (e) { statusEl.textContent = '❌ Eso no es JSON válido — revisa comillas y comas.'; return; }
+      if (!Array.isArray(parsed)) { statusEl.textContent = '❌ Tiene que ser un array de juegos, entre corchetes [ ].'; return; }
+
+      const clean = parsed.filter(g => g && g.name).map(g => ({
+        name: String(g.name),
+        summary: g.summary ? String(g.summary) : '',
+        difficulty: ['facil', 'media', 'dificil', 'muydificil'].includes(g.difficulty) ? g.difficulty : 'media',
+        emoji: g.emoji || '🎮',
+        steamUrl: g.steamUrl || ''
+      }));
+      if (!clean.length) { statusEl.textContent = '⚠️ No he encontrado ningún juego válido ahí (falta el campo "name").'; return; }
+
+      saveSwipeCandidates(clean);
+      saveSwipeIndex(0);
+      statusEl.textContent = `✅ Cargados ${clean.length} candidatos — a elegir.`;
+      textarea.value = '';
+      renderSwipeDeck();
+    }
+
+    function resetSwipeDeck(){
+      if (!confirm('¿Reiniciar el mazo? Esto no borra tu preselección de "me gusta", solo vuelve a empezar desde el primer candidato cargado.')) return;
+      saveSwipeIndex(0);
+      renderSwipeDeck();
+    }
+
+    function renderSwipeDeck(){
+      const stage = document.getElementById('swipeStage');
+      const controls = document.getElementById('swipeControls');
+      const counterEl = document.getElementById('swipeCounter');
+      if (!stage || !controls || !counterEl) return;
+
+      const candidates = loadSwipeCandidates();
+      const index = loadSwipeIndex();
+      const card = candidates[index];
+
+      if (!candidates.length) {
+        stage.innerHTML = `<p class="yt-empty">Pega tu JSON arriba para empezar a elegir.</p>`;
+        controls.hidden = true;
+        counterEl.textContent = '';
+      } else if (!card) {
+        stage.innerHTML = `<p class="yt-empty">✅ Ya has decidido sobre todos los candidatos cargados (${candidates.length}). Pega un JSON nuevo para seguir, o revisa tu preselección abajo.</p>`;
+        controls.hidden = true;
+        counterEl.textContent = '';
+      } else {
+        stage.innerHTML = `
+          <div class="swipe-card" id="activeSwipeCard">
+            <div class="swipe-badge-like" id="swipeBadgeLike">ME GUSTA</div>
+            <div class="swipe-badge-pass" id="swipeBadgePass">PASO</div>
+            <div class="swipe-card-emoji">${card.emoji}</div>
+            <h4>${escapeHTML(card.name)}</h4>
+            <span class="diff-chip diff-${card.difficulty}">${DIFF_LABELS[card.difficulty] || card.difficulty}</span>
+            ${card.summary ? `<p>${escapeHTML(card.summary)}</p>` : ''}
+          </div>`;
+        controls.hidden = false;
+        counterEl.textContent = `${index + 1} / ${candidates.length}`;
+        initSwipeDrag(document.getElementById('activeSwipeCard'));
+      }
+      renderSwipeShortlist();
+    }
+
+    // Arrastre real con el ratón/dedo (pointer events cubren ambos a la
+    // vez) — mueve y rota la tarjeta según el arrastre, y si supera el
+    // umbral al soltar, dispara la decisión; si no, vuelve al centro.
+    function initSwipeDrag(el){
+      if (!el) return;
+      let startX = 0, currentX = 0, dragging = false;
+      const likeBadge = document.getElementById('swipeBadgeLike');
+      const passBadge = document.getElementById('swipeBadgePass');
+
+      const onDown = (e) => {
+        dragging = true;
+        startX = e.clientX;
+        el.classList.add('swiping');
+        el.setPointerCapture && e.pointerId != null && el.setPointerCapture(e.pointerId);
+      };
+      const onMove = (e) => {
+        if (!dragging) return;
+        currentX = e.clientX - startX;
+        el.style.transform = `translateX(${currentX}px) rotate(${currentX / 15}deg)`;
+        if (likeBadge) likeBadge.style.opacity = Math.max(0, Math.min(1, currentX / 80));
+        if (passBadge) passBadge.style.opacity = Math.max(0, Math.min(1, -currentX / 80));
+      };
+      const onUp = () => {
+        if (!dragging) return;
+        dragging = false;
+        el.classList.remove('swiping');
+        if (currentX > 100) swipeDecision('like');
+        else if (currentX < -100) swipeDecision('pass');
+        else {
+          el.style.transform = '';
+          if (likeBadge) likeBadge.style.opacity = 0;
+          if (passBadge) passBadge.style.opacity = 0;
+        }
+        currentX = 0;
+      };
+
+      el.addEventListener('pointerdown', onDown);
+      el.addEventListener('pointermove', onMove);
+      el.addEventListener('pointerup', onUp);
+      el.addEventListener('pointercancel', onUp);
+    }
+
+    function swipeDecision(action){
+      const candidates = loadSwipeCandidates();
+      const index = loadSwipeIndex();
+      const card = candidates[index];
+      if (!card) return;
+
+      const el = document.getElementById('activeSwipeCard');
+      if (el) {
+        el.style.transition = 'transform .3s ease, opacity .3s ease';
+        el.style.transform = action === 'like' ? 'translateX(420px) rotate(20deg)' : 'translateX(-420px) rotate(-20deg)';
+        el.style.opacity = '0';
+      }
+      if (action === 'like') {
+        const shortlist = loadSwipeShortlist();
+        shortlist.push(card);
+        saveSwipeShortlist(shortlist);
+      }
+      saveSwipeIndex(index + 1);
+      setTimeout(renderSwipeDeck, 200);
+    }
+
+    function renderSwipeShortlist(){
+      const panel = document.getElementById('swipeShortlistPanel');
+      const listEl = document.getElementById('swipeShortlistList');
+      const countEl = document.getElementById('swipeShortlistCount');
+      if (!panel || !listEl || !countEl) return;
+      const shortlist = loadSwipeShortlist();
+      panel.hidden = shortlist.length === 0;
+      countEl.textContent = shortlist.length;
+      listEl.innerHTML = shortlist.map((g, i) => `
+        <div class="discarded-row">
+          <span>${g.emoji} ${escapeHTML(g.name)}</span>
+          <button type="button" class="idea-discard-btn" onclick="removeFromSwipeShortlist(${i})">✕ Quitar</button>
+        </div>`).join('');
+    }
+
+    function removeFromSwipeShortlist(i){
+      const shortlist = loadSwipeShortlist();
+      shortlist.splice(i, 1);
+      saveSwipeShortlist(shortlist);
+      renderSwipeShortlist();
+    }
+
+    function exportSwipeShortlist(){
+      const shortlist = loadSwipeShortlist();
+      if (!shortlist.length) { alert('Todavía no tienes ningún candidato en la preselección.'); return; }
+      const text = JSON.stringify(shortlist, null, 2);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          () => alert(`Preselección de ${shortlist.length} juego(s) copiada — pégamela en el chat para añadirlos a Retro 365.`),
+          () => alert(text)
+        );
+      } else {
+        alert(text);
+      }
+    }
+
     renderPublic();
-    renderSecret();
+    renderSecret(); // ya incluye renderSwipeDeck() al final
 
     // ──────────────────────────────────────────────────────────
     // BUSCADOR / FILTRO + "ÚLTIMOS SUBIDOS" (orden inverso: el

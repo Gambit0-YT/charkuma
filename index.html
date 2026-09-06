@@ -683,6 +683,32 @@
     /* Lista colapsable de descartados + casilla para ocultarlos */
     .discarded-panel{margin-top:14px}
     .discarded-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+
+    /* ── Mazo estilo Tinder para elegir candidatos de Retro 365 ── */
+    .swipe-deck-panel{margin-bottom:30px}
+    .swipe-stage{position:relative;height:300px;display:flex;align-items:center;justify-content:center;margin:20px 0}
+    .swipe-card{
+      position:absolute;width:min(300px,90%);padding:26px;border-radius:20px;background:var(--card);
+      border:1px solid var(--line);box-shadow:var(--shadow);text-align:center;cursor:grab;
+      user-select:none;touch-action:none;transition:transform .3s ease,opacity .3s ease
+    }
+    .swipe-card:active{cursor:grabbing}
+    .swipe-card.swiping{transition:none}
+    .swipe-card-emoji{font-size:56px;margin-bottom:10px}
+    .swipe-card h4{margin:0 0 10px;font-size:18px}
+    .swipe-card p{font-size:13px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+    .swipe-badge-like,.swipe-badge-pass{
+      position:absolute;top:16px;font-weight:900;font-size:18px;padding:6px 12px;border-radius:10px;
+      border:3px solid;opacity:0;pointer-events:none
+    }
+    .swipe-badge-like{left:16px;color:var(--green);border-color:var(--green);transform:rotate(-15deg)}
+    .swipe-badge-pass{right:16px;color:var(--red);border-color:var(--red);transform:rotate(15deg)}
+    .swipe-controls{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:6px}
+    .swipe-btn{width:56px;height:56px;border-radius:50%;border:1px solid var(--line);background:var(--panel);font-size:24px;cursor:pointer;display:grid;place-items:center;transition:.15s transform,.15s border-color}
+    .swipe-btn:hover{transform:scale(1.08)}
+    .swipe-btn.swipe-like:hover{border-color:var(--green)}
+    .swipe-btn.swipe-pass:hover{border-color:var(--red)}
+    .swipe-counter{font-size:12px;color:var(--muted);font-weight:700;min-width:60px;text-align:center}
     .discarded-row:last-child{border-bottom:none}
     .hide-discarded-label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:700;margin-top:12px;cursor:pointer}
     .hide-discarded-label input{cursor:pointer}
@@ -2003,6 +2029,47 @@
 
       <section class="detail-section">
         <div class="container">
+          <div class="swipe-deck-panel">
+            <h3 class="subheading">🔥 Elegir candidatos (estilo Tinder)</h3>
+            <p class="section-sub" style="margin-bottom:16px">
+              Desliza la tarjeta (o usa los botones): ❤️ para quedártelo como candidato a
+              futuro día, ✖️ para descartarlo. Lo que te quedes se guarda en tu
+              "preselección" — desde ahí decides luego qué día exacto le toca a cada uno.
+            </p>
+
+            <div class="json-import-panel">
+              <h4>📥 Cargar candidatos</h4>
+              <p>Pega aquí tu JSON: un array de juegos con <code>{"name","summary","difficulty","emoji","steamUrl"}</code> (difficulty: facil/media/dificil/muydificil).</p>
+              <textarea id="swipeJsonImport" rows="6" placeholder='[{"name":"...", "summary":"...", "difficulty":"media", "emoji":"🎮", "steamUrl":"..."}]'></textarea>
+              <div class="json-import-actions">
+                <button type="button" class="btn btn-primary" onclick="importSwipeCandidates()">➕ Cargar candidatos</button>
+                <button type="button" class="btn btn-secondary" onclick="resetSwipeDeck()">🔄 Reiniciar mazo</button>
+                <p id="swipeImportStatus" class="yt-empty" style="margin:0"></p>
+              </div>
+            </div>
+
+            <div class="swipe-stage" id="swipeStage">
+              <p class="yt-empty">Pega tu JSON arriba para empezar a elegir.</p>
+            </div>
+
+            <div class="swipe-controls" id="swipeControls" hidden>
+              <button type="button" class="swipe-btn swipe-pass" onclick="swipeDecision('pass')" title="Descartar">✖️</button>
+              <span class="swipe-counter" id="swipeCounter"></span>
+              <button type="button" class="swipe-btn swipe-like" onclick="swipeDecision('like')" title="Me gusta">❤️</button>
+            </div>
+
+            <details class="month discarded-panel" id="swipeShortlistPanel" style="margin-top:16px" hidden>
+              <summary>
+                <span>❤️ Preseleccionados</span>
+                <span class="count" id="swipeShortlistCount">0</span>
+              </summary>
+              <div class="month-body" id="swipeShortlistList"></div>
+              <div class="json-import-actions" style="padding:0 18px 16px">
+                <button type="button" class="btn btn-secondary" onclick="exportSwipeShortlist()">📋 Copiar preselección (JSON)</button>
+              </div>
+            </details>
+          </div>
+
           <div id="secretMonthsContainer"></div>
         </div>
       </section>
