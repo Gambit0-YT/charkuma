@@ -1,0 +1,2 @@
+# Nunca subir credenciales locales (tokens OAuth, etc.) al repo público.
+.secrets/
