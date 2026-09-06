@@ -268,6 +268,30 @@
         : `<p class="yt-empty">Todo al día — nada pendiente ahora mismo 🎉</p>`;
     }
 
+    // Doble clic en la campana (o el botón "📬 Abrir bandeja completa"
+    // del desplegable): página completa con la misma lista de avisos,
+    // en formato grande — de momento sigue siendo un cálculo en vivo,
+    // no un historial guardado (ver nota de memoria del proyecto).
+    function openNotifInbox(){
+      toggleNotifPanel(false);
+      showView('notif-inbox');
+    }
+    function renderNotifInbox(){
+      const list = document.getElementById('notifInboxList');
+      if (!list) return;
+      const notifs = buildNotifications();
+      list.innerHTML = notifs.length
+        ? notifs.map(n => `
+            <div class="geek-card"${n.view ? ` style="cursor:pointer" onclick="showView('${n.view}')"` : ''}>
+              <div class="geek-thumb">🔔</div>
+              <div class="geek-info">
+                <h4>${n.title}</h4>
+                ${n.detail ? `<p>${n.detail}</p>` : ''}
+              </div>
+            </div>`).join('')
+        : `<p class="yt-empty">Todo al día — nada pendiente ahora mismo 🎉</p>`;
+    }
+
     function toggleNotifPanel(force){
       const panel = document.getElementById('notifPanel');
       if (!panel) return;
@@ -465,6 +489,9 @@
       if (id === 'master-control' && typeof renderMasterControlList === 'function') {
         try { renderMasterControlList(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'notif-inbox' && typeof renderNotifInbox === 'function') {
+        try { renderNotifInbox(); } catch (e) { /* ver comentario arriba */ }
+      }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -555,6 +582,16 @@
       }
     }
 
+    // Enlace "Proyectos" de la cabecera: en vez de bajar a la cuadrícula
+    // estática del inicio, abre el Control Maestro ya filtrado a los
+    // proyectos "en curso" (aprobado + las 4 fases) — acceso rápido a
+    // todo lo que ahora mismo tiene trabajo activo encima.
+    function openInProgressProjects(){
+      showView('master-control');
+      const sel = document.getElementById('masterControlStatus');
+      if (sel) { sel.value = 'en-curso'; sel.dispatchEvent(new Event('change')); }
+    }
+
     function goHome(anchorId){
       showView('home', {resetScroll:false});
       requestAnimationFrame(() => {
@@ -628,49 +665,36 @@
     reveals.forEach(el => observer.observe(el));
 
     // ──────────────────────────────────────────────────────────
-    // Ruleta / Modo Random
+    // Ruleta / Modo Random: ya no es un generador de frases al azar con
+    // una tirada al día — ahora, cada vez que se tira (sin límite), lleva
+    // directo al proyecto EN CURSO más avanzado (el que esté en la fase
+    // más cercana a publicarse; si no hay ninguno en fase, al aprobado
+    // más antiguo esperando a empezar guion).
     // ──────────────────────────────────────────────────────────
-    const options = [
-      "🎮 Juega a un clásico que tengas pendiente.",
-      "🦸 Ponte una película o serie de superhéroes.",
-      "📺 Graba una idea para Rincón del Friki.",
-      "🧪 Empieza ese proyecto raro que llevas días pensando.",
-      "🎨 Diseña algo para CHARKUMA.",
-      "🕹️ Busca una joya retro que nunca hayas probado.",
-      "🤖 Haz un experimento creativo con IA.",
-      "🧶 Diseña un rug que jamás compraría una persona normal."
-    ];
-
     const wheel = document.getElementById('wheel');
     const result = document.getElementById('result');
     const spinBtn = document.getElementById('spinBtn');
     let rotation = 0;
 
-    // Solo una tirada al día por visitante (localStorage, por navegador).
-    const RANDOM_SPIN_KEY = 'charkuma_random_last_spin';
-
-    function todayKey(){
-      return new Date().toISOString().slice(0, 10); // AAAA-MM-DD
-    }
-
-    function checkDailySpinUsed(){
-      let saved = null;
-      try { saved = JSON.parse(localStorage.getItem(RANDOM_SPIN_KEY)); } catch (e) { /* ignorar */ }
-      if (saved && saved.date === todayKey()) {
-        spinBtn.disabled = true;
-        spinBtn.textContent = '✅ Ya has tirado hoy';
-        result.textContent = `${saved.pick}  —  Vuelve mañana para otra tirada.`;
-        return true;
+    // De más avanzado a menos avanzado: última fase primero, aprobado al
+    // final. Calculado DENTRO de la función (no aquí arriba) a propósito:
+    // CONTENT_STAGE_ORDER es un const declarado más abajo en el archivo —
+    // evaluarlo aquí, en la carga inicial del script, rompería toda la
+    // web con el mismo tipo de crash por TDZ que ya se arregló varias
+    // veces esta sesión. Dentro de la función es seguro porque solo se
+    // llama al pulsar el botón, con el script ya cargado del todo.
+    function findMostAdvancedProject(){
+      const spinPriorityOrder = [...CONTENT_STAGE_ORDER].reverse().concat('aprobado');
+      const all = buildMasterControlIndex().filter(i => i.kind === 'Proyecto' && i.view && !i.external);
+      for (const status of spinPriorityOrder) {
+        const matches = all.filter(i => i.status === status);
+        if (matches.length) {
+          matches.sort((a, b) => new Date(a.date || 0) - new Date(b.date || 0));
+          return matches[0];
+        }
       }
-      return false;
+      return null;
     }
-
-    function markDailySpinUsed(pick){
-      try { localStorage.setItem(RANDOM_SPIN_KEY, JSON.stringify({date: todayKey(), pick})); }
-      catch (e) { /* localStorage no disponible: no pasa nada, simplemente no se recordará */ }
-    }
-
-    checkDailySpinUsed();
 
     spinBtn.addEventListener('click', () => {
       spinBtn.disabled = true;
@@ -680,10 +704,14 @@
       playRouletteSound(2600);
 
       setTimeout(() => {
-        const pick = options[Math.floor(Math.random() * options.length)];
-        result.textContent = pick;
-        markDailySpinUsed(pick);
-        checkDailySpinUsed(); // bloquea el botón y cambia el texto ya con la tirada guardada
+        spinBtn.disabled = false;
+        const target = findMostAdvancedProject();
+        if (!target) {
+          result.textContent = "No tienes ningún proyecto en curso ahora mismo — aprueba alguna idea en el Control Maestro.";
+          return;
+        }
+        result.textContent = `➡️ ${target.title}`;
+        setTimeout(() => showView(target.view), 700);
       }, 2600);
     });
 
@@ -4151,7 +4179,9 @@
 
       let items = all.filter(i => {
         if (sectionFilter && i.section !== sectionFilter) return false;
-        if (statusFilter && i.status !== statusFilter) return false;
+        if (statusFilter === 'en-curso') {
+          if (!['aprobado', ...CONTENT_STAGE_ORDER].includes(i.status)) return false;
+        } else if (statusFilter && i.status !== statusFilter) return false;
         if (query && !i.title.toLowerCase().includes(query)) return false;
         return true;
       });

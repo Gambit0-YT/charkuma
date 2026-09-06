@@ -1005,7 +1005,7 @@
         <span>CHAR<strong>KUMA</strong></span>
       </a>
       <div class="nav-links">
-        <a href="javascript:void(0)" onclick="goHome('proyectos')">Proyectos</a>
+        <a href="javascript:void(0)" onclick="openInProgressProjects()">Proyectos</a>
         <a href="javascript:void(0)" onclick="showView('charkumalab')">Laboratorio</a>
         <a href="javascript:void(0)" onclick="showView('helquidgames')">Games</a>
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
@@ -1014,15 +1014,12 @@
       <div class="nav-tools">
         <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
         <div style="position:relative" id="notifWrap">
-          <button type="button" class="nav-icon-btn" id="navNotifBtn" onclick="toggleNotifPanel()" title="Notificaciones" aria-label="Ver notificaciones">🔔</button>
+          <button type="button" class="nav-icon-btn" id="navNotifBtn" onclick="toggleNotifPanel()" ondblclick="openNotifInbox()" title="Notificaciones (doble clic: abrir bandeja completa)" aria-label="Notificaciones">🔔</button>
           <span class="notif-dot" id="notifDot" hidden></span>
           <div class="notif-panel" id="notifPanel" hidden>
             <h4>🔔 Notificaciones</h4>
             <div id="notifList"></div>
-            <p class="yt-empty" style="margin-top:10px">
-              De momento es solo un resumen rápido — más adelante esto será una bandeja
-              de entrada propia con historial.
-            </p>
+            <button type="button" class="btn btn-secondary" style="margin-top:10px;width:100%;justify-content:center" onclick="openNotifInbox()">📬 Abrir bandeja completa</button>
           </div>
         </div>
         <button type="button" class="nav-icon-btn" id="navSidebarsBtn" onclick="toggleSidebarsVisibility()" title="Mostrar u ocultar las columnas laterales" aria-label="Mostrar u ocultar las columnas laterales">📌</button>
@@ -1273,6 +1270,28 @@
       </section>
     </div>
 
+    <!-- ══════════ BANDEJA DE NOTIFICACIONES (doble clic en 🔔) ══════════ -->
+    <div id="view-notif-inbox" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">🔔 NOTIFICACIONES</div>
+          <h2 class="section-title">📬 BANDEJA DE ENTRADA</h2>
+          <p class="section-sub">
+            Todos los avisos calculados ahora mismo a partir del estado real de la web
+            (contenido en proceso, aprobado esperando guion, estrenos próximos, Retro 365...).
+            De momento se recalcula cada vez que la abres — todavía no guarda historial de
+            avisos pasados ni marca cuáles ya has visto.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="notifInboxList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ MAPA MAESTRO DE PROYECTOS (easter egg 🗺️) ══════════ -->
     <div id="view-hub-secreto" class="app-view">
       <section class="page-head">
@@ -1362,6 +1381,7 @@
               </select>
               <select id="masterControlStatus">
                 <option value="">Todos los estados</option>
+                <option value="en-curso">🔥 En curso (aprobado + todas las fases)</option>
                 <option value="pendiente">⏳ Pendiente</option>
                 <option value="aprobado">✅ Aprobado</option>
                 <option value="creando-guion">✍️ Creando guion</option>
@@ -1475,7 +1495,7 @@
         <div class="container">
           <div class="section-kicker reveal">02 · MODO RANDOM</div>
           <h2 class="section-title reveal">¿QUÉ HACEMOS HOY?</h2>
-          <p class="section-sub reveal">Pulsa el botón y deja que CHARKUMA decida por ti.</p>
+          <p class="section-sub reveal">Pulsa el botón y te lleva directo al proyecto en curso más avanzado — sin límite de tiradas.</p>
 
           <div class="roulette">
             <div class="wheel-wrap reveal">
@@ -1483,8 +1503,8 @@
             </div>
 
             <div class="random-box reveal">
-              <h3>🎰 GENERADOR DE PLAN</h3>
-              <div id="result">Pulsa el botón. El caos se encargará del resto.</div>
+              <h3>🎰 A POR EL SIGUIENTE</h3>
+              <div id="result">Pulsa el botón para ir directo a lo que ya tienes más avanzado.</div>
               <button class="btn btn-primary" id="spinBtn">TIRAR DE LA PALANCA 🎲</button>
             </div>
           </div>
