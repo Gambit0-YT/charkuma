@@ -1267,7 +1267,7 @@
         date: "2026-08-19",
         summary: "Datos de rodaje y cómic que seguramente se te han pasado por alto.",
         thumbnail: "🕸️",
-        internalView: "rf-curiosidades-spiderman", reviewed: false
+        internalView: "rf-curiosidades-spiderman", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "La Saga del Multiverso: ¿de verdad ha merecido la pena?",
@@ -1276,7 +1276,7 @@
         date: "2026-08-24",
         summary: "Repaso honesto a lo que Marvel prometió con el multiverso y lo que realmente ha dado.",
         thumbnail: "🌀",
-        internalView: "rf-opinion-multiverso", reviewed: false
+        internalView: "rf-opinion-multiverso", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Fancast: ¿quién debería ser el próximo Wolverine?",
@@ -1285,7 +1285,7 @@
         date: "2026-08-29",
         summary: "Tres candidatos con argumentos a favor, y mi favorito personal razonado.",
         thumbnail: "🐾",
-        internalView: "rf-fancast-wolverine", reviewed: false
+        internalView: "rf-fancast-wolverine", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "The Boys vs Marvel: por qué esta serie me ha enganchado más",
@@ -1294,7 +1294,7 @@
         date: "2026-09-01",
         summary: "Por qué, pese a lo dura que es, The Boys me está gustando más que el rumbo actual de Marvel.",
         thumbnail: "🩸",
-        internalView: "rf-boys-vs-marvel", reviewed: false
+        internalView: "rf-boys-vs-marvel", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Lo que no sabías sobre Homelander",
@@ -1303,7 +1303,7 @@
         date: "2026-09-04",
         summary: "Inspiración real y detalles de guion detrás del villano más inquietante de la serie.",
         thumbnail: "🦸",
-        internalView: "rf-curiosidades-homelander", reviewed: false
+        internalView: "rf-curiosidades-homelander", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Homelander vs Thanos: ¿quién ganaría?",
@@ -1407,12 +1407,23 @@
       try { localStorage.setItem(CONTENT_STAGE_KEY, JSON.stringify(map)); }
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
     }
+    // La fase puede venir de dos sitios: una base fija en el propio
+    // código (item.stage, para cuando Claude avanza un guion durante el
+    // loop y quiere que se vea igual en cualquier dispositivo) o una
+    // marca manual en este navegador (localStorage, para cuando tú la
+    // cambias a mano) — el localStorage manda si existe. 'none' es un
+    // valor explícito ("he retrocedido por debajo de la base del
+    // código"), distinto de "no hay nada guardado" (ausente del mapa).
     function getContentStage(id){
-      return loadContentStageMap()[id] || null;
+      const stored = loadContentStageMap()[id];
+      if (stored === 'none') return null;
+      if (stored) return stored;
+      const item = findContentItemByView(id);
+      return (item && item.stage) || null;
     }
     function setContentStage(id, stage){
       const map = loadContentStageMap();
-      if (stage) map[id] = stage; else delete map[id];
+      map[id] = stage || 'none';
       saveContentStageMap(map);
     }
     // "En proceso" (en sentido amplio) = está en cualquiera de las 4 fases.
