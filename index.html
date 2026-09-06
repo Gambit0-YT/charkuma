@@ -3702,6 +3702,34 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     </div>
   </footer>
 
+  <!-- Firebase (Firestore): backend real para que las notas rápidas
+       sincronicen entre dispositivos/navegadores, en vez de vivir solo
+       en localStorage. Configurado el 2026-09-06. Este bloque va ANTES
+       que app.js a propósito — deja listo window.firestoreDB y
+       window.firestoreFns para que app.js (script clásico, no módulo)
+       pueda usarlos. firebaseConfig es seguro de tener aquí, a la vista
+       — no es un secreto, la protección real está en las reglas de
+       Firestore, no en ocultar esto. -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+    import {
+      getFirestore, collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC4Yu3eo1wWxXmtAk9Ho9ygH0IO6FGJCec",
+      authDomain: "webcharkuma.firebaseapp.com",
+      projectId: "webcharkuma",
+      storageBucket: "webcharkuma.firebasestorage.app",
+      messagingSenderId: "901622762563",
+      appId: "1:901622762563:web:0de2793946f845ec22d8f6"
+    };
+
+    const firebaseApp = initializeApp(firebaseConfig);
+    window.firestoreDB = getFirestore(firebaseApp);
+    window.firestoreFns = { collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy };
+  </script>
+
   <script src="app.js" defer></script>
 </body>
 </html>

@@ -4583,20 +4583,17 @@
     })();
 
     // ──────────────────────────────────────────────────────────
-    // BLOC DE NOTAS — se guarda en este navegador (localStorage).
-    // No se sincroniza entre dispositivos ni navegadores distintos.
+    // BLOC DE NOTAS — ahora en Firebase Firestore (desde 2026-09-06),
+    // ya no en localStorage: sincroniza sola entre dispositivos y
+    // navegadores en tiempo real (onSnapshot). window.firestoreDB y
+    // window.firestoreFns los prepara el <script type="module"> de
+    // index.html, cargado ANTES que este archivo — si por lo que sea no
+    // están listos (red, bloqueador...), todo cae en un aviso claro en
+    // vez de romper la web.
     // ──────────────────────────────────────────────────────────
-    const NOTES_KEY = 'charkuma_notes';
-
-    function loadNotes(){
-      try { return JSON.parse(localStorage.getItem(NOTES_KEY)) || []; }
-      catch (e) { return []; }
-    }
-
-    function saveNotes(notes){
-      try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); }
-      catch (e) { /* localStorage no disponible (modo privado, etc.) */ }
-    }
+    const OLD_NOTES_KEY = 'charkuma_notes'; // legado, solo para la migración de una vez
+    const NOTES_MIGRATED_KEY = 'charkuma_notes_migrated_to_firestore';
+    let notesUnsubscribe = null;
 
     function escapeHTML(str){
       const div = document.createElement('div');
@@ -4604,45 +4601,90 @@
       return div.innerHTML;
     }
 
-    function renderNotes(){
-      const notes = loadNotes();
+    function firestoreReady(){
+      return !!(window.firestoreDB && window.firestoreFns);
+    }
+    function showNotesConnectionError(){
       const list = document.getElementById('notesList');
+      if (list) list.innerHTML = `<p class="yt-empty">No se ha podido conectar con el servidor de notas ahora mismo (revisa tu conexión o algún bloqueador). Tus notas siguen a salvo en Firebase, solo no se han podido cargar aquí.</p>`;
+    }
+
+    function renderNotes(notes){
+      const list = document.getElementById('notesList');
+      if (!list) return;
       list.innerHTML = notes.length
         ? notes.slice().reverse().map(note => `
             <div class="note-item">
               <button class="note-delete" onclick="deleteNote('${note.id}')" title="Borrar nota">✕</button>
               <p>${escapeHTML(note.text)}</p>
-              <span>${note.date}</span>
+              <span>${escapeHTML(note.dateLabel || '')}</span>
             </div>`).join('')
         : `<p class="yt-empty">Todavía no tienes notas. Escribe la primera arriba 👆</p>`;
     }
 
-    function addNote(){
+    // Migración de una sola vez: si había notas antiguas en localStorage
+    // (de antes de tener Firestore), se suben una vez y se marca hecho.
+    async function migrateOldLocalNotesOnce(){
+      try {
+        if (localStorage.getItem(NOTES_MIGRATED_KEY)) return;
+        const old = JSON.parse(localStorage.getItem(OLD_NOTES_KEY) || '[]');
+        if (Array.isArray(old) && old.length && firestoreReady()) {
+          const { collection, addDoc } = window.firestoreFns;
+          for (const note of old) {
+            if (note && note.text) {
+              await addDoc(collection(window.firestoreDB, 'notes'), {
+                text: note.text, dateLabel: note.date || '', createdAt: Date.now()
+              });
+            }
+          }
+        }
+        localStorage.setItem(NOTES_MIGRATED_KEY, '1');
+      } catch (e) { /* si falla, las notas antiguas siguen intactas en localStorage, no se pierde nada */ }
+    }
+
+    async function initNotesRealtime(){
+      if (!firestoreReady()) { showNotesConnectionError(); return; }
+      await migrateOldLocalNotesOnce();
+      const { collection, query, orderBy, onSnapshot } = window.firestoreFns;
+      const notesQuery = query(collection(window.firestoreDB, 'notes'), orderBy('createdAt', 'asc'));
+      if (notesUnsubscribe) notesUnsubscribe();
+      notesUnsubscribe = onSnapshot(notesQuery,
+        (snapshot) => renderNotes(snapshot.docs.map(d => Object.assign({id: d.id}, d.data()))),
+        () => showNotesConnectionError()
+      );
+    }
+
+    async function addNote(){
       const input = document.getElementById('noteInput');
       const text = input.value.trim();
       if (!text) return;
-      const notes = loadNotes();
-      notes.push({
-        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      if (!firestoreReady()) { alert('No hay conexión con el servidor de notas ahora mismo.'); return; }
+      const { collection, addDoc } = window.firestoreFns;
+      await addDoc(collection(window.firestoreDB, 'notes'), {
         text,
-        date: new Date().toLocaleString('es-ES', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'})
+        dateLabel: new Date().toLocaleString('es-ES', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}),
+        createdAt: Date.now()
       });
-      saveNotes(notes);
       input.value = '';
-      renderNotes();
+      // No hace falta repintar a mano: onSnapshot se entera solo en
+      // cuanto Firestore confirma el cambio (y en cualquier otro
+      // dispositivo abierto a la vez, también).
     }
 
-    function deleteNote(id){
-      saveNotes(loadNotes().filter(n => n.id !== id));
-      renderNotes();
+    async function deleteNote(id){
+      if (!firestoreReady()) return;
+      const { doc, deleteDoc } = window.firestoreFns;
+      await deleteDoc(doc(window.firestoreDB, 'notes', id));
     }
 
-    // Copia de seguridad manual: el bloc de notas solo vive en localStorage
-    // de este navegador (nunca se sincroniza entre dispositivos ni
-    // sobrevive si el navegador borra los datos del sitio al cerrarse) —
-    // exportar/importar da una red de seguridad real ante eso.
-    function exportNotes(){
-      const notes = loadNotes();
+    // Exportar/importar sigue teniendo sentido como copia de seguridad
+    // manual (por si algún día se quiere mover a otro proyecto de
+    // Firebase, o simplemente tener un respaldo local aparte).
+    async function exportNotes(){
+      if (!firestoreReady()) { alert('No hay conexión con el servidor de notas ahora mismo.'); return; }
+      const { collection, getDocs } = window.firestoreFns;
+      const snapshot = await getDocs(collection(window.firestoreDB, 'notes'));
+      const notes = snapshot.docs.map(d => d.data());
       const blob = new Blob([JSON.stringify(notes, null, 2)], {type:'application/json'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -4654,21 +4696,29 @@
       URL.revokeObjectURL(url);
     }
 
-    function importNotesFile(file){
+    async function importNotesFile(file){
       if (!file) return;
+      if (!firestoreReady()) { alert('No hay conexión con el servidor de notas ahora mismo.'); return; }
       const reader = new FileReader();
-      reader.onload = () => {
+      reader.onload = async () => {
         let imported;
         try { imported = JSON.parse(reader.result); }
         catch (e) { alert('Ese archivo no es un JSON válido.'); return; }
         if (!Array.isArray(imported)) { alert('Ese archivo no tiene el formato esperado de una exportación de notas.'); return; }
 
-        const existing = loadNotes();
-        const existingIds = new Set(existing.map(n => n.id));
-        const newOnes = imported.filter(n => n && typeof n.text === 'string' && n.id && !existingIds.has(n.id));
-        saveNotes(existing.concat(newOnes));
-        renderNotes();
-        alert(`Importadas ${newOnes.length} nota${newOnes.length === 1 ? '' : 's'} nueva${newOnes.length === 1 ? '' : 's'} (las que ya tenías no se han duplicado).`);
+        const { collection, addDoc, getDocs } = window.firestoreFns;
+        const existingSnap = await getDocs(collection(window.firestoreDB, 'notes'));
+        const existingTexts = new Set(existingSnap.docs.map(d => d.data().text));
+        let added = 0;
+        for (const n of imported) {
+          if (n && typeof n.text === 'string' && !existingTexts.has(n.text)) {
+            await addDoc(collection(window.firestoreDB, 'notes'), {
+              text: n.text, dateLabel: n.date || n.dateLabel || '', createdAt: Date.now()
+            });
+            added++;
+          }
+        }
+        alert(`Importadas ${added} nota${added === 1 ? '' : 's'} nueva${added === 1 ? '' : 's'} (las que ya tenías no se han duplicado).`);
       };
       reader.readAsText(file);
     }
@@ -4801,7 +4851,7 @@
       if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) addNote();
     });
 
-    renderNotes();
+    initNotesRealtime();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
