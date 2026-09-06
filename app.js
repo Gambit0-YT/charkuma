@@ -1306,7 +1306,8 @@
         summary: g.summary ? String(g.summary) : '',
         difficulty: ['facil', 'media', 'dificil', 'muydificil'].includes(g.difficulty) ? g.difficulty : 'media',
         emoji: g.emoji || '🎮',
-        steamUrl: g.steamUrl || ''
+        steamUrl: g.steamUrl || '',
+        videoUrl: g.videoUrl || ''
       }));
       if (!clean.length) { statusEl.textContent = '⚠️ No he encontrado ningún juego válido ahí (falta el campo "name").'; return; }
 
@@ -1342,6 +1343,14 @@
         controls.hidden = true;
         counterEl.textContent = '';
       } else {
+        // Si el candidato ya trae su propio videoUrl (gameplay real, tráiler...)
+        // lo usamos tal cual; si no, generamos un enlace de búsqueda en YouTube
+        // — nunca nos inventamos un vídeo concreto que no sabemos si existe.
+        const hasRealVideo = !!card.videoUrl;
+        const videoUrl = hasRealVideo
+          ? card.videoUrl
+          : `https://www.youtube.com/results?search_query=${encodeURIComponent(card.name + ' gameplay')}`;
+        const videoLabel = hasRealVideo ? '▶️ Ver gameplay' : '🔍 Buscar gameplay en YouTube';
         stage.innerHTML = `
           <div class="swipe-card" id="activeSwipeCard">
             <div class="swipe-badge-like" id="swipeBadgeLike">ME GUSTA</div>
@@ -1350,6 +1359,8 @@
             <h4>${escapeHTML(card.name)}</h4>
             <span class="diff-chip diff-${card.difficulty}">${DIFF_LABELS[card.difficulty] || card.difficulty}</span>
             ${card.summary ? `<p>${escapeHTML(card.summary)}</p>` : ''}
+            <a class="swipe-video-link" href="${videoUrl}" target="_blank" rel="noopener"
+               onpointerdown="event.stopPropagation()" onclick="event.stopPropagation()">${videoLabel}</a>
           </div>`;
         controls.hidden = false;
         counterEl.textContent = `${index + 1} / ${candidates.length}`;

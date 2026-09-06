@@ -697,6 +697,13 @@
     .swipe-card-emoji{font-size:56px;margin-bottom:10px}
     .swipe-card h4{margin:0 0 10px;font-size:18px}
     .swipe-card p{font-size:13px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+    .swipe-video-link{
+      display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+      font-size:12.5px;font-weight:700;text-decoration:none;
+      color:#fff;background:#ff3b30;padding:7px 14px;border-radius:999px;
+      transition:.15s transform,.15s filter;cursor:pointer;
+    }
+    .swipe-video-link:hover{filter:brightness(1.08);transform:scale(1.03)}
     .swipe-badge-like,.swipe-badge-pass{
       position:absolute;top:16px;font-weight:900;font-size:18px;padding:6px 12px;border-radius:10px;
       border:3px solid;opacity:0;pointer-events:none
@@ -2039,8 +2046,8 @@
 
             <div class="json-import-panel">
               <h4>📥 Cargar candidatos</h4>
-              <p>Pega aquí tu JSON: un array de juegos con <code>{"name","summary","difficulty","emoji","steamUrl"}</code> (difficulty: facil/media/dificil/muydificil).</p>
-              <textarea id="swipeJsonImport" rows="6" placeholder='[{"name":"...", "summary":"...", "difficulty":"media", "emoji":"🎮", "steamUrl":"..."}]'></textarea>
+              <p>Pega aquí tu JSON: un array de juegos con <code>{"name","summary","difficulty","emoji","steamUrl","videoUrl"}</code> (difficulty: facil/media/dificil/muydificil). <code>videoUrl</code> es opcional — si no lo pones, cada tarjeta te enlaza directamente a una búsqueda de gameplay en YouTube.</p>
+              <textarea id="swipeJsonImport" rows="6" placeholder='[{"name":"...", "summary":"...", "difficulty":"media", "emoji":"🎮", "steamUrl":"...", "videoUrl":"..."}]'></textarea>
               <div class="json-import-actions">
                 <button type="button" class="btn btn-primary" onclick="importSwipeCandidates()">➕ Cargar candidatos</button>
                 <button type="button" class="btn btn-secondary" onclick="resetSwipeDeck()">🔄 Reiniciar mazo</button>
