@@ -818,14 +818,64 @@
         summary: "Roguelike de mazmorras del inframundo: ritmo endiablado y una historia que se cuenta muriendo una y otra vez.",
         difficulty: "dificil",
         emoji: "🔥",
-        steamUrl: "https://store.steampowered.com/app/1145360/Hades/"
+        steamUrl: "https://store.steampowered.com/app/1145360/Hades/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 4 de Retro 365, y hoy toca morir. Mucho. En Hades, morir no es perder — es parte de la historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay directo de una muerte rápida al principio. <strong>🎬 Producción:</strong> SFX golpe/muerte del juego · corte duro · BGM: sting corto, entra en silencio</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike de mazmorras del inframundo, ritmo endiablado, y una historia que avanza cada vez que la palmas — hoy os cuento por qué engancha tanto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 004 · HADES" con la barra de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, ritmo alto</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Zagreus, hijo de Hades, intentando escapar del inframundo una y otra vez — y cada intento, aunque falles, deja huella en la historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el hub central y un diálogo con un personaje. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada sala es un combate distinto, cada arma cambia por completo cómo juegas, y las bendiciones de los dioses hacen que ninguna run se sienta igual a la anterior."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado — distintas armas, distintas bendiciones en acción. <strong>🎬 Producción:</strong> SFX de combate real del juego · corte seco entre salas · BGM: mismo loop, sube en los combates</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí es donde toca vivirlo en directo: ¿cuántos intentos me lleva pasar de esta zona hoy?"</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla (gráfico simple, tipo "intento nº"). <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tal se te da el juego en directo, o qué build/arma te está gustando más hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Se me sigue resistiendo bastante — pero cada muerte me deja con ganas de un intento más, que es justo lo que hace tan bueno a este juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Difícil de verdad, pero de esos juegos donde perder también es avanzar — Retro 365 lo tenía pendiente, y ya tocaba."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap rápido de highlights del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya lo has jugado? Dime en comentarios cuántos intentos te llevó tu primera escapada de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       },
       5: {
         name: "Unpacking",
         summary: "Desempaquetas cajas de mudanza y, sin una sola palabra, cuentas una vida entera.",
         difficulty: "facil",
         emoji: "📦",
-        steamUrl: "https://store.steampowered.com/app/1135690/Unpacking/"
+        steamUrl: "https://store.steampowered.com/app/1135690/Unpacking/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 5 de Retro 365, y hoy no hay combates, ni disparos, ni prisa — solo cajas de mudanza. Y aun así, es de lo más emotivo que he jugado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay tranquilo sacando un objeto de una caja. <strong>🎬 Producción:</strong> SFX de desempaquetar (sonido suave de cartón) · corte suave · BGM: sting calmado</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego donde desempaquetas cajas de mudanza y, sin una sola palabra de diálogo, acabas contando una vida entera."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 005 · UNPACKING" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh suave · BGM: entra loop relajado</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nivel es una mudanza distinta, en un momento distinto de la vida de la protagonista — y tú decides dónde va cada objeto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando una habitación vacía llenándose poco a poco. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "No hay texto, no hay voces — la historia se cuenta solo con qué objetos aparecen, cómo cambian de mudanza en mudanza, y qué te dejan intuir sobre su vida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay señalando objetos "con historia" (fotos, diplomas, objetos que desaparecen entre niveles). <strong>🎬 Producción:</strong> SFX suave al colocar cada objeto significativo · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí viene lo curioso de jugarlo en directo: intentar adivinar en voz alta qué está pasando en su vida solo por las cajas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando mientras se especula sobre la historia. <strong>🎬 Producción:</strong> sin SFX · BGM: baja un poco para dar protagonismo a la voz</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué momento o mudanza del juego te ha tocado más a nivel personal?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Hay una mudanza en concreto donde ciertos objetos ya no aparecen, y sin que nadie diga nada, entiendes perfectamente lo que ha pasado — ese es el mejor logro del juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Fácil de jugar, pero no fácil de olvidar — el contraste perfecto después de un día tan intenso como el de Hades."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de las mudanzas jugadas. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "Si ya lo has jugado, cuéntame en comentarios qué crees que le pasó a la protagonista — sin spoilers para quien no lo haya probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
       // 6: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
@@ -1141,6 +1191,7 @@
       if (planned) {
         const id = `day-${day}`;
         const s = (plannedBankState && plannedBankState[id]) || {};
+        const statusBadge = planned.script ? '✍️ CREANDO GUION' : '📝 DECIDIDO (sin grabar)';
         return {
           html: `
           <div class="day-card planned${s.discarded ? ' is-discarded' : ''}">
@@ -1148,12 +1199,17 @@
               onclick="toggleIdeaDone('${RETRO_PLANNED_BANK}','${id}')"
               title="${s.done ? 'Quitar confirmación' : 'Confirmar que sigues queriendo este juego para este día'}">${s.done ? '✅' : (planned.emoji || "📝")}</button>
             <div class="day-info">
-              <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 📝 DECIDIDO (sin grabar)</div>
+              <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ${statusBadge}</div>
               <h4><a href="${planned.steamUrl}" target="_blank" rel="noopener">${planned.name} ↗</a></h4>
               <p>${planned.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${planned.difficulty}">${DIFF_LABELS[planned.difficulty] || planned.difficulty}</span>
               </div>
+              ${planned.script ? `
+                <details class="month" style="margin-top:12px">
+                  <summary><span>✍️ Guion</span><span class="count">ver</span></summary>
+                  <div class="month-body">${planned.script}</div>
+                </details>` : ''}
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${RETRO_PLANNED_BANK}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`,
