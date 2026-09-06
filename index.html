@@ -1070,7 +1070,7 @@
         <span>CHAR<strong>KUMA</strong></span>
       </a>
       <div class="nav-links">
-        <a href="javascript:void(0)" onclick="openInProgressProjects()">Proyectos</a>
+        <a href="javascript:void(0)" onclick="showView('mis-proyectos')">Proyectos</a>
         <a href="javascript:void(0)" onclick="showView('charkumalab')">Laboratorio</a>
         <a href="javascript:void(0)" onclick="showView('helquidgames')">Games</a>
         <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
@@ -1568,7 +1568,7 @@
               y todas esas ideas que aparecen cuando debería estar durmiendo.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#proyectos">🚀 Ver mis proyectos</a>
+              <a class="btn btn-primary" href="javascript:void(0)" onclick="showView('mis-proyectos')">🚀 Ver mis proyectos</a>
               <a class="btn btn-secondary" href="javascript:void(0)" onclick="showView('charkumalab')">🎲 Sorpréndeme</a>
             </div>
           </div>
@@ -1582,45 +1582,6 @@
               <p>Gaming · Geek · Creatividad · Tecnología</p>
             </div>
             <div class="tag tag-b">🧪 IDEAS EN PROCESO</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="proyectos">
-        <div class="container">
-          <div class="section-kicker reveal">01 · UNIVERSO CHARKUMA</div>
-          <h2 class="section-title reveal">MIS PROYECTOS</h2>
-          <p class="section-sub reveal">
-            Algunas ideas se quedan en una libreta. Estas consiguieron escapar.
-          </p>
-
-          <div class="projects" id="projectsGrid">
-            <a class="project orange reveal" data-project="retro365" href="javascript:void(0)" onclick="showView('retro365')">
-              <div class="num">PROYECTO 001</div>
-              <div class="open">↗</div>
-              <h3>🎮 RETRO 365</h3>
-              <p>Un viaje continuo por videojuegos, clásicos, joyas ocultas y nostalgia.</p>
-            </a>
-
-            <a class="project reveal" data-project="rincon" href="javascript:void(0)" onclick="showView('rincon')">
-              <div class="num">PROYECTO 002</div>
-              <div class="open">↗</div>
-              <h3>🦸 RINCÓN DEL FRIKI</h3>
-              <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
-            </a>
-
-            <a class="project orange reveal" data-project="charkumalab" href="javascript:void(0)" onclick="showView('charkumalab')">
-              <div class="num">PROYECTO 003</div>
-              <div class="open">↗</div>
-              <h3>🧪 CHARKUMA LAB</h3>
-              <p>Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.</p>
-            </a>
-
-            <div class="project reveal project-soon" data-project="proximamente">
-              <div class="num">PROYECTO 004</div>
-              <h3>🔒 PRÓXIMAMENTE</h3>
-              <p>Todavía en el horno — vuelve más adelante para ver de qué va.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -1795,6 +1756,53 @@
                     las 18 ideas que estaban aprobadas ya tienen guion.</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ MIS PROYECTOS (antes vivía dentro del inicio; ahora es su ══════════ -->
+    <!-- ══════════ propia vista, se llega desde "Proyectos" en la cabecera) ══════════ -->
+    <div id="view-mis-proyectos" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">01 · UNIVERSO CHARKUMA</div>
+          <h2 class="section-title">🚀 MIS PROYECTOS</h2>
+          <p class="section-sub">
+            Algunas ideas se quedan en una libreta. Estas consiguieron escapar.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="projects" id="projectsGrid">
+            <a class="project orange" data-project="retro365" href="javascript:void(0)" onclick="showView('retro365')">
+              <div class="num">PROYECTO 001</div>
+              <div class="open">↗</div>
+              <h3>🎮 RETRO 365</h3>
+              <p>Un viaje continuo por videojuegos, clásicos, joyas ocultas y nostalgia.</p>
+            </a>
+
+            <a class="project" data-project="rincon" href="javascript:void(0)" onclick="showView('rincon')">
+              <div class="num">PROYECTO 002</div>
+              <div class="open">↗</div>
+              <h3>🦸 RINCÓN DEL FRIKI</h3>
+              <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
+            </a>
+
+            <a class="project orange" data-project="charkumalab" href="javascript:void(0)" onclick="showView('charkumalab')">
+              <div class="num">PROYECTO 003</div>
+              <div class="open">↗</div>
+              <h3>🧪 CHARKUMA LAB</h3>
+              <p>Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.</p>
+            </a>
+
+            <div class="project project-soon" data-project="proximamente">
+              <div class="num">PROYECTO 004</div>
+              <h3>🔒 PRÓXIMAMENTE</h3>
+              <p>Todavía en el horno — vuelve más adelante para ver de qué va.</p>
             </div>
           </div>
         </div>

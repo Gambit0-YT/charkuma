@@ -4304,7 +4304,7 @@
         .filter(i => !i.reviewed && !i.discarded && i.view && !i.external)
         .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
         .slice(0, 10);
-      if (!pending.length) { goHome('proyectos'); return; }
+      if (!pending.length) { showView('mis-proyectos'); return; }
       const pick = pending[Math.floor(Math.random() * pending.length)];
       showView(pick.view);
     }
