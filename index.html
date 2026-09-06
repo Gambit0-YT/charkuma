@@ -551,6 +551,14 @@
     .month > summary::after{content:"▾";color:var(--muted);font-size:14px;transition:.25s transform}
     .month[open] > summary::after{transform:rotate(180deg)}
     .month-body{padding:6px 18px 20px;display:grid;grid-template-columns:1fr;gap:12px}
+
+    /* ── Bloques de producción dentro de un guion (visual/SFX/BGM/transición) — */
+    /* siempre debajo de la línea de narración, visualmente más discretos.  */
+    .script-prod{
+      margin:-2px 0 14px;padding:8px 12px;border-radius:10px;background:var(--panel);
+      border:1px dashed var(--line3);font-size:12px;color:var(--muted);line-height:1.6
+    }
+    .script-prod strong{color:var(--text)}
     .log-entry{padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
     .log-entry strong{display:block;color:var(--accent-text);font-size:13px;margin-bottom:6px}
     .log-entry p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
@@ -2406,11 +2414,14 @@
             <div class="month-body">
               <div class="panel">
                 <h4>🪝 Hook (0-10s)</h4>
-                <p>"El traje de Spider-Man tiene un secreto que ni los fans más frikis suelen saber: el lanzatelarañas no es un poder. Es un invento de un adolescente de instituto."</p>
+                <p><strong>🎙️ Off:</strong> "El traje de Spider-Man tiene un secreto que ni los fans más frikis suelen saber: el lanzatelarañas no es un poder. Es un invento de un adolescente de instituto."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> primer plano del traje/figura, corte rápido a la cara sorprendida a cámara. <strong>🎬 Producción:</strong> SFX golpe seco al decir "no es un poder" · corte duro (jump cut), sin fundido · BGM: sting corto de intriga, entra en silencio</p>
                 <h4>🎯 Promesa</h4>
-                <p>5 datos reales de cómic y rodaje sobre el traje más icónico del género — algunos cambian completamente cómo ves ciertas escenas.</p>
+                <p><strong>🎙️ Off:</strong> "5 datos reales de cómic y rodaje sobre el traje más icónico del género — algunos cambian completamente cómo ves ciertas escenas."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> texto en pantalla "5 DATOS" con contador animado. <strong>🎬 Producción:</strong> SFX whoosh al aparecer el texto · transición: barrido lateral · BGM: entra loop suave de fondo, bajo volumen</p>
                 <h4>📍 Contexto</h4>
-                <p>Situar rápido: Peter Parker, adolescente normal, se convierte en el único superhéroe cuyo traje esconde tanta ingeniería e historia editorial como el propio personaje.</p>
+                <p><strong>🎙️ Off:</strong> "Situar rápido: Peter Parker, adolescente normal, se convierte en el único superhéroe cuyo traje esconde tanta ingeniería e historia editorial como el propio personaje."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> clip/imagen de Peter Parker de fondo, cámara al presentador en pequeño (picture-in-picture). <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: mismo loop de fondo, continúa</p>
                 <h4>🎬 Desarrollo</h4>
                 <ol class="ia-steps">
                   <li>Los lanzatelarañas: invento propio de Peter en los cómics originales, no un poder biológico.</li>
@@ -2419,14 +2430,19 @@
                   <li>Las lentes blancas se estrechan o agrandan según la expresión — puro lenguaje visual sin mostrar la cara de Peter.</li>
                   <li>El traje negro simbionte nació como diseño externo comprado por Marvel — antes de convertirse en el origen de Venom.</li>
                 </ol>
+                <p class="script-prod"><strong>🎥 Visual (por cada punto):</strong> imagen/clip del cómic o película correspondiente a pantalla completa, texto destacando el dato clave. <strong>🎬 Producción:</strong> SFX "pop" al entrar cada dato · transición: corte seco entre puntos, zoom-in sutil al texto clave · BGM: mismo loop, sube un poco de volumen en el dato 5 (el más fuerte)</p>
                 <h4>🔀 Giro / dato que más sorprende</h4>
-                <p>El más fuerte para cerrar remate es el del simbionte: nadie espera que el origen de Venom empezara como un diseño de traje ajeno a Marvel.</p>
+                <p><strong>🎙️ Off:</strong> "El más fuerte para cerrar remate es el del simbionte: nadie espera que el origen de Venom empezara como un diseño de traje ajeno a Marvel."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> comparativa traje simbionte / Venom lado a lado. <strong>🎬 Producción:</strong> SFX sting dramático · zoom rápido a cámara · BGM: breve silencio o caída antes del sting, luego vuelve el loop</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de estos 5 datos te sorprendió más a ti la primera vez, o cuál usarías para "ganar" una conversación de frikis?]</p>
+                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿cuál de estos 5 datos te sorprendió más a ti la primera vez, o cuál usarías para "ganar" una conversación de frikis?]</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano más cercano/personal (sin B-roll, foco en la reacción real). <strong>🎬 Producción:</strong> sin SFX · sin transición brusca, corte simple · BGM: baja de volumen para dar protagonismo a la voz</p>
                 <h4>🏁 Conclusión</h4>
-                <p>Un traje que ha cambiado de material, de época y de dueño del diseño — pero que sigue siendo reconocible al instante. Ese es el verdadero logro.</p>
+                <p><strong>🎙️ Off:</strong> "Un traje que ha cambiado de material, de época y de dueño del diseño — pero que sigue siendo reconocible al instante. Ese es el verdadero logro."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> montaje rápido (recap) de los 5 traje/imagen usados antes. <strong>🎬 Producción:</strong> SFX de cierre suave · transición: fundido cruzado entre los recaps · BGM: sube ligeramente, tono de cierre</p>
                 <h4>📣 CTA</h4>
-                <p>"¿Cuál de estos 5 no sabías? Dímelo en comentarios — y si te ha gustado, en Rincón del Friki hay más curiosidades como esta."</p>
+                <p><strong>🎙️ Off:</strong> "¿Cuál de estos 5 no sabías? Dímelo en comentarios — y si te ha gustado, en Rincón del Friki hay más curiosidades como esta."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> animación de "comentar" + tarjeta de vídeo relacionado en pantalla. <strong>🎬 Producción:</strong> SFX stinger final de marca · BGM: sube a volumen normal para el outro, corte a negro/logo</p>
               </div>
             </div>
           </details>
@@ -2464,23 +2480,33 @@
             <div class="month-body">
               <div class="panel">
                 <h4>🪝 Hook (0-10s)</h4>
-                <p>"El multiverso iba a ser lo más grande que ha hecho Marvel. Y puede que también sea lo que más daño le ha hecho."</p>
+                <p><strong>🎙️ Off:</strong> "El multiverso iba a ser lo más grande que ha hecho Marvel. Y puede que también sea lo que más daño le ha hecho."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> montaje rápido de portales/variantes de distintas pelis, corte a cámara. <strong>🎬 Producción:</strong> SFX efecto "glitch" de portal · corte duro · BGM: sting de intriga, entra en silencio</p>
                 <h4>🎯 Promesa</h4>
-                <p>Un repaso honesto — sin ser hater — a si el multiverso ha merecido de verdad la pena, con lo bueno y lo malo sobre la mesa.</p>
+                <p><strong>🎙️ Off:</strong> "Un repaso honesto — sin ser hater — a si el multiverso ha merecido de verdad la pena, con lo bueno y lo malo sobre la mesa."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> texto en pantalla "¿HA MERECIDO LA PENA?". <strong>🎬 Producción:</strong> SFX whoosh · transición: barrido · BGM: entra loop de fondo, bajo</p>
                 <h4>📍 Contexto</h4>
-                <p>El multiverso se vendió como la gran promesa post-Endgame: infinitas posibilidades, versiones alternativas de todo. Años después, toca hacer cuentas.</p>
+                <p><strong>🎙️ Off:</strong> "El multiverso se vendió como la gran promesa post-Endgame: infinitas posibilidades, versiones alternativas de todo. Años después, toca hacer cuentas."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> clip de Endgame de fondo, cámara en picture-in-picture. <strong>🎬 Producción:</strong> sin SFX · corte suave · BGM: continúa el loop</p>
                 <h4>🎬 Desarrollo</h4>
-                <p><strong>Tesis:</strong> el multiverso era la excusa perfecta para hacer lo que quisieran sin consecuencias — y ese ha sido su mayor problema, no su mayor virtud.</p>
-                <p><strong>A favor:</strong> Loki usó el concepto con cabeza (variantes con motivaciones propias, no solo "el mismo personaje pero malo"), y Spider-Man: No Way Home demostró que el fan-service con sentido emocional sí funciona.</p>
-                <p><strong>En contra:</strong> fuera de esos dos casos, se ha sentido como un comodín para justificar giros sin peso real — si todo puede pasar en cualquier universo, nada en el "principal" se siente definitivo. A eso se suma perder al villano central de toda la saga a mitad de camino.</p>
+                <p><strong>🎙️ Off (Tesis):</strong> "El multiverso era la excusa perfecta para hacer lo que quisieran sin consecuencias — y ese ha sido su mayor problema, no su mayor virtud."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> texto destacado con la tesis en pantalla. <strong>🎬 Producción:</strong> SFX "pop" al aparecer el texto · BGM: continúa</p>
+                <p><strong>🎙️ Off (A favor):</strong> "Loki usó el concepto con cabeza (variantes con motivaciones propias, no solo 'el mismo personaje pero malo'), y Spider-Man: No Way Home demostró que el fan-service con sentido emocional sí funciona."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> clips de Loki y No Way Home. <strong>🎬 Producción:</strong> transición: corte seco entre clips · BGM: tono ligeramente más positivo (subir un pelín el volumen)</p>
+                <p><strong>🎙️ Off (En contra):</strong> "Fuera de esos dos casos, se ha sentido como un comodín para justificar giros sin peso real — si todo puede pasar en cualquier universo, nada en el 'principal' se siente definitivo. A eso se suma perder al villano central de toda la saga a mitad de camino."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> clips de momentos criticados, ritmo de corte más rápido. <strong>🎬 Producción:</strong> SFX leve de "fallo"/error al mencionar lo negativo · BGM: baja un poco, tono más serio</p>
                 <h4>🔀 Giro</h4>
-                <p>El problema no es el concepto de multiverso en sí — es que Marvel lo ha usado más para parchear que para contar algo con consecuencias reales.</p>
+                <p><strong>🎙️ Off:</strong> "El problema no es el concepto de multiverso en sí — es que Marvel lo ha usado más para parchear que para contar algo con consecuencias reales."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting dramático breve · BGM: pequeña caída antes de la frase, luego vuelve</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿hay algún momento concreto del multiverso que a ti personalmente te sacara de la película/serie, o al revés, que te convenciera del todo?]</p>
+                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿hay algún momento concreto del multiverso que a ti personalmente te sacara de la película/serie, o al revés, que te convenciera del todo?]</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> cámara sola, sin B-roll — momento más personal. <strong>🎬 Producción:</strong> sin SFX · BGM: vuelve a bajar de volumen</p>
                 <h4>🏁 Conclusión</h4>
-                <p>El concepto es bueno; la ejecución, irregular. Ha dado dos hitos memorables y bastante relleno entre medias — y eso, para una saga que se vendió como el gran evento, se queda corto.</p>
+                <p><strong>🎙️ Off:</strong> "El concepto es bueno; la ejecución, irregular. Ha dado dos hitos memorables y bastante relleno entre medias — y eso, para una saga que se vendió como el gran evento, se queda corto."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> recap rápido de los clips ya mostrados. <strong>🎬 Producción:</strong> transición: fundido cruzado entre recaps · BGM: sube ligeramente, tono de cierre</p>
                 <h4>📣 CTA</h4>
-                <p>"¿Tú crees que ha merecido la pena, o se ha quedado en promesa? Coméntalo — y si te va la crítica sin filtros de Marvel, quédate por aquí."</p>
+                <p><strong>🎙️ Off:</strong> "¿Tú crees que ha merecido la pena, o se ha quedado en promesa? Coméntalo — y si te va la crítica sin filtros de Marvel, quédate por aquí."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + tarjeta de vídeo relacionado. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>
               </div>
             </div>
           </details>
@@ -2522,25 +2548,33 @@
             <div class="month-body">
               <div class="panel">
                 <h4>🪝 Hook (0-10s)</h4>
-                <p>"Hugh Jackman lleva casi 25 años siendo Wolverine. Algún día tendrá que pasar el testigo — y ya tengo a mis tres candidatos."</p>
+                <p><strong>🎙️ Off:</strong> "Hugh Jackman lleva casi 25 años siendo Wolverine. Algún día tendrá que pasar el testigo — y ya tengo a mis tres candidatos."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> clip icónico de Jackman como Wolverine, corte a cámara. <strong>🎬 Producción:</strong> SFX garras (sonido metálico) · corte duro · BGM: sting corto, entra en silencio</p>
                 <h4>🎯 Promesa</h4>
-                <p>Tres actores con argumentos reales para heredar el papel, y mi favorito personal razonado al final.</p>
+                <p><strong>🎙️ Off:</strong> "Tres actores con argumentos reales para heredar el papel, y mi favorito personal razonado al final."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> texto "3 CANDIDATOS" en pantalla. <strong>🎬 Producción:</strong> SFX whoosh · transición: barrido · BGM: entra loop de fondo, bajo</p>
                 <h4>📍 Contexto</h4>
-                <p>El reto no es pequeño: Jackman ha hecho suyo al personaje durante casi 25 años — cualquier sucesor necesita físico, presencia y un punto de rabia contenida, no solo "parecerse".</p>
+                <p><strong>🎙️ Off:</strong> "El reto no es pequeño: Jackman ha hecho suyo al personaje durante casi 25 años — cualquier sucesor necesita físico, presencia y un punto de rabia contenida, no solo 'parecerse'."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> montaje rápido de varias películas de Jackman como Wolverine a lo largo de los años. <strong>🎬 Producción:</strong> transición: fundido entre clips · BGM: continúa el loop</p>
                 <h4>🎬 Desarrollo</h4>
                 <ol class="ia-steps">
                   <li><strong>Scott Adkins</strong> — especialista en acción real, vendería las coreografías de garras sin dobles ni trucos de cámara.</li>
                   <li><strong>Karl Urban</strong> — ya demostró con The Boys que sabe interpretar rabia contenida con carisma, justo el tono de Logan.</li>
                   <li><strong>Charlie Hunnam</strong> — físico y actitud de "tipo duro con pasado", encaja con el Wolverine más silencioso de los cómics.</li>
                 </ol>
+                <p class="script-prod"><strong>🎥 Visual (por candidato):</strong> foto/clip del actor a pantalla completa con su nombre en texto. <strong>🎬 Producción:</strong> SFX "pop" al entrar cada candidato · corte seco entre los tres · BGM: mismo loop, continúa</p>
                 <h4>🔀 Giro</h4>
-                <p>Los tres podrían "parecer" Wolverine — la diferencia real está en quién puede sostener el peso emocional del personaje, no solo las garras.</p>
+                <p><strong>🎙️ Off:</strong> "Los tres podrían 'parecer' Wolverine — la diferencia real está en quién puede sostener el peso emocional del personaje, no solo las garras."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída antes de la frase</p>
                 <h4>💬 Opinión</h4>
-                <p>Karl Urban, sin dudarlo — ya ha demostrado que sostiene un personaje moralmente gris sin caer en la caricatura. [IVÁN — AÑADIR OPINIÓN: algo más personal de por qué Urban en concreto, o si cambiarías de opinión con algún otro nombre.]</p>
+                <p><strong>🎙️ Off:</strong> "Karl Urban, sin dudarlo — ya ha demostrado que sostiene un personaje moralmente gris sin caer en la caricatura." [IVÁN — AÑADIR OPINIÓN: algo más personal de por qué Urban en concreto, o si cambiarías de opinión con algún otro nombre.]</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> foto de Karl Urban destacada mientras se habla de él. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen, foco en la voz</p>
                 <h4>🏁 Conclusión</h4>
-                <p>Sea quien sea, el listón que deja Jackman es altísimo — no hace falta copiarlo, hace falta encontrar su propia versión del personaje.</p>
+                <p><strong>🎙️ Off:</strong> "Sea quien sea, el listón que deja Jackman es altísimo — no hace falta copiarlo, hace falta encontrar su propia versión del personaje."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> recap de los 3 candidatos en pantalla dividida. <strong>🎬 Producción:</strong> transición: fundido cruzado · BGM: sube ligeramente</p>
                 <h4>📣 CTA</h4>
-                <p>"¿Y tú, con quién te quedas? Déjamelo en comentarios — a lo mejor hay un nombre que ni me he planteado."</p>
+                <p><strong>🎙️ Off:</strong> "¿Y tú, con quién te quedas? Déjamelo en comentarios — a lo mejor hay un nombre que ni me he planteado."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + tarjeta de vídeo relacionado. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>
               </div>
             </div>
           </details>
@@ -2581,26 +2615,34 @@
             <div class="month-body">
               <div class="panel">
                 <h4>🪝 Hook (0-10s)</h4>
-                <p>"Llevo años viendo Marvel. Y ahora mismo hay una serie de superhéroes que me engancha más — y no lleva ni una capa decente."</p>
+                <p><strong>🎙️ Off:</strong> "Llevo años viendo Marvel. Y ahora mismo hay una serie de superhéroes que me engancha más — y no lleva ni una capa decente."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> corte rápido Homelander / logo Marvel, luego a cámara. <strong>🎬 Producción:</strong> SFX golpe seco · corte duro · BGM: sting de intriga, silencio</p>
                 <h4>🎯 Promesa</h4>
-                <p>Por qué The Boys, pese a lo dura y desagradable que puede ser, me tiene más enganchado ahora mismo que el rumbo actual de Marvel.</p>
+                <p><strong>🎙️ Off:</strong> "Por qué The Boys, pese a lo dura y desagradable que puede ser, me tiene más enganchado ahora mismo que el rumbo actual de Marvel."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> texto "THE BOYS vs MARVEL" en pantalla, estilo versus. <strong>🎬 Producción:</strong> SFX whoosh de impacto · BGM: entra loop de fondo, tono más oscuro</p>
                 <h4>📍 Contexto</h4>
-                <p>Dos universos de superhéroes, dos filosofías completamente distintas de contar historias en el mismo género.</p>
+                <p><strong>🎙️ Off:</strong> "Dos universos de superhéroes, dos filosofías completamente distintas de contar historias en el mismo género."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> split-screen: clips de Marvel a un lado, The Boys al otro. <strong>🎬 Producción:</strong> sin SFX · corte suave · BGM: continúa</p>
                 <h4>🎬 Desarrollo</h4>
-                <p><strong>Tesis:</strong> The Boys hace lo que Marvel ya no se atreve a hacer: que las decisiones de los personajes tengan consecuencias reales y duraderas.</p>
+                <p><strong>🎙️ Off (Tesis):</strong> "The Boys hace lo que Marvel ya no se atreve a hacer: que las decisiones de los personajes tengan consecuencias reales y duraderas."</p>
                 <ul class="ia-steps">
                   <li>Homelander da miedo de verdad — no hay reset de guion que lo vuelva "el bueno" al final de temporada.</li>
                   <li>La sátira sobre el negocio de los superhéroes golpea más fuerte cuanto más grande se hace el género en la vida real.</li>
                   <li>Los personajes envejecen, se equivocan y a veces mueren de verdad — sin la sensación de "nadie importante se queda muerto" que tiene Marvel ahora mismo.</li>
                 </ul>
+                <p class="script-prod"><strong>🎥 Visual (por punto):</strong> clip de The Boys ilustrando cada argumento. <strong>🎬 Producción:</strong> corte seco entre puntos · BGM: mismo loop, tono serio</p>
                 <h4>🔀 Giro</h4>
-                <p>No es que Marvel haya empeorado de la nada — es que The Boys se ha atrevido a ir a sitios que Marvel, por diseño de marca, no puede permitirse.</p>
+                <p><strong>🎙️ Off:</strong> "No es que Marvel haya empeorado de la nada — es que The Boys se ha atrevido a ir a sitios que Marvel, por diseño de marca, no puede permitirse."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting breve · BGM: caída antes de la frase</p>
                 <h4>💬 Opinión</h4>
-                <p>Sigue teniendo el mejor "universo compartido" del entretenimiento — pero cuando ese universo prioriza no molestar a nadie para seguir vendiendo, pierde la mordida que sí tiene The Boys. [IVÁN — AÑADIR OPINIÓN: ¿hay algún vídeo/película Marvel reciente que te haya hecho sentir esto especialmente?]</p>
+                <p><strong>🎙️ Off:</strong> "Sigue teniendo el mejor 'universo compartido' del entretenimiento — pero cuando ese universo prioriza no molestar a nadie para seguir vendiendo, pierde la mordida que sí tiene The Boys." [IVÁN — AÑADIR OPINIÓN: ¿hay algún vídeo/película Marvel reciente que te haya hecho sentir esto especialmente?]</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara, sin B-roll. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
-                <p>No es cuestión de elegir bando para siempre — es reconocer que ahora mismo, la serie que se atreve a doler es la que me tiene más enganchado.</p>
+                <p><strong>🎙️ Off:</strong> "No es cuestión de elegir bando para siempre — es reconocer que ahora mismo, la serie que se atreve a doler es la que me tiene más enganchado."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> recap de clips de ambos universos. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
                 <h4>📣 CTA</h4>
-                <p>"¿Tú con cuál te quedas ahora mismo? Te leo en comentarios, aunque sepa que esto puede generar debate."</p>
+                <p><strong>🎙️ Off:</strong> "¿Tú con cuál te quedas ahora mismo? Te leo en comentarios, aunque sepa que esto puede generar debate."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + tarjeta de vídeo relacionado. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>
               </div>
             </div>
           </details>
@@ -2636,11 +2678,14 @@
             <div class="month-body">
               <div class="panel">
                 <h4>🪝 Hook (0-10s)</h4>
-                <p>"Homelander es, básicamente, Superman sin ningún código moral que lo frene. Y ese no es un detalle casual del guion."</p>
+                <p><strong>🎙️ Off:</strong> "Homelander es, básicamente, Superman sin ningún código moral que lo frene. Y ese no es un detalle casual del guion."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> primer plano de Homelander sonriendo, corte a cámara. <strong>🎬 Producción:</strong> SFX golpe seco · corte duro · BGM: sting inquietante, silencio</p>
                 <h4>🎯 Promesa</h4>
-                <p>4 datos reales de inspiración y de rodaje detrás del villano más inquietante de The Boys.</p>
+                <p><strong>🎙️ Off:</strong> "4 datos reales de inspiración y de rodaje detrás del villano más inquietante de The Boys."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> texto "4 DATOS" con contador animado. <strong>🎬 Producción:</strong> SFX whoosh · transición: barrido · BGM: entra loop de fondo, tono oscuro</p>
                 <h4>📍 Contexto</h4>
-                <p>Homelander no nace de la nada — es una respuesta directa, casi punto por punto, al arquetipo de superhéroe perfecto que representa Superman.</p>
+                <p><strong>🎙️ Off:</strong> "Homelander no nace de la nada — es una respuesta directa, casi punto por punto, al arquetipo de superhéroe perfecto que representa Superman."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> split-screen Homelander/Superman. <strong>🎬 Producción:</strong> sin SFX · corte suave · BGM: continúa</p>
                 <h4>🎬 Desarrollo</h4>
                 <ol class="ia-steps">
                   <li>Nace como una deconstrucción directa de Superman — mismo traje icónico (capa, colores primarios), pero sin ningún código moral que lo frene.</li>
@@ -2648,14 +2693,19 @@
                   <li>Antony Starr improvisa buena parte de sus gestos más incómodos — esa sonrisa que nunca llega a los ojos es una elección de actor, no solo de guion.</li>
                   <li>El nombre "Homelander" es en sí mismo una crítica: se presenta como el héroe patrio por excelencia mientras la serie desmonta esa idea capítulo a capítulo.</li>
                 </ol>
+                <p class="script-prod"><strong>🎥 Visual (por punto):</strong> clip/imagen ilustrando cada dato (cómic, escenas del actor, logo). <strong>🎬 Producción:</strong> SFX "pop" al entrar cada dato · corte seco entre puntos · BGM: mismo loop</p>
                 <h4>🔀 Giro</h4>
-                <p>El dato de Antony Starr improvisando esos gestos es el que más sorprende — parte de lo que hace tan inquietante al personaje no estaba ni en el guion.</p>
+                <p><strong>🎙️ Off:</strong> "El dato de Antony Starr improvisando esos gestos es el que más sorprende — parte de lo que hace tan inquietante al personaje no estaba ni en el guion."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> primer plano de la sonrisa de Homelander, cámara lenta. <strong>🎬 Producción:</strong> SFX sting dramático · zoom lento · BGM: caída antes del dato</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué escena de Homelander te parece a ti la que mejor resume al personaje?]</p>
+                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿qué escena de Homelander te parece a ti la que mejor resume al personaje?]</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara, sin B-roll. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
-                <p>Homelander funciona porque no es un villano de cómic al uso — es una crítica con capa puesta, y cada detalle de producción está pensado para recordártelo.</p>
+                <p><strong>🎙️ Off:</strong> "Homelander funciona porque no es un villano de cómic al uso — es una crítica con capa puesta, y cada detalle de producción está pensado para recordártelo."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> recap rápido de los 4 datos. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
                 <h4>📣 CTA</h4>
-                <p>"¿Sabías todos estos datos, o alguno te ha sorprendido? Dímelo en comentarios, y si te gusta este tipo de curiosidades, hay más en Rincón del Friki."</p>
+                <p><strong>🎙️ Off:</strong> "¿Sabías todos estos datos, o alguno te ha sorprendido? Dímelo en comentarios, y si te gusta este tipo de curiosidades, hay más en Rincón del Friki."</p>
+                <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + tarjeta de vídeo relacionado. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>
               </div>
             </div>
           </details>
