@@ -387,6 +387,8 @@
     .mini .icon{font-size:28px}
     .mini strong{font-size:15px}
     .mini span{font-size:12px;color:var(--muted)}
+    .mini-clickable{cursor:pointer;transition:.2s border-color,.2s transform}
+    .mini-clickable:hover{border-color:var(--purple);transform:translateY(-2px)}
 
     .projects{
       display:grid;grid-template-columns:repeat(2,1fr);gap:18px
@@ -1292,6 +1294,59 @@
       </section>
     </div>
 
+    <!-- ══════════ LIBRERÍA DE JUEGOS (Steam) ══════════ -->
+    <div id="view-gaming-library" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">03 · IDENTIDAD</div>
+          <h2 class="section-title">🎮 MI LIBRERÍA DE JUEGOS</h2>
+          <p class="section-sub">
+            Los que más horas me han robado, sacados directamente de mi Steam real —
+            no es una lista inventada. <a href="https://steamcommunity.com/id/rubioacm/" target="_blank" rel="noopener">Ver perfil completo ↗</a>
+          </p>
+          <div class="note">
+            <strong>Nota:</strong> lista fija, no en vivo — la clave de la API de Steam
+            no es segura de exponer en una web pública (a diferencia de TMDB/RAWG), así
+            que se actualiza a mano de vez en cuando en vez de pedirse en directo desde
+            el navegador.
+          </div>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div id="steamGamesList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ MI SETUP (Tech) ══════════ -->
+    <div id="view-tech-setup" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">03 · IDENTIDAD</div>
+          <h2 class="section-title">💻 MI SETUP</h2>
+          <p class="section-sub">
+            Todo lo que uso ahora mismo para grabar, jugar y trabajar en los proyectos
+            de CHARKUMA — con opinión sincera de cada cosa, no una lista de afiliados.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <h3 class="subheading">🖥️ Equipo principal</h3>
+          <div id="techMainPcList" class="recent-list"></div>
+
+          <h3 class="subheading" style="margin-top:30px">🎙️ Streaming y contenido</h3>
+          <div id="techStreamingList" class="recent-list"></div>
+
+          <h3 class="subheading" style="margin-top:30px">🧪 Segundo equipo</h3>
+          <div id="techSecondPcList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ MAPA MAESTRO DE PROYECTOS (easter egg 🗺️) ══════════ -->
     <div id="view-hub-secreto" class="app-view">
       <section class="page-head">
@@ -1544,19 +1599,19 @@
             </div>
 
             <div class="mini-grid">
-              <div class="mini reveal">
+              <div class="mini reveal mini-clickable" role="button" tabindex="0" onclick="showView('gaming-library')" title="Ver mi librería de juegos">
                 <div class="icon">🎮</div>
                 <div><strong>GAMING</strong><br><span>Retro, Nintendo, PC y lo que caiga.</span></div>
               </div>
-              <div class="mini reveal">
+              <div class="mini reveal mini-clickable" role="button" tabindex="0" onclick="window.open('https://www.youtube.com/@mrchakurma','_blank')" title="Ir al canal de YouTube">
                 <div class="icon">🦸</div>
                 <div><strong>CULTURA GEEK</strong><br><span>Marvel, series, personajes y teorías.</span></div>
               </div>
-              <div class="mini reveal">
+              <div class="mini reveal mini-clickable" role="button" tabindex="0" onclick="window.open('https://www.instagram.com/kiddcolors/','_blank')" title="Ir a Instagram">
                 <div class="icon">🎨</div>
                 <div><strong>CREATIVIDAD</strong><br><span>Diseño, contenido y proyectos visuales.</span></div>
               </div>
-              <div class="mini reveal">
+              <div class="mini reveal mini-clickable" role="button" tabindex="0" onclick="showView('tech-setup')" title="Ver mi setup">
                 <div class="icon">💻</div>
                 <div><strong>TECH</strong><br><span>Streaming, webs, herramientas y experimentos.</span></div>
               </div>

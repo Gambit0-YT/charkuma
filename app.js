@@ -536,6 +536,12 @@
       if (id === 'notif-inbox' && typeof renderNotifInbox === 'function') {
         try { renderNotifInbox(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'gaming-library' && typeof renderSteamGames === 'function') {
+        try { renderSteamGames(); } catch (e) { /* ver comentario arriba */ }
+      }
+      if (id === 'tech-setup' && typeof renderTechSetup === 'function') {
+        try { renderTechSetup(); } catch (e) { /* ver comentario arriba */ }
+      }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -4678,8 +4684,91 @@
     // hay que decírselo a Claude en el chat, o él la quita solo en
     // cuanto la resuelve.
     // ──────────────────────────────────────────────────────────
+    // ──────────────────────────────────────────────────────────
+    // LIBRERÍA DE STEAM: lista fija, no en vivo — la clave de la API de
+    // Steam no está pensada para exponerse en una web pública (a
+    // diferencia de TMDB/RAWG), así que se trae a mano de vez en cuando
+    // desde local (curl + la clave guardada fuera del repo) y se pega
+    // aquí como array. Últimos 20 más jugados, traídos el 2026-09-06
+    // desde el perfil real (steamcommunity.com/id/rubioacm).
+    // ──────────────────────────────────────────────────────────
+    const steamGames = [
+      {name:"WWE 2K25", hours:116, appid:2878960},
+      {name:"Schedule I", hours:76, appid:3164500},
+      {name:"Marvel Snap", hours:50, appid:1997040},
+      {name:"Balatro", hours:49, appid:2379780},
+      {name:"Paladins", hours:49, appid:444090},
+      {name:"Call of Duty", hours:47, appid:1938090},
+      {name:"Cult of the Lamb", hours:44, appid:1313140},
+      {name:"High Profits", hours:42, appid:545650},
+      {name:"Far Cry 4", hours:37, appid:298110},
+      {name:"The Last of Us Part I", hours:28, appid:1888930},
+      {name:"Wallpaper Engine", hours:26, appid:431960},
+      {name:"Batman: Arkham Asylum GOTY Edition", hours:17, appid:35140},
+      {name:"Buckshot Roulette", hours:16, appid:2835570},
+      {name:"WWE 2K Battlegrounds", hours:16, appid:1142100},
+      {name:"Rust", hours:16, appid:252490},
+      {name:"The Witcher 3: Wild Hunt - Complete Edition", hours:15, appid:292030},
+      {name:"DC Universe Online", hours:14, appid:24200},
+      {name:"Dying Light", hours:13, appid:239140},
+      {name:"Resident Evil 0", hours:13, appid:339340},
+      {name:"Who Wants To Be A Millionaire?", hours:11, appid:1356240}
+    ];
+    function renderSteamGames(){
+      const container = document.getElementById('steamGamesList');
+      if (!container) return;
+      container.innerHTML = steamGames.map(g => `
+        <div class="geek-card">
+          <img class="geek-thumb" style="width:120px;height:56px;object-fit:cover" src="https://cdn.cloudflare.steamstatic.com/steam/apps/${g.appid}/header.jpg" alt="Portada de ${escapeAttr(g.name)}" loading="lazy">
+          <div class="geek-info">
+            <div class="geek-badges"><span class="type-chip chip-purple">⏱️ ${g.hours}h jugadas</span></div>
+            <h4><a href="https://store.steampowered.com/app/${g.appid}" target="_blank" rel="noopener">${escapeHTML(g.name)} ↗</a></h4>
+          </div>
+        </div>`).join('');
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // MI SETUP: opinión real, escrita a mano — sin API detrás.
+    // ──────────────────────────────────────────────────────────
+    const techMainPc = [
+      {emoji:'🖥️', name:'PC principal', detail:'AMD Ryzen 5 3600 · RTX 3060 · 16GB RAM · MSI B450-A PRO MAX', note:'El caballo de batalla de todo esto: graba, edita y aguanta lo que le eche sin quejarse.'},
+      {emoji:'🖥️', name:'Monitor MSI', note:'El de trabajo del día a día.'},
+      {emoji:'🖥️', name:'Monitor LG (curvo)', note:'El ancho, para tener todo a la vista sin cambiar de ventana cada dos minutos.'}
+    ];
+    const techStreaming = [
+      {emoji:'📷', name:'Cámara EasyCam 502 4K', note:'Cumple de sobra para lo que necesito, sin gastarme una fortuna en algo profesional.'},
+      {emoji:'🎙️', name:'Micrófono Blue Yeti + soporte (IKEA)', note:'El mejor cambio de calidad de audio que he hecho — se nota muchísimo en cualquier vídeo.'},
+      {emoji:'🎧', name:'Auriculares KROM'},
+      {emoji:'⌨️', name:'Teclado KROM'},
+      {emoji:'🖱️', name:'Ratón KROM', note:'Todo el combo de la misma marca, sin dramas de compatibilidad.'},
+      {emoji:'🎛️', name:'Elgato Stream Deck', note:'Un lujo para no andar buscando atajos de teclado a media grabación.'},
+      {emoji:'🔊', name:'Amazon Echo (Alexa)', note:'Más para el día a día que para grabar, pero forma parte del set.'},
+      {emoji:'💡', name:'Iluminación TP-Link Tapo', note:'Barata, controlable desde el móvil, y suficiente para no grabar con cara de zombi.'}
+    ];
+    const techSecondPc = [
+      {emoji:'🧪', name:'PC secundario', detail:'GTX 1080 · 16GB RAM · CPU antiguo', note:'De momento sin un propósito claro — algún día se convertirá en un proyecto de Charkuma Lab.'}
+    ];
+    function renderTechList(containerId, items){
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = items.map(it => `
+        <div class="geek-card">
+          <div class="geek-thumb">${it.emoji}</div>
+          <div class="geek-info">
+            <h4>${escapeHTML(it.name)}</h4>
+            ${it.detail ? `<p class="yt-empty" style="margin:0 0 4px">${escapeHTML(it.detail)}</p>` : ''}
+            ${it.note ? `<p>${escapeHTML(it.note)}</p>` : ''}
+          </div>
+        </div>`).join('');
+    }
+    function renderTechSetup(){
+      renderTechList('techMainPcList', techMainPc);
+      renderTechList('techStreamingList', techStreaming);
+      renderTechList('techSecondPcList', techSecondPc);
+    }
+
     const pendingDecisions = [
-      { id: 'identity-tiles-links', date: '2026-09-06', text: 'Hacer clicables las 4 tarjetas de "Sobre mí" (Gaming/Cultura Geek/Creatividad/Tech) — ya decidido que se construye (2026-09-06), falta rematar de dónde sale el contenido de Tech (review del setup) y confirmar el perfil de Steam para Gaming.' }
+      // Vacío por ahora — la última pendiente (tarjetas de "Sobre mí") se completó el 2026-09-06.
     ];
     const DISMISSED_PENDING_KEY = 'charkuma_dismissed_pending_decisions';
     function loadDismissedPending(){
