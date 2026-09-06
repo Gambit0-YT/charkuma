@@ -195,6 +195,25 @@
     // todo del script, no aquí — usa RETRO365_START_DATE/plannedGames/
     // buildSiteIndex, que son const declaradas más abajo (TDZ).
 
+    // Cierre automático de la campana: al mover el ratón fuera del botón
+    // o del propio panel se cierra solo (con un pequeño margen para poder
+    // cruzar de uno a otro sin que se cierre a medio camino). Clic fuera
+    // como respaldo para quien no usa ratón (táctil).
+    (function initNotifAutoClose(){
+      const wrap = document.getElementById('notifWrap');
+      if (!wrap) return;
+      let closeTimer = null;
+      wrap.addEventListener('mouseleave', () => {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => toggleNotifPanel(false), 350);
+      });
+      wrap.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      document.addEventListener('click', (e) => {
+        const panel = document.getElementById('notifPanel');
+        if (panel && !panel.hidden && !wrap.contains(e.target)) toggleNotifPanel(false);
+      });
+    })();
+
     const PRESENTATION_MODE_KEY = 'charkuma_presentation_mode';
     function setPresentationMode(on){
       document.body.classList.toggle('presentation-mode', on);
@@ -1318,6 +1337,10 @@
           return;
         }
       }
+      // No queda nada sin tocar: no hay a dónde saltar, así que al menos
+      // dejamos el estado recién cambiado bien pintado en la vista actual
+      // en vez de quedarnos con los botones desactualizados.
+      refreshReviewControls();
       alert('No queda ningún elemento sin tocar — todo tiene ya un estado definido (o está descartado).');
     }
 
@@ -1331,10 +1354,14 @@
         try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); } catch(e) {}
         setContentStage(rid, null);
         setContentPublished(rid, false);
+        refreshReviewControls();
       } else {
+        // Aprobar es una decisión de revisión (como descartar) — salta
+        // directamente a la siguiente idea sin tocar, en vez de dejarte
+        // en la misma página esperando a que pulses "→ Siguiente" a mano.
         markReviewed(rid);
+        goToNextUntouchedContent(rid);
       }
-      refreshReviewControls();
     }
     function toggleContentPublished(rid){
       const turningOn = !isContentPublished(rid);
@@ -1372,8 +1399,13 @@
       refreshReviewControls();
     }
     function toggleContentDiscarded(rid){
-      setContentDiscarded(rid, !isContentDiscarded(rid));
-      refreshReviewControls();
+      const discarding = !isContentDiscarded(rid);
+      setContentDiscarded(rid, discarding);
+      // Descartar es una decisión de revisión: salta directo a la
+      // siguiente idea sin tocar. Restaurar es una corrección, no un
+      // avance — ahí nos quedamos donde estamos.
+      if (discarding) goToNextUntouchedContent(rid);
+      else refreshReviewControls();
     }
     // Vuelve a pintar el bloque de controles de la vista activa (y quita
     // las insignias pequeñas del kicker si ya no hacen falta).
@@ -3797,8 +3829,18 @@
     // El lateral muestra "Últimos vídeos" en todo el sitio, EXCEPTO dentro
     // de Rincón del Friki, donde muestra "Noticias Geek" en su lugar.
     function updateSidebar(viewId){
+      // El hueco lateral izquierdo es compartido: Ranking friki en Rincón
+      // del Friki, Radar de estrenos en el inicio — nunca coinciden, así
+      // que basta con mostrar/ocultar cada <aside> por separado dentro
+      // del mismo contenedor.
       const leftSidebar = document.getElementById('leftSidebarStack');
-      if (leftSidebar) leftSidebar.classList.toggle('active', viewId === 'rincon');
+      const rankingAside = document.getElementById('rankingSidebar');
+      const estrenosAside = document.getElementById('estrenosSidebar');
+      const showRanking = viewId === 'rincon';
+      const showEstrenos = viewId === 'home';
+      if (leftSidebar) leftSidebar.classList.toggle('active', showRanking || showEstrenos);
+      if (rankingAside) rankingAside.hidden = !showRanking;
+      if (estrenosAside) estrenosAside.hidden = !showEstrenos;
 
       const list = document.getElementById('ytVideoList');
       const title = document.getElementById('ytSidebarTitle');
@@ -4088,6 +4130,42 @@
     function deleteNote(id){
       saveNotes(loadNotes().filter(n => n.id !== id));
       renderNotes();
+    }
+
+    // Copia de seguridad manual: el bloc de notas solo vive en localStorage
+    // de este navegador (nunca se sincroniza entre dispositivos ni
+    // sobrevive si el navegador borra los datos del sitio al cerrarse) —
+    // exportar/importar da una red de seguridad real ante eso.
+    function exportNotes(){
+      const notes = loadNotes();
+      const blob = new Blob([JSON.stringify(notes, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `charkuma-notas-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function importNotesFile(file){
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        let imported;
+        try { imported = JSON.parse(reader.result); }
+        catch (e) { alert('Ese archivo no es un JSON válido.'); return; }
+        if (!Array.isArray(imported)) { alert('Ese archivo no tiene el formato esperado de una exportación de notas.'); return; }
+
+        const existing = loadNotes();
+        const existingIds = new Set(existing.map(n => n.id));
+        const newOnes = imported.filter(n => n && typeof n.text === 'string' && n.id && !existingIds.has(n.id));
+        saveNotes(existing.concat(newOnes));
+        renderNotes();
+        alert(`Importadas ${newOnes.length} nota${newOnes.length === 1 ? '' : 's'} nueva${newOnes.length === 1 ? '' : 's'} (las que ya tenías no se han duplicado).`);
+      };
+      reader.readAsText(file);
     }
 
     document.getElementById('noteSaveBtn').addEventListener('click', addNote);

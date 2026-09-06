@@ -861,6 +861,8 @@
     .yt-empty code{background:var(--panel);padding:2px 5px;border-radius:5px}
 
     /* ── bloc de notas (guardado en este navegador) ── */
+    .notes-backup-row{display:flex;gap:8px;margin-bottom:12px}
+    .notes-backup-row .btn{flex:1;padding:8px 10px;font-size:11px;justify-content:center}
     .notes-input-row{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
     .notes-input-row textarea{
       resize:vertical;min-height:60px;padding:10px 12px;border-radius:10px;
@@ -951,7 +953,7 @@
       </div>
       <div class="nav-tools">
         <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
-        <div style="position:relative">
+        <div style="position:relative" id="notifWrap">
           <button type="button" class="nav-icon-btn" id="navNotifBtn" onclick="toggleNotifPanel()" title="Notificaciones" aria-label="Ver notificaciones">🔔</button>
           <span class="notif-dot" id="notifDot" hidden></span>
           <div class="notif-panel" id="notifPanel" hidden>
@@ -1021,6 +1023,11 @@
 
     <aside class="yt-sidebar notes-widget" id="notesWidget">
       <h4>📝 Notas rápidas</h4>
+      <div class="notes-backup-row">
+        <button type="button" class="btn btn-secondary" onclick="exportNotes()" title="Descarga tus notas en un archivo, por si el navegador las borra">💾 Exportar</button>
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('notesImportFile').click()" title="Restaura notas desde un archivo exportado antes">📥 Importar</button>
+        <input type="file" id="notesImportFile" accept="application/json" hidden onchange="importNotesFile(this.files[0])">
+      </div>
       <div class="notes-input-row">
         <textarea id="noteInput" rows="2" placeholder="Escribe una nota o recordatorio..."></textarea>
         <button class="btn btn-primary notes-save-btn" id="noteSaveBtn">Guardar</button>
@@ -1029,8 +1036,9 @@
     </aside>
   </div>
 
-  <!-- Ranking friki: mini-ventana igual que Noticias Geek/Notas rápidas,
-       pero a la izquierda y solo visible en Rincón del Friki. -->
+  <!-- Mismo hueco lateral izquierdo para dos mini-ventanas que nunca
+       coinciden a la vez (JS decide cuál mostrar según la vista activa):
+       Ranking friki en Rincón del Friki, Radar de estrenos en el inicio. -->
   <div class="sidebar-stack-left" id="leftSidebarStack">
     <aside class="yt-sidebar" id="rankingSidebar">
       <h4>🏆 Ranking friki</h4>
@@ -1040,6 +1048,18 @@
         <button type="button" class="btn btn-primary" onclick="addRankingCharacter()">➕</button>
       </div>
       <div id="rankingTop8" class="ranking-list"></div>
+    </aside>
+
+    <aside class="yt-sidebar" id="estrenosSidebar" hidden>
+      <h4>🎬 Radar de estrenos</h4>
+      <p class="yt-sub-count">
+        Superhéroes/sci-fi en vivo desde TMDB, más "bombazos" fuera de tema y
+        pelis ya vistas que quiero comentar.
+      </p>
+      <p class="yt-sub-count" style="margin-top:-8px;font-weight:400">🍿 Próximos estrenos</p>
+      <div id="premieresLiveList"></div>
+      <p class="yt-sub-count" style="margin-top:14px;font-weight:400">📌 Otros que quiero cubrir</p>
+      <div id="premieresCustomList"></div>
     </aside>
   </div>
 
@@ -1293,23 +1313,6 @@
             </div>
             <div class="tag tag-b">🧪 IDEAS EN PROCESO</div>
           </div>
-        </div>
-      </section>
-
-      <section id="estrenos">
-        <div class="container">
-          <div class="section-kicker reveal">🎬 RADAR DE ESTRENOS</div>
-          <h2 class="section-title reveal">CULTURA POP QUE SE VIENE</h2>
-          <p class="section-sub reveal">
-            Estrenos de superhéroes/acción-aventura sacados en vivo de TMDB, más una lista
-            aparte con "bombazos" fuera de esa temática y películas ya vistas que quiero
-            comentar en vídeo.
-          </p>
-          <h3 class="subheading">🍿 Próximos estrenos (en vivo)</h3>
-          <div id="premieresLiveList" class="recent-list"></div>
-
-          <h3 class="subheading" style="margin-top:26px">📌 Otros que quiero cubrir</h3>
-          <div id="premieresCustomList" class="recent-list"></div>
         </div>
       </section>
 
