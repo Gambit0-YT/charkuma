@@ -23,6 +23,28 @@
   <meta name="twitter:description" content="Gamer, creador y friki profesional: videojuegos, cultura geek, Marvel, series, tecnología y proyectos creativos." />
   <meta name="twitter:image" content="https://gambit0-yt.github.io/charkuma/og-image.png" />
 
+  <!-- Datos estructurados (schema.org): ayuda a los buscadores a entender
+       que esto es el sitio personal de un creador de contenido, no una
+       tienda ni un blog genérico. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Charkuma",
+    "alternateName": "CHARKUMA",
+    "url": "https://gambit0-yt.github.io/charkuma/",
+    "image": "https://gambit0-yt.github.io/charkuma/og-image.png",
+    "jobTitle": "Creador de contenido",
+    "description": "Gamer, creador y friki profesional: videojuegos, cultura geek, Marvel, series, tecnología y proyectos creativos.",
+    "sameAs": [
+      "https://www.youtube.com/@mrchakurma",
+      "https://www.tiktok.com/@kiddcolors",
+      "https://www.instagram.com/kiddcolors/",
+      "https://www.twitch.tv/kiddcolors"
+    ]
+  }
+  </script>
+
   <style>
     :root{
       --bg:#09070f;
@@ -153,6 +175,9 @@
     .settings-row:last-child{border-bottom:none}
     .settings-row strong{display:block;font-size:14px;margin-bottom:2px}
     .settings-row p{margin:0;color:var(--muted);font-size:12px;max-width:52ch}
+    .settings-row-stack{flex-direction:column;align-items:stretch}
+    .tmdb-genre-checks{display:flex;gap:14px;flex-wrap:wrap}
+    .tmdb-genre-checks label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text);cursor:pointer}
 
     /* ── Campana de notificaciones ── */
     .notif-dot{position:absolute;top:-2px;right:-2px;width:9px;height:9px;border-radius:50%;background:var(--red);border:2px solid var(--bg)}
@@ -187,7 +212,8 @@
     .breadcrumb-bar .sep{opacity:.5}
     .share-view-btn{
       border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;
-      padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer;margin-left:10px;display:inline-flex;align-items:center;gap:6px
+      padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer;margin-left:10px;display:inline-flex;align-items:center;gap:6px;
+      text-decoration:none
     }
 
     /* ── Controles grandes de Aprobar/Descartar en la propia página ── */
@@ -818,6 +844,12 @@
 
     .search-panel{margin-top:30px}
     .search-row{display:flex;gap:12px;flex-wrap:wrap}
+    .search-recent-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .search-recent-label{font-size:12px;color:var(--muted);font-weight:700;flex:none}
+    .search-recent-chips{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+    .search-recent-chip{padding:6px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-size:12px;cursor:pointer;color:var(--text)}
+    .search-recent-chip:hover{border-color:var(--purple);background:rgba(139,92,246,.1)}
+    .search-recent-clear{background:none;border:0;color:var(--muted);font-size:11px;cursor:pointer;text-decoration:underline;flex:none}
     .search-row input, .search-row select{
       flex:1;min-width:200px;padding:12px 16px;border-radius:12px;
       background:var(--panel);border:1px solid var(--line2);color:var(--text);
@@ -1001,12 +1033,38 @@
             <input type="file" id="importFileInput" accept="application/json" hidden onchange="importSiteData(this.files[0])">
           </div>
         </div>
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🎬 Géneros del Radar de estrenos</strong>
+            <p>Qué tipo de estrenos próximos quieres ver en la mini-ventana del inicio.</p>
+          </div>
+          <div class="tmdb-genre-checks" id="tmdbGenreChecks">
+            <label><input type="checkbox" value="878" onchange="saveTMDBGenrePrefs()"> Ciencia ficción</label>
+            <label><input type="checkbox" value="14" onchange="saveTMDBGenrePrefs()"> Fantasía</label>
+            <label><input type="checkbox" value="16" onchange="saveTMDBGenrePrefs()"> Animación</label>
+            <label><input type="checkbox" value="28" onchange="saveTMDBGenrePrefs()"> Acción</label>
+            <label><input type="checkbox" value="12" onchange="saveTMDBGenrePrefs()"> Aventura</label>
+          </div>
+        </div>
         <div class="settings-row">
           <div>
             <strong>🕹️ Control secreto maestro</strong>
             <p>Todos los proyectos e ideas, con buscador, filtros y estado. Ya no hace falta el doble clic + contraseña para entrar — solo tú usas esta web.</p>
           </div>
           <button type="button" class="btn btn-secondary" onclick="toggleSettingsPanel(); showView('master-control')">Abrir</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🌙 Modo de trabajo autónomo (recordatorio)</strong>
+            <p>
+              Para que Claude siga trabajando solo (generando ideas, revisando fallos)
+              se activa escribiendo <code>/loop</code> en el chat de Claude Code — no
+              es un botón de esta web. Todo lo que haga queda anotado en el
+              <strong>📋 Registro de actividad</strong> del Control Maestro, y nunca
+              aprueba, publica ni descarta nada por su cuenta — eso lo decides tú
+              siempre al día siguiente.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1119,6 +1177,11 @@
               <select id="globalSearchSection">
                 <option value="">Todas las secciones</option>
               </select>
+            </div>
+            <div class="search-recent-row" id="searchRecentRow" hidden>
+              <span class="search-recent-label">Recientes:</span>
+              <div id="searchRecentChips" class="search-recent-chips"></div>
+              <button type="button" class="search-recent-clear" onclick="clearSearchHistory()">Borrar</button>
             </div>
           </div>
 
@@ -1235,7 +1298,12 @@
                   No sustituye tu criterio: solo te deja más material para revisar.
                 </p>
               </div>
-              <button type="button" class="btn btn-secondary" onclick="generateIdeaBatchFromMasterControl()">➕ Generar ideas</button>
+              <div style="display:flex;gap:8px;flex:none">
+                <select id="masterControlGenerateSection" title="Elige una sección o deja 'Automático' para que escoja la que menos ideas tiene">
+                  <option value="">🎲 Automático</option>
+                </select>
+                <button type="button" class="btn btn-secondary" onclick="generateIdeaBatchFromMasterControl()">➕ Generar ideas</button>
+              </div>
             </div>
             <p class="yt-empty" id="masterControlGenerateStatus" style="margin:10px 0 0"></p>
           </div>
@@ -1277,6 +1345,7 @@
                 delante) — 💡 idea nueva, 🐛 fallo encontrado, ⏳ pendiente de tu
                 decisión.
               </p>
+              <p class="yt-sub-count" id="activityLogStats" style="margin:0 0 10px"></p>
               <div id="activityLogList"></div>
               <button type="button" class="btn btn-secondary" style="margin-top:10px" onclick="clearActivityLog()">🗑️ Vaciar registro</button>
             </div>

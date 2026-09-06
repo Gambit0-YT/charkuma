@@ -34,7 +34,32 @@
     // Probado en vivo el 2026-09-06: Acción (28) y Aventura (12) solos
     // colaban demasiada película genérica sin nada que ver con el canal
     // (dramas de acción, thrillers militares...), así que se quitaron.
-    const TMDB_GEEK_GENRES = [878, 14, 16];
+    const TMDB_GEEK_GENRES_DEFAULT = [878, 14, 16];
+    const TMDB_GENRE_PREFS_KEY = 'charkuma_tmdb_genre_prefs';
+    function loadTMDBGenrePrefs(){
+      try {
+        const saved = JSON.parse(localStorage.getItem(TMDB_GENRE_PREFS_KEY));
+        return Array.isArray(saved) && saved.length ? saved : TMDB_GEEK_GENRES_DEFAULT;
+      } catch (e) { return TMDB_GEEK_GENRES_DEFAULT; }
+    }
+    function saveTMDBGenrePrefs(){
+      const checked = [...document.querySelectorAll('#tmdbGenreChecks input:checked')].map(i => Number(i.value));
+      try {
+        // Nunca guardamos "ninguno marcado" — eso dejaría el radar vacío
+        // sin más aviso que una lista en blanco. Si desmarcan todo,
+        // volvemos a los de por defecto.
+        localStorage.setItem(TMDB_GENRE_PREFS_KEY, JSON.stringify(checked.length ? checked : TMDB_GEEK_GENRES_DEFAULT));
+      } catch (e) { /* seguimos sin guardar */ }
+      if (checked.length === 0) syncTMDBGenreCheckboxes();
+      loadLivePremieres();
+    }
+    function syncTMDBGenreCheckboxes(){
+      const prefs = loadTMDBGenrePrefs();
+      document.querySelectorAll('#tmdbGenreChecks input').forEach(input => {
+        input.checked = prefs.includes(Number(input.value));
+      });
+    }
+    syncTMDBGenreCheckboxes();
 
     // Lista a mano para dos casos que TMDB no cubre bien: "bombazos"
     // fuera de la temática de superhéroes que sí merece la pena comentar
@@ -73,6 +98,7 @@
     let cachedVideosHTML = null;
     let cachedNewsHTML = null;
     let latestVideosRaw = []; // últimos vídeos de YouTube ya cargados, para checkRetro365AutoPublish
+    let cachedPremiereMovies = []; // últimos estrenos de TMDB ya cargados, para avisar en la campana
 
     // Marca cuándo ya se estableció el estado base del historial del
     // navegador (ver showView más abajo), para que el botón "atrás"
@@ -146,6 +172,23 @@
           title: `⏳ ${pendingCount} contenidos pendientes de revisión`,
           detail: 'Repásalos en el calendario o el control secreto maestro.',
           view: 'calendario'
+        });
+      }
+
+      // cachedPremiereMovies lo rellena loadLivePremieres() cuando responde
+      // TMDB — puede estar vacío todavía en el primer pintado de la
+      // campana si esa petición no ha terminado (se corrige solo en
+      // cuanto se vuelve a abrir el panel).
+      const soonPremieres = (cachedPremiereMovies || []).filter(m => {
+        if (!m.date) return false;
+        const days = Math.ceil((new Date(m.date) - new Date()) / 86400000);
+        return days >= 0 && days <= 7;
+      });
+      if (soonPremieres.length) {
+        notifs.push({
+          title: `🎬 ${soonPremieres.length} estreno${soonPremieres.length === 1 ? '' : 's'} en menos de una semana`,
+          detail: soonPremieres.map(m => m.title).join(' · '),
+          view: 'home'
         });
       }
 
@@ -284,6 +327,8 @@
       } else if (e.key === 'Escape') {
         const settingsPanel = document.getElementById('settingsPanel');
         if (settingsPanel && !settingsPanel.hidden) { settingsPanel.hidden = true; return; }
+        const notifPanel = document.getElementById('notifPanel');
+        if (notifPanel && !notifPanel.hidden) { toggleNotifPanel(false); return; }
         if (document.getElementById('view-buscar') && document.getElementById('view-buscar').classList.contains('active')) {
           goHome('inicio');
         }
@@ -429,8 +474,12 @@
       const parts = [`<a onclick="goHome('inicio')">🏠 Inicio</a>`];
       if (kickerText) parts.push(`<span class="sep">›</span><span>${kickerText}</span>`);
       if (titleText) parts.push(`<span class="sep">›</span><span>${titleText}</span>`);
+      const pageUrl = location.origin + location.pathname + '#view=' + id;
+      const tweetText = titleText ? `${titleText} — vía @mrchakurma` : 'CHARKUMA';
+      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(pageUrl)}`;
       crumb.innerHTML = parts.join(' ') +
-        `<button type="button" class="share-view-btn" onclick="shareCurrentView('${id}', this)">🔗 Copiar enlace</button>`;
+        `<button type="button" class="share-view-btn" onclick="shareCurrentView('${id}', this)">🔗 Copiar enlace</button>` +
+        `<a class="share-view-btn" href="${tweetUrl}" target="_blank" rel="noopener">🐦 Compartir</a>`;
 
       // Controles grandes de "Aprobar / Descartar" para cualquier página
       // que sea contenido revisable (viene de uno de los arrays de
@@ -3012,6 +3061,17 @@
       const listEl = document.getElementById('activityLogList');
       if (!listEl) return;
       const list = loadActivityLog().slice().reverse();
+
+      const statsEl = document.getElementById('activityLogStats');
+      if (statsEl) {
+        const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+        const thisWeek = list.filter(e => new Date(e.ts).getTime() >= weekAgo);
+        const ideasThisWeek = thisWeek.filter(e => e.kind === 'idea').length;
+        statsEl.textContent = list.length
+          ? `📊 ${list.length} entrada${list.length === 1 ? '' : 's'} en total · ${thisWeek.length} esta semana (${ideasThisWeek} de ideas generadas)`
+          : '';
+      }
+
       listEl.innerHTML = list.length ? list.map(entry => {
         const d = new Date(entry.ts);
         const dateLabel = isNaN(d) ? '' : d.toLocaleString('es-ES', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
@@ -3156,8 +3216,22 @@
       return { added, additions, label: cfg.label };
     }
 
+    // Rellena el desplegable de sección la primera vez que haga falta
+    // (se llama desde renderMasterControlList, igual que el de categorías).
+    function populateGenerateSectionSelect(){
+      const select = document.getElementById('masterControlGenerateSection');
+      if (!select || select.options.length > 1) return;
+      Object.keys(IDEA_GENERATORS).forEach(bank => {
+        const opt = document.createElement('option');
+        opt.value = bank;
+        opt.textContent = IDEA_GENERATORS[bank].label;
+        select.appendChild(opt);
+      });
+    }
+
     function generateIdeaBatchFromMasterControl(){
-      const bankKey = pickLeastPopulatedBank();
+      const select = document.getElementById('masterControlGenerateSection');
+      const bankKey = (select && select.value) || pickLeastPopulatedBank();
       const result = generateIdeasForBank(bankKey, 5);
       const statusEl = document.getElementById('masterControlGenerateStatus');
       if (result.added > 0) {
@@ -3269,11 +3343,46 @@
     document.getElementById('globalSearchInput').addEventListener('input', renderGlobalSearch);
     document.getElementById('globalSearchSection').addEventListener('change', renderGlobalSearch);
 
+    // Historial de búsquedas recientes (solo el texto escrito, no
+    // resultados) — guarda al pulsar Enter, para no meter cada tecleo.
+    const SEARCH_HISTORY_KEY = 'charkuma_search_history';
+    function loadSearchHistory(){
+      try { return JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY)) || []; }
+      catch (e) { return []; }
+    }
+    function saveSearchToHistory(term){
+      term = term.trim();
+      if (!term) return;
+      let history = loadSearchHistory().filter(t => t.toLowerCase() !== term.toLowerCase());
+      history.unshift(term);
+      try { localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(history.slice(0, 8))); }
+      catch (e) { /* seguimos sin guardar */ }
+      renderSearchHistory();
+    }
+    function clearSearchHistory(){
+      try { localStorage.removeItem(SEARCH_HISTORY_KEY); } catch (e) {}
+      renderSearchHistory();
+    }
+    function renderSearchHistory(){
+      const row = document.getElementById('searchRecentRow');
+      const chipsEl = document.getElementById('searchRecentChips');
+      if (!row || !chipsEl) return;
+      const history = loadSearchHistory();
+      row.hidden = history.length === 0;
+      chipsEl.innerHTML = history.map(term => `
+        <button type="button" class="search-recent-chip" onclick="searchByKeyword('${escapeAttr(term)}')">${escapeHTML(term)}</button>
+      `).join('');
+    }
+    document.getElementById('globalSearchInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') saveSearchToHistory(e.target.value);
+    });
+
     // Abre el buscador (icono de la cabecera o el atajo "/").
     function openSearchView(){
       showView('buscar');
       renderGlobalSearch();
       renderKeywordCloud();
+      renderSearchHistory();
       requestAnimationFrame(() => {
         const input = document.getElementById('globalSearchInput');
         if (input) input.focus();
@@ -3743,6 +3852,7 @@
       const countEl = document.getElementById('masterControlCount');
       if (!listEl) return;
       renderActivityLog();
+      populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
       const query = document.getElementById('masterControlSearch').value.trim().toLowerCase();
@@ -4051,29 +4161,48 @@
         // género nosotros mismos con los resultados (upcoming no admite
         // with_genres). Dos páginas son de sobra para el hueco temporal
         // que cubre este endpoint.
-        const [p1, p2] = await Promise.all([1, 2].map(page =>
-          fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}&language=es-ES&region=ES&page=${page}`)
-            .then(r => r.json()).catch(() => ({ results: [] }))
-        ));
-        const all = [...(p1.results || []), ...(p2.results || [])];
-        const movies = all
-          .filter(m => (m.genre_ids || []).some(g => TMDB_GEEK_GENRES.includes(g)))
-          .sort((a, b) => new Date(a.release_date || '9999') - new Date(b.release_date || '9999'))
+        //
+        // Para series sí funciona bien "discover/tv" con with_genres +
+        // first_air_date.gte (probado en vivo) — ahí los géneros de TMDB
+        // son distintos a los de película: 16 Animación (cubre anime),
+        // 10765 "Sci-Fi & Fantasy" (así llama TMDB al combinado en TV).
+        const today = new Date().toISOString().slice(0, 10);
+        const wantedGenres = loadTMDBGenrePrefs();
+        const [p1, p2, tvRes] = await Promise.all([
+          fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}&language=es-ES&region=ES&page=1`).then(r => r.json()).catch(() => ({ results: [] })),
+          fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}&language=es-ES&region=ES&page=2`).then(r => r.json()).catch(() => ({ results: [] })),
+          fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${TMDB_API_KEY}&language=es-ES&with_genres=16,10765&sort_by=popularity.desc&first_air_date.gte=${today}`).then(r => r.json()).catch(() => ({ results: [] }))
+        ]);
+        const movies = [...(p1.results || []), ...(p2.results || [])]
+          .filter(m => (m.genre_ids || []).some(g => wantedGenres.includes(g)))
+          .map(m => ({ id: m.id, mediaType: 'movie', title: m.title, date: m.release_date, overview: m.overview, poster_path: m.poster_path }));
+        const series = (tvRes.results || [])
+          .map(s => ({ id: s.id, mediaType: 'tv', title: s.name, date: s.first_air_date, overview: s.overview, poster_path: s.poster_path }));
+        const combined = [...movies, ...series]
+          .sort((a, b) => new Date(a.date || '9999') - new Date(b.date || '9999'))
           .slice(0, 6);
-        container.innerHTML = movies.length
-          ? movies.map(m => `
+        cachedPremiereMovies = combined; // lo usa buildNotifications() para avisar de estrenos a menos de una semana
+        container.innerHTML = combined.length
+          ? combined.map(item => {
+              const url = item.mediaType === 'tv'
+                ? `https://www.themoviedb.org/tv/${item.id}`
+                : `https://www.themoviedb.org/movie/${item.id}`;
+              const mediaBadge = item.mediaType === 'tv' ? '📺 Serie' : '🎬 Película';
+              return `
               <div class="geek-card">
-                ${m.poster_path
-                  ? `<img class="geek-thumb" style="object-fit:cover" src="https://image.tmdb.org/t/p/w200${m.poster_path}" alt="Póster de ${m.title}" loading="lazy">`
-                  : `<div class="geek-thumb">🎬</div>`}
+                ${item.poster_path
+                  ? `<img class="geek-thumb" style="object-fit:cover" src="https://image.tmdb.org/t/p/w200${item.poster_path}" alt="Póster de ${item.title}" loading="lazy">`
+                  : `<div class="geek-thumb">${item.mediaType === 'tv' ? '📺' : '🎬'}</div>`}
                 <div class="geek-info">
                   <div class="geek-badges">
-                    <span class="type-chip chip-purple">📅 ${m.release_date || 'sin fecha'}</span>
+                    <span class="type-chip chip-purple">📅 ${item.date || 'sin fecha'}</span>
+                    <span class="type-chip chip-neutral">${mediaBadge}</span>
                   </div>
-                  <h4><a href="https://www.themoviedb.org/movie/${m.id}" target="_blank" rel="noopener">${m.title} ↗</a></h4>
-                  <p>${m.overview || 'Sin sinopsis disponible todavía.'}</p>
+                  <h4><a href="${url}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+                  <p>${item.overview || 'Sin sinopsis disponible todavía.'}</p>
                 </div>
-              </div>`).join('')
+              </div>`;
+            }).join('')
           : `<p class="yt-empty">TMDB no devuelve estrenos próximos de este tipo ahora mismo.</p>`;
       } catch (err) {
         container.innerHTML = `<p class="yt-empty">No se pudieron cargar los estrenos ahora mismo.</p>`;
