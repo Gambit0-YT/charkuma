@@ -2671,7 +2671,7 @@
         date: "2026-08-28",
         summary: "Prompt afinado para sacar miniaturas de vídeo con look consistente en un par de intentos.",
         thumbnail: "🤖",
-        internalView: "lab-generador-miniaturas", reviewed: false
+        internalView: "lab-generador-miniaturas", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Bitácora: probando ComfyUI por primera vez",
@@ -2679,7 +2679,7 @@
         date: "2026-09-02",
         summary: "Primeras impresiones montando flujos de generación de imagen con nodos. Va para largo.",
         thumbnail: "📓",
-        internalView: "lab-comfyui", reviewed: false
+        internalView: "lab-comfyui", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Bot de Discord para el servidor de CHARKUMA",
@@ -2687,7 +2687,7 @@
         date: "2026-09-04",
         summary: "Comandos básicos, roles automáticos y aviso cuando sube un vídeo nuevo.",
         thumbnail: "🕹️",
-        internalView: "lab-bot-discord", reviewed: false
+        internalView: "lab-bot-discord", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", type:"proyecto|herramienta|bitacora", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🧪", link:"..." },
@@ -2708,7 +2708,7 @@
         date: "2026-09-06",
         summary: "Draft por turnos para 2 jugadores en el mismo dispositivo, reutilizando la mecánica de Ruleta del 11 con pools intercambiables.",
         thumbnail: "🎴",
-        internalView: "helquid-draft-arena", reviewed: false
+        internalView: "helquid-draft-arena", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", type:"concepto", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🎮", internalView:"..." },
@@ -2808,19 +2808,19 @@
         title: "Prompt para miniaturas con estética CHARKUMA",
         type: "prompt", date: "2026-08-15",
         summary: "La receta de prompt que uso para sacar miniaturas con el mismo estilo morado/naranja de la web.",
-        thumbnail: "🎨", internalView: "ia-prompt-miniaturas", reviewed: false
+        thumbnail: "🎨", internalView: "ia-prompt-miniaturas", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Aviso automático a Discord cuando subo vídeo",
         type: "automatizacion", date: "2026-08-25",
         summary: "Automatización sencilla que avisa al servidor en cuanto se publica un vídeo nuevo.",
-        thumbnail: "⚙️", internalView: "ia-auto-discord", reviewed: false
+        thumbnail: "⚙️", internalView: "ia-auto-discord", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Generando personajes retro con IA",
         type: "visual", date: "2026-09-01",
         summary: "Pruebas de generación de imagen para ilustrar juegos clásicos de Retro 365.",
-        thumbnail: "🖼️", internalView: "ia-visual-retro", reviewed: false
+        thumbnail: "🖼️", internalView: "ia-visual-retro", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Vídeo generado con IA: intro alternativa del canal",
@@ -2832,7 +2832,7 @@
         title: "Prompt para guiones cortos de reacción",
         type: "prompt", date: "2026-09-05",
         summary: "Plantilla de prompt para estructurar rápido un guion de reacción antes de grabar.",
-        thumbnail: "📝", internalView: "ia-prompt-reaccion", reviewed: false
+        thumbnail: "📝", internalView: "ia-prompt-reaccion", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", type:"prompt|automatizacion|visual|video", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🤖", link:"..." },  // "link" para externo, o "internalView" para página propia
@@ -2853,25 +2853,25 @@
         title: "Escenas de OBS para sesiones retro",
         type: "obs", date: "2026-08-22",
         summary: "Configuración de escenas y transiciones pensada para grabar Retro 365.",
-        thumbnail: "🎛️", internalView: "ct-obs-retro", reviewed: false
+        thumbnail: "🎛️", internalView: "ct-obs-retro", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Plantilla de miniatura para Rincón del Friki",
         type: "plantilla", date: "2026-09-03",
         summary: "Plantilla editable para sacar miniaturas de vídeos de Marvel/The Boys en minutos.",
-        thumbnail: "📐", internalView: "ct-plantilla-friki", reviewed: false
+        thumbnail: "📐", internalView: "ct-plantilla-friki", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Pack de stingers y sonidos de transición",
         type: "recurso", date: "2026-09-04",
         summary: "Efectos de sonido cortos para cambios de escena, hechos a medida para el canal.",
-        thumbnail: "🔌", internalView: "ct-stingers", reviewed: false
+        thumbnail: "🔌", internalView: "ct-stingers", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Overlay especial para maratones de Retro 365",
         type: "overlay", date: "2026-09-06",
         summary: "Variante del overlay principal con contador de días y progreso del reto en pantalla.",
-        thumbnail: "🎥", internalView: "ct-overlay-retro365", reviewed: false
+        thumbnail: "🎥", internalView: "ct-overlay-retro365", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", type:"overlay|obs|plantilla|recurso", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🖥️", link:"..." },
@@ -2897,7 +2897,7 @@
         title: "Figura impresa en 3D de mascota",
         type: "objeto", date: "2026-08-30",
         summary: "Primera figura física de la mascota CHARKUMA, impresa y pintada a mano.",
-        thumbnail: "📦", internalView: "hm-figura-3d", reviewed: false
+        thumbnail: "📦", internalView: "hm-figura-3d", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Cojín tufting de un mando retro",
