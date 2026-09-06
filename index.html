@@ -1240,6 +1240,7 @@
             de las demás secciones que todavía está "pendiente de revisión" (generado como
             base, a falta de que le des tu toque final antes de grabarlo).
           </p>
+          <button type="button" class="btn btn-primary" onclick="downloadMonthCalendarEvents()">➕ Añadir eventos del mes</button>
         </div>
       </section>
       <section class="detail-section">
@@ -1248,7 +1249,9 @@
           <div class="note" style="margin-bottom:16px">
             <strong>Fecha de arranque:</strong> el reto retoma la grabación/subida el
             <strong>10 de noviembre de 2026</strong>. Los días de aquí abajo se reparten
-            a partir de esa fecha, no de hoy.
+            a partir de esa fecha, no de hoy — salvo que algo vaya con retraso: eso siempre
+            pasa primero. <span class="type-chip chip-red">⏰ Retrasado</span> marca lo que
+            ya debería estar hecho y no lo está.
           </div>
           <div id="calendarRetroList" class="recent-list"></div>
 
@@ -1301,6 +1304,7 @@
           <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕹️ CONTROL SECRETO MAESTRO</h2>
           <span class="autonomous-loop-status"></span>
+          <p class="yt-empty last-autonomous-activity" style="margin:6px 0 0"></p>
           <p class="section-sub">
             Todo lo que hay integrado en la web — proyectos completos y cada idea suelta
             de los 7 bancos secretos — con su estado real (⏳ pendiente, ✅ aprobado,

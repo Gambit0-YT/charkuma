@@ -1425,6 +1425,7 @@
         // directamente a la siguiente idea sin tocar, en vez de dejarte
         // en la misma página esperando a que pulses "→ Siguiente" a mano.
         markReviewed(rid);
+        clearScheduledDate(rid); // ya no cuenta como "pendiente sin hacer" en el calendario
         goToNextUntouchedContent(rid);
       }
     }
@@ -1469,7 +1470,7 @@
       // Descartar es una decisión de revisión: salta directo a la
       // siguiente idea sin tocar. Restaurar es una corrección, no un
       // avance — ahí nos quedamos donde estamos.
-      if (discarding) goToNextUntouchedContent(rid);
+      if (discarding) { clearScheduledDate(rid); goToNextUntouchedContent(rid); }
       else refreshReviewControls();
     }
     // Vuelve a pintar el bloque de controles de la vista activa (y quita
@@ -3563,6 +3564,54 @@
       return `https://calendar.google.com/calendar/render?${params.toString()}`;
     }
 
+    // Botón "➕ Añadir eventos del mes": en vez de darle uno a uno a
+    // "Añadir a Google Calendar", genera un único archivo .ics con
+    // todos los eventos de los próximos 30 días (los ya calculados por
+    // el último renderCalendarView(), retrasados incluidos) — se importa
+    // de una vez en Google Calendar (o cualquier otra app de calendario).
+    function icsEscape(str){
+      return String(str || '').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+    }
+    function icsDate(d){
+      return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    }
+    function downloadMonthCalendarEvents(){
+      const in30Days = new Date();
+      in30Days.setDate(in30Days.getDate() + 30);
+      const events = lastScheduledCalendarEvents.filter(e => e.date <= in30Days);
+
+      if (!events.length) {
+        alert('No hay ningún evento en los próximos 30 días para añadir.');
+        return;
+      }
+
+      const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CHARKUMA//Calendario de publicación//ES'];
+      events.forEach(e => {
+        const end = new Date(e.date.getTime() + (e.durationMinutes || 60) * 60000);
+        lines.push(
+          'BEGIN:VEVENT',
+          `UID:${Date.now()}-${Math.random().toString(36).slice(2)}@charkuma`,
+          `DTSTAMP:${icsDate(new Date())}`,
+          `DTSTART:${icsDate(e.date)}`,
+          `DTEND:${icsDate(end)}`,
+          `SUMMARY:${icsEscape(e.title)}`,
+          `DESCRIPTION:${icsEscape(e.details)}`,
+          'END:VEVENT'
+        );
+      });
+      lines.push('END:VCALENDAR');
+
+      const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `charkuma-calendario-${new Date().toISOString().slice(0, 10)}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
     function taskDescriptionFor(item, sectionLabel){
       const url = item.internalView ? (location.origin + location.pathname + '#view=' + item.internalView) : '';
       return [
@@ -3585,18 +3634,85 @@
     // interprete la zona horaria de "2026-11-10".
     const RETRO365_START_DATE = new Date(2026, 10, 10);
 
-    // Reparte una lista de tareas en fechas concretas — por defecto
-    // empezando mañana, o desde startDate si se indica — una cada
-    // "gapDays" días. Calendario editorial simple y automático.
-    function scheduleFrom(items, gapDays, startDate){
-      const base = startDate ? new Date(startDate) : new Date();
-      base.setHours(10, 0, 0, 0);
-      if (!startDate) base.setDate(base.getDate() + 1);
-      return items.map((it, i) => {
-        const d = new Date(base);
-        d.setDate(d.getDate() + i * gapDays);
-        return Object.assign({}, it, { scheduledDate: d });
+    // ──────────────────────────────────────────────────────────
+    // Reparto de fechas CON MEMORIA: a diferencia de repartir siempre
+    // desde cero cada vez que se abre el calendario, aquí la fecha que
+    // le toca a cada elemento se guarda la primera vez (charkuma_schedule_state)
+    // y ya no cambia sola. Así, si a un elemento le tocaba el día X y
+    // llega esa fecha sin que se haya marcado como hecho, se detecta
+    // como "retrasado" — y los retrasados ocupan SIEMPRE los primeros
+    // huecos libres, por delante de cualquier elemento nuevo todavía sin
+    // fecha asignada. Es justo lo que pediste: nunca colar algo nuevo
+    // delante de algo que ya debería estar hecho.
+    // ──────────────────────────────────────────────────────────
+    const SCHEDULE_STATE_KEY = 'charkuma_schedule_state';
+    function loadScheduleState(){
+      try { return JSON.parse(localStorage.getItem(SCHEDULE_STATE_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveScheduleState(state){
+      try { localStorage.setItem(SCHEDULE_STATE_KEY, JSON.stringify(state)); }
+      catch (e) { /* seguimos sin guardar */ }
+    }
+
+    // items: array de objetos cualquiera. idFn(item) → id estable para
+    // guardar su fecha. gapDays → separación entre huecos. defaultStartDate
+    // → no repartir nada antes de esta fecha MIENTRAS no haya retrasados
+    // (una vez hay algo retrasado, se rellena desde mañana, delante de
+    // todo lo demás, aunque eso adelante la fecha por defecto).
+    function scheduleWithPriority(items, idFn, gapDays, defaultStartDate){
+      const state = loadScheduleState();
+      const now = new Date();
+      const overdue = [], upcoming = [], fresh = [];
+
+      items.forEach(it => {
+        const id = idFn(it);
+        const savedISO = state[id];
+        if (!savedISO) { fresh.push(it); return; }
+        const savedDate = new Date(savedISO);
+        if (savedDate < now) overdue.push(it);
+        else upcoming.push(Object.assign({}, it, { scheduledDate: savedDate }));
       });
+
+      const takenTimes = new Set(upcoming.map(u => u.scheduledDate.getTime()));
+      let cursor = new Date(now);
+      cursor.setDate(cursor.getDate() + 1);
+      cursor.setHours(10, 0, 0, 0);
+      // Si nada va con retraso todavía, respeta la fecha de arranque
+      // "oficial" (p. ej. el 10 de noviembre de Retro 365) en vez de
+      // empezar a repartir desde mañana.
+      if (!overdue.length && defaultStartDate && new Date(defaultStartDate) > cursor) {
+        cursor = new Date(defaultStartDate);
+        cursor.setHours(10, 0, 0, 0);
+      }
+      function nextFreeSlot(){
+        while (takenTimes.has(cursor.getTime())) cursor.setDate(cursor.getDate() + gapDays);
+        const slot = new Date(cursor);
+        takenTimes.add(slot.getTime());
+        cursor.setDate(cursor.getDate() + gapDays);
+        return slot;
+      }
+
+      const scheduledOverdue = overdue.map(it => {
+        const slot = nextFreeSlot();
+        state[idFn(it)] = slot.toISOString();
+        return Object.assign({}, it, { scheduledDate: slot, isOverdue: true });
+      });
+      const scheduledFresh = fresh.map(it => {
+        const slot = nextFreeSlot();
+        state[idFn(it)] = slot.toISOString();
+        return Object.assign({}, it, { scheduledDate: slot });
+      });
+
+      saveScheduleState(state);
+      return [...scheduledOverdue, ...upcoming, ...scheduledFresh].sort((a, b) => a.scheduledDate - b.scheduledDate);
+    }
+
+    // Cuando un elemento se marca como hecho/publicado, ya no debe
+    // seguir contando para "retrasado" — le liberamos su hueco guardado.
+    function clearScheduledDate(id){
+      const state = loadScheduleState();
+      if (state[id]) { delete state[id]; saveScheduleState(state); }
     }
 
     function formatScheduledDate(d){
@@ -3605,17 +3721,30 @@
       return d.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
     }
 
+    // Eventos ya calculados en el último renderCalendarView() — los usa
+    // el botón "➕ Añadir eventos del mes" para meterlos todos de golpe
+    // en un único archivo .ics, en vez de tener que darle uno a uno a
+    // "Añadir a Google Calendar".
+    let lastScheduledCalendarEvents = [];
+
     function renderCalendarView(){
       const retroList = document.getElementById('calendarRetroList');
       const pendingList = document.getElementById('calendarPendingList');
       if (!retroList || !pendingList) return;
+      lastScheduledCalendarEvents = [];
 
       const plannedDays = Object.keys(plannedGames).map(Number).sort((a, b) => a - b);
-      const scheduledRetro = scheduleFrom(plannedDays.map(day => ({day, g: plannedGames[day]})), 3, RETRO365_START_DATE);
+      const scheduledRetro = scheduleWithPriority(
+        plannedDays.map(day => ({ day, g: plannedGames[day] })),
+        ({ day }) => `retro-day-${day}`,
+        3, RETRO365_START_DATE
+      );
       retroList.innerHTML = scheduledRetro.length
-        ? scheduledRetro.map(({day, g, scheduledDate}) => {
+        ? scheduledRetro.map(({day, g, scheduledDate, isOverdue}) => {
             const details = taskDescriptionFor({ summary: g.summary }, 'Retro 365');
-            const calLink = googleCalendarLink({ title: `Grabar Retro 365 · ${g.name}`, date: scheduledDate, durationMinutes: 90, details });
+            const title = `Grabar Retro 365 · ${g.name}`;
+            const calLink = googleCalendarLink({ title, date: scheduledDate, durationMinutes: 90, details });
+            lastScheduledCalendarEvents.push({ title, date: scheduledDate, durationMinutes: 90, details });
             return `
               <div class="geek-card">
                 <div class="geek-thumb">${g.emoji || '📝'}</div>
@@ -3624,6 +3753,7 @@
                     <span class="type-chip chip-purple">DÍA ${String(day).padStart(3,'0')}</span>
                     <span class="type-chip diff-${g.difficulty}">${DIFF_LABELS[g.difficulty] || g.difficulty}</span>
                     <span class="type-chip chip-neutral">📅 ${formatScheduledDate(scheduledDate)}</span>
+                    ${isOverdue ? '<span class="type-chip chip-red">⏰ Retrasado</span>' : ''}
                   </div>
                   <h4>${g.name}</h4>
                   <p>${g.summary}</p>
@@ -3645,17 +3775,19 @@
         arr.forEach(item => {
           const rid = item.internalView || item.title;
           if (item.reviewed === false && !isReviewed(rid) && !isContentDiscarded(rid)) {
-            pending.push({ item, section, emoji });
+            pending.push({ item, section, emoji, rid });
           }
         });
       });
       pending.sort((a, b) => new Date(b.item.date || 0) - new Date(a.item.date || 0));
-      const scheduledPending = scheduleFrom(pending, 2);
+      const scheduledPending = scheduleWithPriority(pending, ({ rid }) => rid, 2);
 
       pendingList.innerHTML = scheduledPending.length
-        ? scheduledPending.map(({item, section, emoji, scheduledDate}) => {
+        ? scheduledPending.map(({item, section, emoji, scheduledDate, isOverdue}) => {
             const details = taskDescriptionFor(item, section);
-            const calLink = googleCalendarLink({ title: `${section}: ${item.title}`, date: scheduledDate, durationMinutes: 60, details });
+            const title = `${section}: ${item.title}`;
+            const calLink = googleCalendarLink({ title, date: scheduledDate, durationMinutes: 60, details });
+            lastScheduledCalendarEvents.push({ title, date: scheduledDate, durationMinutes: 60, details });
             return `
             <div class="geek-card">
               <div class="geek-thumb">${item.thumbnail || emoji}</div>
@@ -3663,6 +3795,7 @@
                 <div class="geek-badges">
                   <span class="type-chip chip-purple">${emoji} ${section}</span>
                   <span class="type-chip chip-neutral">📅 ${formatScheduledDate(scheduledDate)}</span>
+                  ${isOverdue ? '<span class="type-chip chip-red">⏰ Retrasado</span>' : ''}
                   ${reviewBadgeHTML(item)}
                 </div>
                 <h4><a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a></h4>
@@ -3926,6 +4059,25 @@
         el.textContent = AUTONOMOUS_LOOP_ACTIVE ? '🌙 Automatización automática activada' : '⚪ Automatización automática desactivada';
         el.classList.toggle('is-active', AUTONOMOUS_LOOP_ACTIVE);
       });
+      renderLastAutonomousActivity();
+    }
+
+    // Indicador de solo lectura (sí puede vivir en localStorage, a
+    // diferencia del de arriba: aquí no importa que solo sea exacto en
+    // ESTE navegador, es simplemente un recordatorio de "cuándo fue la
+    // última vez que pasó algo por aquí").
+    function renderLastAutonomousActivity(){
+      document.querySelectorAll('.last-autonomous-activity').forEach(el => {
+        const log = loadActivityLog();
+        if (!log.length) { el.textContent = 'Todavía no hay actividad registrada.'; return; }
+        const last = log[log.length - 1];
+        const mins = Math.round((Date.now() - new Date(last.ts).getTime()) / 60000);
+        const when = mins < 1 ? 'justo ahora'
+          : mins < 60 ? `hace ${mins} min`
+          : mins < 1440 ? `hace ${Math.round(mins / 60)} h`
+          : `hace ${Math.round(mins / 1440)} día${Math.round(mins / 1440) === 1 ? '' : 's'}`;
+        el.textContent = `Última actividad autónoma: ${when} — ${last.message}`;
+      });
     }
 
     function renderMasterControlList(){
@@ -4085,7 +4237,7 @@
           const text = ((v.snippet.title || '') + ' ' + (v.snippet.description || '')).toLowerCase();
           return text.includes('#reto365') && text.includes(gameName);
         });
-        if (matched) toggleIdeaDone(RETRO_PLANNED_BANK, id);
+        if (matched) { toggleIdeaDone(RETRO_PLANNED_BANK, id); clearScheduledDate(`retro-day-${day}`); }
       });
     }
 
@@ -4407,7 +4559,8 @@
     const pendingDecisions = [
       { id: 'analytics-provider', date: '2026-09-06', text: 'Elegir proveedor de analítica de visitas (p. ej. Plausible o Umami) antes de añadirlo a la web.' },
       { id: 'notes-backend-provider', date: '2026-09-06', text: 'Elegir proveedor de backend (Firebase/Supabase/otro) para que las notas y demás datos persistan entre dispositivos sin exportar/importar a mano.' },
-      { id: 'public-community-features', date: '2026-09-06', text: 'Decidir si alguna sección se va a hacer pública antes de construir votaciones o reacciones de comunidad — si no, esas dos mejoras no aplican.' }
+      { id: 'public-community-features', date: '2026-09-06', text: 'Decidir si alguna sección se va a hacer pública antes de construir votaciones o reacciones de comunidad — si no, esas dos mejoras no aplican.' },
+      { id: 'identity-tiles-links', date: '2026-09-06', text: 'Hacer clicables las 4 tarjetas de "Sobre mí" (Gaming/Cultura Geek/Creatividad/Tech): Gaming → lista de juegos (¿Steam?), Cultura Geek → canal de YouTube, Creatividad → Instagram, Tech → lista/review del setup ya comprado. Falta decidir de dónde sale cada dato (¿API de Steam? ¿contenido escrito a mano para Tech?).' }
     ];
     const DISMISSED_PENDING_KEY = 'charkuma_dismissed_pending_decisions';
     function loadDismissedPending(){
