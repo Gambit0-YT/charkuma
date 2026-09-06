@@ -69,6 +69,7 @@
     let currentSidebarMode = 'videos'; // 'videos' | 'news'
     let cachedVideosHTML = null;
     let cachedNewsHTML = null;
+    let latestVideosRaw = []; // últimos vídeos de YouTube ya cargados, para checkRetro365AutoPublish
 
     // Marca cuándo ya se estableció el estado base del historial del
     // navegador (ver showView más abajo), para que el botón "atrás"
@@ -1051,6 +1052,26 @@
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
     }
 
+    // "Publicado": el vídeo ya está subido de verdad. Se puede marcar a
+    // mano, o (solo para Retro 365, ver checkRetro365AutoPublish) sola
+    // si detecta el hashtag #Reto365 + el nombre del juego en un vídeo
+    // reciente de YouTube.
+    const PUBLISHED_CONTENT_KEY = 'charkuma_published_content';
+
+    function loadPublishedContentSet(){
+      try { return new Set(JSON.parse(localStorage.getItem(PUBLISHED_CONTENT_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+    function isContentPublished(id){
+      return loadPublishedContentSet().has(id);
+    }
+    function setContentPublished(id, published){
+      const set = loadPublishedContentSet();
+      if (published) set.add(id); else set.delete(id);
+      try { localStorage.setItem(PUBLISHED_CONTENT_KEY, JSON.stringify(Array.from(set))); }
+      catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
+    }
+
     // Busca, en todos los arrays de contenido, el objeto que corresponde
     // a una vista concreta (por su internalView) — para saber si esa
     // página es "contenido revisable" y poder pintar sus controles.
@@ -1069,28 +1090,31 @@
     function getContentStatus(item, rid){
       rid = rid || item.internalView || item.title;
       if (isContentDiscarded(rid)) return 'descartado';
+      if (isContentPublished(rid)) return 'publicado';
       if (isContentInProgress(rid)) return 'en-proceso';
       if (item.reviewed !== false || isReviewed(rid)) return 'aprobado';
       return 'pendiente';
     }
     const CONTENT_STATUS_LABELS = {
       pendiente: '⏳ Pendiente', aprobado: '✅ Aprobada',
-      'en-proceso': '🎬 En proceso', descartado: '🗑️ Descartada'
+      'en-proceso': '🎬 En proceso', publicado: '📤 Publicado', descartado: '🗑️ Descartada'
     };
     const CONTENT_STATUS_CHIPCLASS = {
       pendiente: 'chip-yellow', aprobado: 'chip-green',
-      'en-proceso': 'chip-orange', descartado: 'chip-red'
+      'en-proceso': 'chip-orange', publicado: 'chip-blue', descartado: 'chip-red'
     };
 
-    // Bloque grande de "✅ Aprobar / 🎬 En proceso / 🗑️ Descartar" que se
-    // inyecta en la cabecera de la propia página de detalle (no solo la
-    // insignia pequeña del kicker) — reversible en los tres sentidos.
+    // Bloque grande de "✅ Aprobar / 🎬 En proceso / 📤 Publicado / 🗑️
+    // Descartar" que se inyecta en la cabecera de la propia página de
+    // detalle (no solo la insignia pequeña del kicker) — reversible en
+    // los cuatro sentidos.
     function reviewControlsHTML(item){
       const rid = item.internalView || item.title;
       const status = getContentStatus(item, rid);
-      const inProgress = status === 'en-proceso';
+      const published = status === 'publicado';
+      const inProgress = status === 'en-proceso' || published;
       const discarded = status === 'descartado';
-      const approved = status === 'aprobado' || inProgress; // en-proceso implica ya aprobado
+      const approved = status === 'aprobado' || inProgress; // en-proceso/publicado implican ya aprobado
       const statusChip = `<span class="type-chip ${CONTENT_STATUS_CHIPCLASS[status]}">${CONTENT_STATUS_LABELS[status]}</span>`;
       return `
         <div class="review-controls" data-review-id="${rid}">
@@ -1100,6 +1124,9 @@
           </button>
           <button type="button" class="btn btn-secondary review-progress-btn" onclick="toggleContentInProgress('${rid}')">
             ${inProgress ? '↩️ Quitar "en proceso"' : '🎬 Empezar guion (en proceso)'}
+          </button>
+          <button type="button" class="btn btn-secondary review-published-btn" onclick="toggleContentPublished('${rid}')">
+            ${published ? '↩️ Quitar "publicado"' : '📤 Marcar como publicado'}
           </button>
           <button type="button" class="btn btn-secondary review-discard-btn" onclick="toggleContentDiscarded('${rid}')">
             ${discarded ? '↩️ Restaurar' : '🗑️ Descartar idea'}
@@ -1111,13 +1138,25 @@
       if (isReviewed(rid)) {
         // "Quitar aprobación": no hay un unmarkReviewed ya hecho — lo
         // montamos aquí mismo, reutilizando el mismo Set. Si estaba "en
-        // proceso", quitar la aprobación también la retrocede.
+        // proceso" o "publicado", quitar la aprobación también retrocede.
         const set = loadReviewedSet();
         set.delete(rid);
         try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); } catch(e) {}
         setContentInProgress(rid, false);
+        setContentPublished(rid, false);
       } else {
         markReviewed(rid);
+      }
+      refreshReviewControls();
+    }
+    function toggleContentPublished(rid){
+      const turningOn = !isContentPublished(rid);
+      setContentPublished(rid, turningOn);
+      // "Publicado" implica los pasos anteriores: si hacía falta,
+      // aprueba y marca "en proceso" automáticamente.
+      if (turningOn) {
+        if (!isReviewed(rid)) markReviewed(rid);
+        if (!isContentInProgress(rid)) setContentInProgress(rid, true);
       }
       refreshReviewControls();
     }
@@ -2752,13 +2791,21 @@
       ].filter(Boolean).join('\n');
     }
 
-    // Reparte una lista de tareas en fechas concretas empezando mañana,
-    // una cada "gapDays" días — un calendario editorial simple y
-    // automático a partir de hoy.
-    function scheduleFrom(items, gapDays){
-      const base = new Date();
+    // Fecha real en la que arranca de nuevo la grabación/subida de
+    // Retro 365 (los días ya publicados quedan como están; esto solo
+    // afecta a cuándo se reparten en el calendario los días "decididos,
+    // sin grabar todavía"). Construida con año/mes(0-indexado)/día en
+    // vez de un string ISO, para no depender de cómo cada navegador
+    // interprete la zona horaria de "2026-11-10".
+    const RETRO365_START_DATE = new Date(2026, 10, 10);
+
+    // Reparte una lista de tareas en fechas concretas — por defecto
+    // empezando mañana, o desde startDate si se indica — una cada
+    // "gapDays" días. Calendario editorial simple y automático.
+    function scheduleFrom(items, gapDays, startDate){
+      const base = startDate ? new Date(startDate) : new Date();
       base.setHours(10, 0, 0, 0);
-      base.setDate(base.getDate() + 1);
+      if (!startDate) base.setDate(base.getDate() + 1);
       return items.map((it, i) => {
         const d = new Date(base);
         d.setDate(d.getDate() + i * gapDays);
@@ -2767,7 +2814,9 @@
     }
 
     function formatScheduledDate(d){
-      return d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
+      // Fecha larga y en mayúsculas ("LUNES, 9 DE NOVIEMBRE DE 2026") en
+      // vez de la abreviada ("lun, 9 nov") — más legible en el calendario.
+      return d.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
     }
 
     function renderCalendarView(){
@@ -2776,7 +2825,7 @@
       if (!retroList || !pendingList) return;
 
       const plannedDays = Object.keys(plannedGames).map(Number).sort((a, b) => a - b);
-      const scheduledRetro = scheduleFrom(plannedDays.map(day => ({day, g: plannedGames[day]})), 3);
+      const scheduledRetro = scheduleFrom(plannedDays.map(day => ({day, g: plannedGames[day]})), 3, RETRO365_START_DATE);
       retroList.innerHTML = scheduledRetro.length
         ? scheduledRetro.map(({day, g, scheduledDate}) => {
             const details = taskDescriptionFor({ summary: g.summary }, 'Retro 365');
@@ -3063,7 +3112,7 @@
       return items;
     }
 
-    const MASTER_CONTROL_STATUS_PRIORITY = { 'en-proceso': 0, pendiente: 1, aprobado: 2, descartado: 3 };
+    const MASTER_CONTROL_STATUS_PRIORITY = { 'en-proceso': 0, pendiente: 1, aprobado: 2, publicado: 3, descartado: 4 };
 
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
@@ -3178,6 +3227,41 @@
       }
     }
 
+    // ──────────────────────────────────────────────────────────
+    // AUTO-DETECCIÓN de vídeos publicados de Retro 365: mira los
+    // últimos vídeos reales de YouTube (ya cargados por loadLatestVideos)
+    // y, si el título o la descripción de alguno contiene el hashtag
+    // "#Reto365" JUNTO con el nombre de un juego "decidido, sin grabar"
+    // todavía, lo marca como hecho automáticamente en el banco de ideas
+    // de Retro 365 (mismo efecto que pulsar el ✅ a mano ahí).
+    //
+    // Por ahora esto solo existe para Retro 365, que es la única
+    // sección con un hashtag fijo definido (#Reto365 + nombre del
+    // juego, en todos los vídeos, tanto en YouTube como en TikTok). Si
+    // luego usas un hashtag parecido en otras secciones, este mismo
+    // patrón se puede repetir para ellas.
+    //
+    // Limitación real: solo puede comprobar los vídeos que ve la API de
+    // YouTube (no TikTok), y solo funciona en el dominio real de la web
+    // (la clave de YouTube está restringida a ese referrer) — en local
+    // no hace nada útil.
+    function checkRetro365AutoPublish(){
+      if (!latestVideosRaw.length) return;
+      const plannedBankState = loadIdeaBanks()[RETRO_PLANNED_BANK] || {};
+      Object.keys(plannedGames).forEach(day => {
+        const id = `day-${day}`;
+        if ((plannedBankState[id] || {}).done) return; // ya marcado, nada que hacer
+        const game = plannedGames[day];
+        const gameName = (game.name || '').toLowerCase().trim();
+        if (!gameName) return;
+        const matched = latestVideosRaw.some(v => {
+          const text = ((v.snippet.title || '') + ' ' + (v.snippet.description || '')).toLowerCase();
+          return text.includes('#reto365') && text.includes(gameName);
+        });
+        if (matched) toggleIdeaDone(RETRO_PLANNED_BANK, id);
+      });
+    }
+
     async function loadLatestVideos(){
       const notConfigured =
         !YT_API_KEY || YT_API_KEY.indexOf("PON_AQUI") === 0 ||
@@ -3218,6 +3302,8 @@
         ).then(r => r.json());
 
         const videos = videosRes.items || [];
+        latestVideosRaw = videos;
+        checkRetro365AutoPublish();
         cachedVideosHTML = videos.length
           ? videos.map(v => {
               const s = v.snippet;

@@ -559,6 +559,7 @@
     .chip-yellow{background:rgba(245,200,69,.14);color:var(--yellow);border:1px solid rgba(245,200,69,.35)}
     .chip-orange{background:rgba(255,122,24,.14);color:var(--orange2);border:1px solid rgba(255,122,24,.4)}
     .chip-red{background:rgba(255,95,109,.14);color:var(--red);border:1px solid rgba(255,95,109,.35)}
+    .chip-blue{background:rgba(56,189,248,.14);color:#38bdf8;border:1px solid rgba(56,189,248,.35)}
 
     .saga-chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.03em;display:inline-block}
     .saga-marvel{background:rgba(237,29,36,.15);color:#ff6b6f;border:1px solid rgba(237,29,36,.4)}
@@ -1008,6 +1009,11 @@
       <section class="detail-section">
         <div class="container">
           <h3 class="subheading">🎮 Retro 365 — lo siguiente</h3>
+          <div class="note" style="margin-bottom:16px">
+            <strong>Fecha de arranque:</strong> el reto retoma la grabación/subida el
+            <strong>10 de noviembre de 2026</strong>. Los días de aquí abajo se reparten
+            a partir de esa fecha, no de hoy.
+          </div>
           <div id="calendarRetroList" class="recent-list"></div>
 
           <h3 class="subheading" style="margin-top:30px">🧪 En el resto de secciones</h3>
@@ -1086,6 +1092,7 @@
                 <option value="pendiente">⏳ Pendiente</option>
                 <option value="aprobado">✅ Aprobado</option>
                 <option value="en-proceso">🎬 En proceso</option>
+                <option value="publicado">📤 Publicado</option>
                 <option value="descartado">🗑️ Descartado</option>
               </select>
               <select id="masterControlSort">
