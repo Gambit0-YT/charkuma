@@ -563,6 +563,22 @@
     /* ── Ranking friki (minijuego de votos) ── */
     .ranking-panel{margin-bottom:10px}
     .ranking-add-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+
+    /* ── Importar ideas desde JSON (bancos secretos) ── */
+    .json-import-panel{margin-top:16px}
+    .json-import-panel h4{margin:0 0 10px}
+    .json-import-panel p{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 10px}
+    .json-import-panel code{background:var(--panel);padding:2px 6px;border-radius:6px;font-size:12px}
+    .json-import-panel pre{
+      background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;
+      font-size:11px;line-height:1.6;color:var(--muted);overflow-x:auto;margin:0 0 12px;
+    }
+    .json-import-panel textarea{
+      width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
+      background:var(--panel);color:var(--text);font-family:ui-monospace,Consolas,monospace;
+      font-size:12px;line-height:1.6;resize:vertical
+    }
+    .json-import-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
     .ranking-add-row input{flex:1;min-width:200px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-family:inherit;font-size:14px}
     .ranking-list{display:flex;flex-direction:column;gap:8px}
     .ranking-row{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
@@ -1014,7 +1030,7 @@
       <p id="inProgressCounter" class="yt-empty" style="margin:0 0 12px;text-align:center"></p>
       <div class="modal-nav">
         <button type="button" class="btn btn-secondary" onclick="stepInProgressCarousel(-1)" aria-label="Anterior">← Anterior</button>
-        <button type="button" class="btn btn-primary" onclick="goToApprovedInMasterControl()" title="Ver las ideas ya aprobadas, listas para pasar a &quot;en proceso&quot;">➕ Añadir</button>
+        <button type="button" class="btn btn-primary" onclick="goToApprovedInMasterControl()" title="Ver las ideas pendientes de aprobación">➕ Añadir</button>
         <button type="button" class="btn btn-secondary" onclick="stepInProgressCarousel(1)" aria-label="Siguiente">Siguiente →</button>
       </div>
     </div>
@@ -1821,6 +1837,28 @@
               <input type="checkbox" id="rfHideDiscarded" onchange="setHideDiscardedPref('rincon','rfSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+          </div>
+
+          <div class="panel json-import-panel">
+            <h4>📥 Añadir ideas desde JSON</h4>
+            <p>
+              Pega aquí un bloque de datos externo y se añade al banco de ideas (se guarda
+              en este navegador, junto a lo demás). Admite un objeto agrupado por tipo o una
+              lista plana:
+            </p>
+            <pre>{"opinion": [{"universe":"marvel","text":"..."}], "batalla": [{"universe":"boys","text":"..."}]}
+// o en lista plana:
+[{"type":"opinion","universe":"marvel","text":"..."}, {"type":"batalla","text":"..."}]</pre>
+            <p>
+              Tipos válidos aquí: <code>opinion</code>, <code>curiosidad</code>,
+              <code>fancast</code>, <code>batalla</code>, <code>reaccion</code>.
+              <code>universe</code> es opcional (si no lo pones, se queda como "cine geek").
+            </p>
+            <textarea id="rinconJsonImport" rows="5" placeholder='[{"type":"opinion","universe":"marvel","text":"Tu idea aquí..."}]'></textarea>
+            <div class="json-import-actions">
+              <button type="button" class="btn btn-primary" onclick="importRinconIdeasFromJSON()">➕ Añadir al banco</button>
+              <span id="rinconJsonImportStatus" class="yt-empty"></span>
+            </div>
           </div>
         </div>
       </section>

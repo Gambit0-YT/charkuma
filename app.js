@@ -1502,6 +1502,91 @@
       ]
     };
 
+    // ──────────────────────────────────────────────────────────
+    // IMPORTAR IDEAS DESDE JSON (Rincón del Friki): las 50 ideas base
+    // viven en el código (rinconSecretIdeas), pero el usuario puede
+    // pegar un bloque JSON externo con ideas nuevas — se guardan aparte
+    // (localStorage) y se combinan con las del código al pintar, sin
+    // tocar rinconSecretIdeas. Los IDs de "hecha/descartar" siguen
+    // funcionando porque las nuevas ideas se añaden SIEMPRE al final de
+    // cada tipo (índices que continúan a partir de las de base).
+    // ──────────────────────────────────────────────────────────
+    const RINCON_EXTRA_IDEAS_KEY = 'charkuma_rincon_extra_ideas';
+    const RINCON_VALID_TYPES = Object.keys(rinconSecretIdeas);
+
+    function loadRinconExtraIdeas(){
+      try { return JSON.parse(localStorage.getItem(RINCON_EXTRA_IDEAS_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveRinconExtraIdeas(data){
+      try { localStorage.setItem(RINCON_EXTRA_IDEAS_KEY, JSON.stringify(data)); }
+      catch (e) { /* seguimos sin guardarlo, sin romper nada */ }
+    }
+    function getRinconIdeasMerged(){
+      const extra = loadRinconExtraIdeas();
+      const merged = {};
+      Object.keys(rinconSecretIdeas).forEach(type => {
+        merged[type] = rinconSecretIdeas[type].concat(extra[type] || []);
+      });
+      // Por si el JSON trae un tipo que no existe todavía en el banco base.
+      Object.keys(extra).forEach(type => {
+        if (!merged[type]) merged[type] = extra[type].slice();
+      });
+      return merged;
+    }
+
+    function importRinconIdeasFromJSON(){
+      const textarea = document.getElementById('rinconJsonImport');
+      const statusEl = document.getElementById('rinconJsonImportStatus');
+      if (!textarea || !statusEl) return;
+
+      let parsed;
+      try {
+        parsed = JSON.parse(textarea.value);
+      } catch (e) {
+        statusEl.textContent = '❌ Eso no es JSON válido — revisa comillas y comas.';
+        return;
+      }
+
+      const additions = {};
+      const addEntry = (type, entry) => {
+        if (!entry) return;
+        const text = typeof entry === 'string' ? entry : entry.text;
+        if (!text || typeof text !== 'string') return;
+        const finalType = RINCON_VALID_TYPES.includes(type) ? type : 'opinion';
+        if (!additions[finalType]) additions[finalType] = [];
+        additions[finalType].push({
+          universe: (entry.universe && String(entry.universe)) || 'geek',
+          text: text.trim()
+        });
+      };
+
+      if (Array.isArray(parsed)) {
+        parsed.forEach(entry => addEntry(entry && entry.type, entry));
+      } else if (parsed && typeof parsed === 'object') {
+        Object.keys(parsed).forEach(type => {
+          const arr = Array.isArray(parsed[type]) ? parsed[type] : [];
+          arr.forEach(entry => addEntry(type, entry));
+        });
+      }
+
+      const addedCount = Object.values(additions).reduce((sum, arr) => sum + arr.length, 0);
+      if (!addedCount) {
+        statusEl.textContent = '⚠️ No he reconocido ninguna idea válida ahí — mira el formato de ejemplo de arriba.';
+        return;
+      }
+
+      const extra = loadRinconExtraIdeas();
+      Object.keys(additions).forEach(type => {
+        extra[type] = (extra[type] || []).concat(additions[type]);
+      });
+      saveRinconExtraIdeas(extra);
+
+      textarea.value = '';
+      statusEl.textContent = `✅ Añadidas ${addedCount} idea${addedCount === 1 ? '' : 's'} nueva${addedCount === 1 ? '' : 's'} al banco.`;
+      renderRinconSecret();
+    }
+
     function renderRinconSecret(){
       const container = document.getElementById('rfSecretContainer');
       if (!container) return;
@@ -1513,10 +1598,11 @@
         [...container.querySelectorAll('details.month')].filter(d => d.open).map(d => d.dataset.type)
       );
 
+      const allIdeas = getRinconIdeasMerged();
       const discardedItems = [];
       let html = "";
-      Object.keys(rinconSecretIdeas).forEach(type => {
-        const ideas = rinconSecretIdeas[type];
+      Object.keys(allIdeas).forEach(type => {
+        const ideas = allIdeas[type];
         const emoji = (TYPE_LABELS[type] || '💡').split(' ')[0];
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
@@ -1530,12 +1616,12 @@
             <div class="idea-body">
               <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
                 <div style="display:flex;gap:6px;flex-wrap:wrap">
-                  <span class="type-chip type-${type}">${TYPE_LABELS[type]}</span>
-                  <span class="type-chip universe-chip">${IDEA_UNIVERSE_LABELS[idea.universe] || idea.universe}</span>
+                  <span class="type-chip type-${type}">${TYPE_LABELS[type] || type}</span>
+                  <span class="type-chip universe-chip">${IDEA_UNIVERSE_LABELS[idea.universe] || idea.universe || IDEA_UNIVERSE_LABELS.geek}</span>
                 </div>
                 <span class="count">#${i + 1}</span>
               </div>
-              <p style="margin:6px 0 0">${idea.text}</p>
+              <p style="margin:6px 0 0">${escapeHTML(idea.text)}</p>
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
@@ -1543,7 +1629,7 @@
         html += `
           <details class="month" data-type="${type}"${openTypes.has(type) ? ' open' : ''}>
             <summary>
-              <span>${TYPE_LABELS[type]}</span>
+              <span>${TYPE_LABELS[type] || type}</span>
               <span class="count">${ideas.length} ideas</span>
             </summary>
             <div class="month-body">${rows}</div>
@@ -1560,6 +1646,10 @@
       if (discardedListEl) discardedListEl.innerHTML = discardedListHTML(bank, discardedItems);
       const hideCheckbox = document.getElementById('rfHideDiscarded');
       if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(bank);
+
+      const totalIdeas = Object.values(allIdeas).reduce((sum, arr) => sum + arr.length, 0);
+      const summaryEl = document.getElementById('rfSecretSummary');
+      if (summaryEl) summaryEl.textContent = `${totalIdeas} ideas · ${Object.keys(allIdeas).length} tipos de contenido`;
     }
     IDEA_BANK_RENDERERS.rincon = renderRinconSecret;
     renderRinconSecret();
@@ -3187,7 +3277,7 @@
       showView('master-control');
       const statusSelect = document.getElementById('masterControlStatus');
       if (statusSelect) {
-        statusSelect.value = 'aprobado';
+        statusSelect.value = 'pendiente';
         statusSelect.dispatchEvent(new Event('change'));
       }
     }
