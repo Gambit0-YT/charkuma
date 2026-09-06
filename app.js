@@ -226,6 +226,28 @@
     })();
 
     // ──────────────────────────────────────────────────────────
+    // Cuenta atrás al reinicio del canal (mejora #5 del backlog): fecha
+    // confirmada por el usuario 2026-09-07 — 9 de noviembre es el día de
+    // preparación interna, el estreno real es el 10. Contamos hasta el
+    // estreno, que es el hito que importa de cara a quien visita la web.
+    // ──────────────────────────────────────────────────────────
+    (function initChannelResetCountdown(){
+      const el = document.getElementById('channelResetCountdown');
+      if (!el) return;
+      const target = new Date('2026-11-10T00:00:00');
+      const now = new Date();
+      const daysLeft = Math.ceil((target - now) / (24 * 60 * 60 * 1000));
+      if (daysLeft > 0) {
+        el.hidden = false;
+        el.textContent = `🚀 ${daysLeft} día${daysLeft === 1 ? '' : 's'} para el reinicio del canal — estreno el 10 de noviembre`;
+      } else if (daysLeft === 0) {
+        el.hidden = false;
+        el.classList.add('is-today');
+        el.textContent = `🎉 ¡Hoy es el estreno del reinicio del canal!`;
+      } // pasada la fecha, se queda oculto — no tiene sentido seguir contando hacia atrás
+    })();
+
+    // ──────────────────────────────────────────────────────────
     // Cabecera oculta por defecto, visible al acercar el ratón arriba del
     // todo (o mientras tenga el foco por teclado, o mientras un panel suyo
     // -ajustes/notificaciones- esté abierto). Si está "fijada" (nav-pinned,

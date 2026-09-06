@@ -273,6 +273,12 @@
     @media (max-width:760px){
       .hero{min-height:calc(100vh - 74px)}
     }
+    .countdown-badge{
+      display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+      padding:9px 16px;border-radius:999px;font-size:13px;font-weight:800;
+      background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);color:var(--orange)
+    }
+    .countdown-badge.is-today{background:rgba(56,217,154,.12);border-color:var(--green);color:var(--green)}
     .hero-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center
     }
@@ -1602,6 +1608,7 @@
               <a class="btn btn-primary" href="javascript:void(0)" onclick="showView('mis-proyectos')">🚀 Ver mis proyectos</a>
               <a class="btn btn-secondary" href="javascript:void(0)" onclick="showView('charkumalab')">🎲 Sorpréndeme</a>
             </div>
+            <div class="countdown-badge" id="channelResetCountdown" hidden></div>
           </div>
 
           <div class="hero-visual reveal">
