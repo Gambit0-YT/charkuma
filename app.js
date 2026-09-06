@@ -3182,7 +3182,7 @@
     // Creator Tools y Hecho a Mano. Los tipos reutilizan las mismas
     // etiquetas/colores que ya usa cada sección en su feed normal.
     // ──────────────────────────────────────────────────────────
-    const HELQUID_IDEA_LABELS = { reto:'🏆 Reto', formato:'🎮 Formato nuevo', colab:'🤝 Colab', especial:'✨ Especial' };
+    const HELQUID_IDEA_LABELS = { reto:'🏆 Reto', formato:'🎮 Formato nuevo', colab:'🤝 Colab', especial:'✨ Especial', tendencia:'📈 Tendencia real (VidIQ)' };
     const helquidSecretIdeas = {
       reto: [
         "Terminar un roguelike sin morir ni una vez en directo (o hasta rendirte).",
@@ -3240,6 +3240,22 @@
         "Especial cruce: un día jugando algo pedido por Rincón del Friki.",
         "Especial \"vuelvo a intentarlo\": retomar en directo un juego que dejé a medias hace tiempo.",
         "Especial de estrenos: probamos en directo lo que salga ese día en Retro 365."
+      ],
+      // Ideas ya formadas (no combinadas al azar) sacadas de vídeos de gaming
+      // en español que están funcionando de verdad ahora mismo, vía VidIQ
+      // (vidiq_trending_videos, 6-sep-2026). Se refrescan de vez en cuando —
+      // no son una plantilla genérica, son temas reales del momento.
+      tendencia: [
+        "Analizar cómo el modelo free-to-play y las microtransacciones han cambiado (a peor, según muchos) la industria del gaming, con ejemplos reales.",
+        "Repasar casos reales de periodistas generalistas hablando fatal y sin idea sobre videojuegos, y desmontar sus argumentos.",
+        "Explicar de forma sencilla cómo funciona la IA de los enemigos o compañeros en un juego famoso (tipo Alien: Isolation o Resident Evil 4).",
+        "Recopilar easter eggs poco conocidos en varios juegos populares, con el contexto de por qué existen.",
+        "Vídeo tipo \"making of\": por qué trabajar en el desarrollo de un juego indie es divertido, aunque sea duro.",
+        "Ranking de las colaboraciones más locas entre música (rap/hip-hop) y videojuegos a lo largo de los años.",
+        "Ranking en tono de humor: qué personajes de videojuegos tienen \"más aura\" ahora mismo.",
+        "Contar la historia de cómo llegó el doblaje latino a los videojuegos que marcaron a una generación.",
+        "Explicar en cristiano una tecnología gráfica nueva (tipo IA/upscaling) y cómo cambiaría un juego retro si se aplicara hoy.",
+        "Repasar las controversias más absurdas de videojuegos recientes, con opinión propia sobre cada una."
       ]
     };
     IDEA_BANK_RENDERERS.helquid = () => renderTypedIdeaBank({

@@ -564,6 +564,11 @@
       border:1px dashed var(--orange);font-size:13px;color:var(--text);line-height:1.6
     }
     .script-suggestion strong{color:var(--orange)}
+    .script-seo{
+      margin:-2px 0 14px;padding:8px 12px;border-radius:10px;background:rgba(34,197,94,.08);
+      border:1px dashed var(--green);font-size:12px;color:var(--muted);line-height:1.6
+    }
+    .script-seo strong{color:var(--green)}
     .log-entry{padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
     .log-entry strong{display:block;color:var(--accent-text);font-size:13px;margin-bottom:6px}
     .log-entry p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
@@ -697,6 +702,14 @@
     .swipe-card-emoji{font-size:56px;margin-bottom:10px}
     .swipe-card h4{margin:0 0 10px;font-size:18px}
     .swipe-card p{font-size:13px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+    .vidiq-stats-panel{margin-bottom:16px}
+    .vidiq-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+    .vidiq-stat{
+      background:var(--panel-2,var(--panel));border:1px solid var(--line);border-radius:12px;
+      padding:12px 14px;display:flex;flex-direction:column;gap:2px
+    }
+    .vidiq-stat-value{font-size:22px;font-weight:800;color:var(--purple);font-variant-numeric:tabular-nums}
+    .vidiq-stat-label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
     .swipe-video-link{
       display:inline-flex;align-items:center;gap:6px;margin-top:14px;
       font-size:12.5px;font-weight:700;text-decoration:none;
@@ -1458,6 +1471,22 @@
       </section>
       <section class="detail-section">
         <div class="container">
+          <div class="panel vidiq-stats-panel">
+            <strong>📊 Canal real (mrChakurma, vía VidIQ)</strong>
+            <p class="section-sub" style="margin:4px 0 10px">
+              Datos reales de tu canal de YouTube, traídos por Claude a través de VidIQ.
+              No es un widget en directo (la web es estática, no puede llamar a VidIQ por
+              su cuenta) — es una foto que se actualiza de vez en cuando, normalmente
+              durante un <code>/loop</code>.
+            </p>
+            <div class="vidiq-stat-grid">
+              <div class="vidiq-stat"><span class="vidiq-stat-value">396</span><span class="vidiq-stat-label">Suscriptores</span></div>
+              <div class="vidiq-stat"><span class="vidiq-stat-value">116.393</span><span class="vidiq-stat-label">Visitas totales</span></div>
+              <div class="vidiq-stat"><span class="vidiq-stat-value">80</span><span class="vidiq-stat-label">Vídeos publicados</span></div>
+              <div class="vidiq-stat"><span class="vidiq-stat-value">+379</span><span class="vidiq-stat-label">Visitas (últ. 30 días)</span></div>
+            </div>
+            <p class="yt-empty" style="margin:10px 0 0">📅 Última actualización: 6 sep 2026</p>
+          </div>
           <div class="panel generate-ideas-panel">
             <div class="generate-ideas-row">
               <div>
@@ -2533,6 +2562,7 @@
                 <h4>📣 CTA</h4>
                 <p><strong>🎙️ Off:</strong> "¿Cuál de estos 5 no sabías? Dímelo en comentarios — y si te ha gustado, en Rincón del Friki hay más curiosidades como esta."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> animación de "comentar" + tarjeta de vídeo relacionado en pantalla. <strong>🎬 Producción:</strong> SFX stinger final de marca · BGM: sube a volumen normal para el outro, corte a negro/logo</p>
+                <p class="script-seo"><strong>📈 SEO (VidIQ):</strong> puntuación de título 90/100 para "5 curiosidades que no sabías del traje de Spider-Man" — buen CTR esperado, no hace falta tocarlo.</p>
               </div>
             </div>
           </details>
