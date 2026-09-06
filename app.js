@@ -29,9 +29,12 @@
     // (cuenta gratuita, clave al momento) y pégala aquí para activar la
     // lista "en vivo". Sin clave, esa lista se queda con un aviso.
     const TMDB_API_KEY = "ffd59a3595d13f85fe24905c124ef6c0";
-    // Géneros TMDB que encajan con la temática del canal: Acción (28),
-    // Aventura (12), Fantasía (14), Ciencia ficción (878).
-    const TMDB_GENRES = "28,12,14,878";
+    // Géneros TMDB que de verdad encajan con "cultura friki": Ciencia
+    // ficción (878), Fantasía (14), Animación (16 — cubre bien el anime).
+    // Probado en vivo el 2026-09-06: Acción (28) y Aventura (12) solos
+    // colaban demasiada película genérica sin nada que ver con el canal
+    // (dramas de acción, thrillers militares...), así que se quitaron.
+    const TMDB_GEEK_GENRES = [878, 14, 16];
 
     // Lista a mano para dos casos que TMDB no cubre bien: "bombazos"
     // fuera de la temática de superhéroes que sí merece la pena comentar
@@ -4040,12 +4043,23 @@
         return;
       }
       try {
-        const today = new Date().toISOString().slice(0, 10);
-        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_API_KEY}` +
-          `&with_genres=${TMDB_GENRES}&sort_by=popularity.desc&language=es-ES` +
-          `&primary_release_date.gte=${today}&region=ES`;
-        const res = await fetch(url).then(r => r.json());
-        const movies = (res.results || []).slice(0, 6);
+        // "movie/upcoming" (estrenos próximos confirmados en España) en vez
+        // de "discover" con filtro de fecha: probado en vivo, discover con
+        // primary_release_date.gte deja fuera casi todo porque muchas
+        // películas grandes todavía no tienen fecha mundial exacta fijada.
+        // upcoming sí trae fechas reales de cartelera — filtramos el
+        // género nosotros mismos con los resultados (upcoming no admite
+        // with_genres). Dos páginas son de sobra para el hueco temporal
+        // que cubre este endpoint.
+        const [p1, p2] = await Promise.all([1, 2].map(page =>
+          fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}&language=es-ES&region=ES&page=${page}`)
+            .then(r => r.json()).catch(() => ({ results: [] }))
+        ));
+        const all = [...(p1.results || []), ...(p2.results || [])];
+        const movies = all
+          .filter(m => (m.genre_ids || []).some(g => TMDB_GEEK_GENRES.includes(g)))
+          .sort((a, b) => new Date(a.release_date || '9999') - new Date(b.release_date || '9999'))
+          .slice(0, 6);
         container.innerHTML = movies.length
           ? movies.map(m => `
               <div class="geek-card">
