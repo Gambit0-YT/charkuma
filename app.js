@@ -28,7 +28,7 @@
     // reales. Pide una clave gratis en https://www.themoviedb.org/settings/api
     // (cuenta gratuita, clave al momento) y pégala aquí para activar la
     // lista "en vivo". Sin clave, esa lista se queda con un aviso.
-    const TMDB_API_KEY = "PON_AQUI_TU_CLAVE_DE_TMDB";
+    const TMDB_API_KEY = "ffd59a3595d13f85fe24905c124ef6c0";
     // Géneros TMDB que encajan con la temática del canal: Acción (28),
     // Aventura (12), Fantasía (14), Ciencia ficción (878).
     const TMDB_GENRES = "28,12,14,878";
