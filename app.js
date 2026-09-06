@@ -38,7 +38,7 @@
     // recortados sin fondo — eso no lo da ninguna API, hay que subirlo
     // a mano juego por juego si algún día se quiere ese acabado.
     // ──────────────────────────────────────────────────────────
-    const RAWG_API_KEY = "PON_AQUI_TU_CLAVE_DE_RAWG";
+    const RAWG_API_KEY = "a35db550f2a44ebc9bea975187eed683";
     const GAME_COVER_CACHE_KEY = 'charkuma_game_covers';
     function loadGameCoverCache(){
       try { return JSON.parse(localStorage.getItem(GAME_COVER_CACHE_KEY)) || {}; }
