@@ -414,6 +414,18 @@
       color:var(--accent-text);display:flex;align-items:center;font-weight:800;margin:18px 0
     }
 
+    /* ── "El Laboratorio" embebido en Charkuma Lab: necesita su propia
+       identidad visual, distinta del masthead de la página (mismo
+       tamaño/tipo de letra que el título de arriba quedaba plano y
+       repetitivo — dos titulares idénticos apilados). ── */
+    .lab-embed-panel{
+      background:var(--card);border:1px solid var(--line);border-radius:26px;
+      padding:32px;box-shadow:var(--shadow);border-top:3px solid var(--purple);
+    }
+    .lab-embed-kicker{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--purple);text-transform:uppercase;margin-bottom:8px}
+    .lab-embed-title{font-size:clamp(24px,3vw,32px);margin:0 0 10px;letter-spacing:-.02em}
+    .lab-embed-sub{color:var(--muted);font-size:15px;line-height:1.65;margin:0 0 24px;max-width:640px}
+
     .lab-grid{
       display:grid;grid-template-columns:repeat(3,1fr);gap:16px
     }
@@ -2529,36 +2541,38 @@
       <section class="detail-section">
         <div class="container">
 
-          <div class="section-kicker">03 · EXPERIMENTOS</div>
-          <h2 class="section-title">EL LABORATORIO</h2>
-          <p class="section-sub">
-            El lugar donde una idea absurda puede terminar convirtiéndose en una web, un vídeo,
-            un diseño o una obsesión de tres semanas.
-          </p>
+          <div class="lab-embed-panel">
+            <div class="lab-embed-kicker">🧪 03 · Experimentos</div>
+            <h3 class="lab-embed-title">El Laboratorio</h3>
+            <p class="lab-embed-sub">
+              El lugar donde una idea absurda puede terminar convirtiéndose en una web, un vídeo,
+              un diseño o una obsesión de tres semanas.
+            </p>
 
-          <div class="lab-grid">
-            <a class="lab-card" href="javascript:void(0)" onclick="showView('ia')">
-              <div class="icon">🤖</div>
-              <h4>IA & EXPERIMENTOS</h4>
-              <p>Prompts, generación visual, automatizaciones y nuevas formas de crear.</p>
-            </a>
-            <a class="lab-card" href="javascript:void(0)" onclick="showView('creator')">
-              <div class="icon">🖥️</div>
-              <h4>CREATOR TOOLS</h4>
-              <p>Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.</p>
-            </a>
-            <a class="lab-card" href="javascript:void(0)" onclick="showView('hecho')">
-              <div class="icon">🧶</div>
-              <h4>HECHO A MANO</h4>
-              <p>Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.</p>
-            </a>
+            <div class="lab-grid">
+              <a class="lab-card" href="javascript:void(0)" onclick="showView('ia')">
+                <div class="icon">🤖</div>
+                <h4>IA & EXPERIMENTOS</h4>
+                <p>Prompts, generación visual, automatizaciones y nuevas formas de crear.</p>
+              </a>
+              <a class="lab-card" href="javascript:void(0)" onclick="showView('creator')">
+                <div class="icon">🖥️</div>
+                <h4>CREATOR TOOLS</h4>
+                <p>Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.</p>
+              </a>
+              <a class="lab-card" href="javascript:void(0)" onclick="showView('hecho')">
+                <div class="icon">🧶</div>
+                <h4>HECHO A MANO</h4>
+                <p>Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.</p>
+              </a>
+            </div>
+
+            <div class="quote" style="margin:26px 0 0">
+              “Demasiadas aficiones para tener una sola personalidad.”
+            </div>
           </div>
 
-          <div class="quote" style="margin:30px 0">
-            “Demasiadas aficiones para tener una sola personalidad.”
-          </div>
-
-          <h3 class="subheading">🗂️ Proyectos, herramientas y bitácora de Charkuma Lab</h3>
+          <h3 class="subheading" style="margin-top:36px">🗂️ Proyectos, herramientas y bitácora de Charkuma Lab</h3>
           <div class="panel search-panel">
             <div class="search-row">
               <input type="text" id="labSearch" placeholder="🔎 Buscar por título..." />
