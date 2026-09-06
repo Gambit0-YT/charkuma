@@ -4679,10 +4679,7 @@
     // cuanto la resuelve.
     // ──────────────────────────────────────────────────────────
     const pendingDecisions = [
-      { id: 'analytics-provider', date: '2026-09-06', text: 'Elegir proveedor de analítica de visitas (p. ej. Plausible o Umami) antes de añadirlo a la web.' },
-      { id: 'notes-backend-provider', date: '2026-09-06', text: 'Elegir proveedor de backend (Firebase/Supabase/otro) para que las notas y demás datos persistan entre dispositivos sin exportar/importar a mano.' },
-      { id: 'public-community-features', date: '2026-09-06', text: 'Decidir si alguna sección se va a hacer pública antes de construir votaciones o reacciones de comunidad — si no, esas dos mejoras no aplican.' },
-      { id: 'identity-tiles-links', date: '2026-09-06', text: 'Hacer clicables las 4 tarjetas de "Sobre mí" (Gaming/Cultura Geek/Creatividad/Tech): Gaming → lista de juegos (¿Steam?), Cultura Geek → canal de YouTube, Creatividad → Instagram, Tech → lista/review del setup ya comprado. Falta decidir de dónde sale cada dato (¿API de Steam? ¿contenido escrito a mano para Tech?).' }
+      { id: 'identity-tiles-links', date: '2026-09-06', text: 'Hacer clicables las 4 tarjetas de "Sobre mí" (Gaming/Cultura Geek/Creatividad/Tech) — ya decidido que se construye (2026-09-06), falta rematar de dónde sale el contenido de Tech (review del setup) y confirmar el perfil de Steam para Gaming.' }
     ];
     const DISMISSED_PENDING_KEY = 'charkuma_dismissed_pending_decisions';
     function loadDismissedPending(){
