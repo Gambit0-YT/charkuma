@@ -1318,9 +1318,13 @@
       Object.values(IDEA_BANK_RENDERERS).forEach(fn => fn());
       if (typeof renderRinconSecret === 'function') renderRinconSecret();
       const banner = document.getElementById('ideaLinkingBanner');
-      if (banner) banner.hidden = !ideaLinkingFrom;
+      const active = ideaLinkingFrom || ideaCombiningFrom;
+      if (banner) banner.hidden = !active;
       if (banner && ideaLinkingFrom) {
         banner.querySelector('span').textContent = `🔗 Vinculando "${ideaLinkingFrom.label}" — ve a la otra idea y pulsa "✅ Vincular con ésta".`;
+      } else if (banner && ideaCombiningFrom) {
+        const shortText = ideaCombiningFrom.text.length > 70 ? ideaCombiningFrom.text.slice(0, 67) + '...' : ideaCombiningFrom.text;
+        banner.querySelector('span').textContent = `🔀 Combinando "${shortText}" — ve a la otra idea y pulsa "🔀 Combinar con ésta".`;
       }
     }
     function startIdeaLink(bank, id, label){
@@ -1354,24 +1358,82 @@
       saveIdeaLinks(links);
       rerenderAllIdeaBanks();
     }
-    const IDEA_BANK_SECRET_VIEW = { helquid: 'helquid-secret', lab: 'lab-secret', ia: 'ia-secret', creator: 'creator-secret', hecho: 'hecho-secret', rincon: 'rf-secret' };
-    function ideaLinkControlsHTML(bank, id, label){
-      const linked = getLinkedIdeas(bank, id);
-      const isSource = ideaLinkingFrom && ideaLinkingFrom.bank === bank && ideaLinkingFrom.id === id;
-      let actionBtn = '';
-      if (isSource) {
-        actionBtn = `<button type="button" class="idea-link-btn is-active" onclick="cancelIdeaLink()">🔗 Cancelar vinculación</button>`;
-      } else if (ideaLinkingFrom) {
-        actionBtn = `<button type="button" class="idea-link-btn is-active" onclick="completeIdeaLink('${bank}','${id}','${escapeAttr(label).replace(/'/g, "&#39;")}')">✅ Vincular con ésta</button>`;
+    // Backlog #33 — combinar dos ideas en una: mismo patrón "en dos
+    // pasos" que vincular (#37) — se arranca en una idea, se navega a
+    // la otra (de cualquier banco, incluido Rincón, que guarda sus
+    // ideas con forma distinta) y se completa allí. La idea nueva se
+    // añade al banco/tipo de la PRIMERA idea; las dos originales quedan
+    // descartadas (con motivo), no borradas — reversible desde
+    // "descartadas" si el resultado no convence.
+    let ideaCombiningFrom = null;
+    function addCombinedIdea(bank, type, text){
+      if (bank === 'rincon') {
+        const extra = loadRinconExtraIdeas();
+        if (!extra[type]) extra[type] = [];
+        extra[type].push({ universe: 'geek', text });
+        saveRinconExtraIdeas(extra);
       } else {
-        actionBtn = `<button type="button" class="idea-link-btn" onclick="startIdeaLink('${bank}','${id}','${escapeAttr(label).replace(/'/g, "&#39;")}')">🔗 Vincular con otra idea</button>`;
+        addBankExtraIdeas(bank, { [type]: [text] });
       }
+    }
+    function startIdeaCombine(bank, id, type, text){
+      ideaCombiningFrom = { bank, id, type, text };
+      rerenderAllIdeaBanks();
+    }
+    function cancelIdeaCombine(){
+      ideaCombiningFrom = null;
+      rerenderAllIdeaBanks();
+    }
+    function completeIdeaCombine(bank, id, text){
+      if (!ideaCombiningFrom) return;
+      if (ideaCombiningFrom.bank === bank && ideaCombiningFrom.id === id) { alert('No puedes combinar una idea consigo misma — ve a otra distinta.'); return; }
+      const combinedText = `${ideaCombiningFrom.text} — combinado con — ${text}`;
+      const sourceBank = ideaCombiningFrom.bank;
+      addCombinedIdea(sourceBank, ideaCombiningFrom.type, combinedText);
+      const reason = 'Combinada con otra idea en una nueva';
+      setIdeaState(sourceBank, ideaCombiningFrom.id, { discarded: true, discardedAt: Date.now(), discardReason: reason });
+      setIdeaState(bank, id, { discarded: true, discardedAt: Date.now(), discardReason: reason });
+      ideaCombiningFrom = null;
+      rerenderAllIdeaBanks();
+      alert('Ideas combinadas — la nueva idea está al final de su categoría en ' + sourceBank + ', y las dos originales han quedado descartadas (se pueden restaurar si hace falta).');
+    }
+
+    const IDEA_BANK_SECRET_VIEW = { helquid: 'helquid-secret', lab: 'lab-secret', ia: 'ia-secret', creator: 'creator-secret', hecho: 'hecho-secret', rincon: 'rf-secret' };
+    function ideaLinkControlsHTML(bank, id, type, fullText){
+      const label = fullText.length > 70 ? fullText.slice(0, 67) + '...' : fullText;
+      const safeLabel = escapeAttr(label).replace(/'/g, "&#39;");
+      const safeText = escapeAttr(fullText).replace(/'/g, "&#39;");
+      const linked = getLinkedIdeas(bank, id);
+
+      let linkBtn = '';
+      const isLinkSource = ideaLinkingFrom && ideaLinkingFrom.bank === bank && ideaLinkingFrom.id === id;
+      if (isLinkSource) {
+        linkBtn = `<button type="button" class="idea-link-btn is-active" onclick="cancelIdeaLink()">🔗 Cancelar vinculación</button>`;
+      } else if (ideaLinkingFrom) {
+        linkBtn = `<button type="button" class="idea-link-btn is-active" onclick="completeIdeaLink('${bank}','${id}','${safeLabel}')">✅ Vincular con ésta</button>`;
+      } else {
+        linkBtn = `<button type="button" class="idea-link-btn" onclick="startIdeaLink('${bank}','${id}','${safeLabel}')">🔗 Vincular con otra idea</button>`;
+      }
+
+      // Backlog #33 — combinar dos ideas en una: mismo botón "en dos
+      // pasos" que vincular, pero acción distinta (crea una idea nueva
+      // y descarta las dos originales en vez de solo enlazarlas).
+      let combineBtn = '';
+      const isCombineSource = ideaCombiningFrom && ideaCombiningFrom.bank === bank && ideaCombiningFrom.id === id;
+      if (isCombineSource) {
+        combineBtn = `<button type="button" class="idea-link-btn is-active" onclick="cancelIdeaCombine()">🔀 Cancelar combinación</button>`;
+      } else if (ideaCombiningFrom) {
+        combineBtn = `<button type="button" class="idea-link-btn is-active" onclick="completeIdeaCombine('${bank}','${id}','${safeText}')">🔀 Combinar con ésta</button>`;
+      } else {
+        combineBtn = `<button type="button" class="idea-link-btn" onclick="startIdeaCombine('${bank}','${id}','${type}','${safeText}')">🔀 Combinar con otra idea</button>`;
+      }
+
       const tags = linked.map(l => `
         <span class="idea-link-tag">
           <a href="javascript:void(0)" onclick="showView('${IDEA_BANK_SECRET_VIEW[l.bank] || ''}')">🔗 ${escapeAttr(l.label)}</a>
           <button type="button" onclick="unlinkIdeas('${bank}','${id}','${l.bank}','${l.id}')" title="Quitar este enlace">✕</button>
         </span>`).join('');
-      return `<div class="idea-link-row">${actionBtn}${tags}</div>`;
+      return `<div class="idea-link-row">${linkBtn}${combineBtn}${tags}</div>`;
     }
 
     // Backlog #38 — motivo de descarte guardado, no solo el hecho: al
@@ -1463,7 +1525,7 @@
                 <span class="count">#${i + 1}</span>
               </div>
               <p style="margin:6px 0 0">${escapeHTML(idea)}</p>
-              ${ideaLinkControlsHTML(cfg.bank, id, idea.length > 70 ? idea.slice(0, 67) + '...' : idea)}
+              ${ideaLinkControlsHTML(cfg.bank, id, type, idea)}
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${cfg.bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
@@ -3180,7 +3242,7 @@
                 <span class="count">#${i + 1}</span>
               </div>
               <p style="margin:6px 0 0">${escapeHTML(idea.text)}</p>
-              ${ideaLinkControlsHTML(bank, id, idea.text.length > 70 ? idea.text.slice(0, 67) + '...' : idea.text)}
+              ${ideaLinkControlsHTML(bank, id, type, idea.text)}
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
