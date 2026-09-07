@@ -1486,13 +1486,17 @@
       const index = loadSwipeIndex();
       const card = candidates[index];
 
+      const randomRow = document.getElementById('swipeRandomRow');
+
       if (!candidates.length) {
         stage.innerHTML = `<p class="yt-empty">Pega tu JSON arriba para empezar a elegir.</p>`;
         controls.hidden = true;
+        if (randomRow) randomRow.hidden = true;
         counterEl.textContent = '';
       } else if (!card) {
         stage.innerHTML = `<p class="yt-empty">✅ Ya has decidido sobre todos los candidatos cargados (${candidates.length}). Pega un JSON nuevo para seguir, o revisa tu preselección abajo.</p>`;
         controls.hidden = true;
+        if (randomRow) randomRow.hidden = true;
         counterEl.textContent = '';
       } else {
         // Si el candidato ya trae su propio videoUrl (gameplay real, tráiler...)
@@ -1515,10 +1519,45 @@
                onpointerdown="event.stopPropagation()" onclick="event.stopPropagation()">${videoLabel}</a>
           </div>`;
         controls.hidden = false;
+        if (randomRow) randomRow.hidden = false;
         counterEl.textContent = `${index + 1} / ${candidates.length}`;
         initSwipeDrag(document.getElementById('activeSwipeCard'));
       }
       renderSwipeShortlist();
+    }
+
+    // Backlog #7: en vez de ir siempre en orden, "saltar" a un candidato
+    // al azar de una dificultad concreta que todavía no se haya decidido
+    // — útil para planificar variando el ritmo en vez de darle a todo
+    // "fácil" seguido o todo "muy difícil" seguido. No se pierde el
+    // progreso: el candidato saltado simplemente pasa a ocupar la
+    // posición actual, así que su turno de decidirlo llega ahora.
+    function swipeRandomByDifficulty(){
+      const sel = document.getElementById('swipeRandomDifficulty');
+      const difficulty = sel ? sel.value : '';
+      const candidates = loadSwipeCandidates();
+      const index = loadSwipeIndex();
+      const statusEl = document.getElementById('swipeImportStatus');
+
+      const pool = [];
+      for (let i = index; i < candidates.length; i++){
+        if (!difficulty || candidates[i].difficulty === difficulty) pool.push(i);
+      }
+      if (!pool.length) {
+        if (statusEl) statusEl.textContent = difficulty
+          ? `⚠️ No queda ningún candidato de dificultad "${DIFF_LABELS[difficulty] || difficulty}" por decidir.`
+          : '⚠️ No queda ningún candidato por decidir.';
+        return;
+      }
+      const chosen = pool[Math.floor(Math.random() * pool.length)];
+      if (chosen !== index) {
+        const tmp = candidates[index];
+        candidates[index] = candidates[chosen];
+        candidates[chosen] = tmp;
+        saveSwipeCandidates(candidates);
+      }
+      if (statusEl) statusEl.textContent = '';
+      renderSwipeDeck();
     }
 
     // Arrastre real con el ratón/dedo (pointer events cubren ambos a la
