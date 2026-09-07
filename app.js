@@ -4500,6 +4500,49 @@
       URL.revokeObjectURL(url);
     }
 
+    // Backlog #10 — exportar el reto de Retro 365 entero (los 365 días,
+    // no solo los próximos 30 como el botón de arriba) a un único .ics,
+    // con la fecha real de cada día desde RETRO365_START_DATE. Los días
+    // todavía bloqueados no revelan el juego (mismo criterio "sin
+    // spoilers" que ya usa la vista pública) — solo título genérico.
+    function downloadRetro365FullCalendar(){
+      const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CHARKUMA//Retro 365//ES'];
+      for (let day = 1; day <= totalDays; day++){
+        const date = new Date(RETRO365_START_DATE);
+        date.setDate(date.getDate() + (day - 1));
+        const game = completedGames[day];
+        const summary = game ? `Retro 365 · Día ${day}: ${game.name}` : `Retro 365 · Día ${day} (sin anunciar)`;
+        const description = game
+          ? `${game.summary}\n\nDificultad: ${DIFF_LABELS[game.difficulty] || game.difficulty}${game.videoUrl ? '\nVídeo: ' + game.videoUrl : ''}`
+          : 'Todavía sin anunciar — se desbloqueará en cuanto suba el vídeo de este día.';
+        // Fecha en componentes LOCALES, no toISOString(): convertir a UTC
+        // desplazaría la fecha un día en cualquier huso horario adelantado
+        // a UTC (España incluida) porque la medianoche local cae en el
+        // día anterior en UTC.
+        const ymd = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2,'0')}${String(date.getDate()).padStart(2,'0')}`;
+        lines.push(
+          'BEGIN:VEVENT',
+          `UID:retro365-day-${day}@charkuma`,
+          `DTSTAMP:${icsDate(new Date())}`,
+          `DTSTART;VALUE=DATE:${ymd}`,
+          `SUMMARY:${icsEscape(summary)}`,
+          `DESCRIPTION:${icsEscape(description)}`,
+          'END:VEVENT'
+        );
+      }
+      lines.push('END:VCALENDAR');
+
+      const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'retro365-calendario-completo.ics';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
     function taskDescriptionFor(item, sectionLabel){
       const url = item.internalView ? (location.origin + location.pathname + '#view=' + item.internalView) : '';
       return [
