@@ -6113,6 +6113,36 @@
         <strong>${trend} respecto al mes anterior</strong>`;
     }
 
+    // Backlog #51 — alerta de crecimiento viral repentino: mira los
+    // saltos diarios REALES de VIDIQ_VIEWS_HISTORY (#49) y avisa si
+    // algún día se sale claramente de lo normal (más del doble de la
+    // subida media del resto del mes). Con los datos de hoy no hay
+    // ningún salto así de fuerte — se dice tal cual, no se inventa una
+    // alerta para que "se vea que funciona".
+    const VIRAL_SPIKE_MULTIPLIER = 2;
+    function detectViralSpikes(){
+      const h = VIDIQ_VIEWS_HISTORY;
+      const deltas = [];
+      for (let i = 1; i < h.length; i++) deltas.push({ date: h[i].date, delta: h[i].views - h[i - 1].views });
+      const avg = deltas.reduce((s, d) => s + d.delta, 0) / deltas.length;
+      return deltas.filter(d => d.delta > avg * VIRAL_SPIKE_MULTIPLIER && d.delta > 0)
+        .map(d => Object.assign({}, d, { avg: Math.round(avg) }));
+    }
+    function renderViralSpikeAlert(){
+      const container = document.getElementById('viralSpikeAlert');
+      if (!container) return;
+      const spikes = detectViralSpikes();
+      if (!spikes.length) {
+        container.innerHTML = `<p class="yt-empty" style="margin:10px 0 0">🔔 Sin saltos fuera de lo normal en los últimos 30 días (media diaria ~${Math.round(VIDIQ_VIEWS_HISTORY.slice(1).reduce((s,d,i)=>s+(d.views-VIDIQ_VIEWS_HISTORY[i].views),0)/(VIDIQ_VIEWS_HISTORY.length-1))} visitas/día) — esto se avisaría solo si algún día doblara claramente esa media.</p>`;
+        return;
+      }
+      container.innerHTML = `
+        <div class="stale-warning" style="margin-top:10px">
+          <strong>🚀 ${spikes.length} día${spikes.length === 1 ? '' : 's'} con crecimiento fuera de lo normal:</strong>
+          <ul>${spikes.map(s => `<li>${s.date}: +${s.delta} visitas (media del mes: ~${s.avg})</li>`).join('')}</ul>
+        </div>`;
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -6128,6 +6158,7 @@
       renderBackupHistory();
       renderViewsEvolutionChart();
       renderMonthComparison();
+      renderViralSpikeAlert();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
