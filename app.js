@@ -2876,6 +2876,22 @@
         summary: "Comparativa de poderes, debilidades y escenario de combate entre los dos.",
         thumbnail: "⚔️",
         internalView: "rf-batalla-homelander-thanos", reviewed: false
+      },
+      {
+        // Backlog-adjacent: idea "opinion-9" del banco secreto de Rincón del
+        // Friki, marcada "hecha" por el usuario pero sin guion todavía —
+        // convertida a contenido real siguiendo la regla nueva de
+        // [[charkuma-autonomous-loop-rules]] (escribir guiones nuevos para
+        // ideas ya aprobadas cuando no queda nada más que hacer). Tema
+        // elegido a propósito por ser atemporal (no depende de ningún
+        // estreno "actual" que habría que inventarse).
+        title: "Por dónde empezar en Marvel y The Boys si no has visto nada",
+        saga: "cruce",
+        type: "opinion",
+        date: "2026-09-07",
+        summary: "Mi ranking real de por dónde empezar en cada universo, sin marear con 30 títulos.",
+        thumbnail: "🧭",
+        internalView: "rf-ranking-empezar", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3239,7 +3255,8 @@
       'ct-plantilla-friki': '1so0A0nEZQWNq7cTEUkijPZDBoF5aeWEf',
       'ct-stingers': '1cqAEEwujh0uqjvxb_aAWX-gnGi7zhYBY',
       'ct-overlay-retro365': '1TwIBW0H4ArZTjwFJ-ESI1lo6RpO5R7bS',
-      'hm-figura-3d': '1JA_xySm1_Oto4_ZWafY1g7HSh4_dJwhx'
+      'hm-figura-3d': '1JA_xySm1_Oto4_ZWafY1g7HSh4_dJwhx',
+      'rf-ranking-empezar': '19bDLXqVBb2Y0ipJzyEfmgiY18SVeRO7w'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
