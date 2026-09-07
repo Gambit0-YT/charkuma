@@ -1074,11 +1074,43 @@
 
       container.innerHTML = html;
       hydrateGameThumbs(container);
+      renderRetroCoverGallery();
 
       const pct = Math.round((unlockedDays.length / totalDays) * 100);
       document.getElementById('progressFill').style.width = pct + "%";
       document.getElementById('progressLabel').textContent =
         `${unlockedDays.length} / ${totalDays} días desbloqueados (${pct}%)`;
+    }
+
+    // Backlog #9 — galería visual compacta de portadas reales de todos
+    // los días ya publicados (reutiliza hydrateGameThumbs, el mismo
+    // fetch a RAWG que ya usan las tarjetas de día).
+    function renderRetroCoverGallery(){
+      const gallery = document.getElementById('retroCoverGallery');
+      if (!gallery) return;
+      const days = unlockedDays.slice().sort((a, b) => a - b);
+      if (!days.length) {
+        gallery.innerHTML = `<p class="yt-empty">Todavía no hay portadas — se irán llenando según se publiquen días.</p>`;
+        return;
+      }
+      gallery.innerHTML = days.map(day => {
+        const game = completedGames[day];
+        return `
+          <div class="cover-tile" data-game="${escapeAttr(game.name)}" data-day="${day}" title="Día ${day} · ${escapeAttr(game.name)}" onclick="scrollToRetroDay(${day})">
+            <span class="cover-emoji">${game.emoji || '🎮'}</span>
+            <span class="cover-daytag">${String(day).padStart(3,'0')}</span>
+          </div>`;
+      }).join('');
+      // No reutilizamos hydrateGameThumbs tal cual: apunta a
+      // ".day-thumb[data-game]", y ese selector trae su propio tamaño
+      // fijo (72x72) que rompería el grid de esta galería. Mismo fetch,
+      // selector propio, conservando la etiqueta del día al sustituir.
+      gallery.querySelectorAll('.cover-tile[data-game]').forEach(async el => {
+        const url = await fetchGameCoverUrl(el.dataset.game);
+        if (!url) return;
+        const emojiEl = el.querySelector('.cover-emoji');
+        if (emojiEl) emojiEl.outerHTML = `<img src="${url}" alt="Carátula de ${escapeAttr(el.dataset.game)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`;
+      });
     }
 
     // Backlog #4 — vista de calendario mensual REAL para Retro 365: los
