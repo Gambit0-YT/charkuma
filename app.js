@@ -6135,6 +6135,95 @@
         </div>`).join('');
     }
 
+    // Backlog #57 — vídeos con bajo rendimiento, con datos reales del
+    // propio canal (vía vidiq_user_videos, consultado 2026-09-07): los
+    // últimos 50 vídeos publicados, comparados con la media real de
+    // visitas de esa misma muestra. "Bajo rendimiento" = menos del 30%
+    // de esa media — enlace directo a cada vídeo real en YouTube.
+    const VIDIQ_RECENT_VIDEOS_SAMPLE = [
+      {id:"98ulJqRYRmA",title:"Schedule 1: El Imperio de las Chucherías – Primer Directo",views:0},
+      {id:"PyRKhzJSn-I",title:"DONALD DUCK LUCKY DIME EN MASTER SYSTEM",views:189},
+      {id:"UC5PZJLIAn0",title:"DRÁCULA EN MASTER SYSTEM",views:695},
+      {id:"v7xK0awzAA8",title:"SPIDER-MAN EN PS1",views:791},
+      {id:"AX-ZoTTjPyM",title:"VECTORMAN EN MEGA DRIVE",views:771},
+      {id:"hqbkrrjTKZA",title:"GOLDEN AXE II EN MEGA DRIVE",views:725},
+      {id:"OrnMU8zy2H0",title:"THE PUNISHER EN PS2",views:672},
+      {id:"qcmqJcDH0JQ",title:"GOLDENEYE 007 EN N64",views:690},
+      {id:"-jGfR_h056E",title:"STREET GANGS EN NES",views:693},
+      {id:"m2rUU4bvy-Q",title:"CROC LEGEND OF THE GOBBOS",views:106},
+      {id:"MEuN6cqAHpc",title:"MARVEL VS CAPCOM EN DREAMCAST",views:759},
+      {id:"M9sehTank4A",title:"STAR WARS EN MASTER SYSTEM",views:156},
+      {id:"f_5VVOKavVs",title:"BATMAN THE VIDEO GAME NES",views:275},
+      {id:"Yvv0k8zVQrw",title:"STREET FIGHTER III DOUBLE IMPACT",views:251},
+      {id:"KZcpXXOMS4o",title:"SPIDER-MAN EN MASTER SYSTEM",views:308},
+      {id:"SvB_dbyDqGg",title:"ROBOCOP 2 EN NES",views:212},
+      {id:"E6AN_IMpeKo",title:"TERMINATOR EN MASTER SYSTEM",views:473},
+      {id:"pg1vjgkXL4g",title:"MARVEL SUPER HEROES EN SATURN",views:320},
+      {id:"TNMTSTihUXE",title:"GHOSTBUSTERS EN MEGA DRIVE",views:452},
+      {id:"skVXlnC1XQg",title:"MARVEL WAR OF THE GEMS EN SNES",views:977},
+      {id:"dFmHTbMs5TE",title:"THE IMMORTAL EN MEGA DRIVE",views:702},
+      {id:"gzRfgS_8nDI",title:"VUELVE EL CABALLERO OSCURO - BATMAN ARKHAM ASSYLUM",views:5},
+      {id:"EUQcJ70A5zo",title:"LUCKY LUKE EN SNES",views:843},
+      {id:"NHkXc1oieUU",title:"RAMBO III EN MEGA DRIVE",views:285},
+      {id:"EO-uxKgAWnc",title:"BARTMAN EN NES",views:5749},
+      {id:"kUwK0Cem0b4",title:"MOONWALKER EN MEGA DRIVE",views:1382},
+      {id:"xNqQ4jiJv6s",title:"SPACE JAM EN SEGA SATURN",views:1101},
+      {id:"f0lR_bJmFFE",title:"TMNT II THE ARCADE GAME NES",views:3034},
+      {id:"_ENJ-mliIeU",title:"ALADDIN EN SUPERNINTENDO",views:1381},
+      {id:"OgriONMpaCA",title:"QUACKSHOT EN MEGA DRIVE",views:926},
+      {id:"NefPA2aFePM",title:"SUPER MARIO BROS. 3",views:6601},
+      {id:"uGabCVB2BDQ",title:"DR. MARIO Y SUS PASTILLAS",views:1663},
+      {id:"z0yXYUSgb_8",title:"DONKEY KONG COUNTRY EN SNES",views:3359},
+      {id:"kC33gI2NU7Q",title:"EL MARIO IMPOSIBLE (Famicom Disk System)",views:2474},
+      {id:"w-CuTEq4HKY",title:"EL MARIO MÁS RARO",views:2828},
+      {id:"qvavf4X_ZRY",title:"BATMAN FOREVER EN 16 BITS",views:2256},
+      {id:"RqAlQoNvqGU",title:"LOS RANGERS EN 16 BITS",views:1393},
+      {id:"L2X9R6k3uvw",title:"MARIO Y SUS MONEDAS DE ORO",views:1331},
+      {id:"FIbehbt3I5M",title:"LINK EN EL MULTIVERSO MALDITO",views:1160},
+      {id:"H0lxr6pVPy4",title:"YOSHI DE NIÑERA",views:1371},
+      {id:"erPV4tloqMI",title:"Un boss final atrapado en un ciclo eterno",views:1482},
+      {id:"c-t0xXe8oxY",title:"Un soulslike raro con bichos de pesadilla",views:762},
+      {id:"c7bJu0IvTIs",title:"El shooter más random (50 Cent)",views:1114},
+      {id:"QtxTt2QjJ4Y",title:"Mafias, píxeles y drogas en un indie turbio",views:1610},
+      {id:"qxH-b_qMptI",title:"¿Es Tears of the Kingdom solo un DLC de BOTW?",views:1149},
+      {id:"khpjCSV8-KI",title:"WWE 2K Battlegrounds es el WWE más loco",views:341},
+      {id:"eJpA3wXPbxs",title:"El inframundo nunca descansa: llega Melinoë",views:1342},
+      {id:"PIndFzjSDT0",title:"Cult of the Lamb, el indie más satánico y cute",views:249},
+      {id:"TR28xUyfzKo",title:"RoboCop 3 en SNES",views:167},
+      {id:"F0ndPaf4Ez0",title:"probando DYING LIGHT",views:901}
+    ];
+    function renderLowPerformingVideos(){
+      const container = document.getElementById('lowPerformingVideos');
+      if (!container) return;
+      const sample = VIDIQ_RECENT_VIDEOS_SAMPLE;
+      const avg = sample.reduce((s, v) => s + v.views, 0) / sample.length;
+      const threshold = avg * 0.3;
+      const low = sample.filter(v => v.views < threshold).sort((a, b) => a.views - b.views).slice(0, 8);
+      container.innerHTML = `
+        <p class="section-sub" style="margin:4px 0 10px">
+          Media real de los últimos ${sample.length} vídeos: ~${Math.round(avg)} visitas. Por debajo del 30%
+          de esa media (~${Math.round(threshold)}):
+        </p>
+        ${low.map(v => `<div class="log-entry"><strong>${v.views} visitas</strong><p><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${escapeAttr(v.title)} ↗</a></p></div>`).join('')}`;
+    }
+
+    // Backlog #56 — resumen mensual automático, juntando en un solo
+    // texto los datos reales que ya trae el resto del panel (#49/#50/
+    // #51/#53) — "automático" en el mismo sentido de siempre: Claude lo
+    // redacta con datos reales en cada refresco, la web no puede
+    // generarlo sola.
+    function renderMonthlySummary(){
+      const el = document.getElementById('monthlySummaryText');
+      if (!el) return;
+      const { current, previous } = VIDIQ_MONTH_COMPARISON;
+      const spikes = detectViralSpikes();
+      const spikeText = spikes.length
+        ? `hubo ${spikes.length} día${spikes.length === 1 ? '' : 's'} con subidas fuera de lo normal (destaca el ${spikes[0].date}, +${spikes[0].delta} visitas)`
+        : 'sin ningún día fuera de lo normal';
+      const trendWord = current.viewsGained >= previous.viewsGained ? 'creciendo' : 'con un mes algo más flojo que el anterior';
+      el.textContent = `Del ${current.from} al ${current.to}: +${current.viewsGained} visitas totales (396 suscriptores, sin cambios), ${spikeText}. Comparado con el mes anterior (+${previous.viewsGained}), el canal sigue ${trendWord}.`;
+    }
+
     // Backlog #51 — alerta de crecimiento viral repentino: mira los
     // saltos diarios REALES de VIDIQ_VIEWS_HISTORY (#49) y avisa si
     // algún día se sale claramente de lo normal (más del doble de la
@@ -6182,6 +6271,8 @@
       renderMonthComparison();
       renderViralSpikeAlert();
       renderReferenceChannels();
+      renderMonthlySummary();
+      renderLowPerformingVideos();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
