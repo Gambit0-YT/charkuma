@@ -1087,6 +1087,14 @@
       document.getElementById('progressFill').style.width = pct + "%";
       document.getElementById('progressLabel').textContent =
         `${unlockedDays.length} / ${totalDays} días desbloqueados (${pct}%)`;
+
+      // Backlog #66 — el mismo progreso, resumido en el inicio.
+      const homeFill = document.getElementById('homeRetroProgressFill');
+      const homeLabel = document.getElementById('homeRetroProgressLabel');
+      if (homeFill && homeLabel) {
+        homeFill.style.width = pct + "%";
+        homeLabel.textContent = `🎮 Retro 365 · día ${unlockedDays.length} de ${totalDays} (${pct}%)`;
+      }
     }
 
     // Backlog #9 — galería visual compacta de portadas reales de todos
@@ -1301,10 +1309,22 @@
 
     const IDEA_BANK_RENDERERS = {};
 
-    function toggleIdeaDone(bank, id){
+    // Backlog #62 — micro-animación al marcar una idea como hecha: un
+    // pequeño "pop" en el botón antes de que el re-render normal
+    // sustituya la tarjeta entera (si no, no daría tiempo a verse). Sin
+    // botón (llamada programática) o al desmarcar, va directo sin
+    // esperar — el "pop" es solo para el gesto de completar algo.
+    function toggleIdeaDone(bank, id, btnEl){
       const state = (loadIdeaBanks()[bank] || {})[id] || {};
-      setIdeaState(bank, id, {done: !state.done});
-      if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
+      const turningOn = !state.done;
+      setIdeaState(bank, id, {done: turningOn});
+      const rerender = () => { if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank](); };
+      if (turningOn && btnEl) {
+        btnEl.classList.add('idea-check-pop');
+        setTimeout(rerender, 220);
+      } else {
+        rerender();
+      }
     }
     // Backlog #37 — vincular ideas relacionadas entre bancos: modo de
     // "vinculación en dos pasos" (sin modal ni buscador nuevo) — se
@@ -1529,7 +1549,7 @@
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
-              onclick="toggleIdeaDone('${cfg.bank}','${id}')"
+              onclick="toggleIdeaDone('${cfg.bank}','${id}', this)"
               title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
             <div class="idea-body">
               <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
@@ -1611,7 +1631,7 @@
           html: `
           <div class="day-card planned${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="day-thumb idea-check${s.done ? ' is-done' : ''}"
-              onclick="toggleIdeaDone('${RETRO_PLANNED_BANK}','${id}')"
+              onclick="toggleIdeaDone('${RETRO_PLANNED_BANK}','${id}', this)"
               title="${s.done ? 'Quitar confirmación' : 'Confirmar que sigues queriendo este juego para este día'}">${s.done ? '✅' : (planned.emoji || "📝")}</button>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ${statusBadge}</div>
@@ -3364,7 +3384,7 @@
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
-              onclick="toggleIdeaDone('${bank}','${id}')"
+              onclick="toggleIdeaDone('${bank}','${id}', this)"
               title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
             <div class="idea-body">
               <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
