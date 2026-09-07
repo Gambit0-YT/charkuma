@@ -723,6 +723,13 @@
     .latest-thumb{width:64px;height:64px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:26px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
     .latest-info strong{display:block;font-size:14px;line-height:1.4}
     .latest-info span{font-size:12px;color:var(--muted)}
+    /* Backlog #150 — variante honesta para cuando no hay dato real
+       todavía: se distingue a simple vista de una tarjeta con contenido
+       real (borde discontinuo, icono neutro), en vez de parecer un post
+       de verdad con cifras inventadas. */
+    .latest-card.latest-card-placeholder{background:transparent;border-style:dashed;border-color:var(--line)}
+    .latest-card-placeholder .latest-thumb{background:none;opacity:.6}
+    .latest-card-placeholder .latest-info strong{color:var(--muted)}
 
     /* ── retro 365 ── */
     .progress-panel{padding:26px 28px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);margin-top:30px}
@@ -2672,11 +2679,16 @@
                 <a class="visit" href="https://www.tiktok.com/@kiddcolors" target="_blank" rel="noopener">Ver perfil ↗</a>
               </div>
               <div class="latest-label">Último post</div>
-              <div class="latest-card">
-                <div class="latest-thumb">📱</div>
+              <!-- Backlog #150 — antes había aquí un título y unas cifras
+                   de reproducciones inventadas, con pinta de dato real.
+                   La API de TikTok es más compleja de configurar que la
+                   de YouTube, así que mientras tanto esto dice la verdad
+                   en vez de fingir un número que no existe. -->
+              <div class="latest-card latest-card-placeholder">
+                <div class="latest-thumb">🔌</div>
                 <div class="latest-info">
-                  <strong>Descripción del último TikTok</strong>
-                  <span>Hace 1 día · 24.3k reproducciones</span>
+                  <strong>Todavía sin conectar</strong>
+                  <span>La API de TikTok pide más configuración que la de YouTube — pendiente para cuando interese de verdad.</span>
                 </div>
               </div>
             </div>
@@ -2693,11 +2705,11 @@
                 <a class="visit" href="https://www.instagram.com/kiddcolors/" target="_blank" rel="noopener">Ver perfil ↗</a>
               </div>
               <div class="latest-label">Último post</div>
-              <div class="latest-card">
-                <div class="latest-thumb">🖼️</div>
+              <div class="latest-card latest-card-placeholder">
+                <div class="latest-thumb">🔌</div>
                 <div class="latest-info">
-                  <strong>Pie de foto del último post</strong>
-                  <span>Hace 3 días · 890 me gusta</span>
+                  <strong>Todavía sin conectar</strong>
+                  <span>La API de Instagram pide más configuración que la de YouTube — pendiente para cuando interese de verdad.</span>
                 </div>
               </div>
             </div>
@@ -2715,11 +2727,11 @@
               </div>
               <span class="twitch-live-badge" id="twitchLiveBadge" hidden></span>
               <div class="latest-label">Último directo</div>
-              <div class="latest-card">
-                <div class="latest-thumb">🔴</div>
+              <div class="latest-card latest-card-placeholder">
+                <div class="latest-thumb">🔌</div>
                 <div class="latest-info">
-                  <strong>Título del último directo</strong>
-                  <span>Hace 5 días · 2h 10min</span>
+                  <strong>Todavía sin conectar</strong>
+                  <span>El estado "en directo" de arriba sí es real (decapi.me) — el resumen del último directo pediría la API completa de Twitch.</span>
                 </div>
               </div>
             </div>
@@ -2728,10 +2740,10 @@
 
           <div class="note">
             <strong>Nota:</strong> los 4 enlaces ya son reales y llevan a tus perfiles.
-            El "Último vídeo" de YouTube ya se actualiza solo (misma fuente que el lateral).
-            Los de TikTok, Instagram y Twitch siguen siendo de ejemplo — cuando quieras que se
-            actualicen solos también, esas plataformas piden APIs bastante más complicadas de
-            configurar que la de YouTube, así que lo dejamos para cuando te interese de verdad.
+            El "Último vídeo" de YouTube ya se actualiza solo (misma fuente que el lateral),
+            y el estado "en directo" de Twitch también es real. TikTok, Instagram y el
+            resumen del último directo de Twitch piden APIs bastante más complicadas de
+            configurar — se han marcado tal cual arriba, sin fingir un dato que no existe.
           </div>
 
           <div class="panel" style="margin-top:24px">
