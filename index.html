@@ -4662,7 +4662,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
     import {
-      getFirestore, collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy
+      getFirestore, collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy, setDoc
     } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -4676,7 +4676,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
 
     const firebaseApp = initializeApp(firebaseConfig);
     window.firestoreDB = getFirestore(firebaseApp);
-    window.firestoreFns = { collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy };
+    window.firestoreFns = { collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy, setDoc };
   </script>
 
   <script src="app.js" defer></script>

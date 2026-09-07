@@ -1445,6 +1445,63 @@
     function loadExtraPlannedGames(){ try { return JSON.parse(localStorage.getItem(EXTRA_PLANNED_KEY)) || {}; } catch (e) { return {}; } }
     function saveExtraPlannedGames(map){ try { localStorage.setItem(EXTRA_PLANNED_KEY, JSON.stringify(map)); } catch (e) {} }
 
+    // ──────────────────────────────────────────────────────────
+    // SINCRONIZACIÓN DE GAME MATCH ENTRE DISPOSITIVOS (2026-09-07):
+    // igual que las notas, todo el estado del mazo (candidatos, índice,
+    // preselección y asignaciones a días) vive también en un documento
+    // de Firestore (`gameMatch/state`), no solo en localStorage de este
+    // navegador. Un cambio en el móvil se ve en el PC y viceversa, en
+    // tiempo real. Si Firestore no está disponible (sin conexión, o
+    // falló al iniciar), todo sigue funcionando solo en local, como
+    // antes — nunca rompe la web por esto.
+    //
+    // Diseño simple a propósito (como las notas): "gana la última
+    // escritura", sin fusión inteligente de conflictos — para un solo
+    // usuario en un par de dispositivos es más que suficiente, y mantiene
+    // esto entendible.
+    // ──────────────────────────────────────────────────────────
+    function pushGameMatchState(){
+      if (!firestoreReady()) return;
+      const { doc, setDoc } = window.firestoreFns;
+      const data = {
+        candidates: loadSwipeCandidates(),
+        index: loadSwipeIndex(),
+        shortlist: loadSwipeShortlist(),
+        extraPlanned: loadExtraPlannedGames(),
+        updatedAt: Date.now()
+      };
+      setDoc(doc(window.firestoreDB, 'gameMatch', 'state'), data).catch(() => {
+        // Sin conexión ahora mismo: el cambio se queda en local y ya
+        // está — no hacemos cola de reintentos, para no complicarlo.
+      });
+    }
+
+    let gameMatchRealtimeStarted = false;
+    async function initGameMatchRealtime(){
+      if (!firestoreReady() || gameMatchRealtimeStarted) return;
+      gameMatchRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'gameMatch', 'state');
+      onSnapshot(ref, async (snap) => {
+        if (!snap.exists()) {
+          // Nadie ha usado Game Match todavía en ningún dispositivo:
+          // sembramos el catálogo y esa es la primera versión compartida.
+          await loadFullCatalogIntoDeck(); // guarda en local Y sube a Firestore
+          return;
+        }
+        const data = snap.data() || {};
+        if (Array.isArray(data.candidates)) saveSwipeCandidates(data.candidates);
+        if (typeof data.index === 'number') saveSwipeIndex(data.index);
+        if (Array.isArray(data.shortlist)) saveSwipeShortlist(data.shortlist);
+        if (data.extraPlanned && typeof data.extraPlanned === 'object') saveExtraPlannedGames(data.extraPlanned);
+        try { localStorage.setItem(CATALOG_SEEDED_KEY, '1'); } catch (e) {}
+        if (document.getElementById('view-helquid-game-match')?.classList.contains('active') && typeof renderSwipeDeck === 'function') renderSwipeDeck();
+        if (document.getElementById('view-retro-secret')?.classList.contains('active') && typeof renderSecret === 'function') renderSecret();
+      }, () => {
+        // onSnapshot en modo error (reglas, red...) — seguimos en local.
+      });
+    }
+
     function assignShortlistGameToDay(index){
       const shortlist = loadSwipeShortlist();
       const game = shortlist[index];
@@ -1464,6 +1521,7 @@
       shortlist.splice(index, 1);
       saveSwipeShortlist(shortlist);
       renderSwipeShortlist();
+      pushGameMatchState();
       alert(`✅ "${game.name}" asignado al día ${day} de Retro 365. Ya aparece decidido en la chuleta secreta.`);
     }
 
@@ -1515,12 +1573,14 @@
         + (skipped > 0 ? ` (${skipped} ya estaban en el mazo).` : '.');
       textarea.value = '';
       renderSwipeDeck();
+      pushGameMatchState();
     }
 
     function resetSwipeDeck(){
       if (!confirm('¿Reiniciar el mazo? Esto no borra tu preselección de "me gusta", solo vuelve a empezar desde el primer candidato cargado.')) return;
       saveSwipeIndex(0);
       renderSwipeDeck();
+      pushGameMatchState();
     }
 
     // ──────────────────────────────────────────────────────────
@@ -1553,6 +1613,7 @@
         try { localStorage.setItem(CATALOG_SEEDED_KEY, '1'); } catch (e) {}
         if (statusEl) statusEl.textContent = `✅ Catálogo cargado — ${catalog.length} juegos reales listos para decidir.`;
         renderSwipeDeck();
+        pushGameMatchState();
       } catch (e) {
         if (statusEl) statusEl.textContent = '❌ No se pudo cargar el catálogo — revisa tu conexión e inténtalo de nuevo.';
       }
@@ -1561,6 +1622,11 @@
     // pegado nada ni se ha cargado el catálogo antes): lo rellenamos
     // solos, sin que haga falta pegar ningún JSON.
     async function autoSeedCatalogIfNeeded(){
+      // Con Firestore disponible, el listener en tiempo real
+      // (initGameMatchRealtime) ya se encarga de esto — sembrar aquí
+      // además solo duplicaría trabajo. Esto es el respaldo para cuando
+      // no hay conexión con Firestore (offline, o falló al iniciar).
+      if (firestoreReady()) return;
       let seeded = false;
       try { seeded = localStorage.getItem(CATALOG_SEEDED_KEY) === '1'; } catch (e) {}
       if (seeded || loadSwipeCandidates().length > 0) return;
@@ -1726,6 +1792,7 @@
       }
       saveSwipeIndex(index + 1);
       setTimeout(renderSwipeDeck, 200);
+      pushGameMatchState();
     }
 
     function renderSwipeShortlist(){
@@ -1752,6 +1819,7 @@
       shortlist.splice(i, 1);
       saveSwipeShortlist(shortlist);
       renderSwipeShortlist();
+      pushGameMatchState();
     }
 
     function exportSwipeShortlist(){
@@ -5433,6 +5501,7 @@
     });
 
     initNotesRealtime();
+    initGameMatchRealtime();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
