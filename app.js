@@ -6954,6 +6954,49 @@
     }
     renderCustomPremieres();
 
+    // Backlog #76 — cachear más agresivamente TMDB: "estrenos próximos"
+    // no cambia de un minuto para otro, así que repetir las 3 llamadas
+    // cada vez que se abre el inicio (o se toca un filtro de género) es
+    // gasto de cuota innecesario. Cache corta (3h) en localStorage,
+    // separada por combinación de géneros elegida (cambiar el filtro sí
+    // debe traer datos frescos de esa combinación, no los de otra).
+    const TMDB_PREMIERES_CACHE_KEY = 'charkuma_tmdb_premieres_cache';
+    const TMDB_PREMIERES_TTL_MS = 3 * 60 * 60 * 1000;
+    function tmdbPremieresCacheKey(genres){ return [...genres].sort((a, b) => a - b).join(','); }
+    function loadTMDBPremieresCache(){
+      try { return JSON.parse(localStorage.getItem(TMDB_PREMIERES_CACHE_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveTMDBPremieresCacheEntry(key, combined){
+      const cache = loadTMDBPremieresCache();
+      cache[key] = { ts: Date.now(), combined };
+      try { localStorage.setItem(TMDB_PREMIERES_CACHE_KEY, JSON.stringify(cache)); } catch (e) { /* seguimos sin guardar */ }
+    }
+    function renderPremieresCombined(container, combined){
+      container.innerHTML = combined.length
+        ? combined.map(item => {
+            const url = item.mediaType === 'tv'
+              ? `https://www.themoviedb.org/tv/${item.id}`
+              : `https://www.themoviedb.org/movie/${item.id}`;
+            const mediaBadge = item.mediaType === 'tv' ? '📺 Serie' : '🎬 Película';
+            return `
+            <div class="geek-card">
+              ${item.poster_path
+                ? `<img class="geek-thumb" style="object-fit:cover" src="https://image.tmdb.org/t/p/w200${item.poster_path}" alt="Póster de ${item.title}" loading="lazy">`
+                : `<div class="geek-thumb">${item.mediaType === 'tv' ? '📺' : '🎬'}</div>`}
+              <div class="geek-info">
+                <div class="geek-badges">
+                  <span class="type-chip chip-purple">📅 ${item.date || 'sin fecha'}</span>
+                  <span class="type-chip chip-neutral">${mediaBadge}</span>
+                </div>
+                <h4><a href="${url}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
+                <p>${item.overview || 'Sin sinopsis disponible todavía.'}</p>
+              </div>
+            </div>`;
+          }).join('')
+        : `<p class="yt-empty">TMDB no devuelve estrenos próximos de este tipo ahora mismo.</p>`;
+    }
+
     async function loadLivePremieres(){
       const container = document.getElementById('premieresLiveList');
       if (!container) return;
@@ -6963,6 +7006,14 @@
           Configura <code>TMDB_API_KEY</code> en el &lt;script&gt; (app.js) para activar
           esta lista en vivo — instrucciones justo encima, en el código.
         </p>`;
+        return;
+      }
+      const wantedGenresForCache = loadTMDBGenrePrefs();
+      const cacheKey = tmdbPremieresCacheKey(wantedGenresForCache);
+      const cached = loadTMDBPremieresCache()[cacheKey];
+      if (cached && (Date.now() - cached.ts) < TMDB_PREMIERES_TTL_MS) {
+        cachedPremiereMovies = cached.combined;
+        renderPremieresCombined(container, cached.combined);
         return;
       }
       container.innerHTML = skeletonCardsHTML(3);
@@ -6981,7 +7032,7 @@
         // son distintos a los de película: 16 Animación (cubre anime),
         // 10765 "Sci-Fi & Fantasy" (así llama TMDB al combinado en TV).
         const today = new Date().toISOString().slice(0, 10);
-        const wantedGenres = loadTMDBGenrePrefs();
+        const wantedGenres = wantedGenresForCache;
         const [p1, p2, tvRes] = await Promise.all([
           fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}&language=es-ES&region=ES&page=1`).then(r => r.json()).catch(() => ({ results: [] })),
           fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_API_KEY}&language=es-ES&region=ES&page=2`).then(r => r.json()).catch(() => ({ results: [] })),
@@ -6996,28 +7047,8 @@
           .sort((a, b) => new Date(a.date || '9999') - new Date(b.date || '9999'))
           .slice(0, 6);
         cachedPremiereMovies = combined; // lo usa buildNotifications() para avisar de estrenos a menos de una semana
-        container.innerHTML = combined.length
-          ? combined.map(item => {
-              const url = item.mediaType === 'tv'
-                ? `https://www.themoviedb.org/tv/${item.id}`
-                : `https://www.themoviedb.org/movie/${item.id}`;
-              const mediaBadge = item.mediaType === 'tv' ? '📺 Serie' : '🎬 Película';
-              return `
-              <div class="geek-card">
-                ${item.poster_path
-                  ? `<img class="geek-thumb" style="object-fit:cover" src="https://image.tmdb.org/t/p/w200${item.poster_path}" alt="Póster de ${item.title}" loading="lazy">`
-                  : `<div class="geek-thumb">${item.mediaType === 'tv' ? '📺' : '🎬'}</div>`}
-                <div class="geek-info">
-                  <div class="geek-badges">
-                    <span class="type-chip chip-purple">📅 ${item.date || 'sin fecha'}</span>
-                    <span class="type-chip chip-neutral">${mediaBadge}</span>
-                  </div>
-                  <h4><a href="${url}" target="_blank" rel="noopener">${item.title} ↗</a></h4>
-                  <p>${item.overview || 'Sin sinopsis disponible todavía.'}</p>
-                </div>
-              </div>`;
-            }).join('')
-          : `<p class="yt-empty">TMDB no devuelve estrenos próximos de este tipo ahora mismo.</p>`;
+        saveTMDBPremieresCacheEntry(cacheKey, combined);
+        renderPremieresCombined(container, combined);
       } catch (err) {
         container.innerHTML = `<p class="yt-empty">No se pudieron cargar los estrenos ahora mismo.</p>`;
       }
