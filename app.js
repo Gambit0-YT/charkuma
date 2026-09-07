@@ -2945,6 +2945,20 @@
         summary: "Actores clásicos vuelven en Avengers: Doomsday y ya hay un reboot completo confirmado para 2028 — lo bueno y el riesgo real de traer de vuelta una saga tan querida.",
         thumbnail: "🦾",
         internalView: "rf-opinion-regreso-xmen", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "opinion-7" del banco secreto ("el villano de moda ahora
+        // mismo") — datos reales verificados con WebSearch 2026-09-08:
+        // Robert Downey Jr. como Doctor Doom en Avengers: Doomsday (18
+        // dic 2026) y Avengers: Secret Wars, reacción inicial dividida,
+        // conexión real con los 4 Fantásticos confirmada en tráiler.
+        title: "Robert Downey Jr. como Doctor Doom: el villano más comentado de Marvel ahora mismo",
+        saga: "marvel",
+        type: "opinion",
+        date: "2026-09-08",
+        summary: "El actor que fue Iron Man más de una década ahora es Doctor Doom — por qué el escepticismo inicial se está convirtiendo en curiosidad real.",
+        thumbnail: "🎭",
+        internalView: "rf-opinion-doom-rdj", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3313,7 +3327,8 @@
       'rf-opinion-homelander': '18J3rLLKgs8o4LKC-VFzPR2oBK5sRFDGb',
       'rf-opinion-deep': '1lt878iZusvNK5lb5jSeJa7hC-liQNvDV',
       'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy',
-      'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6'
+      'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6',
+      'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
