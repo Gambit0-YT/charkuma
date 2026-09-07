@@ -396,13 +396,100 @@
     // solo es un desplegable rápido — más adelante será una bandeja de
     // entrada propia con historial (ver nota en memoria del proyecto).
     // ──────────────────────────────────────────────────────────
+    // Backlog #108 — silenciar tipos concretos: cada notificación lleva
+    // un `type` estable; el usuario elige en Ajustes qué tipos no
+    // quiere ver, y se filtran aquí mismo, antes de construir nada.
+    const NOTIF_MUTED_KEY = 'charkuma_notif_muted_types';
+    const NOTIF_TYPE_LABELS = {
+      progress: '🎬 Contenido en producción',
+      review: '⏳ Pendientes de revisión',
+      premiere: '🎬 Estrenos próximos',
+      retro365: '🎮 Retro 365',
+      stale: '⚠️ Elementos estancados',
+      weekly: '📊 Resumen semanal'
+    };
+    function loadMutedNotifTypes(){ try { return JSON.parse(localStorage.getItem(NOTIF_MUTED_KEY)) || []; } catch (e) { return []; } }
+    function saveMutedNotifTypes(arr){ try { localStorage.setItem(NOTIF_MUTED_KEY, JSON.stringify(arr)); } catch (e) {} }
+    function toggleNotifTypeMuted(type, muted){
+      const muted_ = new Set(loadMutedNotifTypes());
+      if (muted) muted_.add(type); else muted_.delete(type);
+      saveMutedNotifTypes([...muted_]);
+      renderNotifications();
+      if (document.getElementById('view-notif-inbox')?.classList.contains('active')) renderNotifInbox();
+    }
+    (function initNotifMuteChecks(){
+      const container = document.getElementById('notifMuteChecks');
+      if (!container) return;
+      const muted = new Set(loadMutedNotifTypes());
+      container.innerHTML = Object.entries(NOTIF_TYPE_LABELS).map(([type, label]) => `
+        <label><input type="checkbox" value="${type}" ${muted.has(type) ? '' : 'checked'} onchange="toggleNotifTypeMuted('${type}', !this.checked)"> ${label}</label>
+      `).join('');
+    })();
+
+    // Backlog #105 — reutiliza exactamente la misma detección que el
+    // aviso de Control Maestro (#26): un mismo hallazgo, dos sitios.
+    function findStaleContent(){
+      const history = loadContentHistory();
+      const now = Date.now();
+      return buildSiteIndex().filter(item => {
+        if (!CONTENT_STAGE_ORDER.includes(item.status)) return false;
+        const entries = history[item.view];
+        if (!entries || !entries.length) return false;
+        const lastTs = Math.max(...entries.map(e => e.ts));
+        return (now - lastTs) > STALE_STAGE_DAYS * 86400000;
+      });
+    }
+
+    // Backlog #107 — resumen semanal automático: se genera solo una vez
+    // por semana natural (guarda qué semana tocó por última vez, no
+    // regenera en cada apertura de la campana) con datos reales del
+    // historial de #19 — nunca inventa actividad que no haya pasado.
+    const WEEKLY_SUMMARY_LAST_KEY = 'charkuma_weekly_summary_last_week';
+    function isoWeekKey(d){
+      const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+      const day = date.getUTCDay() || 7;
+      date.setUTCDate(date.getUTCDate() + 4 - day);
+      const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+      const week = Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+      return `${date.getUTCFullYear()}-W${String(week).padStart(2, '0')}`;
+    }
+    function buildWeeklySummaryNotif(){
+      const thisWeek = isoWeekKey(new Date());
+      const weekAgo = Date.now() - 7 * 86400000;
+      const history = loadContentHistory();
+      let approved = 0, published = 0, advanced = 0;
+      Object.values(history).forEach(entries => {
+        entries.forEach(e => {
+          if (e.ts < weekAgo) return;
+          if (e.text === '✅ Aprobado') approved++;
+          else if (e.text === '📤 Marcado como publicado') published++;
+          else if (e.text.startsWith('▶️ Fase') || e.text.includes('Fase:')) advanced++;
+        });
+      });
+      if (!approved && !published && !advanced) return null; // semana real sin actividad: no se inventa un resumen vacío
+      let lastWeek = null;
+      try { lastWeek = localStorage.getItem(WEEKLY_SUMMARY_LAST_KEY); } catch (e) {}
+      if (lastWeek === thisWeek) return null; // ya se generó esta semana
+      try { localStorage.setItem(WEEKLY_SUMMARY_LAST_KEY, thisWeek); } catch (e) {}
+      return {
+        id: `weekly-summary-${thisWeek}`,
+        type: 'weekly',
+        title: `📊 Resumen de la semana`,
+        detail: `${approved} aprobado(s), ${advanced} avance(s) de fase, ${published} publicado(s).`,
+        view: 'master-control'
+      };
+    }
+
     function buildNotifications(){
       const notifs = [];
       const index = buildSiteIndex();
+      const muted = new Set(loadMutedNotifTypes());
+      const push = (n) => { if (!muted.has(n.type)) notifs.push(n); };
 
       const inProgress = index.filter(i => CONTENT_STAGE_ORDER.includes(i.status));
       if (inProgress.length) {
-        notifs.push({
+        push({
+          id: 'in-progress', type: 'progress',
           title: `🎬 ${inProgress.length} contenido${inProgress.length === 1 ? '' : 's'} en proceso ahora mismo`,
           detail: inProgress.slice(0, 3).map(i => i.title).join(' · '),
           view: 'master-control'
@@ -411,7 +498,8 @@
 
       const waiting = index.filter(i => i.status === 'aprobado');
       if (waiting.length) {
-        notifs.push({
+        push({
+          id: 'waiting-guion', type: 'progress',
           title: `✅ ${waiting.length} aprobado${waiting.length === 1 ? '' : 's'} esperando a que empieces el guion`,
           detail: waiting.slice(0, 3).map(i => i.title).join(' · '),
           view: 'master-control'
@@ -420,10 +508,22 @@
 
       const pendingCount = index.filter(i => i.status === 'pendiente').length;
       if (pendingCount) {
-        notifs.push({
+        push({
+          id: 'pending-review', type: 'review',
           title: `⏳ ${pendingCount} contenidos pendientes de revisión`,
           detail: 'Repásalos en el calendario o el control secreto maestro.',
           view: 'calendario'
+        });
+      }
+
+      // Backlog #105
+      const stale = findStaleContent();
+      if (stale.length) {
+        push({
+          id: 'stale-content', type: 'stale',
+          title: `⚠️ ${stale.length} elemento${stale.length === 1 ? '' : 's'} sin avanzar de fase hace más de ${STALE_STAGE_DAYS} días`,
+          detail: stale.slice(0, 3).map(i => i.title).join(' · '),
+          view: 'master-control'
         });
       }
 
@@ -437,7 +537,8 @@
         return days >= 0 && days <= 7;
       });
       if (soonPremieres.length) {
-        notifs.push({
+        push({
+          id: 'premiere-soon', type: 'premiere',
           title: `🎬 ${soonPremieres.length} estreno${soonPremieres.length === 1 ? '' : 's'} en menos de una semana`,
           detail: soonPremieres.map(m => m.title).join(' · '),
           view: 'home'
@@ -447,7 +548,8 @@
       const msPerDay = 86400000;
       const daysToRetro = Math.ceil((RETRO365_START_DATE - new Date()) / msPerDay);
       if (daysToRetro > 0) {
-        notifs.push({
+        push({
+          id: 'retro-countdown', type: 'retro365',
           title: `📅 Quedan ${daysToRetro} día${daysToRetro === 1 ? '' : 's'} para retomar Retro 365`,
           detail: 'Arranca el 10 de noviembre de 2026.',
           view: 'calendario'
@@ -455,7 +557,8 @@
       } else {
         const plannedLeft = Object.keys(plannedGames).length;
         if (plannedLeft) {
-          notifs.push({
+          push({
+            id: 'retro-in-progress', type: 'retro365',
             title: `🎮 Retro 365 ya en marcha`,
             detail: `${plannedLeft} día(s) decidido(s) todavía sin grabar.`,
             view: 'calendario'
@@ -463,7 +566,47 @@
         }
       }
 
+      // Backlog #107
+      const weekly = buildWeeklySummaryNotif();
+      if (weekly) push(weekly);
+
       return notifs;
+    }
+
+    // Backlog #104 — bandeja con historial real y leído/no leído
+    // persistente: hasta ahora la campana solo calculaba "lo que es
+    // verdad ahora mismo", sin memoria — al arreglar algo, la
+    // notificación desaparecía sin dejar rastro. Ahora cada notificación
+    // tiene un id estable; la primera vez que aparece se guarda con su
+    // fecha real (firstSeenTs) y se marca activa; si deja de cumplirse
+    // la condición, se queda en el historial marcada como inactiva (no
+    // se borra) — así la bandeja completa es un historial de verdad, no
+    // solo el estado actual. Tope de 200 para no crecer sin límite.
+    const NOTIF_HISTORY_KEY = 'charkuma_notif_history';
+    const NOTIF_READ_KEY = 'charkuma_notif_read';
+    function loadNotifHistory(){ try { return JSON.parse(localStorage.getItem(NOTIF_HISTORY_KEY)) || []; } catch (e) { return []; } }
+    function saveNotifHistory(arr){ try { localStorage.setItem(NOTIF_HISTORY_KEY, JSON.stringify(arr)); } catch (e) {} }
+    function loadNotifRead(){ try { return JSON.parse(localStorage.getItem(NOTIF_READ_KEY)) || []; } catch (e) { return []; } }
+    function saveNotifRead(arr){ try { localStorage.setItem(NOTIF_READ_KEY, JSON.stringify(arr)); } catch (e) {} }
+    function markNotifRead(id){
+      const read = new Set(loadNotifRead());
+      read.add(id);
+      saveNotifRead([...read]);
+    }
+    function syncNotifHistory(current){
+      const history = loadNotifHistory();
+      const byId = {};
+      history.forEach(h => { byId[h.id] = h; });
+      const nowIds = new Set();
+      current.forEach(n => {
+        nowIds.add(n.id);
+        if (byId[n.id]) Object.assign(byId[n.id], { title: n.title, detail: n.detail, view: n.view, active: true });
+        else byId[n.id] = { id: n.id, type: n.type, title: n.title, detail: n.detail, view: n.view, firstSeenTs: Date.now(), active: true };
+      });
+      Object.values(byId).forEach(h => { if (!nowIds.has(h.id)) h.active = false; });
+      const merged = Object.values(byId).sort((a, b) => b.firstSeenTs - a.firstSeenTs).slice(0, 200);
+      saveNotifHistory(merged);
+      return merged;
     }
 
     function renderNotifications(){
@@ -471,10 +614,12 @@
       const dot = document.getElementById('notifDot');
       if (!list || !dot) return;
       const notifs = buildNotifications();
-      dot.hidden = notifs.length === 0;
+      syncNotifHistory(notifs);
+      const read = new Set(loadNotifRead());
+      dot.hidden = notifs.every(n => read.has(n.id));
       list.innerHTML = notifs.length
         ? notifs.map(n => `
-            <div class="notif-item" ${n.view ? `onclick="showView('${n.view}');toggleNotifPanel(false)"` : ''}>
+            <div class="notif-item${read.has(n.id) ? '' : ' is-unread'}" onclick="markNotifRead('${n.id}');${n.view ? `showView('${n.view}');` : ''}toggleNotifPanel(false)">
               <strong>${n.title}</strong>
               ${n.detail || ''}
             </div>`).join('')
@@ -482,27 +627,38 @@
     }
 
     // Doble clic en la campana (o el botón "📬 Abrir bandeja completa"
-    // del desplegable): página completa con la misma lista de avisos,
-    // en formato grande — de momento sigue siendo un cálculo en vivo,
-    // no un historial guardado (ver nota de memoria del proyecto).
+    // del desplegable): página completa con historial real — backlog #104.
     function openNotifInbox(){
       toggleNotifPanel(false);
       showView('notif-inbox');
     }
+    function markAllNotifsRead(){
+      const ids = loadNotifHistory().map(n => n.id);
+      saveNotifRead([...new Set([...loadNotifRead(), ...ids])]);
+      renderNotifInbox();
+      renderNotifications();
+    }
     function renderNotifInbox(){
       const list = document.getElementById('notifInboxList');
       if (!list) return;
-      const notifs = buildNotifications();
-      list.innerHTML = notifs.length
-        ? notifs.map(n => `
-            <div class="geek-card"${n.view ? ` style="cursor:pointer" onclick="showView('${n.view}')"` : ''}>
-              <div class="geek-thumb">🔔</div>
+      const current = buildNotifications();
+      const history = syncNotifHistory(current);
+      const read = new Set(loadNotifRead());
+      list.innerHTML = history.length
+        ? history.map(n => `
+            <div class="geek-card${read.has(n.id) ? '' : ' is-unread'}"${n.active && n.view ? ` style="cursor:pointer" onclick="markNotifRead('${n.id}');showView('${n.view}')"` : ' onclick="markNotifRead(\'' + n.id + '\');renderNotifInbox()"'}>
+              <div class="geek-thumb">${n.active ? '🔔' : '✅'}</div>
               <div class="geek-info">
+                <div class="geek-badges">
+                  <span class="type-chip chip-neutral">${NOTIF_TYPE_LABELS[n.type] || n.type}</span>
+                  ${n.active ? '' : '<span class="type-chip chip-green">Resuelto</span>'}
+                </div>
                 <h4>${n.title}</h4>
                 ${n.detail ? `<p>${n.detail}</p>` : ''}
+                <p class="yt-empty" style="margin:4px 0 0">Primera vez: ${new Date(n.firstSeenTs).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'})}</p>
               </div>
             </div>`).join('')
-        : `<p class="yt-empty">Todo al día — nada pendiente ahora mismo 🎉</p>`;
+        : `<p class="yt-empty">Todavía no hay ninguna notificación registrada.</p>`;
     }
 
     function toggleNotifPanel(force){
