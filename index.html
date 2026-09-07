@@ -274,6 +274,11 @@
     .recording-mode-text{color:#fff;font-size:clamp(22px,4vw,40px);line-height:1.5;font-weight:800;max-width:900px;margin:0}
     .recording-mode-controls{display:flex;gap:14px}
     .recording-mode-hint{color:var(--muted);font-size:12px;margin-top:6px}
+
+    /* ── Backlog #26: aviso de fase estancada ── */
+    .stale-warning{padding:16px 20px;border-radius:16px;border:1px dashed rgba(255,95,109,.5);background:rgba(255,95,109,.06);color:var(--text);font-size:13px;line-height:1.6}
+    .stale-warning strong{color:var(--red)}
+    .stale-warning ul{margin:8px 0 0;padding-left:18px}
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 
     /* ── Transición suave entre vistas ──
@@ -1654,6 +1659,13 @@
           </div>
           <p class="yt-empty" id="masterControlCount" style="margin-bottom:16px"></p>
           <div id="masterControlProjectsList" class="recent-list"></div>
+
+          <div class="vidiq-stats-panel panel" style="margin-top:24px">
+            <strong>⏱️ Tiempo medio aprobado → publicado</strong>
+            <p class="yt-empty" id="avgApprovedToPublishedStat" style="margin:6px 0 0"></p>
+          </div>
+
+          <div id="staleContentWarning" style="margin-top:16px"></div>
 
           <details class="month activity-log-panel" style="margin-top:24px">
             <summary>

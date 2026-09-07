@@ -5320,6 +5320,59 @@
       }).join('');
     }
 
+    // Backlog #24 — tiempo medio real entre "✅ Aprobado" y "📤
+    // Marcado como publicado" para cada elemento que ya tenga ambos
+    // hitos en su historial (#19) — nunca un número inventado, y
+    // honesto cuando todavía no hay datos suficientes.
+    function renderAvgApprovedToPublished(){
+      const el = document.getElementById('avgApprovedToPublishedStat');
+      if (!el) return;
+      const history = loadContentHistory();
+      const durationsMs = [];
+      Object.values(history).forEach(entries => {
+        const approved = entries.find(e => e.text === '✅ Aprobado');
+        const published = entries.find(e => e.text === '📤 Marcado como publicado');
+        if (approved && published && published.ts > approved.ts) {
+          durationsMs.push(published.ts - approved.ts);
+        }
+      });
+      if (!durationsMs.length) {
+        el.textContent = 'Todavía no hay ningún elemento con ambos hitos (aprobado y publicado) registrados — se calculará solo en cuanto los haya.';
+        return;
+      }
+      const avgMs = durationsMs.reduce((a, b) => a + b, 0) / durationsMs.length;
+      const avgDays = avgMs / 86400000;
+      const label = avgDays >= 1 ? `${avgDays.toFixed(1)} días` : `${Math.round(avgMs / 3600000)} horas`;
+      el.textContent = `${label} de media (sobre ${durationsMs.length} elemento${durationsMs.length === 1 ? '' : 's'} con datos reales).`;
+    }
+
+    // Backlog #26 — aviso si algo lleva mucho tiempo sin avanzar de
+    // fase: mira la última entrada de historial de cada elemento
+    // actualmente "en curso" (cualquier fase de CONTENT_STAGE_ORDER) y
+    // avisa si han pasado más de STALE_STAGE_DAYS desde entonces. Los
+    // elementos sin ninguna entrada de historial (fase puesta antes de
+    // que existiera #19) se omiten — no hay forma de saber desde cuándo.
+    const STALE_STAGE_DAYS = 7;
+    function renderStaleContentWarning(){
+      const container = document.getElementById('staleContentWarning');
+      if (!container) return;
+      const history = loadContentHistory();
+      const now = Date.now();
+      const stale = buildSiteIndex().filter(item => {
+        if (!CONTENT_STAGE_ORDER.includes(item.status)) return false;
+        const entries = history[item.view];
+        if (!entries || !entries.length) return false;
+        const lastTs = Math.max(...entries.map(e => e.ts));
+        return (now - lastTs) > STALE_STAGE_DAYS * 86400000;
+      });
+      if (!stale.length) { container.innerHTML = ''; return; }
+      container.innerHTML = `
+        <div class="stale-warning">
+          <strong>⚠️ ${stale.length} elemento${stale.length === 1 ? '' : 's'} llevan más de ${STALE_STAGE_DAYS} días sin avanzar de fase:</strong>
+          <ul>${stale.map(i => `<li><a href="javascript:void(0)" onclick="showView('${i.view}')">${escapeAttr(i.title)} ↗</a> — ${CONTENT_STATUS_LABELS[i.status]}</li>`).join('')}</ul>
+        </div>`;
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -5327,6 +5380,8 @@
       renderActivityLog();
       renderAutonomousLoopStatus();
       renderContentTimeline();
+      renderAvgApprovedToPublished();
+      renderStaleContentWarning();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
