@@ -639,6 +639,9 @@
       if (id === 'guiones-bandeja' && typeof renderGuionesBandeja === 'function') {
         try { renderGuionesBandeja(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'idea-swipe' && typeof renderIdeaSwipeStage === 'function') {
+        try { renderIdeaSwipeStage(); } catch (e) { /* ver comentario arriba */ }
+      }
       // "Game Match" (el mazo Tinder de candidatos de Retro 365) es ahora
       // un juego más de HELQUIDGAMES, con su propia página — hay que
       // refrescarlo cada vez que se entra aquí.
@@ -5820,6 +5823,74 @@
     // NO incluye los guiones de Retro 365 (plannedGames): esos tienen
     // su propio sistema de seguimiento en la chuleta secreta.
     // ──────────────────────────────────────────────────────────
+    // Backlog #35 — swipe estilo Retro 365 (Game Match) para los otros
+    // 6 bancos de ideas: en vez de una página dedicada por banco (como
+    // Game Match tiene la suya), un único "🃏 Swipe de ideas" con
+    // selector de banco — mismo espíritu, sin duplicar 6 veces la misma
+    // interfaz. "Me gusta" = marcar como hecha; "Descartar" = lo de
+    // siempre (#38, pregunta motivo); "Saltar" = pasar de largo sin
+    // decidir nada, solo para esta sesión del navegador (no se guarda).
+    const IDEA_TYPE_LABELS_BY_BANK = {
+      rincon: TYPE_LABELS, helquid: HELQUID_IDEA_LABELS, lab: LAB_TYPE_LABELS,
+      ia: IA_LABELS, creator: CREATOR_LABELS, hecho: HECHO_LABELS
+    };
+    let ideaSwipeSkipped = {}; // { [bank]: Set(id) } — en memoria, se olvida al recargar
+
+    function getPendingIdeasForBank(bank){
+      const merged = ideasMergedForBank(bank);
+      const state = loadIdeaBanks()[bank] || {};
+      const pending = [];
+      Object.keys(merged).forEach(type => {
+        merged[type].forEach((idea, i) => {
+          const id = `${type}-${i}`;
+          const s = state[id] || {};
+          if (!s.done && !s.discarded) {
+            pending.push({ type, id, text: typeof idea === 'string' ? idea : idea.text });
+          }
+        });
+      });
+      return pending;
+    }
+
+    function renderIdeaSwipeStage(){
+      const select = document.getElementById('ideaSwipeBank');
+      const stage = document.getElementById('ideaSwipeStage');
+      const progress = document.getElementById('ideaSwipeProgress');
+      if (!select || !stage) return;
+      const bank = select.value;
+      const allPending = getPendingIdeasForBank(bank);
+      const skipped = ideaSwipeSkipped[bank] || new Set();
+      const visible = allPending.filter(p => !skipped.has(p.id));
+
+      progress.textContent = `${allPending.length} idea${allPending.length === 1 ? '' : 's'} sin decidir en este banco${skipped.size ? ` (${skipped.size} saltada${skipped.size === 1 ? '' : 's'} esta sesión)` : ''}.`;
+
+      if (!visible.length) {
+        stage.innerHTML = `<p class="yt-empty">${allPending.length ? 'Has saltado todas las que quedaban por decidir — recarga la página para volver a verlas.' : '¡Ya no queda ninguna idea sin decidir en este banco!'}</p>`;
+        return;
+      }
+      const current = visible[0];
+      const typeLabel = (IDEA_TYPE_LABELS_BY_BANK[bank] || {})[current.type] || current.type;
+      stage.innerHTML = `
+        <div class="idea-swipe-card">
+          <span class="type-chip type-${current.type}">${typeLabel}</span>
+          <p>${escapeHTML(current.text)}</p>
+        </div>
+        <div class="idea-swipe-controls">
+          <button type="button" class="btn btn-secondary" onclick="ideaSwipeDecide('${bank}','${current.id}',false)">❌ Descartar</button>
+          <button type="button" class="btn btn-secondary" onclick="ideaSwipeSkip('${bank}','${current.id}')">⏭️ Saltar</button>
+          <button type="button" class="btn btn-primary" onclick="ideaSwipeDecide('${bank}','${current.id}',true)">✅ Hecha</button>
+        </div>`;
+    }
+    function ideaSwipeDecide(bank, id, done){
+      if (done) toggleIdeaDone(bank, id); else toggleIdeaDiscard(bank, id);
+      renderIdeaSwipeStage();
+    }
+    function ideaSwipeSkip(bank, id){
+      if (!ideaSwipeSkipped[bank]) ideaSwipeSkipped[bank] = new Set();
+      ideaSwipeSkipped[bank].add(id);
+      renderIdeaSwipeStage();
+    }
+
     function buildGuionesBandeja(){
       return buildSiteIndex()
         .filter(item => findContentItemByView(item.view))

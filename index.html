@@ -1064,6 +1064,11 @@
     .idea-link-tag a{color:var(--text);font-weight:700}
     .idea-link-tag button{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:12px;padding:0 4px}
     .idea-link-tag button:hover{color:var(--red)}
+
+    /* ── Backlog #35: swipe de ideas (estilo Game Match, sin arrastrar) ── */
+    .idea-swipe-card{max-width:480px;margin:0 auto;padding:32px 28px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}
+    .idea-swipe-card p{font-size:17px;line-height:1.6;margin:16px 0 0;color:var(--text)}
+    .idea-swipe-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
     .subheading{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
     .recent-list{display:grid;gap:12px}
 
@@ -1795,6 +1800,40 @@
           <button type="button" class="btn btn-secondary" id="copyGuionTemplateBtn" style="margin-bottom:18px" onclick="copyTextToClipboard(this)">📑 Copiar plantilla de estructura para un guion nuevo</button>
           <p class="yt-empty" id="guionesBandejaCount" style="margin-bottom:16px"></p>
           <div id="guionesBandejaList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ SWIPE DE IDEAS (backlog #35) ══════════ -->
+    <div id="view-idea-swipe" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver al laboratorio</a>
+          <div class="section-kicker">PRODUCCIÓN</div>
+          <h2 class="section-title">🃏 SWIPE DE IDEAS</h2>
+          <p class="section-sub">
+            Lo mismo que el mazo Tinder de Game Match, pero para cualquiera de los 6
+            bancos de ideas: una idea a la vez, decide rápido — ✅ hecha, ❌ descartar
+            (con motivo) o ⏭️ saltar por ahora sin decidir nada.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel search-panel">
+            <div class="search-row">
+              <select id="ideaSwipeBank" onchange="ideaSwipeSkipped[this.value] = new Set(); renderIdeaSwipeStage()">
+                <option value="rincon">🦸 Rincón del Friki</option>
+                <option value="helquid">🎮 HELQUIDGAMES</option>
+                <option value="lab">🧪 Charkuma Lab</option>
+                <option value="ia">🤖 IA & Experimentos</option>
+                <option value="creator">🖥️ Creator Tools</option>
+                <option value="hecho">🧶 Hecho a Mano</option>
+              </select>
+            </div>
+          </div>
+          <p class="yt-empty" id="ideaSwipeProgress" style="margin:14px 0"></p>
+          <div id="ideaSwipeStage"></div>
         </div>
       </section>
     </div>
@@ -3559,6 +3598,11 @@
                 <div class="icon">🎙️</div>
                 <h4>GUIONES</h4>
                 <p>Todos los guiones aprobados, listos para grabar la voz en off — de cualquier sección.</p>
+              </a>
+              <a class="lab-card" href="javascript:void(0)" onclick="showView('idea-swipe')">
+                <div class="icon">🃏</div>
+                <h4>SWIPE DE IDEAS</h4>
+                <p>El mazo Tinder de Game Match, pero para decidir rápido cualquiera de los 6 bancos de ideas.</p>
               </a>
             </div>
 
