@@ -634,6 +634,13 @@
       if (id === 'master-control' && typeof renderMasterControlList === 'function') {
         try { renderMasterControlList(); } catch (e) { /* ver comentario arriba */ }
       }
+      // El mazo Tinder de candidatos de Retro 365 vive ahora dentro de
+      // HELQUIDGAMES (mudado desde la chuleta secreta a petición del
+      // usuario 2026-09-07) — hay que refrescarlo cada vez que se entra
+      // aquí, igual que antes se hacía al entrar en la chuleta secreta.
+      if (id === 'helquidgames' && typeof renderSwipeDeck === 'function') {
+        try { renderSwipeDeck(); } catch (e) { /* ver comentario arriba */ }
+      }
       if (id === 'notif-inbox' && typeof renderNotifInbox === 'function') {
         try { renderNotifInbox(); } catch (e) { /* ver comentario arriba */ }
       }
@@ -1395,7 +1402,7 @@
       if (discardedListEl) discardedListEl.innerHTML = discardedListHTML(RETRO_PLANNED_BANK, discardedItems);
       const hideCheckbox = document.getElementById('retroHideDiscarded');
       if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(RETRO_PLANNED_BANK);
-      renderSwipeDeck();
+      // El mazo Tinder ya no vive aquí (mudado a HELQUIDGAMES, ver showView).
     }
     IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
 
@@ -1614,7 +1621,7 @@
     }
 
     renderPublic();
-    renderSecret(); // ya incluye renderSwipeDeck() al final
+    renderSecret();
 
     // ──────────────────────────────────────────────────────────
     // BUSCADOR / FILTRO + "ÚLTIMOS SUBIDOS" (orden inverso: el
