@@ -720,10 +720,17 @@
       background:var(--card);border:1px solid var(--line);border-radius:24px;
       padding:26px;box-shadow:var(--shadow);border-top:3px solid var(--orange);
       display:flex;flex-direction:column;gap:12px;
+      /* Altura fija a petición del usuario — todas las tarjetas del
+         mismo tamaño, tenga la que tenga más o menos sub-sesiones ese
+         día. El contenido va en .timeline-body (scroll interno propio,
+         nunca estira la tarjeta) — igual que cualquier otro contenido
+         que pueda desbordar en esta web. */
+      height:460px;
     }
     .timeline-date{font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--orange2)}
     .timeline-hours{font-size:12px;color:var(--muted);font-weight:700;margin-top:-8px}
     .timeline-card h4{margin:0 0 4px;font-size:20px}
+    .timeline-body{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px;margin:0 -6px 0 0;padding-right:6px}
 
     .day-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:var(--panel);border:1px solid var(--line3)}
     .day-thumb{width:72px;height:72px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
@@ -2160,112 +2167,82 @@
             distintas), y añadir una <div class="timeline-card"> NUEVA
             AL PRINCIPIO de #devLogTimeline (orden invertido a petición
             del usuario 2026-09-07: la más reciente queda primero, a la
-            izquierda — así se ve sin tener que hacer scroll — y la más
-            antigua al final) con el mismo formato que la de abajo:
-            fecha + horas de sesión arriba, y un <div class="log-entry">
-            por sub-sesión resumiendo qué se construyó (no listar cada
-            commit suelto, agrupar por tema).
+            izquierda). Cada tarjeta tiene una ALTURA FIJA (misma para
+            todas, a petición del usuario 2026-09-07: "que no se
+            extienda... que todas queden simétricas") — el contenido
+            va DENTRO de <div class="timeline-body"> para que si no
+            cabe, esa zona interna haga scroll en vez de estirar la
+            tarjeta entera. Escribe cada <div class="log-entry"> con
+            prosa BREVE (1-2 frases, lo justo para reconocer qué se hizo
+            — no una lista exhaustiva de todo lo tocado); si aun así no
+            cabe, el scroll interno es la red de seguridad, no la
+            solución por defecto.
           -->
           <div class="timeline-wrap">
             <div class="timeline-scroll" id="devLogTimeline">
               <div class="timeline-card">
                 <div class="timeline-date">📅 7 SEPT 2026 (MADRUGADA Y MAÑANA — /LOOP AUTÓNOMO)</div>
                 <div class="timeline-hours">~10h25 de sesión, casi sin intervención</div>
-                <h4>Toda la noche picando el backlog de 150 mejoras solo, mientras el usuario dormía — y siguió por la mañana</h4>
+                <h4>Toda la noche picando el backlog de 150 mejoras solo, mientras el usuario dormía</h4>
+                <div class="timeline-body">
                 <div class="log-entry">
-                  <strong>03:14–03:44 (~30min)</strong>
-                  <p>Bandeja de guiones (todos los aprobados en un solo sitio para grabar
-                    voz en off), y una tanda de Retro 365: calendario real semana a semana
-                    con fechas de verdad, galería de portadas de días publicados, y
-                    exportar el reto completo a un único archivo .ics.</p>
+                  <strong>03:14–03:44</strong>
+                  <p>Bandeja de guiones para grabar voz en off, y mejoras en Retro 365:
+                    calendario semana a semana, galería de portadas y exportación a .ics.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>03:44–05:48 (~2h)</strong>
-                  <p>Herramientas de producción por guion: checklist de grabación,
-                    descripción y tags de YouTube sugeridos, plantilla para empezar un
-                    guion nuevo, duración estimada por beat calculada sobre la narración
-                    real, modo grabación a pantalla completa (teleprompter), historial de
-                    revisiones por elemento, y una línea de tiempo global en Control
-                    Maestro con todo junto.</p>
+                  <strong>03:44–05:48</strong>
+                  <p>Herramientas de producción por guion: checklist, descripción/tags de
+                    YouTube, plantilla, duración por beat, teleprompter e historial.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>06:16–07:44 (~1h30)</strong>
-                  <p>Control Maestro más completo: tiempo medio real entre aprobado y
-                    publicado, aviso de elementos estancados sin avanzar de fase,
-                    prioridad y coste de producción manuales por idea, widget de "próximo
-                    a publicar", vista Kanban además de la lista, racha de creación de
-                    guiones, y exportar todo a PDF con la impresión del propio navegador.</p>
+                  <strong>06:16–07:44</strong>
+                  <p>Control Maestro: tiempo aprobado→publicado, avisos de estancados,
+                    prioridad/coste, vista Kanban, racha de creación y export a PDF.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>08:14–10:58 (~2h45)</strong>
-                  <p>Toda la sección de bancos de ideas, de cabo a rabo: motivo de
-                    descarte, recuento de ideas sin tocar, buscador interno en los 6
-                    bancos, vincular ideas relacionadas entre secciones, combinar dos
-                    ideas en una, tendencias reales de YouTube (vía VidIQ) metidas en el
-                    generador, y un mazo de swipe estilo Game Match para decidir rápido
-                    en cualquier banco.</p>
+                  <strong>08:14–10:58</strong>
+                  <p>Bancos de ideas completos: motivo de descarte, buscador interno,
+                    vincular/combinar ideas, tendencias VidIQ y swipe estilo Game Match.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>11:14–11:32 (~20min)</strong>
-                  <p>Migrados a Firestore casi todos los datos que solo vivían en este
-                    navegador: bancos de ideas, estado de revisión/aprobación, ruleta,
-                    calendario, ranking friki, tema y modo compacto — todo sincronizado
-                    en tiempo real entre dispositivos. Y de paso, un bug real encontrado
-                    y arreglado al momento: dos paneles nuevos se quedaban visibles desde
-                    que cargaba la página (tapando todo en negro en el móvil) por
-                    olvidarme una regla CSS — corregido en cuanto el usuario lo avisó.</p>
+                  <strong>11:14–11:32</strong>
+                  <p>Migrado casi todo a Firestore (sincronizado entre dispositivos), y un
+                    bug real arreglado al momento: pantalla en negro en móvil.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>11:33–13:39 (~2h05)</strong>
-                  <p>Copia de seguridad automática semanal con historial de versiones
-                    (Firestore), y toda la sección de VidIQ y analítica: gráfica real de
-                    evolución de visitas, comparativa mes a mes, alerta de crecimiento
-                    viral, 3 canales de referencia con datos reales (Willyrex, Vegetta777,
-                    sTaXxCraft — los de mi propia historia con los videojuegos), resumen
-                    mensual redactado con datos reales, y detección de vídeos con bajo
-                    rendimiento sobre mis 50 últimos vídeos de verdad.</p>
+                  <strong>11:33–13:39</strong>
+                  <p>Copia de seguridad automática semanal, y analítica real de VidIQ:
+                    evolución de visitas, alerta viral y vídeos con bajo rendimiento.</p>
+                </div>
                 </div>
               </div>
 
               <div class="timeline-card">
                 <div class="timeline-date">📅 6–7 SEPT 2026 (NOCHE/MADRUGADA)</div>
                 <div class="timeline-hours">~6h10 de sesión</div>
-                <h4>Catálogo de datos reales, Game Match como juego propio, y arranque del backlog de 150 mejoras</h4>
+                <h4>Catálogo de datos reales, Game Match como juego propio, y arranque del backlog</h4>
+                <div class="timeline-body">
                 <div class="log-entry">
-                  <strong>6 sept, 20:24–23:52 (~3h30)</strong>
-                  <p>Enlace real a gameplay de YouTube en las tarjetas del mazo Tinder,
-                    integración real de VidIQ (estadísticas del canal, tendencias, ideas y
-                    puntuación SEO en los guiones), e intento de dominio personalizado
-                    helquid.site (revertido — no se llegó a comprar).</p>
+                  <strong>6 sept, 20:24–23:52</strong>
+                  <p>Enlaces reales de gameplay en el mazo, integración real de VidIQ, e
+                    intento de dominio propio helquid.site (revertido).</p>
                 </div>
                 <div class="log-entry">
-                  <strong>7 sept, 00:07–01:13 (~1h05)</strong>
-                  <p>Botón de Recursos conectado a la carpeta real de Google Drive,
-                    "Mis proyectos" movido del inicio a su propia vista enlazada desde la
-                    cabecera, cabecera que se oculta sola y aparece al acercar el ratón
-                    (con opción de fijarla), y reordenado el acceso directo a las
-                    herramientas internas.</p>
+                  <strong>7 sept, 00:07–01:13</strong>
+                  <p>Botón de Recursos conectado a Google Drive real, "Mis proyectos" con
+                    vista propia, y cabecera auto-ocultable.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>7 sept, 01:27–02:18 (~50min)</strong>
-                  <p>Arranque del backlog de 150 mejoras: Control Maestro ordenado por
-                    estado por defecto, racha visible y filtro de dificultad en Retro 365,
-                    contador de días hasta el reinicio del canal, modo alto contraste, y
-                    arreglo de un fallo real en móvil (las comillas tipográficas del
-                    teclado rompían el JSON del mazo Tinder). El mazo se mudó de la
-                    chuleta secreta a HELQUIDGAMES, con botón para saltar a un candidato
-                    al azar por dificultad, y la cabecera pasó a ser visible por defecto.</p>
+                  <strong>7 sept, 01:27–02:18</strong>
+                  <p>Arranque del backlog de 150 mejoras, y un bug móvil real arreglado
+                    (comillas del teclado rompían el JSON del mazo Tinder).</p>
                 </div>
                 <div class="log-entry">
-                  <strong>7 sept, 02:28–03:12 (~45min)</strong>
-                  <p>Catálogo de 417 juegos reales incorporado al mazo (ya no hace falta
-                    pegar JSON nunca más), Game Match promovido a juego propio de
-                    HELQUIDGAMES con página dedicada, "me gusta" asignable directo a un
-                    día de Retro 365, portadas reales en las tarjetas, 27 juegos más
-                    elegidos a partir de la propia historia del usuario con los
-                    videojuegos (Crash Bandicoot, la saga Assassin's Creed, los Call of
-                    Duty de la era zombies, y una buena tanda de independientes), y
-                    sincronización real de Game Match entre dispositivos vía Firestore.</p>
+                  <strong>7 sept, 02:28–03:12</strong>
+                  <p>Catálogo de 417 juegos reales en el mazo, Game Match como juego propio,
+                    y 27 juegos elegidos a partir de mi propia historia con los videojuegos.</p>
+                </div>
                 </div>
               </div>
 
@@ -2273,34 +2250,22 @@
                 <div class="timeline-date">📅 6 SEPT 2026 (TARDE/NOCHE)</div>
                 <div class="timeline-hours">~4h30 de sesión</div>
                 <h4>Integraciones reales, autonomía y primera tanda de guiones</h4>
+                <div class="timeline-body">
                 <div class="log-entry">
-                  <strong>13:57–16:48 (~2h50)</strong>
-                  <p>Corrección de fallos reportados (notificaciones, salto automático,
-                    radar de estrenos, notas), Radar de estrenos con datos reales de TMDB
-                    (películas y series), primera tanda de las 50 mejoras (búsqueda,
-                    generador manual de ideas, calendario con prioridad para retrasos y
-                    exportación a .ics, indicador del modo autónomo), 59 ideas nuevas
-                    escritas a mano en los 6 bancos secretos, y carátulas reales de Retro
-                    365 vía RAWG.</p>
+                  <strong>13:57–16:48</strong>
+                  <p>Fallos corregidos, Radar de estrenos con datos reales de TMDB, primera
+                    tanda de las 50 mejoras, y 59 ideas nuevas en los 6 bancos.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>17:11–18:21 (~1h10)</strong>
-                  <p>Tarjetas de "Sobre mí" ya clicables (librería real de Steam, setup con
-                    opinión sincera, enlaces a YouTube/Instagram), analítica de visitas con
-                    Umami, notas migradas de localStorage a Firebase Firestore
-                    (sincronización real entre dispositivos), y primer ciclo del modo de
-                    trabajo autónomo: 5 guiones completos para ideas ya aprobadas de
-                    Rincón del Friki.</p>
+                  <strong>17:11–18:21</strong>
+                  <p>Tarjetas de "Sobre mí" clicables (Steam real, setup, redes), analítica
+                    con Umami, y notas migradas a Firestore.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>18:21–19:15 (~55min)</strong>
-                  <p>Base técnica para que la fase de producción ("creando guion" y demás)
-                    se pueda fijar desde el propio código y se vea igual en cualquier
-                    dispositivo, capa de producción añadida a los guiones (narración en
-                    off, visual/clips, SFX, transiciones y BGM por bloque), y guiones
-                    completos para las 13 ideas aprobadas restantes de Charkuma Lab,
-                    Creator Tools, Hecho a Mano, IA & Experimentos y HELQUIDGAMES —
-                    las 18 ideas que estaban aprobadas ya tienen guion.</p>
+                  <strong>18:21–19:15</strong>
+                  <p>Capa de producción en los guiones (off, visual, SFX, BGM), y guiones
+                    completos para las 18 ideas ya aprobadas.</p>
+                </div>
                 </div>
               </div>
 
@@ -2308,37 +2273,27 @@
                 <div class="timeline-date">📅 5–6 SEPT 2026</div>
                 <div class="timeline-hours">~10h de sesión</div>
                 <h4>Construcción inicial</h4>
+                <div class="timeline-body">
                 <div class="log-entry">
-                  <strong>Antes del repositorio (sin hora exacta)</strong>
-                  <p>Lobby estático inicial → conversión a single-page app → widget de
-                    YouTube y notas rápidas → primera versión de Retro 365 → despliegue
-                    real a GitHub Pages.</p>
+                  <strong>Antes del repositorio</strong>
+                  <p>Lobby estático → single-page app → widget de YouTube y notas →
+                    primera versión de Retro 365 → despliegue a GitHub Pages.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>5 sept, 16:26–23:52 (~7h30)</strong>
-                  <p>Repositorio creado. HELQUIDGAMES + Ruleta del 11 (con base de datos
-                    de 2313 jugadores). Feeds filtrables de Charkuma Lab, IA & Experimentos,
-                    Creator Tools y Hecho a Mano. Integración e iteración de CalcArte
-                    (personajes, prompt, estilo de dibujo). Las 26 páginas de detalle con
-                    contenido real. Insignia "Pendiente de revisión". Primer easter egg
-                    secreto (banco de 50 ideas de Rincón del Friki).</p>
+                  <strong>5 sept, 16:26–23:52</strong>
+                  <p>Repositorio creado. HELQUIDGAMES + Ruleta del 11 (2313 jugadores),
+                    CalcArte, 26 páginas de detalle, y primer easter egg secreto.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>6 sept, 00:09–02:23 (~2h15)</strong>
-                  <p>La tanda grande: buscador global, tema claro/oscuro, calendario de
-                    publicación, banco de ideas en las 5 secciones restantes, JS movido a
-                    archivo aparte, mapa maestro, ranking friki, radar de estrenos,
-                    reestructuración de HELQUIDGAMES, sistema de aprobar/en proceso/
-                    publicado/descartar, control secreto maestro, y pulido de fallos.</p>
+                  <strong>6 sept, 00:09–02:23</strong>
+                  <p>La tanda grande: buscador global, tema claro/oscuro, calendario,
+                    bancos de ideas restantes, mapa maestro y Control Maestro.</p>
                 </div>
                 <div class="log-entry">
-                  <strong>6 sept, 02:32–03:29 (~1h)</strong>
-                  <p>Diario de construcción como línea temporal, Draft Arena (concepto de
-                    HELQUIDGAMES), campana de notificaciones con palabras clave,
-                    importación de ideas por JSON, identidad visual propia para "El
-                    Laboratorio", división de "en proceso" en 4 fases con botón
-                    "→ Siguiente", corrección de un crash grave en enlaces directos, y el
-                    generador de ideas del Control Maestro.</p>
+                  <strong>6 sept, 02:32–03:29</strong>
+                  <p>Diario de construcción, Draft Arena, campana de notificaciones,
+                    identidad propia para "El Laboratorio", y generador de ideas.</p>
+                </div>
                 </div>
               </div>
             </div>
