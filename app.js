@@ -2937,9 +2937,69 @@
     // las insignias pequeñas del kicker si ya no hacen falta).
     function refreshReviewControls(){
       const active = document.querySelector('.app-view.active');
-      if (!active) return;
-      updateViewChrome(active.id.replace(/^view-/, ''), active);
-      hideAlreadyReviewedBadges();
+      if (active) {
+        updateViewChrome(active.id.replace(/^view-/, ''), active);
+        hideAlreadyReviewedBadges();
+      }
+      // Backlog #42 — todas las acciones de revisión (aprobar, fase,
+      // publicar, descartar, prioridad, coste) terminan llamando aquí:
+      // es el único sitio que hace falta enganchar para sincronizar todo
+      // ese estado con Firestore, sin tocar cada función suelta.
+      if (!applyingRemoteContentReviewUpdate && typeof pushContentReviewState === 'function') pushContentReviewState();
+    }
+
+    // Backlog #42 — migrar a Firestore el estado de revisión: aprobado,
+    // fase de producción, publicado, descartado, prioridad, coste
+    // estimado, historial (#19) y la checklist de grabación (#12).
+    // Mismo patrón "un documento, el último que escribe gana" que el
+    // resto de la web. Enganchado en refreshReviewControls() (arriba)
+    // porque TODAS las acciones de revisión terminan llamando ahí.
+    let applyingRemoteContentReviewUpdate = false;
+    function pushContentReviewState(){
+      if (!firestoreReady()) return;
+      const { doc, setDoc } = window.firestoreFns;
+      const data = {
+        reviewed: Array.from(loadReviewedSet()),
+        discarded: Array.from(loadDiscardedContentSet()),
+        stages: loadContentStageMap(),
+        published: Array.from(loadPublishedContentSet()),
+        priority: loadContentPriorityMap(),
+        cost: loadContentCostMap(),
+        history: loadContentHistory(),
+        checklist: loadRecordingChecklistState(),
+        updatedAt: Date.now()
+      };
+      setDoc(doc(window.firestoreDB, 'contentReview', 'state'), data).catch(() => {
+        // Sin conexión ahora mismo: se queda en local, sin cola de reintentos.
+      });
+    }
+
+    let contentReviewRealtimeStarted = false;
+    async function initContentReviewRealtime(){
+      if (!firestoreReady() || contentReviewRealtimeStarted) return;
+      contentReviewRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'contentReview', 'state');
+      onSnapshot(ref, (snap) => {
+        if (!snap.exists()) { pushContentReviewState(); return; }
+        const data = snap.data() || {};
+        applyingRemoteContentReviewUpdate = true;
+        try {
+          if (Array.isArray(data.reviewed)) localStorage.setItem(REVIEWED_KEY, JSON.stringify(data.reviewed));
+          if (Array.isArray(data.discarded)) localStorage.setItem(DISCARDED_CONTENT_KEY, JSON.stringify(data.discarded));
+          if (data.stages && typeof data.stages === 'object') localStorage.setItem(CONTENT_STAGE_KEY, JSON.stringify(data.stages));
+          if (Array.isArray(data.published)) localStorage.setItem(PUBLISHED_CONTENT_KEY, JSON.stringify(data.published));
+          if (data.priority && typeof data.priority === 'object') localStorage.setItem(CONTENT_PRIORITY_KEY, JSON.stringify(data.priority));
+          if (data.cost && typeof data.cost === 'object') localStorage.setItem(CONTENT_COST_KEY, JSON.stringify(data.cost));
+          if (data.history && typeof data.history === 'object') localStorage.setItem(CONTENT_HISTORY_KEY, JSON.stringify(data.history));
+          if (data.checklist && typeof data.checklist === 'object') localStorage.setItem(RECORDING_CHECKLIST_KEY, JSON.stringify(data.checklist));
+          refreshReviewControls();
+          if (typeof renderMasterControlList === 'function') renderMasterControlList();
+        } catch (e) { /* localStorage no disponible: seguimos sin aplicarlo local */ }
+        applyingRemoteContentReviewUpdate = false;
+      }, () => {
+        // onSnapshot en modo error (reglas, red...) — seguimos en local.
+      });
     }
 
     // Insignia reutilizable: marca contenido generado por Claude que el
@@ -6618,6 +6678,7 @@
     initNotesRealtime();
     initGameMatchRealtime();
     initIdeaBanksRealtime();
+    initContentReviewRealtime();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
