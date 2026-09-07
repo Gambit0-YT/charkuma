@@ -665,6 +665,12 @@
       if (opts.resetScroll !== false) window.scrollTo({top:0});
       updateSidebar(id);
       updateViewChrome(id, target);
+      // Backlog #83 — anuncia el cambio de vista a lectores de pantalla
+      // (document.title ya lo calcula updateViewChrome, así que no hay
+      // que duplicar esa lógica). Pequeño retraso para que el lector no
+      // se coma el anuncio si llega justo con el resto del repintado.
+      const announcer = document.getElementById('viewAnnouncer');
+      if (announcer) setTimeout(() => { announcer.textContent = document.title; }, 120);
       // Igual que en updateViewChrome: en una carga en frío por hash
       // (#view=...) estas funciones pueden ejecutarse antes de que los
       // "const" que usan (arrays de contenido, bancos de ideas...) estén
@@ -1580,7 +1586,8 @@
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
               onclick="toggleIdeaDone('${cfg.bank}','${id}', this)"
-              title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
+              title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}"
+              aria-label="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
             <div class="idea-body">
               <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px">
                 <span class="type-chip type-${type}">${cfg.typeLabels[type]}</span>
@@ -1662,7 +1669,8 @@
           <div class="day-card planned${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="day-thumb idea-check${s.done ? ' is-done' : ''}"
               onclick="toggleIdeaDone('${RETRO_PLANNED_BANK}','${id}', this)"
-              title="${s.done ? 'Quitar confirmación' : 'Confirmar que sigues queriendo este juego para este día'}">${s.done ? '✅' : (planned.emoji || "📝")}</button>
+              title="${s.done ? 'Quitar confirmación' : 'Confirmar que sigues queriendo este juego para este día'}"
+              aria-label="${s.done ? 'Quitar confirmación' : 'Confirmar que sigues queriendo este juego para este día'}">${s.done ? '✅' : (planned.emoji || "📝")}</button>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ${statusBadge}</div>
               <h4><a href="${planned.steamUrl}" target="_blank" rel="noopener">${planned.name} ↗</a></h4>
@@ -3482,7 +3490,8 @@
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
               onclick="toggleIdeaDone('${bank}','${id}', this)"
-              title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
+              title="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}"
+              aria-label="${s.done ? 'Marcar como pendiente de nuevo' : 'Marcar como ya hecha'}">${s.done ? '✅' : emoji}</button>
             <div class="idea-body">
               <div class="template-head" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
                 <div style="display:flex;gap:6px;flex-wrap:wrap">
