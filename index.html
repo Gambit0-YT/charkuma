@@ -2203,6 +2203,73 @@
       </section>
     </div>
 
+    <!-- ══════════ DETRÁS DE CÁMARAS (backlog #139) ══════════ -->
+    <div id="view-detras-camaras" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver al laboratorio</a>
+          <div class="section-kicker">META</div>
+          <h2 class="section-title">🎬 DETRÁS DE CÁMARAS</h2>
+          <p class="section-sub">
+            Cómo está hecha esta web de verdad — sin exagerar ni suavizar nada, los mismos
+            datos reales que usa el resto del sitio.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>La idea</h3>
+            <p>
+              Toda esta web es un único <code>index.html</code> (~5.400 líneas) más un
+              <code>app.js</code> (~7.900 líneas) — sin build, sin framework, sin
+              npm install. Se edita directamente, se sube a Git y GitHub Pages la sirve
+              tal cual. La decisión fue deliberada: para un sitio de un solo dueño que se
+              edita muchas veces al día, un pipeline de build añade fricción sin aportar
+              nada que se necesite de verdad todavía.
+            </p>
+          </div>
+          <div class="panel" style="margin-top:16px">
+            <h3>Cómo se construye</h3>
+            <p>
+              Junto a <strong>Claude Code</strong>, casi siempre en modo <code>/loop</code>:
+              se le da una tarea (o una lista de 150) y trabaja de forma autónoma —
+              programando la mejora, probándola en un servidor local, desplegándola,
+              comprobando que la versión en vivo responde de verdad, y anotando qué hizo.
+              Nunca aprueba, publica ni descarta contenido por su cuenta; eso se queda
+              siempre en manos del dueño del canal.
+            </p>
+            <p style="margin-top:10px">
+              Este proyecto arrancó el 5 de septiembre de 2026 y, a fecha de esta página,
+              lleva <strong>169 commits</strong> reales en poco más de 2 días — la mayoría,
+              de sesiones nocturnas de trabajo autónomo mientras el dueño dormía.
+            </p>
+          </div>
+          <div class="panel" style="margin-top:16px">
+            <h3>Integraciones reales (nada de datos de mentira)</h3>
+            <ul class="ia-steps">
+              <li><strong>VidIQ</strong> — estadísticas del canal, tendencias, puntuación de títulos, análisis de rendimiento.</li>
+              <li><strong>YouTube Data API</strong> — últimos vídeos y suscriptores, en directo.</li>
+              <li><strong>YouTube Analytics (OAuth)</strong> — retención y audiencia real, cuando la sesión lo permite.</li>
+              <li><strong>TMDB y RAWG</strong> — estrenos de cine/series y carátulas de videojuegos reales.</li>
+              <li><strong>Firebase Firestore</strong> — todo lo que se sincroniza entre el móvil y el ordenador (notas, ideas, progreso).</li>
+              <li><strong>Steam</strong> — la librería de juegos real del dueño.</li>
+            </ul>
+          </div>
+          <div class="panel" style="margin-top:16px">
+            <h3>La regla que más se repite</h3>
+            <p>
+              Nunca inventar un dato para que algo "se vea que funciona". Si una llamada
+              real a una API devuelve un resultado vacío o negativo (un canal sin
+              monetizar, sin datos suficientes para una recomendación, sin estrenos esta
+              semana), la web lo dice tal cual — un resultado honesto en cero vale más
+              que uno falso que parezca mejor.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ INICIO ══════════ -->
     <div id="view-home" class="app-view active">
       <section class="hero" id="inicio">
@@ -3986,6 +4053,11 @@
                 <div class="icon">🃏</div>
                 <h4>SWIPE DE IDEAS</h4>
                 <p>El mazo Tinder de Game Match, pero para decidir rápido cualquiera de los 6 bancos de ideas.</p>
+              </a>
+              <a class="lab-card" href="javascript:void(0)" onclick="showView('detras-camaras')">
+                <div class="icon">🎬</div>
+                <h4>DETRÁS DE CÁMARAS</h4>
+                <p>Cómo está hecha esta web de verdad — construida junto a Claude, con datos reales de principio a fin.</p>
               </a>
             </div>
 
