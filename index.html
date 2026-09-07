@@ -1287,6 +1287,20 @@
       .day-card{flex-direction:column}
       .day-thumb{width:100%;height:64px}
     }
+    /* Backlog #91 — reorganizar iconos de cabecera en móvil: con 7
+       botones de icono (☰ del #89 incluido) más el logo, en pantallas
+       muy estrechas se salían del todo por el borde derecho y quedaban
+       inalcanzables (⚙️/🌙 nunca llegaban a verse). Reduce el logo al
+       emblema solo (sin el texto "CHARKUMA", que ya está la marca en
+       el emblema) y añade un salvavidas real: si aun así no cupieran
+       todos, la fila de iconos desliza en horizontal en vez de
+       cortarse sin más. */
+    @media (max-width:430px){
+      .brand span{display:none}
+      .nav-icon-btn{width:30px;height:30px}
+      .nav-tools{overflow-x:auto;max-width:calc(100vw - 90px);scrollbar-width:none}
+      .nav-tools::-webkit-scrollbar{display:none}
+    }
   </style>
   <script>
     // Aplica el tema guardado ANTES de pintar la página, para que no haya
