@@ -1044,6 +1044,11 @@
     }
     .search-row input::placeholder{color:var(--muted)}
     .search-row input:focus, .search-row select:focus{outline:none;border-color:var(--orange)}
+
+    /* ── Backlog #36: buscador interno por banco de ideas ── */
+    .idea-bank-search{width:100%;margin-top:10px;padding:11px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line2);color:var(--text);font-size:13px;font-family:inherit}
+    .idea-bank-search::placeholder{color:var(--muted)}
+    .idea-bank-search:focus{outline:none;border-color:var(--orange)}
     .subheading{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
     .recent-list{display:grid;gap:12px}
 
@@ -2506,6 +2511,7 @@
               <input type="checkbox" id="rfHideDiscarded" onchange="setHideDiscardedPref('rincon','rfSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+            <input type="text" id="rfIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="renderRinconSecret()">
           </div>
 
           <div class="panel json-import-panel">
@@ -2566,6 +2572,7 @@
               <input type="checkbox" id="helquidHideDiscarded" onchange="setHideDiscardedPref('helquid','helquidSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+            <input type="text" id="helquidIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="IDEA_BANK_RENDERERS.helquid()">
           </div>
         </div>
       </section>
@@ -2602,6 +2609,7 @@
               <input type="checkbox" id="labHideDiscarded" onchange="setHideDiscardedPref('lab','labSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+            <input type="text" id="labIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="IDEA_BANK_RENDERERS.lab()">
           </div>
         </div>
       </section>
@@ -2639,6 +2647,7 @@
               <input type="checkbox" id="iaHideDiscarded" onchange="setHideDiscardedPref('ia','iaSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+            <input type="text" id="iaIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="IDEA_BANK_RENDERERS.ia()">
           </div>
         </div>
       </section>
@@ -2675,6 +2684,7 @@
               <input type="checkbox" id="creatorHideDiscarded" onchange="setHideDiscardedPref('creator','creatorSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+            <input type="text" id="creatorIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="IDEA_BANK_RENDERERS.creator()">
           </div>
         </div>
       </section>
@@ -2711,6 +2721,7 @@
               <input type="checkbox" id="hechoHideDiscarded" onchange="setHideDiscardedPref('hecho','hechoSecretContainer', this.checked)">
               Ocultar las ideas descartadas de la lista de abajo
             </label>
+            <input type="text" id="hechoIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="IDEA_BANK_RENDERERS.hecho()">
           </div>
         </div>
       </section>

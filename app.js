@@ -1353,15 +1353,25 @@
         [...container.querySelectorAll('details.month')].filter(d => d.open).map(d => d.dataset.type)
       );
 
+      // Backlog #36 — buscador interno por banco: filtra las tarjetas
+      // visibles por texto, pero NUNCA la lista de descartadas (esa
+      // sigue mostrando todo, tenga o no la búsqueda algo escrito) ni
+      // los índices reales (`${type}-${i}` tiene que seguir apuntando a
+      // la idea correcta aunque esté oculta por el filtro).
+      const searchQuery = (document.getElementById(cfg.bank + 'IdeaSearch')?.value || '').trim().toLowerCase();
+
       const discardedItems = [];
       let html = "";
       Object.keys(cfg.ideasByType).forEach(type => {
         const ideas = cfg.ideasByType[type];
         const emoji = (cfg.typeLabels[type] || '💡').split(' ')[0];
+        let matchCount = 0;
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
           if (s.discarded) discardedItems.push({id, label: idea, discardedAt: s.discardedAt, discardReason: s.discardReason});
+          if (searchQuery && !idea.toLowerCase().includes(searchQuery)) return '';
+          matchCount++;
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
@@ -1377,11 +1387,12 @@
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${cfg.bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
         }).join('');
+        if (searchQuery && matchCount === 0) return; // categoría entera sin coincidencias: no la mostramos
         html += `
-          <details class="month" data-type="${type}"${openTypes.has(type) ? ' open' : ''}>
+          <details class="month" data-type="${type}"${(openTypes.has(type) || searchQuery) ? ' open' : ''}>
             <summary>
               <span>${cfg.typeLabels[type]}</span>
-              <span class="count">${ideas.length} ideas</span>
+              <span class="count">${searchQuery ? `${matchCount} de ${ideas.length}` : `${ideas.length} ideas`}</span>
             </summary>
             <div class="month-body">
               <button type="button" class="idea-discard-all-btn" onclick="event.preventDefault();discardAllOfType('${cfg.bank}','${type}',${ideas.length})">🗑️ Descartar toda esta categoría</button>
@@ -1389,7 +1400,7 @@
             </div>
           </details>`;
       });
-      container.innerHTML = html;
+      container.innerHTML = html || (searchQuery ? `<p class="yt-empty">Nada coincide con "${escapeAttr(searchQuery)}" en este banco.</p>` : html);
       container.classList.toggle('hide-discarded', getHideDiscardedPref(cfg.bank));
 
       const counterEl = document.getElementById(cfg.discardCounterId);
@@ -3024,15 +3035,19 @@
       );
 
       const allIdeas = getRinconIdeasMerged();
+      const searchQuery = (document.getElementById('rfIdeaSearch')?.value || '').trim().toLowerCase();
       const discardedItems = [];
       let html = "";
       Object.keys(allIdeas).forEach(type => {
         const ideas = allIdeas[type];
         const emoji = (TYPE_LABELS[type] || '💡').split(' ')[0];
+        let matchCount = 0;
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
           if (s.discarded) discardedItems.push({id, label: idea.text, discardedAt: s.discardedAt, discardReason: s.discardReason});
+          if (searchQuery && !idea.text.toLowerCase().includes(searchQuery)) return '';
+          matchCount++;
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
@@ -3051,16 +3066,17 @@
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
         }).join('');
+        if (searchQuery && matchCount === 0) return;
         html += `
-          <details class="month" data-type="${type}"${openTypes.has(type) ? ' open' : ''}>
+          <details class="month" data-type="${type}"${(openTypes.has(type) || searchQuery) ? ' open' : ''}>
             <summary>
               <span>${TYPE_LABELS[type] || type}</span>
-              <span class="count">${ideas.length} ideas</span>
+              <span class="count">${searchQuery ? `${matchCount} de ${ideas.length}` : `${ideas.length} ideas`}</span>
             </summary>
             <div class="month-body">${rows}</div>
           </details>`;
       });
-      container.innerHTML = html;
+      container.innerHTML = html || (searchQuery ? `<p class="yt-empty">Nada coincide con "${escapeAttr(searchQuery)}" en este banco.</p>` : html);
       container.classList.toggle('hide-discarded', getHideDiscardedPref(bank));
 
       const counterEl = document.getElementById('rfDiscardCounter');
