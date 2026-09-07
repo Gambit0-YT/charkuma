@@ -642,6 +642,7 @@
       // aquí, igual que antes se hacía al entrar en la chuleta secreta.
       if (id === 'helquidgames' && typeof renderSwipeDeck === 'function') {
         try { renderSwipeDeck(); } catch (e) { /* ver comentario arriba */ }
+        if (typeof autoSeedCatalogIfNeeded === 'function') autoSeedCatalogIfNeeded();
       }
       if (id === 'notif-inbox' && typeof renderNotifInbox === 'function') {
         try { renderNotifInbox(); } catch (e) { /* ver comentario arriba */ }
@@ -1465,9 +1466,16 @@
       }));
       if (!clean.length) { statusEl.textContent = '⚠️ No he encontrado ningún juego válido ahí (falta el campo "name").'; return; }
 
-      saveSwipeCandidates(clean);
-      saveSwipeIndex(0);
-      statusEl.textContent = `✅ Cargados ${clean.length} candidatos — a elegir.`;
+      // Se AÑADE al mazo que ya tengas (normalmente el catálogo incorporado),
+      // no lo reemplaza — así pegar un par de juegos sueltos no borra los
+      // 417 del catálogo. Evita duplicados por nombre con lo que ya había.
+      const existing = loadSwipeCandidates();
+      const existingNames = new Set(existing.map(g => g.name.toLowerCase()));
+      const toAdd = clean.filter(g => !existingNames.has(g.name.toLowerCase()));
+      saveSwipeCandidates(existing.concat(toAdd));
+      const skipped = clean.length - toAdd.length;
+      statusEl.textContent = `✅ Añadidos ${toAdd.length} candidato${toAdd.length === 1 ? '' : 's'} nuevo${toAdd.length === 1 ? '' : 's'}`
+        + (skipped > 0 ? ` (${skipped} ya estaban en el mazo).` : '.');
       textarea.value = '';
       renderSwipeDeck();
     }
@@ -1476,6 +1484,50 @@
       if (!confirm('¿Reiniciar el mazo? Esto no borra tu preselección de "me gusta", solo vuelve a empezar desde el primer candidato cargado.')) return;
       saveSwipeIndex(0);
       renderSwipeDeck();
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // CATÁLOGO INCORPORADO (backlog: "no quiero tener que pegar JSON cada
+    // vez"): 417 juegos reales, sacados de RAWG (PC/Steam, móvil y
+    // Nintendo, 2005 en adelante, Metacritic ≥60, deduplicados) — no
+    // llegan a 500 porque se descartó rellenar con juegos de menos nota
+    // solo por cuadrar el número. Vive en game-catalog.json aparte (no
+    // inline en este archivo) para no engordar app.js con datos que no
+    // hacen falta en cada carga de página. Se carga sola la primera vez
+    // que se abre el mazo; después, un botón deja recargarla cuando
+    // quieras (p. ej. tras terminar de decidir sobre todos).
+    // ──────────────────────────────────────────────────────────
+    const CATALOG_SEEDED_KEY = 'charkuma_game_catalog_seeded';
+    let gameCatalogCache = null;
+    async function fetchGameCatalog(){
+      if (gameCatalogCache) return gameCatalogCache;
+      const res = await fetch('game-catalog.json');
+      if (!res.ok) throw new Error('No se pudo cargar game-catalog.json');
+      gameCatalogCache = await res.json();
+      return gameCatalogCache;
+    }
+    async function loadFullCatalogIntoDeck(){
+      const statusEl = document.getElementById('swipeImportStatus');
+      if (statusEl) statusEl.textContent = '⏳ Cargando catálogo…';
+      try {
+        const catalog = await fetchGameCatalog();
+        saveSwipeCandidates(catalog);
+        saveSwipeIndex(0);
+        try { localStorage.setItem(CATALOG_SEEDED_KEY, '1'); } catch (e) {}
+        if (statusEl) statusEl.textContent = `✅ Catálogo cargado — ${catalog.length} juegos reales listos para decidir.`;
+        renderSwipeDeck();
+      } catch (e) {
+        if (statusEl) statusEl.textContent = '❌ No se pudo cargar el catálogo — revisa tu conexión e inténtalo de nuevo.';
+      }
+    }
+    // Primera vez que se abre el mazo en este navegador (nunca se ha
+    // pegado nada ni se ha cargado el catálogo antes): lo rellenamos
+    // solos, sin que haga falta pegar ningún JSON.
+    async function autoSeedCatalogIfNeeded(){
+      let seeded = false;
+      try { seeded = localStorage.getItem(CATALOG_SEEDED_KEY) === '1'; } catch (e) {}
+      if (seeded || loadSwipeCandidates().length > 0) return;
+      await loadFullCatalogIntoDeck();
     }
 
     function renderSwipeDeck(){

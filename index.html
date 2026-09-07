@@ -2940,15 +2940,19 @@
             juegos entran en <strong>Retro 365</strong>. Desliza la tarjeta (o usa los
             botones): ❤️ para quedártelo como candidato a futuro día, ✖️ para descartarlo.
             Lo que te quedes se guarda en tu "preselección" — desde ahí decides luego qué
-            día exacto le toca a cada uno.
+            día exacto le toca a cada uno. La primera vez se carga solo el catálogo de
+            417 juegos reales (PC, móvil y Nintendo, bien valorados desde 2005) — no hace
+            falta pegar nada. Si alguna vez te lo acabas, el botón "📚 Cargar catálogo
+            completo" te lo vuelve a poner entero.
           </p>
           <div class="swipe-deck-panel">
             <div class="json-import-panel">
-              <h4>📥 Cargar candidatos</h4>
-              <p>Pega aquí tu JSON: un array de juegos con <code>{"name","summary","difficulty","emoji","steamUrl","videoUrl"}</code> (difficulty: facil/media/dificil/muydificil). <code>videoUrl</code> es opcional — si no lo pones, cada tarjeta te enlaza directamente a una búsqueda de gameplay en YouTube.</p>
+              <h4>📥 Añadir más candidatos (opcional)</h4>
+              <p>Si quieres meter juegos concretos que no estén en el catálogo, pega aquí tu JSON: un array con <code>{"name","summary","difficulty","emoji","steamUrl","videoUrl"}</code> (difficulty: facil/media/dificil/muydificil). <code>videoUrl</code> es opcional — si no lo pones, cada tarjeta te enlaza directamente a una búsqueda de gameplay en YouTube.</p>
               <textarea id="swipeJsonImport" rows="6" placeholder='[{"name":"...", "summary":"...", "difficulty":"media", "emoji":"🎮", "steamUrl":"...", "videoUrl":"..."}]'></textarea>
               <div class="json-import-actions">
                 <button type="button" class="btn btn-primary" onclick="importSwipeCandidates()">➕ Cargar candidatos</button>
+                <button type="button" class="btn btn-secondary" onclick="loadFullCatalogIntoDeck()">📚 Cargar catálogo completo (417 juegos reales)</button>
                 <button type="button" class="btn btn-secondary" onclick="resetSwipeDeck()">🔄 Reiniciar mazo</button>
                 <p id="swipeImportStatus" class="yt-empty" style="margin:0"></p>
               </div>

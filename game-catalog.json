@@ -1,0 +1,3338 @@
+[
+    {
+        "name":  "Super Mario Odyssey",
+        "summary":  "(2017, Platformer/Arcade, Nintendo) Metacritic: 97.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: Breath of the Wild",
+        "summary":  "(2017, Adventure/Action, Nintendo) Metacritic: 97.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Mario Galaxy 2",
+        "summary":  "(2010, Platformer, Nintendo) Metacritic: 97.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Baldur\u0027s Gate III",
+        "summary":  "(2023, Strategy/Adventure, PC) Metacritic: 97.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Mario Galaxy",
+        "summary":  "(2007, Platformer, Nintendo) Metacritic: 97.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Red Dead Redemption 2",
+        "summary":  "(2018, Action, PC) Metacritic: 96.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Half-Life 2: Update",
+        "summary":  "(2015, Shooter, PC) Metacritic: 96.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: Tears of the Kingdom",
+        "summary":  "(2023, Adventure/Action, Nintendo) Metacritic: 96.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "BioShock",
+        "summary":  "(2007, Shooter/Action, PC) Metacritic: 96.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Elden Ring",
+        "summary":  "(2022, Action/RPG, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Portal 2",
+        "summary":  "(2011, Shooter/Puzzle, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Divinity: Original Sin 2",
+        "summary":  "(2017, Strategy/RPG, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto IV: Complete Edition",
+        "summary":  "(2010, Adventure/Action, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "XCOM 2: War of the Chosen",
+        "summary":  "(2017, Strategy, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto IV",
+        "summary":  "(2008, Adventure/Action, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Red Dead Redemption",
+        "summary":  "(2010, Shooter/Action, PC) Metacritic: 95.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "God of War (2018)",
+        "summary":  "(2018, Action, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mass Effect 2",
+        "summary":  "(2010, Action/RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Persona 5 Royal",
+        "summary":  "(2020, Adventure/RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: Ocarina of Time 3D",
+        "summary":  "(2011, Adventure/RPG, Nintendo) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "N.O.V.A.",
+        "summary":  "(2009, Shooter/Action, movil) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Elder Scrolls V: Skyrim Legendary Edition",
+        "summary":  "(2013, Adventure/RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Elder Scrolls IV: Oblivion",
+        "summary":  "(2006, Action/RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Orange Box",
+        "summary":  "(2008, Shooter, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Batman: Arkham City",
+        "summary":  "(2011, Action, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Elder Scrolls V: Skyrim",
+        "summary":  "(2011, Action/RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Elder Scrolls IV: Oblivion Game of the Year Edition",
+        "summary":  "(2009, RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "BioShock Infinite",
+        "summary":  "(2013, Shooter/Action, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Divinity: Original Sin 2 - Definitive Edition",
+        "summary":  "(2018, RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Divinity: Original Sin - Enhanced Edition",
+        "summary":  "(2015, Indie/RPG, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sid Meier\u0027s Civilization IV",
+        "summary":  "(2005, Strategy, PC) Metacritic: 94.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Mario 3D World",
+        "summary":  "(2013, Platformer/Action, Nintendo) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Smash Bros. Brawl",
+        "summary":  "(2008, Casual/Action, Nintendo) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Smash Bros. Ultimate",
+        "summary":  "(2018, Fighting, Nintendo) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: Skyward Sword",
+        "summary":  "(2011, Adventure, Nintendo) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Company of Heroes",
+        "summary":  "(2006, Strategy, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Okami",
+        "summary":  "(2006, Adventure/Action, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Hades",
+        "summary":  "(2020, Indie/Adventure, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cut the Rope",
+        "summary":  "(2010, Casual/Indie, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "StarCraft II",
+        "summary":  "(2010, Strategy, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dwarf Fortress",
+        "summary":  "(2006, Strategy/Indie, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "StarCraft II: Wings of Liberty",
+        "summary":  "(2010, Strategy, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Half-Life: Alyx",
+        "summary":  "(2020, Shooter/Adventure, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Bayonetta 2",
+        "summary":  "(2014, Action, Nintendo) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Team Fortress 2",
+        "summary":  "(2007, Shooter/Action, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witcher 3: Wild Hunt",
+        "summary":  "(2015, Action/RPG, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mario Kart 8 Deluxe",
+        "summary":  "(2017, Racing, Nintendo) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Age of Empires: The Age of Kings",
+        "summary":  "(2006, Strategy, Nintendo) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rock Band 3",
+        "summary":  "(2010, Arcade, Nintendo) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Fire Emblem Awakening",
+        "summary":  "(2012, Strategy/RPG, Nintendo) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Galactic Civilizations II: Ultimate Edition",
+        "summary":  "(2011, Strategy, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "OKAMI HD",
+        "summary":  "(2017, Adventure/Action, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tom Clancy\u0027s Splinter Cell Chaos Theory",
+        "summary":  "(2005, Adventure/Action, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Forza Motorsport (2005)",
+        "summary":  "(2005, Casual/Racing, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Undertale",
+        "summary":  "(2015, Indie/RPG, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Out of the Park Baseball 17",
+        "summary":  "(2016, Strategy/Indie, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Walking Dead: Season 1",
+        "summary":  "(2012, Adventure/Action, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Prune",
+        "summary":  "(2015, Puzzle/Casual, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty 4: Modern Warfare",
+        "summary":  "(2007, Shooter/Action, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Threes!",
+        "summary":  "(2014, Educational/Puzzle, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rome: Total War - Collection",
+        "summary":  "(2007, Strategy, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto V",
+        "summary":  "(2013, Action, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Alto\u0027s Adventure",
+        "summary":  "(2015, Action/Sports, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Journey",
+        "summary":  "(2012, Family/Indie, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witcher 3: Wild Hunt â Blood and Wine",
+        "summary":  "(2016, RPG, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "A Monster\u0027s Expedition",
+        "summary":  "(2020, Adventure/Puzzle, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Braid",
+        "summary":  "(2008, Action/Puzzle, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witcher 3 Wild Hunt - Complete Edition",
+        "summary":  "(2016, Adventure/RPG, PC) Metacritic: 92.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Batman: Arkham Asylum",
+        "summary":  "(2009, Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Overwatch",
+        "summary":  "(2016, Casual/Shooter, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ori and the Will of the Wisps",
+        "summary":  "(2020, Platformer/Adventure, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Battlefield 2",
+        "summary":  "(2005, Shooter/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Shovel Knight: Treasure Trove",
+        "summary":  "(2014, Platformer/Adventure, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Halo: Reach",
+        "summary":  "(2010, Shooter, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Metroid Prime: Trilogy",
+        "summary":  "(2009, Adventure/Action, Nintendo) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: A Link Between Worlds",
+        "summary":  "(2013, Adventure, Nintendo) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mario Kart DS",
+        "summary":  "(2005, Racing, Nintendo) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dishonored",
+        "summary":  "(2012, Adventure/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "BADLAND 2",
+        "summary":  "(2015, Adventure/Action, movil) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World of Warcraft: The Burning Crusade",
+        "summary":  "(2007, Massively Multiplayer/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Resident Evil 2",
+        "summary":  "(2019, Adventure/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "FEZ",
+        "summary":  "(2012, Adventure/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mark of the Ninja",
+        "summary":  "(2012, Platformer/Indie, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Halo 3",
+        "summary":  "(2007, Shooter, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dark Souls II",
+        "summary":  "(2014, Action/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Asphalt 8: Airborne",
+        "summary":  "(2013, Casual/Racing, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Batman: Arkham City - Game of the Year Edition",
+        "summary":  "(2012, Adventure/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "NieR:Automata Game of the YoRHa Edition",
+        "summary":  "(2019, Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Fallout 3: Game of the Year Edition",
+        "summary":  "(2009, Action/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Crysis",
+        "summary":  "(2007, Shooter/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World of Warcraft: Wrath of the Lich King",
+        "summary":  "(2008, Massively Multiplayer/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "DRAGON QUEST XI: Echoes of an Elusive Age",
+        "summary":  "(2017, RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Death Road to Canada",
+        "summary":  "(2016, Indie/Adventure, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ticket to Ride",
+        "summary":  "(2009, Casual/Strategy, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Disco Elysium",
+        "summary":  "(2019, Indie/Adventure, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tumblestone",
+        "summary":  "(2016, Action/Puzzle, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dragon Age: Origins",
+        "summary":  "(2009, RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Batman: Arkham Asylum Game of the Year Edition",
+        "summary":  "(2010, Platformer/Adventure, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rez Infinite",
+        "summary":  "(2016, Casual/Indie, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Street Fighter IV",
+        "summary":  "(2009, Arcade/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Fallout 3",
+        "summary":  "(2008, Shooter/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Metal Gear Solid V: The Phantom Pain",
+        "summary":  "(2015, Shooter/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "DRAGON QUEST XI S: Echoes of an Elusive Age - Definitive Edition",
+        "summary":  "(2019, Adventure/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Celeste",
+        "summary":  "(2018, Platformer/Indie, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cinco Paus",
+        "summary":  "(2017, Strategy/Adventure, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Deus Ex: Human Revolution - Director\u0027s Cut",
+        "summary":  "(2013, Action/RPG, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Animal Crossing: New Horizons",
+        "summary":  "(2020, Simulation, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: The Wind Waker HD",
+        "summary":  "(2013, Adventure, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Metroid Prime 3: Corruption",
+        "summary":  "(2007, Adventure/Action, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The World Ends With You DS",
+        "summary":  "(2007, Action/RPG, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Mario 3D Land",
+        "summary":  "(2011, Platformer, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Pushmo",
+        "summary":  "(2011, Puzzle, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: Phantom Hourglass",
+        "summary":  "(2007, Adventure/Action, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mario and Luigi: Bowser\u0027s Inside Story",
+        "summary":  "(2009, RPG, Nintendo) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto: Chinatown Wars",
+        "summary":  "(2009, Adventure/Action, movil) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Jetpack Joyride",
+        "summary":  "(2011, Arcade/Casual, movil) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tetris Effect: Connected",
+        "summary":  "(2020, Casual/Indie, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "N.O.V.A. 2: Near Orbit Vanguard Alliance",
+        "summary":  "(2010, Shooter/Action, movil) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Where\u0027s My Water?",
+        "summary":  "(2011, Family/Puzzle, movil) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Modern Combat 2: Black Pegasus",
+        "summary":  "(2010, Shooter/Action, movil) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The World Ends with You: Solo Remix",
+        "summary":  "(2012, Action/RPG, movil) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Beat Saber",
+        "summary":  "(2019, Indie/Action, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Brothers: A Tale of Two Sons",
+        "summary":  "(2013, Indie/Adventure, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Bayonetta",
+        "summary":  "(2009, Adventure/Action, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Spelunky 2",
+        "summary":  "(2020, Platformer/Indie, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Into the Breach",
+        "summary":  "(2018, Strategy/Indie, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mass Effect 3",
+        "summary":  "(2012, Action/RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Room Three",
+        "summary":  "(2015, Indie/Adventure, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sid Meier\u0027s Civilization V",
+        "summary":  "(2010, Strategy, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World of Warcraft: Cataclysm",
+        "summary":  "(2010, Massively Multiplayer/RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Diablo IV",
+        "summary":  "(2023, Action/RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Portal",
+        "summary":  "(2007, Action/Puzzle, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Spelunky",
+        "summary":  "(2012, Platformer/Indie, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World of Goo",
+        "summary":  "(2008, Educational/Puzzle, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Half-Life 2: Episode Two",
+        "summary":  "(2007, Shooter/Action, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Disco Elysium: Final Cut",
+        "summary":  "(2021, Adventure/RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Forza Horizon 4",
+        "summary":  "(2018, Racing/Arcade, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Hearthstone",
+        "summary":  "(2014, Card/Strategy, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Stanley Parable: Ultra Deluxe",
+        "summary":  "(2022, Casual/Indie, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Empire: Total War",
+        "summary":  "(2009, Strategy, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Stephen\u0027s Sausage Roll",
+        "summary":  "(2016, Indie, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🎮",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Microsoft Flight Simulator 2020",
+        "summary":  "(2020, Simulation, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Gears of War",
+        "summary":  "(2006, Shooter/Action, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sea of Stars",
+        "summary":  "(2023, RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "NBA 2K17",
+        "summary":  "(2016, Action/Sports, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "N++ (NPLUSPLUS)",
+        "summary":  "(2015, Action/Puzzle, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tadpole Treble",
+        "summary":  "(2016, Indie/Adventure, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Silent Hunter III",
+        "summary":  "(2005, Strategy/Simulation, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tetris Effect",
+        "summary":  "(2018, Puzzle, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Total War: SHOGUN 2",
+        "summary":  "(2011, Strategy, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dota 2",
+        "summary":  "(2013, Massively Multiplayer/Action, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🌐",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witcher 3: Wild Hunt â Hearts of Stone",
+        "summary":  "(2015, RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sekiro: Shadows Die Twice",
+        "summary":  "(2019, Action/RPG, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Portal: Still Alive",
+        "summary":  "(2008, Platformer/Action, PC) Metacritic: 90.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "New Play Control! Pikmin",
+        "summary":  "(2009, Strategy, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Street Fighter IV: 3D Edition",
+        "summary":  "(2011, Fighting, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Xenoblade Chronicles: Definitive Edition",
+        "summary":  "(2020, RPG, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Fire Emblem: Three Houses",
+        "summary":  "(2019, Strategy/RPG, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Castlevania: Dawn of Sorrow",
+        "summary":  "(2005, Platformer/Action, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Mario 3D World + Bowserâs Fury",
+        "summary":  "(2021, Platformer/Action, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Legend of Zelda: Majora\u0027s Mask 3D",
+        "summary":  "(2015, Adventure, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Guild Wars - Game of the Year Edition",
+        "summary":  "(2009, Massively Multiplayer/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mirror\u0027s Edge (Mobile)",
+        "summary":  "(2010, Platformer/Action, movil) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "FROST - A dream odyssey",
+        "summary":  "(2017, Puzzle, movil) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "ELOH",
+        "summary":  "(2018, Puzzle, movil) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Infinity Blade II",
+        "summary":  "(2011, Adventure/Action, movil) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monster Hunter World: Iceborne",
+        "summary":  "(2019, Massively Multiplayer/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "League of Legends: Wild Rift",
+        "summary":  "(2020, Strategy/Action, movil) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Motorsport Manager Mobile 2",
+        "summary":  "(2017, Racing/Strategy, movil) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Stardew Valley",
+        "summary":  "(2016, Indie/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Star Control: Kessari Quadrant",
+        "summary":  "(2017, Indie/Strategy, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monument Valley",
+        "summary":  "(2014, Casual/Adventure, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Gravity Circuit",
+        "summary":  "(2023, Indie/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Flower",
+        "summary":  "(2009, Arcade/Family, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Chicory: A Colorful Tale",
+        "summary":  "(2021, Indie/Adventure, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "XCOM: Enemy Unknown",
+        "summary":  "(2012, Strategy, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World in Conflict",
+        "summary":  "(2007, Strategy, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "F1 2017",
+        "summary":  "(2017, Racing/Sports, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Lone Echo",
+        "summary":  "(2017, Adventure/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rise of Nations: Extended Edition",
+        "summary":  "(2014, Strategy/Simulation, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto IV: The Lost and Damned",
+        "summary":  "(2009, Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Nex Machina",
+        "summary":  "(2017, Indie/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dicey Dungeons",
+        "summary":  "(2019, Strategy/Indie, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Framed 2",
+        "summary":  "(2017, Adventure/Puzzle, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mass Effect",
+        "summary":  "(2007, Action/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Assassin\u0027s Creed II",
+        "summary":  "(2009, Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Chained Echoes",
+        "summary":  "(2022, Indie/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Pillars of Eternity",
+        "summary":  "(2015, RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Railroad Tycoon II Platinum",
+        "summary":  "(2007, Strategy/Simulation, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dark Souls: Artorias of the Abyss",
+        "summary":  "(2012, Action/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Left 4 Dead 2",
+        "summary":  "(2009, Shooter/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Labyrinth 2",
+        "summary":  "(2009, Casual/Indie, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Left 4 Dead",
+        "summary":  "(2008, Shooter/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "What Remains of Edith Finch",
+        "summary":  "(2017, Indie/Adventure, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mark of the Ninja: Remastered",
+        "summary":  "(2018, Platformer/Indie, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dark Souls",
+        "summary":  "(2011, Action/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Deus Ex: Human Revolution",
+        "summary":  "(2011, Action/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "New Super Mario Bros.",
+        "summary":  "(2006, Platformer/Arcade, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Xenoblade Chronicles",
+        "summary":  "(2010, Action/RPG, Nintendo) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Borderlands 2",
+        "summary":  "(2012, Shooter/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dark Souls III",
+        "summary":  "(2016, Action/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monster Hunter: World",
+        "summary":  "(2018, Adventure/Action, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cuphead: The Delicious Last Course",
+        "summary":  "(2022, Platformer, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Persona 4 Golden",
+        "summary":  "(2012, RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rayman Legends",
+        "summary":  "(2013, Platformer, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Horizon Zero Dawn",
+        "summary":  "(2017, Action/RPG, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mortal Kombat 11 Ultimate",
+        "summary":  "(2020, Action/Fighting, PC) Metacritic: 89.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Metroid: Samus Returns",
+        "summary":  "(2017, Platformer/Action, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Smash Bros. Wii U",
+        "summary":  "(2014, Arcade/Action, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Mario Maker 2",
+        "summary":  "(2019, Platformer/Action, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Fire Emblem Fates: Revelation",
+        "summary":  "(2016, Strategy/RPG, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mario Kart 8",
+        "summary":  "(2014, Racing, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Pikmin 4",
+        "summary":  "(2023, Strategy, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Space Marshals 2",
+        "summary":  "(2016, Adventure/Action, movil) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dead Space Mobile",
+        "summary":  "(2011, Shooter/Action, movil) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Card Thief",
+        "summary":  "(2017, Card/Board Games, movil) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🃏",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Smash Bros. for Nintendo 3DS",
+        "summary":  "(2014, Arcade/Fighting, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Diablo III: Eternal Collection",
+        "summary":  "(2017, Action, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Animal Crossing: New Leaf",
+        "summary":  "(2012, Casual/Family, Nintendo) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dragon Age: Origins - Ultimate Edition",
+        "summary":  "(2010, RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ori and the Blind Forest: Definitive Edition",
+        "summary":  "(2016, Platformer/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Final Fantasy XVI",
+        "summary":  "(2023, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Battlefield 1",
+        "summary":  "(2016, Shooter/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dead Cells",
+        "summary":  "(2018, Platformer/Indie, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Colin McRae: DiRT 2",
+        "summary":  "(2009, Racing/Arcade, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Mass Effect: Legendary Edition",
+        "summary":  "(2021, Shooter/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witcher 2: Assassins of Kings",
+        "summary":  "(2011, RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "BioShock 2",
+        "summary":  "(2010, Shooter/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "F1 2020",
+        "summary":  "(2020, Racing/Sports, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Torchlight II",
+        "summary":  "(2012, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grindstone",
+        "summary":  "(2019, Casual/Strategy, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "West of Loathing",
+        "summary":  "(2017, Indie/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Stanley Parable",
+        "summary":  "(2013, Indie/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto IV: The Ballad of Gay Tony",
+        "summary":  "(2009, Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Starfield",
+        "summary":  "(2023, Adventure/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Limbo",
+        "summary":  "(2010, Adventure/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Asgard\u0027s Wrath",
+        "summary":  "(2019, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Kerbal Space Program",
+        "summary":  "(2015, Indie/Simulation, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rogue Legacy 2",
+        "summary":  "(2022, Indie/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "XCOM 2",
+        "summary":  "(2016, Strategy/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "F.E.A.R.",
+        "summary":  "(2005, Shooter/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Neon White",
+        "summary":  "(2022, Indie/Shooter, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Hexagon",
+        "summary":  "(2012, Casual/Indie, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rayman Jungle Run",
+        "summary":  "(2012, Casual/Arcade, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Forza Horizon 3 Hot Wheels",
+        "summary":  "(2017, Racing/Simulation, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Final Fantasy XIV: Stormblood",
+        "summary":  "(2017, Massively Multiplayer/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "There Is No Game: Wrong Dimension",
+        "summary":  "(2020, Casual/Indie, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World of Warcraft: Legion",
+        "summary":  "(2016, Massively Multiplayer/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Nioh",
+        "summary":  "(2017, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Metro 2033 Redux",
+        "summary":  "(2014, Shooter/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sid Meierâs Civilization VI",
+        "summary":  "(2016, Strategy/Simulation, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rise of the Tomb Raider: 20 Year Celebration",
+        "summary":  "(2016, Adventure/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Medieval II: Total War",
+        "summary":  "(2007, Strategy/Simulation, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ratchet \u0026 Clank: Rift Apart",
+        "summary":  "(2021, Adventure/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Night in the Woods",
+        "summary":  "(2017, Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "SteamWorld Dig 2",
+        "summary":  "(2017, Indie/Platformer, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Forza Horizon 3",
+        "summary":  "(2016, Racing/Arcade, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "StarÐ¡raft II: Legacy of the Void",
+        "summary":  "(2015, Strategy, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Deathloop",
+        "summary":  "(2021, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Devil May Cry 5",
+        "summary":  "(2019, Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Legends of Runeterra",
+        "summary":  "(2020, Card/Strategy, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Thirty Flights of Loving",
+        "summary":  "(2012, Casual/Indie, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Room Two",
+        "summary":  "(2013, Indie/Puzzle, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Hollow Knight",
+        "summary":  "(2017, Platformer/Indie, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Diablo III: Ultimate Evil Edition",
+        "summary":  "(2014, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Far Cry 3",
+        "summary":  "(2012, Shooter/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Return Of The Obra Dinn",
+        "summary":  "(2018, Indie/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tony Hawk\u0027s Pro Skater 1 + 2",
+        "summary":  "(2020, Arcade/Sports, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Guacamelee! Gold Edition",
+        "summary":  "(2013, Indie/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Alto\u0027s Odyssey",
+        "summary":  "(2018, Arcade/Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "It Takes Two",
+        "summary":  "(2021, Platformer/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Her Story",
+        "summary":  "(2015, Indie/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Owlboy",
+        "summary":  "(2016, Indie/Platformer, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Peggle",
+        "summary":  "(2007, Arcade/Puzzle, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witcher 2: Assassins of Kings Enhanced Edition",
+        "summary":  "(2012, RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ori and the Blind Forest",
+        "summary":  "(2015, Platformer/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Assassinâs Creed Brotherhood",
+        "summary":  "(2010, Action, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Injustice 2",
+        "summary":  "(2017, Fighting, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Psychonauts 2",
+        "summary":  "(2021, Platformer/Adventure, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Diablo III",
+        "summary":  "(2012, Action/RPG, PC) Metacritic: 88.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Infinity Blade",
+        "summary":  "(2010, Adventure/Action, movil) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "MiniSquadron",
+        "summary":  "(2009, Arcade/Action, movil) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Blueprint 3D HD",
+        "summary":  "(2011, Family/Puzzle, movil) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Miracle Merchant",
+        "summary":  "(2017, Card/Board Games, movil) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🃏",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cut the Rope: Magic",
+        "summary":  "(2015, Casual/Arcade, movil) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Orcs Must Die! Unchained",
+        "summary":  "(2016, Strategy/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Oddworld: New \u0027n\u0027 Tasty",
+        "summary":  "(2014, Indie/Platformer, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Forza Motorsport 6",
+        "summary":  "(2015, Racing, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Witness",
+        "summary":  "(2016, Indie/Adventure, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Hellblade: Senua\u0027s Sacrifice VR Edition",
+        "summary":  "(2018, Indie/Adventure, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Final Fantasy XII: The Zodiac Age",
+        "summary":  "(2017, RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Europa Universalis IV",
+        "summary":  "(2013, Strategy, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Kingdom Hearts II Final Mix",
+        "summary":  "(2007, Action/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sunless Skies",
+        "summary":  "(2017, Indie/Adventure, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Plants vs. Zombies GOTY Edition",
+        "summary":  "(2010, Strategy, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Company of Heroes: Opposing Fronts",
+        "summary":  "(2007, Strategy/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "World of Warcraft: Warlords of Draenor",
+        "summary":  "(2014, Massively Multiplayer/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Swapper",
+        "summary":  "(2013, Adventure/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "STEINS;GATE",
+        "summary":  "(2009, Adventure/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Brothers in Arms: Road to Hill 30",
+        "summary":  "(2005, Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "FINAL FANTASY IV: THE AFTER YEARS",
+        "summary":  "(2008, Adventure/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monkey Island 2 Special Edition: LeChuckâs Revenge",
+        "summary":  "(2010, Adventure/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Half-Life 2: Episode One",
+        "summary":  "(2006, Shooter/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "GRID (2008)",
+        "summary":  "(2008, Racing, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Warhammer 40,000: Dawn of War - Dark Crusade",
+        "summary":  "(2006, Strategy, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Battlefield: Bad Company 2",
+        "summary":  "(2010, Shooter/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Psychonauts",
+        "summary":  "(2005, Platformer/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Pistol Whip",
+        "summary":  "(2019, Shooter/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "INSIDE",
+        "summary":  "(2016, Adventure/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Titanfall 2",
+        "summary":  "(2016, Shooter/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sins of a Solar Empire: Trinity",
+        "summary":  "(2010, Strategy, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monster Hunter Rise",
+        "summary":  "(2021, Action/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "F1 2019",
+        "summary":  "(2019, Racing/Simulation, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Super Meat Boy",
+        "summary":  "(2010, Platformer/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Wasteland 2: Director\u0027s Cut",
+        "summary":  "(2015, Indie/Strategy, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Angry Birds Rio",
+        "summary":  "(2011, Casual/Arcade, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "TowerFall Ascension",
+        "summary":  "(2013, Platformer/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Diablo III: Reaper of Souls",
+        "summary":  "(2014, Action/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "DiRT 3",
+        "summary":  "(2011, Racing/Arcade, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cuphead",
+        "summary":  "(2017, Platformer/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Divinity: Original Sin",
+        "summary":  "(2014, Strategy/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "NBA 2K11",
+        "summary":  "(2010, Sports, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Year Walk",
+        "summary":  "(2013, Indie/Adventure, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Marvel\u0027s Spider-Man",
+        "summary":  "(2018, Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Shadowrun: Dragonfall - Director\u0027s Cut",
+        "summary":  "(2014, Indie/Strategy, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dying Light: The Following - Enhanced Edition",
+        "summary":  "(2015, Action/RPG, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "RimWorld",
+        "summary":  "(2016, Strategy/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "HEX: Shards of Fate",
+        "summary":  "(2016, Strategy/Adventure, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dead Space 2",
+        "summary":  "(2011, Shooter/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Burnout Paradise: The Ultimate Box",
+        "summary":  "(2009, Racing/Arcade, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Final Fantasy VII",
+        "summary":  "(2020, Adventure/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Vignettes",
+        "summary":  "(2017, Casual/Indie, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Max Payne 3",
+        "summary":  "(2012, Shooter/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Crypt of the NecroDancer",
+        "summary":  "(2015, Indie/Action, PC) Metacritic: 87.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "VOEZ",
+        "summary":  "(2016, Casual/Arcade, movil) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Bastion",
+        "summary":  "(2011, Indie/Adventure, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "STEINS;GATE ELITE",
+        "summary":  "(2018, Adventure/RPG, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "TypeShift",
+        "summary":  "(2017, Puzzle, movil) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Plants vs. Zombies",
+        "summary":  "(2009, Strategy/Arcade, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rayman Fiesta Run",
+        "summary":  "(2013, Adventure/Action, movil) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Room 4: Old Sins",
+        "summary":  "(2018, Adventure/Puzzle, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Slay the Spire",
+        "summary":  "(2019, Card/Strategy, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Teenage Mutant Ninja Turtles: Shredder\u0027s Revenge",
+        "summary":  "(2022, Adventure/Action, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Clash Royale",
+        "summary":  "(2016, Strategy/Action, movil) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Homeworld Remastered Collection",
+        "summary":  "(2015, Strategy/Simulation, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Gone Home",
+        "summary":  "(2013, Indie/Adventure, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Baba Is You",
+        "summary":  "(2019, Indie/Puzzle, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Need For Speed: Hot Pursuit",
+        "summary":  "(2010, Racing/Arcade, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Binding of Isaac: Rebirth",
+        "summary":  "(2014, Action/RPG, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Day of the Tentacle Remastered",
+        "summary":  "(2016, Family/Adventure, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Where\u0027s My Mickey?",
+        "summary":  "(2013, Family/Puzzle, movil) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Horn",
+        "summary":  "(2012, Adventure/Action, movil) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "XCOM: Enemy Within",
+        "summary":  "(2013, Strategy/Action, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Florence",
+        "summary":  "(2018, Adventure/Puzzle, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Synth Riders",
+        "summary":  "(2018, Casual/Indie, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Bionic Commando: Rearmed",
+        "summary":  "(2008, Arcade/Adventure, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "KINGDOM HEARTS HD 1.5 +2.5 ReMIX",
+        "summary":  "(2017, Action/RPG, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Assassin\u0027s Creed 2 Deluxe Edition",
+        "summary":  "(2010, Adventure/Action, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rayman Origins",
+        "summary":  "(2011, Family/Platformer, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty 2",
+        "summary":  "(2005, Shooter, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monster Train",
+        "summary":  "(2020, Card/Strategy, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dragon Age: Inquisition",
+        "summary":  "(2014, Strategy/Action, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tribes: Ascend",
+        "summary":  "(2012, Action, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Bug Princess",
+        "summary":  "(2011, Casual/Arcade, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Sims 3",
+        "summary":  "(2009, Casual/Simulation, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "FIFA 14",
+        "summary":  "(2013, Sports, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Game Dev Story",
+        "summary":  "(2010, Adventure/Casual, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "DRAGON BALL FighterZ",
+        "summary":  "(2018, Action/Fighting, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "IL-2 Sturmovik: 1946",
+        "summary":  "(2006, Simulation, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "F1 2016",
+        "summary":  "(2016, Racing/Sports, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🏎️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Out of the Park Baseball 18",
+        "summary":  "(2017, Strategy/Indie, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Kingdom: Two Crowns",
+        "summary":  "(2018, Adventure/RPG, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Framed",
+        "summary":  "(2014, Arcade/Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tiny Wings",
+        "summary":  "(2011, Casual/Arcade, movil) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Frozen Synapse",
+        "summary":  "(2011, Strategy/Indie, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "God of Blades",
+        "summary":  "(2012, Fighting, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "MUL.MASH.TAB.BA.GAL.GAL",
+        "summary":  "(2017, Casual/Strategy, movil) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Devil\u0027s Attorney",
+        "summary":  "(2012, Strategy/Puzzle, movil) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Papers, Please",
+        "summary":  "(2013, Educational/Indie, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Monument Valley 2",
+        "summary":  "(2017, Casual/Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "428: Shibuya Scramble",
+        "summary":  "(2018, Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Machinarium",
+        "summary":  "(2009, Family/Indie, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cut the Rope: Experiments",
+        "summary":  "(2011, Action/Puzzle, movil) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Professor Layton and the Curious Village",
+        "summary":  "(2007, Adventure/Puzzle, movil) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Last Door: Season 2 - Collector\u0027s Edition",
+        "summary":  "(2016, Adventure/Puzzle, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sam \u0026 Max: Episode 204 - Chariots of the Dogs",
+        "summary":  "(2008, Adventure/Puzzle, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "FIFA 12",
+        "summary":  "(2011, Sports, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "⚽",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Talos Principle",
+        "summary":  "(2014, Indie/Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty: Modern Warfare 3",
+        "summary":  "(2011, Shooter/Action, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🔫",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "HUNTDOWN",
+        "summary":  "(2020, Indie/Action, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sayonara Wild Hearts",
+        "summary":  "(2019, Casual/Indie, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "💥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Planescape: Torment: Enhanced Edition",
+        "summary":  "(2017, Strategy/Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Junk Jack",
+        "summary":  "(2013, Educational/Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Turbo Dismount",
+        "summary":  "(2014, Indie/Action, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Rogue Legacy",
+        "summary":  "(2013, Platformer/Indie, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Fahrenheit (Indigo Prophecy)",
+        "summary":  "(2005, Adventure/Action, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Tales from the Borderlands: A Telltale Game Series",
+        "summary":  "(2015, Adventure, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Reventure",
+        "summary":  "(2019, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dungeon Village",
+        "summary":  "(2012, RPG/Casual, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grim Fandango Remastered",
+        "summary":  "(2015, Adventure/Puzzle, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Makai Senki Disgaea 4 Return",
+        "summary":  "(2014, Strategy, movil) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Vainglory",
+        "summary":  "(2014, Strategy/Action, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "If Found...",
+        "summary":  "(2020, Casual/Indie, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🗺️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Dust: An Elysian Tail",
+        "summary":  "(2012, Platformer/Indie, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🕹️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ultimate General: Gettysburg",
+        "summary":  "(2014, Strategy/Indie, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "FAR: Lone Sails",
+        "summary":  "(2018, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🌾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ticket to Earth",
+        "summary":  "(2017, Strategy/Indie, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Ultimate General:  Gettysburg",
+        "summary":  "(2014, Strategy/Indie, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "80 Days",
+        "summary":  "(2014, Adventure/RPG, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Cut the Rope: Time Travel",
+        "summary":  "(2013, Action/Puzzle, movil) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Sid Meier\u0027s Civilization Revolution",
+        "summary":  "(2008, Strategy/Simulation, movil) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧠",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Streets of Rage 4",
+        "summary":  "(2020, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🥊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "The Silent Age",
+        "summary":  "(2012, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Bulb Boy",
+        "summary":  "(2015, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "SpaceChem",
+        "summary":  "(2011, Strategy/Indie, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🧩",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Shatter",
+        "summary":  "(2009, Adventure/Action, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "ICEY",
+        "summary":  "(2016, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    }
+]
