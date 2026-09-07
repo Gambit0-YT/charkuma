@@ -1247,7 +1247,7 @@
       if (!items.length) return `<p class="yt-empty" style="margin:0">Nada descartado todavía.</p>`;
       return items.map(it => `
         <div class="discarded-row">
-          <span>${it.label}${it.discardedAt ? `<span class="discarded-date"> · descartado el ${formatDiscardedDate(it.discardedAt)}</span>` : ''}</span>
+          <span>${it.label}${it.discardedAt ? `<span class="discarded-date"> · descartado el ${formatDiscardedDate(it.discardedAt)}</span>` : ''}${it.discardReason ? `<br><span class="discarded-date">💬 ${escapeAttr(it.discardReason)}</span>` : ''}</span>
           <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${it.id}')">↩️ Restaurar</button>
         </div>`).join('');
     }
@@ -1294,10 +1294,21 @@
       setIdeaState(bank, id, {done: !state.done});
       if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
     }
+    // Backlog #38 — motivo de descarte guardado, no solo el hecho: al
+    // descartar (nunca al restaurar) se pregunta un motivo corto,
+    // opcional — cancelar el prompt sigue descartando sin motivo, no
+    // bloquea la acción.
     function toggleIdeaDiscard(bank, id){
       const state = (loadIdeaBanks()[bank] || {})[id] || {};
       const discarding = !state.discarded;
-      setIdeaState(bank, id, {discarded: discarding, discardedAt: discarding ? Date.now() : null});
+      const patch = {discarded: discarding, discardedAt: discarding ? Date.now() : null};
+      if (discarding) {
+        const reason = prompt('¿Por qué la descartas? (opcional, déjalo en blanco si no quieres poner nada)', '');
+        patch.discardReason = reason ? reason.trim() : '';
+      } else {
+        patch.discardReason = '';
+      }
+      setIdeaState(bank, id, patch);
       if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
     }
 
@@ -1350,7 +1361,7 @@
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
-          if (s.discarded) discardedItems.push({id, label: idea, discardedAt: s.discardedAt});
+          if (s.discarded) discardedItems.push({id, label: idea, discardedAt: s.discardedAt, discardReason: s.discardReason});
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
@@ -1453,6 +1464,7 @@
           </div>`,
           discarded: !!s.discarded,
           discardedAt: s.discardedAt,
+          discardReason: s.discardReason,
           id,
           label: `Día ${String(day).padStart(3,"0")} · ${planned.name}`,
           difficulty: planned.difficulty
@@ -1479,7 +1491,7 @@
           if (completedGames[d]) publishedCount++;
           else if (plannedGames[d]) plannedCount++;
           const card = secretDayCardHTML(d, plannedBankState);
-          if (card.discarded) discardedItems.push({id: card.id, label: card.label, discardedAt: card.discardedAt});
+          if (card.discarded) discardedItems.push({id: card.id, label: card.label, discardedAt: card.discardedAt, discardReason: card.discardReason});
           // Filtro de dificultad (mejora #3 del backlog): un día sin
           // dificultad todavía (sin decidir) no coincide con ningún
           // filtro concreto, así que se oculta también — el filtro solo
@@ -3020,7 +3032,7 @@
         const rows = ideas.map((idea, i) => {
           const id = `${type}-${i}`;
           const s = bankState[id] || {};
-          if (s.discarded) discardedItems.push({id, label: idea.text, discardedAt: s.discardedAt});
+          if (s.discarded) discardedItems.push({id, label: idea.text, discardedAt: s.discardedAt, discardReason: s.discardReason});
           return `
           <div class="idea-card${s.discarded ? ' is-discarded' : ''}">
             <button type="button" class="idea-check${s.done ? ' is-done' : ''}"
@@ -5467,6 +5479,24 @@
         : 'Todavía sin racha activa — se cuenta desde que existe este historial (hoy).';
     }
 
+    // Backlog #40 — "ideas más antiguas sin tocar": cuenta, por banco,
+    // cuántas ideas sueltas siguen sin marcar como hecha ni descartada
+    // (status 'pendiente' en buildMasterControlIndex, kind 'Idea') — un
+    // recuento honesto de acumulación, no una fecha exacta (los
+    // one-liners no tienen marca de tiempo de creación individual).
+    function renderUntouchedIdeasStat(){
+      const el = document.getElementById('untouchedIdeasStat');
+      if (!el) return;
+      const untouched = buildMasterControlIndex().filter(i => i.kind === 'Idea' && i.status === 'pendiente');
+      if (!untouched.length) { el.textContent = 'No hay ninguna idea suelta sin tocar ahora mismo.'; return; }
+      const bySection = {};
+      untouched.forEach(i => { bySection[i.section] = (bySection[i.section] || 0) + 1; });
+      const parts = Object.keys(bySection)
+        .sort((a, b) => bySection[b] - bySection[a])
+        .map(sec => `${sec}: ${bySection[sec]}`);
+      el.textContent = `${untouched.length} ideas sueltas sin tocar en total — ${parts.join(' · ')}.`;
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -5477,6 +5507,7 @@
       renderNextToPublishWidget();
       renderAvgApprovedToPublished();
       renderGuionCreationStreak();
+      renderUntouchedIdeasStat();
       renderStaleContentWarning();
       populateGenerateSectionSelect();
 
