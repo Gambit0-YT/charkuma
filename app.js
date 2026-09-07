@@ -406,7 +406,8 @@
       premiere: '🎬 Estrenos próximos',
       retro365: '🎮 Retro 365',
       stale: '⚠️ Elementos estancados',
-      weekly: '📊 Resumen semanal'
+      weekly: '📊 Resumen semanal',
+      trend: '📈 Tendencia VidIQ'
     };
     function loadMutedNotifTypes(){ try { return JSON.parse(localStorage.getItem(NOTIF_MUTED_KEY)) || []; } catch (e) { return []; } }
     function saveMutedNotifTypes(arr){ try { localStorage.setItem(NOTIF_MUTED_KEY, JSON.stringify(arr)); } catch (e) {} }
