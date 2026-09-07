@@ -2887,6 +2887,7 @@
       return `
         <div class="review-controls" data-review-id="${rid}">
           ${statusChip}
+          ${recentlyUpdatedBadgeHTML(rid)}
           <button type="button" class="btn btn-secondary review-approve-btn" onclick="toggleContentApproved('${rid}')">
             ${approved ? '↩️ Quitar aprobación' : '✅ Aprobar'}
           </button>
@@ -2956,6 +2957,19 @@
       h[rid].push({ ts: Date.now(), text });
       saveContentHistory(h);
     }
+    // Backlog #71 — indicador de "recién actualizado" (24h): se apoya en
+    // el mismo historial de #19, sin ningún dato nuevo — si la última
+    // entrada del historial de este elemento es de hace menos de un
+    // día, se muestra una insignia junto al estado.
+    const RECENTLY_UPDATED_MS = 24 * 60 * 60 * 1000;
+    function recentlyUpdatedBadgeHTML(rid){
+      const entries = loadContentHistory()[rid] || [];
+      if (!entries.length) return '';
+      const lastTs = entries[entries.length - 1].ts;
+      if (Date.now() - lastTs > RECENTLY_UPDATED_MS) return '';
+      return `<span class="type-chip chip-green" title="Cambió de estado hace menos de 24h">🆕 Recién actualizado</span>`;
+    }
+
     function contentHistoryHTML(rid){
       const entries = (loadContentHistory()[rid] || []).slice().reverse();
       if (!entries.length) return '';
@@ -6629,6 +6643,7 @@
               <div class="geek-badges">
                 <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
                 ${statusChip}
+                ${recentlyUpdatedBadgeHTML(rid)}
               </div>
               <h4><a href="javascript:void(0)" onclick="showView('${rid}')">${item.title} ↗</a></h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}
