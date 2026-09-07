@@ -512,7 +512,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "The Witcher 3: Wild Hunt â Blood and Wine",
+        "name":  "The Witcher 3: Wild Hunt – Blood and Wine",
         "summary":  "(2016, RPG, PC) Metacritic: 92.",
         "difficulty":  "media",
         "emoji":  "⚔️",
@@ -1208,7 +1208,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "The Witcher 3: Wild Hunt â Hearts of Stone",
+        "name":  "The Witcher 3: Wild Hunt – Hearts of Stone",
         "summary":  "(2015, RPG, PC) Metacritic: 90.",
         "difficulty":  "media",
         "emoji":  "⚔️",
@@ -1272,7 +1272,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "Super Mario 3D World + Bowserâs Fury",
+        "name":  "Super Mario 3D World + Bowser’s Fury",
         "summary":  "(2021, Platformer/Action, Nintendo) Metacritic: 89.",
         "difficulty":  "media",
         "emoji":  "🕹️",
@@ -2000,7 +2000,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "Sid Meierâs Civilization VI",
+        "name":  "Sid Meier’s Civilization VI",
         "summary":  "(2016, Strategy/Simulation, PC) Metacritic: 88.",
         "difficulty":  "media",
         "emoji":  "🧠",
@@ -2056,7 +2056,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "StarÐ¡raft II: Legacy of the Void",
+        "name":  "StarCraft II: Legacy of the Void",
         "summary":  "(2015, Strategy, PC) Metacritic: 88.",
         "difficulty":  "media",
         "emoji":  "🧠",
@@ -2208,7 +2208,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "Assassinâs Creed Brotherhood",
+        "name":  "Assassin’s Creed Brotherhood",
         "summary":  "(2010, Action, PC) Metacritic: 88.",
         "difficulty":  "media",
         "emoji":  "💥",
@@ -2408,7 +2408,7 @@
         "videoUrl":  ""
     },
     {
-        "name":  "Monkey Island 2 Special Edition: LeChuckâs Revenge",
+        "name":  "Monkey Island 2 Special Edition: LeChuck’s Revenge",
         "summary":  "(2010, Adventure/Action, PC) Metacritic: 87.",
         "difficulty":  "media",
         "emoji":  "🗺️",
@@ -3332,6 +3332,222 @@
         "summary":  "(2016, Indie/Adventure, PC) Metacritic: 84.",
         "difficulty":  "media",
         "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Crash Bandicoot 3: Warped",
+        "summary":  "(1998, Platformer/Action, PC) Metacritic: 91.",
+        "difficulty":  "media",
+        "emoji":  "📦",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Crash Bandicoot N. Sane Trilogy",
+        "summary":  "(2017, Platformer/Action, PC) Metacritic: 81.",
+        "difficulty":  "media",
+        "emoji":  "📦",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Grand Theft Auto: San Andreas",
+        "summary":  "(2004, Action, PC) Metacritic: 93.",
+        "difficulty":  "media",
+        "emoji":  "🚗",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Minecraft",
+        "summary":  "(2009, Action/Arcade/Simulation/Indie/Massively Multiplayer, PC) Metacritic: 83.",
+        "difficulty":  "media",
+        "emoji":  "⛏️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Assassin\u0027s Creed IV: Black Flag",
+        "summary":  "(2013, Action, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "🏴‍☠️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Assassin\u0027s Creed Odyssey",
+        "summary":  "(2018, Action/RPG, PC) Metacritic: 85.",
+        "difficulty":  "media",
+        "emoji":  "⚔️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Assassin\u0027s Creed Valhalla",
+        "summary":  "(2020, Adventure/Action/RPG, PC) Metacritic: 82.",
+        "difficulty":  "media",
+        "emoji":  "🪓",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty: World at War",
+        "summary":  "(2008, Shooter, PC) Metacritic: 83.",
+        "difficulty":  "media",
+        "emoji":  "🎖️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty: Black Ops",
+        "summary":  "(2010, Shooter/Action, PC) Metacritic: 81.",
+        "difficulty":  "media",
+        "emoji":  "🧟",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty: Black Ops II",
+        "summary":  "(2012, Shooter/Action, PC) Metacritic: 74.",
+        "difficulty":  "media",
+        "emoji":  "🧟",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Call of Duty: Black Ops III",
+        "summary":  "(2015, Shooter/Action, PC) Metacritic: 73.",
+        "difficulty":  "media",
+        "emoji":  "🧟",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Terraria",
+        "summary":  "(2011, Platformer/Indie/Action, PC) Metacritic: 81.",
+        "difficulty":  "media",
+        "emoji":  "🌲",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Among Us",
+        "summary":  "(2018, Casual/Action/Simulation, PC) Metacritic: 82.",
+        "difficulty":  "media",
+        "emoji":  "🚀",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Stray",
+        "summary":  "(2022, Adventure/Action/Puzzle/Indie/Platformer, PC) Metacritic: 82.",
+        "difficulty":  "media",
+        "emoji":  "🐈",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Outer Wilds",
+        "summary":  "(2019, Indie/Adventure/Puzzle, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🪐",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Risk of Rain 2",
+        "summary":  "(2020, Shooter/Arcade/Action, PC) Metacritic: 82.",
+        "difficulty":  "media",
+        "emoji":  "☄️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Subnautica",
+        "summary":  "(2018, Indie/Adventure, PC) Metacritic: 83.",
+        "difficulty":  "media",
+        "emoji":  "🌊",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Spiritfarer",
+        "summary":  "(2020, Indie/Adventure/Simulation, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "⛴️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Katana ZERO",
+        "summary":  "(2019, Platformer/Indie/Action, PC) Metacritic: 83.",
+        "difficulty":  "media",
+        "emoji":  "🗡️",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "A Short Hike",
+        "summary":  "(2019, Indie/Adventure, PC) Metacritic: 84.",
+        "difficulty":  "media",
+        "emoji":  "🥾",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Firewatch",
+        "summary":  "(2016, Indie/Adventure, PC) Metacritic: 81.",
+        "difficulty":  "media",
+        "emoji":  "🔥",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Inscryption",
+        "summary":  "(2021, Indie/Strategy/Adventure, PC) Metacritic: 86.",
+        "difficulty":  "media",
+        "emoji":  "🃏",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Vampire Survivors",
+        "summary":  "(2022, Casual/Indie/Action/RPG, PC) Metacritic: N/D.",
+        "difficulty":  "media",
+        "emoji":  "🦇",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Slime Rancher",
+        "summary":  "(2016, Indie/Adventure/Action/Simulation, PC) Metacritic: 81.",
+        "difficulty":  "media",
+        "emoji":  "🧪",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Untitled Goose Game",
+        "summary":  "(2019, Indie/Family/Action/Puzzle, PC) Metacritic: 80.",
+        "difficulty":  "media",
+        "emoji":  "🦢",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Gris",
+        "summary":  "(2018, Indie/Platformer/Adventure/Puzzle, PC) Metacritic: 83.",
+        "difficulty":  "media",
+        "emoji":  "🎨",
+        "steamUrl":  "",
+        "videoUrl":  ""
+    },
+    {
+        "name":  "Unravel",
+        "summary":  "(2016, Adventure/Action/Puzzle/Arcade/Platformer, PC) Metacritic: 78.",
+        "difficulty":  "media",
+        "emoji":  "🧶",
         "steamUrl":  "",
         "videoUrl":  ""
     }
