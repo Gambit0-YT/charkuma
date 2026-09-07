@@ -730,6 +730,7 @@
       } else if (controls) {
         controls.remove();
       }
+      try { injectBeatDurationEstimate(target); } catch (e) { /* ver comentario arriba sobre TDZ */ }
     }
 
     // Botón "compartir": copia un enlace directo a la vista actual
@@ -2223,6 +2224,63 @@
     // Descartar / → Siguiente" que se inyecta en la cabecera de la
     // propia página de detalle (no solo la insignia pequeña del
     // kicker) — reversible en todos los sentidos.
+    // Backlog #17 — estimación de duración por beat: lee la narración
+    // real ("🎙️ Off:") ya escrita en el guion de la propia página (DOM,
+    // no un campo aparte — los guiones de los 6 bancos viven como HTML
+    // estático) y calcula segundos por ritmo de habla, nunca un número
+    // inventado. Los beats sin narración directa (p. ej. un desarrollo
+    // en lista de puntos) se muestran sin estimar, en vez de forzar un
+    // número sin base real.
+    const NARRATION_WORDS_PER_SECOND = 2.6; // ritmo rápido tipo TikTok/Shorts
+    function injectBeatDurationEstimate(target){
+      if (!target) return;
+      const guionPanel = [...target.querySelectorAll('details.month')]
+        .find(d => /guion/i.test(d.querySelector('summary span')?.textContent || ''));
+      const panel = guionPanel && guionPanel.querySelector('.month-body .panel');
+      if (!panel) return;
+
+      const beats = [];
+      let current = null;
+      [...panel.children].forEach(el => {
+        if (el.tagName === 'H4') {
+          current = { heading: el.textContent.trim(), words: 0, hasNarration: false };
+          beats.push(current);
+          return;
+        }
+        if (!current || el.tagName !== 'P') return;
+        const strong = el.querySelector('strong');
+        if (strong && strong.textContent.includes('🎙️ Off')) {
+          const text = el.textContent.replace(strong.textContent, '').trim();
+          current.words += text.split(/\s+/).filter(Boolean).length;
+          current.hasNarration = true;
+        }
+      });
+      if (!beats.length) return;
+
+      let totalSeconds = 0;
+      const rows = beats.map(b => {
+        if (!b.hasNarration) return `<li>${escapeAttr(b.heading)} — <span class="yt-empty" style="display:inline">sin narración directa</span></li>`;
+        const seconds = Math.max(1, Math.round(b.words / NARRATION_WORDS_PER_SECOND));
+        totalSeconds += seconds;
+        return `<li>${escapeAttr(b.heading)} — ~${seconds}s (${b.words} palabras)</li>`;
+      }).join('');
+
+      let box = guionPanel.querySelector('.beat-duration-estimate');
+      const html = `
+        <strong>⏱️ Duración estimada por narración: ~${totalSeconds}s en total</strong>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:var(--muted);line-height:1.6">${rows}</ul>
+        <p class="yt-empty" style="margin:8px 0 0">Estimado a ${NARRATION_WORDS_PER_SECOND} palabras/segundo sobre la narración real de este guion — los beats sin "🎙️ Off" (listas de puntos, etc.) no se cuentan.</p>`;
+      if (box) {
+        box.innerHTML = html;
+      } else {
+        box = document.createElement('div');
+        box.className = 'beat-duration-estimate note';
+        box.style.margin = '14px 18px 20px';
+        box.innerHTML = html;
+        panel.insertAdjacentElement('afterend', box);
+      }
+    }
+
     // Copia texto plano al portapapeles desde un botón — el texto va en
     // data-copy (ya escapado como atributo, el navegador lo desentraña
     // solo al leer .dataset), así evitamos meter texto libre del guion
@@ -5221,10 +5279,45 @@
         .sort((a, b) => (a.status === 'aprobado' ? 1 : 0) - (b.status === 'aprobado' ? 1 : 0));
     }
 
+    // Backlog #14 — plantilla de estructura de guion para empezar uno
+    // nuevo desde cero: los mismos 8 beats que ya usa todo guion
+    // existente (HOOK→PROMESA→...→CTA), con placeholders en vez de
+    // texto real.
+    const GUION_TEMPLATE = [
+      '🪝 Hook (0-10s)',
+      '🎙️ Off: [la imagen o el momento más icónico, sin rodeos, en la primera frase]',
+      '',
+      '🎯 Promesa',
+      '🎙️ Off: [qué es en una frase + por qué merece la pena seguir viendo]',
+      '',
+      '📍 Contexto',
+      '🎙️ Off: [lo mínimo que hace falta saber para entender el resto]',
+      '',
+      '🎬 Desarrollo',
+      '🎙️ Off: [el cuerpo real del contenido — datos, pasos o ejemplos]',
+      '',
+      '🔀 Giro / momento más fuerte',
+      '🎙️ Off: [el dato o giro que más sorprende, para el momento de más atención]',
+      '',
+      '💬 Opinión',
+      '🎙️ Off: [IVÁN — AÑADIR OPINIÓN: ...]',
+      '',
+      '🏁 Conclusión',
+      '🎙️ Off: [cierre que ata todo lo anterior]',
+      '',
+      '📣 CTA',
+      '🎙️ Off: [pregunta o invitación concreta a comentar/suscribirse]'
+    ].join('\n');
+    function copyGuionTemplateIfPresent(){
+      const btn = document.getElementById('copyGuionTemplateBtn');
+      if (btn) btn.dataset.copy = GUION_TEMPLATE;
+    }
+
     function renderGuionesBandeja(){
       const listEl = document.getElementById('guionesBandejaList');
       const countEl = document.getElementById('guionesBandejaCount');
       if (!listEl) return;
+      copyGuionTemplateIfPresent();
       const items = buildGuionesBandeja();
       countEl.textContent = items.length
         ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar.`
