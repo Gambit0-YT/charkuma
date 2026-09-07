@@ -6631,6 +6631,32 @@
         ${low.map(v => `<div class="log-entry"><strong>${v.views} visitas</strong><p><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${escapeAttr(v.title)} ↗</a></p></div>`).join('')}`;
     }
 
+    // Backlog #126 — estimación de ganancias real (vidiq_video_earnings_estimate,
+    // 2026-09-07) sobre los 3 vídeos reales más vistos del canal. Los
+    // tres dieron $0 — resultado real y honesto, no un fallo: vidIQ
+    // marca los canales con menos de ~1.000 suscriptores como
+    // normalmente no monetizados (este tiene 396), así que no hay nada
+    // que estimar todavía. Se dice tal cual, igual que #54.
+    const VIDIQ_EARNINGS_ESTIMATE = [
+      { id:'v7xK0awzAA8', title:'SPIDER-MAN EN PS1', views:791, low:0, mid:0, high:0 },
+      { id:'AX-ZoTTjPyM', title:'VECTORMAN EN MEGA DRIVE', views:771, low:0, mid:0, high:0 },
+      { id:'MEuN6cqAHpc', title:'MARVEL VS CAPCOM EN DREAMCAST', views:759, low:0, mid:0, high:0 }
+    ];
+    function renderVideoEarningsEstimate(){
+      const container = document.getElementById('videoEarningsEstimate');
+      if (!container) return;
+      const allZero = VIDIQ_EARNINGS_ESTIMATE.every(v => v.high === 0);
+      const rows = VIDIQ_EARNINGS_ESTIMATE.map(v =>
+        `<div class="log-entry"><strong>${escapeAttr(v.title)}</strong><p>${v.views} visitas — estimado: $${v.low}–$${v.high}</p></div>`
+      ).join('');
+      container.innerHTML = `
+        <p class="section-sub" style="margin:4px 0 10px">
+          Sobre los 3 vídeos reales más vistos del canal, vía vidIQ (<code>vidiq_video_earnings_estimate</code>).
+          ${allZero ? 'Los tres dan $0 — resultado real, no un fallo: con 396 suscriptores el canal está por debajo del umbral que vidIQ considera normalmente monetizado, así que todavía no hay ganancias reales que estimar.' : ''}
+        </p>
+        ${rows}`;
+    }
+
     // Backlog #56 — resumen mensual automático, juntando en un solo
     // texto los datos reales que ya trae el resto del panel (#49/#50/
     // #51/#53) — "automático" en el mismo sentido de siempre: Claude lo
@@ -6714,6 +6740,7 @@
       renderReferenceChannels();
       renderMonthlySummary();
       renderLowPerformingVideos();
+      renderVideoEarningsEstimate();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
