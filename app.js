@@ -206,6 +206,46 @@
     })();
 
     // ──────────────────────────────────────────────────────────
+    // Backlog #63 — color de acento personalizable: --orange es la
+    // única variable de acento que usa toda la web (botones, chips,
+    // gradientes, foco...), así que cambiarla en :root la propaga sola
+    // a todo sin tocar cada sitio uno a uno. --orange2 (la variante más
+    // clara para gradientes) se deriva automáticamente aclarando el
+    // mismo color, para que siga viéndose coherente sea cual sea el
+    // tono elegido.
+    // ──────────────────────────────────────────────────────────
+    const ACCENT_COLOR_KEY = 'charkuma_accent_color';
+    const DEFAULT_ACCENT_COLOR = '#ff7a18';
+    function lightenHex(hex, amount){
+      const n = parseInt(hex.slice(1), 16);
+      const mix = (channel) => Math.round(channel + (255 - channel) * amount);
+      const r = mix((n >> 16) & 255), g = mix((n >> 8) & 255), b = mix(n & 255);
+      return '#' + [r, g, b].map(c => c.toString(16).padStart(2, '0')).join('');
+    }
+    function applyAccentColor(hex){
+      document.documentElement.style.setProperty('--orange', hex);
+      document.documentElement.style.setProperty('--orange2', lightenHex(hex, 0.25));
+    }
+    function setAccentColor(hex){
+      if (!/^#[0-9a-fA-F]{6}$/.test(hex)) return;
+      applyAccentColor(hex);
+      try { localStorage.setItem(ACCENT_COLOR_KEY, hex); } catch (e) {}
+      if (typeof pushUIPrefsState === 'function') pushUIPrefsState();
+    }
+    function resetAccentColor(){
+      setAccentColor(DEFAULT_ACCENT_COLOR);
+      const input = document.getElementById('accentColorInput');
+      if (input) input.value = DEFAULT_ACCENT_COLOR;
+    }
+    (function initAccentColor(){
+      let saved = DEFAULT_ACCENT_COLOR;
+      try { saved = localStorage.getItem(ACCENT_COLOR_KEY) || DEFAULT_ACCENT_COLOR; } catch (e) {}
+      applyAccentColor(saved);
+      const input = document.getElementById('accentColorInput');
+      if (input) input.value = saved;
+    })();
+
+    // ──────────────────────────────────────────────────────────
     // Panel de ajustes de la cabecera (⚙️): tema, modo presentación,
     // exportar/importar datos guardados en este navegador.
     // ──────────────────────────────────────────────────────────
@@ -5385,11 +5425,12 @@
     function pushUIPrefsState(){
       if (!firestoreReady() || applyingRemoteUIPrefsUpdate) return;
       const { doc, setDoc } = window.firestoreFns;
-      let theme = 'dark', highContrast = false, sidebarsHidden = false;
+      let theme = 'dark', highContrast = false, sidebarsHidden = false, accentColor = DEFAULT_ACCENT_COLOR;
       try { theme = localStorage.getItem('charkuma_theme') || currentTheme(); } catch (e) {}
       try { highContrast = localStorage.getItem(HIGH_CONTRAST_KEY) === '1'; } catch (e) {}
       try { sidebarsHidden = localStorage.getItem(SIDEBARS_HIDDEN_KEY) === '1'; } catch (e) {}
-      setDoc(doc(window.firestoreDB, 'uiPrefs', 'state'), { theme, highContrast, sidebarsHidden, updatedAt: Date.now() }).catch(() => {
+      try { accentColor = localStorage.getItem(ACCENT_COLOR_KEY) || DEFAULT_ACCENT_COLOR; } catch (e) {}
+      setDoc(doc(window.firestoreDB, 'uiPrefs', 'state'), { theme, highContrast, sidebarsHidden, accentColor, updatedAt: Date.now() }).catch(() => {
         // Sin conexión ahora mismo: se queda en local, sin cola de reintentos.
       });
     }
@@ -5420,6 +5461,12 @@
             document.body.classList.toggle('nav-pinned', !data.sidebarsHidden);
             localStorage.setItem(SIDEBARS_HIDDEN_KEY, data.sidebarsHidden ? '1' : '0');
             updateSidebarsToggleIcon();
+          }
+          if (typeof data.accentColor === 'string' && /^#[0-9a-fA-F]{6}$/.test(data.accentColor)) {
+            applyAccentColor(data.accentColor);
+            localStorage.setItem(ACCENT_COLOR_KEY, data.accentColor);
+            const accentInput = document.getElementById('accentColorInput');
+            if (accentInput) accentInput.value = data.accentColor;
           }
         } catch (e) { /* localStorage no disponible: seguimos sin aplicarlo local */ }
         applyingRemoteUIPrefsUpdate = false;

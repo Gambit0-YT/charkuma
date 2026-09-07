@@ -316,6 +316,11 @@
     }
 
     /* ── Modo presentación: oculta easter eggs y paneles internos ── */
+    /* Backlog #64 — de paso, esto lo convierte en un modo "solo lectura"
+       de verdad para compartir pantalla: oculta también los controles
+       grandes de Aprobar/Descartar/fase/checklist (.review-controls),
+       no solo la insignia pequeña (.review-badge). */
+    body.presentation-mode .review-controls,
     body.presentation-mode .secret-trigger,
     body.presentation-mode .review-badge,
     body.presentation-mode .idea-check,
@@ -1206,6 +1211,15 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
       }
     } catch(e) { /* localStorage no disponible: nos quedamos con la preferencia del sistema */ }
+    // Backlog #63 — color de acento personalizable: mismo motivo que el
+    // tema de arriba, se aplica ya aquí para que no haya parpadeo del
+    // naranja original antes de que app.js pinte con el color guardado.
+    try {
+      const savedAccent = localStorage.getItem('charkuma_accent_color');
+      if (savedAccent && /^#[0-9a-fA-F]{6}$/.test(savedAccent)) {
+        document.documentElement.style.setProperty('--orange', savedAccent);
+      }
+    } catch(e) { /* seguimos con el naranja de siempre */ }
   </script>
 
   <!-- Umami: analítica de visitas respetuosa con privacidad (sin cookies,
@@ -1264,6 +1278,16 @@
             <input type="checkbox" id="presentationModeToggle" onchange="setPresentationMode(this.checked)">
             Activar
           </label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🎨 Color de acento</strong>
+            <p>El naranja de botones, chips y detalles de toda la web. Cambia al instante y se sincroniza entre tus dispositivos.</p>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <input type="color" id="accentColorInput" value="#ff7a18" onchange="setAccentColor(this.value)" title="Elegir color de acento" style="width:44px;height:36px;padding:2px;border-radius:8px;border:1px solid var(--line);background:none;cursor:pointer">
+            <button type="button" class="btn btn-secondary" onclick="resetAccentColor()">↩️ Restaurar naranja</button>
+          </div>
         </div>
         <div class="settings-row">
           <div>
