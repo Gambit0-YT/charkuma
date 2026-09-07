@@ -213,12 +213,14 @@
     // ahora). Preferencia guardada — "alternable" y persistente, tal
     // como se pidió.
     // ──────────────────────────────────────────────────────────
-    // El mismo botón 📌 controla dos cosas a la vez, a petición explícita:
-    // oculta/muestra las columnas laterales (como siempre) Y fija/suelta la
-    // cabecera (nav-pinned). "Fijado" = columnas ocultas + cabecera siempre
-    // visible (modo compacto de una sola franja); "normal" = columnas
-    // visibles + cabecera oculta sola, que aparece al acercar el ratón
-    // arriba (ver initAutoHideNav más abajo).
+    // El mismo botón 📌 controla dos cosas a la vez: oculta/muestra las
+    // columnas laterales Y fija/suelta la cabecera (nav-pinned). Desde
+    // 2026-09-07, a petición del usuario, el estado POR DEFECTO es
+    // "normal" = columnas visibles + cabecera SIEMPRE fija (visible todo
+    // el rato, como antes de tocar nada). Pulsar el botón pasa al "modo
+    // compacto" = columnas ocultas + cabecera oculta sola, que aparece al
+    // acercar el ratón arriba (ver initAutoHideNav más abajo) — para
+    // quien alguna vez quiera ese aspecto más minimalista.
     const SIDEBARS_HIDDEN_KEY = 'charkuma_sidebars_hidden';
     function updateSidebarsToggleIcon(){
       const btn = document.getElementById('navSidebarsBtn');
@@ -226,21 +228,21 @@
       const hidden = document.body.classList.contains('sidebars-hidden');
       btn.classList.toggle('is-active', hidden);
       btn.title = hidden
-        ? 'Mostrar columnas laterales (la cabecera volverá a ocultarse sola)'
-        : 'Ocultar columnas laterales y fijar la cabecera siempre visible';
+        ? 'Mostrar columnas laterales y fijar la cabecera siempre visible'
+        : 'Modo compacto: ocultar columnas laterales y dejar que la cabecera se oculte sola';
     }
     function toggleSidebarsVisibility(){
       const hidden = document.body.classList.toggle('sidebars-hidden');
-      document.body.classList.toggle('nav-pinned', hidden);
+      document.body.classList.toggle('nav-pinned', !hidden);
       try { localStorage.setItem(SIDEBARS_HIDDEN_KEY, hidden ? '1' : '0'); } catch (e) {}
       updateSidebarsToggleIcon();
-      if (hidden) { const nav = document.querySelector('.nav'); if (nav) nav.classList.add('nav-visible'); }
+      if (!hidden) { const nav = document.querySelector('.nav'); if (nav) nav.classList.add('nav-visible'); }
     }
     (function initSidebarsVisibility(){
       let hidden = false;
       try { hidden = localStorage.getItem(SIDEBARS_HIDDEN_KEY) === '1'; } catch (e) {}
       document.body.classList.toggle('sidebars-hidden', hidden);
-      document.body.classList.toggle('nav-pinned', hidden);
+      document.body.classList.toggle('nav-pinned', !hidden);
       updateSidebarsToggleIcon();
     })();
 
