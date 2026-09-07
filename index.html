@@ -252,6 +252,18 @@
     /* ── Controles grandes de Aprobar/Descartar en la propia página ── */
     .review-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 20px;padding:14px 16px;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
     .review-approve-btn, .review-discard-btn{padding:8px 14px;font-size:12px}
+
+    /* ── Checklist de grabación (backlog #12) — vive dentro de
+       .review-controls, por eso es flex-basis:100% (ocupa su propia
+       fila debajo de los botones en vez de colarse entre ellos). ── */
+    .recording-checklist{flex-basis:100%;margin-top:4px}
+    .recording-checklist summary{cursor:pointer;font-size:12px;font-weight:800;color:var(--muted);display:flex;align-items:center;gap:8px;list-style:none}
+    .recording-checklist summary::-webkit-details-marker{display:none}
+    .recording-checklist summary .rc-progress{background:var(--panel2);border:1px solid var(--line2);border-radius:999px;padding:2px 9px;font-size:11px}
+    .recording-checklist-body{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+    .recording-checklist-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)}
+    .recording-checklist-item input{accent-color:var(--orange);width:16px;height:16px;flex:none}
+    .recording-checklist-item.is-done{color:var(--muted);text-decoration:line-through}
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 
     /* ── Transición suave entre vistas ──

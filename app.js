@@ -2223,6 +2223,52 @@
     // Descartar / → Siguiente" que se inyecta en la cabecera de la
     // propia página de detalle (no solo la insignia pequeña del
     // kicker) — reversible en todos los sentidos.
+    // Backlog #12 — checklist de grabación integrada en la propia página
+    // del guion (dentro de .review-controls, inyectado por
+    // updateViewChrome en cada navegación — ver reviewControlsHTML).
+    // Guardado por rid + índice de paso en localStorage, igual que el
+    // resto del estado de revisión.
+    const RECORDING_CHECKLIST_KEY = 'charkuma_recording_checklist';
+    const RECORDING_CHECKLIST_ITEMS = [
+      '📖 Guion revisado y ajustado a mi voz',
+      '🎙️ Voz en off grabada',
+      '🎥 Gameplay/clips grabado o descargado',
+      '🎵 Música de fondo elegida',
+      '🔊 Efectos de sonido añadidos',
+      '✂️ Primer montaje hecho',
+      '🖼️ Miniatura lista',
+      '📝 Título y descripción escritos'
+    ];
+    function loadRecordingChecklistState(){
+      try { return JSON.parse(localStorage.getItem(RECORDING_CHECKLIST_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveRecordingChecklistState(state){
+      try { localStorage.setItem(RECORDING_CHECKLIST_KEY, JSON.stringify(state)); }
+      catch (e) { /* seguimos sin guardar, sin romper nada */ }
+    }
+    function toggleRecordingChecklistItem(rid, idx){
+      const state = loadRecordingChecklistState();
+      if (!state[rid]) state[rid] = {};
+      state[rid][idx] = !state[rid][idx];
+      saveRecordingChecklistState(state);
+      refreshReviewControls();
+    }
+    function recordingChecklistHTML(rid){
+      const state = loadRecordingChecklistState()[rid] || {};
+      const doneCount = RECORDING_CHECKLIST_ITEMS.filter((_, i) => state[i]).length;
+      const items = RECORDING_CHECKLIST_ITEMS.map((label, i) => `
+        <label class="recording-checklist-item${state[i] ? ' is-done' : ''}">
+          <input type="checkbox" ${state[i] ? 'checked' : ''} onchange="toggleRecordingChecklistItem('${rid}', ${i})">
+          ${label}
+        </label>`).join('');
+      return `
+        <details class="recording-checklist">
+          <summary>🎬 Checklist de grabación <span class="rc-progress">${doneCount}/${RECORDING_CHECKLIST_ITEMS.length}</span></summary>
+          <div class="recording-checklist-body">${items}</div>
+        </details>`;
+    }
+
     function reviewControlsHTML(item){
       const rid = item.internalView || item.title;
       const status = getContentStatus(item, rid);
@@ -2233,6 +2279,9 @@
       const approved = status === 'aprobado' || inProgress; // fase/publicado implican ya aprobado
       const statusChip = `<span class="type-chip ${CONTENT_STATUS_CHIPCLASS[status]}">${CONTENT_STATUS_LABELS[status]}</span>`;
       const isLastStage = stageIndex === CONTENT_STAGE_ORDER.length - 1;
+      // La checklist solo tiene sentido una vez aprobado (hay guion de
+      // verdad detrás) y hasta que se publique (después ya no aporta).
+      const showChecklist = approved && !published;
       return `
         <div class="review-controls" data-review-id="${rid}">
           ${statusChip}
@@ -2254,6 +2303,7 @@
           <button type="button" class="btn btn-primary review-next-btn" onclick="goToNextUntouchedContent('${rid}')" title="Saltar al siguiente elemento al que todavía no le has tocado el estado">
             → Siguiente
           </button>
+          ${showChecklist ? recordingChecklistHTML(rid) : ''}
         </div>`;
     }
 
