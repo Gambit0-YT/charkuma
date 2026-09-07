@@ -1049,6 +1049,21 @@
     .idea-bank-search{width:100%;margin-top:10px;padding:11px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line2);color:var(--text);font-size:13px;font-family:inherit}
     .idea-bank-search::placeholder{color:var(--muted)}
     .idea-bank-search:focus{outline:none;border-color:var(--orange)}
+
+    /* ── Backlog #37: vincular ideas relacionadas entre bancos ── */
+    .idea-linking-banner{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:150;
+      display:flex;align-items:center;gap:14px;background:var(--purple);color:#fff;
+      padding:12px 20px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);
+      font-size:13px;font-weight:700;max-width:90vw}
+    .idea-linking-banner span{white-space:normal}
+    .idea-linking-banner button{background:rgba(255,255,255,.18);border:none;color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;cursor:pointer;flex:none}
+    .idea-link-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+    .idea-link-btn{background:var(--panel2);border:1px solid var(--line2);color:var(--muted);border-radius:999px;padding:6px 12px;font-size:11px;font-weight:800;cursor:pointer}
+    .idea-link-btn:hover, .idea-link-btn.is-active{border-color:var(--purple);color:var(--text)}
+    .idea-link-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.35);border-radius:999px;padding:4px 6px 4px 10px;font-size:11px}
+    .idea-link-tag a{color:var(--text);font-weight:700}
+    .idea-link-tag button{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:12px;padding:0 4px}
+    .idea-link-tag button:hover{color:var(--red)}
     .subheading{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
     .recent-list{display:grid;gap:12px}
 
@@ -1413,6 +1428,13 @@
       <button type="button" class="btn btn-primary" id="recordingModeNext" onclick="recordingModeStep(1)">Siguiente ▶</button>
     </div>
     <p class="recording-mode-hint">Flechas ← → (o espacio) para moverte, Esc para salir</p>
+  </div>
+
+  <!-- Backlog #37: banner fijo mientras se está "vinculando" una idea
+       con otra de otro banco (dos pasos, sin modal ni buscador). -->
+  <div class="idea-linking-banner" id="ideaLinkingBanner" hidden>
+    <span></span>
+    <button type="button" onclick="cancelIdeaLink()">✕ Cancelar</button>
   </div>
 
   <main>

@@ -1294,6 +1294,86 @@
       setIdeaState(bank, id, {done: !state.done});
       if (IDEA_BANK_RENDERERS[bank]) IDEA_BANK_RENDERERS[bank]();
     }
+    // Backlog #37 — vincular ideas relacionadas entre bancos: modo de
+    // "vinculación en dos pasos" (sin modal ni buscador nuevo) — se
+    // arranca desde una idea, se navega a la otra (de cualquier banco)
+    // y se completa allí. Bidireccional, guardado en localStorage por
+    // clave "banco::id".
+    const IDEA_LINKS_KEY = 'charkuma_idea_links';
+    let ideaLinkingFrom = null;
+    function loadIdeaLinks(){
+      try { return JSON.parse(localStorage.getItem(IDEA_LINKS_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveIdeaLinks(links){
+      try { localStorage.setItem(IDEA_LINKS_KEY, JSON.stringify(links)); }
+      catch (e) { /* seguimos sin guardar, sin romper nada */ }
+    }
+    function ideaLinkKey(bank, id){ return `${bank}::${id}`; }
+    function getLinkedIdeas(bank, id){ return loadIdeaLinks()[ideaLinkKey(bank, id)] || []; }
+    // Cada banco tiene su propia función de render — esto las llama a
+    // todas para que el estado de "vinculando..." (o un enlace recién
+    // creado) se vea igual en cualquier página abierta.
+    function rerenderAllIdeaBanks(){
+      Object.values(IDEA_BANK_RENDERERS).forEach(fn => fn());
+      if (typeof renderRinconSecret === 'function') renderRinconSecret();
+      const banner = document.getElementById('ideaLinkingBanner');
+      if (banner) banner.hidden = !ideaLinkingFrom;
+      if (banner && ideaLinkingFrom) {
+        banner.querySelector('span').textContent = `🔗 Vinculando "${ideaLinkingFrom.label}" — ve a la otra idea y pulsa "✅ Vincular con ésta".`;
+      }
+    }
+    function startIdeaLink(bank, id, label){
+      ideaLinkingFrom = { bank, id, label };
+      rerenderAllIdeaBanks();
+    }
+    function cancelIdeaLink(){
+      ideaLinkingFrom = null;
+      rerenderAllIdeaBanks();
+    }
+    function completeIdeaLink(bank, id, label){
+      if (!ideaLinkingFrom) return;
+      if (ideaLinkingFrom.bank === bank && ideaLinkingFrom.id === id) { alert('No puedes vincular una idea consigo misma — ve a otra distinta.'); return; }
+      const links = loadIdeaLinks();
+      const keyA = ideaLinkKey(ideaLinkingFrom.bank, ideaLinkingFrom.id);
+      const keyB = ideaLinkKey(bank, id);
+      if (!links[keyA]) links[keyA] = [];
+      if (!links[keyB]) links[keyB] = [];
+      links[keyA].push({ bank, id, label });
+      links[keyB].push({ bank: ideaLinkingFrom.bank, id: ideaLinkingFrom.id, label: ideaLinkingFrom.label });
+      saveIdeaLinks(links);
+      ideaLinkingFrom = null;
+      rerenderAllIdeaBanks();
+    }
+    function unlinkIdeas(bank, id, otherBank, otherId){
+      const links = loadIdeaLinks();
+      const keyA = ideaLinkKey(bank, id);
+      const keyB = ideaLinkKey(otherBank, otherId);
+      if (links[keyA]) links[keyA] = links[keyA].filter(l => !(l.bank === otherBank && l.id === otherId));
+      if (links[keyB]) links[keyB] = links[keyB].filter(l => !(l.bank === bank && l.id === id));
+      saveIdeaLinks(links);
+      rerenderAllIdeaBanks();
+    }
+    const IDEA_BANK_SECRET_VIEW = { helquid: 'helquid-secret', lab: 'lab-secret', ia: 'ia-secret', creator: 'creator-secret', hecho: 'hecho-secret', rincon: 'rf-secret' };
+    function ideaLinkControlsHTML(bank, id, label){
+      const linked = getLinkedIdeas(bank, id);
+      const isSource = ideaLinkingFrom && ideaLinkingFrom.bank === bank && ideaLinkingFrom.id === id;
+      let actionBtn = '';
+      if (isSource) {
+        actionBtn = `<button type="button" class="idea-link-btn is-active" onclick="cancelIdeaLink()">🔗 Cancelar vinculación</button>`;
+      } else if (ideaLinkingFrom) {
+        actionBtn = `<button type="button" class="idea-link-btn is-active" onclick="completeIdeaLink('${bank}','${id}','${escapeAttr(label).replace(/'/g, "&#39;")}')">✅ Vincular con ésta</button>`;
+      } else {
+        actionBtn = `<button type="button" class="idea-link-btn" onclick="startIdeaLink('${bank}','${id}','${escapeAttr(label).replace(/'/g, "&#39;")}')">🔗 Vincular con otra idea</button>`;
+      }
+      const tags = linked.map(l => `
+        <span class="idea-link-tag">
+          <a href="javascript:void(0)" onclick="showView('${IDEA_BANK_SECRET_VIEW[l.bank] || ''}')">🔗 ${escapeAttr(l.label)}</a>
+          <button type="button" onclick="unlinkIdeas('${bank}','${id}','${l.bank}','${l.id}')" title="Quitar este enlace">✕</button>
+        </span>`).join('');
+      return `<div class="idea-link-row">${actionBtn}${tags}</div>`;
+    }
+
     // Backlog #38 — motivo de descarte guardado, no solo el hecho: al
     // descartar (nunca al restaurar) se pregunta un motivo corto,
     // opcional — cancelar el prompt sigue descartando sin motivo, no
@@ -1383,6 +1463,7 @@
                 <span class="count">#${i + 1}</span>
               </div>
               <p style="margin:6px 0 0">${escapeHTML(idea)}</p>
+              ${ideaLinkControlsHTML(cfg.bank, id, idea.length > 70 ? idea.slice(0, 67) + '...' : idea)}
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${cfg.bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
@@ -3099,6 +3180,7 @@
                 <span class="count">#${i + 1}</span>
               </div>
               <p style="margin:6px 0 0">${escapeHTML(idea.text)}</p>
+              ${ideaLinkControlsHTML(bank, id, idea.text.length > 70 ? idea.text.slice(0, 67) + '...' : idea.text)}
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${bank}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
           </div>`;
