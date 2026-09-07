@@ -279,6 +279,16 @@
     .stale-warning{padding:16px 20px;border-radius:16px;border:1px dashed rgba(255,95,109,.5);background:rgba(255,95,109,.06);color:var(--text);font-size:13px;line-height:1.6}
     .stale-warning strong{color:var(--red)}
     .stale-warning ul{margin:8px 0 0;padding-left:18px}
+
+    /* ── Backlog #27: vista Kanban de Control Maestro ── */
+    .kanban-board{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px}
+    .kanban-column{flex:0 0 240px;background:var(--panel2);border:1px solid var(--line2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px;max-height:640px}
+    .kanban-column-head{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:900;color:var(--muted);letter-spacing:.03em}
+    .kanban-cards{display:flex;flex-direction:column;gap:8px;overflow-y:auto}
+    .kanban-card{background:var(--panel);border:1px solid var(--line3);border-radius:10px;padding:10px;font-size:12px}
+    .kanban-card a{color:var(--text);font-weight:700}
+    .kanban-card a:hover{color:var(--orange2)}
+    .kanban-card .kanban-section{color:var(--muted);font-size:10px;display:block;margin-top:4px}
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 
     /* ── Transición suave entre vistas ──
@@ -1656,6 +1666,10 @@
                 <option value="date">Ordenar por fecha</option>
                 <option value="priority">Ordenar por prioridad</option>
               </select>
+              <select id="masterControlView" onchange="renderMasterControlList()">
+                <option value="list" selected>📋 Vista lista</option>
+                <option value="kanban">🗂️ Vista Kanban</option>
+              </select>
             </div>
           </div>
           <p class="yt-empty" id="masterControlCount" style="margin-bottom:16px"></p>
@@ -1669,6 +1683,11 @@
           <div class="vidiq-stats-panel panel" style="margin-top:16px">
             <strong>⏱️ Tiempo medio aprobado → publicado</strong>
             <p class="yt-empty" id="avgApprovedToPublishedStat" style="margin:6px 0 0"></p>
+          </div>
+
+          <div class="vidiq-stats-panel panel" style="margin-top:16px">
+            <strong>🔥 Racha de creación de guiones</strong>
+            <p class="yt-empty" id="guionCreationStreakStat" style="margin:6px 0 0"></p>
           </div>
 
           <div id="staleContentWarning" style="margin-top:16px"></div>

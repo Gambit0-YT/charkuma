@@ -5435,6 +5435,38 @@
       container.innerHTML = `<p class="yt-empty" style="margin:0">Nada listo para publicar todavía — lo más avanzado ahora mismo es <a href="javascript:void(0)" onclick="showView('${next.view}')">${escapeAttr(next.title)} ↗</a> (${CONTENT_STATUS_LABELS[next.status]}).</p>`;
     }
 
+    // Backlog #31 — racha de creación de guiones: días consecutivos
+    // (incluyendo hoy) en los que se ha aprobado al menos una idea,
+    // calculada sobre el historial real de #19 — empieza en 0 hasta que
+    // haya aprobaciones registradas desde que existe este sistema.
+    function computeGuionCreationStreak(){
+      const history = loadContentHistory();
+      const approvalDays = new Set();
+      Object.values(history).forEach(entries => {
+        entries.forEach(e => {
+          if (e.text === '✅ Aprobado') {
+            const d = new Date(e.ts);
+            approvalDays.add(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`);
+          }
+        });
+      });
+      let streak = 0;
+      const cursor = new Date();
+      while (approvalDays.has(`${cursor.getFullYear()}-${cursor.getMonth()}-${cursor.getDate()}`)) {
+        streak++;
+        cursor.setDate(cursor.getDate() - 1);
+      }
+      return streak;
+    }
+    function renderGuionCreationStreak(){
+      const el = document.getElementById('guionCreationStreakStat');
+      if (!el) return;
+      const streak = computeGuionCreationStreak();
+      el.textContent = streak > 0
+        ? `🔥 ${streak} día${streak === 1 ? '' : 's'} seguidos aprobando al menos una idea.`
+        : 'Todavía sin racha activa — se cuenta desde que existe este historial (hoy).';
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -5444,6 +5476,7 @@
       renderContentTimeline();
       renderNextToPublishWidget();
       renderAvgApprovedToPublished();
+      renderGuionCreationStreak();
       renderStaleContentWarning();
       populateGenerateSectionSelect();
 
@@ -5484,6 +5517,28 @@
       }
 
       countEl.textContent = `${items.length} de ${all.length} elementos (proyectos + ideas de los bancos secretos)`;
+
+      // Backlog #27 — vista Kanban: las mismas tarjetas filtradas de
+      // arriba, agrupadas por estado en columnas en vez de una lista
+      // plana. Reutiliza exactamente `items` (mismos filtros/orden).
+      const viewMode = document.getElementById('masterControlView')?.value || 'list';
+      if (viewMode === 'kanban') {
+        const KANBAN_STATUSES = ['pendiente', 'aprobado', ...CONTENT_STAGE_ORDER, 'publicado', 'descartado'];
+        listEl.innerHTML = `<div class="kanban-board">${KANBAN_STATUSES.map(status => {
+          const colItems = items.filter(i => i.status === status);
+          const cards = colItems.map(item => `
+            <div class="kanban-card">
+              <a href="javascript:void(0)" onclick="showView('${item.view}')">${escapeAttr(item.title)} ↗</a>
+              <span class="kanban-section">${item.sectionEmoji} ${escapeAttr(item.section)}${item.priority ? ' · ' + PRIORITY_LABELS[item.priority] : ''}</span>
+            </div>`).join('');
+          return `
+            <div class="kanban-column">
+              <div class="kanban-column-head"><span>${CONTENT_STATUS_LABELS[status]}</span><span>${colItems.length}</span></div>
+              <div class="kanban-cards">${cards || '<p class="yt-empty" style="margin:0">—</p>'}</div>
+            </div>`;
+        }).join('')}</div>`;
+        return;
+      }
 
       listEl.innerHTML = items.length ? items.map(item => {
         const dateLabel = item.date
