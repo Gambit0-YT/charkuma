@@ -4949,6 +4949,14 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
       </section>
       <section class="detail-section">
         <div class="container">
+          <div class="projects" style="margin-bottom:24px">
+            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('ct-generador-voz')">
+              <div class="num">HERRAMIENTA 001</div>
+              <div class="open">↗</div>
+              <h3>🎙️ GENERADOR DE VOZ EN OFF</h3>
+              <p>Convierte cualquier guion de la web en audio: vista previa gratis al instante, o voz real con IA bajo pedido, lista para editar.</p>
+            </a>
+          </div>
           <div class="panel search-panel">
             <div class="search-row">
               <input type="text" id="creatorSearch" placeholder="🔎 Buscar por título..." />
@@ -4968,6 +4976,57 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
             <code>type</code> (<code>overlay</code> / <code>obs</code> / <code>plantilla</code> /
             <code>recurso</code>), <code>date</code>, <code>summary</code>, <code>thumbnail</code>, y
             <code>internalView</code> (página propia) o <code>link</code> (externo).
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CREATOR TOOLS · HERRAMIENTA 001: Generador de voz en off ══════════
+         Pedido explícito de Iván (2026-09-07): "el primer Creator Tools" de
+         verdad interactivo, no un artículo con guion como el resto de esta
+         sección. Convierte el guion de cualquier vídeo en audio:
+         - Vista previa GRATIS al instante (Web Speech API del propio
+           navegador) — sirve para calcular ritmo, no es la voz final.
+         - Voz real con IA (ElevenLabs vía VidIQ) generada por Claude bajo
+           pedido, guardada de forma permanente en la carpeta de Drive de
+           ese guion (ver convención de #13) y registrada en Firestore
+           (audioGeneration/state) para que esta página la muestre ya lista. -->
+    <div id="view-ct-generador-voz" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('creator')">← Volver a Creator Tools</a>
+          <div class="section-kicker">CREATOR TOOLS · HERRAMIENTA</div>
+          <h2 class="section-title">🎙️ GENERADOR DE VOZ EN OFF</h2>
+          <p class="section-sub">
+            Elige un guion de la web y sácale el audio: una vista previa instantánea y gratis
+            para calcular el ritmo, o la voz real con IA lista para tu editor.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="panel">
+            <h3>Cómo funciona</h3>
+            <p>
+              Esta web es estática (sin servidor propio), así que no puede llamar a la IA de voz
+              por su cuenta. Por eso funciona en dos capas:
+            </p>
+            <ul class="ia-steps">
+              <li><strong>🔊 Vista previa (gratis, al instante):</strong> usa la voz del propio sistema operativo, en tu navegador. Sirve para escuchar el ritmo del guion, no es la voz final del vídeo.</li>
+              <li><strong>🎧 Voz real con IA (bajo pedido):</strong> pídesela a Claude cuando vayas a grabar/editar ese vídeo — genera el audio con ElevenLabs y lo deja guardado en la carpeta de Drive de ese guion, listo para tu editor. Tiene coste real en créditos de VidIQ, por eso se hace guion a guion, no todos de golpe.</li>
+            </ul>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <h3>Elige un guion</h3>
+            <select id="vozGuionSelect" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line2);background:var(--panel2);color:var(--text);font:inherit;margin-bottom:14px"></select>
+            <textarea id="vozGuionScript" readonly rows="8" class="ia-prompt-box" style="width:100%"></textarea>
+            <div class="calc-result-actions" style="margin-top:10px">
+              <button type="button" class="btn btn-secondary" id="vozPreviewBtn" onclick="previewGuionVoiceSpeech()">🔊 Escuchar vista previa (gratis)</button>
+              <button type="button" class="btn btn-secondary" id="vozStopBtn" onclick="stopGuionVoicePreview()" hidden>⏹️ Detener</button>
+              <button type="button" class="btn btn-secondary" id="vozDriveBtn">📁 Abrir carpeta de Drive de este guion</button>
+            </div>
+            <div id="vozRealStatus" class="note" style="margin-top:16px"></div>
           </div>
         </div>
       </section>

@@ -1108,6 +1108,9 @@
       if (id === 'tech-setup' && typeof renderTechSetup === 'function') {
         try { renderTechSetup(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'ct-generador-voz' && typeof populateVozGuionSelect === 'function') {
+        try { populateVozGuionSelect(); } catch (e) { /* ver comentario arriba */ }
+      }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -3203,6 +3206,135 @@
         box.innerHTML = html;
         panel.insertAdjacentElement('afterend', box);
       }
+    }
+
+    // ──────────────────────────────────────────────────────────
+    // CREATOR TOOLS · HERRAMIENTA 001: GENERADOR DE VOZ EN OFF
+    // Pedido explícito de Iván (2026-09-07): "el primer Creator Tools" de
+    // verdad interactivo. Arquitectura en dos capas (ver nota larga junto
+    // a #view-ct-generador-voz en index.html):
+    //  1) Vista previa gratis con la Web Speech API del propio navegador
+    //     — funciona sola, sin límite, pero no es la voz final.
+    //  2) Voz real con IA (ElevenLabs vía VidIQ), generada por Claude bajo
+    //     pedido — se sube a la carpeta de Drive de ese guion (mismos ids
+    //     que la convención de clip-detection de #13) y se registra en
+    //     Firestore `audioGeneration/state` para que esta página lo
+    //     muestre ya listo. Nunca se genera en bloque para los 18: cada
+    //     llamada real tiene coste de créditos VidIQ.
+    const VOZ_GUION_DRIVE_FOLDERS = {
+      'rf-curiosidades-spiderman': '1zcdIn3irnAp9pIKRfysv-ZgOK9n6x3AP',
+      'rf-opinion-multiverso': '1XhdC5AuWPeR8RengJR9jjpfj-v96ACLT',
+      'rf-fancast-wolverine': '15dLarbPISkITVF5j_0FaUll5BU62x7BY',
+      'rf-boys-vs-marvel': '1Gp6W-k15ZK_i21RzTZxKnhVgx7YSf42b',
+      'rf-curiosidades-homelander': '1y-OPumqaeegpjxSXKB6TLN5eFLz9GxOo',
+      'helquid-draft-arena': '1rGNRtX-O8cQGzPhwCbn1d4XlIc41x5xo',
+      'lab-generador-miniaturas': '1WYuskrwM40zVl4UK0ekSUeLH_RTpDylD',
+      'lab-comfyui': '1BGtWA9gE0JPp70XI61liP4lLvD2HPX6f',
+      'lab-bot-discord': '1JcpE2x1IWySPbY0vePC345V6g-4sUTvR',
+      'ia-prompt-reaccion': '1WgVE1bgHSwXHw57AHIUlVQtCiEpnmWiY',
+      'ia-visual-retro': '1fjC3b33NO0alyHkavbeUA-ooDCcLTv5i',
+      'ia-auto-discord': '1OQhm6dmxtKBoPfYngo0nVnvaIVw1pnK2',
+      'ia-prompt-miniaturas': '1AOZQjyQ4npa_xJb0bA8kqK0J3hjet6Xu',
+      'ct-obs-retro': '17rvl4z707oXvz32JR2LUGvzIgDFqOKjL',
+      'ct-plantilla-friki': '1so0A0nEZQWNq7cTEUkijPZDBoF5aeWEf',
+      'ct-stingers': '1cqAEEwujh0uqjvxb_aAWX-gnGi7zhYBY',
+      'ct-overlay-retro365': '1TwIBW0H4ArZTjwFJ-ESI1lo6RpO5R7bS',
+      'hm-figura-3d': '1JA_xySm1_Oto4_ZWafY1g7HSh4_dJwhx'
+    };
+
+    // Extrae la narración real de un guion por su id de vista, SIN
+    // necesidad de navegar hasta esa página — todas las vistas ya están
+    // en el DOM (arquitectura de un solo HTML), así que basta con
+    // buscarla por id. Reutiliza extractGuionBeats/findGuionPanel (#17/#18).
+    function extractGuionFullScript(rid){
+      const target = document.getElementById('view-' + rid);
+      const panel = target && findGuionPanel(target);
+      if (!panel) return '';
+      return extractGuionBeats(panel)
+        .filter(b => b.hasNarration)
+        .map(b => b.text.replace(/^["“]+|["”]+$/g, ''))
+        .join(' ');
+    }
+
+    function buildAllGuionItems(){
+      return Object.keys(VOZ_GUION_DRIVE_FOLDERS).map(rid => {
+        const item = findContentItemByView(rid);
+        return { rid, title: item ? item.title : rid };
+      });
+    }
+
+    let vozPreviewUtterance = null;
+    function previewGuionVoiceSpeech(){
+      const select = document.getElementById('vozGuionSelect');
+      const rid = select && select.value;
+      const script = rid && extractGuionFullScript(rid);
+      if (!script || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      vozPreviewUtterance = new SpeechSynthesisUtterance(script);
+      const voices = window.speechSynthesis.getVoices();
+      const esVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('es'));
+      if (esVoice) vozPreviewUtterance.voice = esVoice;
+      vozPreviewUtterance.lang = esVoice ? esVoice.lang : 'es-ES';
+      const stopBtn = document.getElementById('vozStopBtn');
+      const previewBtn = document.getElementById('vozPreviewBtn');
+      vozPreviewUtterance.onend = () => { if (stopBtn) stopBtn.hidden = true; if (previewBtn) previewBtn.hidden = false; };
+      if (stopBtn) stopBtn.hidden = false;
+      if (previewBtn) previewBtn.hidden = true;
+      window.speechSynthesis.speak(vozPreviewUtterance);
+    }
+    function stopGuionVoicePreview(){
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      const stopBtn = document.getElementById('vozStopBtn');
+      const previewBtn = document.getElementById('vozPreviewBtn');
+      if (stopBtn) stopBtn.hidden = true;
+      if (previewBtn) previewBtn.hidden = false;
+    }
+
+    // Estado real de audios ya generados con IA, sincronizado desde
+    // Firestore (lo escribe Claude cuando genera uno de verdad — el
+    // navegador nunca puede llamar a VidIQ por su cuenta).
+    let audioGenState = {};
+    function renderVozGuionDetail(){
+      const select = document.getElementById('vozGuionSelect');
+      const scriptBox = document.getElementById('vozGuionScript');
+      const driveBtn = document.getElementById('vozDriveBtn');
+      const statusBox = document.getElementById('vozRealStatus');
+      if (!select || !select.value) return;
+      const rid = select.value;
+      const script = extractGuionFullScript(rid);
+      if (scriptBox) scriptBox.value = script || '(No se ha encontrado narración real en este guion.)';
+      const folderId = VOZ_GUION_DRIVE_FOLDERS[rid];
+      if (driveBtn) driveBtn.onclick = () => window.open('https://drive.google.com/drive/folders/' + folderId, '_blank');
+      const gen = audioGenState[rid];
+      if (statusBox) {
+        if (gen && gen.audioUrl) {
+          const date = gen.generatedAt ? new Date(gen.generatedAt).toLocaleDateString('es-ES') : '';
+          statusBox.innerHTML = `<strong>✅ Voz real ya generada</strong>${gen.voiceName ? ' (' + escapeAttr(gen.voiceName) + ')' : ''}${date ? ' — ' + date : ''}. <a href="${escapeAttr(gen.audioUrl)}" target="_blank" rel="noopener">▶️ Escuchar / descargar</a>`;
+        } else {
+          statusBox.innerHTML = `<strong>⏳ Todavía sin voz real generada.</strong> Pídesela a Claude cuando vayas a grabar/editar este vídeo — queda guardada en la carpeta de Drive de arriba.`;
+        }
+      }
+      stopGuionVoicePreview();
+    }
+    function populateVozGuionSelect(){
+      const select = document.getElementById('vozGuionSelect');
+      if (!select) return;
+      const items = buildAllGuionItems();
+      select.innerHTML = items.map(it => `<option value="${escapeAttr(it.rid)}">${escapeAttr(it.title)}</option>`).join('');
+      select.onchange = renderVozGuionDetail;
+      renderVozGuionDetail();
+    }
+    let audioGenRealtimeStarted = false;
+    function initAudioGenRealtime(){
+      if (!firestoreReady() || audioGenRealtimeStarted) return;
+      audioGenRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'audioGeneration', 'state');
+      onSnapshot(ref, (snap) => {
+        audioGenState = (snap.exists() && snap.data().items) || {};
+        const view = document.getElementById('view-ct-generador-voz');
+        if (view && view.classList.contains('active')) renderVozGuionDetail();
+      });
     }
 
     // Backlog #18 — modo grabación a pantalla completa: overlay tipo
@@ -7988,6 +8120,7 @@
     initContentReviewRealtime();
     initRankingScheduleRealtime();
     initUIPrefsRealtime();
+    initAudioGenRealtime();
     maybeRunWeeklyBackup();
 
     // Backlog #79 — manejo básico de "sin conexión" (ver sw.js: estrategia
