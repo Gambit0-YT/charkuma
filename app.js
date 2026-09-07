@@ -2892,6 +2892,19 @@
         summary: "Mi ranking real de por dónde empezar en cada universo, sin marear con 30 títulos.",
         thumbnail: "🧭",
         internalView: "rf-ranking-empezar", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "opinion-1" del banco secreto, marcada "hecha" — distinta de
+        // "rf-curiosidades-homelander" (esa es trivia/inspiración real del
+        // personaje; esta es análisis de por qué funciona como villano,
+        // ángulo distinto, sin repetir contenido).
+        title: "Homelander, explicado desde cero: por qué es de los villanos más interesantes de la ficción actual",
+        saga: "boys",
+        type: "opinion",
+        date: "2026-09-07",
+        summary: "Análisis de por qué el contraste entre su imagen pública y su psicopatía real lo convierte en uno de los villanos más interesantes de la ficción actual.",
+        thumbnail: "🎭",
+        internalView: "rf-opinion-homelander", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3256,7 +3269,8 @@
       'ct-stingers': '1cqAEEwujh0uqjvxb_aAWX-gnGi7zhYBY',
       'ct-overlay-retro365': '1TwIBW0H4ArZTjwFJ-ESI1lo6RpO5R7bS',
       'hm-figura-3d': '1JA_xySm1_Oto4_ZWafY1g7HSh4_dJwhx',
-      'rf-ranking-empezar': '19bDLXqVBb2Y0ipJzyEfmgiY18SVeRO7w'
+      'rf-ranking-empezar': '19bDLXqVBb2Y0ipJzyEfmgiY18SVeRO7w',
+      'rf-opinion-homelander': '18J3rLLKgs8o4LKC-VFzPR2oBK5sRFDGb'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
