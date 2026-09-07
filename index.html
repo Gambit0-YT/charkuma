@@ -586,10 +586,14 @@
 
     footer{
       padding:54px 0 34px;border-top:1px solid rgba(255,255,255,.07);
-      color:var(--muted)
+      color:var(--muted);position:relative;overflow:hidden
     }
+    /* Backlog #69 — detalle de marca sutil: la silueta del geco de
+       CHARKUMA, muy tenue, apoyada en la esquina del pie de página.
+       Puramente decorativa (aria-hidden), no compite con el texto. */
+    .footer-gecko{position:absolute;right:-10px;bottom:-14px;width:130px;height:auto;opacity:.05;color:var(--orange);pointer-events:none}
     .footer-grid{
-      display:flex;justify-content:space-between;gap:26px;align-items:end;flex-wrap:wrap
+      display:flex;justify-content:space-between;gap:26px;align-items:end;flex-wrap:wrap;position:relative
     }
     .footer-logo{font-size:30px;font-weight:1000;color:var(--text)}
     .footer-logo strong{color:var(--orange)}
@@ -1148,6 +1152,13 @@
     .skeleton-card-lines .skeleton-block{height:12px}
     .skeleton-card-lines .skeleton-block:first-child{width:40%;height:18px}
     .skeleton-card-lines .skeleton-block:last-child{width:85%}
+
+    /* Backlog #65 — ilustración propia (silueta del geco de CHARKUMA,
+       la misma que el badge 🦎 de la cabecera pero en línea) para
+       páginas/listas vacías, en vez de solo una frase suelta. */
+    .empty-state{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:34px 16px}
+    .empty-state svg{width:64px;height:auto;color:var(--line2)}
+    .empty-state p{margin:0;color:var(--muted);max-width:32ch}
     .yt-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line3)}
     .yt-video:first-of-type{border-top:none;padding-top:0}
     .yt-thumb{width:96px;height:54px;border-radius:8px;object-fit:cover;flex:none;background:var(--panel)}
@@ -5105,6 +5116,13 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
   </main>
 
   <footer>
+    <svg class="footer-gecko" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M8 62 Q24 40 40 50 Q52 58 46 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="66" cy="46" rx="22" ry="13" stroke="currentColor" stroke-width="5"/>
+      <ellipse cx="94" cy="38" rx="12" ry="9" stroke="currentColor" stroke-width="5"/>
+      <path d="M56 56 L48 66 M76 56 L82 68 M58 36 L50 26 M82 34 L90 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="98" cy="35" r="2.4" fill="currentColor"/>
+    </svg>
     <div class="container footer-grid">
       <div>
         <div class="footer-logo">CHAR<strong>KUMA</strong></div>

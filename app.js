@@ -1615,7 +1615,7 @@
             </div>
           </details>`;
       });
-      container.innerHTML = html || (searchQuery ? `<p class="yt-empty">Nada coincide con "${escapeAttr(searchQuery)}" en este banco.</p>` : html);
+      container.innerHTML = html || (searchQuery ? emptyStateHTML(`Nada coincide con "${escapeAttr(searchQuery)}" en este banco.`) : html);
       container.classList.toggle('hide-discarded', getHideDiscardedPref(cfg.bank));
 
       const counterEl = document.getElementById(cfg.discardCounterId);
@@ -3517,7 +3517,7 @@
             <div class="month-body">${rows}</div>
           </details>`;
       });
-      container.innerHTML = html || (searchQuery ? `<p class="yt-empty">Nada coincide con "${escapeAttr(searchQuery)}" en este banco.</p>` : html);
+      container.innerHTML = html || (searchQuery ? emptyStateHTML(`Nada coincide con "${escapeAttr(searchQuery)}" en este banco.`) : html);
       container.classList.toggle('hide-discarded', getHideDiscardedPref(bank));
 
       const counterEl = document.getElementById('rfDiscardCounter');
@@ -5095,7 +5095,7 @@
       const container = document.getElementById('globalSearchResults');
       container.innerHTML = results.length
         ? results.map(searchResultCardHTML).join('')
-        : `<p class="yt-empty">Nada coincide con esa búsqueda todavía.</p>`;
+        : emptyStateHTML('Nada coincide con esa búsqueda todavía.');
     }
 
     document.getElementById('globalSearchInput').addEventListener('input', renderGlobalSearch);
@@ -6510,7 +6510,7 @@
               ${item.summary ? `<p>${item.summary}</p>` : ''}
             </div>
           </div>`;
-      }).join('') : `<p class="yt-empty">Nada coincide con esos filtros.</p>`;
+      }).join('') : emptyStateHTML('Nada coincide con esos filtros.');
     }
     document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
     document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
@@ -6786,6 +6786,21 @@
             <div class="skeleton-block"></div>
           </div>
         </div>`).join('');
+    }
+
+    // Backlog #65 — ilustración propia para estados vacíos: la misma
+    // silueta de geco del pie de página (nuestro propio motivo de
+    // marca, no un icono de librería), envuelta en un mensaje. Un solo
+    // helper para no repetir el SVG en cada sitio que lo necesite.
+    const GECKO_ILLUSTRATION_SVG = `<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M8 62 Q24 40 40 50 Q52 58 46 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="66" cy="46" rx="22" ry="13" stroke="currentColor" stroke-width="5"/>
+      <ellipse cx="94" cy="38" rx="12" ry="9" stroke="currentColor" stroke-width="5"/>
+      <path d="M56 56 L48 66 M76 56 L82 68 M58 36 L50 26 M82 34 L90 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="98" cy="35" r="2.4" fill="currentColor"/>
+    </svg>`;
+    function emptyStateHTML(message){
+      return `<div class="empty-state">${GECKO_ILLUSTRATION_SVG}<p>${message}</p></div>`;
     }
 
     function skeletonCardsHTML(n){
