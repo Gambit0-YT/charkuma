@@ -385,6 +385,9 @@
     .countdown-badge.is-today{background:rgba(56,217,154,.12);border-color:var(--green);color:var(--green)}
     .countdown-badge[hidden]{display:none}
     /* Backlog #66 — barra de progreso del reto en el inicio */
+    /* Backlog #116 — sugerencia (nunca decisión) del próximo día libre */
+    .retro-next-suggestion{margin:10px 0 0;padding:10px 14px;border-radius:10px;background:rgba(139,92,246,.1);border:1px dashed var(--purple)}
+    .retro-next-suggestion[hidden]{display:none}
     .home-retro-progress{margin-top:16px;max-width:340px;cursor:pointer}
     .home-retro-progress .progress-track{height:8px}
     .home-retro-progress:hover .progress-fill{filter:brightness(1.15)}
@@ -2686,6 +2689,11 @@
               </div>
               <span id="secretSummary">Cargando...</span>
             </div>
+            <!-- Backlog #116 — SOLO sugiere el próximo día libre y avisa de
+                 que tienes preselección esperando; nunca decide ni asigna
+                 nada por su cuenta (sigue bloqueado por el swipe pendiente,
+                 igual que #1). -->
+            <p class="yt-empty retro-next-suggestion" id="retroNextSuggestion" hidden></p>
 
             <details class="month discarded-panel" id="retroDiscardedPanel">
               <summary>

@@ -1941,8 +1941,32 @@
       const hideCheckbox = document.getElementById('retroHideDiscarded');
       if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(RETRO_PLANNED_BANK);
       // El mazo Tinder ya no vive aquí (mudado a HELQUIDGAMES, ver showView).
+      renderRetroNextDaySuggestion();
     }
     IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
+
+    // Backlog #116 — "sugerencia automática del próximo juego de Retro
+    // 365", con la restricción explícita del usuario: SOLO sugerir,
+    // nunca decidir (los 365 días siguen congelados hasta que termine
+    // su propio swipe, igual que #1). Esto NO elige un juego — solo
+    // señala qué día está libre y recuerda que hay preselección
+    // esperando en Game Match, para que el usuario decida él mismo cuál.
+    function renderRetroNextDaySuggestion(){
+      const el = document.getElementById('retroNextSuggestion');
+      if (!el) return;
+      const extra = loadExtraPlannedGames();
+      let nextFree = null;
+      for (let d = 1; d <= totalDays; d++){
+        if (completedGames[d] || plannedGames[d] || extra[d]) continue;
+        nextFree = d;
+        break;
+      }
+      const shortlistCount = loadSwipeShortlist().length;
+      if (!nextFree || !shortlistCount) { el.hidden = true; return; }
+      el.hidden = false;
+      el.innerHTML = `💡 El día <strong>${nextFree}</strong> todavía está libre, y tienes <strong>${shortlistCount}</strong> juego(s) en tu preselección de
+        <a href="javascript:void(0)" onclick="showView('helquid-game-match')">Game Match</a> — elige tú cuál le pega, esto solo te avisa de que hay hueco.`;
+    }
 
     // ──────────────────────────────────────────────────────────
     // MAZO ESTILO TINDER (chuleta secreta de Retro 365): forma rápida
@@ -5175,14 +5199,26 @@
       return pickRandom(counts.filter(c => c.total === min)).bank;
     }
 
+    // Backlog #115 — antes solo se comparaba contra las ideas del MISMO
+    // banco; una idea podía repetirse casi igual en otro banco sin que
+    // nada lo detectara. Recoge el texto de las ideas ya existentes en
+    // TODOS los bancos generadores, no solo el de destino.
+    function allExistingIdeaTexts(){
+      const texts = new Set();
+      Object.keys(IDEA_GENERATORS).forEach(key => {
+        const merged = ideasMergedForBank(key);
+        Object.values(merged).flat().forEach(entry => {
+          texts.add((typeof entry === 'string' ? entry : entry.text).trim().toLowerCase());
+        });
+      });
+      return texts;
+    }
+
     function generateIdeasForBank(bankKey, count){
       const cfg = IDEA_GENERATORS[bankKey];
       if (!cfg) return { added: 0 };
 
-      const merged = ideasMergedForBank(bankKey);
-      const existingTexts = new Set(
-        Object.values(merged).flat().map(entry => typeof entry === 'string' ? entry : entry.text)
-      );
+      const existingTexts = allExistingIdeaTexts();
 
       const types = Object.keys(cfg.templates);
       const additions = {};
@@ -5191,8 +5227,8 @@
         attempts++;
         const type = pickRandom(types);
         const text = pickRandom(cfg.templates[type]).replace('{s}', pickRandom(cfg.subjects));
-        if (existingTexts.has(text)) continue;
-        existingTexts.add(text);
+        if (existingTexts.has(text.trim().toLowerCase())) continue;
+        existingTexts.add(text.trim().toLowerCase());
         if (!additions[type]) additions[type] = [];
         additions[type].push(bankKey === 'rincon' ? { universe: pickRandom(cfg.universes), text } : text);
         added++;
