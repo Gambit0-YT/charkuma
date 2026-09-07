@@ -2931,6 +2931,20 @@
         summary: "Reparto ampliado, tono más maduro y una recepción real (2.400M$ en taquilla) — por qué merece la pena, sin spoilers.",
         thumbnail: "🕷️",
         internalView: "rf-opinion-brand-new-day", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "opinion-11" del banco secreto ("el regreso de una saga
+        // clásica") — datos reales verificados con WebSearch 2026-09-07:
+        // actores clásicos de X-Men confirmados en Avengers: Doomsday, y
+        // reboot completo confirmado para mayo de 2028 dirigido por Jake
+        // Schreier, con reparto nuevo anunciado.
+        title: "El regreso de los X-Men a Marvel: por qué me da más ilusión que miedo",
+        saga: "marvel",
+        type: "opinion",
+        date: "2026-09-07",
+        summary: "Actores clásicos vuelven en Avengers: Doomsday y ya hay un reboot completo confirmado para 2028 — lo bueno y el riesgo real de traer de vuelta una saga tan querida.",
+        thumbnail: "🦾",
+        internalView: "rf-opinion-regreso-xmen", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3298,7 +3312,8 @@
       'rf-ranking-empezar': '19bDLXqVBb2Y0ipJzyEfmgiY18SVeRO7w',
       'rf-opinion-homelander': '18J3rLLKgs8o4LKC-VFzPR2oBK5sRFDGb',
       'rf-opinion-deep': '1lt878iZusvNK5lb5jSeJa7hC-liQNvDV',
-      'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy'
+      'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy',
+      'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
