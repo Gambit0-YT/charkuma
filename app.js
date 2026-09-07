@@ -5292,12 +5292,41 @@
       });
     }
 
+    // Backlog #23 — línea de tiempo del contenido: junta el historial
+    // por elemento (#19, `charkuma_content_history`) de TODOS los rids
+    // en una sola lista cronológica, con el título real de cada uno
+    // (vía buildSiteIndex) en vez de solo el id técnico.
+    function renderContentTimeline(){
+      const container = document.getElementById('contentTimelineList');
+      if (!container) return;
+      const history = loadContentHistory();
+      const titleByRid = {};
+      buildSiteIndex().forEach(i => { titleByRid[i.view] = i.title; });
+
+      const events = [];
+      Object.keys(history).forEach(rid => {
+        history[rid].forEach(e => events.push({ rid, ...e }));
+      });
+      events.sort((a, b) => b.ts - a.ts);
+
+      if (!events.length) {
+        container.innerHTML = `<p class="yt-empty">Todavía no hay ningún cambio de estado registrado — aparecerán aquí en cuanto apruebes, avances de fase, publiques o descartes algo.</p>`;
+        return;
+      }
+      container.innerHTML = events.slice(0, 40).map(e => {
+        const when = new Date(e.ts).toLocaleString('es-ES', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+        const title = titleByRid[e.rid] || e.rid;
+        return `<div class="log-entry"><strong>${when}</strong><p><a href="javascript:void(0)" onclick="showView('${e.rid}')">${escapeAttr(title)} ↗</a> — ${escapeAttr(e.text)}</p></div>`;
+      }).join('');
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
       if (!listEl) return;
       renderActivityLog();
       renderAutonomousLoopStatus();
+      renderContentTimeline();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
