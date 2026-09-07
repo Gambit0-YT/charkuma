@@ -792,16 +792,6 @@
       }
     }
 
-    // Enlace "Proyectos" de la cabecera: en vez de bajar a la cuadrícula
-    // estática del inicio, abre el Control Maestro ya filtrado a los
-    // proyectos "en curso" (aprobado + las 4 fases) — acceso rápido a
-    // todo lo que ahora mismo tiene trabajo activo encima.
-    function openInProgressProjects(){
-      showView('master-control');
-      const sel = document.getElementById('masterControlStatus');
-      if (sel) { sel.value = 'en-curso'; sel.dispatchEvent(new Event('change')); }
-    }
-
     function goHome(anchorId){
       showView('home', {resetScroll:false});
       requestAnimationFrame(() => {
