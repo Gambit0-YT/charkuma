@@ -636,6 +636,9 @@
       if (id === 'master-control' && typeof renderMasterControlList === 'function') {
         try { renderMasterControlList(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'guiones-bandeja' && typeof renderGuionesBandeja === 'function') {
+        try { renderGuionesBandeja(); } catch (e) { /* ver comentario arriba */ }
+      }
       // "Game Match" (el mazo Tinder de candidatos de Retro 365) es ahora
       // un juego más de HELQUIDGAMES, con su propia página — hay que
       // refrescarlo cada vez que se entra aquí.
@@ -4925,6 +4928,67 @@
     document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
     document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlStatus').addEventListener('change', renderMasterControlList);
+
+    // ──────────────────────────────────────────────────────────
+    // BANDEJA DE GUIONES: todo lo aprobado o ya "creando-guion" de
+    // cualquier sección (Rincón del Friki, IA & Experimentos, Creator
+    // Tools, Hecho a Mano, Charkuma Lab, HELQUIDGAMES), reunido en un
+    // solo sitio para ir grabando la voz en off una detrás de otra sin
+    // saltar de página en página. Reutiliza buildSiteIndex() (mismo
+    // dato que Control Maestro) filtrado a solo contenido con fases
+    // reales — las páginas "hub" fijas (Retro 365, Ruleta del 11...) no
+    // tienen findContentItemByView y quedan fuera a propósito.
+    // NO incluye los guiones de Retro 365 (plannedGames): esos tienen
+    // su propio sistema de seguimiento en la chuleta secreta.
+    // ──────────────────────────────────────────────────────────
+    function buildGuionesBandeja(){
+      return buildSiteIndex()
+        .filter(item => findContentItemByView(item.view))
+        .filter(item => item.status === 'aprobado' || item.status === CONTENT_STAGE_ORDER[0])
+        .sort((a, b) => (a.status === 'aprobado' ? 1 : 0) - (b.status === 'aprobado' ? 1 : 0));
+    }
+
+    function renderGuionesBandeja(){
+      const listEl = document.getElementById('guionesBandejaList');
+      const countEl = document.getElementById('guionesBandejaCount');
+      if (!listEl) return;
+      const items = buildGuionesBandeja();
+      countEl.textContent = items.length
+        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar.`
+        : 'No hay guiones pendientes de grabar ahora mismo — todo lo aprobado ya está en edición o publicado.';
+      listEl.innerHTML = items.map(item => {
+        const rid = item.view;
+        const notStarted = item.status === 'aprobado';
+        const statusChip = notStarted
+          ? `<span class="type-chip chip-green">✅ Guion listo, sin empezar</span>`
+          : `<span class="type-chip chip-orange">✍️ Grabando voz en off</span>`;
+        const actionLabel = notStarted ? '▶️ Empezar a grabar' : '✅ Voz grabada → pasar a edición';
+        return `
+          <div class="geek-card">
+            <div class="geek-thumb">${item.emoji}</div>
+            <div class="geek-info">
+              <div class="geek-badges">
+                <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
+                ${statusChip}
+              </div>
+              <h4><a href="javascript:void(0)" onclick="showView('${rid}')">${item.title} ↗</a></h4>
+              ${item.summary ? `<p>${item.summary}</p>` : ''}
+              <div class="review-controls" style="margin-top:10px">
+                <button type="button" class="btn btn-secondary" onclick="showView('${rid}')">📜 Abrir guion</button>
+                <button type="button" class="btn btn-primary" onclick="markGuionVozGrabada('${rid}')">${actionLabel}</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // Un toque desde "aprobado" solo arranca la fase (avisa de que se ha
+    // empezado); un segundo toque desde "creando-guion" es el que de
+    // verdad saca el guion de esta bandeja, al pasar a "editando-vídeo".
+    function markGuionVozGrabada(rid){
+      advanceContentStage(rid);
+      renderGuionesBandeja();
+    }
     document.getElementById('masterControlSort').addEventListener('change', renderMasterControlList);
 
     document.getElementById('spinRuletaBtn').addEventListener('click', spinRuleta);

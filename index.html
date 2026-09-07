@@ -1619,6 +1619,31 @@
       </section>
     </div>
 
+    <!-- ══════════ BANDEJA DE GUIONES (grabar voz en off) ══════════ -->
+    <div id="view-guiones-bandeja" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('charkumalab')">← Volver al laboratorio</a>
+          <div class="section-kicker">PRODUCCIÓN</div>
+          <h2 class="section-title">🎙️ BANDEJA DE GUIONES</h2>
+          <p class="section-sub">
+            Todos los guiones ya aprobados de cualquier sección (Rincón del Friki, IA &
+            Experimentos, Creator Tools, Hecho a Mano, Charkuma Lab, HELQUIDGAMES),
+            reunidos en un solo sitio para ir grabando la voz en off uno detrás de otro.
+            Es el primer paso de producción: en cuanto marcas uno como grabado, pasa a
+            "🎬 Editando vídeo" y desaparece de aquí solo. No incluye los juegos de Retro
+            365 — esos tienen su propio seguimiento en la chuleta secreta.
+          </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <p class="yt-empty" id="guionesBandejaCount" style="margin-bottom:16px"></p>
+          <div id="guionesBandejaList" class="recent-list"></div>
+        </div>
+      </section>
+    </div>
+
     <!-- ══════════ INICIO ══════════ -->
     <div id="view-home" class="app-view active">
       <section class="hero" id="inicio">
@@ -3354,10 +3379,10 @@
                 <h4>CREATOR TOOLS</h4>
                 <p>Ideas y herramientas para streaming, vídeos, OBS, overlays y contenido.</p>
               </a>
-              <a class="lab-card" href="javascript:void(0)" onclick="showView('hecho')">
-                <div class="icon">🧶</div>
-                <h4>HECHO A MANO</h4>
-                <p>Tufting, diseños personalizados, objetos físicos y proyectos que salen de la pantalla.</p>
+              <a class="lab-card" href="javascript:void(0)" onclick="showView('guiones-bandeja')">
+                <div class="icon">🎙️</div>
+                <h4>GUIONES</h4>
+                <p>Todos los guiones aprobados, listos para grabar la voz en off — de cualquier sección.</p>
               </a>
             </div>
 
