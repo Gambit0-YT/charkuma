@@ -2223,6 +2223,75 @@
     // Descartar / → Siguiente" que se inyecta en la cabecera de la
     // propia página de detalle (no solo la insignia pequeña del
     // kicker) — reversible en todos los sentidos.
+    // Copia texto plano al portapapeles desde un botón — el texto va en
+    // data-copy (ya escapado como atributo, el navegador lo desentraña
+    // solo al leer .dataset), así evitamos meter texto libre del guion
+    // dentro de un onclick="..." con comillas/backticks sin controlar.
+    function copyTextToClipboard(btnEl){
+      const text = btnEl.dataset.copy || '';
+      const original = btnEl.textContent;
+      const flash = (label) => { btnEl.textContent = label; setTimeout(() => { btnEl.textContent = original; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => flash('✅ Copiado')).catch(() => flash('No se pudo copiar'));
+      } else {
+        flash('No se pudo copiar');
+      }
+    }
+
+    // Backlog #15/#16 — descripción de YouTube y tags sugeridos,
+    // generados a partir de los datos que el guion ya tiene (título,
+    // resumen, saga/tipo si existen) — nunca inventa nada que no esté
+    // ya en el propio contenido.
+    function humanizeTag(str){
+      if (!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
+    }
+    function generateYoutubeDescription(item){
+      const lines = [item.title, ''];
+      if (item.summary) lines.push(item.summary, '');
+      lines.push(
+        '🦎 Más contenido en CHARKUMA — gaming, cultura geek y creatividad.',
+        '📺 Suscríbete si te ha gustado.',
+        ''
+      );
+      lines.push(suggestedTagsFor(item).map(t => '#' + t.replace(/\s+/g, '')).join(' '));
+      return lines.join('\n');
+    }
+    const TAG_STOPWORDS = new Set(['de','la','el','en','un','una','los','las','y','o','del','al','que','con','por','para','a','tu','mi','su','no','si','sí','es','son','lo','se','más','como','sin','este','esta','entre']);
+    function suggestedTagsFor(item){
+      const words = `${item.title} ${item.summary || ''}`
+        .toLowerCase()
+        .replace(/[^a-záéíóúñü0-9\s]/gi, ' ')
+        .split(/\s+/)
+        .filter(w => w.length > 3 && !TAG_STOPWORDS.has(w));
+      const freq = {};
+      words.forEach(w => { freq[w] = (freq[w] || 0) + 1; });
+      const topWords = Object.keys(freq).sort((a, b) => freq[b] - freq[a]).slice(0, 6);
+      const tags = new Set(['charkuma']);
+      if (item.saga) tags.add(item.saga);
+      if (item.type) tags.add(item.type);
+      topWords.forEach(w => tags.add(w));
+      return [...tags].slice(0, 10);
+    }
+    function youtubeMetaHTML(item, rid){
+      const desc = generateYoutubeDescription(item);
+      const tags = suggestedTagsFor(item);
+      return `
+        <details class="recording-checklist">
+          <summary>📋 Descripción y tags sugeridos para YouTube</summary>
+          <div class="recording-checklist-body">
+            <textarea readonly rows="6" style="width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:10px;padding:10px;color:var(--text);font-size:12px;font-family:inherit;resize:vertical" onclick="this.select()">${escapeAttr(desc)}</textarea>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+              <button type="button" class="btn btn-secondary" data-copy="${escapeAttr(desc)}" onclick="copyTextToClipboard(this)">📋 Copiar descripción</button>
+              <button type="button" class="btn btn-secondary" data-copy="${escapeAttr(tags.map(t => '#' + t).join(' '))}" onclick="copyTextToClipboard(this)">🏷️ Copiar tags</button>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              ${tags.map(t => `<span class="type-chip chip-neutral">#${humanizeTag(t)}</span>`).join('')}
+            </div>
+          </div>
+        </details>`;
+    }
+
     // Backlog #12 — checklist de grabación integrada en la propia página
     // del guion (dentro de .review-controls, inyectado por
     // updateViewChrome en cada navegación — ver reviewControlsHTML).
@@ -2304,6 +2373,7 @@
             → Siguiente
           </button>
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
+          ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
         </div>`;
     }
 
