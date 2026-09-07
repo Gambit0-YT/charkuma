@@ -3089,6 +3089,7 @@
     function saveRanking(ranking){
       try { localStorage.setItem(RANKING_KEY, JSON.stringify(ranking)); }
       catch(e) { /* seguimos sin persistir */ }
+      if (!applyingRemoteRankingScheduleUpdate && typeof pushRankingScheduleState === 'function') pushRankingScheduleState();
     }
 
     // Escapa texto para meterlo dentro de un atributo HTML entre
@@ -3452,6 +3453,7 @@
     function saveRuletaState(){
       try { localStorage.setItem(RULETA_STORAGE_KEY, JSON.stringify(ruletaState)); }
       catch (e) { /* localStorage no disponible */ }
+      if (!applyingRemoteRankingScheduleUpdate && typeof pushRankingScheduleState === 'function') pushRankingScheduleState();
     }
 
     function loadRuletaState(){
@@ -5249,6 +5251,52 @@
     function saveScheduleState(state){
       try { localStorage.setItem(SCHEDULE_STATE_KEY, JSON.stringify(state)); }
       catch (e) { /* seguimos sin guardar */ }
+      if (!applyingRemoteRankingScheduleUpdate && typeof pushRankingScheduleState === 'function') pushRankingScheduleState();
+    }
+
+    // Backlog #43 — migrar a Firestore el progreso de la Ruleta del 11
+    // (partida en curso) y del calendario (fechas ya asignadas), junto
+    // con el ranking friki (#no numerado, pero vive en el mismo lote de
+    // "progreso" liviano) — mismo patrón de documento único que #41/#42.
+    let applyingRemoteRankingScheduleUpdate = false;
+    function pushRankingScheduleState(){
+      if (!firestoreReady()) return;
+      const { doc, setDoc } = window.firestoreFns;
+      const data = {
+        ranking: loadRanking(),
+        ruletaState: loadRuletaState(),
+        scheduleState: loadScheduleState(),
+        updatedAt: Date.now()
+      };
+      setDoc(doc(window.firestoreDB, 'progress', 'state'), data).catch(() => {
+        // Sin conexión ahora mismo: se queda en local, sin cola de reintentos.
+      });
+    }
+    let rankingScheduleRealtimeStarted = false;
+    async function initRankingScheduleRealtime(){
+      if (!firestoreReady() || rankingScheduleRealtimeStarted) return;
+      rankingScheduleRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'progress', 'state');
+      onSnapshot(ref, (snap) => {
+        if (!snap.exists()) { pushRankingScheduleState(); return; }
+        const data = snap.data() || {};
+        applyingRemoteRankingScheduleUpdate = true;
+        try {
+          if (data.ranking && typeof data.ranking === 'object') localStorage.setItem(RANKING_KEY, JSON.stringify(data.ranking));
+          if (data.ruletaState && typeof data.ruletaState === 'object') {
+            localStorage.setItem(RULETA_STORAGE_KEY, JSON.stringify(data.ruletaState));
+            ruletaState = data.ruletaState;
+          }
+          if (data.scheduleState && typeof data.scheduleState === 'object') localStorage.setItem(SCHEDULE_STATE_KEY, JSON.stringify(data.scheduleState));
+        } catch (e) { /* localStorage no disponible: seguimos sin aplicarlo local */ }
+        applyingRemoteRankingScheduleUpdate = false;
+        if (document.getElementById('view-rincon')?.classList.contains('active') && typeof renderRankingTop8 === 'function') renderRankingTop8();
+        if (document.getElementById('view-ruleta11')?.classList.contains('active') && typeof renderRuleta === 'function') renderRuleta();
+        if (document.getElementById('view-calendario')?.classList.contains('active') && typeof renderCalendarView === 'function') renderCalendarView();
+      }, () => {
+        // onSnapshot en modo error (reglas, red...) — seguimos en local.
+      });
     }
 
     // items: array de objetos cualquiera. idFn(item) → id estable para
@@ -6679,6 +6727,7 @@
     initGameMatchRealtime();
     initIdeaBanksRealtime();
     initContentReviewRealtime();
+    initRankingScheduleRealtime();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
