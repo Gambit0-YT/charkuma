@@ -177,6 +177,16 @@
     .konami-toast[hidden]{display:none}
     .konami-toast-link{font-size:12px;letter-spacing:normal;text-transform:none;color:var(--orange2);cursor:pointer;font-weight:800}
     .konami-toast-link:hover{text-decoration:underline}
+    /* Backlog #48 */
+    .cross-tab-banner{
+      position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:250;
+      display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;
+      background:#09070f;border:1px solid var(--purple);color:var(--text);font-size:13px;font-weight:700;
+      box-shadow:0 12px 30px rgba(0,0,0,.5)
+    }
+    .cross-tab-banner[hidden]{display:none}
+    .cross-tab-banner button{padding:6px 12px;border-radius:8px;border:1px solid var(--purple);background:rgba(139,92,246,.16);color:var(--text);font-weight:800;cursor:pointer;font-family:inherit;font-size:12px}
+    .cross-tab-dismiss{background:none!important;border:none!important;padding:0 4px!important;color:var(--muted)!important;font-size:14px!important}
     /* Backlog #140 — mini-juego de memoria, escondido tras el Konami code */
     .memory-game-status{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;font-weight:800;color:var(--muted)}
     .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:420px;margin:0 auto}
@@ -1427,6 +1437,16 @@
 
   <!-- Backlog #134 — easter egg nostálgico: código Konami (↑↑↓↓←→←→BA),
        clásico de toda la vida para quien creció con mandos de verdad. -->
+  <!-- Backlog #48 — aviso de datos distintos entre pestañas: la mayoría
+       del estado ya sincroniza solo vía Firestore en tiempo real, pero
+       lo que sigue siendo solo local (preferencias sueltas) puede
+       quedar desactualizado si tienes dos pestañas abiertas a la vez. -->
+  <div class="cross-tab-banner" id="crossTabBanner" hidden>
+    🔄 Los datos han cambiado en otra pestaña de esta web.
+    <button type="button" onclick="location.reload()">Recargar</button>
+    <button type="button" class="cross-tab-dismiss" onclick="document.getElementById('crossTabBanner').hidden=true" aria-label="Descartar aviso">✕</button>
+  </div>
+
   <div class="konami-toast" id="konamiToast" hidden aria-live="assertive">
     🎮 CÓDIGO KONAMI · +30 VIDAS
     <a href="javascript:void(0)" onclick="showView('mini-juego')" class="konami-toast-link">Jugar a algo con esas vidas →</a>

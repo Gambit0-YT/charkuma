@@ -663,6 +663,28 @@
         : `<p class="yt-empty">Todavía no hay ninguna notificación registrada.</p>`;
     }
 
+    // Backlog #48 — aviso de datos distintos entre pestañas: casi todo
+    // el estado ya se sincroniza solo en tiempo real vía Firestore (esa
+    // pestaña se actualiza sola, sin hacer falta recargar — avisar ahí
+    // sería ruido, no ayuda). Lo que queda son preferencias puramente
+    // locales por navegador (no por dispositivo/cuenta): modo compacto
+    // de Control Maestro, Retro CRT, sonido 8-bit, silenciar tipos de
+    // notificación y leído/no leído de notificaciones. Si cambian desde
+    // OTRA pestaña de este mismo navegador, el evento `storage` lo nota
+    // y avisa aquí — nunca se dispara por un cambio hecho en la propia
+    // pestaña actual (así es como funciona `storage` de por sí).
+    // Construido dentro del listener (no arriba, a nivel de script) a
+    // propósito: MC_COMPACT_KEY se declara más abajo en el archivo, y un
+    // evento `storage` real solo puede llegar mucho después de que todo
+    // el script haya terminado de ejecutarse — para entonces ya existen
+    // todas estas constantes, así que evaluarlas aquí dentro es seguro.
+    window.addEventListener('storage', (e) => {
+      const watchKeys = [MC_COMPACT_KEY, CRT_MODE_KEY, EIGHT_BIT_SOUND_KEY, NOTIF_MUTED_KEY, NOTIF_READ_KEY];
+      if (!watchKeys.includes(e.key)) return;
+      const banner = document.getElementById('crossTabBanner');
+      if (banner) banner.hidden = false;
+    });
+
     function toggleNotifPanel(force){
       const panel = document.getElementById('notifPanel');
       if (!panel) return;
