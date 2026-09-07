@@ -2959,6 +2959,22 @@
         summary: "El actor que fue Iron Man más de una década ahora es Doctor Doom — por qué el escepticismo inicial se está convirtiendo en curiosidad real.",
         thumbnail: "🎭",
         internalView: "rf-opinion-doom-rdj", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "curiosidad-0" del banco secreto ("10 datos curiosos sobre
+        // el origen de un personaje que está de actualidad") — Doctor Doom
+        // elegido por ser el villano del momento (ver rf-opinion-doom-rdj).
+        // Datos reales verificados con WebSearch 2026-09-08: creado por
+        // Stan Lee y Jack Kirby (Los 4 Fantásticos #5, 1962), origen en
+        // Latveria, pacto de su madre con Mephisto, cicatrices por un
+        // experimento propio en la universidad.
+        title: "Lo que no sabías sobre el origen real de Doctor Doom",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "Magia, un pacto con un demonio y un error propio que decidió ignorar — el origen real del villano más comentado de Marvel ahora mismo.",
+        thumbnail: "🪄",
+        internalView: "rf-curiosidades-doom", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3328,7 +3344,8 @@
       'rf-opinion-deep': '1lt878iZusvNK5lb5jSeJa7hC-liQNvDV',
       'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy',
       'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6',
-      'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4'
+      'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4',
+      'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
