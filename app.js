@@ -2282,6 +2282,42 @@
         </label>`;
     }
 
+    // Backlog #34 — coste de producción estimado por idea aprobada:
+    // igual que la prioridad (#25), una estimación manual del propio
+    // usuario en tiempo/esfuerzo (no dinero, ya que no hay costes reales
+    // que calcular aquí) — Claude solo guarda y muestra lo que él elija.
+    const CONTENT_COST_KEY = 'charkuma_content_cost';
+    const COST_LABELS = { bajo: '🟢 Bajo (una tarde)', medio: '🟡 Medio (varios días)', alto: '🔴 Alto (una semana o más)' };
+    function loadContentCostMap(){
+      try { return JSON.parse(localStorage.getItem(CONTENT_COST_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveContentCostMap(map){
+      try { localStorage.setItem(CONTENT_COST_KEY, JSON.stringify(map)); }
+      catch (e) { /* seguimos sin guardar, sin romper nada */ }
+    }
+    function getContentCost(rid){
+      return loadContentCostMap()[rid] || '';
+    }
+    function setContentCost(rid, cost){
+      const map = loadContentCostMap();
+      if (cost) map[rid] = cost; else delete map[rid];
+      saveContentCostMap(map);
+      refreshReviewControls();
+      if (typeof renderMasterControlList === 'function') renderMasterControlList();
+    }
+    function costControlHTML(rid){
+      const current = getContentCost(rid);
+      const options = ['', 'bajo', 'medio', 'alto'].map(c =>
+        `<option value="${c}" ${current === c ? 'selected' : ''}>${c ? COST_LABELS[c] : 'Sin estimar'}</option>`
+      ).join('');
+      return `
+        <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);flex-basis:100%">
+          Coste de producción:
+          <select onchange="setContentCost('${rid}', this.value)" style="padding:6px 10px;border-radius:8px;border:1px solid var(--line2);background:var(--panel);color:var(--text);font-family:inherit">${options}</select>
+        </label>`;
+    }
+
     // Backlog #17 — estimación de duración por beat: lee la narración
     // real ("🎙️ Off:") ya escrita en el guion de la propia página (DOM,
     // no un campo aparte — los guiones de los 6 bancos viven como HTML
@@ -2543,6 +2579,7 @@
             → Siguiente
           </button>
           ${approved ? priorityControlHTML(rid) : ''}
+          ${approved ? costControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
           ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
@@ -5288,7 +5325,7 @@
       const items = buildSiteIndex().map(i => ({
         title: i.title, summary: i.summary, section: i.section, sectionEmoji: i.sectionEmoji,
         emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto',
-        priority: getContentPriority(i.view)
+        priority: getContentPriority(i.view), cost: getContentCost(i.view)
       }));
 
       // Fusionamos siempre con las ideas "extra" (importadas por JSON o
@@ -5576,7 +5613,7 @@
           const cards = colItems.map(item => `
             <div class="kanban-card">
               <a href="javascript:void(0)" onclick="showView('${item.view}')">${escapeAttr(item.title)} ↗</a>
-              <span class="kanban-section">${item.sectionEmoji} ${escapeAttr(item.section)}${item.priority ? ' · ' + PRIORITY_LABELS[item.priority] : ''}</span>
+              <span class="kanban-section">${item.sectionEmoji} ${escapeAttr(item.section)}${item.priority ? ' · ' + PRIORITY_LABELS[item.priority] : ''}${item.cost ? ' · ' + COST_LABELS[item.cost] : ''}</span>
             </div>`).join('');
           return `
             <div class="kanban-column">
@@ -5605,6 +5642,7 @@
                 <span class="type-chip chip-neutral">📅 ${dateLabel}</span>
                 ${statusChip}
                 ${item.priority ? `<span class="type-chip chip-neutral">${PRIORITY_LABELS[item.priority]}</span>` : ''}
+                ${item.cost ? `<span class="type-chip chip-neutral">${COST_LABELS[item.cost]}</span>` : ''}
               </div>
               <h4>${titleLink}</h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}
