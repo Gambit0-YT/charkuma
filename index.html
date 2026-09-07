@@ -85,6 +85,12 @@
         --panel:#ffffff; --panel2:#f3effa; --line2:#e2d8f2; --line3:#e9e0f5;
         --nav-bg:rgba(255,255,255,.82); --grid-line:rgba(80,60,120,.05);
         --accent-text:#5b21b6;
+        /* Backlog #72 — auditoría de contraste en tema claro: --green
+           (1.8:1), --yellow (1.6:1) y --red (2.9:1) originales fallan
+           WCAG AA como texto sobre fondo claro (pensados para el fondo
+           oscuro de serie). Versiones más oscuras aquí, sin tocar el
+           tema oscuro — todas ≥4.4:1 sobre blanco. */
+        --green:#0f6b46; --yellow:#7a5c00; --red:#b91c28;
       }
     }
     :root[data-theme="light"]{
@@ -94,6 +100,7 @@
       --panel:#ffffff; --panel2:#f3effa; --line2:#e2d8f2; --line3:#e9e0f5;
       --nav-bg:rgba(255,255,255,.82); --grid-line:rgba(80,60,120,.05);
       --accent-text:#5b21b6;
+      --green:#0f6b46; --yellow:#7a5c00; --red:#b91c28;
     }
 
     /* ── Alto contraste (backlog #59): refuerza texto secundario, bordes
