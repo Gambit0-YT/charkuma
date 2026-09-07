@@ -3038,6 +3038,18 @@
       return `<span class="type-chip chip-green" title="Cambió de estado hace menos de 24h">🆕 Recién actualizado</span>`;
     }
 
+    // Backlog #101 — archivo de publicados filtrable por año/mes: usa la
+    // fecha REAL en la que algo se marcó "📤 Marcado como publicado" en
+    // el historial de #19 (la última vez, por si se quitó y se puso otra
+    // vez), no `item.date` — esa suele ser la fecha de creación de la
+    // idea, no la de publicación real.
+    function getPublishedDate(rid){
+      const entries = loadContentHistory()[rid] || [];
+      const publishEntries = entries.filter(e => e.text === '📤 Marcado como publicado');
+      if (!publishEntries.length) return null;
+      return publishEntries[publishEntries.length - 1].ts;
+    }
+
     function contentHistoryHTML(rid){
       const entries = (loadContentHistory()[rid] || []).slice().reverse();
       if (!entries.length) return '';
@@ -6499,6 +6511,7 @@
       const query = document.getElementById('masterControlSearch').value.trim().toLowerCase();
       const sectionFilter = sectionSelect.value;
       const statusFilter = document.getElementById('masterControlStatus').value;
+      const monthFilter = document.getElementById('masterControlPublishedMonth').value;
       const sortBy = document.getElementById('masterControlSort').value;
 
       const all = buildMasterControlIndex();
@@ -6511,11 +6524,35 @@
         });
       }
 
+      // Backlog #101 — opciones de mes reales, derivadas de fechas de
+      // publicación reales (getPublishedDate), no inventadas ni fijas.
+      const monthSelect = document.getElementById('masterControlPublishedMonth');
+      if (monthSelect.options.length <= 1) {
+        const MONTH_NAMES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+        const months = new Set();
+        all.forEach(i => {
+          const ts = getPublishedDate(i.view);
+          if (ts) months.add(`${new Date(ts).getFullYear()}-${String(new Date(ts).getMonth() + 1).padStart(2, '0')}`);
+        });
+        [...months].sort().reverse().forEach(key => {
+          const [y, m] = key.split('-');
+          const opt = document.createElement('option');
+          opt.value = key; opt.textContent = `${MONTH_NAMES[Number(m) - 1]} ${y}`;
+          monthSelect.appendChild(opt);
+        });
+      }
+
       let items = all.filter(i => {
         if (sectionFilter && i.section !== sectionFilter) return false;
         if (statusFilter === 'en-curso') {
           if (!['aprobado', ...CONTENT_STAGE_ORDER].includes(i.status)) return false;
         } else if (statusFilter && i.status !== statusFilter) return false;
+        if (monthFilter) {
+          const ts = getPublishedDate(i.view);
+          if (!ts) return false;
+          const key = `${new Date(ts).getFullYear()}-${String(new Date(ts).getMonth() + 1).padStart(2, '0')}`;
+          if (key !== monthFilter) return false;
+        }
         if (query && !i.title.toLowerCase().includes(query)) return false;
         return true;
       });
@@ -6584,6 +6621,7 @@
     document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
     document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlStatus').addEventListener('change', renderMasterControlList);
+    document.getElementById('masterControlPublishedMonth').addEventListener('change', renderMasterControlList);
 
     // ──────────────────────────────────────────────────────────
     // BANDEJA DE GUIONES: todo lo aprobado o ya "creando-guion" de
