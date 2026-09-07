@@ -7332,6 +7332,20 @@
     initUIPrefsRealtime();
     maybeRunWeeklyBackup();
 
+    // Backlog #79 — manejo básico de "sin conexión" (ver sw.js: estrategia
+    // "network-first", nunca sirve una versión vieja mientras haya red).
+    // Registro fuera del hilo de arranque (no bloquea nada) y con su
+    // propio try/catch — si el navegador no soporta service workers, o
+    // el registro falla, la web sigue funcionando exactamente igual que
+    // hasta ahora, sin este extra.
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {
+          // Sin service worker disponible ahora mismo: seguimos sin él.
+        });
+      });
+    }
+
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
     // (un vídeo, una entrada, un juego...) sale primero.
