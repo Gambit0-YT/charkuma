@@ -1250,8 +1250,25 @@
     body.sidebars-hidden .sidebar-stack-left{display:none!important}
     #navSidebarsBtn.is-active{background:rgba(139,92,246,.16);border-color:var(--purple)}
 
+    /* Backlog #89 — menú hamburguesa en móvil: antes de esto, por
+       debajo de 900px los enlaces de cabecera (Proyectos, Laboratorio,
+       Games, Redes Sociales, Sobre mí) desaparecían del todo, sin
+       ningún sustituto — no había forma de llegar a esas secciones
+       desde la cabecera en el móvil. El botón ☰ solo existe/se ve por
+       debajo de ese ancho; en escritorio sigue exactamente igual que
+       siempre (nav-links en fila, sin botón, sin JS de más). */
+    .nav-hamburger-btn{display:none}
     @media (max-width:900px){
-      .nav-links{display:none}
+      .nav-hamburger-btn{display:grid}
+      .nav-links{
+        display:none;position:absolute;top:100%;left:0;right:0;
+        flex-direction:column;gap:0;background:var(--nav-bg);
+        border-bottom:1px solid var(--line);padding:6px 0;
+        backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)
+      }
+      .nav-links.mobile-open{display:flex}
+      .nav-links a{padding:14px 24px;border-bottom:1px solid var(--line3)}
+      .nav-links a:last-child{border-bottom:none}
       .hero-grid,.about-grid,.roulette,.platforms{grid-template-columns:1fr}
       .hero{padding-top:56px}
       .hero-visual{min-height:440px}
@@ -1306,14 +1323,15 @@
         <div class="brand-badge">🦎</div>
         <span>CHAR<strong>KUMA</strong></span>
       </a>
-      <div class="nav-links">
-        <a href="javascript:void(0)" onclick="showView('mis-proyectos')">Proyectos</a>
-        <a href="javascript:void(0)" onclick="showView('charkumalab')">Laboratorio</a>
-        <a href="javascript:void(0)" onclick="showView('helquidgames')">Games</a>
-        <a href="javascript:void(0)" onclick="showView('redes')">Redes Sociales</a>
-        <a href="javascript:void(0)" onclick="goToIdentity()">Sobre mí</a>
+      <div class="nav-links" id="navLinks">
+        <a href="javascript:void(0)" onclick="showView('mis-proyectos'); closeMobileMenu()">Proyectos</a>
+        <a href="javascript:void(0)" onclick="showView('charkumalab'); closeMobileMenu()">Laboratorio</a>
+        <a href="javascript:void(0)" onclick="showView('helquidgames'); closeMobileMenu()">Games</a>
+        <a href="javascript:void(0)" onclick="showView('redes'); closeMobileMenu()">Redes Sociales</a>
+        <a href="javascript:void(0)" onclick="goToIdentity(); closeMobileMenu()">Sobre mí</a>
       </div>
       <div class="nav-tools">
+        <button type="button" class="nav-icon-btn nav-hamburger-btn" id="navHamburgerBtn" onclick="toggleMobileMenu()" title="Menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
         <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
         <div style="position:relative" id="notifWrap">
           <button type="button" class="nav-icon-btn" id="navNotifBtn" onclick="toggleNotifPanel()" ondblclick="openNotifInbox()" title="Notificaciones (doble clic: abrir bandeja completa)" aria-label="Notificaciones">🔔</button>

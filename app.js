@@ -366,6 +366,29 @@
       panel.hidden = !panel.hidden;
     }
 
+    // Backlog #89 — menú hamburguesa en móvil: por debajo de 900px los
+    // enlaces de la cabecera se ocultaban del todo sin ningún sustituto.
+    function toggleMobileMenu(force){
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('navHamburgerBtn');
+      if (!links || !btn) return;
+      const open = typeof force === 'boolean' ? force : !links.classList.contains('mobile-open');
+      links.classList.toggle('mobile-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? '✕' : '☰';
+    }
+    function closeMobileMenu(){ toggleMobileMenu(false); }
+    // Cerrar al pulsar fuera — un clic en cualquier enlace ya lo cierra
+    // él mismo (closeMobileMenu en su onclick); Escape se gestiona en el
+    // atajo de teclado global de más abajo, junto al resto de paneles.
+    document.addEventListener('click', (e) => {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('navHamburgerBtn');
+      if (!links || !links.classList.contains('mobile-open')) return;
+      if (links.contains(e.target) || (btn && btn.contains(e.target))) return;
+      closeMobileMenu();
+    });
+
     // ──────────────────────────────────────────────────────────
     // CAMPANA DE NOTIFICACIONES: mini resumen de recordatorios,
     // calculado a partir de los datos reales que ya lleva la web
@@ -578,6 +601,8 @@
         e.preventDefault();
         openSearchView();
       } else if (e.key === 'Escape') {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks && navLinks.classList.contains('mobile-open')) { closeMobileMenu(); return; }
         const settingsPanel = document.getElementById('settingsPanel');
         if (settingsPanel && !settingsPanel.hidden) { settingsPanel.hidden = true; return; }
         const notifPanel = document.getElementById('notifPanel');
