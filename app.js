@@ -1212,9 +1212,14 @@
       try { return JSON.parse(localStorage.getItem(IDEA_BANKS_KEY)) || {}; }
       catch(e){ return {}; }
     }
+    // Bandera para no reenviar a Firestore lo que acabamos de recibir DE
+    // Firestore (evitaría un eco de escritura inofensivo pero inútil) —
+    // ver initIdeaBanksRealtime más abajo.
+    let applyingRemoteIdeaBanksUpdate = false;
     function saveIdeaBanks(banks){
       try { localStorage.setItem(IDEA_BANKS_KEY, JSON.stringify(banks)); }
       catch(e){ /* localStorage no disponible: seguimos sin persistir */ }
+      if (!applyingRemoteIdeaBanksUpdate && typeof pushIdeaBanksState === 'function') pushIdeaBanksState();
     }
     function setIdeaState(bank, id, patch){
       const banks = loadIdeaBanks();
@@ -1270,6 +1275,7 @@
     function saveBankExtraIdeas(bank, data){
       try { localStorage.setItem(BANK_EXTRA_IDEAS_PREFIX + bank, JSON.stringify(data)); }
       catch (e) { /* seguimos sin guardarlo, sin romper nada */ }
+      if (!applyingRemoteIdeaBanksUpdate && typeof pushIdeaBanksState === 'function') pushIdeaBanksState();
     }
     function getBankIdeasMerged(bank, baseIdeas){
       const extra = loadBankExtraIdeas(bank);
@@ -1780,6 +1786,65 @@
         try { localStorage.setItem(CATALOG_SEEDED_KEY, '1'); } catch (e) {}
         if (document.getElementById('view-helquid-game-match')?.classList.contains('active') && typeof renderSwipeDeck === 'function') renderSwipeDeck();
         if (document.getElementById('view-retro-secret')?.classList.contains('active') && typeof renderSecret === 'function') renderSecret();
+      }, () => {
+        // onSnapshot en modo error (reglas, red...) — seguimos en local.
+      });
+    }
+
+    // Backlog #41 — migrar los bancos de ideas a Firestore: mismo
+    // patrón "un documento compartido" que Game Match/notas, con
+    // "el último que escribe gana" — sin fusión de conflictos, a
+    // propósito, igual que el resto de esta web. Cubre el estado de
+    // cada idea (hecha/descartada/motivo, #29/#38) y las ideas "extra"
+    // añadidas a mano, generadas o combinadas (#33) en los 6 bancos.
+    const EXTRA_IDEAS_BANKS = ['helquid', 'lab', 'ia', 'creator', 'hecho'];
+    function pushIdeaBanksState(){
+      if (!firestoreReady()) return;
+      const { doc, setDoc } = window.firestoreFns;
+      const extraIdeas = {};
+      EXTRA_IDEAS_BANKS.forEach(bank => { extraIdeas[bank] = loadBankExtraIdeas(bank); });
+      const data = {
+        ideaBanksState: loadIdeaBanks(),
+        extraIdeas,
+        rinconExtraIdeas: loadRinconExtraIdeas(),
+        updatedAt: Date.now()
+      };
+      setDoc(doc(window.firestoreDB, 'ideaBanks', 'state'), data).catch(() => {
+        // Sin conexión ahora mismo: se queda en local, sin cola de reintentos.
+      });
+    }
+
+    let ideaBanksRealtimeStarted = false;
+    async function initIdeaBanksRealtime(){
+      if (!firestoreReady() || ideaBanksRealtimeStarted) return;
+      ideaBanksRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'ideaBanks', 'state');
+      onSnapshot(ref, (snap) => {
+        if (!snap.exists()) {
+          // Nadie ha tocado nada desde ningún dispositivo todavía —
+          // subimos el estado local (vacío o lo que sea) como primera
+          // versión compartida, igual que hace Game Match con el catálogo.
+          pushIdeaBanksState();
+          return;
+        }
+        const data = snap.data() || {};
+        applyingRemoteIdeaBanksUpdate = true;
+        try {
+          if (data.ideaBanksState && typeof data.ideaBanksState === 'object') saveIdeaBanks(data.ideaBanksState);
+          if (data.extraIdeas && typeof data.extraIdeas === 'object') {
+            EXTRA_IDEAS_BANKS.forEach(bank => {
+              if (data.extraIdeas[bank]) saveBankExtraIdeas(bank, data.extraIdeas[bank]);
+            });
+          }
+          if (data.rinconExtraIdeas && typeof data.rinconExtraIdeas === 'object') saveRinconExtraIdeas(data.rinconExtraIdeas);
+        } finally {
+          applyingRemoteIdeaBanksUpdate = false;
+        }
+        // Repintar cualquier banco/vista que esté abierta ahora mismo.
+        Object.values(IDEA_BANK_RENDERERS).forEach(fn => fn());
+        if (typeof renderRinconSecret === 'function') renderRinconSecret();
+        if (document.getElementById('view-idea-swipe')?.classList.contains('active') && typeof renderIdeaSwipeStage === 'function') renderIdeaSwipeStage();
       }, () => {
         // onSnapshot en modo error (reglas, red...) — seguimos en local.
       });
@@ -3140,6 +3205,7 @@
     function saveRinconExtraIdeas(data){
       try { localStorage.setItem(RINCON_EXTRA_IDEAS_KEY, JSON.stringify(data)); }
       catch (e) { /* seguimos sin guardarlo, sin romper nada */ }
+      if (!applyingRemoteIdeaBanksUpdate && typeof pushIdeaBanksState === 'function') pushIdeaBanksState();
     }
     function getRinconIdeasMerged(){
       const extra = loadRinconExtraIdeas();
@@ -6551,6 +6617,7 @@
 
     initNotesRealtime();
     initGameMatchRealtime();
+    initIdeaBanksRealtime();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
