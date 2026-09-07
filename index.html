@@ -652,6 +652,17 @@
     .achievement-badge.unlocked .achievement-icon{filter:none;opacity:1}
     .achievement-badge span.achievement-label{display:block;font-size:11px;color:var(--muted);font-weight:700;line-height:1.4}
     .achievement-badge.unlocked span.achievement-label{color:var(--text)}
+    /* Backlog #137 — modo visual "retro CRT" opcional: líneas de barrido
+       + viñeta sutil por encima de todo, sin tocar el layout (capa fija,
+       pointer-events:none). Desactivado por defecto. */
+    body.crt-mode::after{
+      content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;
+      background:
+        repeating-linear-gradient(rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.12) 3px),
+        radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(0,0,0,.35) 100%);
+      mix-blend-mode:multiply;
+    }
+    @media (prefers-reduced-motion:reduce){ body.crt-mode::after{opacity:.7} }
     .socials{display:flex;gap:10px;flex-wrap:wrap}
     .social{
       padding:9px 12px;border-radius:11px;border:1px solid #2e2240;background:#110c18;
@@ -1507,6 +1518,26 @@
             <li><strong>Privadas, solo en local (<code>.secrets/</code>, nunca en el repo):</strong> clave de Steam Web API (va contra sus normas de uso publicarla) y el <em>refresh token</em> de YouTube Analytics OAuth (da acceso a datos privados del canal).</li>
             <li><strong>Conectores de Claude (VidIQ, Google Drive):</strong> autorizados a nivel de cuenta de Claude, no viven en el código de la web en ningún momento.</li>
           </ul>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🖥️ Modo Retro CRT</strong>
+            <p>Líneas de barrido y viñeta sutil, como una tele vieja. Solo estético.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="crtModeToggle" onchange="setCrtMode(this.checked)" aria-label="Activar modo Retro CRT">
+            Activar
+          </label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🔊 Sonidos 8-bit al navegar</strong>
+            <p>Un pequeño "blip" retro cada vez que cambias de página.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="eightBitSoundToggle" onchange="setEightBitSounds(this.checked)" aria-label="Activar sonidos 8-bit al navegar">
+            Activar
+          </label>
         </div>
         <div class="settings-row settings-row-stack">
           <div>

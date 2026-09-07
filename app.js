@@ -816,6 +816,48 @@
       return sharedAudioCtx;
     }
 
+    // Backlog #137/#138 — modo Retro CRT (visual) y sonidos 8-bit al
+    // navegar (audio): dos preferencias puramente estéticas, separadas
+    // a propósito (a quien le guste lo visual no tiene por qué querer
+    // sonido, y viceversa). Preferencia simple por navegador.
+    const CRT_MODE_KEY = 'charkuma_crt_mode';
+    const EIGHT_BIT_SOUND_KEY = 'charkuma_eight_bit_sound';
+    function setCrtMode(on){
+      document.body.classList.toggle('crt-mode', on);
+      try { localStorage.setItem(CRT_MODE_KEY, on ? '1' : '0'); } catch (e) {}
+    }
+    function setEightBitSounds(on){
+      try { localStorage.setItem(EIGHT_BIT_SOUND_KEY, on ? '1' : '0'); } catch (e) {}
+    }
+    function playNavBlip(){
+      let on = false;
+      try { on = localStorage.getItem(EIGHT_BIT_SOUND_KEY) === '1'; } catch (e) {}
+      if (!on) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(520, t);
+      osc.frequency.exponentialRampToValueAtTime(880, t + 0.06);
+      gain.gain.setValueAtTime(0.07, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.09);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.1);
+    }
+    (function initCrtAndSoundPrefs(){
+      let crtOn = false, soundOn = false;
+      try { crtOn = localStorage.getItem(CRT_MODE_KEY) === '1'; } catch (e) {}
+      try { soundOn = localStorage.getItem(EIGHT_BIT_SOUND_KEY) === '1'; } catch (e) {}
+      document.body.classList.toggle('crt-mode', crtOn);
+      const crtCheckbox = document.getElementById('crtModeToggle');
+      if (crtCheckbox) crtCheckbox.checked = crtOn;
+      const soundCheckbox = document.getElementById('eightBitSoundToggle');
+      if (soundCheckbox) soundCheckbox.checked = soundOn;
+    })();
+
     function playRouletteSound(durationMs){
       const ctx = getAudioCtx();
       if (!ctx) return; // navegador sin soporte de audio: seguimos sin sonido, sin romper nada
@@ -856,6 +898,7 @@
     // ──────────────────────────────────────────────────────────
     function showView(id, opts){
       opts = opts || {};
+      playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
       document.querySelectorAll('.app-view').forEach(v => {
         v.classList.remove('active');
         v.classList.remove('view-visible');
