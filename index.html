@@ -1128,6 +1128,26 @@
     .twitch-live-badge{display:inline-block;margin:2px 0 10px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--line)}
     .twitch-live-badge[hidden]{display:none}
     .twitch-live-badge.is-live{background:rgba(255,95,109,.16);color:var(--red);border-color:rgba(255,95,109,.4)}
+    /* Backlog #61 — skeleton loaders reutilizables mientras se espera a
+       datos externos de verdad (YouTube Data API, TMDB...) en vez del
+       texto plano "Cargando..." o un hueco en blanco. Un solo pulso de
+       brillo entre --panel2 y --line2 (funciona en los dos temas sin
+       redefinir nada aparte); respeta "movimiento reducido". */
+    @keyframes skeletonPulse{0%,100%{opacity:.55}50%{opacity:1}}
+    .skeleton-block{background:var(--panel2);border:1px solid var(--line3);border-radius:8px;animation:skeletonPulse 1.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){ .skeleton-block{animation:none;opacity:.75} }
+    .skeleton-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line3)}
+    .skeleton-video:first-of-type{border-top:none;padding-top:0}
+    .skeleton-video .skeleton-block:first-child{width:96px;height:54px;flex:none}
+    .skeleton-video-lines{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:2px}
+    .skeleton-video-lines .skeleton-block{height:11px}
+    .skeleton-video-lines .skeleton-block:nth-child(2){width:70%}
+    .skeleton-card{display:flex;gap:16px;padding:16px;border-radius:16px;background:var(--panel);border:1px solid var(--line3)}
+    .skeleton-card .skeleton-block:first-child{width:72px;height:72px;border-radius:14px;flex:none}
+    .skeleton-card-lines{flex:1;display:flex;flex-direction:column;gap:9px;padding-top:4px}
+    .skeleton-card-lines .skeleton-block{height:12px}
+    .skeleton-card-lines .skeleton-block:first-child{width:40%;height:18px}
+    .skeleton-card-lines .skeleton-block:last-child{width:85%}
     .yt-video{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line3)}
     .yt-video:first-of-type{border-top:none;padding-top:0}
     .yt-thumb{width:96px;height:54px;border-radius:8px;object-fit:cover;flex:none;background:var(--panel)}
@@ -1385,6 +1405,9 @@
       <h4 id="ytSidebarTitle">▶️ Últimos vídeos</h4>
       <p class="yt-sub-count" id="ytSubCount" hidden></p>
       <div id="ytVideoList">
+        <!-- Backlog #61: relleno inicial de skeletons vía JS
+             (skeletonVideoRowsHTML) tan pronto como carga app.js;
+             esto es solo el respaldo si algo falla antes de eso. -->
         <p class="yt-empty">Cargando...</p>
       </div>
     </aside>

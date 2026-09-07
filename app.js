@@ -6773,6 +6773,33 @@
       });
     }
 
+    // Backlog #61 — skeleton loaders: filas falsas con la misma forma
+    // que un `.yt-video` real (miniatura + 2 líneas de texto), para que
+    // la espera a la API de YouTube/TMDB se sienta como carga en curso
+    // y no como una sección rota o en blanco.
+    function skeletonVideoRowsHTML(n){
+      return Array.from({ length: n }).map(() => `
+        <div class="skeleton-video">
+          <div class="skeleton-block"></div>
+          <div class="skeleton-video-lines">
+            <div class="skeleton-block"></div>
+            <div class="skeleton-block"></div>
+          </div>
+        </div>`).join('');
+    }
+
+    function skeletonCardsHTML(n){
+      return Array.from({ length: n }).map(() => `
+        <div class="skeleton-card">
+          <div class="skeleton-block"></div>
+          <div class="skeleton-card-lines">
+            <div class="skeleton-block"></div>
+            <div class="skeleton-block"></div>
+            <div class="skeleton-block"></div>
+          </div>
+        </div>`).join('');
+    }
+
     async function loadLatestVideos(){
       const notConfigured =
         !YT_API_KEY || YT_API_KEY.indexOf("PON_AQUI") === 0 ||
@@ -6786,6 +6813,11 @@
         </p>`;
         if (currentSidebarMode === 'videos') document.getElementById('ytVideoList').innerHTML = cachedVideosHTML;
         return;
+      }
+
+      if (currentSidebarMode === 'videos') {
+        const listEl = document.getElementById('ytVideoList');
+        if (listEl) listEl.innerHTML = skeletonVideoRowsHTML(3);
       }
 
       try {
@@ -6918,6 +6950,7 @@
         </p>`;
         return;
       }
+      container.innerHTML = skeletonCardsHTML(3);
       try {
         // "movie/upcoming" (estrenos próximos confirmados en España) en vez
         // de "discover" con filtro de fecha: probado en vivo, discover con
