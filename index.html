@@ -264,6 +264,16 @@
     .recording-checklist-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)}
     .recording-checklist-item input{accent-color:var(--orange);width:16px;height:16px;flex:none}
     .recording-checklist-item.is-done{color:var(--muted);text-decoration:line-through}
+
+    /* ── Modo grabación a pantalla completa (backlog #18) ── */
+    .recording-mode-overlay{position:fixed;inset:0;z-index:200;background:#09070f;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 8vw;text-align:center;gap:18px}
+    .recording-mode-close{position:absolute;top:20px;right:20px;background:transparent;border:1px solid var(--line2);color:var(--muted);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer}
+    .recording-mode-close:hover{color:var(--text);border-color:var(--orange2)}
+    .recording-mode-progress{color:var(--muted);font-weight:900;letter-spacing:.08em;font-size:13px}
+    .recording-mode-heading{color:var(--orange2);font-size:18px;font-weight:900;margin:0}
+    .recording-mode-text{color:#fff;font-size:clamp(22px,4vw,40px);line-height:1.5;font-weight:800;max-width:900px;margin:0}
+    .recording-mode-controls{display:flex;gap:14px}
+    .recording-mode-hint{color:var(--muted);font-size:12px;margin-top:6px}
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 
     /* ── Transición suave entre vistas ──
@@ -1356,6 +1366,21 @@
       <p id="masterControlPasswordError" class="yt-empty" style="color:var(--red);margin:10px 0 0" hidden>Código incorrecto.</p>
       <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px" onclick="submitMasterControlPassword()">Entrar</button>
     </div>
+  </div>
+
+  <!-- Backlog #18: modo grabación a pantalla completa (teleprompter) —
+       solo la narración de cada beat, en grande, para leer mientras se
+       graba la voz en off. -->
+  <div class="recording-mode-overlay" id="recordingModeOverlay" hidden role="dialog" aria-modal="true">
+    <button type="button" class="recording-mode-close" onclick="closeRecordingMode()" aria-label="Salir del modo grabación">✕ Salir</button>
+    <div class="recording-mode-progress" id="recordingModeProgress"></div>
+    <h3 class="recording-mode-heading" id="recordingModeHeading"></h3>
+    <p class="recording-mode-text" id="recordingModeText"></p>
+    <div class="recording-mode-controls">
+      <button type="button" class="btn btn-secondary" id="recordingModePrev" onclick="recordingModeStep(-1)">◀ Anterior</button>
+      <button type="button" class="btn btn-primary" id="recordingModeNext" onclick="recordingModeStep(1)">Siguiente ▶</button>
+    </div>
+    <p class="recording-mode-hint">Flechas ← → (o espacio) para moverte, Esc para salir</p>
   </div>
 
   <main>

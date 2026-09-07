@@ -2232,18 +2232,23 @@
     // en lista de puntos) se muestran sin estimar, en vez de forzar un
     // número sin base real.
     const NARRATION_WORDS_PER_SECOND = 2.6; // ritmo rápido tipo TikTok/Shorts
-    function injectBeatDurationEstimate(target){
-      if (!target) return;
+
+    // Encuentra el panel de guion dentro de una vista y extrae sus beats
+    // (título de cada h4 + narración "🎙️ Off" si la tiene) — compartido
+    // entre la estimación de duración (#17) y el modo grabación (#18),
+    // para no reimplementar el mismo recorrido del DOM dos veces.
+    function findGuionPanel(target){
+      if (!target) return null;
       const guionPanel = [...target.querySelectorAll('details.month')]
         .find(d => /guion/i.test(d.querySelector('summary span')?.textContent || ''));
-      const panel = guionPanel && guionPanel.querySelector('.month-body .panel');
-      if (!panel) return;
-
+      return guionPanel && guionPanel.querySelector('.month-body .panel');
+    }
+    function extractGuionBeats(panel){
       const beats = [];
       let current = null;
       [...panel.children].forEach(el => {
         if (el.tagName === 'H4') {
-          current = { heading: el.textContent.trim(), words: 0, hasNarration: false };
+          current = { heading: el.textContent.trim(), words: 0, hasNarration: false, text: '' };
           beats.push(current);
           return;
         }
@@ -2253,8 +2258,17 @@
           const text = el.textContent.replace(strong.textContent, '').trim();
           current.words += text.split(/\s+/).filter(Boolean).length;
           current.hasNarration = true;
+          current.text += (current.text ? ' ' : '') + text;
         }
       });
+      return beats;
+    }
+
+    function injectBeatDurationEstimate(target){
+      const panel = findGuionPanel(target);
+      if (!panel) return;
+      const guionPanel = panel.closest('details.month');
+      const beats = extractGuionBeats(panel);
       if (!beats.length) return;
 
       let totalSeconds = 0;
@@ -2280,6 +2294,46 @@
         panel.insertAdjacentElement('afterend', box);
       }
     }
+
+    // Backlog #18 — modo grabación a pantalla completa: overlay tipo
+    // teleprompter con solo la narración de cada beat, en grande, para
+    // grabar la voz en off sin tener que leer el guion completo con
+    // todas las notas de producción de por medio.
+    let recordingModeBeats = [];
+    let recordingModeIndex = 0;
+    function openRecordingMode(rid){
+      const active = document.querySelector('.app-view.active');
+      const panel = findGuionPanel(active);
+      if (!panel) { alert('No he encontrado el guion de esta página.'); return; }
+      recordingModeBeats = extractGuionBeats(panel).filter(b => b.hasNarration);
+      if (!recordingModeBeats.length) { alert('Este guion no tiene narración "🎙️ Off" que leer.'); return; }
+      recordingModeIndex = 0;
+      document.getElementById('recordingModeOverlay').hidden = false;
+      renderRecordingModeStep();
+    }
+    function closeRecordingMode(){
+      document.getElementById('recordingModeOverlay').hidden = true;
+    }
+    function renderRecordingModeStep(){
+      const beat = recordingModeBeats[recordingModeIndex];
+      document.getElementById('recordingModeHeading').textContent = beat.heading;
+      document.getElementById('recordingModeText').textContent = beat.text;
+      document.getElementById('recordingModeProgress').textContent = `${recordingModeIndex + 1} / ${recordingModeBeats.length}`;
+      document.getElementById('recordingModePrev').disabled = recordingModeIndex === 0;
+      document.getElementById('recordingModeNext').textContent = recordingModeIndex === recordingModeBeats.length - 1 ? '✅ Terminado' : 'Siguiente ▶';
+    }
+    function recordingModeStep(delta){
+      if (recordingModeIndex === recordingModeBeats.length - 1 && delta > 0) { closeRecordingMode(); return; }
+      recordingModeIndex = Math.max(0, Math.min(recordingModeBeats.length - 1, recordingModeIndex + delta));
+      renderRecordingModeStep();
+    }
+    document.addEventListener('keydown', (e) => {
+      const overlay = document.getElementById('recordingModeOverlay');
+      if (!overlay || overlay.hidden) return;
+      if (e.key === 'Escape') closeRecordingMode();
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); recordingModeStep(1); }
+      if (e.key === 'ArrowLeft') recordingModeStep(-1);
+    });
 
     // Copia texto plano al portapapeles desde un botón — el texto va en
     // data-copy (ya escapado como atributo, el navegador lo desentraña
@@ -2430,8 +2484,10 @@
           <button type="button" class="btn btn-primary review-next-btn" onclick="goToNextUntouchedContent('${rid}')" title="Saltar al siguiente elemento al que todavía no le has tocado el estado">
             → Siguiente
           </button>
+          ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
           ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
+          ${contentHistoryHTML(rid)}
         </div>`;
     }
 
@@ -2459,6 +2515,38 @@
       alert('No queda ningún elemento sin tocar — todo tiene ya un estado definido (o está descartado).');
     }
 
+    // Backlog #19 — historial de revisiones por elemento: cada cambio de
+    // estado real (aprobar, fase, publicar, descartar) queda anotado
+    // con fecha, para poder ver después cómo avanzó un guion concreto.
+    const CONTENT_HISTORY_KEY = 'charkuma_content_history';
+    function loadContentHistory(){
+      try { return JSON.parse(localStorage.getItem(CONTENT_HISTORY_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveContentHistory(h){
+      try { localStorage.setItem(CONTENT_HISTORY_KEY, JSON.stringify(h)); }
+      catch (e) { /* seguimos sin guardar, sin romper nada */ }
+    }
+    function logContentHistory(rid, text){
+      const h = loadContentHistory();
+      if (!h[rid]) h[rid] = [];
+      h[rid].push({ ts: Date.now(), text });
+      saveContentHistory(h);
+    }
+    function contentHistoryHTML(rid){
+      const entries = (loadContentHistory()[rid] || []).slice().reverse();
+      if (!entries.length) return '';
+      const rows = entries.map(e => {
+        const when = new Date(e.ts).toLocaleString('es-ES', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+        return `<li><span class="yt-empty" style="display:inline">${when}</span> — ${escapeAttr(e.text)}</li>`;
+      }).join('');
+      return `
+        <details class="recording-checklist">
+          <summary>🕘 Historial de revisiones <span class="rc-progress">${entries.length}</span></summary>
+          <ul style="margin:10px 0 0;padding-left:18px;font-size:12px;color:var(--text);line-height:1.7">${rows}</ul>
+        </details>`;
+    }
+
     function toggleContentApproved(rid){
       if (isReviewed(rid)) {
         // "Quitar aprobación": no hay un unmarkReviewed ya hecho — lo
@@ -2469,6 +2557,7 @@
         try { localStorage.setItem(REVIEWED_KEY, JSON.stringify(Array.from(set))); } catch(e) {}
         setContentStage(rid, null);
         setContentPublished(rid, false);
+        logContentHistory(rid, '↩️ Aprobación retirada');
         refreshReviewControls();
       } else {
         // Aprobar es una decisión de revisión (como descartar) — salta
@@ -2476,6 +2565,7 @@
         // en la misma página esperando a que pulses "→ Siguiente" a mano.
         markReviewed(rid);
         clearScheduledDate(rid); // ya no cuenta como "pendiente sin hacer" en el calendario
+        logContentHistory(rid, '✅ Aprobado');
         goToNextUntouchedContent(rid);
       }
     }
@@ -2489,6 +2579,7 @@
         if (!isReviewed(rid)) markReviewed(rid);
         if (!getContentStage(rid)) setContentStage(rid, CONTENT_STAGE_ORDER[CONTENT_STAGE_ORDER.length - 1]);
       }
+      logContentHistory(rid, turningOn ? '📤 Marcado como publicado' : '↩️ "Publicado" retirado');
       refreshReviewControls();
     }
     // Avanza una fase (creando guion → editando vídeo → remates finales
@@ -2499,9 +2590,14 @@
       if (!current) {
         if (!isReviewed(rid)) markReviewed(rid);
         setContentStage(rid, CONTENT_STAGE_ORDER[0]);
+        logContentHistory(rid, `▶️ Fase: ${CONTENT_STAGE_LABELS[CONTENT_STAGE_ORDER[0]]}`);
       } else {
         const idx = CONTENT_STAGE_ORDER.indexOf(current);
-        if (idx < CONTENT_STAGE_ORDER.length - 1) setContentStage(rid, CONTENT_STAGE_ORDER[idx + 1]);
+        if (idx < CONTENT_STAGE_ORDER.length - 1) {
+          const next = CONTENT_STAGE_ORDER[idx + 1];
+          setContentStage(rid, next);
+          logContentHistory(rid, `▶️ Fase: ${CONTENT_STAGE_LABELS[next]}`);
+        }
       }
       refreshReviewControls();
     }
@@ -2510,13 +2606,20 @@
       const current = getContentStage(rid);
       if (!current) return;
       const idx = CONTENT_STAGE_ORDER.indexOf(current);
-      if (idx <= 0) setContentStage(rid, null);
-      else setContentStage(rid, CONTENT_STAGE_ORDER[idx - 1]);
+      if (idx <= 0) {
+        setContentStage(rid, null);
+        logContentHistory(rid, '◀ Fase anterior: aprobado (sin fase)');
+      } else {
+        const prev = CONTENT_STAGE_ORDER[idx - 1];
+        setContentStage(rid, prev);
+        logContentHistory(rid, `◀ Fase anterior: ${CONTENT_STAGE_LABELS[prev]}`);
+      }
       refreshReviewControls();
     }
     function toggleContentDiscarded(rid){
       const discarding = !isContentDiscarded(rid);
       setContentDiscarded(rid, discarding);
+      logContentHistory(rid, discarding ? '🗑️ Descartado' : '↩️ Restaurado');
       // Descartar es una decisión de revisión: salta directo a la
       // siguiente idea sin tocar. Restaurar es una corrección, no un
       // avance — ahí nos quedamos donde estamos.
