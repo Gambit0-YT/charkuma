@@ -267,6 +267,7 @@
 
     /* ── Modo grabación a pantalla completa (backlog #18) ── */
     .recording-mode-overlay{position:fixed;inset:0;z-index:200;background:#09070f;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 8vw;text-align:center;gap:18px}
+    .recording-mode-overlay[hidden]{display:none}
     .recording-mode-close{position:absolute;top:20px;right:20px;background:transparent;border:1px solid var(--line2);color:var(--muted);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer}
     .recording-mode-close:hover{color:var(--text);border-color:var(--orange2)}
     .recording-mode-progress{color:var(--muted);font-weight:900;letter-spacing:.08em;font-size:13px}
@@ -339,6 +340,7 @@
       background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);color:var(--orange)
     }
     .countdown-badge.is-today{background:rgba(56,217,154,.12);border-color:var(--green);color:var(--green)}
+    .countdown-badge[hidden]{display:none}
     .hero-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center
     }
@@ -1055,6 +1057,7 @@
       display:flex;align-items:center;gap:14px;background:var(--purple);color:#fff;
       padding:12px 20px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);
       font-size:13px;font-weight:700;max-width:90vw}
+    .idea-linking-banner[hidden]{display:none}
     .idea-linking-banner span{white-space:normal}
     .idea-linking-banner button{background:rgba(255,255,255,.18);border:none;color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;cursor:pointer;flex:none}
     .idea-link-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
