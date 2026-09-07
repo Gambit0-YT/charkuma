@@ -6091,6 +6091,28 @@
         <p class="yt-empty" style="margin:6px 0 0">Visitas totales del canal, últimos 30 días reales (vía VidIQ).</p>`;
     }
 
+    // Backlog #50 — comparativa mes a mes automática: dos ventanas
+    // reales de 30 días consecutivas (vía vidiq_channel_stats,
+    // consultado 2026-09-07) — "automática" en el mismo sentido que el
+    // resto del panel de VidIQ: Claude la trae en cada refresco, la web
+    // no puede pedirla sola por ser estática.
+    const VIDIQ_MONTH_COMPARISON = {
+      previous: { from: "2026-07-09", to: "2026-08-07", viewsGained: 394, subscribersGained: -1 },
+      current: { from: "2026-08-08", to: "2026-09-07", viewsGained: 385, subscribersGained: 0 }
+    };
+    function renderMonthComparison(){
+      const container = document.getElementById('monthComparisonStat');
+      if (!container) return;
+      const { previous, current } = VIDIQ_MONTH_COMPARISON;
+      const diff = current.viewsGained - previous.viewsGained;
+      const pct = ((diff / previous.viewsGained) * 100).toFixed(1);
+      const trend = diff > 0 ? `📈 +${pct}%` : diff < 0 ? `📉 ${pct}%` : '➡️ igual';
+      container.innerHTML = `
+        <span class="yt-empty" style="display:inline">${previous.from} → ${previous.to}: +${previous.viewsGained} visitas</span> ·
+        <span class="yt-empty" style="display:inline">${current.from} → ${current.to}: +${current.viewsGained} visitas</span> ·
+        <strong>${trend} respecto al mes anterior</strong>`;
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -6105,6 +6127,7 @@
       renderStaleContentWarning();
       renderBackupHistory();
       renderViewsEvolutionChart();
+      renderMonthComparison();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
