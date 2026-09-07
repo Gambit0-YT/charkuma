@@ -775,6 +775,29 @@
       }
     });
 
+    // Backlog #134 — easter egg nostálgico: código Konami de toda la
+    // vida (↑↑↓↓←→←→BA). No hace nada más que un guiño — ni desbloquea
+    // contenido real ni cambia ningún estado guardado.
+    const KONAMI_SEQUENCE = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    let konamiProgress = 0;
+    document.addEventListener('keydown', (e) => {
+      const expected = KONAMI_SEQUENCE[konamiProgress];
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      konamiProgress = (key === expected) ? konamiProgress + 1 : (key === KONAMI_SEQUENCE[0] ? 1 : 0);
+      if (konamiProgress === KONAMI_SEQUENCE.length) {
+        konamiProgress = 0;
+        const toast = document.getElementById('konamiToast');
+        if (!toast) return;
+        toast.hidden = false;
+        // Reinicia la animación CSS aunque se dispare dos veces seguidas.
+        toast.style.animation = 'none';
+        void toast.offsetWidth;
+        toast.style.animation = '';
+        clearTimeout(window.__konamiTimer);
+        window.__konamiTimer = setTimeout(() => { toast.hidden = true; }, 2500);
+      }
+    });
+
     // ──────────────────────────────────────────────────────────
     // SONIDO DE RULETA — generado con Web Audio API (sin archivos
     // externos): una serie de "tics" que se van espaciando, como una
@@ -1313,6 +1336,26 @@
         homeFill.style.width = pct + "%";
         homeLabel.textContent = `🎮 Retro 365 · día ${unlockedDays.length} de ${totalDays} (${pct}%)`;
       }
+      renderRandomBuildFact();
+    }
+
+    // Backlog #136 — frase random del diario de construcción en el pie de
+    // página: lee de verdad los párrafos ya escritos en #devLogTimeline
+    // (nunca un texto aparte que se pueda desincronizar) y elige uno al
+    // azar, una vez por carga de página — no hace falta que cambie en
+    // caliente, es un detalle curioso, no un dato en vivo.
+    function renderRandomBuildFact(){
+      const el = document.getElementById('footerBuildFact');
+      if (!el) return;
+      const paragraphs = [...document.querySelectorAll('#devLogTimeline .log-entry p')];
+      if (!paragraphs.length) return;
+      // El HTML fuente tiene saltos de línea/indentación dentro del propio
+      // párrafo (se ve bien renderizado, pero .textContent los arrastra) —
+      // normalizamos a espacios simples antes de cortar la frase.
+      const pick = paragraphs[Math.floor(Math.random() * paragraphs.length)].textContent.replace(/\s+/g, ' ').trim();
+      // Solo la primera frase, para que quepa cómodo en el pie de página.
+      const firstSentence = pick.split(/(?<=[.!?])\s/)[0];
+      el.textContent = `💭 ${firstSentence}`;
     }
 
     // Backlog #9 — galería visual compacta de portadas reales de todos
