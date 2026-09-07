@@ -1737,6 +1737,16 @@
     const SWIPE_CANDIDATES_KEY = 'charkuma_retro365_swipe_candidates';
     const SWIPE_INDEX_KEY = 'charkuma_retro365_swipe_index';
     const SWIPE_SHORTLIST_KEY = 'charkuma_retro365_swipe_shortlist';
+    // Bug real reportado por el usuario: "siempre repito las opciones ya
+    // aprobadas". Causa: ni "Cargar catálogo completo" ni pegar un JSON
+    // nuevo comprobaban qué se había decidido ya — solo miraban el
+    // "shortlist" actual (que además pierde entradas al asignarlas a un
+    // día de Retro 365) o los candidatos cargados en ese momento. Este
+    // registro es la memoria PERMANENTE de nombres ya decididos (me
+    // gusta o paso), nunca se borra al recargar el catálogo, cambiar de
+    // JSON ni asignar un juego a un día — así nunca vuelve a aparecer
+    // algo sobre lo que ya te has pronunciado.
+    const SWIPE_DECIDED_KEY = 'charkuma_retro365_swipe_decided';
 
     function loadSwipeCandidates(){ try { return JSON.parse(localStorage.getItem(SWIPE_CANDIDATES_KEY)) || []; } catch (e) { return []; } }
     function saveSwipeCandidates(arr){ try { localStorage.setItem(SWIPE_CANDIDATES_KEY, JSON.stringify(arr)); } catch (e) { /* seguimos sin guardar */ } }
@@ -1744,6 +1754,25 @@
     function saveSwipeIndex(i){ try { localStorage.setItem(SWIPE_INDEX_KEY, String(i)); } catch (e) {} }
     function loadSwipeShortlist(){ try { return JSON.parse(localStorage.getItem(SWIPE_SHORTLIST_KEY)) || []; } catch (e) { return []; } }
     function saveSwipeShortlist(arr){ try { localStorage.setItem(SWIPE_SHORTLIST_KEY, JSON.stringify(arr)); } catch (e) {} }
+    function loadSwipeDecided(){ try { return JSON.parse(localStorage.getItem(SWIPE_DECIDED_KEY)) || []; } catch (e) { return []; } }
+    function saveSwipeDecided(arr){ try { localStorage.setItem(SWIPE_DECIDED_KEY, JSON.stringify(arr)); } catch (e) {} }
+    function markSwipeDecided(name){
+      const decided = loadSwipeDecided();
+      const key = name.toLowerCase();
+      if (!decided.includes(key)) { decided.push(key); saveSwipeDecided(decided); }
+    }
+    // Migración de una sola vez: si ya había un "shortlist" (me gusta) de
+    // antes de que existiera este registro, sus nombres cuentan como
+    // decididos desde ya, sin que el usuario tenga que hacer nada.
+    function ensureSwipeDecidedSeeded(){
+      let seeded = false;
+      try { seeded = localStorage.getItem('charkuma_swipe_decided_seeded') === '1'; } catch (e) {}
+      if (seeded) return;
+      const decided = new Set(loadSwipeDecided());
+      loadSwipeShortlist().forEach(g => { if (g && g.name) decided.add(g.name.toLowerCase()); });
+      saveSwipeDecided(Array.from(decided));
+      try { localStorage.setItem('charkuma_swipe_decided_seeded', '1'); } catch (e) {}
+    }
 
     // ──────────────────────────────────────────────────────────
     // Asignar directamente un "me gusta" de Game Match a un día de
@@ -1779,6 +1808,7 @@
         candidates: loadSwipeCandidates(),
         index: loadSwipeIndex(),
         shortlist: loadSwipeShortlist(),
+        decided: loadSwipeDecided(),
         extraPlanned: loadExtraPlannedGames(),
         updatedAt: Date.now()
       };
@@ -1805,6 +1835,15 @@
         if (Array.isArray(data.candidates)) saveSwipeCandidates(data.candidates);
         if (typeof data.index === 'number') saveSwipeIndex(data.index);
         if (Array.isArray(data.shortlist)) saveSwipeShortlist(data.shortlist);
+        if (Array.isArray(data.decided)) {
+          saveSwipeDecided(data.decided);
+        } else {
+          // Doc antiguo, de antes de que existiera este registro: lo
+          // migramos desde el shortlist ya sincronizado y lo subimos, así
+          // el resto de dispositivos también lo reciben.
+          ensureSwipeDecidedSeeded();
+          pushGameMatchState();
+        }
         if (data.extraPlanned && typeof data.extraPlanned === 'object') saveExtraPlannedGames(data.extraPlanned);
         try { localStorage.setItem(CATALOG_SEEDED_KEY, '1'); } catch (e) {}
         if (document.getElementById('view-helquid-game-match')?.classList.contains('active') && typeof renderSwipeDeck === 'function') renderSwipeDeck();
@@ -1937,18 +1976,25 @@
       // 417 del catálogo. Evita duplicados por nombre con lo que ya había.
       const existing = loadSwipeCandidates();
       const existingNames = new Set(existing.map(g => g.name.toLowerCase()));
-      const toAdd = clean.filter(g => !existingNames.has(g.name.toLowerCase()));
+      const decided = new Set(loadSwipeDecided());
+      const toAdd = clean.filter(g => !existingNames.has(g.name.toLowerCase()) && !decided.has(g.name.toLowerCase()));
       saveSwipeCandidates(existing.concat(toAdd));
       const skipped = clean.length - toAdd.length;
       statusEl.textContent = `✅ Añadidos ${toAdd.length} candidato${toAdd.length === 1 ? '' : 's'} nuevo${toAdd.length === 1 ? '' : 's'}`
-        + (skipped > 0 ? ` (${skipped} ya estaban en el mazo).` : '.');
+        + (skipped > 0 ? ` (${skipped} ya estaban en el mazo o ya los habías decidido antes).` : '.');
       textarea.value = '';
       renderSwipeDeck();
       pushGameMatchState();
     }
 
     function resetSwipeDeck(){
-      if (!confirm('¿Reiniciar el mazo? Esto no borra tu preselección de "me gusta", solo vuelve a empezar desde el primer candidato cargado.')) return;
+      if (!confirm('¿Reiniciar el mazo? Esto no borra tu preselección de "me gusta", solo vuelve a empezar desde el primer candidato SIN decidir todavía (los que ya dijiste sí o no no se repiten).')) return;
+      // Al reiniciar quitamos del array los que ya estén decididos (por si
+      // venían de antes de este arreglo) — así el índice 0 siempre apunta
+      // a algo pendiente de verdad, nunca a algo que ya se decidió.
+      const decided = new Set(loadSwipeDecided());
+      const remaining = loadSwipeCandidates().filter(g => g && g.name && !decided.has(g.name.toLowerCase()));
+      saveSwipeCandidates(remaining);
       saveSwipeIndex(0);
       renderSwipeDeck();
       pushGameMatchState();
@@ -1978,11 +2024,17 @@
       const statusEl = document.getElementById('swipeImportStatus');
       if (statusEl) statusEl.textContent = '⏳ Cargando catálogo…';
       try {
+        ensureSwipeDecidedSeeded();
         const catalog = await fetchGameCatalog();
-        saveSwipeCandidates(catalog);
+        const decided = new Set(loadSwipeDecided());
+        const fresh = catalog.filter(g => g && g.name && !decided.has(g.name.toLowerCase()));
+        const skipped = catalog.length - fresh.length;
+        saveSwipeCandidates(fresh);
         saveSwipeIndex(0);
         try { localStorage.setItem(CATALOG_SEEDED_KEY, '1'); } catch (e) {}
-        if (statusEl) statusEl.textContent = `✅ Catálogo cargado — ${catalog.length} juegos reales listos para decidir.`;
+        if (statusEl) statusEl.textContent = skipped > 0
+          ? `✅ Catálogo cargado — ${fresh.length} juegos nuevos por decidir (${skipped} ya los habías decidido antes, no se repiten).`
+          : `✅ Catálogo cargado — ${fresh.length} juegos reales listos para decidir.`;
         renderSwipeDeck();
         pushGameMatchState();
       } catch (e) {
@@ -2161,6 +2213,7 @@
         shortlist.push(card);
         saveSwipeShortlist(shortlist);
       }
+      markSwipeDecided(card.name);
       saveSwipeIndex(index + 1);
       setTimeout(renderSwipeDeck, 200);
       pushGameMatchState();
