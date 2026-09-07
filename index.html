@@ -939,7 +939,9 @@
     #masterControlProjectsList.mc-compact .geek-card{gap:10px;padding:9px 12px;border-radius:10px}
     #masterControlProjectsList.mc-compact .geek-thumb{width:34px;height:34px;font-size:16px;border-radius:8px}
     #masterControlProjectsList.mc-compact .geek-badges{gap:5px;margin-bottom:3px}
-    #masterControlProjectsList.mc-compact .type-chip{font-size:9px;padding:2px 7px}
+    /* Backlog #85 — 9px era demasiado pequeño incluso para una insignia
+       corta en pantallas pequeñas; 10px es el mínimo real de esta web. */
+    #masterControlProjectsList.mc-compact .type-chip{font-size:10px;padding:2px 7px}
     #masterControlProjectsList.mc-compact .geek-info h4{font-size:13px;margin:0}
     #masterControlProjectsList.mc-compact .geek-info p{display:none}
 
@@ -3516,6 +3518,7 @@
               <span class="swipe-counter" id="swipeCounter"></span>
               <button type="button" class="swipe-btn swipe-like" onclick="swipeDecision('like')" title="Me gusta" aria-label="Me gusta este candidato">❤️</button>
             </div>
+            <p class="yt-empty swipe-keyboard-hint" id="swipeKeyboardHint" hidden>⌨️ También puedes usar ← Paso y → Me gusta</p>
 
             <div class="swipe-random-row" id="swipeRandomRow" hidden>
               <select id="swipeRandomDifficulty" title="Dificultad a buscar">

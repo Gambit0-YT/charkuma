@@ -2105,16 +2105,19 @@
       const card = candidates[index];
 
       const randomRow = document.getElementById('swipeRandomRow');
+      const keyboardHint = document.getElementById('swipeKeyboardHint');
 
       if (!candidates.length) {
         stage.innerHTML = `<p class="yt-empty">Pega tu JSON arriba para empezar a elegir.</p>`;
         controls.hidden = true;
         if (randomRow) randomRow.hidden = true;
+        if (keyboardHint) keyboardHint.hidden = true;
         counterEl.textContent = '';
       } else if (!card) {
         stage.innerHTML = `<p class="yt-empty">✅ Ya has decidido sobre todos los candidatos cargados (${candidates.length}). Pega un JSON nuevo para seguir, o revisa tu preselección abajo.</p>`;
         controls.hidden = true;
         if (randomRow) randomRow.hidden = true;
+        if (keyboardHint) keyboardHint.hidden = true;
         counterEl.textContent = '';
       } else {
         // Si el candidato ya trae su propio videoUrl (gameplay real, tráiler...)
@@ -2138,6 +2141,7 @@
           </div>`;
         controls.hidden = false;
         if (randomRow) randomRow.hidden = false;
+        if (keyboardHint) keyboardHint.hidden = false;
         counterEl.textContent = `${index + 1} / ${candidates.length}`;
         initSwipeDrag(document.getElementById('activeSwipeCard'));
         hydrateSwipeCardCover(card.name, index);
@@ -2256,6 +2260,21 @@
       setTimeout(renderSwipeDeck, 200);
       pushGameMatchState();
     }
+
+    // Backlog #82 — navegación por teclado completa en el mazo Tinder de
+    // Game Match: hasta ahora solo se podía decidir arrastrando con el
+    // ratón/dedo o pulsando los botones ❤️/✖️ uno a uno con Tab+Intro,
+    // sin atajo rápido. Mismo patrón que el modo grabación (#18):
+    // ← / → deciden, pero solo si la vista está activa y el foco no
+    // está escribiendo en un campo de texto (pegar JSON, buscador...).
+    document.addEventListener('keydown', (e) => {
+      const view = document.getElementById('view-helquid-game-match');
+      if (!view || !view.classList.contains('active')) return;
+      const tag = document.activeElement && document.activeElement.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); swipeDecision('like'); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); swipeDecision('pass'); }
+    });
 
     function renderSwipeShortlist(){
       const panel = document.getElementById('swipeShortlistPanel');
