@@ -644,6 +644,14 @@
     .footer-logo{font-size:30px;font-weight:1000;color:var(--text)}
     .footer-logo strong{color:var(--orange)}
     .footer-build-fact{margin:10px 0 0;max-width:46ch;font-size:12px;color:var(--muted);line-height:1.6;font-style:italic}
+    /* Backlog #135 — logros por hitos reales */
+    .achievements-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;width:100%}
+    .achievement-badge{padding:12px 10px;border-radius:12px;text-align:center;background:var(--panel);border:1px solid var(--line)}
+    .achievement-badge .achievement-icon{font-size:26px;display:block;margin-bottom:6px;filter:grayscale(1);opacity:.4}
+    .achievement-badge.unlocked{border-color:var(--orange);background:rgba(255,122,24,.08)}
+    .achievement-badge.unlocked .achievement-icon{filter:none;opacity:1}
+    .achievement-badge span.achievement-label{display:block;font-size:11px;color:var(--muted);font-weight:700;line-height:1.4}
+    .achievement-badge.unlocked span.achievement-label{color:var(--text)}
     .socials{display:flex;gap:10px;flex-wrap:wrap}
     .social{
       padding:9px 12px;border-radius:11px;border:1px solid #2e2240;background:#110c18;
@@ -1499,6 +1507,13 @@
             <li><strong>Privadas, solo en local (<code>.secrets/</code>, nunca en el repo):</strong> clave de Steam Web API (va contra sus normas de uso publicarla) y el <em>refresh token</em> de YouTube Analytics OAuth (da acceso a datos privados del canal).</li>
             <li><strong>Conectores de Claude (VidIQ, Google Drive):</strong> autorizados a nivel de cuenta de Claude, no viven en el código de la web en ningún momento.</li>
           </ul>
+        </div>
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🏅 Logros</strong>
+            <p>Hitos reales calculados sobre tus propios datos (guiones, ideas, Retro 365) — nunca inventados, se recalculan cada vez que abres esto.</p>
+          </div>
+          <div class="achievements-grid" id="achievementsGrid"></div>
         </div>
         <div class="settings-row">
           <div>

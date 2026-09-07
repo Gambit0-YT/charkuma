@@ -364,6 +364,7 @@
       const panel = document.getElementById('settingsPanel');
       if (!panel) return;
       panel.hidden = !panel.hidden;
+      if (!panel.hidden && typeof renderAchievements === 'function') renderAchievements();
     }
 
     // Backlog #89 — menú hamburguesa en móvil: por debajo de 900px los
@@ -6474,6 +6475,42 @@
       }
       return streak;
     }
+    // Backlog #135 — logros por hitos reales: nada de números fijos ni
+    // decorativos, cada uno se calcula sobre datos que la web ya lleva
+    // (guiones en marcha, ideas resueltas, rachas...). Un logro bloqueado
+    // es tan honesto como uno desbloqueado — no se "adelanta" ninguno.
+    function computeAchievements(){
+      const all = buildMasterControlIndex();
+      const inMotion = all.filter(i => ['aprobado', ...CONTENT_STAGE_ORDER].includes(i.status)).length;
+      const published = all.filter(i => i.status === 'publicado').length;
+      let doneIdeas = 0;
+      Object.values(loadIdeaBanks()).forEach(bankState => {
+        Object.values(bankState).forEach(s => { if (s.done) doneIdeas++; });
+      });
+      let retroStreak = 0;
+      while (completedGames[retroStreak + 1]) retroStreak++;
+      const guionStreak = computeGuionCreationStreak();
+      return [
+        { icon:'🎬', label:'Primer guion en marcha', unlocked: inMotion >= 1 },
+        { icon:'📚', label:'20 guiones en marcha', unlocked: inMotion >= 20 },
+        { icon:'🚀', label:'Primera publicación real', unlocked: published >= 1 },
+        { icon:'💡', label:'10 ideas resueltas', unlocked: doneIdeas >= 10 },
+        { icon:'💎', label:'25 ideas resueltas', unlocked: doneIdeas >= 25 },
+        { icon:'🎮', label:'Retro 365: racha de 3 días', unlocked: retroStreak >= 3 },
+        { icon:'🏆', label:'Retro 365: racha de 7 días', unlocked: retroStreak >= 7 },
+        { icon:'🔥', label:'3 días seguidos creando', unlocked: guionStreak >= 3 }
+      ];
+    }
+    function renderAchievements(){
+      const container = document.getElementById('achievementsGrid');
+      if (!container) return;
+      container.innerHTML = computeAchievements().map(a => `
+        <div class="achievement-badge${a.unlocked ? ' unlocked' : ''}">
+          <span class="achievement-icon">${a.icon}</span>
+          <span class="achievement-label">${a.label}</span>
+        </div>`).join('');
+    }
+
     function renderGuionCreationStreak(){
       const el = document.getElementById('guionCreationStreakStat');
       if (!el) return;
