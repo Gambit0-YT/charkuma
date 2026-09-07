@@ -2706,22 +2706,37 @@
         .find(d => /guion/i.test(d.querySelector('summary span')?.textContent || ''));
       return guionPanel && guionPanel.querySelector('.month-body .panel');
     }
+    // Cada beat puede tener más de una frase de narración (p. ej. un
+    // "Tesis" / "A favor" / "En contra" en el mismo bloque), y cada una
+    // puede llevar su propia dirección de interpretación ("🎭 Tono:",
+    // pedida por el usuario) — por eso además del texto agregado
+    // (beat.text, para la estimación de duración de #17) se guarda
+    // segments: [{text, tone}] con cada frase suelta y su tono, para
+    // que el modo grabación pueda mostrarlas una a una con su tono.
     function extractGuionBeats(panel){
       const beats = [];
       let current = null;
+      let lastSegment = null;
       [...panel.children].forEach(el => {
         if (el.tagName === 'H4') {
-          current = { heading: el.textContent.trim(), words: 0, hasNarration: false, text: '' };
+          current = { heading: el.textContent.trim(), words: 0, hasNarration: false, text: '', segments: [] };
           beats.push(current);
+          lastSegment = null;
           return;
         }
         if (!current || el.tagName !== 'P') return;
         const strong = el.querySelector('strong');
-        if (strong && strong.textContent.includes('🎙️ Off')) {
-          const text = el.textContent.replace(strong.textContent, '').trim();
+        if (!strong) return;
+        const label = strong.textContent;
+        if (label.includes('🎙️ Off')) {
+          const text = el.textContent.replace(label, '').trim();
           current.words += text.split(/\s+/).filter(Boolean).length;
           current.hasNarration = true;
           current.text += (current.text ? ' ' : '') + text;
+          lastSegment = { text, tone: '' };
+          current.segments.push(lastSegment);
+        } else if (label.includes('🎭 Tono') && lastSegment && !lastSegment.tone) {
+          lastSegment.tone = el.textContent.replace(label, '').trim();
         }
       });
       return beats;
@@ -2768,7 +2783,15 @@
       const active = document.querySelector('.app-view.active');
       const panel = findGuionPanel(active);
       if (!panel) { alert('No he encontrado el guion de esta página.'); return; }
-      recordingModeBeats = extractGuionBeats(panel).filter(b => b.hasNarration);
+      // Un paso del teleprompter por CADA frase de narración (no por
+      // beat completo) — así un beat con "Tesis/A favor/En contra" no
+      // mezcla tres tonos distintos en una sola pantalla.
+      recordingModeBeats = [];
+      extractGuionBeats(panel).filter(b => b.hasNarration).forEach(b => {
+        b.segments.forEach(seg => {
+          recordingModeBeats.push({ heading: b.heading, text: seg.text, tone: seg.tone });
+        });
+      });
       if (!recordingModeBeats.length) { alert('Este guion no tiene narración "🎙️ Off" que leer.'); return; }
       recordingModeIndex = 0;
       document.getElementById('recordingModeOverlay').hidden = false;
@@ -2780,6 +2803,9 @@
     function renderRecordingModeStep(){
       const beat = recordingModeBeats[recordingModeIndex];
       document.getElementById('recordingModeHeading').textContent = beat.heading;
+      const toneEl = document.getElementById('recordingModeTone');
+      if (beat.tone) { toneEl.textContent = `🎭 ${beat.tone}`; toneEl.hidden = false; }
+      else { toneEl.hidden = true; }
       document.getElementById('recordingModeText').textContent = beat.text;
       document.getElementById('recordingModeProgress').textContent = `${recordingModeIndex + 1} / ${recordingModeBeats.length}`;
       document.getElementById('recordingModePrev').disabled = recordingModeIndex === 0;

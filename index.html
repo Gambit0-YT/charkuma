@@ -294,6 +294,15 @@
     .recording-mode-close:hover{color:var(--text);border-color:var(--orange2)}
     .recording-mode-progress{color:var(--muted);font-weight:900;letter-spacing:.08em;font-size:13px}
     .recording-mode-heading{color:var(--orange2);font-size:18px;font-weight:900;margin:0}
+    /* Pedido por el usuario: "cómo tengo que hablar" en cada frase —
+       entusiasmo, pena, rabia... — bien visible antes del propio texto,
+       para poder darle el tono correcto sin tener que adivinarlo. */
+    .recording-mode-tone{
+      display:inline-flex;align-items:center;gap:6px;margin:0;padding:6px 16px;
+      border-radius:999px;background:rgba(139,92,246,.18);border:1px solid rgba(139,92,246,.5);
+      color:#d9ceff;font-size:14px;font-weight:800;letter-spacing:.02em
+    }
+    .recording-mode-tone[hidden]{display:none}
     .recording-mode-text{color:#fff;font-size:clamp(22px,4vw,40px);line-height:1.5;font-weight:800;max-width:900px;margin:0}
     .recording-mode-controls{display:flex;gap:14px}
     .recording-mode-hint{color:var(--muted);font-size:12px;margin-top:6px}
@@ -1569,6 +1578,7 @@
     <button type="button" class="recording-mode-close" onclick="closeRecordingMode()" aria-label="Salir del modo grabación">✕ Salir</button>
     <div class="recording-mode-progress" id="recordingModeProgress"></div>
     <h3 class="recording-mode-heading" id="recordingModeHeading"></h3>
+    <p class="recording-mode-tone" id="recordingModeTone" hidden></p>
     <p class="recording-mode-text" id="recordingModeText"></p>
     <div class="recording-mode-controls">
       <button type="button" class="btn btn-secondary" id="recordingModePrev" onclick="recordingModeStep(-1)">◀ Anterior</button>
@@ -2148,130 +2158,16 @@
             desde la fecha de la última tarjeta hacia hoy, agrupar los
             commits por sesión (huecos grandes de horas = sesiones
             distintas), y añadir una <div class="timeline-card"> NUEVA
-            AL FINAL de #devLogTimeline (el scroll empieza por la más
-            antigua a la izquierda y la más reciente queda a la derecha)
-            con el mismo formato que la de abajo: fecha + horas de
-            sesión arriba, y un <div class="log-entry"> por sub-sesión
-            resumiendo qué se construyó (no listar cada commit suelto,
-            agrupar por tema).
+            AL PRINCIPIO de #devLogTimeline (orden invertido a petición
+            del usuario 2026-09-07: la más reciente queda primero, a la
+            izquierda — así se ve sin tener que hacer scroll — y la más
+            antigua al final) con el mismo formato que la de abajo:
+            fecha + horas de sesión arriba, y un <div class="log-entry">
+            por sub-sesión resumiendo qué se construyó (no listar cada
+            commit suelto, agrupar por tema).
           -->
           <div class="timeline-wrap">
             <div class="timeline-scroll" id="devLogTimeline">
-              <div class="timeline-card">
-                <div class="timeline-date">📅 5–6 SEPT 2026</div>
-                <div class="timeline-hours">~10h de sesión</div>
-                <h4>Construcción inicial</h4>
-                <div class="log-entry">
-                  <strong>Antes del repositorio (sin hora exacta)</strong>
-                  <p>Lobby estático inicial → conversión a single-page app → widget de
-                    YouTube y notas rápidas → primera versión de Retro 365 → despliegue
-                    real a GitHub Pages.</p>
-                </div>
-                <div class="log-entry">
-                  <strong>5 sept, 16:26–23:52 (~7h30)</strong>
-                  <p>Repositorio creado. HELQUIDGAMES + Ruleta del 11 (con base de datos
-                    de 2313 jugadores). Feeds filtrables de Charkuma Lab, IA & Experimentos,
-                    Creator Tools y Hecho a Mano. Integración e iteración de CalcArte
-                    (personajes, prompt, estilo de dibujo). Las 26 páginas de detalle con
-                    contenido real. Insignia "Pendiente de revisión". Primer easter egg
-                    secreto (banco de 50 ideas de Rincón del Friki).</p>
-                </div>
-                <div class="log-entry">
-                  <strong>6 sept, 00:09–02:23 (~2h15)</strong>
-                  <p>La tanda grande: buscador global, tema claro/oscuro, calendario de
-                    publicación, banco de ideas en las 5 secciones restantes, JS movido a
-                    archivo aparte, mapa maestro, ranking friki, radar de estrenos,
-                    reestructuración de HELQUIDGAMES, sistema de aprobar/en proceso/
-                    publicado/descartar, control secreto maestro, y pulido de fallos.</p>
-                </div>
-                <div class="log-entry">
-                  <strong>6 sept, 02:32–03:29 (~1h)</strong>
-                  <p>Diario de construcción como línea temporal, Draft Arena (concepto de
-                    HELQUIDGAMES), campana de notificaciones con palabras clave,
-                    importación de ideas por JSON, identidad visual propia para "El
-                    Laboratorio", división de "en proceso" en 4 fases con botón
-                    "→ Siguiente", corrección de un crash grave en enlaces directos, y el
-                    generador de ideas del Control Maestro.</p>
-                </div>
-              </div>
-
-              <div class="timeline-card">
-                <div class="timeline-date">📅 6 SEPT 2026 (TARDE/NOCHE)</div>
-                <div class="timeline-hours">~4h30 de sesión</div>
-                <h4>Integraciones reales, autonomía y primera tanda de guiones</h4>
-                <div class="log-entry">
-                  <strong>13:57–16:48 (~2h50)</strong>
-                  <p>Corrección de fallos reportados (notificaciones, salto automático,
-                    radar de estrenos, notas), Radar de estrenos con datos reales de TMDB
-                    (películas y series), primera tanda de las 50 mejoras (búsqueda,
-                    generador manual de ideas, calendario con prioridad para retrasos y
-                    exportación a .ics, indicador del modo autónomo), 59 ideas nuevas
-                    escritas a mano en los 6 bancos secretos, y carátulas reales de Retro
-                    365 vía RAWG.</p>
-                </div>
-                <div class="log-entry">
-                  <strong>17:11–18:21 (~1h10)</strong>
-                  <p>Tarjetas de "Sobre mí" ya clicables (librería real de Steam, setup con
-                    opinión sincera, enlaces a YouTube/Instagram), analítica de visitas con
-                    Umami, notas migradas de localStorage a Firebase Firestore
-                    (sincronización real entre dispositivos), y primer ciclo del modo de
-                    trabajo autónomo: 5 guiones completos para ideas ya aprobadas de
-                    Rincón del Friki.</p>
-                </div>
-                <div class="log-entry">
-                  <strong>18:21–19:15 (~55min)</strong>
-                  <p>Base técnica para que la fase de producción ("creando guion" y demás)
-                    se pueda fijar desde el propio código y se vea igual en cualquier
-                    dispositivo, capa de producción añadida a los guiones (narración en
-                    off, visual/clips, SFX, transiciones y BGM por bloque), y guiones
-                    completos para las 13 ideas aprobadas restantes de Charkuma Lab,
-                    Creator Tools, Hecho a Mano, IA & Experimentos y HELQUIDGAMES —
-                    las 18 ideas que estaban aprobadas ya tienen guion.</p>
-                </div>
-              </div>
-
-              <div class="timeline-card">
-                <div class="timeline-date">📅 6–7 SEPT 2026 (NOCHE/MADRUGADA)</div>
-                <div class="timeline-hours">~6h10 de sesión</div>
-                <h4>Catálogo de datos reales, Game Match como juego propio, y arranque del backlog de 150 mejoras</h4>
-                <div class="log-entry">
-                  <strong>6 sept, 20:24–23:52 (~3h30)</strong>
-                  <p>Enlace real a gameplay de YouTube en las tarjetas del mazo Tinder,
-                    integración real de VidIQ (estadísticas del canal, tendencias, ideas y
-                    puntuación SEO en los guiones), e intento de dominio personalizado
-                    helquid.site (revertido — no se llegó a comprar).</p>
-                </div>
-                <div class="log-entry">
-                  <strong>7 sept, 00:07–01:13 (~1h05)</strong>
-                  <p>Botón de Recursos conectado a la carpeta real de Google Drive,
-                    "Mis proyectos" movido del inicio a su propia vista enlazada desde la
-                    cabecera, cabecera que se oculta sola y aparece al acercar el ratón
-                    (con opción de fijarla), y reordenado el acceso directo a las
-                    herramientas internas.</p>
-                </div>
-                <div class="log-entry">
-                  <strong>7 sept, 01:27–02:18 (~50min)</strong>
-                  <p>Arranque del backlog de 150 mejoras: Control Maestro ordenado por
-                    estado por defecto, racha visible y filtro de dificultad en Retro 365,
-                    contador de días hasta el reinicio del canal, modo alto contraste, y
-                    arreglo de un fallo real en móvil (las comillas tipográficas del
-                    teclado rompían el JSON del mazo Tinder). El mazo se mudó de la
-                    chuleta secreta a HELQUIDGAMES, con botón para saltar a un candidato
-                    al azar por dificultad, y la cabecera pasó a ser visible por defecto.</p>
-                </div>
-                <div class="log-entry">
-                  <strong>7 sept, 02:28–03:12 (~45min)</strong>
-                  <p>Catálogo de 417 juegos reales incorporado al mazo (ya no hace falta
-                    pegar JSON nunca más), Game Match promovido a juego propio de
-                    HELQUIDGAMES con página dedicada, "me gusta" asignable directo a un
-                    día de Retro 365, portadas reales en las tarjetas, 27 juegos más
-                    elegidos a partir de la propia historia del usuario con los
-                    videojuegos (Crash Bandicoot, la saga Assassin's Creed, los Call of
-                    Duty de la era zombies, y una buena tanda de independientes), y
-                    sincronización real de Game Match entre dispositivos vía Firestore.</p>
-                </div>
-              </div>
-
               <div class="timeline-card">
                 <div class="timeline-date">📅 7 SEPT 2026 (MADRUGADA Y MAÑANA — /LOOP AUTÓNOMO)</div>
                 <div class="timeline-hours">~10h25 de sesión, casi sin intervención</div>
@@ -2328,6 +2224,121 @@
                     sTaXxCraft — los de mi propia historia con los videojuegos), resumen
                     mensual redactado con datos reales, y detección de vídeos con bajo
                     rendimiento sobre mis 50 últimos vídeos de verdad.</p>
+                </div>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-date">📅 6–7 SEPT 2026 (NOCHE/MADRUGADA)</div>
+                <div class="timeline-hours">~6h10 de sesión</div>
+                <h4>Catálogo de datos reales, Game Match como juego propio, y arranque del backlog de 150 mejoras</h4>
+                <div class="log-entry">
+                  <strong>6 sept, 20:24–23:52 (~3h30)</strong>
+                  <p>Enlace real a gameplay de YouTube en las tarjetas del mazo Tinder,
+                    integración real de VidIQ (estadísticas del canal, tendencias, ideas y
+                    puntuación SEO en los guiones), e intento de dominio personalizado
+                    helquid.site (revertido — no se llegó a comprar).</p>
+                </div>
+                <div class="log-entry">
+                  <strong>7 sept, 00:07–01:13 (~1h05)</strong>
+                  <p>Botón de Recursos conectado a la carpeta real de Google Drive,
+                    "Mis proyectos" movido del inicio a su propia vista enlazada desde la
+                    cabecera, cabecera que se oculta sola y aparece al acercar el ratón
+                    (con opción de fijarla), y reordenado el acceso directo a las
+                    herramientas internas.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>7 sept, 01:27–02:18 (~50min)</strong>
+                  <p>Arranque del backlog de 150 mejoras: Control Maestro ordenado por
+                    estado por defecto, racha visible y filtro de dificultad en Retro 365,
+                    contador de días hasta el reinicio del canal, modo alto contraste, y
+                    arreglo de un fallo real en móvil (las comillas tipográficas del
+                    teclado rompían el JSON del mazo Tinder). El mazo se mudó de la
+                    chuleta secreta a HELQUIDGAMES, con botón para saltar a un candidato
+                    al azar por dificultad, y la cabecera pasó a ser visible por defecto.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>7 sept, 02:28–03:12 (~45min)</strong>
+                  <p>Catálogo de 417 juegos reales incorporado al mazo (ya no hace falta
+                    pegar JSON nunca más), Game Match promovido a juego propio de
+                    HELQUIDGAMES con página dedicada, "me gusta" asignable directo a un
+                    día de Retro 365, portadas reales en las tarjetas, 27 juegos más
+                    elegidos a partir de la propia historia del usuario con los
+                    videojuegos (Crash Bandicoot, la saga Assassin's Creed, los Call of
+                    Duty de la era zombies, y una buena tanda de independientes), y
+                    sincronización real de Game Match entre dispositivos vía Firestore.</p>
+                </div>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-date">📅 6 SEPT 2026 (TARDE/NOCHE)</div>
+                <div class="timeline-hours">~4h30 de sesión</div>
+                <h4>Integraciones reales, autonomía y primera tanda de guiones</h4>
+                <div class="log-entry">
+                  <strong>13:57–16:48 (~2h50)</strong>
+                  <p>Corrección de fallos reportados (notificaciones, salto automático,
+                    radar de estrenos, notas), Radar de estrenos con datos reales de TMDB
+                    (películas y series), primera tanda de las 50 mejoras (búsqueda,
+                    generador manual de ideas, calendario con prioridad para retrasos y
+                    exportación a .ics, indicador del modo autónomo), 59 ideas nuevas
+                    escritas a mano en los 6 bancos secretos, y carátulas reales de Retro
+                    365 vía RAWG.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>17:11–18:21 (~1h10)</strong>
+                  <p>Tarjetas de "Sobre mí" ya clicables (librería real de Steam, setup con
+                    opinión sincera, enlaces a YouTube/Instagram), analítica de visitas con
+                    Umami, notas migradas de localStorage a Firebase Firestore
+                    (sincronización real entre dispositivos), y primer ciclo del modo de
+                    trabajo autónomo: 5 guiones completos para ideas ya aprobadas de
+                    Rincón del Friki.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>18:21–19:15 (~55min)</strong>
+                  <p>Base técnica para que la fase de producción ("creando guion" y demás)
+                    se pueda fijar desde el propio código y se vea igual en cualquier
+                    dispositivo, capa de producción añadida a los guiones (narración en
+                    off, visual/clips, SFX, transiciones y BGM por bloque), y guiones
+                    completos para las 13 ideas aprobadas restantes de Charkuma Lab,
+                    Creator Tools, Hecho a Mano, IA & Experimentos y HELQUIDGAMES —
+                    las 18 ideas que estaban aprobadas ya tienen guion.</p>
+                </div>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-date">📅 5–6 SEPT 2026</div>
+                <div class="timeline-hours">~10h de sesión</div>
+                <h4>Construcción inicial</h4>
+                <div class="log-entry">
+                  <strong>Antes del repositorio (sin hora exacta)</strong>
+                  <p>Lobby estático inicial → conversión a single-page app → widget de
+                    YouTube y notas rápidas → primera versión de Retro 365 → despliegue
+                    real a GitHub Pages.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>5 sept, 16:26–23:52 (~7h30)</strong>
+                  <p>Repositorio creado. HELQUIDGAMES + Ruleta del 11 (con base de datos
+                    de 2313 jugadores). Feeds filtrables de Charkuma Lab, IA & Experimentos,
+                    Creator Tools y Hecho a Mano. Integración e iteración de CalcArte
+                    (personajes, prompt, estilo de dibujo). Las 26 páginas de detalle con
+                    contenido real. Insignia "Pendiente de revisión". Primer easter egg
+                    secreto (banco de 50 ideas de Rincón del Friki).</p>
+                </div>
+                <div class="log-entry">
+                  <strong>6 sept, 00:09–02:23 (~2h15)</strong>
+                  <p>La tanda grande: buscador global, tema claro/oscuro, calendario de
+                    publicación, banco de ideas en las 5 secciones restantes, JS movido a
+                    archivo aparte, mapa maestro, ranking friki, radar de estrenos,
+                    reestructuración de HELQUIDGAMES, sistema de aprobar/en proceso/
+                    publicado/descartar, control secreto maestro, y pulido de fallos.</p>
+                </div>
+                <div class="log-entry">
+                  <strong>6 sept, 02:32–03:29 (~1h)</strong>
+                  <p>Diario de construcción como línea temporal, Draft Arena (concepto de
+                    HELQUIDGAMES), campana de notificaciones con palabras clave,
+                    importación de ideas por JSON, identidad visual propia para "El
+                    Laboratorio", división de "en proceso" en 4 fases con botón
+                    "→ Siguiente", corrección de un crash grave en enlaces directos, y el
+                    generador de ideas del Control Maestro.</p>
                 </div>
               </div>
             </div>
