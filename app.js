@@ -6113,6 +6113,28 @@
         <strong>${trend} respecto al mes anterior</strong>`;
     }
 
+    // Backlog #53 — seguimiento de 2-3 canales de referencia, con datos
+    // reales (vía vidiq_channel_search, consultado 2026-09-07). Elegidos
+    // a partir de la propia historia del usuario con los videojuegos
+    // (los youtubers de Call of Duty/Minecraft que veía de más joven:
+    // Willyrex, Vegetta777 y sTaxx) — no es una decisión de estrategia
+    // ajena, son sus propias referencias declaradas. Si algún día quiere
+    // cambiarlas por otras, es tan simple como editar este array.
+    const VIDIQ_REFERENCE_CHANNELS = [
+      { name: "Willyrex", handle: "@willyrex", subscribers: 17300000, views: 5507180239, viewsGrowth30d: 0.18 },
+      { name: "VEGETTA777", handle: "@vegetta777", subscribers: 34700000, views: 16458280884, viewsGrowth30d: 0.12 },
+      { name: "sTaXxCraft", handle: "@staxxcraft", subscribers: 7840000, views: 1922684826, viewsGrowth30d: 0.03 }
+    ];
+    function renderReferenceChannels(){
+      const container = document.getElementById('referenceChannelsList');
+      if (!container) return;
+      container.innerHTML = VIDIQ_REFERENCE_CHANNELS.map(c => `
+        <div class="vidiq-stat">
+          <span class="vidiq-stat-value" style="font-size:16px">${c.name}</span>
+          <span class="vidiq-stat-label">${c.subscribers.toLocaleString('es-ES')} susc. · ${c.views.toLocaleString('es-ES')} visitas · 📈 +${c.viewsGrowth30d}% (30d)</span>
+        </div>`).join('');
+    }
+
     // Backlog #51 — alerta de crecimiento viral repentino: mira los
     // saltos diarios REALES de VIDIQ_VIEWS_HISTORY (#49) y avisa si
     // algún día se sale claramente de lo normal (más del doble de la
@@ -6159,6 +6181,7 @@
       renderViewsEvolutionChart();
       renderMonthComparison();
       renderViralSpikeAlert();
+      renderReferenceChannels();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
