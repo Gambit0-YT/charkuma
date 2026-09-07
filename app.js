@@ -2224,6 +2224,41 @@
     // Descartar / → Siguiente" que se inyecta en la cabecera de la
     // propia página de detalle (no solo la insignia pequeña del
     // kicker) — reversible en todos los sentidos.
+    // Backlog #25 — prioridad manual (alta/media/baja) por idea
+    // aprobada: decisión 100% del usuario, Claude solo guarda y
+    // muestra lo que él elija — nunca la asigna sola.
+    const CONTENT_PRIORITY_KEY = 'charkuma_content_priority';
+    const PRIORITY_LABELS = { alta: '🔴 Alta', media: '🟡 Media', baja: '🟢 Baja' };
+    function loadContentPriorityMap(){
+      try { return JSON.parse(localStorage.getItem(CONTENT_PRIORITY_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function saveContentPriorityMap(map){
+      try { localStorage.setItem(CONTENT_PRIORITY_KEY, JSON.stringify(map)); }
+      catch (e) { /* seguimos sin guardar, sin romper nada */ }
+    }
+    function getContentPriority(rid){
+      return loadContentPriorityMap()[rid] || '';
+    }
+    function setContentPriority(rid, priority){
+      const map = loadContentPriorityMap();
+      if (priority) map[rid] = priority; else delete map[rid];
+      saveContentPriorityMap(map);
+      refreshReviewControls();
+      if (typeof renderMasterControlList === 'function') renderMasterControlList();
+    }
+    function priorityControlHTML(rid){
+      const current = getContentPriority(rid);
+      const options = ['', 'alta', 'media', 'baja'].map(p =>
+        `<option value="${p}" ${current === p ? 'selected' : ''}>${p ? PRIORITY_LABELS[p] : 'Sin prioridad'}</option>`
+      ).join('');
+      return `
+        <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);flex-basis:100%">
+          Prioridad:
+          <select onchange="setContentPriority('${rid}', this.value)" style="padding:6px 10px;border-radius:8px;border:1px solid var(--line2);background:var(--panel);color:var(--text);font-family:inherit">${options}</select>
+        </label>`;
+    }
+
     // Backlog #17 — estimación de duración por beat: lee la narración
     // real ("🎙️ Off:") ya escrita en el guion de la propia página (DOM,
     // no un campo aparte — los guiones de los 6 bancos viven como HTML
@@ -2484,6 +2519,7 @@
           <button type="button" class="btn btn-primary review-next-btn" onclick="goToNextUntouchedContent('${rid}')" title="Saltar al siguiente elemento al que todavía no le has tocado el estado">
             → Siguiente
           </button>
+          ${approved ? priorityControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
           ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
@@ -5223,7 +5259,8 @@
     function buildMasterControlIndex(){
       const items = buildSiteIndex().map(i => ({
         title: i.title, summary: i.summary, section: i.section, sectionEmoji: i.sectionEmoji,
-        emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto'
+        emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto',
+        priority: getContentPriority(i.view)
       }));
 
       // Fusionamos siempre con las ideas "extra" (importadas por JSON o
@@ -5373,6 +5410,31 @@
         </div>`;
     }
 
+    // Backlog #30 — widget "próximo a publicar": destaca lo que ya está
+    // en la última fase (listo-publicar); si no hay nada ahí todavía,
+    // señala lo más avanzado en curso como referencia, sin fingir que
+    // está más listo de lo que realmente está.
+    function renderNextToPublishWidget(){
+      const container = document.getElementById('nextToPublishWidget');
+      if (!container) return;
+      const all = buildSiteIndex();
+      const ready = all.filter(i => i.status === 'listo-publicar');
+      if (ready.length) {
+        container.innerHTML = `<ul style="margin:0;padding-left:18px">${ready.map(i =>
+          `<li><a href="javascript:void(0)" onclick="showView('${i.view}')">${escapeAttr(i.title)} ↗</a></li>`
+        ).join('')}</ul>`;
+        return;
+      }
+      const inProgress = all.filter(i => CONTENT_STAGE_ORDER.includes(i.status));
+      if (!inProgress.length) {
+        container.innerHTML = `<p class="yt-empty" style="margin:0">Nada en producción ahora mismo.</p>`;
+        return;
+      }
+      inProgress.sort((a, b) => CONTENT_STAGE_ORDER.indexOf(b.status) - CONTENT_STAGE_ORDER.indexOf(a.status));
+      const next = inProgress[0];
+      container.innerHTML = `<p class="yt-empty" style="margin:0">Nada listo para publicar todavía — lo más avanzado ahora mismo es <a href="javascript:void(0)" onclick="showView('${next.view}')">${escapeAttr(next.title)} ↗</a> (${CONTENT_STATUS_LABELS[next.status]}).</p>`;
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -5380,6 +5442,7 @@
       renderActivityLog();
       renderAutonomousLoopStatus();
       renderContentTimeline();
+      renderNextToPublishWidget();
       renderAvgApprovedToPublished();
       renderStaleContentWarning();
       populateGenerateSectionSelect();
@@ -5409,8 +5472,11 @@
         return true;
       });
 
+      const PRIORITY_SORT_RANK = { alta: 0, media: 1, baja: 2, '': 3 };
       if (sortBy === 'status') {
         items.sort((a, b) => MASTER_CONTROL_STATUS_PRIORITY[a.status] - MASTER_CONTROL_STATUS_PRIORITY[b.status]);
+      } else if (sortBy === 'priority') {
+        items.sort((a, b) => PRIORITY_SORT_RANK[a.priority] - PRIORITY_SORT_RANK[b.priority]);
       } else {
         const withDate = items.filter(i => i.date).sort((a, b) => new Date(a.date) - new Date(b.date));
         const withoutDate = items.filter(i => !i.date);
@@ -5436,6 +5502,7 @@
                 <span class="type-chip universe-chip">${item.kind}</span>
                 <span class="type-chip chip-neutral">📅 ${dateLabel}</span>
                 ${statusChip}
+                ${item.priority ? `<span class="type-chip chip-neutral">${PRIORITY_LABELS[item.priority]}</span>` : ''}
               </div>
               <h4>${titleLink}</h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}
