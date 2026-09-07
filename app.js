@@ -4586,10 +4586,19 @@
       helquid: helquidSecretIdeas, lab: labSecretIdeas, ia: iaSecretIdeas,
       creator: creatorSecretIdeas, hecho: hechoSecretIdeas
     };
+    // Backlog #39 — sujetos reales de tendencia (VidIQ vidiq_trending_videos,
+    // shorts en español, 2026-09-07) añadidos a Rincón del Friki y
+    // HELQUIDGAMES — los dos bancos donde "qué está de moda ahora mismo"
+    // tiene sentido real (los otros 4 son herramientas/proceso propio del
+    // canal, no contenido de tendencia). Es una FOTO puntual, como las
+    // estadísticas de VidIQ del canal — se queda desactualizada con el
+    // tiempo y conviene refrescarla de vez en cuando con una nueva
+    // consulta, no todos los días.
     const IDEA_GENERATORS = {
       rincon: {
         label: 'Rincón del Friki',
-        subjects: ['el villano de moda ahora mismo','el héroe más infravalorado del momento','el antihéroe que todo el mundo comenta','la última incorporación al reparto','el crossover que nadie esperaba','el personaje secundario que se ha vuelto viral','la teoría fan más comentada esta semana','el spin-off recién anunciado','el actor protagonista del estreno actual','la escena que más se ha compartido esta semana'],
+        subjects: ['el villano de moda ahora mismo','el héroe más infravalorado del momento','el antihéroe que todo el mundo comenta','la última incorporación al reparto','el crossover que nadie esperaba','el personaje secundario que se ha vuelto viral','la teoría fan más comentada esta semana','el spin-off recién anunciado','el actor protagonista del estreno actual','la escena que más se ha compartido esta semana',
+          'las actrices de Marvel que odiaron sus propios trajes','Marvel Rivals y su fiebre actual','el nuevo tráiler de los Cuatro Fantásticos','la eterna polémica con Capitana Marvel','Deadpool volviéndose viral otra vez'],
         universes: ['geek','marvel','boys','anime','cruce'],
         templates: {
           opinion: ['Mi opinión sincera sobre {s}, para quien no sabe nada todavía.','Por qué {s} merece más atención de la que le están dando.'],
@@ -4601,7 +4610,8 @@
       },
       helquid: {
         label: 'HELQUIDGAMES',
-        subjects: ['un juego indie recién salido','un clásico que casi nadie recuerda','el juego más pedido en el Discord','un juego con mecánicas raras de verdad','un roguelike corto','un juego cooperativo para dos personas','un juego con una sola vida de verdad','un juego hecho por un equipo pequeño'],
+        subjects: ['un juego indie recién salido','un clásico que casi nadie recuerda','el juego más pedido en el Discord','un juego con mecánicas raras de verdad','un roguelike corto','un juego cooperativo para dos personas','un juego con una sola vida de verdad','un juego hecho por un equipo pequeño',
+          'Tomb Raider: Legacy of Atlantis, recién salido','Maneater 2, el anuncio del momento','el último leak gordo de Valve','DLSS 5 filtrado y lo que cambia de verdad','The Blood of Dawnwalker, ¿vale la pena?'],
         templates: {
           reto: ['Reto: terminar {s} sin usar ni una guía.','Un solo intento con {s} — si fallo, se acaba el vídeo.'],
           formato: ['Primeras impresiones jugando {s} por primera vez en directo.','¿Vale la pena en 2026? revisando {s}.'],
