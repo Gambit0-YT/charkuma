@@ -1362,6 +1362,15 @@
       dificil: "🔴 Difícil",
       muydificil: "🟣 Muy difícil"
     };
+    // Backlog #11 — miniatura sugerida por dificultad: cuando un
+    // candidato del mazo no trae su propio emoji, en vez de un genérico
+    // 🎮 siempre igual, usa el mismo círculo de color que ya identifica
+    // esa dificultad en toda la web (reutiliza DIFF_LABELS, no duplica
+    // el mapeo de colores en otro sitio).
+    function defaultEmojiForDifficulty(difficulty){
+      const label = DIFF_LABELS[difficulty];
+      return label ? label.split(' ')[0] : '🎮';
+    }
 
     const PLATFORM_LABELS = { tiktok: "🎵 TikTok", youtube: "▶️ YouTube" };
 
@@ -2363,14 +2372,17 @@
       }
       if (!Array.isArray(parsed)) { statusEl.textContent = '❌ Tiene que ser un array de juegos, entre corchetes [ ].'; return; }
 
-      const clean = parsed.filter(g => g && g.name).map(g => ({
-        name: String(g.name),
-        summary: g.summary ? String(g.summary) : '',
-        difficulty: ['facil', 'media', 'dificil', 'muydificil'].includes(g.difficulty) ? g.difficulty : 'media',
-        emoji: g.emoji || '🎮',
-        steamUrl: g.steamUrl || '',
-        videoUrl: g.videoUrl || ''
-      }));
+      const clean = parsed.filter(g => g && g.name).map(g => {
+        const difficulty = ['facil', 'media', 'dificil', 'muydificil'].includes(g.difficulty) ? g.difficulty : 'media';
+        return {
+          name: String(g.name),
+          summary: g.summary ? String(g.summary) : '',
+          difficulty,
+          emoji: g.emoji || defaultEmojiForDifficulty(difficulty),
+          steamUrl: g.steamUrl || '',
+          videoUrl: g.videoUrl || ''
+        };
+      });
       if (!clean.length) { statusEl.textContent = '⚠️ No he encontrado ningún juego válido ahí (falta el campo "name").'; return; }
 
       // Se AÑADE al mazo que ya tengas (normalmente el catálogo incorporado),
