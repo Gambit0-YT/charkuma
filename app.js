@@ -1288,7 +1288,11 @@
     // ya elegidos que todavía puedes cambiar de opinión sobre ellos.
     function secretDayCardHTML(day, plannedBankState){
       const published = completedGames[day];
-      const planned = plannedGames[day];
+      // plannedGames = del código (fijo en todos los dispositivos); si no
+      // hay nada ahí, miramos la capa "extra" que se asigna a mano desde
+      // Game Match (localStorage, solo en este navegador hasta que se
+      // suba al código con un guion real).
+      const planned = plannedGames[day] || loadExtraPlannedGames()[day];
 
       if (published) {
         return { html: `
@@ -1429,6 +1433,40 @@
     function loadSwipeShortlist(){ try { return JSON.parse(localStorage.getItem(SWIPE_SHORTLIST_KEY)) || []; } catch (e) { return []; } }
     function saveSwipeShortlist(arr){ try { localStorage.setItem(SWIPE_SHORTLIST_KEY, JSON.stringify(arr)); } catch (e) {} }
 
+    // ──────────────────────────────────────────────────────────
+    // Asignar directamente un "me gusta" de Game Match a un día de
+    // Retro 365, sin pasar por Claude — a petición del usuario. Vive en
+    // localStorage aparte de `plannedGames` (que es del código, fijo
+    // para todos los dispositivos); esta capa "extra" se fusiona por
+    // encima en secretDayCardHTML, igual que ya se hace con los bancos
+    // de ideas normales (código + localStorage por encima).
+    // ──────────────────────────────────────────────────────────
+    const EXTRA_PLANNED_KEY = 'charkuma_retro365_extra_planned';
+    function loadExtraPlannedGames(){ try { return JSON.parse(localStorage.getItem(EXTRA_PLANNED_KEY)) || {}; } catch (e) { return {}; } }
+    function saveExtraPlannedGames(map){ try { localStorage.setItem(EXTRA_PLANNED_KEY, JSON.stringify(map)); } catch (e) {} }
+
+    function assignShortlistGameToDay(index){
+      const shortlist = loadSwipeShortlist();
+      const game = shortlist[index];
+      if (!game) return;
+      const input = document.getElementById(`shortlistDayInput-${index}`);
+      const day = input ? parseInt(input.value, 10) : NaN;
+      if (!day || day < 1 || day > 365) { alert('Escribe un día válido, del 1 al 365.'); return; }
+
+      if (completedGames[day]) { alert(`El día ${day} ya está publicado (${completedGames[day].name}) — elige otro.`); return; }
+      if (plannedGames[day]) { alert(`El día ${day} ya está decidido en el código (${plannedGames[day].name}) — elige otro.`); return; }
+      const extra = loadExtraPlannedGames();
+      if (extra[day]) { if (!confirm(`El día ${day} ya tiene asignado "${extra[day].name}" — ¿sustituirlo por "${game.name}"?`)) return; }
+
+      extra[day] = { name: game.name, summary: game.summary, difficulty: game.difficulty, emoji: game.emoji, steamUrl: game.steamUrl || '', videoUrl: game.videoUrl || '' };
+      saveExtraPlannedGames(extra);
+
+      shortlist.splice(index, 1);
+      saveSwipeShortlist(shortlist);
+      renderSwipeShortlist();
+      alert(`✅ "${game.name}" asignado al día ${day} de Retro 365. Ya aparece decidido en la chuleta secreta.`);
+    }
+
     // Los teclados móviles (Gboard, iOS) suelen "corregir" comillas rectas
     // por comillas tipográficas ( " " ' ' ) al escribir o pegar, lo que
     // rompe JSON.parse aunque el contenido sea correcto — es el bug real
@@ -1564,7 +1602,7 @@
           <div class="swipe-card" id="activeSwipeCard">
             <div class="swipe-badge-like" id="swipeBadgeLike">ME GUSTA</div>
             <div class="swipe-badge-pass" id="swipeBadgePass">PASO</div>
-            <div class="swipe-card-emoji">${card.emoji}</div>
+            <div class="swipe-card-emoji" id="swipeCardCover">${card.emoji}</div>
             <h4>${escapeHTML(card.name)}</h4>
             <span class="diff-chip diff-${card.difficulty}">${DIFF_LABELS[card.difficulty] || card.difficulty}</span>
             ${card.summary ? `<p>${escapeHTML(card.summary)}</p>` : ''}
@@ -1575,8 +1613,22 @@
         if (randomRow) randomRow.hidden = false;
         counterEl.textContent = `${index + 1} / ${candidates.length}`;
         initSwipeDrag(document.getElementById('activeSwipeCard'));
+        hydrateSwipeCardCover(card.name, index);
       }
       renderSwipeShortlist();
+    }
+
+    // Portada real vía RAWG (mismo mecanismo que en los días de Retro
+    // 365), aplicada a la tarjeta activa del mazo. Comprueba el índice al
+    // resolver por si el usuario ya pasó a otra tarjeta mientras tanto
+    // (evita pegar la portada equivocada encima de la tarjeta nueva).
+    async function hydrateSwipeCardCover(name, expectedIndex){
+      const url = await fetchGameCoverUrl(name);
+      if (!url) return;
+      if (loadSwipeIndex() !== expectedIndex) return;
+      const cover = document.getElementById('swipeCardCover');
+      if (!cover) return;
+      cover.innerHTML = `<img src="${url}" alt="${escapeAttr(name)}" loading="lazy">`;
     }
 
     // Backlog #7: en vez de ir siempre en orden, "saltar" a un candidato
@@ -1685,9 +1737,13 @@
       panel.hidden = shortlist.length === 0;
       countEl.textContent = shortlist.length;
       listEl.innerHTML = shortlist.map((g, i) => `
-        <div class="discarded-row">
+        <div class="discarded-row shortlist-row">
           <span>${g.emoji} ${escapeHTML(g.name)}</span>
-          <button type="button" class="idea-discard-btn" onclick="removeFromSwipeShortlist(${i})">✕ Quitar</button>
+          <div class="shortlist-assign">
+            <input type="number" id="shortlistDayInput-${i}" class="shortlist-day-input" min="1" max="365" placeholder="día">
+            <button type="button" class="btn btn-secondary" onclick="assignShortlistGameToDay(${i})">📅 Asignar a Retro 365</button>
+            <button type="button" class="idea-discard-btn" onclick="removeFromSwipeShortlist(${i})">✕ Quitar</button>
+          </div>
         </div>`).join('');
     }
 
