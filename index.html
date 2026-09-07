@@ -784,6 +784,11 @@
     .template-card ol{margin:0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.6}
     .template-card ol li{margin-bottom:4px}
     .template-card strong{color:var(--accent-text)}
+    /* Backlog #102 — mapa del sitio visual */
+    .sitemap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .sitemap-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+    .sitemap-links a{color:var(--text);font-size:13px;font-weight:700;cursor:pointer}
+    .sitemap-links a:hover{color:var(--orange2);text-decoration:underline}
 
     /* ── Ranking friki (minijuego de votos) ── */
     .ranking-panel{margin-bottom:10px}
@@ -1771,7 +1776,59 @@
 
       <section class="detail-section">
         <div class="container">
-          <h3 class="subheading">🎨 Prompts guardados</h3>
+          <!-- Backlog #102 — mapa del sitio VISUAL: a diferencia del resto
+               de esta página (que es funcional — prompts, ideas, proyectos
+               por fecha), esto es solo estructura de navegación: las
+               páginas "hub" reales de la web agrupadas por tema, sin
+               listar cada pieza de contenido suelta (para eso está el
+               buscador y Control Maestro). -->
+          <h3 class="subheading">🗺️ Mapa del sitio</h3>
+          <div class="sitemap-grid">
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip chip-purple">🏠 Principal</span></div>
+              <ul class="sitemap-links">
+                <li><a href="javascript:void(0)" onclick="goHome('inicio')">Inicio</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('mis-proyectos')">Mis Proyectos</a></li>
+                <li><a href="javascript:void(0)" onclick="openSearchView()">Buscar en todo el sitio</a></li>
+              </ul>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip chip-purple">✍️ Producción de contenido</span></div>
+              <ul class="sitemap-links">
+                <li><a href="javascript:void(0)" onclick="showView('charkumalab')">Charkuma Lab</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('guiones-bandeja')">🎙️ Bandeja de guiones</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('idea-swipe')">🃏 Swipe de ideas</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('rincon')">Rincón del Friki</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('ia')">IA & Experimentos</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('creator')">Creator Tools</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('hecho')">Hecho a Mano</a></li>
+              </ul>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip chip-purple">🎮 Gaming</span></div>
+              <ul class="sitemap-links">
+                <li><a href="javascript:void(0)" onclick="showView('helquidgames')">HELQUIDGAMES</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('helquid-game-match')">🃏 Game Match</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('helquid-draft-arena')">⚔️ Draft Arena</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('calcarte')">🧮 CalcArte</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('retro365')">Retro 365</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('calendario')">📅 Calendario</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('ruleta11')">🎲 Ruleta del 11</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('gaming-library')">📚 Librería de juegos</a></li>
+              </ul>
+            </div>
+            <div class="template-card">
+              <div class="template-head"><span class="type-chip chip-purple">🔒 Solo tú</span></div>
+              <ul class="sitemap-links">
+                <li><a href="javascript:void(0)" onclick="showView('master-control')">🕹️ Control Maestro</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('notif-inbox')">🔔 Bandeja de notificaciones</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('redes')">📱 Redes Sociales</a></li>
+                <li><a href="javascript:void(0)" onclick="showView('tech-setup')">💻 Mi setup</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="subheading" style="margin-top:30px">🎨 Prompts guardados</h3>
           <div id="hubPromptsList" class="recent-list"></div>
 
           <h3 class="subheading" style="margin-top:30px">💡 Bancos secretos de ideas</h3>
