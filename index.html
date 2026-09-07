@@ -2934,17 +2934,66 @@
       </section>
       <section class="detail-section">
         <div class="container">
-          <h3 class="subheading">🔥 Elegir candidatos de Retro 365 (estilo Tinder)</h3>
-          <p class="section-sub" style="margin-bottom:16px">
-            Esto no es un juego de HELQUIDGAMES — es la herramienta para ir eligiendo qué
-            juegos entran en <strong>Retro 365</strong>. Desliza la tarjeta (o usa los
-            botones): ❤️ para quedártelo como candidato a futuro día, ✖️ para descartarlo.
-            Lo que te quedes se guarda en tu "preselección" — desde ahí decides luego qué
-            día exacto le toca a cada uno. La primera vez se carga solo el catálogo de
-            417 juegos reales (PC, móvil y Nintendo, bien valorados desde 2005) — no hace
-            falta pegar nada. Si alguna vez te lo acabas, el botón "📚 Cargar catálogo
+          <div class="projects">
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('ruleta11')">
+              <div class="num">JUEGO 001</div>
+              <div class="open">↗</div>
+              <h3>⚽ RULETA DEL 11</h3>
+              <p>El reto viral de TikTok: gira posición y club/selección, y arma tu once sin repetir jugador con el rival.</p>
+            </a>
+
+            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('calcarte')">
+              <div class="num">JUEGO 002</div>
+              <div class="open">↗</div>
+              <h3>🎨 CALCARTE</h3>
+              <p>La tragaperra de los retos imposibles: tira de la palanca, saca personaje + acción, genera la imagen con IA y cálcala.</p>
+            </a>
+
+            <a class="project reveal" href="javascript:void(0)" onclick="showView('helquid-game-match')">
+              <div class="num">JUEGO 003</div>
+              <div class="open">↗</div>
+              <h3>🔥 GAME MATCH</h3>
+              <p>Estilo Tinder para elegir qué juegos entran en Retro 365 — 417 juegos reales listos, sin pegar nada.</p>
+            </a>
+
+            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('helquid-draft-arena')">
+              <div class="num">JUEGO 004 · CONCEPTO</div>
+              <div class="open">↗</div>
+              <h3>🎴 DRAFT ARENA</h3>
+              <p>El próximo en la lista: draft para 2 jugadores en el mismo dispositivo, turnos alternos eligiendo de una pool compartida.</p>
+            </a>
+          </div>
+          <div class="note">
+            <strong>Nota:</strong> aquí irán apareciendo los próximos juegos según los vaya creando,
+            cada uno como una tarjeta más en esta cuadrícula. Los cuatro primeros juegos de
+            HELQUIDGAMES están pensados para jugarse en local, dos personas en el mismo
+            dispositivo — como Ruleta del 11.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ HELQUIDGAMES · Game Match ══════════ -->
+    <div id="view-helquid-game-match" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
+          <div class="section-kicker">HELQUIDGAMES · JUEGO 003</div>
+          <h2 class="section-title">🔥 GAME MATCH</h2>
+          <p class="section-sub">
+            Estilo Tinder, pero para elegir qué juegos entran en <strong>Retro 365</strong>
+            en vez de una pareja. Desliza la tarjeta (o usa los botones): ❤️ para
+            quedártelo como candidato a futuro día, ✖️ para descartarlo. Lo que te quedes
+            se guarda en tu "preselección" — desde ahí decides luego qué día exacto le
+            toca a cada uno. La primera vez se carga solo el catálogo de 417 juegos
+            reales (PC, móvil y Nintendo, bien valorados desde 2005) — no hace falta
+            pegar nada. Si alguna vez te lo acabas, el botón "📚 Cargar catálogo
             completo" te lo vuelve a poner entero.
           </p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
           <div class="swipe-deck-panel">
             <div class="json-import-panel">
               <h4>📥 Añadir más candidatos (opcional)</h4>
@@ -2989,36 +3038,6 @@
                 <button type="button" class="btn btn-secondary" onclick="exportSwipeShortlist()">📋 Copiar preselección (JSON)</button>
               </div>
             </details>
-          </div>
-
-          <h3 class="subheading" style="margin-top:36px">🕹️ Juegos de HELQUIDGAMES</h3>
-          <div class="projects">
-            <a class="project reveal" href="javascript:void(0)" onclick="showView('ruleta11')">
-              <div class="num">JUEGO 001</div>
-              <div class="open">↗</div>
-              <h3>⚽ RULETA DEL 11</h3>
-              <p>El reto viral de TikTok: gira posición y club/selección, y arma tu once sin repetir jugador con el rival.</p>
-            </a>
-
-            <a class="project orange reveal" href="javascript:void(0)" onclick="showView('calcarte')">
-              <div class="num">JUEGO 002</div>
-              <div class="open">↗</div>
-              <h3>🎨 CALCARTE</h3>
-              <p>La tragaperra de los retos imposibles: tira de la palanca, saca personaje + acción, genera la imagen con IA y cálcala.</p>
-            </a>
-
-            <a class="project reveal" href="javascript:void(0)" onclick="showView('helquid-draft-arena')">
-              <div class="num">JUEGO 003 · CONCEPTO</div>
-              <div class="open">↗</div>
-              <h3>🎴 DRAFT ARENA</h3>
-              <p>El próximo en la lista: draft para 2 jugadores en el mismo dispositivo, turnos alternos eligiendo de una pool compartida.</p>
-            </a>
-          </div>
-          <div class="note">
-            <strong>Nota:</strong> aquí irán apareciendo los próximos juegos según los vaya creando,
-            cada uno como una tarjeta más en esta cuadrícula. Los cuatro primeros juegos de
-            HELQUIDGAMES están pensados para jugarse en local, dos personas en el mismo
-            dispositivo — como Ruleta del 11.
           </div>
         </div>
       </section>

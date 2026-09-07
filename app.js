@@ -636,11 +636,10 @@
       if (id === 'master-control' && typeof renderMasterControlList === 'function') {
         try { renderMasterControlList(); } catch (e) { /* ver comentario arriba */ }
       }
-      // El mazo Tinder de candidatos de Retro 365 vive ahora dentro de
-      // HELQUIDGAMES (mudado desde la chuleta secreta a petición del
-      // usuario 2026-09-07) — hay que refrescarlo cada vez que se entra
-      // aquí, igual que antes se hacía al entrar en la chuleta secreta.
-      if (id === 'helquidgames' && typeof renderSwipeDeck === 'function') {
+      // "Game Match" (el mazo Tinder de candidatos de Retro 365) es ahora
+      // un juego más de HELQUIDGAMES, con su propia página — hay que
+      // refrescarlo cada vez que se entra aquí.
+      if (id === 'helquid-game-match' && typeof renderSwipeDeck === 'function') {
         try { renderSwipeDeck(); } catch (e) { /* ver comentario arriba */ }
         if (typeof autoSeedCatalogIfNeeded === 'function') autoSeedCatalogIfNeeded();
       }
