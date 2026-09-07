@@ -289,6 +289,18 @@
     .kanban-card a{color:var(--text);font-weight:700}
     .kanban-card a:hover{color:var(--orange2)}
     .kanban-card .kanban-section{color:var(--muted);font-size:10px;display:block;margin-top:4px}
+
+    /* ── Backlog #28: exportar Control Maestro a PDF (impresión del
+       navegador — sin librerías externas). Oculta cabecera, footer y
+       los controles interactivos que no aportan nada en papel. ── */
+    @media print{
+      body{background:#fff!important}
+      .nav, footer, .breadcrumb-bar, .search-panel, .generate-ideas-panel,
+      #masterControlSort, #masterControlView, .btn, .back, .autonomous-loop-status,
+      .last-autonomous-activity{display:none!important}
+      .app-view.active{opacity:1!important;transform:none!important}
+      .geek-card, .kanban-column, .vidiq-stats-panel, .stale-warning{break-inside:avoid}
+    }
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 
     /* ── Transición suave entre vistas ──
@@ -1593,6 +1605,7 @@
           <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
           <div class="section-kicker">🔒 SOLO TÚ</div>
           <h2 class="section-title">🕹️ CONTROL SECRETO MAESTRO</h2>
+          <button type="button" class="btn btn-secondary" style="margin:8px 0" onclick="window.print()">🖨️ Exportar a PDF</button>
           <span class="autonomous-loop-status"></span>
           <p class="yt-empty last-autonomous-activity" style="margin:6px 0 0"></p>
           <p class="section-sub">
