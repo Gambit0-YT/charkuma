@@ -9,6 +9,14 @@
   <!-- Favicon (emoji sobre el degradado de marca, sin necesidad de subir ninguna imagen) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%22 stop-color=%22%23ff7a18%22/><stop offset=%221%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22url(%23g)%22/><text x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22>%F0%9F%A6%8E</text></svg>" />
 
+  <!-- Backlog #93 — PWA instalable: manifest + iconos reales (192/512,
+       generados con el mismo degradado de marca) + service worker ya
+       existente (sw.js, backlog #79) es todo lo que hace falta para que
+       el navegador ofrezca "Instalar" / "Añadir a pantalla de inicio". -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ff7a18" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+
   <!-- Open Graph / Twitter Card: vista previa al compartir el enlace -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CHARKUMA" />
