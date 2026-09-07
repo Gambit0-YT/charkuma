@@ -655,6 +655,20 @@
     .diff-dificil{background:rgba(255,95,109,.12);color:var(--red);border:1px solid rgba(255,95,109,.35)}
     .diff-muydificil{background:rgba(192,38,211,.14);color:#e879f9;border:1px solid rgba(192,38,211,.4)}
 
+    /* ── Retro 365: vista de calendario real (backlog #4) — mismo
+       acordeón por mes que la lista de arriba, pero con una rejilla de
+       semanas real (fechas reales desde RETRO365_START_DATE), no solo
+       una lista de días. ── */
+    .retro-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:14px 18px 20px}
+    .retro-cal-weekday{text-align:center;font-size:10px;font-weight:900;letter-spacing:.06em;color:var(--muted);padding-bottom:2px}
+    .retro-cal-cell{aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;font-weight:800;background:var(--panel);border:1px solid var(--line3);color:var(--muted)}
+    .retro-cal-cell.empty{background:transparent;border-color:transparent}
+    .retro-cal-cell .retro-cal-daynum{font-size:13px}
+    .retro-cal-cell.unlocked{background:linear-gradient(145deg,rgba(255,122,24,.18),rgba(139,92,246,.22));border-color:#3a2a52;color:var(--text)}
+    .retro-cal-cell.next{box-shadow:0 0 0 2px var(--orange);color:var(--text)}
+    .retro-cal-cell.locked{opacity:.6}
+    .retro-cal-cell:not(.empty):hover{cursor:pointer;border-color:var(--orange2)}
+
     /* ── Rincón del Friki: plantillas + contenido ── */
     .template-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
     .template-card{padding:18px;border-radius:18px;background:var(--panel2);border:1px solid var(--line)}
@@ -2150,7 +2164,14 @@
           <h3 class="subheading">🆕 Últimos subidos (el más reciente primero)</h3>
           <div id="recentList" class="recent-list"></div>
 
-          <h3 class="subheading">📅 Calendario completo</h3>
+          <h3 class="subheading">🗓️ Vista de calendario real</h3>
+          <p class="section-sub" style="margin:-6px 0 14px">
+            Los mismos 365 días, pero con fechas reales de verdad (empezando el
+            10 de noviembre de 2026) en formato calendario, semana a semana.
+          </p>
+          <div id="retroCalendarGrid"></div>
+
+          <h3 class="subheading" style="margin-top:34px">📅 Calendario completo</h3>
           <div id="monthsContainer"></div>
 
           <div class="note">

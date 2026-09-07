@@ -1081,6 +1081,84 @@
         `${unlockedDays.length} / ${totalDays} días desbloqueados (${pct}%)`;
     }
 
+    // Backlog #4 — vista de calendario mensual REAL para Retro 365: los
+    // mismos 365 días de siempre, pero mapeados a fechas de verdad desde
+    // RETRO365_START_DATE (10 nov 2026), en una rejilla semana a semana
+    // (lunes primero) en vez de la lista plana de arriba. Llamada al
+    // final del script (ver comentario junto a RETRO365_START_DATE) para
+    // evitar el TDZ de esa constante.
+    const RETRO_CAL_WEEKDAYS = ['L','M','X','J','V','S','D'];
+    function renderRetroCalendarGrid(){
+      const container = document.getElementById('retroCalendarGrid');
+      if (!container || typeof RETRO365_START_DATE === 'undefined') return;
+
+      // Agrupamos los 365 días por mes-calendario real.
+      const monthsMap = new Map(); // "2026-10" -> [{day, date}]
+      for (let d = 1; d <= totalDays; d++){
+        const date = new Date(RETRO365_START_DATE);
+        date.setDate(date.getDate() + (d - 1));
+        const key = `${date.getFullYear()}-${String(date.getMonth()).padStart(2,'0')}`;
+        if (!monthsMap.has(key)) monthsMap.set(key, []);
+        monthsMap.get(key).push({ day: d, date });
+      }
+
+      const MONTH_NAMES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      let html = '';
+      let firstOpenDone = false;
+      for (const [key, entries] of monthsMap){
+        const [year, monthIdx] = key.split('-').map(Number);
+        const firstDate = entries[0].date;
+        // Lunes = 0 ... domingo = 6 (getDay() da domingo = 0, lo rotamos)
+        const leadingBlanks = (firstDate.getDay() + 6) % 7;
+        const unlockedInMonth = entries.filter(e => completedGames[e.day]).length;
+        const containsNext = entries.some(e => e.day === nextDay);
+        const openAttr = (containsNext || !firstOpenDone) ? ' open' : '';
+        if (containsNext || !firstOpenDone) firstOpenDone = true;
+
+        let cells = RETRO_CAL_WEEKDAYS.map(w => `<div class="retro-cal-weekday">${w}</div>`).join('');
+        for (let i = 0; i < leadingBlanks; i++) cells += `<div class="retro-cal-cell empty"></div>`;
+        entries.forEach(({ day, date }) => {
+          const game = completedGames[day];
+          const isNext = day === nextDay;
+          const cls = game ? 'unlocked' : (isNext ? 'locked next' : 'locked');
+          const title = game
+            ? `Día ${day} · ${game.name}`
+            : (isNext ? `Día ${day} · próximo a publicarse` : `Día ${day} · todavía sin anunciar`);
+          cells += `<div class="retro-cal-cell ${cls}" title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${game ? (game.emoji || '🎮') : (isNext ? '🟠' : '🔒')}</div>`;
+        });
+
+        html += `
+          <details class="month"${openAttr}>
+            <summary>
+              <span>${MONTH_NAMES[monthIdx]} ${year}</span>
+              <span class="count">${unlockedInMonth} / ${entries.length} desbloqueados</span>
+            </summary>
+            <div class="retro-cal-grid">${cells}</div>
+          </details>`;
+      }
+      container.innerHTML = html;
+    }
+
+    // Al pulsar un día del calendario real, abrimos (si hace falta) y
+    // desplazamos hasta su tarjeta equivalente en la lista de siempre —
+    // así el calendario es un atajo visual, no una vista duplicada.
+    function scrollToRetroDay(day){
+      const container = document.getElementById('monthsContainer');
+      if (!container) return;
+      const details = [...container.querySelectorAll('details.month')];
+      const dayBadgeText = `DÍA ${String(day).padStart(3,'0')}`;
+      for (const det of details){
+        const badge = [...det.querySelectorAll('.day-badge')].find(b => b.textContent.includes(dayBadgeText));
+        if (badge) {
+          det.open = true;
+          badge.closest('.day-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          badge.closest('.day-card').style.outline = '2px solid var(--orange)';
+          setTimeout(() => { badge.closest('.day-card').style.outline = ''; }, 1600);
+          return;
+        }
+      }
+    }
+
     // ──────────────────────────────────────────────────────────
     // Bancos secretos de ideas: "hecha" (✅ verde, en el cuadrado del
     // emoticono) y "descartar" (oscurece la tarjeta), con contador de
@@ -5627,3 +5705,4 @@
     renderNotifications();
     renderActivityLog();
     renderAutonomousLoopStatus();
+    renderRetroCalendarGrid();
