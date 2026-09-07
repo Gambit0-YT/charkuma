@@ -905,6 +905,18 @@
     .geek-info h4 a:hover{color:var(--orange2);text-decoration:underline}
     .geek-info p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.55}
 
+    /* Backlog #70 — modo compacto de Control Maestro: mismas tarjetas,
+       más pequeñas y sin resumen, para ver más elementos de golpe en
+       una lista larga. Deliberadamente acotado a la lista de Control
+       Maestro (#masterControlProjectsList), no toca .geek-card en el
+       resto de la web (Bandeja de Guiones, bancos de ideas...). */
+    #masterControlProjectsList.mc-compact .geek-card{gap:10px;padding:9px 12px;border-radius:10px}
+    #masterControlProjectsList.mc-compact .geek-thumb{width:34px;height:34px;font-size:16px;border-radius:8px}
+    #masterControlProjectsList.mc-compact .geek-badges{gap:5px;margin-bottom:3px}
+    #masterControlProjectsList.mc-compact .type-chip{font-size:9px;padding:2px 7px}
+    #masterControlProjectsList.mc-compact .geek-info h4{font-size:13px;margin:0}
+    #masterControlProjectsList.mc-compact .geek-info p{display:none}
+
     /* ── Ruleta del 11 ── */
     .ruleta-panel{margin-top:30px;text-align:center}
     .ruleta-teams-setup{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
@@ -1773,6 +1785,10 @@
                 <option value="list" selected>📋 Vista lista</option>
                 <option value="kanban">🗂️ Vista Kanban</option>
               </select>
+              <label class="hide-discarded-label" style="margin:0">
+                <input type="checkbox" id="masterControlCompactToggle" onchange="setMasterControlCompact(this.checked)">
+                🔎 Modo compacto
+              </label>
             </div>
           </div>
           <p class="yt-empty" id="masterControlCount" style="margin-bottom:16px"></p>

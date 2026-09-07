@@ -6388,10 +6388,27 @@
         </div>`;
     }
 
+    // Backlog #70 — modo compacto de Control Maestro: preferencia simple
+    // por navegador (no hace falta sincronizarla entre dispositivos,
+    // es solo una cuestión de densidad visual en pantalla).
+    const MC_COMPACT_KEY = 'charkuma_master_control_compact';
+    function setMasterControlCompact(on){
+      try { localStorage.setItem(MC_COMPACT_KEY, on ? '1' : '0'); } catch (e) {}
+      const listEl = document.getElementById('masterControlProjectsList');
+      if (listEl) listEl.classList.toggle('mc-compact', on);
+    }
+    (function initMasterControlCompact(){
+      let on = false;
+      try { on = localStorage.getItem(MC_COMPACT_KEY) === '1'; } catch (e) {}
+      const toggle = document.getElementById('masterControlCompactToggle');
+      if (toggle) toggle.checked = on;
+    })();
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
       if (!listEl) return;
+      try { listEl.classList.toggle('mc-compact', localStorage.getItem(MC_COMPACT_KEY) === '1'); } catch (e) {}
       renderActivityLog();
       renderAutonomousLoopStatus();
       renderContentTimeline();
