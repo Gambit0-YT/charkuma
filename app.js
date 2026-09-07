@@ -5904,13 +5904,29 @@
     // contenidos más recientes que sigan "pendientes de revisión" (no
     // enseña ni contenido ya definitivo ni el catálogo completo). Si no
     // hay ninguno pendiente ahora mismo, cae de vuelta a "Mis proyectos".
+    // Backlog #103 — "aleatorio pero no repetido": antes cada clic en
+    // "Explorar universo" era un sorteo independiente sobre un grupo de
+    // solo 10, así que era fácil que tocara el mismo dos veces seguidas.
+    // Ahora se lleva la cuenta (por pestaña/sesión, no hace falta que
+    // persista para siempre) de lo ya mostrado y no se repite ninguno
+    // hasta que se hayan visto todos — como una baraja que se reparte
+    // entera antes de barajar otra vez.
+    const EXPLORE_SEEN_KEY = 'charkuma_explore_seen';
+    function loadExploreSeen(){ try { return JSON.parse(sessionStorage.getItem(EXPLORE_SEEN_KEY)) || []; } catch (e) { return []; } }
+    function saveExploreSeen(arr){ try { sessionStorage.setItem(EXPLORE_SEEN_KEY, JSON.stringify(arr)); } catch (e) {} }
     function exploreRandomPending(){
       const pending = buildSiteIndex()
         .filter(i => !i.reviewed && !i.discarded && i.view && !i.external)
         .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
         .slice(0, 10);
       if (!pending.length) { showView('mis-proyectos'); return; }
-      const pick = pending[Math.floor(Math.random() * pending.length)];
+
+      let seen = loadExploreSeen();
+      let pool = pending.filter(i => !seen.includes(i.view));
+      if (!pool.length) { seen = []; pool = pending; } // ya se vieron todos: se reparte otra vez
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      seen.push(pick.view);
+      saveExploreSeen(seen);
       showView(pick.view);
     }
 
