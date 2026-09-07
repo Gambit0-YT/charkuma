@@ -5355,6 +5355,103 @@
       });
     }
 
+    // Backlog #44/#45 — copia de seguridad automática semanal + historial
+    // de versiones. Como la web es estática (nada corre en segundo plano
+    // con la pestaña cerrada), "automática" significa: en cuanto se abre
+    // la web y ya han pasado 7+ días desde la última, se guarda sola una
+    // instantánea completa (todo lo que empieza por "charkuma_" en
+    // localStorage) en Firestore — no depende de que nadie pulse un
+    // botón ni descargue nada. #45 (historial de versiones) es la lista
+    // de esas instantáneas en Control Maestro, cada una descargable como
+    // el .json de siempre o restaurable directamente.
+    const AUTO_BACKUP_LAST_KEY = 'charkuma_last_auto_backup_at';
+    const AUTO_BACKUP_INTERVAL_DAYS = 7;
+    const AUTO_BACKUP_KEEP = 12; // ~3 meses de histórico, no crecer sin límite
+
+    function collectAllSiteData(){
+      const data = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.indexOf(EXPORTABLE_KEY_PREFIX) === 0) data[key] = localStorage.getItem(key);
+      }
+      return data;
+    }
+
+    async function maybeRunWeeklyBackup(){
+      if (!firestoreReady()) return;
+      let lastAt = 0;
+      try { lastAt = Number(localStorage.getItem(AUTO_BACKUP_LAST_KEY)) || 0; } catch (e) {}
+      const daysSince = (Date.now() - lastAt) / 86400000;
+      if (lastAt && daysSince < AUTO_BACKUP_INTERVAL_DAYS) return;
+
+      const { collection, doc, setDoc, getDocs, query, orderBy, deleteDoc } = window.firestoreFns;
+      const docId = new Date().toISOString().slice(0, 10); // una copia por día como máximo
+      try {
+        await setDoc(doc(window.firestoreDB, 'backups', docId), {
+          createdAt: Date.now(),
+          data: collectAllSiteData()
+        });
+        try { localStorage.setItem(AUTO_BACKUP_LAST_KEY, String(Date.now())); } catch (e) {}
+        logActivity(`📦 Copia de seguridad automática guardada (${docId}).`, 'idea');
+
+        // Poda: nos quedamos solo con las AUTO_BACKUP_KEEP más recientes.
+        const snap = await getDocs(query(collection(window.firestoreDB, 'backups'), orderBy('createdAt', 'desc')));
+        const all = snap.docs;
+        for (let i = AUTO_BACKUP_KEEP; i < all.length; i++) {
+          deleteDoc(doc(window.firestoreDB, 'backups', all[i].id)).catch(() => {});
+        }
+      } catch (e) { /* sin conexión ahora mismo: se reintenta la próxima vez que se abra la web */ }
+    }
+
+    // Descarga una copia guardada como el mismo .json que exportSiteData,
+    // para poder guardarla fuera o inspeccionarla.
+    function downloadBackupSnapshot(docId, data){
+      const blob = new Blob([JSON.stringify({ exportedAt: docId, data }, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `charkuma-backup-${docId}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+    // Restaura una copia guardada tal cual (mismo criterio que
+    // importSiteData: sobrescribe local y recarga).
+    function restoreBackupSnapshot(docId, data){
+      if (!confirm(`¿Restaurar la copia del ${docId}? Sustituirá los datos actuales de este navegador (se recargará la página).`)) return;
+      Object.keys(data).forEach(key => {
+        if (key.indexOf(EXPORTABLE_KEY_PREFIX) === 0) localStorage.setItem(key, data[key]);
+      });
+      alert('Copia restaurada. La página se va a recargar para aplicarla.');
+      location.reload();
+    }
+
+    async function renderBackupHistory(){
+      const container = document.getElementById('backupHistoryList');
+      if (!container || !firestoreReady()) return;
+      const { collection, getDocs, query, orderBy } = window.firestoreFns;
+      try {
+        const snap = await getDocs(query(collection(window.firestoreDB, 'backups'), orderBy('createdAt', 'desc')));
+        if (snap.empty) { container.innerHTML = `<p class="yt-empty">Todavía no hay ninguna copia guardada — se hará sola la próxima vez que abras la web (o si han pasado 7 días desde la última).</p>`; return; }
+        container.innerHTML = snap.docs.map(d => {
+          const v = d.data();
+          const when = new Date(v.createdAt).toLocaleString('es-ES', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+          const dataJson = escapeAttr(JSON.stringify(v.data || {}));
+          return `
+            <div class="log-entry">
+              <strong>${d.id} <span class="yt-empty" style="display:inline">(${when})</span></strong>
+              <p>
+                <button type="button" class="btn btn-secondary" onclick="downloadBackupSnapshot('${d.id}', JSON.parse(this.dataset.payload))" data-payload="${dataJson}">⬇️ Descargar</button>
+                <button type="button" class="btn btn-secondary" onclick="restoreBackupSnapshot('${d.id}', JSON.parse(this.dataset.payload))" data-payload="${dataJson}">↩️ Restaurar esta versión</button>
+              </p>
+            </div>`;
+        }).join('');
+      } catch (e) {
+        container.innerHTML = `<p class="yt-empty">No se ha podido cargar el historial ahora mismo.</p>`;
+      }
+    }
+
     // items: array de objetos cualquiera. idFn(item) → id estable para
     // guardar su fecha. gapDays → separación entre huecos. defaultStartDate
     // → no repartir nada antes de esta fecha MIENTRAS no haya retrasados
@@ -5949,6 +6046,7 @@
       renderGuionCreationStreak();
       renderUntouchedIdeasStat();
       renderStaleContentWarning();
+      renderBackupHistory();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
@@ -6785,6 +6883,7 @@
     initContentReviewRealtime();
     initRankingScheduleRealtime();
     initUIPrefsRealtime();
+    maybeRunWeeklyBackup();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
