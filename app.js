@@ -6034,6 +6034,63 @@
       el.textContent = `${untouched.length} ideas sueltas sin tocar en total — ${parts.join(' · ')}.`;
     }
 
+    // Backlog #49 — gráfica real de evolución de visitas: los últimos 30
+    // días de verdad, vía vidiq_channel_stats (consultado 2026-09-07).
+    // Los suscriptores se quedan planos en 396 todo el mes (sin
+    // movimiento real que graficar), así que la gráfica se centra en
+    // visitas, que sí tienen recorrido. Es una foto, no un dato en
+    // directo — se actualiza a mano de vez en cuando, igual que el
+    // resto del panel de VidIQ.
+    const VIDIQ_VIEWS_HISTORY = [
+      {date:"2026-08-08",views:116022},{date:"2026-08-09",views:116036},{date:"2026-08-10",views:116052},
+      {date:"2026-08-11",views:116060},{date:"2026-08-12",views:116062},{date:"2026-08-13",views:116074},
+      {date:"2026-08-14",views:116075},{date:"2026-08-15",views:116081},{date:"2026-08-16",views:116092},
+      {date:"2026-08-17",views:116103},{date:"2026-08-18",views:116118},{date:"2026-08-19",views:116135},
+      {date:"2026-08-20",views:116148},{date:"2026-08-21",views:116151},{date:"2026-08-22",views:116159},
+      {date:"2026-08-23",views:116209},{date:"2026-08-24",views:116214},{date:"2026-08-25",views:116221},
+      {date:"2026-08-26",views:116233},{date:"2026-08-27",views:116247},{date:"2026-08-28",views:116268},
+      {date:"2026-08-29",views:116280},{date:"2026-08-30",views:116290},{date:"2026-08-31",views:116321},
+      {date:"2026-09-01",views:116324},{date:"2026-09-02",views:116338},{date:"2026-09-03",views:116343},
+      {date:"2026-09-04",views:116359},{date:"2026-09-05",views:116377},{date:"2026-09-06",views:116393},
+      {date:"2026-09-07",views:116407}
+    ];
+    function renderViewsEvolutionChart(){
+      const container = document.getElementById('viewsEvolutionChart');
+      if (!container) return;
+      const points = VIDIQ_VIEWS_HISTORY;
+      const W = 700, H = 180, padL = 46, padR = 12, padT = 12, padB = 24;
+      const values = points.map(p => p.views);
+      const min = Math.min(...values), max = Math.max(...values);
+      const yPad = Math.max(5, Math.round((max - min) * 0.08));
+      const yMin = min - yPad, yMax = max + yPad;
+      const x = i => padL + (i / (points.length - 1)) * (W - padL - padR);
+      const y = v => padT + (1 - (v - yMin) / (yMax - yMin)) * (H - padT - padB);
+
+      const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(i).toFixed(1)},${y(p.views).toFixed(1)}`).join(' ');
+      const areaPath = `${linePath} L${x(points.length - 1).toFixed(1)},${(H - padB).toFixed(1)} L${x(0).toFixed(1)},${(H - padB).toFixed(1)} Z`;
+
+      // 4 marcas en el eje Y (mínimo, dos intermedias, máximo) y una
+      // etiqueta de fecha cada ~10 días en el eje X, para no saturarlo.
+      const yTicks = [yMin, yMin + (yMax - yMin) / 3, yMin + (yMax - yMin) * 2 / 3, yMax];
+      const yTicksHTML = yTicks.map(v => `
+        <text x="${padL - 8}" y="${y(v).toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-size="10" fill="var(--muted)">${Math.round(v).toLocaleString('es-ES')}</text>
+        <line x1="${padL}" y1="${y(v).toFixed(1)}" x2="${W - padR}" y2="${y(v).toFixed(1)}" stroke="var(--line2)" stroke-width="1" stroke-dasharray="3,4"/>`
+      ).join('');
+      const xTicksHTML = points.map((p, i) => i % 10 === 0 || i === points.length - 1 ? `
+        <text x="${x(i).toFixed(1)}" y="${H - 6}" text-anchor="middle" font-size="10" fill="var(--muted)">${p.date.slice(5)}</text>` : '').join('');
+      const lastPoint = points[points.length - 1];
+
+      container.innerHTML = `
+        <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block">
+          ${yTicksHTML}
+          <path d="${areaPath}" fill="var(--orange)" opacity="0.12"/>
+          <path d="${linePath}" fill="none" stroke="var(--orange)" stroke-width="2.5"/>
+          <circle cx="${x(points.length - 1).toFixed(1)}" cy="${y(lastPoint.views).toFixed(1)}" r="4" fill="var(--orange)"/>
+          ${xTicksHTML}
+        </svg>
+        <p class="yt-empty" style="margin:6px 0 0">Visitas totales del canal, últimos 30 días reales (vía VidIQ).</p>`;
+    }
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');
@@ -6047,6 +6104,7 @@
       renderUntouchedIdeasStat();
       renderStaleContentWarning();
       renderBackupHistory();
+      renderViewsEvolutionChart();
       populateGenerateSectionSelect();
 
       const sectionSelect = document.getElementById('masterControlSection');
