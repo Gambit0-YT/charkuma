@@ -795,7 +795,7 @@
         void toast.offsetWidth;
         toast.style.animation = '';
         clearTimeout(window.__konamiTimer);
-        window.__konamiTimer = setTimeout(() => { toast.hidden = true; }, 2500);
+        window.__konamiTimer = setTimeout(() => { toast.hidden = true; }, 4000);
       }
     });
 
@@ -896,9 +896,58 @@
     // en móvil— te devuelve al apartado en el que estabas antes, en vez
     // de mandarte siempre al inicio de la página.
     // ──────────────────────────────────────────────────────────
+    // Backlog #140 — mini-juego escondido: memoria de parejas, sin
+    // premio real ni dato guardado — solo un rato tonto, accesible
+    // únicamente desde el toast del código Konami (#134).
+    const MEMORY_EMOJIS = ['🕹️','👾','🏆','💎','⭐','🎮'];
+    let memoryState = { cards: [], flipped: [], matched: [], moves: 0, lock: false };
+    function startMemoryGame(){
+      const pairs = [...MEMORY_EMOJIS, ...MEMORY_EMOJIS];
+      for (let i = pairs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+      }
+      memoryState = { cards: pairs, flipped: [], matched: [], moves: 0, lock: false };
+      renderMemoryGame();
+    }
+    function renderMemoryGame(){
+      const grid = document.getElementById('memoryGrid');
+      if (!grid) return;
+      grid.innerHTML = memoryState.cards.map((emoji, i) => {
+        const shown = memoryState.flipped.includes(i) || memoryState.matched.includes(i);
+        const isMatched = memoryState.matched.includes(i);
+        return `<button type="button" class="memory-card${shown ? ' flipped' : ''}${isMatched ? ' matched' : ''}" onclick="flipMemoryCard(${i})" aria-label="${shown ? 'Carta: ' + emoji : 'Carta boca abajo'}">${shown ? emoji : '❓'}</button>`;
+      }).join('');
+      const movesEl = document.getElementById('memoryMoves');
+      if (movesEl) movesEl.textContent = `Movimientos: ${memoryState.moves}`;
+      const won = memoryState.matched.length === memoryState.cards.length && memoryState.cards.length > 0;
+      const winEl = document.getElementById('memoryWinMessage');
+      if (winEl) {
+        winEl.hidden = !won;
+        if (won) winEl.textContent = `🎉 ¡Completado en ${memoryState.moves} movimientos!`;
+      }
+    }
+    function flipMemoryCard(i){
+      if (memoryState.lock || memoryState.flipped.includes(i) || memoryState.matched.includes(i)) return;
+      memoryState.flipped.push(i);
+      if (memoryState.flipped.length === 2) {
+        memoryState.moves++;
+        const [a, b] = memoryState.flipped;
+        if (memoryState.cards[a] === memoryState.cards[b]) {
+          memoryState.matched.push(a, b);
+          memoryState.flipped = [];
+        } else {
+          memoryState.lock = true;
+          setTimeout(() => { memoryState.flipped = []; memoryState.lock = false; renderMemoryGame(); }, 700);
+        }
+      }
+      renderMemoryGame();
+    }
+
     function showView(id, opts){
       opts = opts || {};
       playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
+      if (id === 'mini-juego') startMemoryGame();
       document.querySelectorAll('.app-view').forEach(v => {
         v.classList.remove('active');
         v.classList.remove('view-visible');

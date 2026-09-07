@@ -160,12 +160,28 @@
     /* Backlog #134 — toast del código Konami */
     .konami-toast{
       position:fixed;top:26px;left:50%;z-index:300;
+      display:flex;flex-direction:column;align-items:center;gap:8px;
       padding:16px 30px;border-radius:14px;background:#09070f;border:2px solid var(--orange);
       color:#fff;font-weight:900;font-size:15px;letter-spacing:.06em;text-transform:uppercase;
       box-shadow:0 0 0 4px rgba(255,122,24,.18),0 18px 40px rgba(0,0,0,.5);
-      animation:konamiPop .35s ease, konamiOut .4s ease 2.1s forwards;
+      animation:konamiPop .35s ease, konamiOut .4s ease 3.6s forwards;
     }
     .konami-toast[hidden]{display:none}
+    .konami-toast-link{font-size:12px;letter-spacing:normal;text-transform:none;color:var(--orange2);cursor:pointer;font-weight:800}
+    .konami-toast-link:hover{text-decoration:underline}
+    /* Backlog #140 — mini-juego de memoria, escondido tras el Konami code */
+    .memory-game-status{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;font-weight:800;color:var(--muted)}
+    .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:420px;margin:0 auto}
+    .memory-card{
+      aspect-ratio:1;border-radius:12px;background:var(--panel2);border:2px solid var(--line2);
+      display:grid;place-items:center;font-size:28px;cursor:pointer;font-family:inherit;
+      transition:transform .15s,background .15s,border-color .15s;color:var(--muted)
+    }
+    .memory-card:hover{transform:translateY(-2px);border-color:var(--purple)}
+    .memory-card.flipped{background:var(--panel);border-color:var(--orange);color:var(--text)}
+    .memory-card.matched{background:rgba(56,217,154,.14);border-color:var(--green);color:var(--text);cursor:default}
+    .memory-card.matched:hover{transform:none}
+    @media (max-width:480px){ .memory-grid{max-width:320px;gap:8px} .memory-card{font-size:22px} }
     @keyframes konamiPop{0%{transform:translateX(-50%) translateY(-30px) scale(.85);opacity:0}100%{transform:translateX(-50%) translateY(0) scale(1);opacity:1}}
     @keyframes konamiOut{to{opacity:0;transform:translateX(-50%) translateY(-10px)}}
     @media (prefers-reduced-motion:reduce){ .konami-toast{animation:konamiOut 2.5s linear forwards;transform:translateX(-50%)} }
@@ -1396,7 +1412,10 @@
 
   <!-- Backlog #134 — easter egg nostálgico: código Konami (↑↑↓↓←→←→BA),
        clásico de toda la vida para quien creció con mandos de verdad. -->
-  <div class="konami-toast" id="konamiToast" hidden aria-live="assertive">🎮 CÓDIGO KONAMI · +30 VIDAS</div>
+  <div class="konami-toast" id="konamiToast" hidden aria-live="assertive">
+    🎮 CÓDIGO KONAMI · +30 VIDAS
+    <a href="javascript:void(0)" onclick="showView('mini-juego')" class="konami-toast-link">Jugar a algo con esas vidas →</a>
+  </div>
 
   <nav class="nav">
     <div class="container nav-inner">
@@ -2266,6 +2285,29 @@
               que uno falso que parezca mejor.
             </p>
           </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ MEMORIA RETRO (backlog #140 — mini-juego escondido,
+         solo alcanzable desde el toast del código Konami) ══════════ -->
+    <div id="view-mini-juego" class="app-view">
+      <section class="page-head">
+        <div class="container">
+          <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <div class="section-kicker">🎮 EASTER EGG</div>
+          <h2 class="section-title">🧠 MEMORIA RETRO</h2>
+          <p class="section-sub">Encuentra las 6 parejas. Sin premio real — puro rato tonto de recreativa.</p>
+        </div>
+      </section>
+      <section class="detail-section">
+        <div class="container">
+          <div class="memory-game-status">
+            <span id="memoryMoves">Movimientos: 0</span>
+            <button type="button" class="btn btn-secondary" onclick="startMemoryGame()">🔄 Reiniciar</button>
+          </div>
+          <div class="memory-grid" id="memoryGrid"></div>
+          <p class="yt-empty" id="memoryWinMessage" hidden style="text-align:center;margin-top:16px;font-size:16px"></p>
         </div>
       </section>
     </div>
