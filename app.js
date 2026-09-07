@@ -2918,6 +2918,19 @@
         summary: "Por qué el personaje más ridiculizado del grupo se ha convertido en uno de los arcos más interesantes de The Boys.",
         thumbnail: "🐬",
         internalView: "rf-opinion-deep", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "opinion-2" del banco secreto ("la peli/serie Marvel del
+        // momento") — datos reales verificados con WebSearch 2026-09-07
+        // (fecha de estreno, reparto, sinopsis sin spoilers, recepción y
+        // taquilla), no inventados.
+        title: "Por qué Spider-Man: Brand New Day merece que le des una oportunidad",
+        saga: "marvel",
+        type: "opinion",
+        date: "2026-09-07",
+        summary: "Reparto ampliado, tono más maduro y una recepción real (2.400M$ en taquilla) — por qué merece la pena, sin spoilers.",
+        thumbnail: "🕷️",
+        internalView: "rf-opinion-brand-new-day", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3284,7 +3297,8 @@
       'hm-figura-3d': '1JA_xySm1_Oto4_ZWafY1g7HSh4_dJwhx',
       'rf-ranking-empezar': '19bDLXqVBb2Y0ipJzyEfmgiY18SVeRO7w',
       'rf-opinion-homelander': '18J3rLLKgs8o4LKC-VFzPR2oBK5sRFDGb',
-      'rf-opinion-deep': '1lt878iZusvNK5lb5jSeJa7hC-liQNvDV'
+      'rf-opinion-deep': '1lt878iZusvNK5lb5jSeJa7hC-liQNvDV',
+      'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
