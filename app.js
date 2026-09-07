@@ -3198,14 +3198,32 @@
       if (!str) return '';
       return str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
     }
+    // Backlog: el usuario pidió explícitamente ("añade a mejoras") que la
+    // descripción incluyera también redes sociales, enlace a la web, e
+    // info de dónde jugar el juego del vídeo cuando aplique. Los enlaces
+    // de redes/web son siempre los mismos y reales (mismos que en el
+    // schema.org de <head> y en Redes Sociales). El de "jugar" solo se
+    // añade para contenido de HELQUIDGAMES, y apunta al hub real del
+    // laboratorio de juegos — nunca a un enlace de descarga inventado,
+    // porque los juegos de HELQUIDGAMES se juegan en la propia web, no
+    // se descargan.
     function generateYoutubeDescription(item){
       const lines = [item.title, ''];
       if (item.summary) lines.push(item.summary, '');
       lines.push(
         '🦎 Más contenido en CHARKUMA — gaming, cultura geek y creatividad.',
         '📺 Suscríbete si te ha gustado.',
-        ''
+        '',
+        '🌐 Web: https://gambit0-yt.github.io/charkuma/',
+        '📺 YouTube: https://www.youtube.com/@mrchakurma',
+        '🎵 TikTok: https://www.tiktok.com/@kiddcolors',
+        '📸 Instagram: https://www.instagram.com/kiddcolors/',
+        '🕹️ Twitch: https://www.twitch.tv/kiddcolors'
       );
+      if (helquidGamesContent.includes(item)) {
+        lines.push('🎮 Juega a los juegos de HELQUIDGAMES gratis en la web: https://gambit0-yt.github.io/charkuma/#view=helquidgames');
+      }
+      lines.push('');
       lines.push(suggestedTagsFor(item).map(t => '#' + t.replace(/\s+/g, '')).join(' '));
       return lines.join('\n');
     }
