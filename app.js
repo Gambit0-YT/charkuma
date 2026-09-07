@@ -181,6 +181,7 @@
       document.documentElement.setAttribute('data-theme', next);
       try { localStorage.setItem('charkuma_theme', next); } catch(e) { /* seguimos sin guardar */ }
       updateThemeButtonIcon();
+      if (typeof pushUIPrefsState === 'function') pushUIPrefsState();
     }
     updateThemeButtonIcon();
 
@@ -194,6 +195,7 @@
     function setHighContrast(on){
       document.documentElement.classList.toggle('high-contrast', on);
       try { localStorage.setItem(HIGH_CONTRAST_KEY, on ? '1' : '0'); } catch (e) {}
+      if (typeof pushUIPrefsState === 'function') pushUIPrefsState();
     }
     (function initHighContrast(){
       let on = false;
@@ -237,6 +239,7 @@
       try { localStorage.setItem(SIDEBARS_HIDDEN_KEY, hidden ? '1' : '0'); } catch (e) {}
       updateSidebarsToggleIcon();
       if (!hidden) { const nav = document.querySelector('.nav'); if (nav) nav.classList.add('nav-visible'); }
+      if (typeof pushUIPrefsState === 'function') pushUIPrefsState();
     }
     (function initSidebarsVisibility(){
       let hidden = false;
@@ -5299,6 +5302,59 @@
       });
     }
 
+    // Backlog #46/#47 — sincronizar preferencias de interfaz entre
+    // dispositivos: tema claro/oscuro, alto contraste y el modo
+    // compacto de la cabecera/columnas laterales (#47 — lo que el
+    // backlog llama "columnas fijadas" es justo `sidebars-hidden`,
+    // el mismo interruptor del botón 📌). Documento propio y pequeño
+    // (no tiene sentido mezclarlo con datos de contenido).
+    let applyingRemoteUIPrefsUpdate = false;
+    function pushUIPrefsState(){
+      if (!firestoreReady() || applyingRemoteUIPrefsUpdate) return;
+      const { doc, setDoc } = window.firestoreFns;
+      let theme = 'dark', highContrast = false, sidebarsHidden = false;
+      try { theme = localStorage.getItem('charkuma_theme') || currentTheme(); } catch (e) {}
+      try { highContrast = localStorage.getItem(HIGH_CONTRAST_KEY) === '1'; } catch (e) {}
+      try { sidebarsHidden = localStorage.getItem(SIDEBARS_HIDDEN_KEY) === '1'; } catch (e) {}
+      setDoc(doc(window.firestoreDB, 'uiPrefs', 'state'), { theme, highContrast, sidebarsHidden, updatedAt: Date.now() }).catch(() => {
+        // Sin conexión ahora mismo: se queda en local, sin cola de reintentos.
+      });
+    }
+    let uiPrefsRealtimeStarted = false;
+    async function initUIPrefsRealtime(){
+      if (!firestoreReady() || uiPrefsRealtimeStarted) return;
+      uiPrefsRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'uiPrefs', 'state');
+      onSnapshot(ref, (snap) => {
+        if (!snap.exists()) { pushUIPrefsState(); return; }
+        const data = snap.data() || {};
+        applyingRemoteUIPrefsUpdate = true;
+        try {
+          if (data.theme === 'light' || data.theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', data.theme);
+            localStorage.setItem('charkuma_theme', data.theme);
+            updateThemeButtonIcon();
+          }
+          if (typeof data.highContrast === 'boolean') {
+            document.documentElement.classList.toggle('high-contrast', data.highContrast);
+            localStorage.setItem(HIGH_CONTRAST_KEY, data.highContrast ? '1' : '0');
+            const toggle = document.getElementById('highContrastToggle');
+            if (toggle) toggle.checked = data.highContrast;
+          }
+          if (typeof data.sidebarsHidden === 'boolean') {
+            document.body.classList.toggle('sidebars-hidden', data.sidebarsHidden);
+            document.body.classList.toggle('nav-pinned', !data.sidebarsHidden);
+            localStorage.setItem(SIDEBARS_HIDDEN_KEY, data.sidebarsHidden ? '1' : '0');
+            updateSidebarsToggleIcon();
+          }
+        } catch (e) { /* localStorage no disponible: seguimos sin aplicarlo local */ }
+        applyingRemoteUIPrefsUpdate = false;
+      }, () => {
+        // onSnapshot en modo error (reglas, red...) — seguimos en local.
+      });
+    }
+
     // items: array de objetos cualquiera. idFn(item) → id estable para
     // guardar su fecha. gapDays → separación entre huecos. defaultStartDate
     // → no repartir nada antes de esta fecha MIENTRAS no haya retrasados
@@ -6728,6 +6784,7 @@
     initIdeaBanksRealtime();
     initContentReviewRealtime();
     initRankingScheduleRealtime();
+    initUIPrefsRealtime();
 
     // ──────────────────────────────────────────────────────────
     // ORDEN DE "MIS PROYECTOS" — el que tenga la novedad más reciente
