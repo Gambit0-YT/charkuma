@@ -989,6 +989,7 @@
     .swipe-counter{font-size:12px;color:var(--muted);font-weight:700;min-width:60px;text-align:center}
     .discarded-row:last-child{border-bottom:none}
     .hide-discarded-label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:700;margin-top:12px;cursor:pointer}
+    .push-notif-status{font-size:12px;color:var(--muted);font-weight:600}
     .retro-difficulty-filter{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:700;margin-top:12px;flex-wrap:wrap}
     .retro-difficulty-filter select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700}
     .hide-discarded-label input{cursor:pointer}
@@ -1541,6 +1542,16 @@
             <p>Deja de mostrarse en la campana y en la bandeja — no borra las que ya tenías guardadas.</p>
           </div>
           <div class="tmdb-genre-checks" id="notifMuteChecks"></div>
+        </div>
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🔔 Notificaciones push reales</strong>
+            <p>Un aviso del sistema operativo aunque no tengas la web abierta — vía Firebase Cloud Messaging. Distinto de la campana 🔔 de arriba, que solo avisa dentro de la propia web.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+            <button type="button" class="btn btn-secondary" onclick="enablePushNotifications()">🔔 Activar en este dispositivo</button>
+            <span id="pushNotifStatus" class="push-notif-status"></span>
+          </div>
         </div>
         <div class="settings-row settings-row-stack">
           <div>
@@ -5644,6 +5655,22 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     const firebaseApp = initializeApp(firebaseConfig);
     window.firestoreDB = getFirestore(firebaseApp);
     window.firestoreFns = { collection, addDoc, deleteDoc, doc, getDocs, onSnapshot, query, orderBy, setDoc };
+
+    // Backlog #94 — notificaciones push reales, vía Firebase Cloud
+    // Messaging. `getMessaging` puede fallar en navegadores/contextos sin
+    // soporte (ej. sin HTTPS de verdad en local, o navegadores viejos) —
+    // por eso va en su propio try/catch, para que un fallo aquí nunca
+    // rompa Firestore ni el resto de la web. Sin la clave VAPID real
+    // (pendiente de que Iván la genere en la consola de Firebase),
+    // `enablePushNotifications()` en app.js avisa honestamente en vez de
+    // fingir que funciona — ver la constante FCM_VAPID_KEY ahí.
+    try {
+      const { getMessaging, getToken, onMessage } = await import("https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging.js");
+      window.firebaseMessaging = getMessaging(firebaseApp);
+      window.firebaseMessagingFns = { getToken, onMessage };
+    } catch (e) {
+      window.firebaseMessaging = null;
+    }
   </script>
 
   <script src="app.js" defer></script>

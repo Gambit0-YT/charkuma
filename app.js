@@ -391,6 +391,87 @@
     });
 
     // ──────────────────────────────────────────────────────────
+    // NOTIFICACIONES PUSH REALES (backlog #94), vía Firebase Cloud
+    // Messaging — pedido explícito de Iván 2026-09-07. Distinto de la
+    // campana de abajo, que solo avisa dentro de la propia pestaña: esto
+    // manda un aviso real del sistema operativo aunque la web esté
+    // cerrada, usando el mismo proyecto Firestore ya conectado.
+    //
+    // FCM_VAPID_KEY sigue siendo un placeholder a propósito: la clave
+    // pública real solo se genera desde la consola de Firebase
+    // (Configuración del proyecto → Cloud Messaging → Configuración web
+    // → "Generar par de claves"), un botón que solo el dueño del
+    // proyecto puede pulsar — Claude no tiene forma de generarla por su
+    // cuenta. Hasta que Iván la pegue aquí, el botón de Ajustes avisa
+    // honestamente de que falta ese paso, nunca finge que ya funciona.
+    //
+    // Enviar un push real no necesita ningún backend/Cloud Function
+    // propio: cada token que este botón guarda en Firestore
+    // (`pushSubscribers/<token>`) queda disponible para mandarle un
+    // aviso a mano desde Firebase Console → Cloud Messaging → "Nueva
+    // notificación" — sin código de servidor ni facturación de por medio.
+    const FCM_VAPID_KEY = 'PENDIENTE_CLAVE_VAPID';
+    async function enablePushNotifications(){
+      const statusEl = document.getElementById('pushNotifStatus');
+      const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg; };
+      if (FCM_VAPID_KEY === 'PENDIENTE_CLAVE_VAPID') {
+        setStatus('⚠️ Falta la clave VAPID de Firebase — pídesela a Claude en cuanto la generes en la consola.');
+        return;
+      }
+      if (!('Notification' in window)) {
+        setStatus('❌ Este navegador no soporta notificaciones.');
+        return;
+      }
+      if (!window.firebaseMessaging || !window.firebaseMessagingFns) {
+        setStatus('❌ Firebase Messaging no está disponible en este navegador/contexto.');
+        return;
+      }
+      try {
+        const permission = await Notification.requestPermission();
+        if (permission !== 'granted') {
+          setStatus('🚫 Permiso denegado — actívalo desde los ajustes del navegador si cambias de opinión.');
+          return;
+        }
+        setStatus('⏳ Activando...');
+        const token = await window.firebaseMessagingFns.getToken(window.firebaseMessaging, { vapidKey: FCM_VAPID_KEY });
+        if (!token) {
+          setStatus('❌ No se pudo obtener el token — reintenta en un momento.');
+          return;
+        }
+        if (window.firestoreDB && window.firestoreFns) {
+          await window.firestoreFns.setDoc(
+            window.firestoreFns.doc(window.firestoreDB, 'pushSubscribers', token),
+            { token, createdAt: new Date().toISOString(), userAgent: navigator.userAgent }
+          );
+        }
+        localStorage.setItem('charkuma_push_enabled', '1');
+        setStatus('✅ Notificaciones activadas en este dispositivo.');
+      } catch (e) {
+        setStatus('❌ Error activando notificaciones: ' + e.message);
+      }
+    }
+    // Aviso en primer plano: con la pestaña abierta, onBackgroundMessage
+    // (en sw.js) nunca se dispara — este es el que sí se activa entonces.
+    if (window.firebaseMessaging && window.firebaseMessagingFns) {
+      window.firebaseMessagingFns.onMessage(window.firebaseMessaging, (payload) => {
+        if (Notification.permission === 'granted') {
+          const title = (payload.notification && payload.notification.title) || 'CHARKUMA';
+          const body = (payload.notification && payload.notification.body) || '';
+          new Notification(title, { body });
+        }
+      });
+    }
+    (function initPushNotifStatus(){
+      const statusEl = document.getElementById('pushNotifStatus');
+      if (!statusEl) return;
+      if (FCM_VAPID_KEY === 'PENDIENTE_CLAVE_VAPID') {
+        statusEl.textContent = '⚠️ Pendiente de configurar (falta la clave VAPID real).';
+      } else if (localStorage.getItem('charkuma_push_enabled') === '1' && Notification.permission === 'granted') {
+        statusEl.textContent = '✅ Activadas en este dispositivo.';
+      }
+    })();
+
+    // ──────────────────────────────────────────────────────────
     // CAMPANA DE NOTIFICACIONES: mini resumen de recordatorios,
     // calculado a partir de los datos reales que ya lleva la web
     // (estados de contenido, planificación de Retro 365...). De momento

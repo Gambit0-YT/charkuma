@@ -14,6 +14,37 @@
 
 const CACHE_NAME = 'charkuma-offline-v1';
 
+// Backlog #94 — notificaciones push reales, vía Firebase Cloud
+// Messaging. Un service worker solo puede recibir un push en segundo
+// plano (pestaña cerrada) si él mismo importa el SDK de Messaging —
+// por eso se añade aquí, en el mismo sw.js del offline (#79), en vez
+// de un firebase-messaging-sw.js aparte: un sitio solo puede tener un
+// service worker activo a la vez en el mismo scope. `importScripts`
+// falla silenciosamente si no hay red al instalar el SW; el resto de
+// este archivo (caché offline) sigue funcionando igual aunque falle.
+try {
+  importScripts('https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js');
+  importScripts('https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging-compat.js');
+  firebase.initializeApp({
+    apiKey: 'AIzaSyC4Yu3eo1wWxXmtAk9Ho9ygH0IO6FGJCec',
+    authDomain: 'webcharkuma.firebaseapp.com',
+    projectId: 'webcharkuma',
+    storageBucket: 'webcharkuma.firebasestorage.app',
+    messagingSenderId: '901622762563',
+    appId: '1:901622762563:web:0de2793946f845ec22d8f6'
+  });
+  const messaging = firebase.messaging();
+  // Solo se dispara cuando la web NO está abierta/en foco — con la
+  // pestaña abierta, el aviso lo gestiona onMessage en app.js/index.html.
+  messaging.onBackgroundMessage((payload) => {
+    const title = (payload.notification && payload.notification.title) || 'CHARKUMA';
+    const body = (payload.notification && payload.notification.body) || '';
+    self.registration.showNotification(title, { body, icon: 'icon-192.png', badge: 'icon-192.png' });
+  });
+} catch (e) {
+  // Sin soporte de Messaging en este contexto — el resto del SW (offline) sigue igual.
+}
+
 self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
