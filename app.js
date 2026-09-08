@@ -2249,8 +2249,169 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Te acordabas de este juego? Dímelo en comentarios, seguro que le trae nostalgia a más de uno."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Sexta tanda (mismo `/loop`, tick siguiente): días 32-36, arranca el "mes 2".
+      32: {
+        name: "Half-Life 2",
+        summary: "Una pata de cabra, una física que se toma en serio, y un ritmo narrativo que no se detiene ni una sola vez a explicarte nada por texto.",
+        difficulty: "media",
+        emoji: "🔧",
+        steamUrl: "https://store.steampowered.com/app/220/Half-Life_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 32 de Retro 365, empezamos el segundo mes, y hoy mi arma más útil no dispara balas — es una pata de cabra oxidada. Bienvenidos a Half-Life 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay golpeando una caja con la pata de cabra. <strong>🎬 Producción:</strong> SFX metálico del golpe · corte duro · BGM: sting corto, industrial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El shooter que cambió cómo se cuentan las historias en videojuegos, sin una sola cinemática ni un solo texto de carga — hoy os cuento por qué sigue siendo tan influyente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 032 · HALF-LIFE 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, industrial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Gordon Freeman despierta en una Tierra ya conquistada por una fuerza alienígena burocrática, y desde el primer segundo hasta el último, la cámara nunca se corta ni te saca del personaje."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del tren de llegada a City 17. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La pistola de gravedad te deja usar el propio escenario como arma, la física de objetos afecta a los puzles tanto como al combate, y los personajes hablan contigo en tiempo real sin ningún corte a cinemática."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay usando la pistola de gravedad en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: resolver el puzle físico de esta sala usando solo la pistola de gravedad, sin mirar ninguna guía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resolver (o no) el puzle. <strong>🎬 Producción:</strong> SFX de logro · BGM: sube un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿crees que alguna vez veremos Half-Life 3, o ya has hecho las paces con que no va a llegar?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Con Half-Life: Alyx demostraron que la saga sigue viva de alguna forma — pero sigo sin apostar nada a que veamos un '3' numerado pronto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un ritmo narrativo que sigue sin envejecer — el arranque perfecto para este segundo mes de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de momentos clave jugados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya jugaste Half-Life: Alyx? Dime en comentarios si crees que es un digno 'episodio 3' o no."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      33: {
+        name: "Mass Effect 2",
+        summary: "Reúnes un equipo para una misión suicida — y el juego te avisa de que casi cualquiera de ellos puede morir de verdad si lo haces mal.",
+        difficulty: "media",
+        emoji: "🚀",
+        steamUrl: "https://store.steampowered.com/app/2362420/Mass_Effect_2_2010_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 33 de Retro 365, y hoy estoy reclutando un equipo entero para lo que el propio juego llama, sin rodeos, 'la misión suicida'. Bienvenidos a Mass Effect 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del menú de reclutamiento del equipo. <strong>🎬 Producción:</strong> SFX sci-fi de interfaz · corte duro · BGM: sting corto, espacial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de ciencia ficción donde reclutas a tu propio equipo de especialistas — hoy os cuento por qué la misión final es de las más tensas que ha dado el género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 033 · MASS EFFECT 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, espacial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El comandante Shepard vuelve de entre los muertos para reunir un equipo de especialistas contra una amenaza que nadie más se toma en serio — cada personaje tiene su propia misión de lealtad antes del tramo final."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un diálogo con un miembro del equipo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada decisión de diálogo construye tu relación con el equipo, completar bien las misiones de lealtad literalmente decide quién sobrevive a la misión final, y el combate mezcla cobertura táctica con habilidades específicas de cada clase."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate usando cobertura y habilidades. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión de diálogo importante, tomada sin pensarla de más, tal y como la sentiría de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando justo tras decidir. <strong>🎬 Producción:</strong> sin SFX, silencio breve · BGM: baja del todo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿a qué personaje del equipo le tienes más cariño, o te daría más miedo perder en la misión final?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Que un juego consiga que te importe de verdad si un personaje secundario sobrevive o no, en vez de ser solo una barra de vida más, dice mucho de lo bien escrito que está."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un elenco de personajes que se queda contigo — la space opera con más peso emocional que hemos tocado en Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del equipo reunido. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sobrevivió todo tu equipo a la misión suicida la primera vez que jugaste? Confiésalo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      34: {
+        name: "Age of Empires II: Definitive Edition",
+        summary: "Estrategia medieval en tiempo real que sigue reuniendo torneos multitudinarios casi 30 años después de su lanzamiento original.",
+        difficulty: "dificil",
+        emoji: "🏹",
+        steamUrl: "https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 34 de Retro 365, y hoy voy a intentar no perder mi aldeano número uno en los primeros dos minutos de partida. Bienvenidos a Age of Empires II."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de los aldeanos iniciales recolectando recursos. <strong>🎬 Producción:</strong> SFX medieval de construcción · corte duro · BGM: sting corto, medieval</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Casi 30 años después de su lanzamiento original, sigue reuniendo torneos multitudinarios — hoy os cuento por qué este clásico se resiste a envejecer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 034 · AGE OF EMPIRES II" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, medieval</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eliges una civilización real de la historia, cada una con sus propias unidades y bonificaciones únicas, y la avanzas por 4 edades distintas mientras gestionas economía, tecnología y ejército a la vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay avanzando de edad. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada civilización juega distinto de verdad según su bonificación única, el 'piedra-papel-tijera' de unidades obliga a adaptar el ejército sobre la marcha, y los aldeanos gestionando bien la economía pesan tanto como cualquier batalla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una batalla entre varias unidades distintas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: llegar a la Edad Imperial antes de que la IA me ataque en serio — a ver si me da tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la carrera contra el reloj. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué civilización jugabas tú en su día, o jugarías ahora si empezaras de cero?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Que este juego siga teniendo escena competitiva activa casi 30 años después es de lo más raro y bonito que hay en la estrategia — pocos géneros envejecen tan bien."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un clásico que sigue exigiendo de verdad — la estrategia medieval que le tocaba a este segundo mes de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del imperio construido. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugabas a esto de pequeño? Cuéntame tu civilización favorita en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      35: {
+        name: "Okami HD",
+        summary: "Eres una diosa loba pintando el mundo de vuelta a la vida con un pincel celestial — arte japonés hecho videojuego.",
+        difficulty: "media",
+        emoji: "🐺",
+        steamUrl: "https://store.steampowered.com/app/587620/Okami_HD/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 35 de Retro 365, y hoy soy una diosa loba que repinta el mundo de vuelta a la vida con un pincel mágico. Bienvenidos a Okami."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay usando el Pincel Celestial para revivir un árbol. <strong>🎬 Producción:</strong> SFX de pincelada mágica · corte duro · BGM: sting corto, tradicional japonés</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Arte tradicional japonés convertido en mecánica de juego real — hoy os cuento por qué este juego sigue siendo visualmente único casi 20 años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 035 · OKAMI HD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tradicional</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Amaterasu, la diosa del sol encarnada en forma de loba blanca, devolviendo la vida y el color a un Japón mitológico que la oscuridad ha ido consumiendo poco a poco."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el contraste entre zona oscura y zona repintada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El Pincel Celestial te deja dibujar directamente sobre la pantalla para cortar objetos, crear viento o hacer salir el sol, cada técnica nueva abre zonas antes inaccesibles, y todo el estilo visual imita deliberadamente la pintura tradicional sumi-e."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay usando 2-3 técnicas de pincel distintas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: resolver un puzle de pincel sin mirar ninguna pista, solo con lo que el propio escenario me sugiere."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resolver el puzle. <strong>🎬 Producción:</strong> SFX de logro · BGM: sube un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué otro juego con un estilo visual tan marcado como este se te viene a la cabeza?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Muy pocos juegos se atreven a un estilo visual tan específico como este — y encima consiguen que la mecánica (el pincel) tenga sentido con el propio arte, no sea solo estética."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Arte, mitología y mecánica unidos de verdad — la joya visual que le tocaba a esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de zonas repintadas. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías este juego de antes? Dímelo en comentarios, que merece mucho más reconocimiento del que tiene."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      36: {
+        name: "Call of Duty 4: Modern Warfare",
+        summary: "El shooter militar que definió una década entera de multijugador — y una campaña con una de las misiones más recordadas del género.",
+        difficulty: "media",
+        emoji: "🪖",
+        steamUrl: "https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 36 de Retro 365, y hoy toca un shooter que definió cómo se juega al multijugador militar durante más de una década. Bienvenidos a Call of Duty 4: Modern Warfare."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un tiroteo intenso en campaña. <strong>🎬 Producción:</strong> SFX real de disparo · corte duro · BGM: sting corto, militar</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El shooter militar que popularizó el sistema de rangos y perks que todavía usan los shooters de hoy — hoy os cuento por qué su campaña sigue siendo una referencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 036 · CALL OF DUTY 4" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, militar</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Alternas entre un marine estadounidense y un miembro del SAS británico en un conflicto moderno ficticio — y una misión en concreto, jugada desde un punto de vista muy distinto al resto, se quedó grabada en la memoria de toda una generación."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un tramo de campaña distinto al resto (sin destripar cuál). <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La campaña dura poco pero no desperdicia ni un solo tramo, el multijugador introdujo perks y rangos que se convirtieron en estándar del género, y el ritmo de disparo se sintió más directo que cualquier shooter militar anterior."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una partida multijugador. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: completar el tramo de campaña de hoy en la dificultad más alta, sin bajarla aunque me cueste."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a una muerte en dificultad alta. <strong>🎬 Producción:</strong> SFX de muerte del juego · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: sin destripar cuál, ¿qué misión de un shooter te ha dejado más marcado igual que esta lo hizo con tanta gente?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Muy pocos shooters se atreven a romper el ritmo de acción constante para meter un momento así — y por eso se recuerda tantos años después, más que cualquier tiroteo del resto de la campaña."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter que definió el molde de toda una década — cierre de esta sexta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de momentos de campaña. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu Call of Duty favorito de todos los tiempos? Dímelo en comentarios, que seguro que hay debate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 32: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 37: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
