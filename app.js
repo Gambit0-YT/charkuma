@@ -4820,6 +4820,14 @@
         'Contexto': [{
           url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/David_Jonsson_%2854461706802%29.jpg/500px-David_Jonsson_%2854461706802%29.jpg',
           alt: 'David Jonsson', credit: 'David Jonsson — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+        }],
+        // Backlog Fase 2 #153 (auditoría de guiones ya cubiertos): Ryan
+        // Coogler, el director, se nombra por su nombre en Desarrollo
+        // ("el director Ryan Coogler lo identificó en persona"), un beat
+        // distinto del que ya tenía foto (Contexto, David Jonsson).
+        'Desarrollo': [{
+          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Ryan_Coogler_by_Gage_Skidmore.jpg/500px-Ryan_Coogler_by_Gage_Skidmore.jpg',
+          alt: 'Ryan Coogler', credit: 'Ryan Coogler — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
         }]
       },
       'rf-ryan-gosling-ghost-rider': {
