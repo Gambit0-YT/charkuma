@@ -3607,10 +3607,29 @@
     // todas las notas de producción de por medio.
     let recordingModeBeats = [];
     let recordingModeIndex = 0;
+    let recordingModeRid = null;
+    // Petición de Iván (8 sep): al grabar la voz en off, que aparezca una
+    // foto de contexto real justo encima del beat cuando ese beat habla
+    // de algo/alguien concreto — p.ej. una foto de Robert Downey Jr.
+    // sobre el Hook del guion que habla de él como Doctor Doom.
+    // Regla estricta, igual que #67/#68 (nunca fabricar imágenes falsas):
+    // solo entran aquí fotos REALES, con URL verificada a mano y crédito
+    // correcto al autor/licencia — nunca una imagen generada ni un enlace
+    // sin comprobar. Se añade guion a guion, bajo pedido, no en bloque.
+    const RECORDING_MODE_IMAGES = {
+      'rf-opinion-doom-rdj': {
+        'Hook': {
+          url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg',
+          alt: 'Robert Downey Jr. en la Comic-Con de San Diego, 2014',
+          credit: 'Foto: Gage Skidmore, CC BY-SA 2.0 — Wikimedia Commons'
+        }
+      }
+    };
     function openRecordingMode(rid){
       const active = document.querySelector('.app-view.active');
       const panel = findGuionPanel(active);
       if (!panel) { alert('No he encontrado el guion de esta página.'); return; }
+      recordingModeRid = rid;
       // Un paso del teleprompter por CADA frase de narración (no por
       // beat completo) — así un beat con "Tesis/A favor/En contra" no
       // mezcla tres tonos distintos en una sola pantalla.
@@ -3634,6 +3653,20 @@
       const toneEl = document.getElementById('recordingModeTone');
       if (beat.tone) { toneEl.textContent = `🎭 ${beat.tone}`; toneEl.hidden = false; }
       else { toneEl.hidden = true; }
+      const figureEl = document.getElementById('recordingModeFigure');
+      // Los headings reales llevan emoji + rango de tiempo ("🪝 Hook
+      // (0-10s)"), así que se busca por coincidencia parcial, no exacta.
+      const imagesForRid = RECORDING_MODE_IMAGES[recordingModeRid] || {};
+      const imgKey = Object.keys(imagesForRid).find(k => beat.heading.includes(k));
+      const img = imgKey ? imagesForRid[imgKey] : null;
+      if (img) {
+        document.getElementById('recordingModeImage').src = img.url;
+        document.getElementById('recordingModeImage').alt = img.alt || '';
+        document.getElementById('recordingModeCredit').textContent = img.credit || '';
+        figureEl.hidden = false;
+      } else {
+        figureEl.hidden = true;
+      }
       document.getElementById('recordingModeText').textContent = beat.text;
       document.getElementById('recordingModeProgress').textContent = `${recordingModeIndex + 1} / ${recordingModeBeats.length}`;
       document.getElementById('recordingModePrev').disabled = recordingModeIndex === 0;
