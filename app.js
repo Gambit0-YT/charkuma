@@ -4963,13 +4963,26 @@
       // propio repo (`context-img/`) en vez de enlazar al CDN de Gamma,
       // igual que pasó con los audios de VidIQ: no hay garantía de que
       // esa URL externa siga viva dentro de un tiempo.
+      // Petición ampliada (8 sep): cuando no se puede generar con IA (sin
+      // créditos de Gamma), buscar una foto REAL ya existente en
+      // internet con licencia libre verificada — mismo rigor que con
+      // las fotos de personas (nunca una imagen con copyright sin
+      // permiso). Madripoor se queda sin foto a propósito: es un lugar
+      // ficticio sin equivalente real al que fotografiar.
       'rf-marvels-wolverine-game': {
-        'Desarrollo': [{
-          url: 'context-img/rf-marvels-wolverine-game-canada.jpg',
-          alt: 'Bosque nevado de Canadá, uno de los 3 escenarios del juego',
-          credit: 'Uno de los 3 escenarios reales del juego (Canadá) — Gamma, prompt propio',
-          ai: true
-        }]
+        'Desarrollo': [
+          {
+            url: 'context-img/rf-marvels-wolverine-game-canada.jpg',
+            alt: 'Bosque nevado de Canadá, uno de los 3 escenarios del juego',
+            credit: 'Uno de los 3 escenarios reales del juego (Canadá) — Gamma, prompt propio',
+            ai: true
+          },
+          {
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Ginza_at_night%2C_Tokyo_JP.jpg/500px-Ginza_at_night%2C_Tokyo_JP.jpg',
+            alt: 'Calles de Ginza, Tokio, de noche',
+            credit: 'Tokio, otro de los 3 escenarios del juego — Foto: Stefano Vigorelli, CC BY-SA 4.0 (Wikimedia Commons)'
+          }
+        ]
       },
       // Backlog Fase 2 #151/#152 (2026-09-08, /loop autónomo): los 2
       // guiones que se quedaron sin ninguna imagen — mismo criterio que
