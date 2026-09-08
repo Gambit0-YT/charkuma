@@ -341,7 +341,13 @@
     .recording-checklist-item.is-done{color:var(--muted);text-decoration:line-through}
 
     /* ── Modo grabación a pantalla completa (backlog #18) ── */
-    .recording-mode-overlay{position:fixed;inset:0;z-index:200;background:#09070f;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 8vw;text-align:center;gap:18px}
+    /* Bug real encontrado hoy: con un beat de varias fotos a la vez (el
+       cruce de Doomsday llegó a 7), el contenido puede superar la
+       altura de la pantalla — sin overflow-y, ese contenido quedaba
+       inaccesible de verdad (ni la página ni el propio overlay
+       scrolleaban, comprobado con scrollHeight > clientHeight y
+       scrollTop siempre en 0). */
+    .recording-mode-overlay{position:fixed;inset:0;z-index:200;background:#09070f;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 8vw;text-align:center;gap:18px;overflow-y:auto}
     .recording-mode-overlay[hidden]{display:none}
     /* Bug real de Fase 2 #198 (mismo hallazgo que en .recording-mode-credit
        más abajo): este overlay es SIEMPRE oscuro sin importar el tema del
