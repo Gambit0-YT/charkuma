@@ -3065,6 +3065,20 @@
         summary: "Una precuela ambientada en los 50, y una versión hecha en español en México — lo que se ha confirmado de verdad tras el final de la serie.",
         thumbnail: "🩸",
         internalView: "rf-vought-rising", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real y muy próxima en fecha, encontrada con WebSearch
+        // 2026-09-08: "Avengers: Endgame Encore" vuelve a cines el 25 de
+        // septiembre de 2026 (IMAX + "Infinity Vision"), con ~4 min de
+        // metraje inédito (185 min totales) que sirve de puente hacia
+        // Doomsday, más un adelanto exclusivo del propio Doomsday.
+        title: "Avengers: Endgame vuelve al cine el 25 de septiembre con escenas nunca vistas",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "4 minutos de metraje inédito y un adelanto exclusivo de Doomsday — todo lo real sobre el reestreno de Endgame este mes.",
+        thumbnail: "🎬",
+        internalView: "rf-endgame-encore", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3441,7 +3455,8 @@
       'rf-nuevo-black-panther': '13mGiwKxV7ncCVhyJGQ9d3VBnEtzMbms9',
       'rf-ryan-gosling-ghost-rider': '1Q8QDiWqmqn-faW73joLGBRSpw34zJtFX',
       'rf-doomsday-cruce-historico': '1G_lJhzzxBPCLk9JkquxJhswNz40rYHyL',
-      'rf-vought-rising': '14pZaJo5X88hY40CpqCpgHiXDzI0nxq_C'
+      'rf-vought-rising': '14pZaJo5X88hY40CpqCpgHiXDzI0nxq_C',
+      'rf-endgame-encore': '14lPuLlFigoE1p78VISI7AMCRtCSMe9O0'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
