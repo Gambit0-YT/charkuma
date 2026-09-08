@@ -1436,8 +1436,175 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "Si ya lo has jugado, cuéntame en comentarios qué crees que le pasó a la protagonista — sin spoilers para quien no lo haya probado."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Backlog Fase 2 (2026-09-08, /loop autónomo): el usuario pidió
+      // usar el catálogo real de 444 juegos de Game Match directamente
+      // (la preselección de "me gusta" seguía casi vacía) para seguir
+      // completando días de Retro 365. Elegidos por variedad de género y
+      // dificultad, evitando repetir juego/franquicia ya usada en los
+      // días 1-6 (Celeste, Stardew Valley, Hollow Knight, Hades,
+      // Unpacking, Assassin's Creed Odyssey).
+      7: {
+        name: "Portal 2",
+        summary: "Un shooter de puzles donde la única arma dispara portales — y una IA que no deja de reírse de ti.",
+        difficulty: "media",
+        emoji: "🧩",
+        steamUrl: "https://store.steampowered.com/app/620/Portal_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 7 de Retro 365, y hoy no hay armas de verdad — solo un portal azul y otro naranja. Y aun así, es de los juegos con el humor más negro que vais a ver aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay abriendo un portal y cruzándolo al instante. <strong>🎬 Producción:</strong> SFX de apertura de portal · corte duro · BGM: sting corto, entra en silencio</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter de puzles donde la única arma dispara portales, no balas — hoy os cuento por qué GLaDOS es una de las mejores villanas de la historia de los videojuegos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 007 · PORTAL 2" con la barra de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres un sujeto de pruebas atrapado en los laboratorios de Aperture Science, resolviendo salas con portales mientras una inteligencia artificial te vigila... y se ríe de ti."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando una sala de pruebas completa desde arriba. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada sala añade una mecánica nueva — gel de propulsión, láseres, cubos de compañía — y GLaDOS nunca deja de comentar cada cosa que haces, para bien o para mal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado usando gel y láseres. <strong>🎬 Producción:</strong> SFX real del juego en cada mecánica · corte seco entre salas · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver cuántas veces me quedo atascado en una sala 'obvia' delante de todos vosotros."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un atasco real. <strong>🎬 Producción:</strong> SFX cómico de fallo · BGM: baja un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué frase de GLaDOS te ha hecho más gracia hasta ahora, o cuál esperas que diga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "GLaDOS consigue que odies y quieras al mismo personaje a la vez — pocos villanos de videojuego logran eso solo con diálogo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un puzle perfecto con el humor más afilado del medio — el descanso mental que hacía falta después de un día tan intenso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los puzles resueltos. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu sala favorita de Portal 2? Dímelo en comentarios, a ver si me la destripáis antes de tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      8: {
+        name: "Undertale",
+        summary: "Un RPG indie donde puedes terminar el juego entero sin matar a nadie — y el juego se acuerda de cómo lo hiciste.",
+        difficulty: "facil",
+        emoji: "💛",
+        steamUrl: "https://store.steampowered.com/app/391540/Undertale/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 8 de Retro 365, y hoy tengo un juego que me puede matar por hacer las cosas 'bien'. En Undertale, ser pacifista es la ruta más difícil de todas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate esquivando ataques sin atacar. <strong>🎬 Producción:</strong> SFX 8-bit del combate · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG indie donde puedes terminar el juego entero sin matar a nadie — y hoy os cuento por qué esa decisión pesa más de lo que parece."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 008 · UNDERTALE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono cálido</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un humano cae a un mundo subterráneo lleno de monstruos, y desde el primer combate el juego te deja elegir: luchar, o intentar entenderlos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando la opción "Actuar" en un combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje tiene su propia forma de 'perdonarlo' sin pelear, los combates son balas esquivables tipo bullet-hell, y el juego literalmente recuerda las decisiones que tomaste, aunque borres la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay esquivando un patrón de balas complejo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí viene el reto en directo: intentar la ruta pacifista de un jefe sin perder la paciencia con vosotros mirando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un intento fallido. <strong>🎬 Producción:</strong> SFX cómico de derrota · BGM: baja un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿tú intentarías la ruta pacifista o la genocida primero, y por qué?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Yo iría directo a la pacifista — la idea de que el juego 'recuerde' lo que hiciste me da más respeto que ganas de probar la otra ruta."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Fácil de jugar, pero con una de las decisiones morales mejor construidas del medio — puro contraste con los puzles de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates pacíficos logrados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya elegiste tu ruta en Undertale? Cuéntamelo en comentarios, sin destripar el final a quien no lo haya jugado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      9: {
+        name: "Mario Kart 8 Deluxe",
+        summary: "El caparazón azul más temido de los videojuegos — carreras cortas, caos total, ideal para reírse en directo.",
+        difficulty: "facil",
+        emoji: "🏎️",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 9 de Retro 365, y hoy vamos a hablar del objeto más odiado de los videojuegos: el caparazón azul. Bienvenidos a Mario Kart 8 Deluxe."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay recibiendo un caparazón azul en primer puesto. <strong>🎬 Producción:</strong> SFX de explosión del caparazón · corte duro · BGM: sting cómico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Carreras cortas, objetos absurdos y caos total — hoy os cuento por qué este es de los juegos que mejor funcionan para reírse en directo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 009 · MARIO KART 8 DELUXE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, ritmo alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Carreras de karts con personajes de Mario, circuitos llenos de trampas, y objetos que pueden darle la vuelta a la carrera en el último segundo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando un circuito con trampa visual. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "200cc es directamente otro juego de rápido que va, el modo batalla es puro caos de globos, y hasta en solitario contra la máquina el caparazón azul siempre encuentra el peor momento posible para llegar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay a 200cc y un round de modo batalla. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre modos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: ganar una copa entera a 200cc sin reventar contra una pared por las prisas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un choque real. <strong>🎬 Producción:</strong> SFX cómico de choque · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu personaje/kart favorito, y el circuito que más rabia te da perder?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí el circuito del arcoíris me sigue pareciendo el más injusto de toda la saga — un despiste y estás fuera."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Fácil de coger, imposible de dominar del todo — el subidón de energía que hacía falta después de un día más tranquilo como el de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los mejores adelantamientos. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿A cuántos os ha reventado un caparazón azul en el último segundo? Contádmelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      10: {
+        name: "Team Fortress 2",
+        summary: "Nueve clases, cero equilibrio serio, y el shooter por equipos más gamberro de la historia.",
+        difficulty: "media",
+        emoji: "🔫",
+        steamUrl: "https://store.steampowered.com/app/440/Team_Fortress_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 10 de Retro 365, y hoy toca un shooter que lleva desde 2007 haciendo el payaso a propósito. Bienvenidos a Team Fortress 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del Pyro prendiendo fuego con efectos absurdos. <strong>🎬 Producción:</strong> SFX de disparo cómico · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Nueve clases, cero equilibrio serio, y un sentido del humor que ningún shooter moderno se atreve a copiar — hoy os cuento por qué sigue vivo casi 20 años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 010 · TEAM FORTRESS 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dos equipos, nueve clases completamente distintas entre sí, y objetivos tipo captura de bandera o empujar un carrito — el shooter por equipos que definió el género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el selector de clases. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada clase juega distinto de verdad — el Heavy es puro tanque lento, el Scout es velocidad pura, el Spy se disfraza del equipo rival — y encima el juego se ríe de sí mismo en cada línea de diálogo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay alternando 3 clases distintas. <strong>🎬 Producción:</strong> SFX real de cada clase · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: sobrevivir una partida entera de Spy sin que me descubran en los primeros 10 segundos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a que le descubren como Spy. <strong>🎬 Producción:</strong> SFX cómico de fallo · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué clase juegas tú normalmente, o cuál te da más miedo que te toque enfrente?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El Pyro siempre me pilla por sorpresa desde una esquina — es la clase que menos respeto hasta que me toca sufrirla."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Sigue siendo de lo más divertido que hay en shooters por equipos — la energía perfecta después de las carreras de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de las mejores muertes/momentos. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu clase favorita de TF2? Dímelo en comentarios, a ver si coincidimos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      11: {
+        name: "The Walking Dead: Season 1",
+        summary: "Una aventura narrativa donde tus decisiones se recuerdan — y ninguna elección se siente realmente bien.",
+        difficulty: "facil",
+        emoji: "🧟",
+        steamUrl: "https://store.steampowered.com/app/207610/The_Walking_Dead/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 11 de Retro 365, y hoy no hay combates de verdad — solo decisiones imposibles con un cronómetro encima. Bienvenidos a The Walking Dead: Season 1."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una decisión con cronómetro visible en pantalla. <strong>🎬 Producción:</strong> SFX de tictac tenso · corte duro · BGM: sting dramático</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una aventura narrativa de zombis donde lo que de verdad da miedo no son los muertos vivientes, sino tener que decidir a quién salvas — hoy os cuento por qué pesa tanto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 011 · THE WALKING DEAD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Interpretas a Lee, protegiendo a una niña llamada Clementine en pleno apocalipsis zombi — mecánicamente es sencillo, pero cada conversación puede cambiar quién sigue vivo mañana."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un diálogo con opciones de respuesta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Casi todo el juego son diálogos y decisiones bajo presión de tiempo — el juego recuerda cada elección, los personajes se acuerdan de lo que dijiste, y no hay una opción 'correcta' clara casi nunca."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el aviso "Clementine recordará esto". <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, tenso</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: tomar una decisión difícil sin pensarla de más, justo como se supone que hay que jugarlo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando justo tras decidir. <strong>🎬 Producción:</strong> sin SFX, silencio breve · BGM: baja del todo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿hay alguna decisión de este tipo de juegos que todavía recuerdes por lo mal que te sentó tomarla?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo que más me interesa de estos juegos es que ninguna decisión se siente como 'ganar' — solo eliges con qué te quedas viviendo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Sencillo de jugar, durísimo de digerir — el contraste emocional perfecto después del caos gamberro de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de las decisiones tomadas (sin spoilers grandes). <strong>🎬 Producción:</strong> fundido cruzado, más lento <strong>BGM:</strong> sube muy poco a poco</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Has jugado esta temporada? Cuéntame en comentarios qué decisión te costó más, sin destriparla del todo para quien no la haya jugado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 6: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 12: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
