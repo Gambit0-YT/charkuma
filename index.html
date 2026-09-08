@@ -7192,6 +7192,19 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
     }
   </script>
 
-  <script src="app.js" defer></script>
+  <!-- Backlog #78/#197 (8 sep): se sirve app.min.js (minificado con
+       terser, mangle/compress SIN toplevel para no tocar ningún nombre
+       de función global — hay 71 onclick/onerror/onchange embebidos como
+       texto en el propio código que dependen de que esos nombres no
+       cambien). app.js sigue siendo el ÚNICO archivo que se edita a
+       mano: es la fuente legible con comentarios, la que se abre y
+       modifica siempre. REGLA IMPORTANTE: después de CUALQUIER cambio en
+       app.js hay que regenerar app.min.js antes de desplegar, o la web
+       en producción sirve una versión vieja/desincronizada. Comando
+       (Node ya instalado):
+         npx terser app.js --compress --mangle -o app.min.js
+       Confirmar después con qaCheckContextImages() en consola y una
+       prueba visual básica antes de subir los dos archivos juntos. -->
+  <script src="app.min.js" defer></script>
 </body>
 </html>
