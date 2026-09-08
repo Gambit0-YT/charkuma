@@ -4915,8 +4915,15 @@
       // foto de Stan Lee (Comic-Con) y de Jack Kirby (años 40, uniforme
       // del ejército — la única foto suya de licencia libre encontrada,
       // de antes de su etapa en el cómic, pero es él de verdad).
+      // Bug real corregido 9 sep: estas fotos estaban puestas en la key
+      // 'Desarrollo', pero a Stan Lee y Jack Kirby se les nombra en el
+      // beat 'Contexto' ("creado por Stan Lee y Jack Kirby...") — nunca
+      // llegaban a mostrarse en el paso correcto. 'Desarrollo' (Latveria,
+      // el pacto de su madre, sus cicatrices) es pura ficción de Doom
+      // sin ninguna persona real que nombrar, así que se queda sin foto
+      // a propósito.
       'rf-curiosidades-doom': {
-        'Desarrollo': [
+        'Contexto': [
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Stan_Lee_by_Gage_Skidmore.jpg/500px-Stan_Lee_by_Gage_Skidmore.jpg', alt: 'Stan Lee', credit: 'Stan Lee — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Jack_Kirby.jpg/500px-Jack_Kirby.jpg', alt: 'Jack Kirby, años 40', credit: 'Jack Kirby (años 40, uniforme del ejército de EE.UU.) — dominio público, Wikimedia Commons' }
         ]
