@@ -3716,6 +3716,32 @@
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/James_Marsden_by_Gage_Skidmore.jpg/500px-James_Marsden_by_Gage_Skidmore.jpg', alt: 'James Marsden', credit: 'James Marsden — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kelsey_Grammer_2016.jpg/500px-Kelsey_Grammer_2016.jpg', alt: 'Kelsey Grammer', credit: 'Kelsey Grammer — Foto: Greg2600, CC BY-SA 2.0 (Wikimedia Commons)' }
         ]
+      },
+      // Petición ampliada (8 sep): "no quiero solo el personaje, quiero
+      // contexto real para lo que voy a narrar" — se extiende a guiones
+      // donde se nombra a un actor/personaje real aunque el guion no gire
+      // sobre él, siempre que la narración lo mencione de verdad (nunca
+      // una foto forzada sin que el texto la sostenga).
+      'rf-opinion-deep': {
+        'Contexto': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Chace_Crawford_2.jpg/500px-Chace_Crawford_2.jpg', alt: 'Chace Crawford, actor de The Deep', credit: 'Chace Crawford — Foto: Christopher Peterson, CC BY 3.0 (Wikimedia Commons)' }]
+      },
+      'rf-boys-vs-marvel': {
+        'Hook': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg/500px-Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg', alt: 'Antony Starr, 2024', credit: 'Antony Starr — Foto: Super Festivals, CC BY 2.0 (Wikimedia Commons)' }]
+      },
+      // "Loki" solo se nombra en el segmento "A favor" — con `match` la
+      // foto solo sale en esa frase, no en "Tesis" ni en "En contra".
+      'rf-opinion-multiverso': {
+        'Desarrollo': [{ match: 'Loki', photos: [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Tom_Hiddleston_by_Gage_Skidmore.jpg/500px-Tom_Hiddleston_by_Gage_Skidmore.jpg', alt: 'Tom Hiddleston, actor de Loki', credit: 'Tom Hiddleston — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }] }]
+      },
+      // "Iron Man (2008)" solo sale en el segmento de Marvel — con
+      // `match` no aparece durante el segmento de The Boys.
+      'rf-ranking-empezar': {
+        'Desarrollo': [{ match: 'Iron Man', photos: [{ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg', alt: 'Robert Downey Jr., Iron Man', credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)' }] }]
+      },
+      // El metraje inédito del reestreno "probablemente presenta a Victor
+      // von Doom" — misma foto de RDJ que en su guion de Doom.
+      'rf-endgame-encore': {
+        'Desarrollo': [{ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg', alt: 'Robert Downey Jr.', credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)' }]
       }
     };
     function openRecordingMode(rid){
@@ -3751,7 +3777,22 @@
       // (0-10s)"), así que se busca por coincidencia parcial, no exacta.
       const imagesForRid = RECORDING_MODE_IMAGES[recordingModeRid] || {};
       const imgKey = Object.keys(imagesForRid).find(k => beat.heading.includes(k));
-      const photos = imgKey ? imagesForRid[imgKey] : null;
+      const entry = imgKey ? imagesForRid[imgKey] : null;
+      // Un heading puede tener varios segmentos de narración a la vez
+      // (p.ej. "Desarrollo" con Tesis/A favor/En contra) — si la entrada
+      // es una lista de grupos con `match`, solo se muestra el grupo cuyo
+      // texto de `match` aparece en la frase que se está narrando AHORA,
+      // no en todo el heading entero. Si es una lista simple de fotos
+      // (formato de siempre), se muestra igual en todo el heading.
+      let photos = null;
+      if (Array.isArray(entry)) {
+        if (entry.length && entry[0] && entry[0].match) {
+          const group = entry.find(g => beat.text.includes(g.match));
+          photos = group ? group.photos : null;
+        } else {
+          photos = entry;
+        }
+      }
       if (photos && photos.length) {
         figureEl.innerHTML = photos.map(p => `
           <figure class="recording-mode-figure-item">
