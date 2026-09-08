@@ -852,6 +852,25 @@
     }
 
     // ──────────────────────────────────────────────────────────
+    // Backlog Fase 2 #159: si una <img> del sitio no llega a cargar
+    // (carátula de RAWG caída, foto de Wikimedia movida/borrada,
+    // ilustración de context-img/ con la ruta mal escrita...) que se
+    // oculte sola en vez de enseñar el icono roto feo del navegador.
+    // Un solo listener global con "capture" (el evento "error" de un
+    // <img> no burbujea) en vez de tocar cada <img> del sitio a mano —
+    // así cubre también las que se generan dinámicamente más adelante.
+    // Se marca con una clase por si alguna vista quiere darle un estilo
+    // de "hueco vacío" distinto en vez de ocultarlo del todo.
+    // ──────────────────────────────────────────────────────────
+    document.addEventListener('error', (e) => {
+      const img = e.target;
+      if (!img || img.tagName !== 'IMG' || img.dataset.brokenHandled) return;
+      img.dataset.brokenHandled = '1';
+      img.hidden = true;
+      img.classList.add('img-broken');
+    }, true);
+
+    // ──────────────────────────────────────────────────────────
     // Atajos de teclado: "/" abre el buscador, "Esc" cierra
     // buscador/ajustes o vuelve al inicio si ya estás en una vista.
     // ──────────────────────────────────────────────────────────
