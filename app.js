@@ -3079,6 +3079,21 @@
         summary: "4 minutos de metraje inédito y un adelanto exclusivo de Doomsday — todo lo real sobre el reestreno de Endgame este mes.",
         thumbnail: "🎬",
         internalView: "rf-endgame-encore", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real encontrada con WebSearch 2026-09-08: Chris Evans
+        // regresa como Steve Rogers y Hayley Atwell como Peggy Carter en
+        // Avengers: Doomsday, anunciado en SDCC 2026 — cita real de
+        // Atwell ("no puedes tener a Steve sin Peggy"), varios medios
+        // apuntan a que no es la Peggy que se recuerda, y la propia
+        // actriz admite no haber visto el montaje final.
+        title: "Chris Evans y Hayley Atwell vuelven a Marvel: Steve y Peggy en Avengers Doomsday",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "Ni la propia actriz sabe todos los detalles — todo lo confirmado de verdad sobre el regreso de Steve Rogers y Peggy Carter.",
+        thumbnail: "🛡️",
+        internalView: "rf-steve-peggy-regreso", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3456,7 +3471,8 @@
       'rf-ryan-gosling-ghost-rider': '1Q8QDiWqmqn-faW73joLGBRSpw34zJtFX',
       'rf-doomsday-cruce-historico': '1G_lJhzzxBPCLk9JkquxJhswNz40rYHyL',
       'rf-vought-rising': '14pZaJo5X88hY40CpqCpgHiXDzI0nxq_C',
-      'rf-endgame-encore': '14lPuLlFigoE1p78VISI7AMCRtCSMe9O0'
+      'rf-endgame-encore': '14lPuLlFigoE1p78VISI7AMCRtCSMe9O0',
+      'rf-steve-peggy-regreso': '10TiDnuMTuZOJkTo7HiMTf44P9GMoQx4I'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
