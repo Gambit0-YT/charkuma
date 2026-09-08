@@ -4859,17 +4859,39 @@
           credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
         }]
       },
-      // No hay ningún actor/persona real nueva que fotografiar aquí (Doom
-      // ya tiene su foto de RDJ en el otro guion, los Centinelas son
-      // ficción) — el hecho real y fotografiable es el propio evento
-      // donde se reveló: el D23 Expo de Anaheim. Foto real verificada
-      // (Cory Doctorow, CC BY-SA 2.0, Wikimedia Commons).
+      // Ampliado 9 sep (pedido de Iván: foto en cada frase, no solo por
+      // beat) — Hook y Desarrollo ahora tienen foto real por segmento
+      // narrado: Chris Hemsworth (Thor, a quien Doom vence) y Vanessa
+      // Kirby (actriz real de Sue Storm, la narradora del adelanto según
+      // las fuentes). El segmento de los Centinelas se deja sin foto a
+      // propósito: son un elemento ficticio con copyright, y no hay
+      // ninguna imagen real y honesta que los represente sin fingir ser
+      // un fotograma de la película. El hecho real y fotografiable del
+      // beat Contexto sigue siendo el propio evento: el D23 Expo de
+      // Anaheim (Cory Doctorow, CC BY-SA 2.0, Wikimedia Commons).
       'rf-opinion-doom-centinelas': {
+        'Hook': [{
+          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Chris_Hemsworth_by_Gage_Skidmore_3.jpg/500px-Chris_Hemsworth_by_Gage_Skidmore_3.jpg',
+          alt: 'Chris Hemsworth, actor de Thor',
+          credit: 'Chris Hemsworth (Thor) — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+        }],
         'Contexto': [{
           url: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/D23_Expo_2015_general_admission_queue_%2820634317635%29.jpg',
           alt: 'Cola de entrada al D23 Expo, Anaheim',
           credit: 'D23 Expo, Anaheim — Foto: Cory Doctorow, CC BY-SA 2.0 (Wikimedia Commons)'
-        }]
+        }],
+        'Desarrollo': [
+          { match: 'deja fuera de combate a Thor', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Chris_Hemsworth_by_Gage_Skidmore_3.jpg/500px-Chris_Hemsworth_by_Gage_Skidmore_3.jpg',
+            alt: 'Chris Hemsworth, actor de Thor',
+            credit: 'Chris Hemsworth (Thor) — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+          }] },
+          { match: 'perder a su familia', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg/500px-Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg',
+            alt: 'Vanessa Kirby, actriz de Sue Storm',
+            credit: 'Vanessa Kirby (Sue Storm, narradora del adelanto) — Foto: Jay Dixit, CC BY-SA 4.0 (Wikimedia Commons)'
+          }] }
+        ]
       },
       // Doctor Doom no nace de un actor concreto sino de sus creadores —
       // foto de Stan Lee (Comic-Con) y de Jack Kirby (años 40, uniforme
