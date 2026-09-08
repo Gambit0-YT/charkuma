@@ -4786,6 +4786,12 @@
         'Hook': [{
           url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg',
           alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+        }],
+        // Shawn Levy, el director, se nombra por su nombre en Contexto
+        // ("con Shawn Levy, el director de Deadpool y Lobezno, al mando").
+        'Contexto': [{
+          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Shawn_Levy_by_Gage_Skidmore.jpg/500px-Shawn_Levy_by_Gage_Skidmore.jpg',
+          alt: 'Shawn Levy', credit: 'Shawn Levy — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
         }]
       },
       // Cruce con reparto muy numeroso — solo 2 caras representativas
