@@ -2088,8 +2088,169 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cuál es tu GTA favorito de toda la saga? Dímelo en comentarios, que seguro que genera debate."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Quinta tanda (mismo `/loop`, tick siguiente): días 27-31.
+      27: {
+        name: "BioShock",
+        summary: "Una ciudad submarina utópica que se fue al garete — y una de las mejores sorpresas de guion de la historia de los videojuegos.",
+        difficulty: "media",
+        emoji: "🌊",
+        steamUrl: "https://store.steampowered.com/app/7670/BioShock/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 27 de Retro 365, y hoy voy a bajar a una ciudad submarina que prometía ser un paraíso... y se convirtió en justo lo contrario. Bienvenidos a BioShock."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay descendiendo en el batiscafo hacia Rapture. <strong>🎬 Producción:</strong> SFX de agua/máquina submarina · corte duro · BGM: sting corto, inquietante</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una de las mejores sorpresas de guion de la historia de los videojuegos, sin exagerar — hoy os cuento por qué Rapture sigue siendo un ambiente único casi 20 años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 027 · BIOSHOCK" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, inquietante</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Sobrevives a un accidente aéreo y encuentras la entrada a Rapture, una ciudad submarina utópica fundada para huir de todo control — que ahora está poblada de gente mutada hasta la locura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la entrada de Rapture. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Combinas armas normales con plásmidos que te dan poderes genéticos, cada decisión sobre las Little Sisters cambia el final, y el ambiente del propio escenario cuenta tanto como cualquier diálogo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay usando un plásmido en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: mi primer encuentro con un Big Daddy, sin saber muy bien a qué distancia es seguro acercarme."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al primer Big Daddy visto de cerca. <strong>🎬 Producción:</strong> SFX pesado del Big Daddy · BGM: tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: sin destripar el giro de guion, ¿qué juego te ha sorprendido a ti de forma parecida?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Muy pocos juegos consiguen que replantees todo lo que has hecho hasta ese punto — esa es la razón por la que este sigue en las listas de 'mejores guiones' tantos años después."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un ambiente que no se olvida — el shooter con más personalidad propia que hemos tocado en Retro 365 hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de rincones de Rapture explorados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya conocías el giro de este juego, o te lo he destripado sin querer? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      28: {
+        name: "Fire Emblem Awakening",
+        summary: "Táctica por turnos donde cada unidad que pierdes se va para siempre — y el juego no te avisa dos veces.",
+        difficulty: "dificil",
+        emoji: "🗡️",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 28 de Retro 365, y hoy si pierdo a un personaje en combate, se va para siempre — sin cargar partida, si puedo evitarlo. Bienvenidos a Fire Emblem: Awakening."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate táctico en cuadrícula. <strong>🎬 Producción:</strong> SFX de espada del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Táctica por turnos donde cada unidad importa de verdad — hoy os cuento por qué la muerte permanente cambia completamente cómo se siente cada batalla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 028 · FIRE EMBLEM: AWAKENING" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Comandas un ejército de personajes con sus propias historias, relaciones y hasta hijos que aparecen según quién se lleve bien con quién — todo mientras luchas contra un enemigo que amenaza el continente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el mapa de la campaña. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El triángulo de armas decide quién tiene ventaja en cada choque, posicionar mal a una unidad puede costarte para siempre, y las conversaciones entre personajes fuera del combate construyen relaciones que afectan a la propia historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate usando el triángulo de armas a favor. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: terminar el mapa de hoy sin perder a ningún personaje — con muerte permanente activada de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a una unidad en peligro real. <strong>🎬 Producción:</strong> SFX dramático · BGM: tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿juegas con muerte permanente activada, o prefieres el modo clásico sin ese riesgo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Jugaría con muerte permanente aunque doliera — es lo que hace que cada decisión táctica pese de verdad, no solo sobre el papel."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tensión táctica real, turno a turno — la estrategia con más corazón que hemos visto en esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del ejército tras la batalla. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿A qué personaje no puedes perder bajo ningún concepto? Cuéntamelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      29: {
+        name: "The Elder Scrolls V: Skyrim",
+        summary: "Un dragón interrumpe tu ejecución en el primer minuto — y a partir de ahí, el mundo entero es tuyo para perderte en él.",
+        difficulty: "media",
+        emoji: "🐉",
+        steamUrl: "https://store.steampowered.com/app/72850/The_Elder_Scrolls_V_Skyrim/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 29 de Retro 365, y hoy un dragón interrumpe literalmente mi propia ejecución en el primer minuto de juego. Bienvenidos a Skyrim."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del dragón atacando durante la ejecución inicial. <strong>🎬 Producción:</strong> SFX de rugido de dragón · corte duro · BGM: sting corto, épico nórdico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El mundo abierto que definió una generación entera de RPG — hoy os cuento por qué la gente sigue jugándolo más de una década después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 029 · SKYRIM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, nórdico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres el Sangre de Dragón, la única persona capaz de absorber el alma de los dragones y usar sus gritos de poder — pero el juego te deja ignorar esa trama principal durante literalmente cientos de horas si quieres."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando libremente lejos de la trama principal. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Puedes ser guerrero, mago, ladrón o las tres cosas a la vez, cada ciudad tiene sus propias facciones y misiones, y la comunidad de mods lleva más de una década alargándole la vida al juego original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay alternando combate mágico y sigilo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: seguir el primer camino random que vea en el mapa, sin ningún objetivo concreto, a ver dónde acabo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a lo que encuentra por el camino. <strong>🎬 Producción:</strong> sin SFX · BGM: continúa relajado</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿guerrero, mago o ladrón — o de los que lo prueban todo en la misma partida?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo que hace especial a este juego es que perderse literalmente es parte del plan — la trama principal casi se siente como una distracción del propio mundo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo hecho para perderse en él — el paseo tranquilo perfecto tras la tensión táctica de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de paisajes/ciudades exploradas. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuántas horas reales le has echado a este juego? Confiésalo en comentarios, sin vergüenza."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      30: {
+        name: "StarCraft II: Wings of Liberty",
+        summary: "Estrategia en tiempo real de altísimo nivel — donde los mejores del mundo hacen cientos de acciones por minuto sin pestañear.",
+        difficulty: "dificil",
+        emoji: "👽",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 30 de Retro 365, y hoy los jugadores profesionales de este juego hacen más de 300 acciones por minuto. Yo voy a intentar llegar a 50 sin bloquearme. Bienvenidos a StarCraft II."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una base gestionando varias cosas a la vez. <strong>🎬 Producción:</strong> SFX de construcción del juego · corte duro · BGM: sting corto, sci-fi</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia en tiempo real de altísimo nivel competitivo — hoy os cuento por qué este juego lleva más de una década siendo el rey de los eSports de estrategia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 030 · STARCRAFT II" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sci-fi</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tres razas completamente distintas entre sí — humanos, zerg y protoss — luchando por la galaxia, cada una jugándose de una forma radicalmente diferente a las otras dos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando unidades de las 3 razas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar la economía, producir unidades sin parar y controlar el mapa a la vez es lo que separa a un jugador normal de uno bueno de verdad — y la campaña en solitario cuenta una historia real detrás de todo ese caos táctico."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una misión de campaña. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: intentar no dejar de producir unidades ni un solo segundo durante los próximos 5 minutos — algo que los profesionales hacen sin pensar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al intentar gestionar todo a la vez. <strong>🎬 Producción:</strong> SFX cómico de agobio · BGM: sube ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿alguna vez has visto una partida profesional de StarCraft? ¿Qué te pareció el nivel de los jugadores?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Ver una partida profesional de esto es de las cosas más impresionantes que hay en eSports — el nivel de multitarea que manejan es casi de otro planeta."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia al límite de lo que un humano puede gestionar — el reto más exigente de esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la partida jugada. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué raza jugarías tú — humanos, zerg o protoss? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      31: {
+        name: "Cut the Rope",
+        summary: "Corta cuerdas con el dedo para darle un caramelo a un pequeño monstruo verde — simple, adictivo, y sin ninguna prisa.",
+        difficulty: "facil",
+        emoji: "🍬",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 31 de Retro 365, y hoy cierro el mes con algo mucho más sencillo: cortar cuerdas para darle un caramelo a un monstruo verde. Bienvenidos a Cut the Rope."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay cortando una cuerda y el caramelo cayendo a la boca de Om Nom. <strong>🎬 Producción:</strong> SFX de corte + masticar caramelo · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un puzle casual tan simple como adictivo — hoy os cuento por qué este juego se volvió un fenómeno mundial en su momento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 031 · CUT THE ROPE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Om Nom, un pequeño monstruo verde, quiere caramelos — y tu trabajo es cortar las cuerdas correctas, en el orden correcto, para que el caramelo llegue hasta su boca."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando un nivel con varias cuerdas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nivel añade un elemento nuevo — burbujas que hacen flotar el caramelo, ventiladores que lo empujan, arañas que hay que esquivar — y conseguir las 3 estrellas de cada nivel pide precisión real, no solo suerte."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay usando 2-3 mecánicas distintas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: sacar las 3 estrellas de un nivel a la primera, sin practicarlo antes delante de vosotros."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado. <strong>🎬 Producción:</strong> SFX de estrellas conseguidas · BGM: sube si sale bien</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste a este juego en su momento en el móvil? ¿Qué recuerdas de él?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Este tipo de juegos casuales tan bien diseñados no reciben el crédito que merecen — parecer simple no significa que sea fácil de diseñar bien."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Simple, adictivo y sin ninguna prisa — el cierre relajado perfecto de esta tanda de Retro 365, tras la exigencia de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los niveles completados con 3 estrellas. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te acordabas de este juego? Dímelo en comentarios, seguro que le trae nostalgia a más de uno."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 27: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 32: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
