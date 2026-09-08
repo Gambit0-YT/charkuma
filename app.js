@@ -3022,6 +3022,21 @@
         summary: "No es un reemplazo de T'Challa — es su hijo. Quién es el actor elegido y cómo llegó al papel, sin casting formal de por medio.",
         thumbnail: "🐾",
         internalView: "rf-nuevo-black-panther", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real encontrada con WebSearch 2026-09-08 (mismo modo de
+        // trabajo que rf-nuevo-black-panther): Ryan Gosling confirmado
+        // como Johnny Blaze/Ghost Rider en la SDCC 2026, dirigido por
+        // Shawn Levy, estreno 28 julio 2028 — Gosling llevaba años
+        // pidiendo el papel públicamente; él y Levy ruedan juntos ahora
+        // mismo "Star Wars: Starfighter".
+        title: "Ryan Gosling será Ghost Rider: la historia real detrás del anuncio",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "Llevaba años pidiendo el papel en público — cómo una amistad real con el director hizo posible este fichaje para 2028.",
+        thumbnail: "🔥",
+        internalView: "rf-ryan-gosling-ghost-rider", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3395,7 +3410,8 @@
       'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO',
       'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a',
       'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l',
-      'rf-nuevo-black-panther': '13mGiwKxV7ncCVhyJGQ9d3VBnEtzMbms9'
+      'rf-nuevo-black-panther': '13mGiwKxV7ncCVhyJGQ9d3VBnEtzMbms9',
+      'rf-ryan-gosling-ghost-rider': '1Q8QDiWqmqn-faW73joLGBRSpw34zJtFX'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
