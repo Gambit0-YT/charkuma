@@ -3608,21 +3608,114 @@
     let recordingModeBeats = [];
     let recordingModeIndex = 0;
     let recordingModeRid = null;
-    // Petición de Iván (8 sep): al grabar la voz en off, que aparezca una
-    // foto de contexto real justo encima del beat cuando ese beat habla
-    // de algo/alguien concreto — p.ej. una foto de Robert Downey Jr.
-    // sobre el Hook del guion que habla de él como Doctor Doom.
+    // Petición de Iván (8 sep, ampliada el mismo día a "los demás guiones
+    // que la necesiten" y a cada página del modo grabación): al grabar la
+    // voz en off, que aparezca una foto de contexto real justo encima del
+    // beat cuando ese beat nombra a alguien concreto — p.ej. una foto de
+    // Robert Downey Jr. sobre el Hook del guion que habla de él como
+    // Doctor Doom. Cada heading admite VARIAS fotos (algunos beats
+    // nombran a dos o tres actores a la vez, como el de Steve/Peggy o el
+    // de los tres candidatos a Wolverine).
     // Regla estricta, igual que #67/#68 (nunca fabricar imágenes falsas):
     // solo entran aquí fotos REALES, con URL verificada a mano y crédito
     // correcto al autor/licencia — nunca una imagen generada ni un enlace
-    // sin comprobar. Se añade guion a guion, bajo pedido, no en bloque.
+    // sin comprobar. En guiones con reparto muy numeroso (X-Men, el cruce
+    // de Doomsday) se eligieron 1-2 caras representativas, no el reparto
+    // entero, para no disparar el tiempo de verificación fuera de lo
+    // razonable — están marcados abajo con una nota.
     const RECORDING_MODE_IMAGES = {
       'rf-opinion-doom-rdj': {
-        'Hook': {
+        'Hook': [{
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg',
           alt: 'Robert Downey Jr. en la Comic-Con de San Diego, 2014',
-          credit: 'Foto: Gage Skidmore, CC BY-SA 2.0 — Wikimedia Commons'
-        }
+          credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+        }]
+      },
+      // Doctor Doom no nace de un actor concreto sino de sus creadores —
+      // foto de Stan Lee (Comic-Con) y de Jack Kirby (años 40, uniforme
+      // del ejército — la única foto suya de licencia libre encontrada,
+      // de antes de su etapa en el cómic, pero es él de verdad).
+      'rf-curiosidades-doom': {
+        'Desarrollo': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Stan_Lee_by_Gage_Skidmore.jpg/500px-Stan_Lee_by_Gage_Skidmore.jpg', alt: 'Stan Lee', credit: 'Stan Lee — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Jack_Kirby.jpg/500px-Jack_Kirby.jpg', alt: 'Jack Kirby, años 40', credit: 'Jack Kirby (años 40, uniforme del ejército de EE.UU.) — dominio público, Wikimedia Commons' }
+        ]
+      },
+      'rf-nuevo-black-panther': {
+        'Contexto': [{
+          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/David_Jonsson_%2854461706802%29.jpg/500px-David_Jonsson_%2854461706802%29.jpg',
+          alt: 'David Jonsson', credit: 'David Jonsson — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+        }]
+      },
+      'rf-ryan-gosling-ghost-rider': {
+        'Hook': [{
+          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg',
+          alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+        }]
+      },
+      // Cruce con reparto muy numeroso — solo 2 caras representativas
+      // (Pedro Pascal por los 4 Fantásticos, Ryan Gosling por el debut
+      // de Ghost Rider), no el reparto entero.
+      'rf-doomsday-cruce-historico': {
+        'Desarrollo': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Pedro_Pascal_by_Gage_Skidmore.jpg/500px-Pedro_Pascal_by_Gage_Skidmore.jpg', alt: 'Pedro Pascal', credit: 'Pedro Pascal — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg', alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+        ]
+      },
+      'rf-vought-rising': {
+        'Desarrollo': [{
+          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Diego_Luna_%282016%29.jpg/500px-Diego_Luna_%282016%29.jpg',
+          alt: 'Diego Luna', credit: 'Diego Luna — Foto: Dick Thomas Johnson, CC BY 2.0 (Wikimedia Commons)'
+        }]
+      },
+      'rf-steve-peggy-regreso': {
+        'Contexto': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg/500px-Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg', alt: 'Chris Evans', credit: 'Chris Evans — Foto: Sara Komatsu, CC BY-SA 4.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Hayley_Atwell_by_Gage_Skidmore.jpg/500px-Hayley_Atwell_by_Gage_Skidmore.jpg', alt: 'Hayley Atwell', credit: 'Hayley Atwell — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+        ]
+      },
+      'rf-visionquest': {
+        'Desarrollo': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Paul_Bettany_by_Gage_Skidmore.jpg/500px-Paul_Bettany_by_Gage_Skidmore.jpg', alt: 'Paul Bettany', credit: 'Paul Bettany — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/James_Spader_by_Gage_Skidmore.jpg/500px-James_Spader_by_Gage_Skidmore.jpg', alt: 'James Spader', credit: 'James Spader — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+        ]
+      },
+      // El propio guion ya pedía "foto/clip del actor" en sus notas de
+      // producción (🎥 Visual) — esto solo cumple lo que el guion mismo
+      // ya pide, con fotos reales verificadas.
+      // El propio "Desarrollo" de este guion es una lista <ol> de los 3
+      // candidatos, no narración "🎙️ Off" — el teleprompter lo salta
+      // (mismo criterio que ya usa #17 para "sin narración directa"), así
+      // que las 3 fotos van en el "Giro" siguiente, que sí es narración y
+      // habla de "los tres" recién listados.
+      'rf-fancast-wolverine': {
+        'Hook': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Hugh_Jackman_by_Gage_Skidmore.jpg/500px-Hugh_Jackman_by_Gage_Skidmore.jpg', alt: 'Hugh Jackman', credit: 'Hugh Jackman — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }],
+        'Giro': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Scott_Adkins_%2834554454204%29.jpg/500px-Scott_Adkins_%2834554454204%29.jpg', alt: 'Scott Adkins', credit: 'Scott Adkins — Foto: Eva Rinaldi, CC BY-SA 2.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Karl_Urban_by_Gage_Skidmore.jpg/500px-Karl_Urban_by_Gage_Skidmore.jpg', alt: 'Karl Urban', credit: 'Karl Urban — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Charlie_Hunnam_by_Gage_Skidmore.jpg/500px-Charlie_Hunnam_by_Gage_Skidmore.jpg', alt: 'Charlie Hunnam', credit: 'Charlie Hunnam — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+        ],
+        'Opinión': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Karl_Urban_by_Gage_Skidmore.jpg/500px-Karl_Urban_by_Gage_Skidmore.jpg', alt: 'Karl Urban', credit: 'Karl Urban — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }]
+      },
+      'rf-curiosidades-homelander': {
+        'Giro': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Antony_Starr.jpg/500px-Antony_Starr.jpg', alt: 'Antony Starr', credit: 'Antony Starr — Foto: Eva Rinaldi, CC BY-SA 2.0 (Wikimedia Commons)' }]
+      },
+      'rf-opinion-homelander': {
+        'Desarrollo': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg/500px-Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg', alt: 'Antony Starr, 2024', credit: 'Antony Starr — Foto: Super Festivals, CC BY 2.0 (Wikimedia Commons)' }]
+      },
+      'rf-opinion-brand-new-day': {
+        'Desarrollo': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }]
+      },
+      'rf-curiosidades-tom-holland': {
+        'Promesa': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }]
+      },
+      // Reparto de 4 actores clásicos nombrados — solo 2 fotos
+      // representativas (James Marsden, Kelsey Grammer), no las 4.
+      'rf-opinion-regreso-xmen': {
+        'Desarrollo': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/James_Marsden_by_Gage_Skidmore.jpg/500px-James_Marsden_by_Gage_Skidmore.jpg', alt: 'James Marsden', credit: 'James Marsden — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kelsey_Grammer_2016.jpg/500px-Kelsey_Grammer_2016.jpg', alt: 'Kelsey Grammer', credit: 'Kelsey Grammer — Foto: Greg2600, CC BY-SA 2.0 (Wikimedia Commons)' }
+        ]
       }
     };
     function openRecordingMode(rid){
@@ -3658,13 +3751,16 @@
       // (0-10s)"), así que se busca por coincidencia parcial, no exacta.
       const imagesForRid = RECORDING_MODE_IMAGES[recordingModeRid] || {};
       const imgKey = Object.keys(imagesForRid).find(k => beat.heading.includes(k));
-      const img = imgKey ? imagesForRid[imgKey] : null;
-      if (img) {
-        document.getElementById('recordingModeImage').src = img.url;
-        document.getElementById('recordingModeImage').alt = img.alt || '';
-        document.getElementById('recordingModeCredit').textContent = img.credit || '';
+      const photos = imgKey ? imagesForRid[imgKey] : null;
+      if (photos && photos.length) {
+        figureEl.innerHTML = photos.map(p => `
+          <figure class="recording-mode-figure-item">
+            <img class="recording-mode-image" src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}">
+            <figcaption class="recording-mode-credit">${escapeAttr(p.credit || '')}</figcaption>
+          </figure>`).join('');
         figureEl.hidden = false;
       } else {
+        figureEl.innerHTML = '';
         figureEl.hidden = true;
       }
       document.getElementById('recordingModeText').textContent = beat.text;

@@ -346,12 +346,15 @@
     .recording-mode-close{position:absolute;top:20px;right:20px;background:transparent;border:1px solid var(--line2);color:var(--muted);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer}
     .recording-mode-close:hover{color:var(--text);border-color:var(--orange2)}
     .recording-mode-progress{color:var(--muted);font-weight:900;letter-spacing:.08em;font-size:13px}
-    /* Foto de contexto real (petición de Iván, 8 sep) — solo se ve
-       cuando el beat actual tiene una imagen verificada asociada. */
-    .recording-mode-figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
-    .recording-mode-figure[hidden]{display:none}
-    .recording-mode-image{max-height:26vh;max-width:min(90vw,420px);border-radius:14px;object-fit:cover;border:1px solid var(--line2);box-shadow:0 12px 32px -16px rgba(0,0,0,.6)}
-    .recording-mode-credit{color:var(--muted);font-size:11px;margin:0}
+    /* Foto(s) de contexto real (petición de Iván, 8 sep) — solo se ve
+       cuando el beat actual tiene alguna imagen verificada asociada.
+       Puede haber varias en fila (p.ej. un beat que nombra a 2-3
+       actores a la vez). */
+    .recording-mode-figures{margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+    .recording-mode-figures[hidden]{display:none}
+    .recording-mode-figure-item{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;max-width:220px}
+    .recording-mode-image{max-height:22vh;max-width:min(80vw,220px);border-radius:14px;object-fit:cover;border:1px solid var(--line2);box-shadow:0 12px 32px -16px rgba(0,0,0,.6)}
+    .recording-mode-credit{color:var(--muted);font-size:10.5px;margin:0;text-align:center;line-height:1.35}
     .recording-mode-heading{color:var(--orange2);font-size:18px;font-weight:900;margin:0}
     /* Pedido por el usuario: "cómo tengo que hablar" en cada frase —
        entusiasmo, pena, rabia... — bien visible antes del propio texto,
@@ -1755,15 +1758,15 @@
   <div class="recording-mode-overlay" id="recordingModeOverlay" hidden role="dialog" aria-modal="true">
     <button type="button" class="recording-mode-close" onclick="closeRecordingMode()" aria-label="Salir del modo grabación">✕ Salir</button>
     <div class="recording-mode-progress" id="recordingModeProgress"></div>
-    <!-- Petición de Iván (8 sep): foto de contexto real sobre lo que se
-         está narrando (p.ej. el actor del que se habla), justo encima
-         del heading. Solo aparece cuando ese beat concreto tiene una
-         imagen real y verificada asociada en RECORDING_MODE_IMAGES — si
-         no la tiene, sigue oculta como hasta ahora. -->
-    <figure class="recording-mode-figure" id="recordingModeFigure" hidden>
-      <img class="recording-mode-image" id="recordingModeImage" alt="">
-      <figcaption class="recording-mode-credit" id="recordingModeCredit"></figcaption>
-    </figure>
+    <!-- Petición de Iván (8 sep): foto(s) de contexto real sobre lo que se
+         está narrando (p.ej. el actor del que se habla), justo encima del
+         heading. Solo aparece cuando ese beat concreto tiene una o más
+         imágenes reales y verificadas asociadas en RECORDING_MODE_IMAGES
+         — si no las tiene, sigue oculto como hasta ahora. Puede haber más
+         de una foto por beat (p.ej. un beat que nombra a varios actores a
+         la vez) — por eso es un contenedor que renderRecordingModeStep
+         rellena a mano en vez de un <img> fijo. -->
+    <div class="recording-mode-figures" id="recordingModeFigure" hidden></div>
     <h3 class="recording-mode-heading" id="recordingModeHeading"></h3>
     <p class="recording-mode-tone" id="recordingModeTone" hidden></p>
     <p class="recording-mode-text" id="recordingModeText"></p>
