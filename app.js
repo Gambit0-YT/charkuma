@@ -4954,15 +4954,25 @@
       // cada guion"): se amplía el reparto de este cruce, que antes se
       // había limitado a 2 caras representativas, con el resto de
       // actores que la propia narración nombra por su nombre.
+      // Ampliado 9 sep (foto por frase, no solo por beat): antes las 7
+      // fotos salían TODAS A LA VEZ durante el único párrafo narrado de
+      // Desarrollo — ahora ese párrafo está dividido en 3 frases (una
+      // por franquicia) y cada una enseña solo a sus actores.
       'rf-doomsday-cruce-historico': {
         'Desarrollo': [
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Pedro_Pascal_by_Gage_Skidmore.jpg/500px-Pedro_Pascal_by_Gage_Skidmore.jpg', alt: 'Pedro Pascal', credit: 'Pedro Pascal — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg/500px-Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg', alt: 'Vanessa Kirby', credit: 'Vanessa Kirby — Foto: Jay Dixit, CC BY-SA 4.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Joseph_Quinn_by_Gage_Skidmore.jpg/500px-Joseph_Quinn_by_Gage_Skidmore.jpg', alt: 'Joseph Quinn', credit: 'Joseph Quinn — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Ebon_Moss-Bachrach_by_Gage_Skidmore.jpg/500px-Ebon_Moss-Bachrach_by_Gage_Skidmore.jpg', alt: 'Ebon Moss-Bachrach', credit: 'Ebon Moss-Bachrach — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/James_Marsden_by_Gage_Skidmore.jpg/500px-James_Marsden_by_Gage_Skidmore.jpg', alt: 'James Marsden', credit: 'James Marsden — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kelsey_Grammer_2016.jpg/500px-Kelsey_Grammer_2016.jpg', alt: 'Kelsey Grammer', credit: 'Kelsey Grammer — Foto: Greg2600, CC BY-SA 2.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg', alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          { match: '4 Fantásticos con Pedro Pascal', photos: [
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Pedro_Pascal_by_Gage_Skidmore.jpg/500px-Pedro_Pascal_by_Gage_Skidmore.jpg', alt: 'Pedro Pascal', credit: 'Pedro Pascal — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg/500px-Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg', alt: 'Vanessa Kirby', credit: 'Vanessa Kirby — Foto: Jay Dixit, CC BY-SA 4.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Joseph_Quinn_by_Gage_Skidmore.jpg/500px-Joseph_Quinn_by_Gage_Skidmore.jpg', alt: 'Joseph Quinn', credit: 'Joseph Quinn — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Ebon_Moss-Bachrach_by_Gage_Skidmore.jpg/500px-Ebon_Moss-Bachrach_by_Gage_Skidmore.jpg', alt: 'Ebon Moss-Bachrach', credit: 'Ebon Moss-Bachrach — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          ] },
+          { match: 'X-Men clásicos', photos: [
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/James_Marsden_by_Gage_Skidmore.jpg/500px-James_Marsden_by_Gage_Skidmore.jpg', alt: 'James Marsden', credit: 'James Marsden — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kelsey_Grammer_2016.jpg/500px-Kelsey_Grammer_2016.jpg', alt: 'Kelsey Grammer', credit: 'Kelsey Grammer — Foto: Greg2600, CC BY-SA 2.0 (Wikimedia Commons)' }
+          ] },
+          { match: 'Ghost Rider debuta', photos: [
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg', alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          ] }
         ]
       },
       'rf-vought-rising': {
