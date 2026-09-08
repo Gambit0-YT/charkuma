@@ -9097,8 +9097,16 @@
       if (!listEl) return;
       copyGuionTemplateIfPresent();
       const items = buildGuionesBandeja();
+      // Backlog Fase 2 #172 — cuántos de estos guiones todavía tienen el
+      // placeholder "[IVÁN — AÑADIR OPINIÓN..." sin resolver en su beat
+      // de Opinión — mirando el DOM real de cada vista, no un número
+      // aparte que se pueda quedar desactualizado.
+      const pendingOpinion = items.filter(item => {
+        const panel = document.getElementById(`view-${item.view}`);
+        return panel && panel.innerHTML.includes('AÑADIR OPINIÓN');
+      }).length;
       countEl.textContent = items.length
-        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar.`
+        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar${pendingOpinion ? ` — ${pendingOpinion} con la Opinión todavía sin escribir` : ''}.`
         : 'No hay guiones pendientes de grabar ahora mismo — todo lo aprobado ya está en edición o publicado.';
       listEl.innerHTML = items.map(item => {
         const rid = item.view;
