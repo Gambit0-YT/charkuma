@@ -343,9 +343,15 @@
     /* ── Modo grabación a pantalla completa (backlog #18) ── */
     .recording-mode-overlay{position:fixed;inset:0;z-index:200;background:#09070f;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 8vw;text-align:center;gap:18px}
     .recording-mode-overlay[hidden]{display:none}
-    .recording-mode-close{position:absolute;top:20px;right:20px;background:transparent;border:1px solid var(--line2);color:var(--muted);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer}
-    .recording-mode-close:hover{color:var(--text);border-color:var(--orange2)}
-    .recording-mode-progress{color:var(--muted);font-weight:900;letter-spacing:.08em;font-size:13px}
+    /* Bug real de Fase 2 #198 (mismo hallazgo que en .recording-mode-credit
+       más abajo): este overlay es SIEMPRE oscuro sin importar el tema del
+       sitio, pero varios textos usaban var(--muted)/var(--line2) — con
+       tema claro + alto contraste a la vez, esas variables se vuelven
+       casi negras y el texto queda invisible sobre el fondo, también
+       siempre oscuro. Colores fijos pensados para este fondo en concreto. */
+    .recording-mode-close{position:absolute;top:20px;right:20px;background:transparent;border:1px solid #2d2240;color:#b7acc9;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer}
+    .recording-mode-close:hover{color:#fff;border-color:var(--orange2)}
+    .recording-mode-progress{color:#b7acc9;font-weight:900;letter-spacing:.08em;font-size:13px}
     /* Foto(s) de contexto real (petición de Iván, 8 sep) — solo se ve
        cuando el beat actual tiene alguna imagen verificada asociada.
        Puede haber varias en fila (p.ej. un beat que nombra a 2-3
@@ -354,7 +360,15 @@
     .recording-mode-figures[hidden]{display:none}
     .recording-mode-figure-item{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;max-width:220px}
     .recording-mode-image{max-height:22vh;max-width:min(80vw,220px);border-radius:14px;object-fit:cover;border:1px solid var(--line2);box-shadow:0 12px 32px -16px rgba(0,0,0,.6)}
-    .recording-mode-credit{color:var(--muted);font-size:10.5px;margin:0;text-align:center;line-height:1.35}
+    /* Bug real de Fase 2 #198 encontrado al probar: este color usaba
+       var(--muted), pero el overlay del modo grabación es SIEMPRE
+       oscuro (#09070f) sin importar el tema — con tema claro + alto
+       contraste activados a la vez, --muted se vuelve casi negro
+       (#241d38), dejando el crédito prácticamente invisible (ratio de
+       contraste real ~1.25:1). Color fijo en vez de la variable, para
+       que no dependa de una combinación de tema que este overlay en
+       concreto nunca vive de verdad. */
+    .recording-mode-credit{color:#b7acc9;font-size:10.5px;margin:0;text-align:center;line-height:1.35}
     /* Ilustración generada con IA (petición de Iván, 8 sep) — distinta a
        propósito de una foto real: borde discontinuo en vez de sólido,
        para que nunca se confunda una cosa con la otra de un vistazo. */
@@ -371,7 +385,7 @@
     .recording-mode-tone[hidden]{display:none}
     .recording-mode-text{color:#fff;font-size:clamp(22px,4vw,40px);line-height:1.5;font-weight:800;max-width:900px;margin:0}
     .recording-mode-controls{display:flex;gap:14px}
-    .recording-mode-hint{color:var(--muted);font-size:12px;margin-top:6px}
+    .recording-mode-hint{color:#b7acc9;font-size:12px;margin-top:6px}
 
     /* ── Backlog #26: aviso de fase estancada ── */
     .stale-warning{padding:16px 20px;border-radius:16px;border:1px dashed rgba(255,95,109,.5);background:rgba(255,95,109,.06);color:var(--text);font-size:13px;line-height:1.6}
