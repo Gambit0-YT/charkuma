@@ -2992,6 +2992,18 @@
         summary: "De bailarín de musical a Spider-Man más joven de la historia — datos reales del protagonista de la película Marvel del momento.",
         thumbnail: "🕷️",
         internalView: "rf-curiosidades-tom-holland", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "opinion-4" del banco secreto ("por qué prefiero las
+        // historias de superhéroes sucias a las clásicas") — atemporal,
+        // no requiere investigación de un estreno concreto.
+        title: "Por qué prefiero los superhéroes 'sucios' a los clásicos (para quien no ha visto ninguno)",
+        saga: "cruce",
+        type: "opinion",
+        date: "2026-09-08",
+        summary: "Consecuencias reales, héroes que son personas y no símbolos, sátira con intención — por qué prefiero este tono, explicado para quien no ha visto ninguna de las dos cosas.",
+        thumbnail: "🩸",
+        internalView: "rf-opinion-superheroes-sucios", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3363,7 +3375,8 @@
       'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6',
       'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4',
       'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO',
-      'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a'
+      'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a',
+      'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
