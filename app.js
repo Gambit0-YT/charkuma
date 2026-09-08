@@ -4852,12 +4852,30 @@
     // entero, para no disparar el tiempo de verificación fuera de lo
     // razonable — están marcados abajo con una nota.
     const RECORDING_MODE_IMAGES = {
+      // Ampliado 9 sep (foto por frase, no solo por beat): Desarrollo se
+      // dividió en 3 frases independientes (Sue Storm/familia, diseño
+      // del traje, RDJ como actor) — la del diseño del traje se deja
+      // sin foto a propósito (sería mostrar el traje real de la
+      // película, un elemento con copyright, no algo fotografiable con
+      // honestidad fuera de un fotograma real).
       'rf-opinion-doom-rdj': {
         'Hook': [{
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg',
           alt: 'Robert Downey Jr. en la Comic-Con de San Diego, 2014',
           credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
-        }]
+        }],
+        'Desarrollo': [
+          { match: 'Sue Storm lo describe', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg/500px-Vanessa_Kirby_at_the_2024_Toronto_International_Film_Festival_08_%28Cropped%29.jpg',
+            alt: 'Vanessa Kirby, actriz de Sue Storm',
+            credit: 'Vanessa Kirby (Sue Storm) — Foto: Jay Dixit, CC BY-SA 4.0 (Wikimedia Commons)'
+          }] },
+          { match: 'RDJ sabe construir un personaje', photos: [{
+            url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg',
+            alt: 'Robert Downey Jr. en la Comic-Con de San Diego, 2014',
+            credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+          }] }
+        ]
       },
       // Ampliado 9 sep (pedido de Iván: foto en cada frase, no solo por
       // beat) — Hook y Desarrollo ahora tienen foto real por segmento
