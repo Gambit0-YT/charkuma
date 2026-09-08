@@ -5053,8 +5053,15 @@
       },
       // Reparto de 4 actores clásicos nombrados — solo 2 fotos
       // representativas (James Marsden, Kelsey Grammer), no las 4.
+      // Bug real corregido 9 sep: estas 4 fotos estaban en la key
+      // 'Desarrollo', pero a los 4 actores se les nombra en el beat
+      // 'Contexto' ("actores clásicos como James Marsden, Kelsey
+      // Grammer, Rebecca Romijn y Alan Cumming reaparecen...") — nunca
+      // llegaban a mostrarse en el paso correcto. 'Desarrollo' habla de
+      // 3 razones abstractas (fan-service, apuesta seria, timing) sin
+      // nombrar a nadie, así que se queda sin foto a propósito.
       'rf-opinion-regreso-xmen': {
-        'Desarrollo': [
+        'Contexto': [
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/James_Marsden_by_Gage_Skidmore.jpg/500px-James_Marsden_by_Gage_Skidmore.jpg', alt: 'James Marsden', credit: 'James Marsden — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kelsey_Grammer_2016.jpg/500px-Kelsey_Grammer_2016.jpg', alt: 'Kelsey Grammer', credit: 'Kelsey Grammer — Foto: Greg2600, CC BY-SA 2.0 (Wikimedia Commons)' },
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Rebecca_Romijn_by_Gage_Skidmore.jpg/500px-Rebecca_Romijn_by_Gage_Skidmore.jpg', alt: 'Rebecca Romijn', credit: 'Rebecca Romijn — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
