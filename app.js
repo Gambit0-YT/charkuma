@@ -2975,6 +2975,23 @@
         summary: "Magia, un pacto con un demonio y un error propio que decidió ignorar — el origen real del villano más comentado de Marvel ahora mismo.",
         thumbnail: "🪄",
         internalView: "rf-curiosidades-doom", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Idea "curiosidad-3" del banco secreto ("datos curiosos del
+        // actor o actriz protagonista de lo que está en boca de todos")
+        // — Tom Holland elegido por ser el protagonista de Brand New Day
+        // (ver rf-opinion-brand-new-day). Datos reales verificados con
+        // WebSearch 2026-09-08: musical de Billy Elliot con 10 años,
+        // gimnasia de niño, se enteró del papel por Instagram, pésimo
+        // guardando secretos (Avengers: Endgame no le dio el guion
+        // completo).
+        title: "6 curiosidades de Tom Holland que no sabías",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "De bailarín de musical a Spider-Man más joven de la historia — datos reales del protagonista de la película Marvel del momento.",
+        thumbnail: "🕷️",
+        internalView: "rf-curiosidades-tom-holland", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3345,7 +3362,8 @@
       'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy',
       'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6',
       'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4',
-      'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO'
+      'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO',
+      'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
