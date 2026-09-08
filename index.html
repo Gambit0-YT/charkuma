@@ -6443,6 +6443,18 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
             </ul>
           </div>
 
+          <!-- Backlog Fase 2 #189: vista rápida de cuántos guiones ya
+               tienen voz real generada, sin tener que ir eligiendo uno a
+               uno en el desplegable de abajo. -->
+          <div class="panel" style="margin-top:16px">
+            <h3>De un vistazo</h3>
+            <p id="vozOverallStatus" class="yt-empty"></p>
+            <details id="vozPendingDetails" class="recording-checklist" style="margin-top:8px">
+              <summary>Ver cuáles faltan</summary>
+              <div class="recording-checklist-body" id="vozPendingList"></div>
+            </details>
+          </div>
+
           <div class="panel" style="margin-top:16px">
             <h3>Elige un guion</h3>
             <select id="vozGuionSelect" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line2);background:var(--panel2);color:var(--text);font:inherit;margin-bottom:14px"></select>

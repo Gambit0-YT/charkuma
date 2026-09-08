@@ -4741,6 +4741,27 @@
       select.innerHTML = items.map(it => `<option value="${escapeAttr(it.rid)}">${escapeAttr(it.title)}</option>`).join('');
       select.onchange = renderVozGuionDetail;
       renderVozGuionDetail();
+      renderVozOverallStatus();
+    }
+    // Backlog Fase 2 #189 — de un vistazo, sin tener que abrir guion a
+    // guion en el desplegable de arriba: cuántos ya tienen voz real
+    // generada y cuáles faltan. Mismo dato real (`audioGenState`,
+    // sincronizado desde Firestore) que ya usa `renderVozGuionDetail`.
+    function renderVozOverallStatus(){
+      const statusEl = document.getElementById('vozOverallStatus');
+      const detailsEl = document.getElementById('vozPendingDetails');
+      const listEl = document.getElementById('vozPendingList');
+      if (!statusEl) return;
+      const items = buildAllGuionItems();
+      const withVoice = items.filter(it => audioGenState[it.rid] && audioGenState[it.rid].audioUrl);
+      const pending = items.filter(it => !(audioGenState[it.rid] && audioGenState[it.rid].audioUrl));
+      statusEl.textContent = `${withVoice.length} de ${items.length} guiones ya tienen voz real generada.`;
+      if (detailsEl) detailsEl.hidden = pending.length === 0;
+      if (listEl) {
+        listEl.innerHTML = pending.length
+          ? `<ul class="ia-steps">${pending.map(it => `<li>${escapeAttr(it.title)}</li>`).join('')}</ul>`
+          : '';
+      }
     }
     let audioGenRealtimeStarted = false;
     function initAudioGenRealtime(){
@@ -4751,7 +4772,7 @@
       onSnapshot(ref, (snap) => {
         audioGenState = (snap.exists() && snap.data().items) || {};
         const view = document.getElementById('view-ct-generador-voz');
-        if (view && view.classList.contains('active')) renderVozGuionDetail();
+        if (view && view.classList.contains('active')) { renderVozGuionDetail(); renderVozOverallStatus(); }
       });
     }
 
