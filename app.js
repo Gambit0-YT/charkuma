@@ -5256,6 +5256,47 @@
         </details>`;
     }
 
+    // Backlog Fase 2 #156 — mini vista de las fotos de contexto de un
+    // guion directamente en su propia página, sin tener que entrar en
+    // el modo grabación completo solo para verlas. Aplana todos los
+    // formatos posibles de RECORDING_MODE_IMAGES (lista simple de fotos,
+    // o lista de grupos con `match`) y quita duplicados por URL, ya que
+    // varios beats pueden reutilizar la misma foto (p.ej. Ryan Gosling
+    // en Hook y también en el cruce de Doomsday).
+    function flattenContextPhotos(rid){
+      const entries = RECORDING_MODE_IMAGES[rid];
+      if (!entries) return [];
+      const all = [];
+      Object.values(entries).forEach(entry => {
+        if (!Array.isArray(entry)) return;
+        if (entry.length && entry[0] && entry[0].match) {
+          entry.forEach(g => all.push(...(g.photos || [])));
+        } else {
+          all.push(...entry);
+        }
+      });
+      const seen = new Set();
+      return all.filter(p => {
+        if (seen.has(p.url)) return false;
+        seen.add(p.url);
+        return true;
+      });
+    }
+    function contextPhotosPreviewHTML(rid){
+      const photos = flattenContextPhotos(rid);
+      if (!photos.length) return '';
+      return `
+        <details class="recording-checklist">
+          <summary>🖼️ Ver fotos de contexto de este guion (${photos.length})</summary>
+          <div class="recording-checklist-body" style="display:flex;flex-wrap:wrap;gap:12px">
+            ${photos.map(p => `
+              <figure style="margin:0;width:110px;text-align:center">
+                <img src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}" style="width:100%;height:110px;object-fit:cover;border-radius:10px;border:1px solid var(--line2)${p.ai ? ';border-style:dashed' : ''}">
+                <figcaption style="font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.3">${p.ai ? '🎨 ' : ''}${escapeAttr(p.credit || '')}</figcaption>
+              </figure>`).join('')}
+          </div>
+        </details>`;
+    }
     function reviewControlsHTML(item){
       const rid = item.internalView || item.title;
       const status = getContentStatus(item, rid);
@@ -5294,6 +5335,7 @@
           ${approved ? priorityControlHTML(rid) : ''}
           ${approved ? costControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
+          ${showChecklist ? contextPhotosPreviewHTML(rid) : ''}
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
           ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
           ${contentHistoryHTML(rid)}
