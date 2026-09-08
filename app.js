@@ -3109,6 +3109,20 @@
         summary: "El regreso de Ultrón es la sorpresa que nadie esperaba — todo lo confirmado sobre la miniserie que cierra la historia de Visión.",
         thumbnail: "🤖",
         internalView: "rf-visionquest", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real y muy próxima en fecha (exactamente una semana),
+        // encontrada con WebSearch 2026-09-08: "Marvel's Wolverine" de
+        // Insomniac Games sale en PS5 el 15 de septiembre de 2026 —
+        // trama (pasado olvidado de Logan), villanos (Reavers, Omega
+        // Red), y localizaciones reales (Canadá, Tokio, Madripoor).
+        title: "Marvel's Wolverine: todo lo confirmado antes de su estreno el 15 de septiembre",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "Del mismo estudio que Marvel's Spider-Man — trama, combate y los tres escenarios reales del videojuego que sale en una semana.",
+        thumbnail: "🦾",
+        internalView: "rf-marvels-wolverine-game", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3488,7 +3502,8 @@
       'rf-vought-rising': '14pZaJo5X88hY40CpqCpgHiXDzI0nxq_C',
       'rf-endgame-encore': '14lPuLlFigoE1p78VISI7AMCRtCSMe9O0',
       'rf-steve-peggy-regreso': '10TiDnuMTuZOJkTo7HiMTf44P9GMoQx4I',
-      'rf-visionquest': '1nvGc9HoYeUNUJQ1kVljfhVAdaXoeN1tQ'
+      'rf-visionquest': '1nvGc9HoYeUNUJQ1kVljfhVAdaXoeN1tQ',
+      'rf-marvels-wolverine-game': '1DW-xUoMrsN6OvF0Dj_BF5bj9zG6oG4Oc'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
