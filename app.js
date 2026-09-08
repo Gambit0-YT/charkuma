@@ -1927,8 +1927,169 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cuál es tu main en Smash? Dímelo en comentarios, a ver si alguien se anima a un torneo entre la comunidad."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Cuarta tanda (mismo `/loop`, tick siguiente): días 22-26.
+      22: {
+        name: "Super Mario Odyssey",
+        summary: "Mario conquista un sombrero que posee a casi cualquier cosa — el plataformas más creativo de la saga.",
+        difficulty: "media",
+        emoji: "🎩",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 22 de Retro 365, y hoy Mario tiene un sombrero que puede poseer casi cualquier cosa que se mueva. Bienvenidos a Super Mario Odyssey."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay poseyendo a un enemigo con Cappy. <strong>🎬 Producción:</strong> SFX de posesión del sombrero · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El plataformas más creativo de toda la saga de Mario — hoy os cuento por qué el sombrero Cappy cambió las reglas del género entero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 022 · SUPER MARIO ODYSSEY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Mario viaja por reinos completamente distintos entre sí en su nave, la Odyssey, buscando lunas de poder para rescatar a Peach de Bowser — otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un reino nuevo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Puedes poseer ranas para saltos imposibles, tanques para arrasar enemigos, o hasta a un dinosaurio — cada posesión cambia por completo cómo se juega ese tramo del nivel."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay alternando 3 posesiones distintas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: encontrar una luna escondida sin ninguna pista, solo explorando a ojo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al encontrarla (o no). <strong>🎬 Producción:</strong> SFX de logro · BGM: sube un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu reino favorito de todos los que visita Mario aquí?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El reino de Nueva Donk City sigue siendo el que más me sorprendió la primera vez — meter humanos realistas en un juego de Mario sonaba raro sobre el papel, y funciona genial."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Creatividad pura en cada reino — la alegría perfecta después del caos de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de reinos visitados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuántas lunas tienes recogidas tú? Dímelo en comentarios, a ver quién es el más completista."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      23: {
+        name: "The Witcher 3: Wild Hunt",
+        summary: "Un cazador de monstruos por encargo, en un mundo donde hasta la misión secundaria más pequeña tiene mejor historia que muchos juegos enteros.",
+        difficulty: "media",
+        emoji: "🐺",
+        steamUrl: "https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 23 de Retro 365, y hoy una misión secundaria de 'busca un gato perdido' me va a hacer llorar más que el final de muchas películas. Bienvenidos a The Witcher 3."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de Geralt usando sentidos de brujo para rastrear. <strong>🎬 Producción:</strong> SFX de sentidos de brujo · corte duro · BGM: sting corto, folk oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo donde hasta la misión secundaria más pequeña tiene mejor historia que juegos enteros — hoy os cuento por qué sigue siendo la vara de medir del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 023 · THE WITCHER 3" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, folk</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Geralt de Rivia, cazador de monstruos por encargo, buscando a su hija adoptiva Ciri en un mundo devastado por la guerra y perseguido por la Cacería Salvaje."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una aldea afectada por la guerra. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada contrato de monstruo empieza como investigación antes que combate, las decisiones morales casi nunca son blanco o negro, y las expansiones grandes añaden regiones enteras con su propia historia principal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay investigando un contrato de monstruo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: aceptar una misión secundaria random sin saber nada de ella, a ver si me sorprende como siempre dicen que pasa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la sorpresa de la misión. <strong>🎬 Producción:</strong> sin SFX · BGM: baja un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué contrato o misión secundaria te ha sorprendido más si ya lo has jugado?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "La fama de este juego por sus misiones secundarias es de las pocas veces que la realidad supera a la expectativa — no es marketing, es verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG que se toma en serio hasta lo pequeño — el ritmo pausado que hacía falta tras el plataformas de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de paisajes/contratos completados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué final elegiste para Ciri? Dímelo en comentarios, sin destripar detalles a quien no lo haya jugado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      24: {
+        name: "Company of Heroes",
+        summary: "Estrategia en tiempo real de la Segunda Guerra Mundial donde el terreno y la cobertura importan más que el número de tropas.",
+        difficulty: "dificil",
+        emoji: "🎖️",
+        steamUrl: "https://store.steampowered.com/app/7620/Company_of_Heroes__Legacy_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 24 de Retro 365, y hoy un solo muro derribado en el momento justo me puede ganar toda la partida. Bienvenidos a Company of Heroes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un muro destruido cubriendo una retirada. <strong>🎬 Producción:</strong> SFX de explosión real del juego · corte duro · BGM: sting corto, militar</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia en tiempo real de la Segunda Guerra Mundial donde el terreno importa más que el número de soldados — hoy os cuento por qué sigue siendo un referente del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 024 · COMPANY OF HEROES" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Comandas tropas aliadas en el frente europeo, y a diferencia de otras RTS, casi todo el escenario es destructible y la cobertura real decide quién sobrevive a un tiroteo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando tropas usando cobertura real. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada unidad reacciona distinto según si tiene cobertura, un tanque bien flanqueado puede caer en segundos, y destruir el edificio equivocado te puede dejar sin la cobertura que tú mismo necesitabas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un flanqueo exitoso contra un tanque. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, tenso</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: ganar el escenario de hoy sin perder ni una unidad veterana entrenada desde el principio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a una pérdida real. <strong>🎬 Producción:</strong> SFX dramático · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿juegas más de forma agresiva o defensiva en las RTS, y por qué?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El escenario destructible cambia todo mi enfoque — aquí no basta con tener más unidades, hay que pensar en el terreno como una pieza más del ejército."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia táctica de la buena, sin adornos — el reto mental que tocaba tras la historia pausada de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del campo de batalla tras la victoria. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Juegas otras RTS de la Segunda Guerra Mundial? Recomiéndame alguna en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      25: {
+        name: "Bayonetta 2",
+        summary: "Combate estiloso a base de esquivar en el último milisegundo — cuanto más al límite juegas, mejor te premia el juego.",
+        difficulty: "dificil",
+        emoji: "💃",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 25 de Retro 365, y hoy cuanto más al límite esquive un golpe, mejor me premia el juego por ello. Bienvenidos a Bayonetta 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una esquiva perfecta activando "Tiempo Brujo". <strong>🎬 Producción:</strong> SFX de ralentización · corte duro · BGM: sting corto, estiloso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Combate estiloso puro, donde jugar arriesgado literalmente te da ventaja — hoy os cuento por qué esta saga es de las más infravaloradas del género de acción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 025 · BAYONETTA 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, estiloso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Bayonetta, una bruja que pelea contra ángeles y demonios con armas escondidas en su propio pelo — tan absurdo como suena, y funciona a la perfección."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando un combo largo y estiloso. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El sistema de esquiva perfecta ralentiza el tiempo si lo clavas en el último instante, cada arma cambia el ritmo del combo entero, y el juego te puntúa por estilo, no solo por sobrevivir al combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado usando 2-3 armas distintas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: sacar la puntuación 'Pure Platinum' en un combate, sin recibir ni un solo golpe."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado de puntuación. <strong>🎬 Producción:</strong> SFX de puntuación · BGM: sube o baja según resultado</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué otro juego de acción estilosa (Devil May Cry, Metal Gear Rising...) pondrías al nivel de este?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Esta saga merece mucho más reconocimiento del que tiene — el combate aquí compite de tú a tú con cualquier Devil May Cry."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estilo y riesgo recompensado en cada combate — el reto de precisión perfecto tras la estrategia pausada de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los mejores combos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías esta saga de antes? Dímelo en comentarios, que se merece más cariño del que recibe."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      26: {
+        name: "Grand Theft Auto IV",
+        summary: "Niko Bellic llega buscando el sueño americano — y encuentra una ciudad que no se lo va a poner nada fácil.",
+        difficulty: "media",
+        emoji: "🗽",
+        steamUrl: "https://store.steampowered.com/app/12210/Grand_Theft_Auto_IV_The_Complete_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 26 de Retro 365, y hoy Niko Bellic llega a Liberty City buscando el sueño americano que le prometió su primo. Bienvenidos a GTA IV."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del skyline de Liberty City desde un coche. <strong>🎬 Producción:</strong> SFX de tráfico ambiente · corte duro · BGM: sting corto, urbano</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El GTA más serio y menos exagerado de la saga — hoy os cuento por qué la historia de Niko sigue siendo de las mejores que ha contado Rockstar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 026 · GTA IV" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, urbano</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Niko deja atrás un pasado violento en Europa del Este para empezar de cero en América — pero el sueño que le prometieron y la realidad que encuentra son dos cosas muy distintas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un diálogo entre Niko y su primo Roman. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El motor de físicas hace que conducir se sienta con peso de verdad, las misiones de amigos (bolos, copas, citas) construyen a Niko como personaje fuera de la trama principal, y el tono general es mucho más gris y humano que en otros GTA."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay conduciendo con físicas realistas y una misión de amigos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: completar una persecución policial sin perder el coche por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la persecución. <strong>🎬 Producción:</strong> SFX de sirenas y choques · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿prefieres el tono más serio de este GTA o el más gamberro de otras entregas de la saga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El tono gris de este GTA en concreto es el que más me ha hecho recordar la historia después de terminarla — no es el más divertido de la saga, pero sí el más humano."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una historia con más peso del esperado — el contraste perfecto tras el combate estiloso de ayer. Cierre de esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de momentos clave de la historia. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu GTA favorito de toda la saga? Dímelo en comentarios, que seguro que genera debate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 22: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 27: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
