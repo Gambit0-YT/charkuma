@@ -3761,6 +3761,25 @@
           credit: 'Uno de los 3 escenarios reales del juego (Canadá) — Gamma, prompt propio',
           ai: true
         }]
+      },
+      // Backlog Fase 2 #151/#152 (2026-09-08, /loop autónomo): los 2
+      // guiones que se quedaron sin ninguna imagen — mismo criterio que
+      // Wolverine, ilustrar la ESCENA/CONCEPTO real, nunca el personaje.
+      'rf-opinion-superheroes-sucios': {
+        'Contexto': [{
+          url: 'context-img/rf-opinion-superheroes-sucios-tono.jpg',
+          alt: 'Ambiente urbano oscuro y lluvioso, tono "sucio"',
+          credit: 'Ilustración del tono "sucio" descrito en el guion — Gamma, prompt propio',
+          ai: true
+        }]
+      },
+      'rf-curiosidades-spiderman': {
+        'Hook': [{
+          url: 'context-img/rf-curiosidades-spiderman-webshooter.jpg',
+          alt: 'Concepto de lanzatelarañas mecánico, sin personaje',
+          credit: 'Concepto del lanzatelarañas (invento, no poder biológico) — Gamma, prompt propio',
+          ai: true
+        }]
       }
     };
     function openRecordingMode(rid){
