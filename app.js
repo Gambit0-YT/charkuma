@@ -4981,10 +4981,17 @@
           alt: 'Diego Luna', credit: 'Diego Luna — Foto: Dick Thomas Johnson, CC BY 2.0 (Wikimedia Commons)'
         }]
       },
+      // Ampliado 9 sep (foto por frase): Contexto dividido en 2 frases
+      // (una por actor), cada una con su propia foto en vez de las 2 a
+      // la vez.
       'rf-steve-peggy-regreso': {
         'Contexto': [
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg/500px-Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg', alt: 'Chris Evans', credit: 'Chris Evans — Foto: Sara Komatsu, CC BY-SA 4.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Hayley_Atwell_by_Gage_Skidmore.jpg/500px-Hayley_Atwell_by_Gage_Skidmore.jpg', alt: 'Hayley Atwell', credit: 'Hayley Atwell — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          { match: 'Chris Evans regresa', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg/500px-Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg', alt: 'Chris Evans', credit: 'Chris Evans — Foto: Sara Komatsu, CC BY-SA 4.0 (Wikimedia Commons)'
+          }] },
+          { match: 'Hayley Atwell vuelve', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Hayley_Atwell_by_Gage_Skidmore.jpg/500px-Hayley_Atwell_by_Gage_Skidmore.jpg', alt: 'Hayley Atwell', credit: 'Hayley Atwell — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+          }] }
         ]
       },
       // Ampliado 9 sep (foto por frase): la frase de la trama (sin
