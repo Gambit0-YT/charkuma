@@ -4987,12 +4987,18 @@
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Hayley_Atwell_by_Gage_Skidmore.jpg/500px-Hayley_Atwell_by_Gage_Skidmore.jpg', alt: 'Hayley Atwell', credit: 'Hayley Atwell — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
         ]
       },
+      // Ampliado 9 sep (foto por frase): la frase de la trama (sin
+      // personas reales, solo ficción) se deja sin foto a propósito; las
+      // 4 fotos ya verificadas se agrupan en la frase del reparto, que
+      // es la que de verdad los nombra.
       'rf-visionquest': {
         'Desarrollo': [
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Paul_Bettany_by_Gage_Skidmore.jpg/500px-Paul_Bettany_by_Gage_Skidmore.jpg', alt: 'Paul Bettany', credit: 'Paul Bettany — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/James_Spader_by_Gage_Skidmore.jpg/500px-James_Spader_by_Gage_Skidmore.jpg', alt: 'James Spader', credit: 'James Spader — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/James_D%27Arcy.jpg/500px-James_D%27Arcy.jpg', alt: 'James D\'Arcy', credit: 'James D\'Arcy — Foto: Eric Houdas, CC BY-SA 4.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Orla_Brady_2020_1.jpg/500px-Orla_Brady_2020_1.jpg', alt: 'Orla Brady', credit: 'Orla Brady — Foto: Virgin Media Dublin International Film Festival, CC BY 3.0 (Wikimedia Commons)' }
+          { match: 'Paul Bettany vuelve al papel', photos: [
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Paul_Bettany_by_Gage_Skidmore.jpg/500px-Paul_Bettany_by_Gage_Skidmore.jpg', alt: 'Paul Bettany', credit: 'Paul Bettany — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/James_Spader_by_Gage_Skidmore.jpg/500px-James_Spader_by_Gage_Skidmore.jpg', alt: 'James Spader', credit: 'James Spader — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/James_D%27Arcy.jpg/500px-James_D%27Arcy.jpg', alt: 'James D\'Arcy', credit: 'James D\'Arcy — Foto: Eric Houdas, CC BY-SA 4.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Orla_Brady_2020_1.jpg/500px-Orla_Brady_2020_1.jpg', alt: 'Orla Brady', credit: 'Orla Brady — Foto: Virgin Media Dublin International Film Festival, CC BY 3.0 (Wikimedia Commons)' }
+          ] }
         ]
       },
       // El propio guion ya pedía "foto/clip del actor" en sus notas de
