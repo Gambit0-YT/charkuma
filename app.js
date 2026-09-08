@@ -3742,6 +3742,25 @@
       // von Doom" — misma foto de RDJ que en su guion de Doom.
       'rf-endgame-encore': {
         'Desarrollo': [{ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg', alt: 'Robert Downey Jr.', credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)' }]
+      },
+      // Petición ampliada (8 sep): para guiones sin ningún actor/persona
+      // real que mostrar, usar una ILUSTRACIÓN generada con IA (Gamma) en
+      // vez de dejarlo sin nada — pero nunca del personaje con copyright
+      // en sí (eso lo bloquea el propio filtro de contenido, y además
+      // sale mal — un intento real con "Wolverine" genérico salió como
+      // un garabato irreconocible). En su lugar, se ilustra la ESCENA o
+      // el LUGAR real que el propio guion describe — sí da contexto de
+      // verdad y no depende de recrear ningún personaje. Guardada en el
+      // propio repo (`context-img/`) en vez de enlazar al CDN de Gamma,
+      // igual que pasó con los audios de VidIQ: no hay garantía de que
+      // esa URL externa siga viva dentro de un tiempo.
+      'rf-marvels-wolverine-game': {
+        'Desarrollo': [{
+          url: 'context-img/rf-marvels-wolverine-game-canada.jpg',
+          alt: 'Bosque nevado de Canadá, uno de los 3 escenarios del juego',
+          credit: 'Uno de los 3 escenarios reales del juego (Canadá) — Gamma, prompt propio',
+          ai: true
+        }]
       }
     };
     function openRecordingMode(rid){
@@ -3794,10 +3813,13 @@
         }
       }
       if (photos && photos.length) {
+        // `ai: true` marca una ilustración generada (Gamma), no una foto
+        // real — distinción estructural, no depende de acordarme de
+        // escribirlo bien en cada crédito: badge visible + borde propio.
         figureEl.innerHTML = photos.map(p => `
-          <figure class="recording-mode-figure-item">
+          <figure class="recording-mode-figure-item${p.ai ? ' is-ai' : ''}">
             <img class="recording-mode-image" src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}">
-            <figcaption class="recording-mode-credit">${escapeAttr(p.credit || '')}</figcaption>
+            <figcaption class="recording-mode-credit">${p.ai ? '🎨 Ilustración con IA — ' : ''}${escapeAttr(p.credit || '')}</figcaption>
           </figure>`).join('');
         figureEl.hidden = false;
       } else {
