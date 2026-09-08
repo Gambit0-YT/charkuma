@@ -623,6 +623,14 @@
       background:radial-gradient(circle,rgba(139,92,246,.26),transparent 68%)
     }
     .project.orange::after{background:radial-gradient(circle,rgba(255,122,24,.28),transparent 68%)}
+    /* Backlog #68 (9 sep): sin fotos reales de estos proyectos (son
+       secciones del propio sitio, no algo fotografiable) y sin querer
+       generar con IA algo que finja ser una captura real — misma
+       decisión de honestidad que #67 — se usa la silueta del geco de
+       marca (igual que el footer/#65) como detalle decorativo, nunca
+       como si documentara algo que no es. */
+    .project-gecko{position:absolute;right:-8px;bottom:-6px;width:160px;height:auto;opacity:.1;color:var(--purple);pointer-events:none}
+    .project.orange .project-gecko{color:var(--orange)}
     .project .num{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.15em}
     .project h3{font-size:31px;margin:48px 0 8px}
     .project-soon{cursor:default;opacity:.55}
@@ -1499,6 +1507,15 @@
         <a href="javascript:void(0)" onclick="showView('helquidgames'); closeMobileMenu()">Games</a>
         <a href="javascript:void(0)" onclick="showView('redes'); closeMobileMenu()">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity(); closeMobileMenu()">Sobre mí</a>
+        <!-- Pedido 9 sep: el panel de gestión (antes "hub-secreto"/Control
+             Maestro, enmarcado como "🔒 SOLO TÚ") ya era accesible con un
+             clic desde el icono 🗺️ en cualquier página — lo que faltaba
+             era dejar de tratarlo como escondido. Ahora vive como un
+             enlace de texto normal, en la misma zona principal que el
+             resto de secciones. Los "bancos secretos de ideas" (clic en
+             el emoji de cada sección) se dejan tal cual: son un easter
+             egg deliberado de la web, no una herramienta de gestión. -->
+        <a href="javascript:void(0)" onclick="showView('hub-secreto'); closeMobileMenu()">Panel</a>
       </div>
       <div class="nav-tools">
         <button type="button" class="nav-icon-btn nav-hamburger-btn" id="navHamburgerBtn" onclick="toggleMobileMenu()" title="Menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
@@ -1602,8 +1619,8 @@
         </div>
         <div class="settings-row">
           <div>
-            <strong>🕹️ Control secreto maestro</strong>
-            <p>Todos los proyectos e ideas, con buscador, filtros y estado. Ya no hace falta el doble clic + contraseña para entrar — solo tú usas esta web.</p>
+            <strong>🕹️ Control Maestro</strong>
+            <p>Todos los proyectos e ideas, con buscador, filtros y estado. También accesible como "Panel" en el menú de arriba.</p>
           </div>
           <button type="button" class="btn btn-secondary" onclick="toggleSettingsPanel(); showView('master-control')">Abrir</button>
         </div>
@@ -1971,12 +1988,12 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
-          <div class="section-kicker">🔒 SOLO TÚ</div>
-          <h2 class="section-title">🗺️ MAPA MAESTRO DE PROYECTOS</h2>
+          <div class="section-kicker">🕹️ GESTIÓN</div>
+          <h2 class="section-title">🗺️ PANEL DE PROYECTOS</h2>
           <p class="section-sub">
             Todo en un mismo sitio: los prompts guardados, los 7 bancos de ideas y el
-            listado completo de proyectos ordenado por fecha. Se llega aquí con el icono
-            🗺️ de la cabecera — es tu punto de partida para gestionar la web.
+            listado completo de proyectos ordenado por fecha. Se llega aquí desde
+            "Panel" en el menú de arriba, o con el icono 🗺️ de la cabecera.
           </p>
           <a class="btn btn-secondary" href="javascript:void(0)" onclick="showView('master-control')" style="margin-top:8px">🕹️ Abrir Control Maestro (todo el contenido con su estado) →</a>
         </div>
@@ -2026,7 +2043,7 @@
               </ul>
             </div>
             <div class="template-card">
-              <div class="template-head"><span class="type-chip chip-purple">🔒 Solo tú</span></div>
+              <div class="template-head"><span class="type-chip chip-purple">🕹️ Gestión</span></div>
               <ul class="sitemap-links">
                 <li><a href="javascript:void(0)" onclick="showView('master-control')">🕹️ Control Maestro</a></li>
                 <li><a href="javascript:void(0)" onclick="showView('notif-inbox')">🔔 Bandeja de notificaciones</a></li>
@@ -2059,8 +2076,8 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
-          <div class="section-kicker">🔒 SOLO TÚ</div>
-          <h2 class="section-title">🕹️ CONTROL SECRETO MAESTRO</h2>
+          <div class="section-kicker">🕹️ GESTIÓN</div>
+          <h2 class="section-title">🕹️ CONTROL MAESTRO</h2>
           <button type="button" class="btn btn-secondary" style="margin:8px 0" onclick="window.print()">🖨️ Exportar a PDF</button>
           <span class="autonomous-loop-status"></span>
           <p class="yt-empty last-autonomous-activity" style="margin:6px 0 0"></p>
@@ -2068,7 +2085,7 @@
             Todo lo que hay integrado en la web — proyectos completos y cada idea suelta
             de los 7 bancos de ideas — con su estado real (⏳ pendiente, ✅ aprobado,
             🎬 en proceso o 🗑️ descartado), buscable y filtrable por categoría, estado
-            o fecha. Se llega aquí desde el 🗺️ Mapa Maestro de la cabecera, desde
+            o fecha. Se llega aquí desde "Panel" en el menú de arriba, desde
             Ajustes, o con el guiño nostálgico de siempre: doble clic en "🎮 Player 1
             Ready".
           </p>
@@ -2686,6 +2703,13 @@
             <a class="project orange" data-project="retro365" href="javascript:void(0)" onclick="showView('retro365')">
               <div class="num">PROYECTO 001</div>
               <div class="open">↗</div>
+              <svg class="project-gecko" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 62 Q24 40 40 50 Q52 58 46 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <ellipse cx="66" cy="46" rx="22" ry="13" stroke="currentColor" stroke-width="5"/>
+                <ellipse cx="94" cy="38" rx="12" ry="9" stroke="currentColor" stroke-width="5"/>
+                <path d="M56 56 L48 66 M76 56 L82 68 M58 36 L50 26 M82 34 L90 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="98" cy="35" r="2.4" fill="currentColor"/>
+              </svg>
               <h3>🎮 RETRO 365</h3>
               <p>Un viaje continuo por videojuegos, clásicos, joyas ocultas y nostalgia.</p>
             </a>
@@ -2693,6 +2717,13 @@
             <a class="project" data-project="rincon" href="javascript:void(0)" onclick="showView('rincon')">
               <div class="num">PROYECTO 002</div>
               <div class="open">↗</div>
+              <svg class="project-gecko" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 62 Q24 40 40 50 Q52 58 46 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <ellipse cx="66" cy="46" rx="22" ry="13" stroke="currentColor" stroke-width="5"/>
+                <ellipse cx="94" cy="38" rx="12" ry="9" stroke="currentColor" stroke-width="5"/>
+                <path d="M56 56 L48 66 M76 56 L82 68 M58 36 L50 26 M82 34 L90 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="98" cy="35" r="2.4" fill="currentColor"/>
+              </svg>
               <h3>🦸 RINCÓN DEL FRIKI</h3>
               <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
             </a>
@@ -2700,6 +2731,13 @@
             <a class="project orange" data-project="charkumalab" href="javascript:void(0)" onclick="showView('charkumalab')">
               <div class="num">PROYECTO 003</div>
               <div class="open">↗</div>
+              <svg class="project-gecko" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 62 Q24 40 40 50 Q52 58 46 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <ellipse cx="66" cy="46" rx="22" ry="13" stroke="currentColor" stroke-width="5"/>
+                <ellipse cx="94" cy="38" rx="12" ry="9" stroke="currentColor" stroke-width="5"/>
+                <path d="M56 56 L48 66 M76 56 L82 68 M58 36 L50 26 M82 34 L90 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="98" cy="35" r="2.4" fill="currentColor"/>
+              </svg>
               <h3>🧪 CHARKUMA LAB</h3>
               <p>Webs, IA, herramientas para creadores, pruebas, diseños y experimentos que todavía no tienen nombre.</p>
             </a>
