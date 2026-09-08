@@ -364,8 +364,20 @@
        actores a la vez). */
     .recording-mode-figures{margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
     .recording-mode-figures[hidden]{display:none}
-    .recording-mode-figure-item{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;max-width:220px}
-    .recording-mode-image{max-height:22vh;max-width:min(80vw,220px);border-radius:14px;object-fit:cover;border:1px solid var(--line2);box-shadow:0 12px 32px -16px rgba(0,0,0,.6)}
+    /* Pedido de Iván (9 sep): "muchas fotos apenas se ven" y "quiero que
+       las imágenes tengan las mismas proporciones" — antes el tamaño
+       real dependía solo de un máximo (max-height/max-width) sin ningún
+       mínimo, así que una Wikimedia (a menudo vertical), una carátula de
+       RAWG (casi siempre panorámica) y una ilustración de IA (variable)
+       podían acabar con tamaños y formas muy distintas entre sí, a veces
+       diminutas. Ahora cada foto es un CUADRADO fijo (aspect-ratio 1/1 +
+       object-fit:cover recorta cualquier imagen de origen para llenarlo
+       sin deformarla) — mismo tamaño y proporción siempre, tamaño real
+       visible en vez de un máximo que podía quedarse pequeño. `min(42vw,200px)`
+       mantiene 2 fotos por fila incluso en móvil estrecho (375px) sin
+       desbordar. -->
+    .recording-mode-figure-item{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;width:min(42vw,200px)}
+    .recording-mode-image{width:100%;aspect-ratio:1/1;border-radius:14px;object-fit:cover;border:1px solid var(--line2);box-shadow:0 12px 32px -16px rgba(0,0,0,.6)}
     /* Bug real de Fase 2 #198 encontrado al probar: este color usaba
        var(--muted), pero el overlay del modo grabación es SIEMPRE
        oscuro (#09070f) sin importar el tema — con tema claro + alto
