@@ -5041,6 +5041,66 @@
         }]
       }
     };
+    // Retro 365 (9 sep, pedido explícito de Iván: "en cada fase de cada
+    // guion"): a diferencia de Rincón del Friki (personas/escenas
+    // distintas por beat), aquí lo fotografiable real de cada guion es
+    // siempre EL PROPIO JUEGO — así que se usa su carátula oficial real
+    // (RAWG, mismo mecanismo ya usado en toda la web para las
+    // miniaturas de Retro 365, verificada por HTTP igual que cualquier
+    // otra foto de contexto) en los 6 beats que hablan del juego en sí.
+    // "🔀 Giro / momento del directo" (algo personal del directo de
+    // Iván, no un hecho fotografiable) y "💬 Opinión" (todavía sin
+    // escribir, placeholder [IVÁN — AÑADIR OPINIÓN]) se dejan sin foto
+    // a propósito — mismo criterio de honestidad que en Rincón del
+    // Friki: no forzar una imagen donde no hay nada real que enseñar.
+    // Generado en bucle en vez de repetir 37 veces el mismo bloque de 6
+    // claves a mano.
+    const RETRO_DAY_COVERS = {
+      4: { name: 'Hades', url: 'https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg' },
+      5: { name: 'Unpacking', url: 'https://media.rawg.io/media/games/c11/c1118fbcfd846c631ecb7646f8efc780.jpg' },
+      7: { name: 'Portal 2', url: 'https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg' },
+      8: { name: 'Undertale', url: 'https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg' },
+      9: { name: 'Mario Kart 8 Deluxe', url: 'https://media.rawg.io/media/games/6f8/6f846e941c78cfbabe53cd67e55ced83.jpg' },
+      10: { name: 'Team Fortress 2', url: 'https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg' },
+      11: { name: 'The Walking Dead: Season 1', url: 'https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg' },
+      12: { name: 'Red Dead Redemption 2', url: 'https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg' },
+      13: { name: 'Divinity: Original Sin 2', url: 'https://media.rawg.io/media/games/424/424facd40f4eb1f2794fe4b4bb28a277.jpg' },
+      14: { name: 'God of War (2018)', url: 'https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg' },
+      15: { name: "Sid Meier's Civilization IV", url: 'https://media.rawg.io/media/screenshots/85c/85c91c5064d2cdd56a949c8008868318.jpg' },
+      16: { name: 'Batman: Arkham City', url: 'https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg' },
+      17: { name: 'The Legend of Zelda: Breath of the Wild', url: 'https://media.rawg.io/media/games/cc1/cc196a5ad763955d6532cdba236f730c.jpg' },
+      18: { name: 'Elden Ring', url: 'https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg' },
+      19: { name: 'Persona 5 Royal', url: 'https://media.rawg.io/media/games/a9c/a9c789951de65da545d51f664b4f2ce0.jpg' },
+      20: { name: 'XCOM 2: War of the Chosen', url: 'https://media.rawg.io/media/games/824/8244534a6db2180e177271cebb9c002f.jpg' },
+      21: { name: 'Super Smash Bros. Ultimate', url: 'https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg' },
+      22: { name: 'Super Mario Odyssey', url: 'https://media.rawg.io/media/games/267/267bd0dbc496f52692487d07d014c061.jpg' },
+      23: { name: 'The Witcher 3: Wild Hunt', url: 'https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg' },
+      24: { name: 'Company of Heroes', url: 'https://media.rawg.io/media/games/0fa/0fadc446fd1e9ae9e23a32793d9a5406.jpg' },
+      25: { name: 'Bayonetta 2', url: 'https://media.rawg.io/media/games/3d7/3d7c8e749b18cfc898c80016594981fe.jpg' },
+      26: { name: 'Grand Theft Auto IV', url: 'https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg' },
+      27: { name: 'BioShock', url: 'https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg' },
+      28: { name: 'Fire Emblem Awakening', url: 'https://media.rawg.io/media/games/c43/c432339312ee5441edb081c05d2fa411.jpg' },
+      29: { name: 'The Elder Scrolls V: Skyrim', url: 'https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg' },
+      30: { name: 'StarCraft II: Wings of Liberty', url: 'https://media.rawg.io/media/games/5f7/5f7191716faebcf102a357c5c2889394.jpg' },
+      31: { name: 'Cut the Rope', url: 'https://media.rawg.io/media/games/242/242011264968168c61e4efc71059f2ed.jpg' },
+      32: { name: 'Half-Life 2', url: 'https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg' },
+      33: { name: 'Mass Effect 2', url: 'https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg' },
+      34: { name: 'Age of Empires II: Definitive Edition', url: 'https://media.rawg.io/media/games/945/9455733af10406794b0c1b8d117bca76.jpg' },
+      35: { name: 'Okami HD', url: 'https://media.rawg.io/media/games/a38/a3857b2445c70ac5dbe73b210a827ad8.jpg' },
+      36: { name: 'Call of Duty 4: Modern Warfare', url: 'https://media.rawg.io/media/games/9fb/9fbaea2168caea1f806546dfdaaeb1da.jpg' },
+      37: { name: 'Grand Theft Auto V', url: 'https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg' },
+      38: { name: 'Dark Souls II', url: 'https://media.rawg.io/media/games/651/6512783a214618584d144d5d852ba595.jpg' },
+      39: { name: 'Disco Elysium - The Final Cut', url: 'https://media.rawg.io/media/games/0af/0afe9e8ace196123d8c7cf22172cec63.jpg' },
+      40: { name: 'Overwatch', url: 'https://media.rawg.io/media/games/4ea/4ea507ceebeabb43edbc09468f5aaac6.jpg' },
+      41: { name: 'NieR:Automata', url: 'https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg' }
+    };
+    Object.keys(RETRO_DAY_COVERS).forEach(day => {
+      const { name, url } = RETRO_DAY_COVERS[day];
+      const photos = [{ url, alt: `Carátula oficial de ${name}`, credit: `Carátula oficial de ${name} — vía RAWG.io` }];
+      const entry = {};
+      ['Hook', 'Promesa', 'Contexto', 'Desarrollo', 'Conclusión', 'CTA'].forEach(key => { entry[key] = photos; });
+      RECORDING_MODE_IMAGES[`retro-day-${day}`] = entry;
+    });
     function openRecordingMode(rid, triggerEl){
       // `triggerEl` (el propio botón pulsado) es opcional y solo hace
       // falta en páginas con MÁS DE UN guion en la misma vista activa —
@@ -5161,12 +5221,12 @@
     async function qaCheckContextImages(){
       const activeBefore = document.querySelector('.app-view.active');
       const report = {};
-      for (const rid of Object.keys(RECORDING_MODE_IMAGES)) {
-        const panelView = document.getElementById(`view-${rid}`);
-        if (!panelView) { report[rid] = ['La vista view-' + rid + ' no existe en el DOM']; continue; }
-        showView(rid);
-        openRecordingMode(rid);
-        if (!recordingModeBeats.length) { report[rid] = ['No se pudo abrir el modo grabación (sin narración "🎙️ Off")']; closeRecordingMode(); continue; }
+      // Comprueba las claves configuradas de `rid` contra los headings
+      // reales YA abiertos en el modo grabación (recordingModeBeats) —
+      // compartido entre los dos tipos de guion de abajo, solo cambia
+      // CÓMO se llega a abrirlo.
+      function checkOpenBeats(rid){
+        if (!recordingModeBeats.length) return ['No se pudo abrir el modo grabación (sin narración "🎙️ Off")'];
         const realHeadings = recordingModeBeats.map(b => b.heading);
         const problems = [];
         Object.keys(RECORDING_MODE_IMAGES[rid]).forEach(key => {
@@ -5181,6 +5241,32 @@
           if (!document.getElementById('recordingModeFigure').hidden) anyShown = true;
         }
         if (!anyShown) problems.push('Ninguna foto configurada llega a mostrarse en ningún paso real');
+        return problems;
+      }
+      for (const rid of Object.keys(RECORDING_MODE_IMAGES)) {
+        // Retro 365 (9 sep): estos rid ("retro-day-N") no son vistas
+        // propias — viven todos dentro de view-retro-secret, con un
+        // botón de Modo grabación por día. Hay que abrir esa vista y
+        // pulsar el botón correcto (mismo triggerEl que usa un click
+        // real), no buscar una view-retro-day-N que no existe.
+        const retroMatch = rid.match(/^retro-day-(\d+)$/);
+        if (retroMatch) {
+          showView('retro-secret');
+          document.querySelectorAll('#secretMonthsContainer details').forEach(d => { d.open = true; });
+          const btn = [...document.querySelectorAll('button')]
+            .find(b => b.textContent.includes('Modo grabación') && (b.getAttribute('onclick') || '').includes(`'retro-day-${retroMatch[1]}'`));
+          if (!btn) { report[rid] = [`No se encontró el botón de Modo grabación del día ${retroMatch[1]} en la chuleta secreta`]; continue; }
+          btn.click();
+          const problems = checkOpenBeats(rid);
+          if (problems.length) report[rid] = problems;
+          closeRecordingMode();
+          continue;
+        }
+        const panelView = document.getElementById(`view-${rid}`);
+        if (!panelView) { report[rid] = ['La vista view-' + rid + ' no existe en el DOM']; continue; }
+        showView(rid);
+        openRecordingMode(rid);
+        const problems = checkOpenBeats(rid);
         if (problems.length) report[rid] = problems;
         closeRecordingMode();
       }
