@@ -1766,8 +1766,169 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cuál es tu juego de Batman favorito de todos los tiempos? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Tercera tanda (mismo `/loop`, tick siguiente): días 17-21.
+      17: {
+        name: "The Legend of Zelda: Breath of the Wild",
+        summary: "Te sueltan en un mundo entero y te dicen 'ahí está el final, ve cuando quieras' — libertad real, no de mentira.",
+        difficulty: "media",
+        emoji: "🗺️",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 17 de Retro 365, y hoy el juego me dice literalmente 've a matar al malo final cuando quieras, incluso ahora mismo'. Bienvenidos a Zelda: Breath of the Wild."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mirando desde una colina hacia el castillo final, muy lejos. <strong>🎬 Producción:</strong> SFX de viento ambiente · corte duro · BGM: sting corto, orquestal suave</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo abierto que te da libertad de verdad, no de mentira — hoy os cuento por qué cambió para siempre lo que se espera de este tipo de juegos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 017 · BREATH OF THE WILD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas sin recuerdos, en un mundo devastado por una catástrofe de hace 100 años, con un objetivo claro pero cero indicaciones de cómo ni cuándo cumplirlo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del despertar inicial en la Meseta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La física y la química del mundo se combinan entre sí de verdad — el metal atrae rayos, el fuego prende hierba seca, el frío te congela si no vas abrigado — y casi todo lo puedes resolver de más de una forma distinta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay usando una combinación física/química real. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: llegar a un santuario cercano usando solo la creatividad, sin mirar ninguna guía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a una solución improvisada. <strong>🎬 Producción:</strong> SFX de logro · BGM: sube un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿fuiste directo al castillo nada más empezar, o exploraste todo el mapa primero?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Yo tardaría en ir al castillo aposta — la gracia de este juego está en todo lo que te encuentras por el camino, no en el objetivo final."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Libertad real, sin trampa — el mundo abierto tranquilo que hacía falta después del combate directo de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de paisajes y santuarios explorados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál fue tu primera solución creativa en este juego? Cuéntamela en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      18: {
+        name: "Elden Ring",
+        summary: "Un mundo abierto que no te explica nada — y que te hace sentir el mejor jugador del mundo cuando por fin lo entiendes.",
+        difficulty: "dificil",
+        emoji: "⚔️",
+        steamUrl: "https://store.steampowered.com/app/1245620/ELDEN_RING/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 18 de Retro 365, y hoy voy a morir. Muchas veces. Contra el mismo jefe. Bienvenidos a Elden Ring."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una muerte rápida contra un jefe. <strong>🎬 Producción:</strong> SFX de muerte del juego · corte duro · BGM: sting corto, dramático</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El mundo abierto que no te explica absolutamente nada — hoy os cuento por qué eso, en vez de frustrar, es justo lo que lo hace tan especial."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 018 · ELDEN RING" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono épico oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres un Sinluz explorando las Tierras Intermedias en busca de fragmentos del Círculo de Elden — y desde el minuto uno puedes ir literalmente a cualquier parte, incluida tu propia muerte segura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el mapa abierto desde el inicio. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada jefe te obliga a aprender su patrón a base de morir, cada build juega completamente distinto según tus armas y hechizos, y el propio mundo te va guiando en silencio hacia dónde deberías ir sin decírtelo nunca directamente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado — combate, exploración, un hechizo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: ¿cuántos intentos me lleva hoy pasar de este jefe en concreto?"</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué build estás usando o usarías, y qué jefe te tiene más frustrado?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "La primera vez que le ganas a un jefe que te llevaba costando horas es de las mejores sensaciones que dan los videojuegos, punto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Difícil de verdad, pero justo — cada muerte enseña algo. El reto más duro de esta tanda de Retro 365, y se nota."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap rápido de los intentos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuántos intentos te llevó a ti ese mismo jefe? Dímelo en comentarios, a ver quién la tuvo peor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      19: {
+        name: "Persona 5 Royal",
+        summary: "Instituto de día, robo de corazones corruptos por la noche — con el estilo visual más marcado de todo el género RPG.",
+        difficulty: "media",
+        emoji: "🎭",
+        steamUrl: "https://store.steampowered.com/app/1687950/Persona_5_Royal/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 19 de Retro 365, y hoy de día voy al instituto, y de noche le robo el corazón corrupto a un adulto. Bienvenidos a Persona 5 Royal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del menú estilizado característico del juego. <strong>🎬 Producción:</strong> SFX de transición de menú · corte duro · BGM: sting corto, jazzy</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El RPG con el estilo visual más marcado del género — hoy os cuento por qué mezclar vida de instituto con mazmorras psicológicas funciona tan bien."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 019 · PERSONA 5 ROYAL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono jazzy</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres un estudiante de intercambio con un pasado turbio, que descubre que puede entrar en el 'Palacio' — la mente distorsionada de un adulto corrupto — para hacerle cambiar de actitud."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando la vida escolar normal. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Durante el día gestionas tu vida social y tus estudios, y por la noche te transformas en Ladrón Fantasma para explorar mazmorras por turnos usando debilidades elementales de los enemigos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate por turnos explotando una debilidad. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: gestionar mi tiempo del día de hoy sin arrepentirme luego de haber elegido mal la actividad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara dudando entre dos opciones del calendario. <strong>🎬 Producción:</strong> SFX cómico de duda · BGM: baja un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué Confidente/personaje social te llama más la atención por ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo que más me atrae es que gestionar el tiempo pesa tanto como el propio combate — cada decisión social se siente importante de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estilo, ritmo y combate por turnos que no se siente lento — un cambio de energía perfecto tras la dureza de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los looks/estilo del juego. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya jugaste esta versión Royal? Dime en comentarios qué añadido te pareció el mejor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      20: {
+        name: "XCOM 2: War of the Chosen",
+        summary: "Estrategia por turnos donde un solo disparo fallado con un 90% de acierto te puede costar el soldado que más querías.",
+        difficulty: "dificil",
+        emoji: "🎯",
+        steamUrl: "https://store.steampowered.com/app/268500/XCOM_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 20 de Retro 365, y hoy voy a fallar un disparo con un 94% de acierto, y os prometo que va a doler más de lo que suena. Bienvenidos a XCOM 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un disparo fallado con alta probabilidad. <strong>🎬 Producción:</strong> SFX de fallo/disparo errado · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia por turnos donde cada decisión pesa de verdad — hoy os cuento por qué encariñarte con tus soldados es la peor y mejor idea que puedes tener."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 020 · XCOM 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "La Tierra ya perdió la guerra contra los alienígenas, y comandas la resistencia desde un avión oculto, reclutando y entrenando soldados que pueden morir para siempre en cualquier misión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando la base móvil (el Avenger). <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada misión es un tablero táctico donde la cobertura y la posición lo son todo, la muerte de un soldado veterano es permanente y de verdad duele, y los Elegidos de esta expansión te persiguen a lo largo de toda la campaña con su propia personalidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una emboscada táctica bien ejecutada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, tenso</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: terminar la misión de hoy sin perder a ningún soldado — sin cargar partida si algo sale mal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un momento de tensión real. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿le tienes nombre propio a tus soldados, o prefieres no encariñarte para que no duela tanto perderlos?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Yo les pondría nombre seguro, y luego me arrepentiría cada vez que uno cae — ese es justo el gancho del juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tensión pura, turno a turno — la estrategia más despiadada que hemos visto en Retro 365 hasta ahora, tras el ritmo más relajado de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la misión, con o sin bajas. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es la peor pérdida que has tenido en un XCOM? Cuéntamela en comentarios, que aquí se llora en compañía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      21: {
+        name: "Super Smash Bros. Ultimate",
+        summary: "Todos los personajes de Nintendo (y no solo de Nintendo) peleando en un mismo juego — el crossover más loco de los videojuegos.",
+        difficulty: "facil",
+        emoji: "🥊",
+        steamUrl: "",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 21 de Retro 365, y hoy Mario, Sonic, Pac-Man y Solid Snake pueden pelear entre ellos en el mismo escenario. Bienvenidos a Super Smash Bros. Ultimate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate caótico con varios personajes icónicos. <strong>🎬 Producción:</strong> SFX de golpe cómico · corte duro · BGM: sting corto, energético</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El crossover más loco de los videojuegos, con literalmente todos los luchadores que ha tenido la saga — hoy os cuento por qué es la fiesta perfecta para jugar acompañado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 021 · SMASH BROS. ULTIMATE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En vez de barras de vida, aquí subes el porcentaje de daño de tu rival hasta lanzarlo fuera del escenario — cuanto más alto el porcentaje, más lejos sale volando de un solo golpe."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando un KO por fuera del escenario. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje juega radicalmente distinto entre sí, los objetos y escenarios cambian el ritmo de cada combate por completo, y hasta los que no conocéis de nombre tienen su propio moveset currado de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay alternando 3 personajes muy distintos entre sí. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: sobrevivir un combate a 4 con solo una vida, sin que me saquen del escenario en los primeros 10 segundos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un KO temprano. <strong>🎬 Producción:</strong> SFX cómico de fallo · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu luchador principal, y qué personaje te haría más ilusión que metieran en un DLC futuro?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo más loco de este roster es que hasta los personajes que nunca esperarías, como Solid Snake o Steve de Minecraft, encajan de verdad en el juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puro caos accesible para cualquiera — el subidón de fiesta perfecto tras la tensión estratégica de ayer. Cierre de esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los mejores KOs del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu main en Smash? Dímelo en comentarios, a ver si alguien se anima a un torneo entre la comunidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 17: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 22: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
