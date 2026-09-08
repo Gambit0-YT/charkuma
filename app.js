@@ -4892,8 +4892,15 @@
       'rf-opinion-homelander': {
         'Desarrollo': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg/500px-Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg', alt: 'Antony Starr, 2024', credit: 'Antony Starr — Foto: Super Festivals, CC BY 2.0 (Wikimedia Commons)' }]
       },
+      // Backlog Fase 2 #153: el mismo beat nombra a 5 actores (Tom
+      // Holland, Zendaya, Jon Bernthal, Florence Pugh, Mark Ruffalo) —
+      // mismo criterio de "2 representativas" que otros repartos
+      // numerosos (doomsday-cruce, regreso-xmen), no las 5.
       'rf-opinion-brand-new-day': {
-        'Desarrollo': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }]
+        'Desarrollo': [
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Zendaya_by_Gage_Skidmore.jpg/500px-Zendaya_by_Gage_Skidmore.jpg', alt: 'Zendaya', credit: 'Zendaya — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+        ]
       },
       'rf-curiosidades-tom-holland': {
         'Promesa': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }]
