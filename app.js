@@ -4033,6 +4033,21 @@
         internalView: "rf-opinion-multiverso", reviewed: false, stage: 'creando-guion'
       },
       {
+        // Noticia real verificada con WebSearch 2026-09-09: adelanto
+        // ("special look") de Avengers: Doomsday mostrado en el D23 Expo
+        // 2026 (Anaheim), narrado por Sue Storm — Doom vence a Thor y
+        // levanta un ejército de Centinelas. Ángulo distinto de
+        // rf-opinion-doom-rdj (casting/reacción) y rf-doomsday-cruce-historico
+        // (escala del cruce) — ver comentario completo junto al HTML.
+        title: "Doctor Doom con un ejército de Centinelas: la escena que lo cambia todo en Avengers: Doomsday",
+        saga: "marvel",
+        type: "opinion",
+        date: "2026-09-09",
+        summary: "En el nuevo adelanto mostrado en el D23 Expo, Doom no solo vence a Thor — resucita a los robots cazamutantes de los X-Men delante de todos.",
+        thumbnail: "🤖",
+        internalView: "rf-opinion-doom-centinelas", reviewed: false, stage: 'creando-guion'
+      },
+      {
         title: "Fancast: ¿quién debería ser el próximo Wolverine?",
         saga: "marvel",
         type: "fancast",
@@ -4684,6 +4699,7 @@
       'rf-opinion-brand-new-day': '1Zo0NF5jSVj4tYroU1_xO2QF-uhF_sfoy',
       'rf-opinion-regreso-xmen': '1I1pB0u8XweyAt72Az6oCxYr1QjQPKUK6',
       'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4',
+      'rf-opinion-doom-centinelas': '1uKUoa9yK5LJAnCRjrPO3poNlePDee3h3',
       'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO',
       'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a',
       'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l',
@@ -4841,6 +4857,18 @@
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg',
           alt: 'Robert Downey Jr. en la Comic-Con de San Diego, 2014',
           credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+        }]
+      },
+      // No hay ningún actor/persona real nueva que fotografiar aquí (Doom
+      // ya tiene su foto de RDJ en el otro guion, los Centinelas son
+      // ficción) — el hecho real y fotografiable es el propio evento
+      // donde se reveló: el D23 Expo de Anaheim. Foto real verificada
+      // (Cory Doctorow, CC BY-SA 2.0, Wikimedia Commons).
+      'rf-opinion-doom-centinelas': {
+        'Contexto': [{
+          url: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/D23_Expo_2015_general_admission_queue_%2820634317635%29.jpg',
+          alt: 'Cola de entrada al D23 Expo, Anaheim',
+          credit: 'D23 Expo, Anaheim — Foto: Cory Doctorow, CC BY-SA 2.0 (Wikimedia Commons)'
         }]
       },
       // Doctor Doom no nace de un actor concreto sino de sus creadores —
