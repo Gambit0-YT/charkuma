@@ -3037,6 +3037,20 @@
         summary: "Llevaba años pidiendo el papel en público — cómo una amistad real con el director hizo posible este fichaje para 2028.",
         thumbnail: "🔥",
         internalView: "rf-ryan-gosling-ghost-rider", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real encontrada con WebSearch 2026-09-08: Avengers:
+        // Doomsday reunirá por primera vez en el cine a Vengadores,
+        // X-Men, Thunderbolts y 4 Fantásticos — incluye el reparto real
+        // de "Primeros Pasos" (2025, 521M$ en taquilla) y el debut de
+        // Ghost Rider (Ryan Gosling) antes de su propia película.
+        title: "Avengers: Doomsday será el cruce más grande de la historia del cine",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "Vengadores, X-Men, Thunderbolts y 4 Fantásticos, todos en la misma película por primera vez — qué hace tan arriesgada esta apuesta.",
+        thumbnail: "⚡",
+        internalView: "rf-doomsday-cruce-historico", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3411,7 +3425,8 @@
       'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a',
       'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l',
       'rf-nuevo-black-panther': '13mGiwKxV7ncCVhyJGQ9d3VBnEtzMbms9',
-      'rf-ryan-gosling-ghost-rider': '1Q8QDiWqmqn-faW73joLGBRSpw34zJtFX'
+      'rf-ryan-gosling-ghost-rider': '1Q8QDiWqmqn-faW73joLGBRSpw34zJtFX',
+      'rf-doomsday-cruce-historico': '1G_lJhzzxBPCLk9JkquxJhswNz40rYHyL'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
