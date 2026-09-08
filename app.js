@@ -5036,6 +5036,21 @@
     function handleContextPhotoLoadError(imgEl){
       const figure = imgEl.closest('.recording-mode-figure-item');
       if (!figure) return;
+      // Backlog #160: Wikimedia sirve las mismas fotos desde dos dominios
+      // reales (`thumb.wikimedia.org` y `upload.wikimedia.org`) — si uno
+      // falla, un solo reintento con el otro puede salvar la foto antes
+      // de rendirse y mostrar el aviso de error. `data-domain-retry` evita
+      // un bucle si el reintento también falla.
+      if (!imgEl.dataset.domainRetry) {
+        let swapped = null;
+        if (imgEl.src.includes('thumb.wikimedia.org')) swapped = imgEl.src.replace('thumb.wikimedia.org', 'upload.wikimedia.org');
+        else if (imgEl.src.includes('upload.wikimedia.org')) swapped = imgEl.src.replace('upload.wikimedia.org', 'thumb.wikimedia.org');
+        if (swapped) {
+          imgEl.dataset.domainRetry = '1';
+          imgEl.src = swapped;
+          return;
+        }
+      }
       figure.innerHTML = '<p class="recording-mode-credit">⚠️ No se pudo cargar esta foto (puede que la URL haya cambiado)</p>';
     }
     function renderRecordingModeStep(){
