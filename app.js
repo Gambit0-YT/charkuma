@@ -3004,6 +3004,24 @@
         summary: "Consecuencias reales, héroes que son personas y no símbolos, sátira con intención — por qué prefiero este tono, explicado para quien no ha visto ninguna de las dos cosas.",
         thumbnail: "🩸",
         internalView: "rf-opinion-superheroes-sucios", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Pedido explícito del usuario 2026-09-08 ("sigue creando vídeos
+        // para el Rincón del Friki a partir de noticias sobre
+        // superhéroes y cultura geek que vayas encontrando") — ya no
+        // atado a una idea concreta del banco, sino a noticias reales
+        // encontradas con WebSearch. Datos verificados 2026-09-08: David
+        // Jonsson (32 años, "Industry", "Rye Lane", "Alien: Romulus")
+        // anunciado en la San Diego Comic-Con 2026 como Toussaint/T'Challa
+        // II (no un reemplazo de T'Challa) para Black Panther III (15
+        // dic 2028) — Ryan Coogler lo identificó personalmente.
+        title: "Quién es David Jonsson, el nuevo Black Panther de Marvel",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "No es un reemplazo de T'Challa — es su hijo. Quién es el actor elegido y cómo llegó al papel, sin casting formal de por medio.",
+        thumbnail: "🐾",
+        internalView: "rf-nuevo-black-panther", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3376,7 +3394,8 @@
       'rf-opinion-doom-rdj': '1Dc2EHNFsX2Y8I_fCW5j56eQLl80ecgI4',
       'rf-curiosidades-doom': '1cAmgpKSYirZ8TRJScqxNK86oMg2Ww0QO',
       'rf-curiosidades-tom-holland': '1Vj3_ZoZtxESPklPwH5-2Cf85r2W_c2_a',
-      'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l'
+      'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l',
+      'rf-nuevo-black-panther': '13mGiwKxV7ncCVhyJGQ9d3VBnEtzMbms9'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
