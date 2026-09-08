@@ -1769,8 +1769,10 @@
          — si no las tiene, sigue oculto como hasta ahora. Puede haber más
          de una foto por beat (p.ej. un beat que nombra a varios actores a
          la vez) — por eso es un contenedor que renderRecordingModeStep
-         rellena a mano en vez de un <img> fijo. -->
-    <div class="recording-mode-figures" id="recordingModeFigure" hidden></div>
+         rellena a mano en vez de un <img> fijo. Backlog Fase 2 #168:
+         aria-live para que un lector de pantalla anuncie sola cuando
+         aparece (o falla) una foto nueva al cambiar de paso. -->
+    <div class="recording-mode-figures" id="recordingModeFigure" hidden aria-live="polite"></div>
     <h3 class="recording-mode-heading" id="recordingModeHeading"></h3>
     <p class="recording-mode-tone" id="recordingModeTone" hidden></p>
     <p class="recording-mode-text" id="recordingModeText"></p>
