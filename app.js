@@ -1603,8 +1603,171 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Has jugado esta temporada? Cuéntame en comentarios qué decisión te costó más, sin destriparla del todo para quien no la haya jugado."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Segunda tanda (mismo día, /loop autónomo): días 12-16, mismo
+      // criterio de variedad de género/dificultad, evitando repetir
+      // franquicia con los días 1-11 ya usados.
+      12: {
+        name: "Red Dead Redemption 2",
+        summary: "El western definitivo: un mundo que respira sin ti, y un protagonista que carga con todo lo que hizo antes.",
+        difficulty: "media",
+        emoji: "🤠",
+        steamUrl: "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 12 de Retro 365, y hoy el juego no tiene ninguna prisa por ti. Bienvenidos a Red Dead Redemption 2, donde hasta ensillar el caballo tiene su propia animación."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay ensillando el caballo con calma. <strong>🎬 Producción:</strong> SFX ambiente del oeste · corte duro · BGM: sting corto de guitarra western</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El western definitivo, con un mundo que sigue viviendo aunque no hagas nada — hoy os cuento por qué Arthur Morgan es de los mejores protagonistas que ha dado el medio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 012 · RED DEAD REDEMPTION 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, ambiente western</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Arthur Morgan, forajido de una banda que se está quedando sin sitio en un mundo que avanza sin ellos — la historia es tan importante como el propio disparo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un diálogo del campamento de la banda. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El detalle está en todo — el caballo se cansa de verdad, la ropa se moja y se seca, y cada NPC con el que hablas puede recordarte la próxima vez que os crucéis."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el sistema de honor/reputación con un NPC. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: intentar cazar un animal legendario sin espantarlo antes de acercarme lo suficiente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a que el animal huye. <strong>🎬 Producción:</strong> SFX cómico de frustración · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué misión o momento del juego te ha dejado más marcado hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo que más me sorprende es que el juego no tiene prisa ninguna por enseñarte nada — y aun así, no se me hace lento en ningún momento."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo que se toma su tiempo de verdad — el ritmo pausado perfecto después de las decisiones a contrarreloj de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de paisajes explorados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya has jugado esta historia? Dime en comentarios qué banda/misión secundaria no me puedo perder."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      13: {
+        name: "Divinity: Original Sin 2",
+        summary: "Un RPG por turnos donde casi cualquier idea rara que se te ocurra... funciona de verdad en combate.",
+        difficulty: "dificil",
+        emoji: "🎲",
+        steamUrl: "https://store.steampowered.com/app/435150/Divinity_Original_Sin_2__Definitive_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 13 de Retro 365, y hoy voy a intentar ganar un combate prendiendo fuego a un charco de aceite mientras llueve. Bienvenidos a Divinity: Original Sin 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una combinación elemental real (fuego + aceite). <strong>🎬 Producción:</strong> SFX de explosión del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG por turnos donde casi cualquier idea rara que se te ocurra en combate... funciona de verdad — hoy os cuento por qué es de los más profundos que hay."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 013 · DIVINITY: ORIGINAL SIN 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Creas tu propio grupo de aventureros en un mundo de magia e intriga política, y cada combate por turnos usa el terreno, el clima y los elementos a tu favor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando la creación de personaje. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El agua conduce electricidad, el aceite arde, la sangre puede resbalar a un enemigo — y encima casi todo el diálogo tiene opciones distintas según qué tipo de personaje elegiste al crear tu grupo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay combinando 2-3 elementos en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: ganar un combate difícil usando solo trampas del entorno, sin gastar ni una habilidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado del combate. <strong>🎬 Producción:</strong> SFX dramático si sale mal · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué combinación rara probarías tú primero si tuvieras el mando?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me interesa más romper el sistema con física de entorno que subir de nivel a lo bruto — este juego premia justo eso."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Difícil de dominar del todo, pero de los RPG con más libertad real que he tocado — vuelve el nivel de reto tras el paseo tranquilo de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combos elementales logrados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Has jugado este u otro RPG de Larian? Cuéntame en comentarios tu build favorita."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      14: {
+        name: "God of War (2018)",
+        summary: "Kratos con un hijo al lado y un hacha que vuelve cuando la llamas — el reinicio que nadie esperaba que funcionara tan bien.",
+        difficulty: "media",
+        emoji: "🪓",
+        steamUrl: "https://store.steampowered.com/app/1593500/God_of_War/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 14 de Retro 365, y hoy Kratos ya no está solo — tiene un hijo al lado, y un hacha que vuelve a su mano con solo llamarla. Bienvenidos a God of War."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay lanzando el hacha y llamándola de vuelta. <strong>🎬 Producción:</strong> SFX del hacha volviendo · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El reinicio que nadie pedía y que acabó siendo de lo mejor de su generación — hoy os cuento por qué la relación entre Kratos y Atreus es lo que hace grande a este juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 014 · GOD OF WAR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Kratos deja atrás la mitología griega y se muda a la nórdica, ahora como padre de Atreus — y toda la cámara del juego está pensada para no cortar nunca, como si fuera un solo plano."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando un combate con Atreus ayudando. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate mezcla el hacha cuerpo a cuerpo con los disparos de flecha de Atreus, la progresión de armadura te cambia el estilo entero, y encima toda la cámara se mantiene sin cortes durante todo el juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado de combate combinado. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: un jefe grande, sin usar pociones, a ver qué tal se me da bajo presión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al combate contra el jefe. <strong>🎬 Producción:</strong> SFX dramático de jefe · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece el cambio de tono de Kratos respecto a la trilogía griega original?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me sorprende lo bien que envejece Kratos como personaje aquí — pasar de furia pura a intentar ser mejor padre da mucho más juego del que esperaba."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un reinicio que se arriesgó de verdad y le salió bien — la épica que hacía falta tras la estrategia más pausada de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los mejores golpes del hacha. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Trilogía griega o esta nueva etapa nórdica? Dímelo en comentarios, sin miedo a discrepar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      15: {
+        name: "Sid Meier's Civilization IV",
+        summary: "El juego de estrategia que te promete 'un turno más' y te deja jugando hasta las 4 de la mañana.",
+        difficulty: "dificil",
+        emoji: "🏛️",
+        steamUrl: "https://store.steampowered.com/app/3900/Sid_Meiers_Civilization_IV/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 15 de Retro 365, y hoy tengo el juego responsable de más noches sin dormir de la historia de la estrategia. Bienvenidos a Civilization IV."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del mapa mundial con varias civilizaciones. <strong>🎬 Producción:</strong> SFX de "nuevo turno" · corte duro · BGM: sting corto, orquestal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El juego que inventó la frase 'total, un turno más' — hoy os cuento por qué sigue siendo de lo mejor del género casi 20 años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 015 · CIVILIZATION IV" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Coges una civilización desde la Edad de Piedra y la llevas, turno a turno, hasta la carrera espacial — construyendo ciudades, tecnología, ejércitos y diplomacia por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay fundando la primera ciudad. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada civilización juega distinto según sus bonificaciones únicas, el árbol de tecnología te obliga a tomar decisiones reales, y la diplomacia con las IA puede cambiar de aliado a enemigo en un solo turno mal gestionado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando el árbol de tecnología y un mensaje diplomático. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: prometer que voy a jugar 'solo 20 minutos' de esta sesión — a ver si cumplo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara mirando el reloj con resignación. <strong>🎬 Producción:</strong> SFX cómico · BGM: baja un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué civilización eliges tú siempre, y por qué?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El 'un turno más' de este juego es real de verdad — cada vez que digo que voy a parar, acabo fundando una ciudad más."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un clásico que sigue enganchando por las razones correctas — el reto mental perfecto después de la épica de ayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del progreso del imperio. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuántas noches te ha robado este juego? Cuéntamelo en comentarios, que aquí nadie te juzga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      16: {
+        name: "Batman: Arkham City",
+        summary: "Toda una ciudad-prisión para moverte como Batman de verdad — combate fluido y villanos icónicos por todas partes.",
+        difficulty: "media",
+        emoji: "🦇",
+        steamUrl: "https://store.steampowered.com/app/200260/Batman_Arkham_City_GOTY/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 16 de Retro 365, y hoy me convierto en el mejor detective del mundo con una ciudad entera convertida en prisión. Bienvenidos a Batman: Arkham City."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay planeando con la capa sobre la ciudad. <strong>🎬 Producción:</strong> SFX de viento al planear · corte duro · BGM: sting corto, oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El juego que definió cómo se siente ser Batman de verdad en un videojuego — hoy os cuento por qué su combate sigue siendo la referencia del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 016 · BATMAN: ARKHAM CITY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Toda una zona de Gotham se convierte en una prisión a cielo abierto llena de los villanos más icónicos del cómic — y te mueves por ella planeando de tejado en tejado como el propio Batman."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay identificando a un villano conocido en la calle. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El sistema de combate 'Freeflow' te deja encadenar golpes contra grupos enteros sin cortes, el modo detective te muestra pistas invisibles a simple vista, y los gadgets de Batman cambian según a qué villano te enfrentes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate encadenado contra varios enemigos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: mantener una racha de combate perfecta sin recibir ni un golpe, delante de todos vosotros."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando si se rompe la racha. <strong>🎬 Producción:</strong> SFX de fallo · BGM: caída breve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué villano de Batman te gustaría ver mejor tratado en un videojuego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El combate de esta saga sigue siendo la vara de medir — pocos juegos consiguen que sentirse 'imparable' no se vuelva aburrido."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un combate que se sigue sintiendo genial más de una década después — cierre perfecto de esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de las mejores combinaciones de combate. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu juego de Batman favorito de todos los tiempos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 12: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 17: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
