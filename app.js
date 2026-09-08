@@ -3094,6 +3094,21 @@
         summary: "Ni la propia actriz sabe todos los detalles — todo lo confirmado de verdad sobre el regreso de Steve Rogers y Peggy Carter.",
         thumbnail: "🛡️",
         internalView: "rf-steve-peggy-regreso", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real encontrada con WebSearch 2026-09-08: "VisionQuest"
+        // (Disney+, 14 oct 2026), miniserie de 8 episodios que cierra la
+        // trilogía WandaVision → Agatha Todo Menos Una Bruja → VisionQuest.
+        // Paul Bettany vuelve como Visión, James Spader como Ultrón,
+        // James D'Arcy (J.A.R.V.I.S.), Orla Brady (F.R.I.D.A.Y.),
+        // showrunner Terry Matalas (Star Trek: Picard).
+        title: "VisionQuest: la serie que cierra la trilogía de Visión llega en octubre",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "El regreso de Ultrón es la sorpresa que nadie esperaba — todo lo confirmado sobre la miniserie que cierra la historia de Visión.",
+        thumbnail: "🤖",
+        internalView: "rf-visionquest", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3472,7 +3487,8 @@
       'rf-doomsday-cruce-historico': '1G_lJhzzxBPCLk9JkquxJhswNz40rYHyL',
       'rf-vought-rising': '14pZaJo5X88hY40CpqCpgHiXDzI0nxq_C',
       'rf-endgame-encore': '14lPuLlFigoE1p78VISI7AMCRtCSMe9O0',
-      'rf-steve-peggy-regreso': '10TiDnuMTuZOJkTo7HiMTf44P9GMoQx4I'
+      'rf-steve-peggy-regreso': '10TiDnuMTuZOJkTo7HiMTf44P9GMoQx4I',
+      'rf-visionquest': '1nvGc9HoYeUNUJQ1kVljfhVAdaXoeN1tQ'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
