@@ -3051,6 +3051,20 @@
         summary: "Vengadores, X-Men, Thunderbolts y 4 Fantásticos, todos en la misma película por primera vez — qué hace tan arriesgada esta apuesta.",
         thumbnail: "⚡",
         internalView: "rf-doomsday-cruce-historico", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Noticia real encontrada con WebSearch 2026-09-08: precuela real
+        // "Vought Rising" (años 50, origen de Vought, Soldier Boy y
+        // Stormfront, 2027), cancelación real de Gen V tras 2 temporadas,
+        // y "The Boys: México" (versión en español, producción de Diego
+        // Luna) — sin spoilers del final de la T5 ya emitida.
+        title: "Vought Rising y las nuevas expansiones reales del universo The Boys",
+        saga: "boys",
+        type: "curiosidad",
+        date: "2026-09-08",
+        summary: "Una precuela ambientada en los 50, y una versión hecha en español en México — lo que se ha confirmado de verdad tras el final de la serie.",
+        thumbnail: "🩸",
+        internalView: "rf-vought-rising", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -3426,7 +3440,8 @@
       'rf-opinion-superheroes-sucios': '18cALvfcyRdkn7o8-bmwrFTR_Ti9lYf8l',
       'rf-nuevo-black-panther': '13mGiwKxV7ncCVhyJGQ9d3VBnEtzMbms9',
       'rf-ryan-gosling-ghost-rider': '1Q8QDiWqmqn-faW73joLGBRSpw34zJtFX',
-      'rf-doomsday-cruce-historico': '1G_lJhzzxBPCLk9JkquxJhswNz40rYHyL'
+      'rf-doomsday-cruce-historico': '1G_lJhzzxBPCLk9JkquxJhswNz40rYHyL',
+      'rf-vought-rising': '14pZaJo5X88hY40CpqCpgHiXDzI0nxq_C'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
