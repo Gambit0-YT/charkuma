@@ -9105,8 +9105,12 @@
         const panel = document.getElementById(`view-${item.view}`);
         return panel && panel.innerHTML.includes('AÑADIR OPINIÓN');
       }).length;
+      // Backlog Fase 2 #188 — cuántos de estos guiones ya tienen alguna
+      // foto/ilustración de contexto para el modo grabación (real o IA,
+      // cualquiera de las dos cuenta) frente a los que todavía no.
+      const withContextPhoto = items.filter(item => !!RECORDING_MODE_IMAGES[item.view]).length;
       countEl.textContent = items.length
-        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar${pendingOpinion ? ` — ${pendingOpinion} con la Opinión todavía sin escribir` : ''}.`
+        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar${pendingOpinion ? ` — ${pendingOpinion} con la Opinión todavía sin escribir` : ''} — ${withContextPhoto} de ${items.length} con foto de contexto.`
         : 'No hay guiones pendientes de grabar ahora mismo — todo lo aprobado ya está en edición o publicado.';
       listEl.innerHTML = items.map(item => {
         const rid = item.view;
@@ -9122,6 +9126,7 @@
               <div class="geek-badges">
                 <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
                 ${statusChip}
+                ${RECORDING_MODE_IMAGES[rid] ? `<span class="type-chip chip-neutral">🖼️ Con foto de contexto</span>` : ''}
                 ${recentlyUpdatedBadgeHTML(rid)}
               </div>
               <h4><a href="javascript:void(0)" onclick="showView('${rid}')">${item.title} ↗</a></h4>
