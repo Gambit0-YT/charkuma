@@ -5071,7 +5071,7 @@
         // escribirlo bien en cada crédito: badge visible + borde propio.
         figureEl.innerHTML = photos.map(p => `
           <figure class="recording-mode-figure-item${p.ai ? ' is-ai' : ''}">
-            <img class="recording-mode-image" src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}" onerror="handleContextPhotoLoadError(this)">
+            ${contextImageTagHTML(p, 'recording-mode-image')}
             <figcaption class="recording-mode-credit">${p.ai ? '🎨 Ilustración con IA — ' : ''}${escapeAttr(p.credit || '')}</figcaption>
           </figure>`).join('');
         figureEl.hidden = false;
@@ -5276,6 +5276,21 @@
     // o lista de grupos con `match`) y quita duplicados por URL, ya que
     // varios beats pueden reutilizar la misma foto (p.ej. Ryan Gosling
     // en Hook y también en el cruce de Doomsday).
+    // Backlog Fase 2 #164 — WebP con respaldo JPEG, ahora que hay Node/npm
+    // disponible (antes aparcado: este sistema no tenía ningún
+    // codificador WebP instalado). Solo aplica a las imágenes propias
+    // del repo (`context-img/*.jpg`, las 3 generadas con Gamma) — las
+    // fotos reales de Wikimedia son URLs externas que no controlamos,
+    // se quedan como estaban. Un <picture> con <source webp> + <img jpg>
+    // deja que el navegador elija solo, sin romper nada si algún
+    // navegador no soporta WebP.
+    function contextImageTagHTML(p, imgClass, imgStyle){
+      const isLocalJpg = /^context-img\/.+\.jpg$/i.test(p.url);
+      const imgTag = `<img class="${imgClass || ''}" src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}"${imgStyle ? ` style="${imgStyle}"` : ''} onerror="handleContextPhotoLoadError ? handleContextPhotoLoadError(this) : null">`;
+      if (!isLocalJpg) return imgTag;
+      const webpUrl = p.url.replace(/\.jpg$/i, '.webp');
+      return `<picture><source srcset="${escapeAttr(webpUrl)}" type="image/webp">${imgTag}</picture>`;
+    }
     function flattenContextPhotos(rid){
       const entries = RECORDING_MODE_IMAGES[rid];
       if (!entries) return [];
@@ -5304,7 +5319,7 @@
           <div class="recording-checklist-body" style="display:flex;flex-wrap:wrap;gap:12px">
             ${photos.map(p => `
               <figure style="margin:0;width:110px;text-align:center">
-                <img src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}" style="width:100%;height:110px;object-fit:cover;border-radius:10px;border:1px solid var(--line2)${p.ai ? ';border-style:dashed' : ''}">
+                ${contextImageTagHTML(p, '', `width:100%;height:110px;object-fit:cover;border-radius:10px;border:1px solid var(--line2)${p.ai ? ';border-style:dashed' : ''}`)}
                 <figcaption style="font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.3">${p.ai ? '🎨 ' : ''}${escapeAttr(p.credit || '')}</figcaption>
               </figure>`).join('')}
           </div>
