@@ -2644,6 +2644,35 @@
           </div>`;
       }
 
+      // Backlog/pedido explícito de Iván (9 sep): revelar también los
+      // días ya DECIDIDOS aunque el vídeo todavía no se haya grabado ni
+      // publicado — a sabiendas de que esto rompe la sorpresa del reto
+      // de cara a la audiencia real (se lo advertí antes de tocar esto,
+      // confirmó que lo quiere igualmente). Se etiqueta con honestidad
+      // como "decidido, sin grabar" — nunca como si ya estuviera
+      // publicado — y solo se enseña la identidad del juego (nombre,
+      // resumen, dificultad), NUNCA el guion completo con opiniones y
+      // chistes todavía sin grabar: eso se queda solo en la chuleta
+      // secreta, que es donde vive el guion de verdad.
+      const planned = plannedGames[day];
+      if (planned) {
+        return `
+          <div class="day-card planned">
+            <div class="day-thumb" data-game="${escapeAttr(planned.name)}">${planned.emoji || "📝"}</div>
+            <div class="day-info">
+              <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 📝 DECIDIDO (sin grabar)</div>
+              <h4><a href="${planned.steamUrl}" target="_blank" rel="noopener">${planned.name} ↗</a></h4>
+              <p>${planned.summary}</p>
+              <div class="day-meta">
+                <span class="diff-chip diff-${planned.difficulty}">${DIFF_LABELS[planned.difficulty] || planned.difficulty}</span>
+                ${planned.duration ? `<span class="diff-chip chip-neutral">⏱️ ${planned.duration}</span>` : ''}
+                ${planned.platform ? `<span class="diff-chip chip-neutral">${PLATFORM_LABELS[planned.platform] || planned.platform}</span>` : ''}
+              </div>
+              <p class="lock-note">Todavía sin grabar — el vídeo llegará más adelante.</p>
+            </div>
+          </div>`;
+      }
+
       const isNext = day === nextDay;
       return `
         <div class="day-card locked${isNext ? " next" : ""}">
@@ -2665,9 +2694,11 @@
         const start = day;
         const end = day + daysInMonth - 1;
         let monthUnlocked = 0;
+        let monthPlanned = 0;
         let cards = "";
         for (let d = start; d <= end; d++){
           if (completedGames[d]) monthUnlocked++;
+          else if (plannedGames[d]) monthPlanned++;
           cards += dayCardHTML(d);
         }
         const openAttr = (nextDay >= start && nextDay <= end) || i === 0 ? " open" : "";
@@ -2675,7 +2706,7 @@
           <details class="month"${openAttr}>
             <summary>
               <span>${name}</span>
-              <span class="count">${monthUnlocked} / ${daysInMonth} desbloqueados</span>
+              <span class="count">${monthUnlocked} / ${daysInMonth} desbloqueados${monthPlanned ? ` (+${monthPlanned} decididos)` : ''}</span>
             </summary>
             <div class="month-body">${cards}</div>
           </details>`;
@@ -2781,6 +2812,7 @@
         // Lunes = 0 ... domingo = 6 (getDay() da domingo = 0, lo rotamos)
         const leadingBlanks = (firstDate.getDay() + 6) % 7;
         const unlockedInMonth = entries.filter(e => completedGames[e.day]).length;
+        const plannedInMonth = entries.filter(e => !completedGames[e.day] && plannedGames[e.day]).length;
         const containsNext = entries.some(e => e.day === nextDay);
         const openAttr = (containsNext || !firstOpenDone) ? ' open' : '';
         if (containsNext || !firstOpenDone) firstOpenDone = true;
@@ -2789,19 +2821,21 @@
         for (let i = 0; i < leadingBlanks; i++) cells += `<div class="retro-cal-cell empty"></div>`;
         entries.forEach(({ day, date }) => {
           const game = completedGames[day];
+          const planned = !game && plannedGames[day];
           const isNext = day === nextDay;
-          const cls = game ? 'unlocked' : (isNext ? 'locked next' : 'locked');
+          const cls = game ? 'unlocked' : (planned ? 'planned' : (isNext ? 'locked next' : 'locked'));
           const title = game
             ? `Día ${day} · ${game.name}`
+            : planned ? `Día ${day} · ${planned.name} (decidido, sin grabar)`
             : (isNext ? `Día ${day} · próximo a publicarse` : `Día ${day} · todavía sin anunciar`);
-          cells += `<div class="retro-cal-cell ${cls}" title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${game ? (game.emoji || '🎮') : (isNext ? '🟠' : '🔒')}</div>`;
+          cells += `<div class="retro-cal-cell ${cls}" title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${game ? (game.emoji || '🎮') : planned ? (planned.emoji || '📝') : (isNext ? '🟠' : '🔒')}</div>`;
         });
 
         html += `
           <details class="month"${openAttr}>
             <summary>
               <span>${MONTH_NAMES[monthIdx]} ${year}</span>
-              <span class="count">${unlockedInMonth} / ${entries.length} desbloqueados</span>
+              <span class="count">${unlockedInMonth} / ${entries.length} desbloqueados${plannedInMonth ? ` (+${plannedInMonth} decididos)` : ''}</span>
             </summary>
             <div class="retro-cal-grid">${cells}</div>
           </details>`;
@@ -3268,7 +3302,10 @@
               ${planned.script ? `
                 <details class="month" style="margin-top:12px">
                   <summary><span>✍️ Guion</span><span class="count">ver</span></summary>
-                  <div class="month-body">${planned.script}</div>
+                  <div class="month-body">
+                    <div class="panel">${planned.script}</div>
+                    <button type="button" class="btn btn-secondary" style="margin-top:12px" onclick="openRecordingMode('retro-day-${day}', this)">🖥️ Modo grabación</button>
+                  </div>
                 </details>` : ''}
             </div>
             <button type="button" class="idea-discard-btn" onclick="toggleIdeaDiscard('${RETRO_PLANNED_BANK}','${id}')">${s.discarded ? '↩️ Restaurar' : '🗑️ Descartar'}</button>
@@ -5004,9 +5041,18 @@
         }]
       }
     };
-    function openRecordingMode(rid){
-      const active = document.querySelector('.app-view.active');
-      const panel = findGuionPanel(active);
+    function openRecordingMode(rid, triggerEl){
+      // `triggerEl` (el propio botón pulsado) es opcional y solo hace
+      // falta en páginas con MÁS DE UN guion en la misma vista activa —
+      // la chuleta secreta de Retro 365 mete los 37 días decididos en
+      // una sola vista, así que sin esto findGuionPanel() cogería
+      // siempre el primer "✍️ Guion" del DOM sin importar qué día se
+      // pulsó. Con triggerEl, se busca solo dentro de la tarjeta del
+      // día concreto (.day-card) en vez de en toda la vista activa. Las
+      // llamadas de siempre (guiones de Rincón del Friki, uno por
+      // vista) no pasan este parámetro y siguen funcionando igual.
+      const scope = triggerEl ? triggerEl.closest('.day-card') : document.querySelector('.app-view.active');
+      const panel = findGuionPanel(scope);
       if (!panel) { alert('No he encontrado el guion de esta página.'); return; }
       recordingModeRid = rid;
       // Un paso del teleprompter por CADA frase de narración (no por
