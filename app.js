@@ -4985,6 +4985,18 @@
     function closeRecordingMode(){
       document.getElementById('recordingModeOverlay').hidden = true;
     }
+    // Backlog Fase 2 #193 — aquí sí importa que se note si una foto de
+    // contexto falla (Wikimedia cambia de dominio, borra el archivo...):
+    // el listener global de #159 la ocultaría en silencio como con
+    // cualquier otra imagen decorativa del sitio, pero aquí el hueco
+    // vacío puede confundir más que ayudar. Este handler específico del
+    // <img> (fase de "target", se ejecuta después del listener global de
+    // captura) sustituye la propia figura por un aviso claro.
+    function handleContextPhotoLoadError(imgEl){
+      const figure = imgEl.closest('.recording-mode-figure-item');
+      if (!figure) return;
+      figure.innerHTML = '<p class="recording-mode-credit">⚠️ No se pudo cargar esta foto (puede que la URL haya cambiado)</p>';
+    }
     function renderRecordingModeStep(){
       const beat = recordingModeBeats[recordingModeIndex];
       document.getElementById('recordingModeHeading').textContent = beat.heading;
@@ -5018,7 +5030,7 @@
         // escribirlo bien en cada crédito: badge visible + borde propio.
         figureEl.innerHTML = photos.map(p => `
           <figure class="recording-mode-figure-item${p.ai ? ' is-ai' : ''}">
-            <img class="recording-mode-image" src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}">
+            <img class="recording-mode-image" src="${escapeAttr(p.url)}" alt="${escapeAttr(p.alt || '')}" onerror="handleContextPhotoLoadError(this)">
             <figcaption class="recording-mode-credit">${p.ai ? '🎨 Ilustración con IA — ' : ''}${escapeAttr(p.credit || '')}</figcaption>
           </figure>`).join('');
         figureEl.hidden = false;
