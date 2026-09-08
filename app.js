@@ -4875,7 +4875,9 @@
       'rf-visionquest': {
         'Desarrollo': [
           { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Paul_Bettany_by_Gage_Skidmore.jpg/500px-Paul_Bettany_by_Gage_Skidmore.jpg', alt: 'Paul Bettany', credit: 'Paul Bettany — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/James_Spader_by_Gage_Skidmore.jpg/500px-James_Spader_by_Gage_Skidmore.jpg', alt: 'James Spader', credit: 'James Spader — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/James_Spader_by_Gage_Skidmore.jpg/500px-James_Spader_by_Gage_Skidmore.jpg', alt: 'James Spader', credit: 'James Spader — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/James_D%27Arcy.jpg/500px-James_D%27Arcy.jpg', alt: 'James D\'Arcy', credit: 'James D\'Arcy — Foto: Eric Houdas, CC BY-SA 4.0 (Wikimedia Commons)' },
+          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Orla_Brady_2020_1.jpg/500px-Orla_Brady_2020_1.jpg', alt: 'Orla Brady', credit: 'Orla Brady — Foto: Virgin Media Dublin International Film Festival, CC BY 3.0 (Wikimedia Commons)' }
         ]
       },
       // El propio guion ya pedía "foto/clip del actor" en sus notas de
