@@ -5015,6 +5015,45 @@
       recordingModeIndex = Math.max(0, Math.min(recordingModeBeats.length - 1, recordingModeIndex + delta));
       renderRecordingModeStep();
     }
+    // Backlog Fase 2 #161 — QA de las fotos de contexto: comprueba que
+    // cada `key` de RECORDING_MODE_IMAGES coincide con un heading real
+    // de ese guion (el bug real que encontramos con `rf-fancast-wolverine`
+    // — su "Desarrollo" era una lista sin narración, así que la key nunca
+    // llegaba a mostrarse). Se ejecuta a mano desde la consola cuando se
+    // toquen guiones o fotos: `await qaCheckContextImages()`. No corre
+    // sola ni bloquea nada — es una herramienta de mantenimiento, no una
+    // validación en caliente.
+    async function qaCheckContextImages(){
+      const activeBefore = document.querySelector('.app-view.active');
+      const report = {};
+      for (const rid of Object.keys(RECORDING_MODE_IMAGES)) {
+        const panelView = document.getElementById(`view-${rid}`);
+        if (!panelView) { report[rid] = ['La vista view-' + rid + ' no existe en el DOM']; continue; }
+        showView(rid);
+        openRecordingMode(rid);
+        if (!recordingModeBeats.length) { report[rid] = ['No se pudo abrir el modo grabación (sin narración "🎙️ Off")']; closeRecordingMode(); continue; }
+        const realHeadings = recordingModeBeats.map(b => b.heading);
+        const problems = [];
+        Object.keys(RECORDING_MODE_IMAGES[rid]).forEach(key => {
+          if (!realHeadings.some(h => h.includes(key))) {
+            problems.push(`La key "${key}" no coincide con ningún heading real (headings: ${realHeadings.join(' | ')})`);
+          }
+        });
+        let anyShown = false;
+        for (let i = 0; i < recordingModeBeats.length; i++) {
+          recordingModeIndex = i;
+          renderRecordingModeStep();
+          if (!document.getElementById('recordingModeFigure').hidden) anyShown = true;
+        }
+        if (!anyShown) problems.push('Ninguna foto configurada llega a mostrarse en ningún paso real');
+        if (problems.length) report[rid] = problems;
+        closeRecordingMode();
+      }
+      if (activeBefore) showView(activeBefore.id.replace('view-', ''));
+      const ok = Object.keys(report).length === 0;
+      console.log(ok ? `✅ QA fotos de contexto: sin problemas (${Object.keys(RECORDING_MODE_IMAGES).length} guiones revisados).` : '⚠️ QA fotos de contexto: problemas encontrados', report);
+      return report;
+    }
     document.addEventListener('keydown', (e) => {
       const overlay = document.getElementById('recordingModeOverlay');
       if (!overlay || overlay.hidden) return;
