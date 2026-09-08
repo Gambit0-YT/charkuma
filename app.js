@@ -2410,8 +2410,169 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cuál es tu Call of Duty favorito de todos los tiempos? Dímelo en comentarios, que seguro que hay debate."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      // Séptima tanda (mismo `/loop`, tick siguiente): días 37-41.
+      37: {
+        name: "Grand Theft Auto V",
+        summary: "Tres protagonistas, una ciudad entera para hacer el gamberro, y el juego más vendido de la historia sin discusión seria.",
+        difficulty: "media",
+        emoji: "💵",
+        steamUrl: "https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_Enhanced/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 37 de Retro 365, y hoy juego con tres protagonistas a la vez, cambiando entre ellos en cualquier momento. Bienvenidos a GTA V."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay cambiando de personaje con la rueda de selección. <strong>🎬 Producción:</strong> SFX de cambio de personaje · corte duro · BGM: sting corto, urbano</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El juego más vendido de la historia sin discusión seria — hoy os cuento por qué tener tres protagonistas a la vez cambió el diseño de las misiones para siempre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 037 · GTA V" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Michael, Franklin y Trevor son tres criminales con motivaciones y personalidades totalmente distintas, y muchas misiones te dejan cambiar entre ellos a mitad de un atraco para controlar partes distintas del plan."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un atraco cambiando de perspectiva. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los golpes grandes se planifican con distintos enfoques posibles, el mapa es enorme sin sentirse vacío, y el modo online lleva más de una década recibiendo contenido nuevo sin parar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado — conducción, tiroteo, exploración. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: completar el golpe de hoy con el enfoque más silencioso posible, sin que salte ninguna alarma."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando si salta la alarma. <strong>🎬 Producción:</strong> SFX de alarma si falla · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de los tres protagonistas te cae mejor, y por qué?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Trevor sigue siendo el más memorable de los tres para mí — es el que menos filtro tiene, y eso hace que cada misión suya se sienta impredecible de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Más de una década después y el modo online sigue vivo — pocos juegos aguantan tanto tiempo en lo más alto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del golpe completado. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sigues jugando el online de este juego? Cuéntame en comentarios qué tal está ahora mismo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      38: {
+        name: "Dark Souls II",
+        summary: "El Souls más incomprendido de la saga — más difícil de entender que de jugar, y con una comunidad que lo defiende con uñas y dientes.",
+        difficulty: "dificil",
+        emoji: "💀",
+        steamUrl: "https://store.steampowered.com/app/236430/DARK_SOULS_II/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 38 de Retro 365, y hoy toca el Souls que más discusiones genera entre sus propios fans. Bienvenidos a Dark Souls II."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una muerte contra un enemigo. <strong>🎬 Producción:</strong> SFX de muerte del juego · corte duro · BGM: sting corto, oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El Souls más incomprendido de la saga, para bien y para mal — hoy os cuento por qué merece una segunda oportunidad si lo descartaste hace años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 038 · DARK SOULS II" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un No-Muerto más busca respuestas sobre su maldición en Drangleic, un reino en decadencia — la fórmula base es la misma que el resto de Souls, pero con decisiones de diseño que dividieron a la comunidad desde el primer día."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona nueva de Drangleic. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Tiene más builds de armas y hechizos que ningún otro Souls, morir demasiadas veces reduce tu vida máxima de forma temporal, y algunas zonas se atrevieron a diseños que nunca se habían visto antes en la saga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay probando 2 builds distintas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: ¿cuántos intentos me lleva hoy pasar de esta zona en concreto, con la vida ya reducida por morir antes?"</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿tú estás en el bando que defiende este Souls, o en el que lo considera el más flojo de la saga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece que se le juzgó muy duro en su momento solo por no ser una copia exacta del primero — visto con perspectiva, se atrevió a probar cosas que el resto de la saga no hizo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Divisivo, sí — pero con razones reales para defenderlo. El reto más debatido de esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap rápido de los intentos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu Souls favorito de la saga completa? Prepárate para el debate en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      39: {
+        name: "Disco Elysium - The Final Cut",
+        summary: "Un detective con amnesia total, cero combate, y las conversaciones más profundas jamás escritas para un videojuego.",
+        difficulty: "media",
+        emoji: "🕵️",
+        steamUrl: "https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 39 de Retro 365, y hoy me despierto sin recordar ni mi propio nombre, con una corbata en el ventilador y un caso de asesinato que resolver. Bienvenidos a Disco Elysium."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay del despertar inicial del detective. <strong>🎬 Producción:</strong> SFX ambiental melancólico · corte duro · BGM: sting corto, jazz decadente</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Cero combate, cientos de miles de palabras de diálogo, y una de las escrituras más elogiadas de la historia de los videojuegos — hoy os cuento por qué merece la pena a pesar de no tener ni una sola pelea."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 039 · DISCO ELYSIUM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, jazz</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres un detective con amnesia total investigando un asesinato en una ciudad en ruinas política — y tus propias habilidades mentales te hablan directamente, a veces para ayudarte, a veces para sabotearte."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una habilidad mental "hablando" en un diálogo interno. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada tirada de dado puede fallar de formas hilarantes o devastadoras, tu propia personalidad se construye según qué habilidades potencias, y prácticamente cada NPC de la ciudad tiene una conversación real y profunda esperando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una tirada de dado fallida con consecuencias. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión de personalidad importante, sin pensarla de más, tal y como me saldría de forma natural."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando justo tras decidir. <strong>🎬 Producción:</strong> sin SFX, silencio breve · BGM: baja del todo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tipo de detective serías tú — el que sigue las pistas con lógica fría, o el que se deja llevar por el caos?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Que un juego sin combate consiga engancharte tanto solo con diálogo dice mucho de lo bien escrito que está — pocos RPG se atreven a apostarlo todo a la escritura de esta forma."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Sin una sola pelea, y aun así de lo más intenso que hemos tocado en Retro 365 — la escritura como protagonista absoluta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones/diálogos memorables. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ya jugaste este juego? Cuéntame en comentarios qué habilidad mental te dio más problemas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      40: {
+        name: "Overwatch",
+        summary: "Shooter de héroes por equipos donde saber cuándo cambiar de personaje pesa tanto como saber apuntar.",
+        difficulty: "media",
+        emoji: "🦸",
+        steamUrl: "https://store.steampowered.com/app/2357570/Overwatch/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 40 de Retro 365, y hoy el enemigo más peligroso no es el que dispara mejor, es el que cambia de personaje en el momento justo. Bienvenidos a Overwatch."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay cambiando de héroe a mitad de partida. <strong>🎬 Producción:</strong> SFX de cambio de héroe · corte duro · BGM: sting corto, heroico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter de héroes por equipos donde saber cuándo cambiar pesa tanto como saber apuntar — hoy os cuento por qué su diseño de personajes sigue siendo un referente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 040 · OVERWATCH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Cada héroe tiene un rol claro — daño, tanque o soporte — y cada uno se juega de forma radicalmente distinta, desde francotiradores hasta sanadores que también pueden hacer bastante daño si hace falta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando 3 roles distintos en la misma partida. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La composición de equipo importa más que la habilidad individual muchas veces, cada mapa favorece a ciertos héroes sobre otros, y las habilidades definitivas bien coordinadas pueden ganar un combate de equipo entero de golpe."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de una habilidad definitiva coordinada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca el reto en directo: leer la composición del equipo rival y cambiar de héroe para contrarrestarla, en tiempo real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la composición rival. <strong>🎬 Producción:</strong> SFX de cambio de héroe · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu héroe principal, y cuál te cuesta más jugar en contra?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo que más me gusta del diseño es que casi cualquier héroe puede ser el más importante de la partida si sabes cuándo usarlo — no hay uno solo que se sienta relleno."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Trabajo en equipo por encima de la puntería individual — el shooter más táctico que hemos tocado en esta tanda."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de las mejores jugadas de equipo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu héroe favorito de todo el roster? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      41: {
+        name: "NieR:Automata",
+        summary: "Androides peleando la guerra de la humanidad contra máquinas — con varios finales que cambian por completo lo que crees que es el juego.",
+        difficulty: "media",
+        emoji: "🤖",
+        steamUrl: "https://store.steampowered.com/app/524220/NieRAutomata/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 41 de Retro 365, y hoy soy una androide luchando la guerra de la humanidad contra máquinas — y os prometo que este juego no es lo que parece al principio. Bienvenidos a NieR:Automata."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de combate estiloso contra máquinas. <strong>🎬 Producción:</strong> SFX de combate del juego · corte duro · BGM: sting corto, melancólico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de acción con varios finales que cambian por completo lo que crees que estás jugando — hoy os cuento por qué terminarlo una sola vez es no haberlo terminado de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 041 · NIER:AUTOMATA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, melancólico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "2B y 9S son androides luchando por lo que queda de la humanidad contra un ejército de máquinas — pero cuanto más avanzas, más preguntas reales sobre la propia guerra empiezan a aparecer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las ruinas de una ciudad. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate mezcla espada cuerpo a cuerpo con disparos tipo bullet-hell de tu dron acompañante, la cámara cambia de perspectiva constantemente sin avisar, y el final 'A' es solo el principio real de la historia completa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay con un cambio de perspectiva de cámara real. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate contra una máquina jefe, sin saber muy bien qué mecánica nueva me va a sorprender esta vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a una mecánica sorpresa del jefe. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: sin destripar nada, ¿tienes pensado sacar todos los finales, o te conformas con el primero?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Parar en el primer final de este juego es perderse literalmente la mitad de lo que lo hace especial — merece la pena aguantar hasta el final de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Acción estilosa con una de las estructuras narrativas más originales que existen — cierre de esta séptima tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates jugados. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "Sin spoilers grandes: ¿por qué final te quedas tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 37: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 42: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     const DIFF_LABELS = {
