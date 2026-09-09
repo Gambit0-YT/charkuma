@@ -1130,6 +1130,9 @@
       if (id === 'ct-generador-voz' && typeof populateVozGuionSelect === 'function') {
         try { populateVozGuionSelect(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'detras-camaras' && typeof renderPhotoCreditsPage === 'function') {
+        try { renderPhotoCreditsPage(); } catch (e) { /* ver comentario arriba */ }
+      }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -5704,6 +5707,38 @@
         if (i < photos.length - 1) await new Promise(r => setTimeout(r, 350));
       }
       if (fail) alert(`Descargadas ${ok} de ${photos.length} fotos — ${fail} no se pudieron descargar (revisa la consola).`);
+    }
+    // Backlog #157 — créditos fotográficos consolidados, en la página
+    // "Detrás de cámaras". Recorre TODOS los rid de RECORDING_MODE_IMAGES
+    // (Rincón del Friki + Retro 365) y agrupa por URL real — si la misma
+    // foto se reutiliza en varios guiones (pasa con algunos actores),
+    // sale una sola vez con la lista de dónde aparece, no repetida.
+    // Nunca una lista mantenida a mano aparte: sale siempre de los
+    // mismos datos reales que ya usa el modo grabación.
+    function renderPhotoCreditsPage(){
+      const summaryEl = document.getElementById('photoCreditsSummary');
+      const listEl = document.getElementById('photoCreditsList');
+      if (!summaryEl || !listEl) return;
+      const byUrl = new Map();
+      Object.keys(RECORDING_MODE_IMAGES).forEach(rid => {
+        flattenContextPhotos(rid).forEach(p => {
+          if (!byUrl.has(p.url)) byUrl.set(p.url, { ...p, rids: [] });
+          byUrl.get(p.url).rids.push(rid);
+        });
+      });
+      const all = [...byUrl.values()];
+      const real = all.filter(p => !p.ai);
+      const ai = all.filter(p => p.ai);
+      summaryEl.textContent = `${all.length} fotos de contexto en total — ${real.length} reales con licencia verificada, ${ai.length} ilustraciones con IA (sin licencia externa, prompt propio).`;
+      const cardHTML = p => `
+        <div class="note" style="margin:0;display:flex;gap:10px;align-items:flex-start">
+          ${contextImageTagHTML(p, '', `width:64px;height:64px;object-fit:cover;border-radius:8px;flex:none;border:1px solid var(--line2)${p.ai ? ';border-style:dashed' : ''}`)}
+          <div style="min-width:0">
+            <p style="margin:0;font-size:12px;line-height:1.4">${p.ai ? '🎨 ' : ''}${escapeAttr(p.credit || '')}</p>
+            <p style="margin:4px 0 0;font-size:10.5px;color:var(--muted)">Usada en ${p.rids.length} guion${p.rids.length === 1 ? '' : 'es'}</p>
+          </div>
+        </div>`;
+      listEl.innerHTML = all.map(cardHTML).join('');
     }
     function contextPhotosPreviewHTML(rid){
       const photos = flattenContextPhotos(rid);

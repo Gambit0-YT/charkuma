@@ -2547,6 +2547,21 @@
             </div>
           </div>
 
+          <!-- Backlog #157 — todas las licencias CC/atribuciones de las
+               fotos de contexto reales, en un solo sitio, en vez de
+               tener que abrir guion por guion para verlas. Rellenado
+               por JS (renderPhotoCreditsPage) a partir de los mismos
+               datos reales de RECORDING_MODE_IMAGES que ya usa el modo
+               grabación — nunca una lista aparte que se pueda
+               desincronizar. -->
+          <h3 class="subheading" style="margin-top:40px">📸 Créditos fotográficos</h3>
+          <p style="color:var(--muted);margin-bottom:16px;max-width:760px">
+            Todas las fotos reales usadas en el modo grabación, con su licencia y autor —
+            reunidas aquí para no tener que ir guion por guion.
+          </p>
+          <div id="photoCreditsSummary" class="yt-empty" style="margin-bottom:14px"></div>
+          <div id="photoCreditsList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px"></div>
+
           <h3 class="subheading" style="margin-top:40px">🪵 Diario de construcción de la web</h3>
           <p style="color:var(--muted);margin-bottom:20px;max-width:760px">
             Un registro real de cómo se ha ido construyendo esta web, sesión a sesión.
