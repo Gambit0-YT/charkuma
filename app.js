@@ -5121,6 +5121,15 @@
           { match: 'Hayley Atwell vuelve', photos: [{
             url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Hayley_Atwell_by_Gage_Skidmore.jpg/500px-Hayley_Atwell_by_Gage_Skidmore.jpg', alt: 'Hayley Atwell', credit: 'Hayley Atwell — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
           }] }
+        ],
+        // Ampliado 9 sep (prioridad de Iván: fotos en guiones ya
+        // escritos): el Desarrollo era una sola frase larga combinando 3
+        // ideas — dividida en 3 frases sueltas, y la que cita a Atwell
+        // reutiliza su misma foto ya verificada (sin buscar una nueva).
+        'Desarrollo': [
+          { match: 'propia Atwell lo explicó', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Hayley_Atwell_by_Gage_Skidmore.jpg/500px-Hayley_Atwell_by_Gage_Skidmore.jpg', alt: 'Hayley Atwell', credit: 'Hayley Atwell — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+          }] }
         ]
       },
       // Ampliado 9 sep (foto por frase): la frase de la trama (sin
