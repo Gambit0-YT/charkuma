@@ -365,6 +365,27 @@
       if (!panel) return;
       panel.hidden = !panel.hidden;
       if (!panel.hidden && typeof renderAchievements === 'function') renderAchievements();
+      if (!panel.hidden && typeof renderAiCreditLog === 'function') renderAiCreditLog();
+    }
+
+    // Backlog #169 — créditos IA gastados: gasto REAL, registrado a mano
+    // por Claude cada vez que gasta créditos de verdad (mismo criterio
+    // que las constantes VIDIQ_* — foto de un hecho real, no un
+    // contador en vivo). Empieza el 9 sept 2026.
+    const AI_CREDIT_LOG = [
+      { date: '2026-09-08', service: 'Gamma', amount: 140, reason: 'Ilustraciones de escena para los 2 guiones que se quedaron sin ninguna foto real disponible (rf-opinion-superheroes-sucios, rf-curiosidades-spiderman) — saldo pasó de 190 a 50 créditos.' }
+    ];
+    function renderAiCreditLog(){
+      const el = document.getElementById('aiCreditLogList');
+      if (!el) return;
+      if (!AI_CREDIT_LOG.length) { el.innerHTML = '<p class="yt-empty">Sin gasto registrado todavía.</p>'; return; }
+      const total = AI_CREDIT_LOG.reduce((sum, e) => sum + e.amount, 0);
+      el.innerHTML = `<p class="yt-empty" style="margin:0 0 8px">${total} créditos gastados en total desde que se registra.</p>` +
+        AI_CREDIT_LOG.slice().reverse().map(e => `
+          <div class="note" style="margin:0 0 8px">
+            <strong>${escapeAttr(e.date)} · ${escapeAttr(e.service)} · ${e.amount} créditos</strong>
+            <p style="margin:4px 0 0">${escapeAttr(e.reason)}</p>
+          </div>`).join('');
     }
 
     // Backlog #89 — menú hamburguesa en móvil: por debajo de 900px los
