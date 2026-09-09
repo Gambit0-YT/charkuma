@@ -2114,7 +2114,6 @@
               <div class="template-head"><span class="type-chip chip-purple">🎮 Gaming</span></div>
               <ul class="sitemap-links">
                 <li><a href="javascript:void(0)" onclick="showView('helquidgames')">HELQUIDGAMES</a></li>
-                <li><a href="javascript:void(0)" onclick="showView('helquid-game-match')">🃏 Game Match</a></li>
                 <li><a href="javascript:void(0)" onclick="showView('helquid-draft-arena')">⚔️ Draft Arena</a></li>
                 <li><a href="javascript:void(0)" onclick="showView('calcarte')">🧮 CalcArte</a></li>
                 <li><a href="javascript:void(0)" onclick="showView('retro365')">Retro 365</a></li>
@@ -5947,15 +5946,8 @@
               <p>La tragaperra de los retos imposibles: tira de la palanca, saca personaje + acción, genera la imagen con IA y cálcala.</p>
             </a>
 
-            <a class="project reveal" href="javascript:void(0)" onclick="showView('helquid-game-match')">
-              <div class="num">JUEGO 003</div>
-              <div class="open">↗</div>
-              <h3>🔥 GAME MATCH</h3>
-              <p>Estilo Tinder para elegir qué juegos entran en Retro 365 — 417 juegos reales listos, sin pegar nada.</p>
-            </a>
-
             <a class="project orange reveal" href="javascript:void(0)" onclick="showView('helquid-draft-arena')">
-              <div class="num">JUEGO 004 · CONCEPTO</div>
+              <div class="num">JUEGO 003 · CONCEPTO</div>
               <div class="open">↗</div>
               <h3>🎴 DRAFT ARENA</h3>
               <p>El próximo en la lista: draft para 2 jugadores en el mismo dispositivo, turnos alternos eligiendo de una pool compartida.</p>
@@ -5971,72 +5963,30 @@
       </section>
     </div>
 
-    <!-- ══════════ HELQUIDGAMES · Game Match ══════════ -->
+    <!-- ══════════ HELQUIDGAMES · Game Match (RETIRADO 9 sep) ══════════
+         Pedido explícito de Iván: los juegos del reto ya están confirmados,
+         así que la herramienta de swipe ya no hace falta — "cancelar el
+         juego y eliminarlo". Se sustituye el mazo interactivo por este
+         cierre honesto en vez de borrar toda la vista (menos riesgo que
+         desmontar 30+ referencias cruzadas de código por una herramienta
+         que ya no se usa). Nada enlaza ya aquí (menú, tarjeta de
+         proyecto y mapa del sitio quitados) — solo queda por si alguien
+         llega con un enlace guardado antiguo. -->
     <div id="view-helquid-game-match" class="app-view">
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
-          <div class="section-kicker">HELQUIDGAMES · JUEGO 003</div>
+          <div class="section-kicker">HELQUIDGAMES</div>
           <h2 class="section-title">🔥 GAME MATCH</h2>
-          <p class="section-sub">
-            Estilo Tinder, pero para elegir qué juegos entran en <strong>Retro 365</strong>
-            en vez de una pareja. Desliza la tarjeta (o usa los botones): ❤️ para
-            quedártelo como candidato a futuro día, ✖️ para descartarlo. Lo que te quedes
-            se guarda en tu "preselección" — desde ahí decides luego qué día exacto le
-            toca a cada uno. La primera vez se carga solo el catálogo de 417 juegos
-            reales (PC, móvil y Nintendo, bien valorados desde 2005) — no hace falta
-            pegar nada. Si alguna vez te lo acabas, el botón "📚 Cargar catálogo
-            completo" te lo vuelve a poner entero.
-          </p>
+          <p class="section-sub">Ya no está en uso.</p>
         </div>
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="swipe-deck-panel">
-            <div class="json-import-panel">
-              <h4>📥 Añadir más candidatos (opcional)</h4>
-              <p>Si quieres meter juegos concretos que no estén en el catálogo, pega aquí tu JSON: un array con <code>{"name","summary","difficulty","emoji","steamUrl","videoUrl"}</code> (difficulty: facil/media/dificil/muydificil). <code>videoUrl</code> es opcional — si no lo pones, cada tarjeta te enlaza directamente a una búsqueda de gameplay en YouTube.</p>
-              <textarea id="swipeJsonImport" rows="6" placeholder='[{"name":"...", "summary":"...", "difficulty":"media", "emoji":"🎮", "steamUrl":"...", "videoUrl":"..."}]'></textarea>
-              <div class="json-import-actions">
-                <button type="button" class="btn btn-primary" onclick="importSwipeCandidates()">➕ Cargar candidatos</button>
-                <button type="button" class="btn btn-secondary" onclick="loadFullCatalogIntoDeck()">📚 Cargar catálogo completo (417 juegos reales)</button>
-                <button type="button" class="btn btn-secondary" onclick="resetSwipeDeck()">🔄 Reiniciar mazo</button>
-                <p id="swipeImportStatus" class="yt-empty" style="margin:0"></p>
-              </div>
-            </div>
-
-            <div class="swipe-stage" id="swipeStage">
-              <p class="yt-empty">Pega tu JSON arriba para empezar a elegir.</p>
-            </div>
-
-            <div class="swipe-controls" id="swipeControls" hidden>
-              <button type="button" class="swipe-btn swipe-pass" onclick="swipeDecision('pass')" title="Descartar" aria-label="Descartar este candidato">✖️</button>
-              <span class="swipe-counter" id="swipeCounter"></span>
-              <button type="button" class="swipe-btn swipe-like" onclick="swipeDecision('like')" title="Me gusta" aria-label="Me gusta este candidato">❤️</button>
-            </div>
-            <p class="yt-empty swipe-keyboard-hint" id="swipeKeyboardHint" hidden>⌨️ También puedes usar ← Paso y → Me gusta</p>
-
-            <div class="swipe-random-row" id="swipeRandomRow" hidden>
-              <select id="swipeRandomDifficulty" title="Dificultad a buscar">
-                <option value="">🎲 Cualquier dificultad</option>
-                <option value="facil">🟢 Fácil</option>
-                <option value="media">🟡 Media</option>
-                <option value="dificil">🔴 Difícil</option>
-                <option value="muydificil">🟣 Muy difícil</option>
-              </select>
-              <button type="button" class="btn btn-secondary" onclick="swipeRandomByDifficulty()">🎲 Salta a uno al azar de esa dificultad</button>
-            </div>
-
-            <details class="month discarded-panel" id="swipeShortlistPanel" style="margin-top:16px" hidden>
-              <summary>
-                <span>❤️ Preseleccionados</span>
-                <span class="count" id="swipeShortlistCount">0</span>
-              </summary>
-              <div class="month-body" id="swipeShortlistList"></div>
-              <div class="json-import-actions" style="padding:0 18px 16px">
-                <button type="button" class="btn btn-secondary" onclick="exportSwipeShortlist()">📋 Copiar preselección (JSON)</button>
-              </div>
-            </details>
+          <div class="panel">
+            <h3>Por qué</h3>
+            <p>Game Match sirvió para decidir, uno a uno, qué juegos entraban en el reto de Retro 365. Esa decisión ya está tomada — los juegos del reto están confirmados — así que la herramienta se retira.</p>
+            <p><a href="javascript:void(0)" onclick="showView('retro365')">Ver Retro 365 →</a></p>
           </div>
         </div>
       </section>

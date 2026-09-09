@@ -1162,13 +1162,8 @@
       if (id === 'idea-swipe' && typeof renderIdeaSwipeStage === 'function') {
         try { renderIdeaSwipeStage(); } catch (e) { /* ver comentario arriba */ }
       }
-      // "Game Match" (el mazo Tinder de candidatos de Retro 365) es ahora
-      // un juego más de HELQUIDGAMES, con su propia página — hay que
-      // refrescarlo cada vez que se entra aquí.
-      if (id === 'helquid-game-match' && typeof renderSwipeDeck === 'function') {
-        try { renderSwipeDeck(); } catch (e) { /* ver comentario arriba */ }
-        if (typeof autoSeedCatalogIfNeeded === 'function') autoSeedCatalogIfNeeded();
-      }
+      // Game Match retirado 9 sep (ver vista view-helquid-game-match) —
+      // ya no hace falta refrescar su mazo al entrar.
       if (id === 'notif-inbox' && typeof renderNotifInbox === 'function') {
         try { renderNotifInbox(); } catch (e) { /* ver comentario arriba */ }
       }
@@ -3441,27 +3436,14 @@
     }
     IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
 
-    // Backlog #116 — "sugerencia automática del próximo juego de Retro
-    // 365", con la restricción explícita del usuario: SOLO sugerir,
-    // nunca decidir (los 365 días siguen congelados hasta que termine
-    // su propio swipe, igual que #1). Esto NO elige un juego — solo
-    // señala qué día está libre y recuerda que hay preselección
-    // esperando en Game Match, para que el usuario decida él mismo cuál.
+    // Backlog #116, retirado 9 sep junto con Game Match: Iván confirmó que
+    // los juegos del reto ya están decididos, así que ya no tiene sentido
+    // avisar de "preselección esperando en Game Match" (la herramienta ya
+    // no existe). Se deja la función (no la borro, por si algún día vuelve
+    // a hacer falta un mecanismo similar) pero siempre oculta.
     function renderRetroNextDaySuggestion(){
       const el = document.getElementById('retroNextSuggestion');
-      if (!el) return;
-      const extra = loadExtraPlannedGames();
-      let nextFree = null;
-      for (let d = 1; d <= totalDays; d++){
-        if (completedGames[d] || plannedGames[d] || extra[d]) continue;
-        nextFree = d;
-        break;
-      }
-      const shortlistCount = loadSwipeShortlist().length;
-      if (!nextFree || !shortlistCount) { el.hidden = true; return; }
-      el.hidden = false;
-      el.innerHTML = `💡 El día <strong>${nextFree}</strong> todavía está libre, y tienes <strong>${shortlistCount}</strong> juego(s) en tu preselección de
-        <a href="javascript:void(0)" onclick="showView('helquid-game-match')">Game Match</a> — elige tú cuál le pega, esto solo te avisa de que hay hueco.`;
+      if (el) el.hidden = true;
     }
 
     // ──────────────────────────────────────────────────────────
@@ -10656,12 +10638,6 @@
     // array (no solo "ocultarlo") cuando ya esté resuelto.
     const HELP_NEEDED_ITEMS = [
       {
-        id: 'retro365-swipe', num: '#1',
-        title: 'Terminar de decidir los 365 días de Retro 365',
-        why: 'Llevas un tiempo sin terminar el swipe de "Game Match" — mientras no esté completo, no puedo escribir guiones de los días que faltan ni cerrar del todo esa sección.',
-        type: 'text', placeholder: '¿Ya lo terminaste? ¿Te lo recuerdo, o lo dejamos parado por ahora?'
-      },
-      {
         id: 'video-url-real', num: '#20 · #84 · #180 · #247',
         title: 'El enlace real de un vídeo tuyo ya publicado',
         why: 'Cuatro tareas distintas (subtítulos, datos SEO por vídeo, respuestas a comentarios) están paradas por lo mismo: ningún guion tiene todavía el enlace real de un vídeo que hayas subido de verdad. Con uno solo, las cuatro se desbloquean a la vez.',
@@ -10697,12 +10673,6 @@
         why: 'Igual que las claves API — revisión preventiva, sin ninguna señal de problema real.',
         type: 'choice', options: ['Sí, revísalo', 'No, déjalo (recomendado)']
       },
-      {
-        id: 'gamematch-test-data', num: 'hallazgo 9 sep',
-        title: '¿"testgamea/b/c/d" en Game Match son de prueba?',
-        why: 'Haciendo la copia de seguridad de Firestore encontré 4 entradas con ese nombre en tus decisiones reales de Game Match — tienen toda la pinta de ser datos de prueba de una sesión anterior, no juegos reales. No las he tocado por si acaso.',
-        type: 'choice', options: ['Sí, son de prueba, bórralas', 'No, son reales, déjalas']
-      }
     ];
     let helpNeededAnswers = {};
     function pushHelpNeededAnswer(id, value){
@@ -10794,7 +10764,9 @@
 
     initNotesRealtime();
     initHelpNeededRealtime();
-    initGameMatchRealtime();
+    // initGameMatchRealtime() retirada 9 sep junto con la vista de Game
+    // Match — los juegos del reto ya están decididos, no hace falta
+    // seguir sincronizando su estado.
     initIdeaBanksRealtime();
     initContentReviewRealtime();
     initRankingScheduleRealtime();
