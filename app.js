@@ -5000,11 +5000,16 @@
           ] }
         ]
       },
+      // Ampliado 9 sep (foto por frase): Desarrollo dividido en 2 frases
+      // (Gen V cancelada, sin persona real / The Boys México con Diego
+      // Luna) — antes su foto salía también durante la frase de Gen V.
       'rf-vought-rising': {
-        'Desarrollo': [{
-          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Diego_Luna_%282016%29.jpg/500px-Diego_Luna_%282016%29.jpg',
-          alt: 'Diego Luna', credit: 'Diego Luna — Foto: Dick Thomas Johnson, CC BY 2.0 (Wikimedia Commons)'
-        }]
+        'Desarrollo': [
+          { match: 'Diego Luna como productor', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Diego_Luna_%282016%29.jpg/500px-Diego_Luna_%282016%29.jpg',
+            alt: 'Diego Luna', credit: 'Diego Luna — Foto: Dick Thomas Johnson, CC BY 2.0 (Wikimedia Commons)'
+          }] }
+        ]
       },
       // Ampliado 9 sep (foto por frase): Contexto dividido en 2 frases
       // (una por actor), cada una con su propia foto en vez de las 2 a
