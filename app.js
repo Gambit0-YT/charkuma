@@ -9352,6 +9352,25 @@
         </div>`).join('');
     }
 
+    // Backlog #218 (9 sep) — cuenta los guiones reales de Rincón del
+    // Friki cuya `date` (fecha de creación/anuncio) cae en los últimos
+    // 7 días, agrupados por `saga`. Usa `date`, no `deadline` (#302) —
+    // son dos cosas distintas: cuándo se ESCRIBIÓ vs cuándo hay que
+    // PUBLICARLO como muy tarde.
+    function renderGuionesEstaSemanaStat(){
+      const el = document.getElementById('guionesEstaSemanaStat');
+      if (!el) return;
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      const recent = geekContent.filter(item => item.date && new Date(item.date + 'T00:00:00') >= sevenDaysAgo);
+      if (!recent.length) { el.textContent = 'Ningún guion nuevo de Rincón del Friki en los últimos 7 días.'; return; }
+      const bySaga = {};
+      recent.forEach(item => { const s = item.saga || 'sin saga'; bySaga[s] = (bySaga[s] || 0) + 1; });
+      const parts = Object.keys(bySaga)
+        .sort((a, b) => bySaga[b] - bySaga[a])
+        .map(saga => `${SAGA_LABELS[saga] || saga}: ${bySaga[saga]}`);
+      el.textContent = `${recent.length} guion${recent.length === 1 ? '' : 'es'} en los últimos 7 días — ${parts.join(' · ')}.`;
+    }
     function renderGuionCreationStreak(){
       const el = document.getElementById('guionCreationStreakStat');
       if (!el) return;
@@ -9652,6 +9671,7 @@
       renderNextToPublishWidget();
       renderAvgApprovedToPublished();
       renderGuionCreationStreak();
+      renderGuionesEstaSemanaStat();
       renderUntouchedIdeasStat();
       renderStaleContentWarning();
       renderBackupHistory();
