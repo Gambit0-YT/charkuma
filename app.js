@@ -919,6 +919,22 @@
       }
     });
 
+    // Backlog #274 (9 sep) — botón "volver arriba", solo visible tras
+    // bajar un poco de scroll. `requestAnimationFrame` como throttle
+    // barato (evita recalcular en cada evento de scroll bruto).
+    (function initBackToTop(){
+      const btn = document.getElementById('backToTopBtn');
+      if (!btn) return;
+      let ticking = false;
+      function update(){
+        btn.hidden = window.scrollY < 500;
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, {passive:true});
+    })();
+
     // Backlog #134 — easter egg nostálgico: código Konami de toda la
     // vida (↑↑↓↓←→←→BA). No hace nada más que un guiño — ni desbloquea
     // contenido real ni cambia ningún estado guardado.
