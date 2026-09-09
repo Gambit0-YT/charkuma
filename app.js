@@ -4428,6 +4428,24 @@
         summary: "El arco de Beerus vuelve reconstruido con el guion original de Toriyama — fecha confirmada, qué cambia y quién está detrás.",
         thumbnail: "🐉",
         internalView: "rf-dragonball-beerus-remake", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Primer guion de la saga "directores" (9 sep). Noticia real
+        // verificada con WebSearch + Wikipedia: "The Odyssey" de
+        // Christopher Nolan (estrenada 17 julio 2026) es la primera
+        // película rodada ÍNTEGRAMENTE con cámaras IMAX 70mm (más de 2
+        // millones de pies de película, ~3M$ solo en material), y ya es
+        // la película R-rated más taquillera de la historia ($1.638Bn
+        // mundial sobre 250M$ de presupuesto, 2ª más taquillera de 2026).
+        // No lleva `deadline`: no es una noticia con fecha futura que
+        // "caduque" el vídeo, es un logro ya consumado.
+        title: "The Odyssey ya es historia del cine: la primera peli rodada solo en IMAX 70mm",
+        saga: "directores",
+        type: "curiosidad",
+        date: "2026-09-09",
+        summary: "Christopher Nolan rodó una película entera sin ni una sola cámara digital — y ya es la R-rated más taquillera de siempre.",
+        thumbnail: "🎬",
+        internalView: "rf-directores-nolan-odyssey", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce|dc|dragonball|directores", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -4815,7 +4833,8 @@
       'rf-visionquest': '1nvGc9HoYeUNUJQ1kVljfhVAdaXoeN1tQ',
       'rf-marvels-wolverine-game': '1DW-xUoMrsN6OvF0Dj_BF5bj9zG6oG4Oc',
       'rf-dc-clayface': '1OQ2L4kFFc3efrUYCYOQpdushx8HTx-lZ',
-      'rf-dragonball-beerus-remake': '1MtBu5qSVvAHCbQEcXxMAvzXPm-kLrV1x'
+      'rf-dragonball-beerus-remake': '1MtBu5qSVvAHCbQEcXxMAvzXPm-kLrV1x',
+      'rf-directores-nolan-odyssey': '1iK0hsib-tIFqq4AmEBVzZuzgoVJU84HD'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
@@ -5410,6 +5429,17 @@
             }]
           }
         ]
+      },
+      // Primer guion de la saga "directores" (9 sep) — foto real de la
+      // rueda de prensa de The Odyssey en Seúl (agosto 2026), muestra a
+      // Nolan junto al reparto real (Theron, Damon) — crédito honesto
+      // del grupo, mismo criterio que otras fotos de evento verificadas.
+      'rf-directores-nolan-odyssey': {
+        'Contexto': [{
+          url: 'https://upload.wikimedia.org/wikipedia/commons/b/be/The_Odyssey_Press_Conference_at_Seoul_%28August_3%2C_2026%29.jpg',
+          alt: 'Christopher Nolan en la rueda de prensa de The Odyssey en Seúl, junto al reparto',
+          credit: 'Rueda de prensa de The Odyssey en Seúl, agosto 2026 — Gobierno de la República de Corea, CC BY-SA 4.0 (Wikimedia Commons)'
+        }]
       }
     };
     // Retro 365 (9 sep, pedido explícito de Iván: "en cada fase de cada
