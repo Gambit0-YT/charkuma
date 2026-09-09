@@ -4957,7 +4957,20 @@
         'Contexto': [{
           url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Shawn_Levy_by_Gage_Skidmore.jpg/500px-Shawn_Levy_by_Gage_Skidmore.jpg',
           alt: 'Shawn Levy', credit: 'Shawn Levy — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
-        }]
+        }],
+        // Ampliado 9 sep (foto por frase): Desarrollo dividido en 3
+        // frases — la de Tropper (guionista) se deja sin foto, no hay
+        // ninguna verificada para él.
+        'Desarrollo': [
+          { match: 'Gosling llevaba años pidiendo', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg',
+            alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+          }] },
+          { match: 'él y Levy están rodando juntos', photos: [
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ryan_Gosling_by_Gage_Skidmore.jpg/500px-Ryan_Gosling_by_Gage_Skidmore.jpg', alt: 'Ryan Gosling', credit: 'Ryan Gosling — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Shawn_Levy_by_Gage_Skidmore.jpg/500px-Shawn_Levy_by_Gage_Skidmore.jpg', alt: 'Shawn Levy', credit: 'Shawn Levy — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          ] }
+        ]
       },
       // Cruce con reparto muy numeroso — solo 2 caras representativas
       // (Pedro Pascal por los 4 Fantásticos, Ryan Gosling por el debut
