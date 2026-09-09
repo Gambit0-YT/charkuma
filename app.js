@@ -6372,6 +6372,16 @@
         return;
       }
 
+      // Backlog #177 — avisar ANTES de guardar si alguna idea nueva se
+      // parece mucho a algo que ya existe (otra idea de cualquier banco,
+      // o un guion ya real) — no bloquea el guardado, solo avisa, la
+      // decisión sigue siendo del usuario.
+      const warnings = [];
+      Object.values(additions).flat().forEach(entry => {
+        const match = findSimilarExistingTitle(entry.text);
+        if (match) warnings.push(`"${entry.text}" se parece a "${match.text}" (${Math.round(match.score * 100)}% de palabras en común)`);
+      });
+
       const extra = loadRinconExtraIdeas();
       Object.keys(additions).forEach(type => {
         extra[type] = (extra[type] || []).concat(additions[type]);
@@ -6379,7 +6389,9 @@
       saveRinconExtraIdeas(extra);
 
       textarea.value = '';
-      statusEl.textContent = `✅ Añadidas ${addedCount} idea${addedCount === 1 ? '' : 's'} nueva${addedCount === 1 ? '' : 's'} al banco.`;
+      let msg = `✅ Añadidas ${addedCount} idea${addedCount === 1 ? '' : 's'} nueva${addedCount === 1 ? '' : 's'} al banco.`;
+      if (warnings.length) msg += ` ⚠️ Posible parecido: ${warnings.join(' · ')}`;
+      statusEl.textContent = msg;
       renderRinconSecret();
     }
 
@@ -7862,6 +7874,11 @@
     // banco; una idea podía repetirse casi igual en otro banco sin que
     // nada lo detectara. Recoge el texto de las ideas ya existentes en
     // TODOS los bancos generadores, no solo el de destino.
+    // Ampliado 9 sep (backlog #177): también incluye los títulos de
+    // contenido YA REAL (guiones/proyectos con `internalView`, vía
+    // buildAllGuionItems) — antes una idea podía repetir casi igual un
+    // guion ya publicado sin que nada lo avisara, solo se comparaba
+    // contra otras ideas sueltas del banco.
     function allExistingIdeaTexts(){
       const texts = new Set();
       Object.keys(IDEA_GENERATORS).forEach(key => {
@@ -7870,7 +7887,39 @@
           texts.add((typeof entry === 'string' ? entry : entry.text).trim().toLowerCase());
         });
       });
+      if (typeof buildAllGuionItems === 'function') {
+        buildAllGuionItems().forEach(it => { if (it.title) texts.add(it.title.trim().toLowerCase()); });
+      }
       return texts;
+    }
+    // Backlog #177 — parecido "de verdad", no solo texto idéntico:
+    // solapamiento de palabras significativas (más de 3 letras, sin
+    // acentos ni signos) entre dos títulos. Umbral 0.5 (la mitad o más
+    // de las palabras significativas del más corto coinciden) — no es
+    // NLP de verdad, es una heurística honesta y simple, pero encuentra
+    // parecidos reales tipo "el regreso de los X-Men" vs "los X-Men
+    // vuelven a Marvel" que un match exacto no vería nunca.
+    function significantWords(text){
+      return new Set((text || '').toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '') // quita acentos
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .split(/\s+/).filter(w => w.length > 3));
+    }
+    function titleSimilarity(a, b){
+      const wa = significantWords(a), wb = significantWords(b);
+      if (!wa.size || !wb.size) return 0;
+      let shared = 0;
+      wa.forEach(w => { if (wb.has(w)) shared++; });
+      return shared / Math.min(wa.size, wb.size);
+    }
+    function findSimilarExistingTitle(newText, threshold){
+      threshold = threshold || 0.5;
+      let best = null, bestScore = 0;
+      allExistingIdeaTexts().forEach(existing => {
+        const score = titleSimilarity(newText, existing);
+        if (score > bestScore) { bestScore = score; best = existing; }
+      });
+      return bestScore >= threshold ? { text: best, score: bestScore } : null;
     }
 
     function generateIdeasForBank(bankKey, count){
