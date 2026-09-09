@@ -10641,6 +10641,120 @@
     const pendingDecisions = [
       // Vacío por ahora — la última pendiente (tarjetas de "Sobre mí") se completó el 2026-09-06.
     ];
+
+    // ──────────────────────────────────────────────────────────
+    // "🙋 Necesita tu ayuda" (Control Maestro) — pedido explícito de Iván
+    // 9 sep: quiere verlo dentro del propio panel de control cada vez que
+    // entra al sitio, poder contestar ahí mismo, y que Claude lo tenga en
+    // cuenta en el siguiente /loop. A diferencia de `pendingDecisions` de
+    // arriba (solo se puede OCULTAR, en local, sin forma de responder),
+    // esto sí guarda la respuesta real en Firestore — mismo patrón que
+    // `contentReview`/`gameMatch` — legible por Claude vía REST en
+    // cualquier sesión futura, y sincronizado entre dispositivos.
+    // Mantener esta lista a mano, igual que pendingDecisions: añadir un
+    // ítem nuevo cuando de verdad haga falta algo de Iván, quitarlo del
+    // array (no solo "ocultarlo") cuando ya esté resuelto.
+    const HELP_NEEDED_ITEMS = [
+      {
+        id: 'retro365-swipe', num: '#1',
+        title: 'Terminar de decidir los 365 días de Retro 365',
+        why: 'Llevas un tiempo sin terminar el swipe de "Game Match" — mientras no esté completo, no puedo escribir guiones de los días que faltan ni cerrar del todo esa sección.',
+        type: 'text', placeholder: '¿Ya lo terminaste? ¿Te lo recuerdo, o lo dejamos parado por ahora?'
+      },
+      {
+        id: 'video-url-real', num: '#20 · #84 · #180 · #247',
+        title: 'El enlace real de un vídeo tuyo ya publicado',
+        why: 'Cuatro tareas distintas (subtítulos, datos SEO por vídeo, respuestas a comentarios) están paradas por lo mismo: ningún guion tiene todavía el enlace real de un vídeo que hayas subido de verdad. Con uno solo, las cuatro se desbloquean a la vez.',
+        type: 'text', placeholder: 'Pega aquí el link de un vídeo real ya publicado'
+      },
+      {
+        id: 'ios-swipe-test', num: '#90',
+        title: 'Probar el mazo tipo Tinder (Game Match) en tu móvil real',
+        why: 'El código ya usa el patrón correcto para iOS, pero nunca lo he probado en un iPhone de verdad — solo tú puedes confirmar si se siente bien.',
+        type: 'text', placeholder: '¿Lo probaste? ¿Se siente bien, o algo raro?'
+      },
+      {
+        id: 'canva-adobe-auth', num: '#122',
+        title: 'Autorizar Canva o Adobe (plantillas de overlay descargables)',
+        why: 'Para generar una plantilla de overlay de OBS real necesito un conector de diseño de verdad — ninguno está autorizado ahora mismo.',
+        type: 'choice', options: ['Lo autorizo yo cuando pueda', 'No me interesa por ahora', 'Ya lo autoricé, reinténtalo']
+      },
+      {
+        id: 'yt-analytics-permission', num: '#127',
+        title: 'Permiso para refrescar el token de YouTube Analytics',
+        why: 'El token ya existe y sirve para esto (retención real por vídeo), pero el clasificador de permisos de Claude Code bloquea la llamada que lo refresca por manejar una clave sensible. Necesitarías añadir una regla de permiso explícita.',
+        type: 'choice', options: ['Sí, dime cómo', 'No hace falta por ahora']
+      },
+      {
+        id: 'api-keys-rotate', num: '#129',
+        title: '¿Rotar las claves API del sitio?',
+        why: 'Limpieza preventiva, no una emergencia — nunca ha pasado nada raro. Parado hasta que tú lo pidas.',
+        type: 'choice', options: ['Sí, hazlo', 'No, déjalo (recomendado)']
+      },
+      {
+        id: 'drive-permissions-review', num: '#131',
+        title: '¿Revisar los permisos del conector de Google Drive?',
+        why: 'Igual que las claves API — revisión preventiva, sin ninguna señal de problema real.',
+        type: 'choice', options: ['Sí, revísalo', 'No, déjalo (recomendado)']
+      }
+    ];
+    let helpNeededAnswers = {};
+    function pushHelpNeededAnswer(id, value){
+      helpNeededAnswers[id] = { value, savedAt: Date.now() };
+      renderHelpNeeded();
+      if (!firestoreReady()) return;
+      const { doc, setDoc } = window.firestoreFns;
+      setDoc(doc(window.firestoreDB, 'helpNeeded', 'state'), helpNeededAnswers, { merge: true }).catch(() => {
+        // Sin conexión ahora mismo: se queda en memoria, sin cola de reintentos.
+      });
+    }
+    let helpNeededRealtimeStarted = false;
+    async function initHelpNeededRealtime(){
+      if (!firestoreReady() || helpNeededRealtimeStarted) return;
+      helpNeededRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'helpNeeded', 'state');
+      onSnapshot(ref, (snap) => {
+        if (snap.exists()) { helpNeededAnswers = snap.data() || {}; renderHelpNeeded(); }
+      }, () => {
+        // Sin conexión: se queda con lo que ya haya en memoria.
+      });
+    }
+    function renderHelpNeeded(){
+      const listEl = document.getElementById('helpNeededList');
+      const countEl = document.getElementById('helpNeededCount');
+      if (!listEl) return;
+      const answeredCount = HELP_NEEDED_ITEMS.filter(i => helpNeededAnswers[i.id] && helpNeededAnswers[i.id].value).length;
+      if (countEl) countEl.textContent = `— ${answeredCount}/${HELP_NEEDED_ITEMS.length} contestadas`;
+      listEl.innerHTML = HELP_NEEDED_ITEMS.map(item => {
+        const saved = helpNeededAnswers[item.id];
+        const isAnswered = !!(saved && saved.value);
+        let actionHTML;
+        if (item.type === 'text') {
+          actionHTML = `
+            <div class="help-needed-actions">
+              <input type="text" id="help-input-${item.id}" placeholder="${escapeAttr(item.placeholder)}" value="${isAnswered ? escapeAttr(saved.value) : ''}">
+              <button type="button" class="btn btn-secondary" onclick="pushHelpNeededAnswer('${item.id}', document.getElementById('help-input-${item.id}').value.trim())">Guardar</button>
+            </div>`;
+        } else {
+          actionHTML = `
+            <div class="help-needed-actions">
+              ${item.options.map(opt => `<button type="button" class="btn ${isAnswered && saved.value === opt ? 'btn-primary' : 'btn-secondary'}" onclick="pushHelpNeededAnswer('${item.id}', '${escapeAttr(opt)}')">${opt}</button>`).join('')}
+            </div>`;
+        }
+        return `
+          <div class="help-needed-item ${isAnswered ? 'is-answered' : ''}">
+            <div class="help-needed-head">
+              <div><div class="help-needed-num">${item.num}</div><h4>${item.title}</h4></div>
+              <span class="type-chip ${isAnswered ? 'chip-green' : 'chip-orange'}">${isAnswered ? '✅ Contestado' : '⏳ Pendiente'}</span>
+            </div>
+            <p class="help-needed-why">${item.why}</p>
+            ${actionHTML}
+            ${isAnswered ? `<p class="help-needed-saved">Tu respuesta: "${escapeHTML(saved.value)}"</p>` : ''}
+          </div>`;
+      }).join('');
+    }
+    renderHelpNeeded();
     const DISMISSED_PENDING_KEY = 'charkuma_dismissed_pending_decisions';
     function loadDismissedPending(){
       try { return new Set(JSON.parse(localStorage.getItem(DISMISSED_PENDING_KEY)) || []); }
@@ -10673,6 +10787,7 @@
     });
 
     initNotesRealtime();
+    initHelpNeededRealtime();
     initGameMatchRealtime();
     initIdeaBanksRealtime();
     initContentReviewRealtime();

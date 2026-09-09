@@ -1418,6 +1418,18 @@
     .pending-decision-text span{font-size:10px;color:var(--muted)}
     .notes-divider{height:1px;background:var(--line);margin:14px 0}
 
+    /* ── "Necesita tu ayuda" (Control Maestro) — sincronizado vía Firestore,
+       a diferencia de "Pendiente de tu decisión" de arriba (solo local). ── */
+    .help-needed-item{padding:14px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line3);margin-bottom:10px}
+    .help-needed-item.is-answered{opacity:.6}
+    .help-needed-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+    .help-needed-num{font-size:10.5px;color:var(--muted);font-weight:700;letter-spacing:.03em}
+    .help-needed-item h4{font-size:14px;margin:2px 0 0}
+    .help-needed-why{color:var(--muted);font-size:12.5px;margin:8px 0 0;line-height:1.5}
+    .help-needed-actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .help-needed-actions input[type="text"]{flex:1;min-width:160px;background:var(--bg2);border:1px solid var(--line3);color:var(--text);border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit}
+    .help-needed-saved{margin-top:6px;font-size:11.5px;color:var(--green)}
+
     @media (min-width:1900px){
       .sidebar-stack{display:flex}
     }
@@ -2162,7 +2174,24 @@
       </section>
       <section class="detail-section">
         <div class="container">
-          <div class="panel vidiq-stats-panel">
+          <!-- Backlog: "Necesita tu ayuda" (pedido explícito 9 sep — quiere
+               verlo aquí en el Panel cada vez que entra, contestar, y que
+               Claude lo tenga en cuenta en el /loop). Sustituye en la
+               práctica al widget "Pendiente de tu decisión" (que solo se
+               podía ocultar en local, sin forma de contestar de verdad) —
+               este sí guarda tu respuesta en Firestore, sincronizada entre
+               dispositivos y legible por Claude en cualquier sesión. -->
+          <div class="panel vidiq-stats-panel" id="helpNeededPanel" style="border-color:rgba(255,122,24,.35)">
+            <strong>🙋 Necesita tu ayuda <span id="helpNeededCount" class="yt-empty" style="font-weight:400"></span></strong>
+            <p class="section-sub" style="margin:4px 0 12px">
+              Lo único del backlog que de verdad necesita algo TUYO — una decisión, un dato,
+              un permiso. El resto lo sigo trabajando solo. Contesta lo que quieras, se
+              guarda solo y lo tengo en cuenta en el siguiente <code>/loop</code>.
+            </p>
+            <div id="helpNeededList"></div>
+          </div>
+
+          <div class="panel vidiq-stats-panel" style="margin-top:16px">
             <strong>📊 Canal real (mrChakurma, vía VidIQ)</strong>
             <p class="section-sub" style="margin:4px 0 10px">
               Datos reales de tu canal de YouTube, traídos por Claude a través de VidIQ.
