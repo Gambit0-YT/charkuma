@@ -5206,50 +5206,59 @@
     // Friki: no forzar una imagen donde no hay nada real que enseñar.
     // Generado en bucle en vez de repetir 37 veces el mismo bloque de 6
     // claves a mano.
+    // `shots` (9 sep, ampliación "foto por frase"): 2 capturas de
+    // gameplay REALES por juego, vía el propio endpoint de screenshots
+    // de RAWG (mismo API key ya usado para las carátulas), verificadas
+    // por HTTP antes de guardarlas — así Hook/Contexto/Conclusión/CTA
+    // usan la carátula y Promesa/Desarrollo usan capturas de gameplay
+    // reales y distintas, en vez de repetir siempre la misma imagen en
+    // los 6 beats.
     const RETRO_DAY_COVERS = {
-      4: { name: 'Hades', url: 'https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg' },
-      5: { name: 'Unpacking', url: 'https://media.rawg.io/media/games/c11/c1118fbcfd846c631ecb7646f8efc780.jpg' },
-      7: { name: 'Portal 2', url: 'https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg' },
-      8: { name: 'Undertale', url: 'https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg' },
-      9: { name: 'Mario Kart 8 Deluxe', url: 'https://media.rawg.io/media/games/6f8/6f846e941c78cfbabe53cd67e55ced83.jpg' },
-      10: { name: 'Team Fortress 2', url: 'https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg' },
-      11: { name: 'The Walking Dead: Season 1', url: 'https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg' },
-      12: { name: 'Red Dead Redemption 2', url: 'https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg' },
-      13: { name: 'Divinity: Original Sin 2', url: 'https://media.rawg.io/media/games/424/424facd40f4eb1f2794fe4b4bb28a277.jpg' },
-      14: { name: 'God of War (2018)', url: 'https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg' },
-      15: { name: "Sid Meier's Civilization IV", url: 'https://media.rawg.io/media/screenshots/85c/85c91c5064d2cdd56a949c8008868318.jpg' },
-      16: { name: 'Batman: Arkham City', url: 'https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg' },
-      17: { name: 'The Legend of Zelda: Breath of the Wild', url: 'https://media.rawg.io/media/games/cc1/cc196a5ad763955d6532cdba236f730c.jpg' },
-      18: { name: 'Elden Ring', url: 'https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg' },
-      19: { name: 'Persona 5 Royal', url: 'https://media.rawg.io/media/games/a9c/a9c789951de65da545d51f664b4f2ce0.jpg' },
-      20: { name: 'XCOM 2: War of the Chosen', url: 'https://media.rawg.io/media/games/824/8244534a6db2180e177271cebb9c002f.jpg' },
-      21: { name: 'Super Smash Bros. Ultimate', url: 'https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg' },
-      22: { name: 'Super Mario Odyssey', url: 'https://media.rawg.io/media/games/267/267bd0dbc496f52692487d07d014c061.jpg' },
-      23: { name: 'The Witcher 3: Wild Hunt', url: 'https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg' },
-      24: { name: 'Company of Heroes', url: 'https://media.rawg.io/media/games/0fa/0fadc446fd1e9ae9e23a32793d9a5406.jpg' },
-      25: { name: 'Bayonetta 2', url: 'https://media.rawg.io/media/games/3d7/3d7c8e749b18cfc898c80016594981fe.jpg' },
-      26: { name: 'Grand Theft Auto IV', url: 'https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg' },
-      27: { name: 'BioShock', url: 'https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg' },
-      28: { name: 'Fire Emblem Awakening', url: 'https://media.rawg.io/media/games/c43/c432339312ee5441edb081c05d2fa411.jpg' },
-      29: { name: 'The Elder Scrolls V: Skyrim', url: 'https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg' },
-      30: { name: 'StarCraft II: Wings of Liberty', url: 'https://media.rawg.io/media/games/5f7/5f7191716faebcf102a357c5c2889394.jpg' },
-      31: { name: 'Cut the Rope', url: 'https://media.rawg.io/media/games/242/242011264968168c61e4efc71059f2ed.jpg' },
-      32: { name: 'Half-Life 2', url: 'https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg' },
-      33: { name: 'Mass Effect 2', url: 'https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg' },
-      34: { name: 'Age of Empires II: Definitive Edition', url: 'https://media.rawg.io/media/games/945/9455733af10406794b0c1b8d117bca76.jpg' },
-      35: { name: 'Okami HD', url: 'https://media.rawg.io/media/games/a38/a3857b2445c70ac5dbe73b210a827ad8.jpg' },
-      36: { name: 'Call of Duty 4: Modern Warfare', url: 'https://media.rawg.io/media/games/9fb/9fbaea2168caea1f806546dfdaaeb1da.jpg' },
-      37: { name: 'Grand Theft Auto V', url: 'https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg' },
-      38: { name: 'Dark Souls II', url: 'https://media.rawg.io/media/games/651/6512783a214618584d144d5d852ba595.jpg' },
-      39: { name: 'Disco Elysium - The Final Cut', url: 'https://media.rawg.io/media/games/0af/0afe9e8ace196123d8c7cf22172cec63.jpg' },
-      40: { name: 'Overwatch', url: 'https://media.rawg.io/media/games/4ea/4ea507ceebeabb43edbc09468f5aaac6.jpg' },
-      41: { name: 'NieR:Automata', url: 'https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg' }
+      4: { name: 'Hades', url: 'https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg', shots: ['https://media.rawg.io/media/screenshots/546/546826ed2cde2dec94e1b470c8cbb9ac.jpg', 'https://media.rawg.io/media/screenshots/0aa/0aa5e778c3cf8f47e3ee7f8e0185eb16.jpg'] },
+      5: { name: 'Unpacking', url: 'https://media.rawg.io/media/games/c11/c1118fbcfd846c631ecb7646f8efc780.jpg', shots: ['https://media.rawg.io/media/screenshots/007/007875f8599c35c73c108a7bcd9be6a6.jpg', 'https://media.rawg.io/media/screenshots/a47/a475f0f644a81c59f4b584ffcd1af855.jpg'] },
+      7: { name: 'Portal 2', url: 'https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg', shots: ['https://media.rawg.io/media/screenshots/221/221a03c11e5ff9f765d62f60d4b4cbf5.jpg', 'https://media.rawg.io/media/screenshots/173/1737ff43c14f40294011a209b1012875.jpg'] },
+      8: { name: 'Undertale', url: 'https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg', shots: ['https://media.rawg.io/media/screenshots/f06/f0657f2790937cf09c34f0aa65e81d7d.jpg', 'https://media.rawg.io/media/screenshots/1af/1af4cbbe6aaaad4661d627f545969a62.jpg'] },
+      9: { name: 'Mario Kart 8 Deluxe', url: 'https://media.rawg.io/media/games/6f8/6f846e941c78cfbabe53cd67e55ced83.jpg', shots: ['https://media.rawg.io/media/screenshots/f94/f94b27140ac3b7af61ba844f4d54bb42.jpg', 'https://media.rawg.io/media/screenshots/9a1/9a13007b3ea3d8e6a4e16cc3d8f41a93.jpg'] },
+      10: { name: 'Team Fortress 2', url: 'https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg', shots: ['https://media.rawg.io/media/screenshots/596/5968ba06bac8bee0ec7e9d03c970c421.jpg', 'https://media.rawg.io/media/screenshots/94f/94f4eb0b3d1fde7a37ec84f0f66f7f87.jpg'] },
+      11: { name: 'The Walking Dead: Season 1', url: 'https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg', shots: ['https://media.rawg.io/media/screenshots/d38/d38c78ec9cc707bf42652452235dbe8c.jpg', 'https://media.rawg.io/media/screenshots/bdb/bdb7dd4891bfbb0a80cd49b36ffd1a20.jpg'] },
+      12: { name: 'Red Dead Redemption 2', url: 'https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg', shots: ['https://media.rawg.io/media/screenshots/7b8/7b8895a23e8ca0dbd9e1ba24696579d9.jpg', 'https://media.rawg.io/media/screenshots/b8c/b8cee381079d58b981594ede46a3d6ca.jpg'] },
+      13: { name: 'Divinity: Original Sin 2', url: 'https://media.rawg.io/media/games/424/424facd40f4eb1f2794fe4b4bb28a277.jpg', shots: ['https://media.rawg.io/media/screenshots/17b/17b87165c8b985ba98e12e0757455379.jpg', 'https://media.rawg.io/media/screenshots/876/87691068e9f4aafb4fbb35f2e2d6a2ff.jpg'] },
+      14: { name: 'God of War (2018)', url: 'https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg', shots: ['https://media.rawg.io/media/screenshots/d68/d6868e5f7bce66e326bd48b11ba24b13.jpeg', 'https://media.rawg.io/media/screenshots/928/928cdaf4ae204f202d177bbd65e911b3.jpeg'] },
+      15: { name: "Sid Meier's Civilization IV", url: 'https://media.rawg.io/media/screenshots/85c/85c91c5064d2cdd56a949c8008868318.jpg', shots: ['https://media.rawg.io/media/screenshots/6cf/6cf85f3138f404b01e96632b2867d011.jpg', 'https://media.rawg.io/media/screenshots/ddb/ddb5ed69b4cc79a3bc687ae072401262.jpg'] },
+      16: { name: 'Batman: Arkham City', url: 'https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg', shots: ['https://media.rawg.io/media/screenshots/186/186256b37ba30738c118daefceba77e4.jpg', 'https://media.rawg.io/media/screenshots/55b/55ba4f622a1babc31b54489ea0144758.jpg'] },
+      17: { name: 'The Legend of Zelda: Breath of the Wild', url: 'https://media.rawg.io/media/games/cc1/cc196a5ad763955d6532cdba236f730c.jpg', shots: ['https://media.rawg.io/media/screenshots/3c4/3c4a8f6b1994def75e73e1cb64624e7f.jpg', 'https://media.rawg.io/media/screenshots/8f5/8f5d4264b12090bb7aa5626fcfb5be18.jpg'] },
+      18: { name: 'Elden Ring', url: 'https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg', shots: ['https://media.rawg.io/media/screenshots/36f/36f941f72e2b2a41629f5fb3bd448688.jpg', 'https://media.rawg.io/media/screenshots/290/29096848622521df7555850000236cb6.jpg'] },
+      19: { name: 'Persona 5 Royal', url: 'https://media.rawg.io/media/games/a9c/a9c789951de65da545d51f664b4f2ce0.jpg', shots: ['https://media.rawg.io/media/screenshots/e70/e701311c431504ccd8653a5243188a13.jpg', 'https://media.rawg.io/media/screenshots/5af/5af7efeca549b9a768870c52eff7e128.jpg'] },
+      20: { name: 'XCOM 2: War of the Chosen', url: 'https://media.rawg.io/media/games/824/8244534a6db2180e177271cebb9c002f.jpg', shots: ['https://media.rawg.io/media/screenshots/3a8/3a8eeb2638c573d7efb98ab4f7441fbc.jpg', 'https://media.rawg.io/media/screenshots/fbd/fbd8237d95731597e58ac45ca9e03c66.jpg'] },
+      21: { name: 'Super Smash Bros. Ultimate', url: 'https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg', shots: ['https://media.rawg.io/media/screenshots/1c9/1c9ae7a68285ad0d4aa046b22bcdc4bf.jpg', 'https://media.rawg.io/media/screenshots/f67/f670247976d1b8121a5149bdfd8dbc21.jpg'] },
+      22: { name: 'Super Mario Odyssey', url: 'https://media.rawg.io/media/games/267/267bd0dbc496f52692487d07d014c061.jpg', shots: ['https://media.rawg.io/media/screenshots/a38/a38e8c2161eb6c3c233b0488a3c2d5f1.jpg', 'https://media.rawg.io/media/screenshots/ff8/ff80f35e3301fa9c0027d9f021c24340.jpg'] },
+      23: { name: 'The Witcher 3: Wild Hunt', url: 'https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg', shots: ['https://media.rawg.io/media/screenshots/1ac/1ac19f31974314855ad7be266adeb500.jpg', 'https://media.rawg.io/media/screenshots/6a0/6a08afca95261a2fe221ea9e01d28762.jpg'] },
+      24: { name: 'Company of Heroes', url: 'https://media.rawg.io/media/games/0fa/0fadc446fd1e9ae9e23a32793d9a5406.jpg', shots: ['https://media.rawg.io/media/screenshots/1c8/1c8cf5141e6f1abc99b164c8c7c58f30.jpg', 'https://media.rawg.io/media/screenshots/b7d/b7d236b7de2b9ca670fa5f5bc09a09e1.jpg'] },
+      25: { name: 'Bayonetta 2', url: 'https://media.rawg.io/media/games/3d7/3d7c8e749b18cfc898c80016594981fe.jpg', shots: ['https://media.rawg.io/media/screenshots/9bd/9bdf5a7fd96180970182cfe1c2644591.jpg', 'https://media.rawg.io/media/screenshots/24e/24e17421e42f3f8456c37aa7e8e07b69.jpg'] },
+      26: { name: 'Grand Theft Auto IV', url: 'https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg', shots: ['https://media.rawg.io/media/screenshots/07f/07f7cf80741ff306e4eca982c3e64ac8.jpg', 'https://media.rawg.io/media/screenshots/fef/fefd51ec13aa33acbd796ef79bcef7cb.jpg'] },
+      27: { name: 'BioShock', url: 'https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg', shots: ['https://media.rawg.io/media/screenshots/01f/01f62d7064838a5c3202acfc61503487.jpg', 'https://media.rawg.io/media/screenshots/7f5/7f517e07e36e4af5a7c0b86a7d42853f.jpg'] },
+      28: { name: 'Fire Emblem Awakening', url: 'https://media.rawg.io/media/games/c43/c432339312ee5441edb081c05d2fa411.jpg', shots: ['https://media.rawg.io/media/screenshots/ca8/ca84c869162ed578ee9b3e4f9da40c5e.jpg', 'https://media.rawg.io/media/screenshots/41c/41cb3d5e005341447c7bf3fda605ce93.jpg'] },
+      29: { name: 'The Elder Scrolls V: Skyrim', url: 'https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg', shots: ['https://media.rawg.io/media/screenshots/3bd/3bd2710bd1ffb6664fdea7b83afd067e.jpg', 'https://media.rawg.io/media/screenshots/d4e/d4e9b13f54748584ccbd6f998094dade.jpg'] },
+      30: { name: 'StarCraft II: Wings of Liberty', url: 'https://media.rawg.io/media/games/5f7/5f7191716faebcf102a357c5c2889394.jpg', shots: ['https://media.rawg.io/media/screenshots/bb4/bb44d47aad507399057a320969cfb639.jpg', 'https://media.rawg.io/media/screenshots/14d/14d5a969573b103fba709ebd3fe4389c.jpg'] },
+      31: { name: 'Cut the Rope', url: 'https://media.rawg.io/media/games/242/242011264968168c61e4efc71059f2ed.jpg', shots: ['https://media.rawg.io/media/screenshots/3fc/3fc43cc1198217ccf544f06f7f0da8c3.jpg', 'https://media.rawg.io/media/screenshots/6d1/6d1f8e9f78ac36f49d8ef3c3f9a8a9ba.jpg'] },
+      32: { name: 'Half-Life 2', url: 'https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg', shots: ['https://media.rawg.io/media/screenshots/8af/8af6188357426890cbc8c8a34d9e7b75.jpg', 'https://media.rawg.io/media/screenshots/3b5/3b542c954ba5bd2f32da067c8122cd80.jpg'] },
+      33: { name: 'Mass Effect 2', url: 'https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg', shots: ['https://media.rawg.io/media/screenshots/3e9/3e987ae85497ded8e4fea09634be9c0a.jpg', 'https://media.rawg.io/media/screenshots/be5/be56c7c5c5b0f10644213f99051525f4.jpg'] },
+      34: { name: 'Age of Empires II: Definitive Edition', url: 'https://media.rawg.io/media/games/945/9455733af10406794b0c1b8d117bca76.jpg', shots: ['https://media.rawg.io/media/screenshots/486/4869b64447fb4237b8cf62a9d91989cc.jpg', 'https://media.rawg.io/media/screenshots/f52/f522ea2ddf04e67cb73b62676b5d2b08.jpg'] },
+      35: { name: 'Okami HD', url: 'https://media.rawg.io/media/games/a38/a3857b2445c70ac5dbe73b210a827ad8.jpg', shots: ['https://media.rawg.io/media/screenshots/0ac/0acef7da2162e1323dc7be0e59214b2e.jpg', 'https://media.rawg.io/media/screenshots/48b/48b317514627e92562eeb5f68f9c51e4.jpg'] },
+      36: { name: 'Call of Duty 4: Modern Warfare', url: 'https://media.rawg.io/media/games/9fb/9fbaea2168caea1f806546dfdaaeb1da.jpg', shots: ['https://media.rawg.io/media/screenshots/e8e/e8e92ec1aff7d7767662614d6b47e1c6.jpg', 'https://media.rawg.io/media/screenshots/3a7/3a716eecfb1b6cbc85d90c36534177a4.jpg'] },
+      37: { name: 'Grand Theft Auto V', url: 'https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg', shots: ['https://media.rawg.io/media/screenshots/f95/f9518b1d99210c0cae21fc09e95b4e31.jpg', 'https://media.rawg.io/media/screenshots/a5c/a5c95ea539c87d5f538763e16e18fb99.jpg'] },
+      38: { name: 'Dark Souls II', url: 'https://media.rawg.io/media/games/651/6512783a214618584d144d5d852ba595.jpg', shots: ['https://media.rawg.io/media/screenshots/03e/03e657663de4826fde181d09deeb8791.jpg', 'https://media.rawg.io/media/screenshots/0f5/0f5501f44c4331b7a7cfb83bb68e7dca.jpg'] },
+      39: { name: 'Disco Elysium - The Final Cut', url: 'https://media.rawg.io/media/games/0af/0afe9e8ace196123d8c7cf22172cec63.jpg', shots: ['https://media.rawg.io/media/screenshots/627/627aeb395f83dbbe72ab6292f7980c97.jpg', 'https://media.rawg.io/media/screenshots/273/2733c373f7b29cfb25d15db8055fbfb2.jpg'] },
+      40: { name: 'Overwatch', url: 'https://media.rawg.io/media/games/4ea/4ea507ceebeabb43edbc09468f5aaac6.jpg', shots: ['https://media.rawg.io/media/screenshots/879/8794242f393b3258e97b690a4138d056.jpg', 'https://media.rawg.io/media/screenshots/9b0/9b060d7b7d606cc3717face57c9f0910.jpg'] },
+      41: { name: 'NieR:Automata', url: 'https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg', shots: ['https://media.rawg.io/media/screenshots/286/28651ead277f96a8b950ded95b617b25.jpg', 'https://media.rawg.io/media/screenshots/818/8186c49e4788cb1a9d346689afeff9e4.jpg'] }
     };
     Object.keys(RETRO_DAY_COVERS).forEach(day => {
-      const { name, url } = RETRO_DAY_COVERS[day];
-      const photos = [{ url, alt: `Carátula oficial de ${name}`, credit: `Carátula oficial de ${name} — vía RAWG.io` }];
+      const { name, url, shots } = RETRO_DAY_COVERS[day];
+      const coverPhotos = [{ url, alt: `Carátula oficial de ${name}`, credit: `Carátula oficial de ${name} — vía RAWG.io` }];
       const entry = {};
-      ['Hook', 'Promesa', 'Contexto', 'Desarrollo', 'Conclusión', 'CTA'].forEach(key => { entry[key] = photos; });
+      ['Hook', 'Contexto', 'Conclusión', 'CTA'].forEach(key => { entry[key] = coverPhotos; });
+      if (shots && shots[0]) entry['Promesa'] = [{ url: shots[0], alt: `Captura real de gameplay de ${name}`, credit: `Captura real de ${name} — vía RAWG.io` }];
+      if (shots && shots[1]) entry['Desarrollo'] = [{ url: shots[1], alt: `Captura real de gameplay de ${name}`, credit: `Captura real de ${name} — vía RAWG.io` }];
       RECORDING_MODE_IMAGES[`retro-day-${day}`] = entry;
     });
     function openRecordingMode(rid, triggerEl){
