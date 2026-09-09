@@ -4937,10 +4937,15 @@
         // Coogler, el director, se nombra por su nombre en Desarrollo
         // ("el director Ryan Coogler lo identificó en persona"), un beat
         // distinto del que ya tenía foto (Contexto, David Jonsson).
-        'Desarrollo': [{
-          url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Ryan_Coogler_by_Gage_Skidmore.jpg/500px-Ryan_Coogler_by_Gage_Skidmore.jpg',
-          alt: 'Ryan Coogler', credit: 'Ryan Coogler — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
-        }]
+        // Ampliado 9 sep (foto por frase): Desarrollo dividido en 2
+        // frases (trama de Toussaint / cómo llegó Coogler) — la foto de
+        // Coogler ahora solo sale en su frase, no en toda la trama.
+        'Desarrollo': [
+          { match: 'Ryan Coogler lo identificó', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Ryan_Coogler_by_Gage_Skidmore.jpg/500px-Ryan_Coogler_by_Gage_Skidmore.jpg',
+            alt: 'Ryan Coogler', credit: 'Ryan Coogler — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)'
+          }] }
+        ]
       },
       'rf-ryan-gosling-ghost-rider': {
         'Hook': [{
