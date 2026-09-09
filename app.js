@@ -5669,6 +5669,42 @@
         return true;
       });
     }
+    // Backlog #194 — tener a mano todas las fotos de contexto de un
+    // guion al editar el vídeo, sin tener que guardarlas una a una a
+    // mano desde el modo grabación. Descarga real (fetch + blob, no un
+    // simple <a href> que con imágenes de otro dominio solo las abre
+    // en pestaña nueva en vez de descargarlas) — una detrás de otra con
+    // una pequeña pausa para que el navegador no las bloquee por venir
+    // todas de golpe.
+    async function downloadAllContextPhotos(rid){
+      const photos = flattenContextPhotos(rid);
+      if (!photos.length) { alert('Este guion no tiene fotos de contexto configuradas todavía.'); return; }
+      let ok = 0, fail = 0;
+      for (let i = 0; i < photos.length; i++) {
+        const p = photos[i];
+        try {
+          const res = await fetch(p.url);
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const blob = await res.blob();
+          const ext = (blob.type.split('/')[1] || 'jpg').replace('jpeg', 'jpg').split('+')[0];
+          const safeName = (p.alt || `foto-${i + 1}`).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+          const objUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = objUrl;
+          a.download = `${rid}-${i + 1}-${safeName}.${ext}`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(objUrl), 4000);
+          ok++;
+        } catch (e) {
+          console.warn('No se pudo descargar esta foto de contexto:', p.url, e);
+          fail++;
+        }
+        if (i < photos.length - 1) await new Promise(r => setTimeout(r, 350));
+      }
+      if (fail) alert(`Descargadas ${ok} de ${photos.length} fotos — ${fail} no se pudieron descargar (revisa la consola).`);
+    }
     function contextPhotosPreviewHTML(rid){
       const photos = flattenContextPhotos(rid);
       if (!photos.length) return '';
@@ -5723,6 +5759,7 @@
           ${approved ? costControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="window.print()" title="Copia en papel del guion, sin controles ni columnas laterales">🖨️ Imprimir guion</button>` : ''}
+          ${showChecklist && flattenContextPhotos(rid).length ? `<button type="button" class="btn btn-secondary" onclick="downloadAllContextPhotos('${rid}')" title="Descarga todas las fotos de contexto de este guion, una a una">⬇️ Descargar fotos (${flattenContextPhotos(rid).length})</button>` : ''}
           ${showChecklist ? contextPhotosPreviewHTML(rid) : ''}
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
           ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
