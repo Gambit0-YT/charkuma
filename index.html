@@ -6751,6 +6751,17 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
             </details>
           </div>
 
+          <!-- Backlog #174: repaso rápido antes de una sesión de
+               grabación — solo el Hook (primeros 10s) de cada guion
+               pendiente, para refrescar de un vistazo sin abrir cada
+               guion uno a uno. -->
+          <div class="panel" style="margin-top:16px">
+            <h3>⚡ Repaso rápido de Hooks</h3>
+            <p class="section-sub" style="margin:0 0 12px">Solo el Hook de cada guion pendiente, para prepararte antes de grabar sin abrirlos uno a uno.</p>
+            <button type="button" class="btn btn-secondary" onclick="toggleQuickHookReview()">👁️ Ver/ocultar repaso</button>
+            <div id="quickHookReviewList" hidden style="margin-top:14px;display:flex;flex-direction:column;gap:10px"></div>
+          </div>
+
           <div class="panel" style="margin-top:16px">
             <h3>Elige un guion</h3>
             <select id="vozGuionSelect" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line2);background:var(--panel2);color:var(--text);font:inherit;margin-bottom:14px"></select>

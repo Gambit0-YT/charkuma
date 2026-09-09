@@ -4838,6 +4838,36 @@
           : '';
       }
     }
+    // Backlog #174 — repaso rápido: el Hook (primeros 10s) de cada
+    // guion todavía sin voz generada, para refrescar antes de una
+    // sesión de grabación sin tener que abrir cada guion uno a uno.
+    // Reutiliza extractGuionBeats (misma extracción real que ya usa el
+    // modo grabación), solo se queda con el primer beat narrado.
+    function toggleQuickHookReview(){
+      const box = document.getElementById('quickHookReviewList');
+      if (!box) return;
+      box.hidden = !box.hidden;
+      if (!box.hidden) renderQuickHookReview();
+    }
+    function renderQuickHookReview(){
+      const box = document.getElementById('quickHookReviewList');
+      if (!box) return;
+      const items = buildAllGuionItems();
+      const pending = items.filter(it => !(audioGenState[it.rid] && audioGenState[it.rid].audioUrl));
+      const rows = pending.map(it => {
+        const target = document.getElementById('view-' + it.rid);
+        const panel = target && findGuionPanel(target);
+        const beats = panel ? extractGuionBeats(panel).filter(b => b.hasNarration) : [];
+        const hook = beats[0];
+        if (!hook) return '';
+        return `
+          <div class="note" style="margin:0">
+            <strong>${escapeAttr(it.title)}</strong>
+            <p style="margin:6px 0 0">${escapeAttr(hook.text)}</p>
+          </div>`;
+      }).filter(Boolean).join('');
+      box.innerHTML = rows || '<p class="yt-empty">No hay guiones pendientes con Hook narrado ahora mismo.</p>';
+    }
     let audioGenRealtimeStarted = false;
     function initAudioGenRealtime(){
       if (!firestoreReady() || audioGenRealtimeStarted) return;
