@@ -5065,10 +5065,19 @@
       // Holland, Zendaya, Jon Bernthal, Florence Pugh, Mark Ruffalo) —
       // mismo criterio de "2 representativas" que otros repartos
       // numerosos (doomsday-cruce, regreso-xmen), no las 5.
+      // Ampliado 9 sep (foto por frase + 3 actores nuevos verificados,
+      // "no me importa de dónde, dame contexto"): Desarrollo dividido en
+      // 3 frases (reparto/tono/recepción) — el reparto real nombra 5
+      // actores, antes solo 2 tenían foto.
       'rf-opinion-brand-new-day': {
         'Desarrollo': [
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
-          { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Zendaya_by_Gage_Skidmore.jpg/500px-Zendaya_by_Gage_Skidmore.jpg', alt: 'Zendaya', credit: 'Zendaya — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' }
+          { match: 'junta a Tom Holland y Zendaya', photos: [
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/500px-Tom_Holland_by_Gage_Skidmore.jpg', alt: 'Tom Holland', credit: 'Tom Holland — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Zendaya_by_Gage_Skidmore.jpg/500px-Zendaya_by_Gage_Skidmore.jpg', alt: 'Zendaya', credit: 'Zendaya — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Jon_Bernthal_by_Gage_Skidmore.jpg/500px-Jon_Bernthal_by_Gage_Skidmore.jpg', alt: 'Jon Bernthal', credit: 'Jon Bernthal — Foto: Gage Skidmore, CC BY-SA 3.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Florence_Pugh_at_the_2024_Toronto_International_Film_Festival_13_%28cropped%29.jpg/500px-Florence_Pugh_at_the_2024_Toronto_International_Film_Festival_13_%28cropped%29.jpg', alt: 'Florence Pugh', credit: 'Florence Pugh — Foto: Frank Sun, CC BY-SA 4.0 (Wikimedia Commons)' },
+            { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Mark_Ruffalo_%2836201774756%29_%28cropped%29.jpg/500px-Mark_Ruffalo_%2836201774756%29_%28cropped%29.jpg', alt: 'Mark Ruffalo', credit: 'Mark Ruffalo — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)' }
+          ] }
         ]
       },
       'rf-curiosidades-tom-holland': {
