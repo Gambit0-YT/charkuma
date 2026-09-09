@@ -4353,6 +4353,24 @@
         summary: "Del mismo estudio que Marvel's Spider-Man — trama, combate y los tres escenarios reales del videojuego que sale en una semana.",
         thumbnail: "🦾",
         internalView: "rf-marvels-wolverine-game", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Primer guion de la nueva categoría "dc" (backlog, 9 sep).
+        // Noticia real verificada con WebSearch 2026-09-09: DC Studios
+        // retrasó "Clayface" del 11 de septiembre al 23 de octubre de
+        // 2026 para descongestionar el calendario de la DCU (Supergirl
+        // 26 junio, Lanterns en HBO a finales de verano) y encajarla
+        // mejor de cara a Halloween por ser una peli de terror corporal.
+        // Dirige James Watkins, guion de Mike Flanagan, protagonizada
+        // por Tom Rhys Harries como Matt Hagen — fuentes: thedirect.com,
+        // screenrant.com.
+        title: "Clayface cambia de fecha: por qué la primera peli de terror del universo DC se retrasa",
+        saga: "dc",
+        type: "curiosidad",
+        date: "2026-09-09",
+        summary: "DC mueve su primera peli de terror corporal de septiembre a octubre — la razón real (y por qué encaja mejor así) detrás del cambio.",
+        thumbnail: "🎃",
+        internalView: "rf-dc-clayface", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce|dc|dragonball|directores", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -4738,7 +4756,8 @@
       'rf-endgame-encore': '14lPuLlFigoE1p78VISI7AMCRtCSMe9O0',
       'rf-steve-peggy-regreso': '10TiDnuMTuZOJkTo7HiMTf44P9GMoQx4I',
       'rf-visionquest': '1nvGc9HoYeUNUJQ1kVljfhVAdaXoeN1tQ',
-      'rf-marvels-wolverine-game': '1DW-xUoMrsN6OvF0Dj_BF5bj9zG6oG4Oc'
+      'rf-marvels-wolverine-game': '1DW-xUoMrsN6OvF0Dj_BF5bj9zG6oG4Oc',
+      'rf-dc-clayface': '1OQ2L4kFFc3efrUYCYOQpdushx8HTx-lZ'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
@@ -5270,6 +5289,22 @@
           credit: 'Concepto del lanzatelarañas (invento, no poder biológico) — Gamma, prompt propio',
           ai: true
         }]
+      },
+      // Primer guion de la saga "dc" (9 sep) — Mike Flanagan (guionista
+      // real de Clayface) solo aparece nombrado en la frase de Desarrollo
+      // que habla del equipo creativo, así que la foto se ata a esa
+      // frase con 'match' y no al resto del beat.
+      'rf-dc-clayface': {
+        'Desarrollo': [
+          {
+            match: 'guion de Mike Flanagan',
+            photos: [{
+              url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Mike_Flanagan_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg',
+              alt: 'Mike Flanagan',
+              credit: 'Mike Flanagan, guionista de Clayface — Foto: Kevin Payravi / WikiPortraits, CC BY-SA 4.0 (Wikimedia Commons)'
+            }]
+          }
+        ]
       }
     };
     // Retro 365 (9 sep, pedido explícito de Iván: "en cada fase de cada
