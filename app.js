@@ -5058,8 +5058,15 @@
       'rf-curiosidades-homelander': {
         'Giro': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Antony_Starr.jpg/500px-Antony_Starr.jpg', alt: 'Antony Starr', credit: 'Antony Starr — Foto: Eva Rinaldi, CC BY-SA 2.0 (Wikimedia Commons)' }]
       },
+      // Ampliado 9 sep (foto por frase): Desarrollo dividido en 3 frases
+      // — su foto solo sale en la 3ª (la que de verdad lo nombra), no en
+      // las 2 anteriores (contraste/sátira, sin persona real).
       'rf-opinion-homelander': {
-        'Desarrollo': [{ url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg/500px-Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg', alt: 'Antony Starr, 2024', credit: 'Antony Starr — Foto: Super Festivals, CC BY 2.0 (Wikimedia Commons)' }]
+        'Desarrollo': [
+          { match: 'interpretación de Antony Starr', photos: [{
+            url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg/500px-Antony_Starr_Photo_Op_GalaxyCon_Oklahoma_City_2024.jpg', alt: 'Antony Starr, 2024', credit: 'Antony Starr — Foto: Super Festivals, CC BY 2.0 (Wikimedia Commons)'
+          }] }
+        ]
       },
       // Backlog Fase 2 #153: el mismo beat nombra a 5 actores (Tom
       // Holland, Zendaya, Jon Bernthal, Florence Pugh, Mark Ruffalo) —
