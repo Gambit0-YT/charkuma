@@ -837,6 +837,23 @@
       border:1px dashed var(--orange);font-size:13px;color:var(--text);line-height:1.6
     }
     .script-suggestion strong{color:var(--orange)}
+    /* Fuente citada por frase (backlog #176, aplicado desde 9 sep a
+       guiones NUEVOS): enlace real a la fuente del dato afirmado justo
+       encima, distinto de la nota de producción — es un enlace clicable
+       de verdad, no solo texto informativo. */
+    .script-source{
+      margin:-2px 0 14px;padding:6px 12px;border-radius:10px;background:rgba(56,189,248,.08);
+      border:1px dashed #38bdf8;font-size:12px;color:var(--muted);line-height:1.6
+    }
+    .script-source a{color:#38bdf8;text-decoration:underline}
+    /* Aviso de "dato que podría cambiar antes de publicar" (fechas de
+       estreno, casting no oficial al 100%) — distinto de una sugerencia
+       de opinión, es un aviso de fiabilidad del propio dato. */
+    .script-warning{
+      margin:-2px 0 14px;padding:8px 12px;border-radius:10px;background:rgba(255,95,109,.08);
+      border:1px dashed var(--red);font-size:12px;color:var(--muted);line-height:1.6
+    }
+    .script-warning strong{color:var(--red)}
     .script-seo{
       margin:-2px 0 14px;padding:8px 12px;border-radius:10px;background:rgba(34,197,94,.08);
       border:1px dashed var(--green);font-size:12px;color:var(--muted);line-height:1.6
