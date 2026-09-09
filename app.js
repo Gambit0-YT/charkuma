@@ -4336,6 +4336,12 @@
         saga: "marvel",
         type: "curiosidad",
         date: "2026-09-08",
+        // Backlog #302 (9 sep, pedido explícito de Iván): "el vídeo se
+        // tiene que subir ANTES de que ocurra lo que cuenta" — este
+        // guion pierde casi todo su sentido si se publica después del
+        // reestreno real. `deadline` = fecha real del evento, para que
+        // Bandeja de Guiones lo resalte con la urgencia correcta.
+        deadline: "2026-09-25",
         summary: "4 minutos de metraje inédito y un adelanto exclusivo de Doomsday — todo lo real sobre el reestreno de Endgame este mes.",
         thumbnail: "🎬",
         internalView: "rf-endgame-encore", reviewed: false, stage: 'creando-guion'
@@ -4380,6 +4386,7 @@
         saga: "marvel",
         type: "curiosidad",
         date: "2026-09-08",
+        deadline: "2026-09-15", // ver nota de #302 en rf-endgame-encore — el más urgente de todos ahora mismo
         summary: "Del mismo estudio que Marvel's Spider-Man — trama, combate y los tres escenarios reales del videojuego que sale en una semana.",
         thumbnail: "🦾",
         internalView: "rf-marvels-wolverine-game", reviewed: false, stage: 'creando-guion'
@@ -4398,6 +4405,7 @@
         saga: "dc",
         type: "curiosidad",
         date: "2026-09-09",
+        deadline: "2026-10-23", // ver nota de #302 en rf-endgame-encore
         summary: "DC mueve su primera peli de terror corporal de septiembre a octubre — la razón real (y por qué encaja mejor así) detrás del cambio.",
         thumbnail: "🎃",
         internalView: "rf-dc-clayface", reviewed: false, stage: 'creando-guion'
@@ -4416,6 +4424,7 @@
         saga: "dragonball",
         type: "curiosidad",
         date: "2026-09-09",
+        deadline: "2026-10-11", // ver nota de #302 en rf-endgame-encore
         summary: "El arco de Beerus vuelve reconstruido con el guion original de Toriyama — fecha confirmada, qué cambia y quién está detrás.",
         thumbnail: "🐉",
         internalView: "rf-dragonball-beerus-remake", reviewed: false, stage: 'creando-guion'
@@ -9821,11 +9830,31 @@
       renderIdeaSwipeStage();
     }
 
+    // Backlog #302 (9 sep, pedido explícito de Iván: "el vídeo se tiene
+    // que subir antes de que se estrene, eso siempre lo tiene que tener
+    // en cuenta") — un guion sobre una fecha real (estreno, evento)
+    // pierde su sentido si se publica después. `deadline` en el
+    // contenido original marca esa fecha límite real.
+    function guionDeadlineDays(rid){
+      const item = findContentItemByView(rid);
+      if (!item || !item.deadline) return null;
+      return Math.ceil((new Date(item.deadline + 'T00:00:00') - new Date()) / 86400000);
+    }
     function buildGuionesBandeja(){
       return buildSiteIndex()
         .filter(item => findContentItemByView(item.view))
         .filter(item => item.status === 'aprobado' || item.status === CONTENT_STAGE_ORDER[0])
-        .sort((a, b) => (a.status === 'aprobado' ? 1 : 0) - (b.status === 'aprobado' ? 1 : 0));
+        .sort((a, b) => {
+          // Prioridad real: primero por urgencia de fecha límite (el
+          // que menos días tenga, o ya pasado, va primero), luego por
+          // el criterio de siempre (empezado > sin empezar).
+          const da = guionDeadlineDays(a.view);
+          const db = guionDeadlineDays(b.view);
+          if (da !== null && db !== null) return da - db;
+          if (da !== null) return -1;
+          if (db !== null) return 1;
+          return (a.status === 'aprobado' ? 1 : 0) - (b.status === 'aprobado' ? 1 : 0);
+        });
     }
 
     // Backlog #14 — plantilla de estructura de guion para empezar uno
@@ -9880,8 +9909,14 @@
       // foto/ilustración de contexto para el modo grabación (real o IA,
       // cualquiera de las dos cuenta) frente a los que todavía no.
       const withContextPhoto = items.filter(item => !!RECORDING_MODE_IMAGES[item.view]).length;
+      // Backlog #302 — cuántos de estos guiones tienen una fecha límite
+      // real (dentro de 14 días) que se perdería si no se graban a tiempo.
+      const urgentCount = items.filter(item => {
+        const d = guionDeadlineDays(item.view);
+        return d !== null && d <= 14;
+      }).length;
       countEl.textContent = items.length
-        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar${pendingOpinion ? ` — ${pendingOpinion} con la Opinión todavía sin escribir` : ''} — ${withContextPhoto} de ${items.length} con foto de contexto.`
+        ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar${pendingOpinion ? ` — ${pendingOpinion} con la Opinión todavía sin escribir` : ''} — ${withContextPhoto} de ${items.length} con foto de contexto.${urgentCount ? ` ⏰ ${urgentCount} con fecha límite real en menos de 14 días.` : ''}`
         : 'No hay guiones pendientes de grabar ahora mismo — todo lo aprobado ya está en edición o publicado.';
       listEl.innerHTML = items.map(item => {
         const rid = item.view;
@@ -9890,6 +9925,20 @@
           ? `<span class="type-chip chip-green">✅ Guion listo, sin empezar</span>`
           : `<span class="type-chip chip-orange">✍️ Grabando voz en off</span>`;
         const actionLabel = notStarted ? '▶️ Empezar a grabar' : '✅ Voz grabada → pasar a edición';
+        // Backlog #302 — badge de fecha límite real, cuando el guion la
+        // tiene: rojo si quedan 3 días o menos (o ya pasó), naranja si
+        // quedan menos de 14, neutro si hay más margen.
+        const deadlineDays = guionDeadlineDays(rid);
+        let deadlineBadge = '';
+        if (deadlineDays !== null) {
+          const urgentClass = deadlineDays <= 3 ? 'chip-red' : deadlineDays <= 14 ? 'chip-orange' : 'chip-neutral';
+          const deadlineLabel = deadlineDays < 0
+            ? `⏰ Fecha límite pasada hace ${Math.abs(deadlineDays)} día${Math.abs(deadlineDays) === 1 ? '' : 's'}`
+            : deadlineDays === 0
+              ? `⏰ Fecha límite: HOY`
+              : `⏰ Publicar antes de ${deadlineDays} día${deadlineDays === 1 ? '' : 's'}`;
+          deadlineBadge = `<span class="type-chip ${urgentClass}" title="Este guion pierde sentido si se publica después de la fecha real del evento">${deadlineLabel}</span>`;
+        }
         return `
           <div class="geek-card">
             <div class="geek-thumb">${item.emoji}</div>
@@ -9897,6 +9946,7 @@
               <div class="geek-badges">
                 <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
                 ${statusChip}
+                ${deadlineBadge}
                 ${RECORDING_MODE_IMAGES[rid] ? `<span class="type-chip chip-neutral">🖼️ Con foto de contexto</span>` : ''}
                 ${recentlyUpdatedBadgeHTML(rid)}
               </div>
