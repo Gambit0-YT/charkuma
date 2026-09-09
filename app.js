@@ -4354,11 +4354,15 @@
         thumbnail: "🦾",
         internalView: "rf-marvels-wolverine-game", reviewed: false, stage: 'creando-guion'
       }
-      // { title:"...", saga:"marvel|boys|cruce", type:"reaccion|curiosidad|opinion|fancast|batalla",
+      // { title:"...", saga:"marvel|boys|cruce|dc|dragonball|directores", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
+      // "dc" y "dragonball" son sagas propias (no cruces con Marvel/Boys).
+      // "directores" es para películas sueltas de los 10 directores reconocidos
+      // de la lista de charkuma-autonomous-loop-rules.md — no forman una saga
+      // real entre sí, se agrupan aquí solo como categoría de "cine de autor".
     ];
 
-    const SAGA_LABELS = { marvel:"🅼 Marvel", boys:"🅱️ The Boys", cruce:"⚔️ Cruce" };
+    const SAGA_LABELS = { marvel:"🅼 Marvel", boys:"🅱️ The Boys", cruce:"⚔️ Cruce", dc:"🦇 DC", dragonball:"🐉 Dragon Ball", directores:"🎬 Directores" };
     const TYPE_LABELS = {
       reaccion:"🔴 Reacción", curiosidad:"🟡 Curiosidad", opinion:"🟣 Opinión",
       fancast:"🟢 Fancast", batalla:"🟠 Batalla"
@@ -6221,7 +6225,10 @@
       disney: '🏰 Disney',
       dreamworks: '🐉 DreamWorks',
       cruce: '⚔️ Cruce',
-      geek: '🎬 Cine geek'
+      geek: '🎬 Cine geek',
+      dc: '🦇 DC',
+      dragonball: '🐉 Dragon Ball',
+      directores: '🎥 Directores'
     };
 
     const rinconSecretIdeas = {
@@ -7793,7 +7800,7 @@
         label: 'Rincón del Friki',
         subjects: ['el villano de moda ahora mismo','el héroe más infravalorado del momento','el antihéroe que todo el mundo comenta','la última incorporación al reparto','el crossover que nadie esperaba','el personaje secundario que se ha vuelto viral','la teoría fan más comentada esta semana','el spin-off recién anunciado','el actor protagonista del estreno actual','la escena que más se ha compartido esta semana',
           'las actrices de Marvel que odiaron sus propios trajes','Marvel Rivals y su fiebre actual','el nuevo tráiler de los Cuatro Fantásticos','la eterna polémica con Capitana Marvel','Deadpool volviéndose viral otra vez'],
-        universes: ['geek','marvel','boys','anime','cruce'],
+        universes: ['geek','marvel','boys','anime','cruce','dc','dragonball','directores'],
         templates: {
           opinion: ['Mi opinión sincera sobre {s}, para quien no sabe nada todavía.','Por qué {s} merece más atención de la que le están dando.'],
           curiosidad: ['5 datos curiosos sobre {s} que casi nadie conoce.','Lo que cambia {s} respecto a su versión original en el cómic.'],
