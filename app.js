@@ -4987,6 +4987,17 @@
             url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg',
             alt: 'Robert Downey Jr. en la Comic-Con de San Diego, 2014',
             credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+          }] },
+          // Añadido 9 sep (prioridad de Iván: seguir el barrido de fotos):
+          // la frase del diseño del traje no tenía foto — imagen
+          // promocional OFICIAL real del traje de Doom (no fan art, no
+          // IA), verificada por HTTP. Distinto del resto (fotos de
+          // actores reales): aquí lo real y fotografiable es el propio
+          // traje ya mostrado oficialmente por el estudio.
+          { match: 'cuidado real en el diseño', photos: [{
+            url: 'https://images.thedirect.com/media/photos/doom_MEW6IA4.jpg',
+            alt: 'Diseño oficial del traje de Doctor Doom en Avengers: Doomsday',
+            credit: 'Arte promocional oficial del traje de Doom — Marvel Studios'
           }] }
         ]
       },
@@ -5280,6 +5291,15 @@
       // permiso). Madripoor se queda sin foto a propósito: es un lugar
       // ficticio sin equivalente real al que fotografiar.
       'rf-marvels-wolverine-game': {
+        // Añadido 9 sep (barrido de fotos): Contexto nombra al estudio
+        // real (Insomniac Games) — logo oficial, dominio público
+        // (Logopedia vía Wikimedia), la propia nota de Visual del guion
+        // ya pedía "logo de Insomniac Games".
+        'Contexto': [{
+          url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Insomniac_Games_logo.svg',
+          alt: 'Logo de Insomniac Games',
+          credit: 'Logo de Insomniac Games — dominio público (Wikimedia Commons)'
+        }],
         'Desarrollo': [
           {
             url: 'context-img/rf-marvels-wolverine-game-canada.jpg',
