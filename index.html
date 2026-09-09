@@ -430,6 +430,11 @@
       .last-autonomous-activity{display:none!important}
       .app-view.active{opacity:1!important;transform:none!important}
       .geek-card, .kanban-column, .vidiq-stats-panel, .stale-warning{break-inside:avoid}
+      /* Backlog #195 — copia en papel de un guion individual: fuera
+         controles de gestión y columnas laterales, dentro solo el
+         resumen y el propio guion. */
+      .review-controls, .sidebar-stack, .sidebar-stack-left, .recording-mode-overlay,
+      .notif-panel, .settings-panel{display:none!important}
     }
     .share-view-btn:hover{border-color:var(--purple);color:var(--text)}
 

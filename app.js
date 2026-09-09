@@ -5722,6 +5722,7 @@
           ${approved ? priorityControlHTML(rid) : ''}
           ${approved ? costControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
+          ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="window.print()" title="Copia en papel del guion, sin controles ni columnas laterales">🖨️ Imprimir guion</button>` : ''}
           ${showChecklist ? contextPhotosPreviewHTML(rid) : ''}
           ${showChecklist ? recordingChecklistHTML(rid) : ''}
           ${showChecklist ? youtubeMetaHTML(item, rid) : ''}
