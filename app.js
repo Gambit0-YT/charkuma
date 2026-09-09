@@ -5114,8 +5114,15 @@
       },
       // El metraje inédito del reestreno "probablemente presenta a Victor
       // von Doom" — misma foto de RDJ que en su guion de Doom.
+      // Ampliado 9 sep (foto por frase): Desarrollo dividido en 3 frases
+      // — la foto de RDJ solo sale en la frase que menciona a Victor von
+      // Doom (su personaje), no en las otras 2 (minutos inéditos / IMAX).
       'rf-endgame-encore': {
-        'Desarrollo': [{ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg', alt: 'Robert Downey Jr.', credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)' }]
+        'Desarrollo': [
+          { match: 'presentando a Victor von Doom', photos: [{
+            url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg/500px-Robert_Downey%2C_Jr._SDCC_2014_%28cropped%29.jpg', alt: 'Robert Downey Jr.', credit: 'Robert Downey Jr. — Foto: Gage Skidmore, CC BY-SA 2.0 (Wikimedia Commons)'
+          }] }
+        ]
       },
       // Petición ampliada (8 sep): para guiones sin ningún actor/persona
       // real que mostrar, usar una ILUSTRACIÓN generada con IA (Gamma) en
