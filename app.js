@@ -10696,6 +10696,12 @@
         title: '¿Revisar los permisos del conector de Google Drive?',
         why: 'Igual que las claves API — revisión preventiva, sin ninguna señal de problema real.',
         type: 'choice', options: ['Sí, revísalo', 'No, déjalo (recomendado)']
+      },
+      {
+        id: 'gamematch-test-data', num: 'hallazgo 9 sep',
+        title: '¿"testgamea/b/c/d" en Game Match son de prueba?',
+        why: 'Haciendo la copia de seguridad de Firestore encontré 4 entradas con ese nombre en tus decisiones reales de Game Match — tienen toda la pinta de ser datos de prueba de una sesión anterior, no juegos reales. No las he tocado por si acaso.',
+        type: 'choice', options: ['Sí, son de prueba, bórralas', 'No, son reales, déjalas']
       }
     ];
     let helpNeededAnswers = {};
