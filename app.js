@@ -4401,6 +4401,24 @@
         summary: "DC mueve su primera peli de terror corporal de septiembre a octubre — la razón real (y por qué encaja mejor así) detrás del cambio.",
         thumbnail: "🎃",
         internalView: "rf-dc-clayface", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        // Primer guion de la saga "dragonball" (9 sep). Noticia real
+        // verificada con WebSearch: en el evento oficial "Genkidamatsuri"
+        // (25 enero 2026, 40 aniversario) Toei confirmó "Dragon Ball
+        // Super: Beerus", un remake/"enhanced edition" del arco de
+        // Beerus basado en el guion original de Akira Toriyama, con
+        // cortes nuevos y escenas re-grabadas — estreno confirmado 11 de
+        // octubre de 2026 (a un mes de hoy). Reparto confirmado: Masako
+        // Nozawa (Goku), Koichi Yamadera (Beerus), Akio Iyoku (productor
+        // ejecutivo). Fuentes: dragon-ball-official.com, animecorner.me.
+        title: "Dragon Ball Super: Beerus se estrena en octubre — todo lo confirmado del remake",
+        saga: "dragonball",
+        type: "curiosidad",
+        date: "2026-09-09",
+        summary: "El arco de Beerus vuelve reconstruido con el guion original de Toriyama — fecha confirmada, qué cambia y quién está detrás.",
+        thumbnail: "🐉",
+        internalView: "rf-dragonball-beerus-remake", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce|dc|dragonball|directores", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -4787,7 +4805,8 @@
       'rf-steve-peggy-regreso': '10TiDnuMTuZOJkTo7HiMTf44P9GMoQx4I',
       'rf-visionquest': '1nvGc9HoYeUNUJQ1kVljfhVAdaXoeN1tQ',
       'rf-marvels-wolverine-game': '1DW-xUoMrsN6OvF0Dj_BF5bj9zG6oG4Oc',
-      'rf-dc-clayface': '1OQ2L4kFFc3efrUYCYOQpdushx8HTx-lZ'
+      'rf-dc-clayface': '1OQ2L4kFFc3efrUYCYOQpdushx8HTx-lZ',
+      'rf-dragonball-beerus-remake': '1MtBu5qSVvAHCbQEcXxMAvzXPm-kLrV1x'
     };
 
     // Extrae la narración real de un guion por su id de vista, SIN
@@ -5361,6 +5380,24 @@
               url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Mike_Flanagan_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg',
               alt: 'Mike Flanagan',
               credit: 'Mike Flanagan, guionista de Clayface — Foto: Kevin Payravi / WikiPortraits, CC BY-SA 4.0 (Wikimedia Commons)'
+            }]
+          }
+        ]
+      },
+      // Primer guion de la saga "dragonball" (9 sep) — Masako Nozawa
+      // (voz real de Goku) solo aparece nombrada en la frase de
+      // Desarrollo que habla del reparto, así que la foto se ata a esa
+      // frase con 'match'. La foto real la muestra junto a otra persona
+      // (recibiendo un reconocimiento oficial) — crédito honesto de
+      // ambos, mismo criterio que cualquier foto de grupo verificada.
+      'rf-dragonball-beerus-remake': {
+        'Desarrollo': [
+          {
+            match: 'Masako Nozawa como Goku',
+            photos: [{
+              url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Masako_Nozawa_and_Yohei_Matsumoto_2025-11-04.jpg',
+              alt: 'Masako Nozawa, voz de Goku desde el origen de la franquicia',
+              credit: 'Masako Nozawa recibiendo el reconocimiento de Persona de Mérito Cultural — Ministerio de Educación de Japón (MEXT), CC BY 4.0 (Wikimedia Commons)'
             }]
           }
         ]
