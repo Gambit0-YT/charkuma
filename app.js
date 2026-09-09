@@ -1087,6 +1087,19 @@
       renderMemoryGame();
     }
 
+    // Backlog #273 (9 sep) — resaltar en el menú principal la sección
+    // en la que estás, para saber "dónde estoy" de un vistazo. Solo
+    // marca coincidencia EXACTA con uno de los 5 destinos reales del
+    // menú (`data-nav-section` en index.html) — a propósito no intenta
+    // adivinar la sección "padre" de cada guion/subvista individual
+    // (Rincón del Friki, un día de Retro 365...), porque acertar mal
+    // sería peor que no resaltar nada. Cubre el caso más común: entrar
+    // directo desde el menú a una de las 5 vistas de primer nivel.
+    function updateNavActiveState(id){
+      const links = document.querySelectorAll('#navLinks a[data-nav-section]');
+      links.forEach(a => a.classList.toggle('nav-active', a.dataset.navSection === id));
+    }
+
     function showView(id, opts){
       opts = opts || {};
       playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
@@ -1104,6 +1117,7 @@
         requestAnimationFrame(() => requestAnimationFrame(() => target.classList.add('view-visible')));
       }
       if (opts.resetScroll !== false) window.scrollTo({top:0});
+      updateNavActiveState(id);
       updateSidebar(id);
       updateViewChrome(id, target);
       // Backlog #83 — anuncia el cambio de vista a lectores de pantalla

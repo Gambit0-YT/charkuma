@@ -243,6 +243,9 @@
     .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
     .nav-links a{cursor:pointer}
     .nav-links a:hover{color:var(--text)}
+    /* Backlog #273 (9 sep): saber "dónde estás" de un vistazo en el menú
+       principal — se marca desde showView() vía data-nav-section. */
+    .nav-links a.nav-active{color:var(--orange)}
     .nav-cta{
       padding:10px 15px;border:1px solid rgba(255,122,24,.38);border-radius:12px;
       color:var(--text);background:rgba(255,122,24,.08);cursor:pointer;text-transform:uppercase;letter-spacing:.02em
@@ -1539,10 +1542,10 @@
         <span>CHAR<strong>KUMA</strong></span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="javascript:void(0)" onclick="showView('mis-proyectos'); closeMobileMenu()">Proyectos</a>
-        <a href="javascript:void(0)" onclick="showView('charkumalab'); closeMobileMenu()">Laboratorio</a>
-        <a href="javascript:void(0)" onclick="showView('helquidgames'); closeMobileMenu()">Games</a>
-        <a href="javascript:void(0)" onclick="showView('redes'); closeMobileMenu()">Redes Sociales</a>
+        <a href="javascript:void(0)" data-nav-section="mis-proyectos" onclick="showView('mis-proyectos'); closeMobileMenu()">Proyectos</a>
+        <a href="javascript:void(0)" data-nav-section="charkumalab" onclick="showView('charkumalab'); closeMobileMenu()">Laboratorio</a>
+        <a href="javascript:void(0)" data-nav-section="helquidgames" onclick="showView('helquidgames'); closeMobileMenu()">Games</a>
+        <a href="javascript:void(0)" data-nav-section="redes" onclick="showView('redes'); closeMobileMenu()">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity(); closeMobileMenu()">Sobre mí</a>
         <!-- Pedido 9 sep: el panel de gestión (antes "hub-secreto"/Control
              Maestro, enmarcado como "🔒 SOLO TÚ") ya era accesible con un
@@ -1552,7 +1555,7 @@
              resto de secciones. Los "bancos secretos de ideas" (clic en
              el emoji de cada sección) se dejan tal cual: son un easter
              egg deliberado de la web, no una herramienta de gestión. -->
-        <a href="javascript:void(0)" onclick="showView('hub-secreto'); closeMobileMenu()">Panel</a>
+        <a href="javascript:void(0)" data-nav-section="hub-secreto" onclick="showView('hub-secreto'); closeMobileMenu()">Panel</a>
       </div>
       <div class="nav-tools">
         <button type="button" class="nav-icon-btn nav-hamburger-btn" id="navHamburgerBtn" onclick="toggleMobileMenu()" title="Menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
