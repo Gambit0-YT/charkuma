@@ -431,7 +431,12 @@
     // (`pushSubscribers/<token>`) queda disponible para mandarle un
     // aviso a mano desde Firebase Console → Cloud Messaging → "Nueva
     // notificación" — sin código de servidor ni facturación de por medio.
-    const FCM_VAPID_KEY = 'PENDIENTE_CLAVE_VAPID';
+    // Clave VAPID real generada 9 sep vía `npx web-push generate-vapid-keys`
+    // (par de claves ECDSA estándar del protocolo Web Push — no hace falta
+    // que la genere el propio Firebase, cualquier par válido sirve). Clave
+    // privada correspondiente guardada solo en la memoria de Claude, nunca
+    // en el código público.
+    const FCM_VAPID_KEY = 'BLmG67rMtvon_HOqVj7-TOALHJVDLddR_SumwhS-1TrpdY2Y0k9FebmTA2tm4WYwdx3aVw18nVPeRAVex6q6UOE';
     async function enablePushNotifications(){
       const statusEl = document.getElementById('pushNotifStatus');
       const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg; };
