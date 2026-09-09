@@ -4800,6 +4800,26 @@
     // guion en el desplegable de arriba: cuántos ya tienen voz real
     // generada y cuáles faltan. Mismo dato real (`audioGenState`,
     // sincronizado desde Firestore) que ya usa `renderVozGuionDetail`.
+    // Backlog #173 — cuánto queda por grabar en total, sumando la
+    // narración real de cada guion pendiente (misma fórmula que ya usa
+    // #17/injectBeatDurationEstimate, sin inventar un cálculo aparte).
+    function pendingGuionTotalSeconds(pending){
+      let total = 0;
+      pending.forEach(it => {
+        const target = document.getElementById('view-' + it.rid);
+        const panel = target && findGuionPanel(target);
+        if (!panel) return;
+        extractGuionBeats(panel).forEach(b => {
+          if (b.hasNarration) total += Math.max(1, Math.round(b.words / NARRATION_WORDS_PER_SECOND));
+        });
+      });
+      return total;
+    }
+    function formatSecondsAsMinutes(totalSeconds){
+      const m = Math.floor(totalSeconds / 60);
+      const s = totalSeconds % 60;
+      return m > 0 ? `${m} min ${s}s` : `${s}s`;
+    }
     function renderVozOverallStatus(){
       const statusEl = document.getElementById('vozOverallStatus');
       const detailsEl = document.getElementById('vozPendingDetails');
@@ -4808,7 +4828,9 @@
       const items = buildAllGuionItems();
       const withVoice = items.filter(it => audioGenState[it.rid] && audioGenState[it.rid].audioUrl);
       const pending = items.filter(it => !(audioGenState[it.rid] && audioGenState[it.rid].audioUrl));
-      statusEl.textContent = `${withVoice.length} de ${items.length} guiones ya tienen voz real generada.`;
+      const pendingSeconds = pendingGuionTotalSeconds(pending);
+      statusEl.textContent = `${withVoice.length} de ${items.length} guiones ya tienen voz real generada.`
+        + (pending.length ? ` ⏱️ ~${formatSecondsAsMinutes(pendingSeconds)} de narración pendiente de grabar en total.` : '');
       if (detailsEl) detailsEl.hidden = pending.length === 0;
       if (listEl) {
         listEl.innerHTML = pending.length
