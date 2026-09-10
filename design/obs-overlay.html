@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="hz:canvas-width" content="1920">
+<meta name="hz:canvas-height" content="1080">
+<meta name="hz:slide-selector" content=".slide">
+<link rel="stylesheet" href="https://use.typekit.net/ofm0ovs.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; background: transparent; }
+  .slide {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background: transparent;
+    font-family: "barlow-condensed", "Arial Narrow", sans-serif;
+    overflow: hidden;
+  }
+
+  /* ---- Top-left brand lockup ---- */
+  .brand {
+    position: absolute;
+    top: 46px;
+    left: 54px;
+    width: 560px;
+  }
+  .brand-name {
+    font-family: "anton", sans-serif;
+    font-size: 68px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: #f6f2ff;
+    text-transform: uppercase;
+  }
+  .brand-rule {
+    width: 340px;
+    height: 6px;
+    margin: 12px 0 9px;
+    background: linear-gradient(90deg, #ff7a18 0%, #8b5cf6 100%);
+    border-radius: 999px;
+  }
+  .brand-kicker {
+    font-size: 25px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    color: #c9c0e6;
+    text-transform: uppercase;
+  }
+
+  /* ---- Webcam frame, bottom-left ---- */
+  .cam {
+    position: absolute;
+    left: 54px;
+    bottom: 116px;
+    width: 512px;
+    height: 288px;
+    border: 4px solid #ff7a18;
+    border-radius: 20px;
+    background: rgba(15, 10, 30, 0.55);
+  }
+  .cam-tab {
+    position: absolute;
+    top: -25px;
+    left: 22px;
+    height: 42px;
+    padding: 0 20px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: #ff7a18;
+    border-radius: 11px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #1b0f05;
+    text-transform: uppercase;
+  }
+  .cam-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #d21f1f;
+    border: 3px solid #ffd9b0;
+  }
+
+  /* ---- Now-playing plate, top-right ---- */
+  .np {
+    position: absolute;
+    top: 50px;
+    right: 54px;
+    min-width: 420px;
+    padding: 18px 28px 22px;
+    background: rgba(15, 10, 30, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: 6px solid #8b5cf6;
+    border-radius: 16px;
+    text-align: right;
+  }
+  .np-label {
+    font-size: 23px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: #b9a9e8;
+    text-transform: uppercase;
+  }
+  .np-game {
+    font-family: "anton", sans-serif;
+    font-size: 44px;
+    line-height: 1;
+    margin-top: 8px;
+    color: #f6f2ff;
+    text-transform: uppercase;
+  }
+
+  /* ---- Bottom social strip ---- */
+  .strip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 46px;
+    background: linear-gradient(90deg, rgba(15,10,30,0.96) 0%, rgba(24,16,44,0.96) 100%);
+    border-top: 3px solid #ff7a18;
+  }
+  .strip-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #efe9fb;
+    text-transform: uppercase;
+  }
+  .strip-icon {
+    font-size: 26px;
+  }
+  .strip-sep {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #8b5cf6;
+  }
+
+  /* ---- Corner accent ---- */
+  .accent {
+    position: absolute;
+    right: 0;
+    bottom: 74px;
+    width: 320px;
+    height: 8px;
+    background: linear-gradient(90deg, rgba(139,92,246,0) 0%, #8b5cf6 60%, #ff7a18 100%);
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+
+    <div class="brand">
+      <div class="brand-name">CHARKUMA</div>
+      <div class="brand-rule"></div>
+      <div class="brand-kicker">Gaming &middot; Cultura Geek</div>
+    </div>
+
+    <div class="cam">
+      <div class="cam-tab"><span class="cam-dot"></span>En Directo</div>
+    </div>
+
+    <div class="np">
+      <div class="np-label">Ahora Jugando</div>
+      <div class="np-game">Nombre del Juego</div>
+    </div>
+
+    <div class="accent"></div>
+
+    <div class="strip">
+      <div class="strip-item"><span class="strip-icon">&#9654;</span> YouTube /CHARKUMA</div>
+      <span class="strip-sep"></span>
+      <div class="strip-item"><span class="strip-icon">&#127918;</span> Twitch /charkuma</div>
+      <span class="strip-sep"></span>
+      <div class="strip-item"><span class="strip-icon">&#9834;</span> TikTok @charkuma</div>
+      <span class="strip-sep"></span>
+      <div class="strip-item"><span class="strip-icon">&#9679;</span> Instagram @charkuma</div>
+    </div>
+
+  </div>
+</body>
+</html>
