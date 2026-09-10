@@ -10769,34 +10769,10 @@
         type: 'text', placeholder: 'Pega aquí el link de un vídeo real ya publicado'
       },
       {
-        id: 'ios-swipe-test', num: '#90',
-        title: 'Probar el mazo tipo Tinder (Game Match) en tu móvil real',
-        why: 'El código ya usa el patrón correcto para iOS, pero nunca lo he probado en un iPhone de verdad — solo tú puedes confirmar si se siente bien.',
-        type: 'text', placeholder: '¿Lo probaste? ¿Se siente bien, o algo raro?'
-      },
-      {
         id: 'canva-adobe-auth', num: '#122',
-        title: 'Autorizar Canva o Adobe (plantillas de overlay descargables)',
-        why: 'Para generar una plantilla de overlay de OBS real necesito un conector de diseño de verdad — ninguno está autorizado ahora mismo.',
-        type: 'choice', options: ['Lo autorizo yo cuando pueda', 'No me interesa por ahora', 'Ya lo autoricé, reinténtalo']
-      },
-      {
-        id: 'yt-analytics-permission', num: '#127',
-        title: 'Permiso para refrescar el token de YouTube Analytics',
-        why: 'El token ya existe y sirve para esto (retención real por vídeo), pero el clasificador de permisos de Claude Code bloquea la llamada que lo refresca por manejar una clave sensible. Necesitarías añadir una regla de permiso explícita.',
-        type: 'choice', options: ['Sí, dime cómo', 'No hace falta por ahora']
-      },
-      {
-        id: 'api-keys-rotate', num: '#129',
-        title: '¿Rotar las claves API del sitio?',
-        why: 'Limpieza preventiva, no una emergencia — nunca ha pasado nada raro. Parado hasta que tú lo pidas.',
-        type: 'choice', options: ['Sí, hazlo', 'No, déjalo (recomendado)']
-      },
-      {
-        id: 'drive-permissions-review', num: '#131',
-        title: '¿Revisar los permisos del conector de Google Drive?',
-        why: 'Igual que las claves API — revisión preventiva, sin ninguna señal de problema real.',
-        type: 'choice', options: ['Sí, revísalo', 'No, déjalo (recomendado)']
+        title: 'Plantilla de overlay de OBS descargable',
+        why: 'Canva y Adobe ya están autorizados, pero Canva no da un formato usable para un overlay 16:9 transparente de streaming. Queda intentarlo con Adobe Express (HTML/CSS → export). ¿Sigo por ahí, o lo dejamos aparcado?',
+        type: 'choice', options: ['Prueba con Adobe Express', 'Déjalo aparcado por ahora']
       },
     ];
     let helpNeededAnswers = {};
