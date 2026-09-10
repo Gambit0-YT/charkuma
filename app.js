@@ -9593,6 +9593,90 @@
         ${low.map(v => `<div class="log-entry"><strong>${v.views} visitas</strong><p><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${escapeAttr(v.title)} ↗</a></p></div>`).join('')}`;
     }
 
+    // Backlog #127 — análisis de retención por vídeo, con datos REALES de
+    // YouTube Analytics (API oficial `youtubeanalytics.googleapis.com/v2`,
+    // consultado 2026-09-10 con el token OAuth de `.secrets/`). El sitio es
+    // estático y no puede llamar a la API en vivo (el token no se puede
+    // exponer), así que esto es una instantánea igual que los datos de VidIQ.
+    // Métrica clave: `averageViewPercentage` — % medio del vídeo que la
+    // gente ve de verdad. Rango de fechas: 1 ene – 10 sep 2026.
+    const YT_ANALYTICS_RETENTION = {
+      updatedAt: '10 sep 2026',
+      channel: { views: 3529, avgViewPct: 46.11, avgViewSec: 51, last30dViews: 377, last30dAvgViewPct: 40.91 },
+      // retención por fuente de tráfico (jun–sep 2026) — de dónde llega
+      // la gente y cuánto aguanta según de dónde venga
+      trafficSources: [
+        { source: 'Búsqueda de YouTube', views: 820, avgViewPct: 50.52 },
+        { source: 'Página del canal', views: 255, avgViewPct: 18.12 },
+        { source: 'Feed de Shorts', views: 104, avgViewPct: 19.50 },
+        { source: 'Suscriptores', views: 40, avgViewPct: 77.74 },
+        { source: 'Otras páginas de YouTube', views: 32, avgViewPct: 59.38 },
+        { source: 'Enlaces externos', views: 32, avgViewPct: 42.51 },
+        { source: 'Listas de reproducción', views: 31, avgViewPct: 77.85 },
+        { source: 'Vídeos relacionados', views: 15, avgViewPct: 75.16 }
+      ],
+      // por vídeo (los que superan ~60 visitas en el periodo). Título
+      // tomado de VIDIQ_RECENT_VIDEOS_SAMPLE cuando el id coincide; los
+      // que no, se muestran por id (el token no tiene permiso del Data
+      // API v3 para leer títulos, solo Analytics).
+      videos: [
+        { id: 'jYoHDt16-g4', views: 143, avgViewPct: 88.47 },
+        { id: 'hG2Fez9-GmA', views: 165, avgViewPct: 73.52 },
+        { id: '08LLD5-2ShQ', views: 719, avgViewPct: 60.37 },
+        { id: 'S_mpR3_nAY8', views: 247, avgViewPct: 41.20 },
+        { id: 'Yvv0k8zVQrw', views: 102, avgViewPct: 40.42 },
+        { id: 'EO-uxKgAWnc', views: 120, avgViewPct: 39.46 },
+        { id: 'EUQcJ70A5zo', views: 66, avgViewPct: 37.30 },
+        { id: 'skVXlnC1XQg', views: 134, avgViewPct: 33.60 },
+        { id: 'f_5VVOKavVs', views: 71, avgViewPct: 33.13 },
+        { id: '3H3YdZTI7nY', views: 124, avgViewPct: 30.39 },
+        { id: 'xNqQ4jiJv6s', views: 64, avgViewPct: 28.89 },
+        { id: 'KZcpXXOMS4o', views: 86, avgViewPct: 25.88 },
+        { id: 'qvavf4X_ZRY', views: 68, avgViewPct: 25.42 },
+        { id: 'OrnMU8zy2H0', views: 65, avgViewPct: 19.32 },
+        { id: 'MEuN6cqAHpc', views: 64, avgViewPct: 14.66 }
+      ]
+    };
+    function renderRetentionSnapshot(){
+      const container = document.getElementById('retentionSnapshot');
+      if (!container) return;
+      const d = YT_ANALYTICS_RETENTION;
+      const titleById = {};
+      (typeof VIDIQ_RECENT_VIDEOS_SAMPLE !== 'undefined' ? VIDIQ_RECENT_VIDEOS_SAMPLE : []).forEach(v => { titleById[v.id] = v.title; });
+      const pctClass = p => p >= 50 ? 'ret-good' : (p >= 30 ? 'ret-mid' : 'ret-low');
+      const trend = d.channel.last30dAvgViewPct < d.channel.avgViewPct ? '🔻' : '🔺';
+      const worst = d.videos.slice().sort((a, b) => a.avgViewPct - b.avgViewPct).slice(0, 6);
+      const best = d.videos.slice().sort((a, b) => b.avgViewPct - a.avgViewPct).slice(0, 3);
+      const vidRow = v => {
+        const label = titleById[v.id] ? escapeAttr(titleById[v.id]) : `Vídeo ${v.id}`;
+        return `<div class="log-entry"><strong class="${pctClass(v.avgViewPct)}">${v.avgViewPct.toFixed(0)}%</strong>
+          <p><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${label} ↗</a> · ${v.views} visitas</p></div>`;
+      };
+      container.innerHTML = `
+        <p class="section-sub" style="margin:4px 0 12px">
+          Datos reales de YouTube Analytics (API oficial), 1 ene – 10 sep 2026. La retención
+          es el % medio de cada vídeo que la gente ve antes de irse.
+        </p>
+        <div class="vidiq-stat-grid">
+          <div class="vidiq-stat"><span class="vidiq-stat-value ${pctClass(d.channel.avgViewPct)}">${d.channel.avgViewPct.toFixed(0)}%</span><span class="vidiq-stat-label">Retención media del canal</span></div>
+          <div class="vidiq-stat"><span class="vidiq-stat-value ${pctClass(d.channel.last30dAvgViewPct)}">${trend} ${d.channel.last30dAvgViewPct.toFixed(0)}%</span><span class="vidiq-stat-label">Últimos 30 días</span></div>
+          <div class="vidiq-stat"><span class="vidiq-stat-value">${d.channel.avgViewSec}s</span><span class="vidiq-stat-label">Duración media vista</span></div>
+        </div>
+        <p style="margin:16px 0 6px"><strong>📥 Según de dónde llega la gente</strong></p>
+        ${d.trafficSources.map(s => `<div class="log-entry"><strong class="${pctClass(s.avgViewPct)}">${s.avgViewPct.toFixed(0)}%</strong><p>${escapeAttr(s.source)} · ${s.views} visitas</p></div>`).join('')}
+        <p class="yt-empty" style="margin:8px 0 0">
+          La búsqueda de YouTube trae más gente <em>y</em> la que mejor aguanta (50%+): el SEO
+          está funcionando. Quien entra por la página del canal o el feed de Shorts se va enseguida
+          (~19%). Los suscriptores y las listas de reproducción son pocos pero fieles (~78%).
+        </p>
+        <p style="margin:16px 0 6px"><strong>🔻 Peor retención — dónde se está yendo la gente</strong></p>
+        ${worst.map(vidRow).join('')}
+        <p style="margin:16px 0 6px"><strong>🔺 Mejor retención — qué formato/tema engancha</strong></p>
+        ${best.map(vidRow).join('')}
+        <p class="yt-empty" style="margin:12px 0 0">📅 Última actualización: ${d.updatedAt} · se refresca a mano con el token OAuth (el sitio es estático).</p>
+      `;
+    }
+
     // Backlog #126 — estimación de ganancias real (vidiq_video_earnings_estimate,
     // 2026-09-07) sobre los 3 vídeos reales más vistos del canal. Los
     // tres dieron $0 — resultado real y honesto, no un fallo: vidIQ
@@ -9703,6 +9787,7 @@
       renderReferenceChannels();
       renderMonthlySummary();
       renderLowPerformingVideos();
+      renderRetentionSnapshot();
       renderVideoEarningsEstimate();
       populateGenerateSectionSelect();
 

@@ -6,3 +6,6 @@
 # DENTRO de Firestore (útiles justo si Firestore mismo fallara). Pueden
 # contener datos reales del canal — nunca al repo público.
 .backups-local/
+
+# Claude Code local config
+.claude/
