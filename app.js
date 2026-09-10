@@ -10768,12 +10768,6 @@
         why: 'Cuatro tareas distintas (subtítulos, datos SEO por vídeo, respuestas a comentarios) están paradas por lo mismo: ningún guion tiene todavía el enlace real de un vídeo que hayas subido de verdad. Con uno solo, las cuatro se desbloquean a la vez.',
         type: 'text', placeholder: 'Pega aquí el link de un vídeo real ya publicado'
       },
-      {
-        id: 'canva-adobe-auth', num: '#122',
-        title: 'Plantilla de overlay de OBS descargable',
-        why: 'Canva y Adobe ya están autorizados, pero Canva no da un formato usable para un overlay 16:9 transparente de streaming. Queda intentarlo con Adobe Express (HTML/CSS → export). ¿Sigo por ahí, o lo dejamos aparcado?',
-        type: 'choice', options: ['Prueba con Adobe Express', 'Déjalo aparcado por ahora']
-      },
     ];
     let helpNeededAnswers = {};
     function pushHelpNeededAnswer(id, value){
