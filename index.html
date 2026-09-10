@@ -890,6 +890,14 @@
       border:1px dashed var(--green);font-size:12px;color:var(--muted);line-height:1.6
     }
     .script-seo strong{color:var(--green)}
+    /* Backlog #318 (Operación Bikini, 10 sep): los "[IVÁN — AÑADIR
+       OPINIÓN...]" son texto de producción (una nota para grabar más
+       tarde), no narración terminada — el PDF de consejos señala
+       exactamente esto: "la web mezcla texto de producción con
+       contenido público". No se borra nada (misma nota, mismo
+       contenido) — solo se marca visualmente para que no se confunda
+       con guion ya escrito. */
+    .script-todo{font-style:italic;color:var(--muted);opacity:.75}
     .log-entry{padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
     .log-entry strong{display:block;color:var(--accent-text);font-size:13px;margin-bottom:6px}
     .log-entry p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
@@ -3828,7 +3836,7 @@
                 <p><strong>🎭 Tono:</strong> honesto, bajando el entusiasmo para reconocer el riesgo real sin exagerarlo.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿a ti te genera más ilusión o más miedo este regreso? ¿qué personaje del reparto nuevo te llama más la atención?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿a ti te genera más ilusión o más miedo este regreso? ¿qué personaje del reparto nuevo te llama más la atención?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí lo que más ilusión me hace es ver a Cíclope hecho bien por fin — ha sido de los personajes peor tratados en las películas anteriores."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -3909,7 +3917,7 @@
                 <p><strong>🎭 Tono:</strong> divertido, casi riéndose de la anécdota mientras la cuenta.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting divertido · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de estas curiosidades te ha sorprendido más, o ya las conocías todas?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuál de estas curiosidades te ha sorprendido más, o ya las conocías todas?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí la que más me sorprendió es lo de Instagram — pensaba que estas cosas se anunciaban siempre de forma oficial, no así de informal."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -3996,7 +4004,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, reencuadrando la percepción inicial con calma.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta elección, y cómo crees que debería abordarse esta nueva era de Black Panther?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta elección, y cómo crees que debería abordarse esta nueva era de Black Panther?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me parece un movimiento inteligente — en vez de forzar un reemplazo directo, abre una historia nueva sin pisar el legado del personaje original."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4082,7 +4090,7 @@
                 <p><strong>🎭 Tono:</strong> cauto, introduciendo una nota de realismo tras tanto entusiasmo.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿crees que Marvel puede manejar tantas franquicias a la vez sin que se sienta sobrecargado?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿crees que Marvel puede manejar tantas franquicias a la vez sin que se sienta sobrecargado?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me preocupa un poco el ritmo, la verdad — pero si alguien puede intentarlo, son los mismos directores que ya manejaron Endgame."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4168,7 +4176,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, señalando la estrategia narrativa con interés real.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿vas a ir a verla al cine solo por las escenas nuevas, o prefieres esperar a diciembre?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿vas a ir a verla al cine solo por las escenas nuevas, o prefieres esperar a diciembre?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí sí me tienta ir solo por los 4 minutos — soy de los que no se pierde nada relacionado con el UCM aunque sea un pequeño extra."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4255,7 +4263,7 @@
                 <p><strong>🎭 Tono:</strong> con asombro genuino, destacando el dato más inesperado.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué crees que va a pasar con la búsqueda del hijo de Wanda, y qué esperas del regreso de Ultrón?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué crees que va a pasar con la búsqueda del hijo de Wanda, y qué esperas del regreso de Ultrón?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí lo que más me intriga es la conexión con Tommy Maximoff — si de verdad cierra esa historia, podría ser uno de los cierres más emotivos que ha hecho Marvel en años."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4326,7 +4334,7 @@
                 <p><strong>🎭 Tono:</strong> con emoción creciente, guardándote lo mejor para el final — acelera un poco hacia "ajeno a Marvel".</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> comparativa traje simbionte / Venom lado a lado. <strong>🎬 Producción:</strong> SFX sting dramático · zoom rápido a cámara · BGM: breve silencio o caída antes del sting, luego vuelve el loop</p>
                 <h4>💬 Opinión</h4>
-                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿cuál de estos 5 datos te sorprendió más a ti la primera vez, o cuál usarías para "ganar" una conversación de frikis?]</p>
+                <p><strong>🎙️ Off:</strong> <span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuál de estos 5 datos te sorprendió más a ti la primera vez, o cuál usarías para "ganar" una conversación de frikis?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El del simbionte es el que más me flipó cuando lo descubrí — nunca hubiera imaginado que Venom empezó siendo un diseño de traje que ni siquiera era de Marvel."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano más cercano/personal (sin B-roll, foco en la reacción real). <strong>🎬 Producción:</strong> sin SFX · sin transición brusca, corte simple · BGM: baja de volumen para dar protagonismo a la voz</p>
                 <h4>🏁 Conclusión</h4>
@@ -4416,7 +4424,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, con un puntito de ironía al señalar la paradoja.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿tú estabas en el bando del escepticismo inicial, o te convenció desde el primer tráiler?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿tú estabas en el bando del escepticismo inicial, o te convenció desde el primer tráiler?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Yo estaba escéptico al principio, lo reconozco — pero en cuanto vi el enfoque de 'amigo que se torció' en vez de 'villano genérico', cambié de opinión del todo."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4489,7 +4497,7 @@
                 <p><strong>🎭 Tono:</strong> con firmeza, como aclarando el matiz clave de todo el vídeo — es la frase que resume tu postura real.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting dramático breve · BGM: pequeña caída antes de la frase, luego vuelve</p>
                 <h4>💬 Opinión</h4>
-                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿hay algún momento concreto del multiverso que a ti personalmente te sacara de la película/serie, o al revés, que te convenciera del todo?]</p>
+                <p><strong>🎙️ Off:</strong> <span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿hay algún momento concreto del multiverso que a ti personalmente te sacara de la película/serie, o al revés, que te convenciera del todo?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí el momento que más me convenció fue Loki descubriendo que su variante tenía sus propias razones — ahí sí sentí que el multiverso contaba algo, no solo rellenaba."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> cámara sola, sin B-roll — momento más personal. <strong>🎬 Producción:</strong> sin SFX · BGM: vuelve a bajar de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4582,7 +4590,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, remarcando el peso real del momento.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿te parece un golpe de efecto para el tráiler, o crees que los Centinelas van a tener peso real en la película?]</p>
+                <p><strong>🎙️ Off:</strong> <span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿te parece un golpe de efecto para el tráiler, o crees que los Centinelas van a tener peso real en la película?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí lo que más me convence no son los Centinelas en sí, sino que Marvel se atreva a cruzar elementos de X-Men tan pronto — normalmente ese tipo de crossover se guarda para el final, no para un adelanto."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> cámara sola, sin B-roll. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4665,7 +4673,7 @@
                 <p><strong>🎭 Tono:</strong> con complicidad, revelando un truco poco conocido.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu orden real recomendado, película a película, para alguien que empieza hoy desde cero?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu orden real recomendado, película a película, para alguien que empieza hoy desde cero?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Mi orden real sería: Iron Man, Los Vengadores, y de ahí saltar directo a lo que más te llame por personaje — no hace falta verlo todo para disfrutarlo."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4753,7 +4761,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, bajando el ritmo, dejando espacio para la idea sin prisa.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿ya la has visto? ¿qué te pareció el reparto ampliado y el tono más maduro?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿ya la has visto? ¿qué te pareció el reparto ampliado y el tono más maduro?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Para mí lo mejor es que se atreve a cambiar el tono de Peter sin perder lo que le hace entrañable — no es solo 'más oscuro' porque sí."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4835,7 +4843,7 @@
                 <p><strong>🎭 Tono:</strong> con un puntito de ironía, señalando la contradicción central del personaje.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿sabías ya este origen, o te ha sorprendido lo trágico/mágico que es de verdad?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿sabías ya este origen, o te ha sorprendido lo trágico/mágico que es de verdad?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí lo que más me sorprendió fue lo de su madre y el pacto con Mephisto — pensaba que Doom era pura ciencia, y resulta que tiene magia real en su propia sangre."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -4921,7 +4929,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, destacando el valor humano detrás de la noticia.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta elección para Ghost Rider, y qué esperas de la película?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta elección para Ghost Rider, y qué esperas de la película?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me da buena espina precisamente por eso — cuando el actor lleva años queriendo el papel de verdad, normalmente se nota en la interpretación."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5004,7 +5012,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, señalando la estrategia real detrás de las decisiones.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de estas expansiones te llama más la atención, la precuela de los 50 o la versión mexicana?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuál de estas expansiones te llama más la atención, la precuela de los 50 o la versión mexicana?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me llama muchísimo la atención The Boys: México — ver este universo tan gamberro hecho en español y con producción local es algo que no esperaba."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5093,7 +5101,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, destacando el dato meta-curioso sobre el secretismo real.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué crees que significa eso de "no es la Peggy que recuerdas"? ¿Variante, línea temporal distinta?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué crees que significa eso de "no es la Peggy que recuerdas"? ¿Variante, línea temporal distinta?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me suena a variante de multiverso, la verdad — encajaría con todo lo que Marvel lleva construyendo desde el multiverso hasta ahora."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5177,7 +5185,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, conectando con el éxito previo del estudio.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿vas a jugarlo el día uno, o prefieres esperar a las primeras opiniones?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿vas a jugarlo el día uno, o prefieres esperar a las primeras opiniones?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me tienta el día uno — con el historial de Insomniac, la confianza está ganada de antemano."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5262,7 +5270,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, reencuadrando el retraso como algo positivo con convicción.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿te genera más ganas de verla ahora que sabes el porqué del cambio, o crees que aun así llega en mal momento?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿te genera más ganas de verla ahora que sabes el porqué del cambio, o crees que aun así llega en mal momento?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me da buena espina — que DC piense en el ritmo de estrenos en vez de solo en la cantidad dice mucho de por dónde va esta nueva etapa."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5348,7 +5356,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, dándole peso real a la intención detrás del proyecto.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿te parece que merece la pena un remake así, o prefieres que Dragon Ball avance con historia nueva en vez de revisitar arcos ya contados?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿te parece que merece la pena un remake así, o prefieres que Dragon Ball avance con historia nueva en vez de revisitar arcos ya contados?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me convence — si de verdad se acerca más al guion original de Toriyama, no es solo nostalgia reciclada, es completar algo que se quedó a medias."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5435,7 +5443,7 @@
                 <p><strong>🎭 Tono:</strong> reflexivo, dándole peso real a la contradicción.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿crees que apostar tan fuerte por el formato físico (IMAX 70mm) fue lo que la hizo triunfar, o habría funcionado igual grabada en digital?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿crees que apostar tan fuerte por el formato físico (IMAX 70mm) fue lo que la hizo triunfar, o habría funcionado igual grabada en digital?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me parece que el hype técnico ayudó a venderla, pero lo que de verdad llena salas es la historia y el reparto — el formato es la guinda, no el pastel."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5509,7 +5517,7 @@
                 <p><strong>🎭 Tono:</strong> con perspicacia, marcando el matiz importante — es la idea que separa este vídeo de una lista cualquiera.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída antes de la frase</p>
                 <h4>💬 Opinión</h4>
-                <p><strong>🎙️ Off:</strong> "Karl Urban, sin dudarlo — ya ha demostrado que sostiene un personaje moralmente gris sin caer en la caricatura." [IVÁN — AÑADIR OPINIÓN: algo más personal de por qué Urban en concreto, o si cambiarías de opinión con algún otro nombre.]</p>
+                <p><strong>🎙️ Off:</strong> "Karl Urban, sin dudarlo — ya ha demostrado que sostiene un personaje moralmente gris sin caer en la caricatura." <span class="script-todo">[IVÁN — AÑADIR OPINIÓN: algo más personal de por qué Urban en concreto, o si cambiarías de opinión con algún otro nombre.]</span></p>
                 <p><strong>🎭 Tono:</strong> convencido, sin dudar — dilo como una decisión ya tomada, no como una opción entre varias.</p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo de Urban no es solo por The Boys — es que tiene esa mezcla de físico serio y mirada cansada que pide a gritos el personaje. Los otros dos me convencen menos para el tono concreto de Logan."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> foto de Karl Urban destacada mientras se habla de él. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen, foco en la voz</p>
@@ -5590,7 +5598,7 @@
                 <p><strong>🎭 Tono:</strong> con complicidad, compartiendo un dato que sorprende a quien no sigue la serie de cerca.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿tú estás en el bando de "le tengo cariño" o en el de "sigue sin caerme bien"?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿tú estás en el bando de "le tengo cariño" o en el de "sigue sin caerme bien"?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Yo estoy en el bando de 'le tengo cariño' — como comedia funciona mejor que como amenaza real, y la serie lo sabe usar así."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5674,7 +5682,7 @@
                 <p><strong>🎭 Tono:</strong> conciliador, matizando para no sonar a que desprecia el otro estilo.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿tú con cuál te quedas, o depende del día?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿tú con cuál te quedas, o depende del día?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí depende del día, la verdad — pero cuando quiero algo que me haga pensar, siempre acabo en el lado 'sucio'."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5749,7 +5757,7 @@
                 <p><strong>🎭 Tono:</strong> justo, no despectivo — es matizar, no acusar; suena a entender por qué Marvel no puede hacer lo mismo, no a criticarlo por ello.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting breve · BGM: caída antes de la frase</p>
                 <h4>💬 Opinión</h4>
-                <p><strong>🎙️ Off:</strong> "Sigue teniendo el mejor 'universo compartido' del entretenimiento — pero cuando ese universo prioriza no molestar a nadie para seguir vendiendo, pierde la mordida que sí tiene The Boys." [IVÁN — AÑADIR OPINIÓN: ¿hay algún vídeo/película Marvel reciente que te haya hecho sentir esto especialmente?]</p>
+                <p><strong>🎙️ Off:</strong> "Sigue teniendo el mejor 'universo compartido' del entretenimiento — pero cuando ese universo prioriza no molestar a nadie para seguir vendiendo, pierde la mordida que sí tiene The Boys." <span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿hay algún vídeo/película Marvel reciente que te haya hecho sentir esto especialmente?]</span></p>
                 <p><strong>🎭 Tono:</strong> reconociendo mérito real antes del "pero" — no suena a excusa, suena a justicia con Marvel antes de la crítica.</p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Lo noté especialmente en el último estreno grande de Marvel: todo se resuelve demasiado limpio, sin que nadie pague ningún precio real por sus decisiones."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara, sin B-roll. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
@@ -5820,7 +5828,7 @@
                 <p><strong>🎭 Tono:</strong> con genuina admiración por el trabajo del actor — es el dato "wow" del vídeo, dale un poco más de peso que a los demás.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> primer plano de la sonrisa de Homelander, cámara lenta. <strong>🎬 Producción:</strong> SFX sting dramático · zoom lento · BGM: caída antes del dato</p>
                 <h4>💬 Opinión</h4>
-                <p><strong>🎙️ Off:</strong> [IVÁN — AÑADIR OPINIÓN: ¿qué escena de Homelander te parece a ti la que mejor resume al personaje?]</p>
+                <p><strong>🎙️ Off:</strong> <span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué escena de Homelander te parece a ti la que mejor resume al personaje?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Para mí la escena que mejor lo resume es cualquier discurso público suyo — esa mezcla de sonrisa perfecta y mirada vacía dice más que cualquier momento de violencia."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara, sin B-roll. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -5903,7 +5911,7 @@
                 <p><strong>🎭 Tono:</strong> serio, casi retórico, dejando la pregunta en el aire sin responderla enseguida.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara, plano cercano. <strong>🎬 Producción:</strong> SFX sting dramático breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿hay algún momento concreto de Homelander que te pareciera el más perturbador o el mejor escrito?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿hay algún momento concreto de Homelander que te pareciera el más perturbador o el mejor escrito?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Para mí el momento más perturbador es cualquiera donde sonríe justo después de hacer algo horrible — ese cambio de máscara en medio segundo es lo que más se me quedó grabado."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6112,7 +6120,7 @@
                 <p><strong>🎭 Tono:</strong> satisfecho, como quien comparte un truco inteligente — es el "aha" del vídeo, dilo con un poco de gracia.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> comparativa lado a lado de Ruleta del 11 y el mockup de Draft Arena. <strong>🎬 Producción:</strong> SFX sting de "conexión" · BGM: sube un poco, tono de descubrimiento</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿por qué te decidiste por este concepto en concreto para el próximo juego, o qué te falta decidir todavía?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿por qué te decidiste por este concepto en concreto para el próximo juego, o qué te falta decidir todavía?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me decidí por esto porque era lo que menos trabajo nuevo pedía y lo que más rápido podía tener jugable — el resto de decisiones (qué pool sale primero) las dejo en manos de la comunidad."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6458,7 +6466,7 @@
                 <p><strong>🎭 Tono:</strong> transparente sobre lo que aún no está optimizado — sin excusarte, es un dato honesto más del flujo.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuánto tiempo real te ahorra este flujo comparado con diseñar desde cero, o hay algún paso que te sigue pareciendo tedioso?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuánto tiempo real te ahorra este flujo comparado con diseñar desde cero, o hay algún paso que te sigue pareciendo tedioso?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me ahorra fácilmente la mitad del tiempo que antes — el paso que todavía se me hace pesado es el recorte final, por eso es el primero que quiero automatizar."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6541,7 +6549,7 @@
                 <p><strong>🎭 Tono:</strong> con propósito claro, mirando hacia adelante — es el "por qué merece la pena" en medio de la queja inicial.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> clip de CalcArte funcionando. <strong>🎬 Producción:</strong> SFX sting de conexión · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿merece la pena la curva de aprendizaje para ti, o todavía tienes dudas de si vas a seguir usándolo?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿merece la pena la curva de aprendizaje para ti, o todavía tienes dudas de si vas a seguir usándolo?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Ahora mismo tengo dudas, sinceramente — el control que da es real, pero necesito ver si compensa frente a lo simple que es un generador normal para el día a día."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6622,7 +6630,7 @@
                 <p><strong>🎭 Tono:</strong> honesto, bajando un punto el ritmo, admitiendo la carencia sin darle más drama del necesario.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué comando añadirías tú si pudieras pedir uno más ahora mismo?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué comando añadirías tú si pudieras pedir uno más ahora mismo?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Añadiría un comando para que la gente proponga ideas de vídeo directamente al bot, y que se guarden en algún sitio que yo pueda revisar luego."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6749,7 +6757,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> divertido y cómplice, casi soltando una carcajada al decir "más gamberro".</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> comparativa de dos versiones del mismo guion, tono normal vs ácido. <strong>🎬 Producción:</strong> SFX sting de cambio · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuánto tiempo real crees que te ahorra este prompt comparado con escribir el guion tú desde cero?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuánto tiempo real crees que te ahorra este prompt comparado con escribir el guion tú desde cero?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me ahorra sobre todo el bloqueo inicial de 'no sé por dónde empezar' — el guion en sí luego lo retoco, pero la estructura ya está ahí."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6885,7 +6893,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> satisfecho, como quien conecta dos piezas y por fin le encuentra la utilidad práctica al trabajo previo.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> clip de CalcArte en acción. <strong>🎬 Producción:</strong> SFX sting de conexión · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿hay algún generador que hayas probado después de esto y que cambie lo que cuentas aquí?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿hay algún generador que hayas probado después de esto y que cambie lo que cuentas aquí?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "De momento no he probado nada que cambie la conclusión — sigo volviendo a ChatGPT en cuanto necesito seguir instrucciones de estilo concretas."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -6973,7 +6981,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> comparando con objetividad, sin vender una opción sobre la otra, dejando que cada quien elija.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> comparativa IFTTT vs Google Apps Script en pantalla. <strong>🎬 Producción:</strong> SFX sting de comparación · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿por qué elegiste tú esta combinación en concreto, o probaste alguna otra antes?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿por qué elegiste tú esta combinación en concreto, o probaste alguna otra antes?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Elegí IFTTT porque no quería depender de código que tuviera que mantener yo mismo — cuanto menos mantenimiento, mejor, para algo tan pequeño como esto."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -7050,7 +7058,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> honesto y matizado, avisando de la letra pequeña sin sonar a queja.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> comparativa de resultados entre dos herramientas distintas. <strong>🎬 Producción:</strong> SFX sting de comparación · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿con qué herramienta te ha dado mejor resultado a ti probando este prompt?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿con qué herramienta te ha dado mejor resultado a ti probando este prompt?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "A mí me ha dado mejor resultado con ChatGPT de lejos — con generadores gratuitos he tenido que insistir varias veces en el código de color exacto."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -7290,7 +7298,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> con orgullo de detalle técnico, explicando el pequeño truco como quien comparte algo bien pensado.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> el stinger del lagarto en tiempo real. <strong>🎬 Producción:</strong> SFX del propio stinger · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuánto ha cambiado tu forma de grabar desde que tienes estas escenas montadas de antemano?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuánto ha cambiado tu forma de grabar desde que tienes estas escenas montadas de antemano?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Ha cambiado bastante — antes perdía el hilo cambiando cosas a mitad de grabación, ahora simplemente pulso y sigo hablando."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -7365,7 +7373,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> señalando el detalle con satisfacción, como quien destaca algo que ha pensado bien.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> comparativa de una miniatura Marvel vs una de The Boys. <strong>🎬 Producción:</strong> SFX sting de comparación · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿por qué elegiste esos colores concretos para cada saga, o cómo decidiste el resto del diseño?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿por qué elegiste esos colores concretos para cada saga, o cómo decidiste el resto del diseño?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Rojo/azul para Marvel porque son sus colores clásicos de siempre; negro/blanco para The Boys porque encaja con lo oscuro del tono de la serie."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -7462,7 +7470,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> técnico pero accesible, como quien enseña el proceso sin tecnicismos innecesarios.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> screen recording de Bfxr/Audacity generando un sonido en directo. <strong>🎬 Producción:</strong> SFX el propio proceso de generación · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de los 4 sonidos es tu favorito, o el que más ha costado sacar bien?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿cuál de los 4 sonidos es tu favorito, o el que más ha costado sacar bien?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El de 'logro/victoria' es mi favorito con diferencia — el de aviso de 'esto no me lo esperaba' es el que más vueltas me ha llevado hasta que sonó bien."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -7536,7 +7544,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> honesto sobre la limitación actual, sin restarle mérito al plan de mejora.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> vuelta a cámara. <strong>🎬 Producción:</strong> SFX sting breve · BGM: pequeña caída</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tal ha ido la primera maratón usando este overlay, si ya lo has probado en directo?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué tal ha ido la primera maratón usando este overlay, si ya lo has probado en directo?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no lo he estrenado en directo — en cuanto lo pruebe en la próxima maratón, cuento aquí mismo qué tal ha ido de verdad."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
@@ -7724,7 +7732,7 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
                 <p><strong>🎭 Tono:</strong> honesto sobre el esfuerzo real, valorando el trabajo manual sin quejarse de él.</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> primer plano del antes/después del lijado. <strong>🎬 Producción:</strong> SFX sting de "descubrimiento" · BGM: sube un poco</p>
                 <h4>💬 Opinión</h4>
-                <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tal quedó el resultado final para tu gusto, y hay algo que harías distinto en la siguiente figura?]</p>
+                <p><span class="script-todo">[IVÁN — AÑADIR OPINIÓN: ¿qué tal quedó el resultado final para tu gusto, y hay algo que harías distinto en la siguiente figura?]</span></p>
                 <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Contento con el resultado para ser la primera — en la siguiente pasaría más tiempo lijando antes de pintar, se nota mucho en el acabado final."</p>
                 <p class="script-prod"><strong>🎥 Visual:</strong> solo cámara, figura en mano. <strong>🎬 Producción:</strong> sin SFX · BGM: baja de volumen</p>
                 <h4>🏁 Conclusión</h4>
