@@ -609,6 +609,25 @@
       max-width:760px;color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 34px
     }
 
+    /* Backlog #312 (Operación Bikini, 10 sep): tarjeta de previsualización
+       de Retro 365 en el inicio — mismos tokens que .panel, sin inventar
+       ningún componente visual nuevo. */
+    .retro-preview-card{
+      padding:28px;border-radius:24px;background:var(--card);
+      border:1px solid var(--line);box-shadow:var(--shadow);
+      cursor:pointer;transition:.2s border-color,.2s transform;
+      display:flex;flex-direction:column;gap:18px;max-width:640px
+    }
+    .retro-preview-card:hover{border-color:var(--orange);transform:translateY(-2px)}
+    .retro-preview-day{display:flex;align-items:center;gap:18px}
+    .retro-preview-emoji{font-size:44px;line-height:1;flex:none}
+    .retro-preview-day h3{font-size:20px;margin:0 0 4px}
+    .retro-preview-day .yt-empty{margin:0}
+    .retro-preview-summary{color:var(--muted);line-height:1.6;font-size:14.5px;margin:0}
+    .retro-preview-track{height:8px;border-radius:999px;background:var(--panel);overflow:hidden}
+    .retro-preview-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--orange));border-radius:999px}
+    .retro-preview-cta{align-self:flex-start;pointer-events:none}
+
     .about-grid{
       display:grid;grid-template-columns:1.05fr .95fr;gap:28px
     }
@@ -2557,6 +2576,23 @@
               <p>Gaming · Geek · Creatividad · Tecnología</p>
             </div>
             <div class="tag tag-b">🧪 IDEAS EN PROCESO</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backlog #312 (Operación Bikini, 10 sep): previsualización real de
+           Retro 365 en el inicio — pedido explícito de Iván porque es el
+           proyecto con la mecánica más completa del sitio. Solo lectura,
+           datos reales (día actual, juego real, % real) — nunca inventa
+           progreso. No toca la portada de arriba (hero), va justo debajo. -->
+      <section id="retro365-preview">
+        <div class="container">
+          <div class="section-kicker reveal">🎮 AHORA MISMO</div>
+          <h2 class="section-title reveal">RETRO 365</h2>
+          <p class="section-sub reveal">365 videojuegos, uno por día, durante un año entero. Esto es lo que llevo.</p>
+          <div class="retro-preview-card reveal" role="button" tabindex="0" onclick="showView('retro365')" title="Ir a Retro 365 completo">
+            <div id="retro365PreviewBody"></div>
+            <span class="btn btn-secondary retro-preview-cta">Ver Retro 365 completo →</span>
           </div>
         </div>
       </section>

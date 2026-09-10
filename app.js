@@ -2783,7 +2783,35 @@
         homeFill.style.width = pct + "%";
         homeLabel.textContent = `🎮 Retro 365 · día ${unlockedDays.length} de ${totalDays} (${pct}%)`;
       }
+      renderRetro365HomePreview(pct);
       renderRandomBuildFact();
+    }
+
+    // Backlog #312 (Operación Bikini, 10 sep) — previsualización real de
+    // Retro 365 en el inicio: el último día real ya publicado (no un
+    // "próximo día" inventado, no una carátula falsa — el emoji y el
+    // resumen son los mismos datos reales de `completedGames`), más el
+    // % de progreso real. Nunca fabrica contenido que no exista todavía.
+    function renderRetro365HomePreview(pct){
+      const el = document.getElementById('retro365PreviewBody');
+      if (!el) return;
+      if (!lastUnlocked || !completedGames[lastUnlocked]) {
+        el.innerHTML = `<p class="yt-empty">Todavía no hay ningún día publicado — vuelve pronto.</p>`;
+        return;
+      }
+      const game = completedGames[lastUnlocked];
+      el.innerHTML = `
+        <div class="retro-preview-day">
+          <span class="retro-preview-emoji">${game.emoji || '🎮'}</span>
+          <div>
+            <h3>Día ${lastUnlocked} · ${escapeHTML(game.name)}</h3>
+            <p class="yt-empty">${DIFF_LABELS[game.difficulty] || ''}</p>
+          </div>
+        </div>
+        <p class="retro-preview-summary">${escapeHTML(game.summary)}</p>
+        <div class="retro-preview-track"><div class="retro-preview-fill" style="width:${pct}%"></div></div>
+        <p class="yt-empty" style="margin:0">${lastUnlocked} / ${totalDays} días (${pct}%)</p>
+      `;
     }
 
     // Backlog #136 — frase random del diario de construcción en el pie de
