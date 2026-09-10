@@ -6281,6 +6281,13 @@
 
       const items = geekContent
         .filter(item => {
+          // Backlog #313bis (investigación SEO 10 sep, pedido de Iván):
+          // un guion descartado también deja de aparecer en la lista
+          // pública de Rincón del Friki — no solo en Control Maestro.
+          // Es reversible: quitar el descarte desde Control Maestro lo
+          // vuelve a mostrar. La vista del guion en sí NO se toca (sigue
+          // accesible por URL directa), solo se saca de la parrilla.
+          if (isContentDiscarded(item.internalView || item.title)) return false;
           if (saga && item.saga !== saga) return false;
           if (type && item.type !== type) return false;
           if (query && !item.title.toLowerCase().includes(query)) return false;
