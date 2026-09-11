@@ -384,6 +384,12 @@
     // que las constantes VIDIQ_* — foto de un hecho real, no un
     // contador en vivo). Empieza el 9 sept 2026.
     const AI_CREDIT_LOG = [
+      // Backlog #255 — auditoría 12 sep: faltaba este primer gasto real
+      // (el propio progreso del backlog lo menciona: "3 imágenes
+      // generadas con Gamma = 210 créditos, 400→190" el mismo día, antes
+      // del segundo gasto de 140 que sí estaba registrado). Añadido para
+      // que el registro cuadre con lo que de verdad se gastó.
+      { date: '2026-09-08', service: 'Gamma', amount: 210, reason: 'Ilustración de escena real (bosque nevado de Canadá) para rf-marvels-wolverine-game, tras 2 intentos previos rechazados/inservibles (copyright de personaje, luego un dibujo genérico irreconocible) — saldo pasó de 400 a 190 créditos.' },
       { date: '2026-09-08', service: 'Gamma', amount: 140, reason: 'Ilustraciones de escena para los 2 guiones que se quedaron sin ninguna foto real disponible (rf-opinion-superheroes-sucios, rf-curiosidades-spiderman) — saldo pasó de 190 a 50 créditos.' }
     ];
     function renderAiCreditLog(){
@@ -694,6 +700,20 @@
       const weekly = buildWeeklySummaryNotif();
       if (weekly) push(weekly);
 
+      // Backlog #256 — aviso si el diario de construcción lleva
+      // demasiadas sesiones sin ponerse al día.
+      if (typeof DEVLOG_LAST_UPDATE !== 'undefined') {
+        const devlogDays = Math.floor((new Date() - DEVLOG_LAST_UPDATE) / 86400000);
+        if (devlogDays >= DEVLOG_STALE_DAYS) {
+          push({
+            id: 'devlog-stale', type: 'stale',
+            title: `📓 El diario de construcción lleva ${devlogDays} días sin actualizarse`,
+            detail: 'Puede que haya sesiones de trabajo real todavía sin recoger ahí.',
+            view: 'home'
+          });
+        }
+      }
+
       return notifs;
     }
 
@@ -912,14 +932,20 @@
     }, true);
 
     // ──────────────────────────────────────────────────────────
-    // Atajos de teclado: "/" abre el buscador, "p" salta a Proyectos,
-    // "Esc" cierra buscador/ajustes o vuelve al inicio si ya estás en
-    // una vista.
+    // Atajos de teclado: "/" o Ctrl/Cmd+K abren el buscador, "p" salta a
+    // Proyectos, "Esc" cierra buscador/ajustes o vuelve al inicio si ya
+    // estás en una vista.
     // ──────────────────────────────────────────────────────────
     document.addEventListener('keydown', (e) => {
       const tag = (e.target && e.target.tagName || '').toLowerCase();
       const typing = tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable);
-      if (e.key === '/' && !typing) {
+      // Backlog #271 — Ctrl/Cmd+K es el atajo estándar de "buscador
+      // global" en la mayoría de apps (Notion, Linear...); funciona
+      // aunque estés escribiendo en otro campo, igual que en esas apps.
+      if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        openSearchView();
+      } else if (e.key === '/' && !typing) {
         e.preventDefault();
         openSearchView();
       } else if (e.key === 'p' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) {
@@ -8674,6 +8700,15 @@
     // vez de un string ISO, para no depender de cómo cada navegador
     // interprete la zona horaria de "2026-11-10".
     const RETRO365_START_DATE = new Date(2026, 10, 10);
+
+    // Backlog #256 — fecha real de la última tarjeta añadida al Diario
+    // de construcción (#devLogTimeline). A mano, no parseada del texto
+    // decorativo de cada tarjeta (lleva notas tipo "TARDE"/"2ª TANDA"
+    // que harían el parseo frágil) — se actualiza en el mismo commit que
+    // añade la tarjeta nueva, mismo criterio de mantenimiento manual que
+    // ya pide el propio comentario HTML de arriba del timeline.
+    const DEVLOG_LAST_UPDATE = new Date(2026, 8, 12);
+    const DEVLOG_STALE_DAYS = 14;
 
     // ──────────────────────────────────────────────────────────
     // Reparto de fechas CON MEMORIA: a diferencia de repartir siempre
