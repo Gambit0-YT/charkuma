@@ -1407,6 +1407,9 @@
       const recent = getRecentViews().filter(v => v.id !== id);
       recent.unshift({id, label});
       try { localStorage.setItem(LAST_VIEW_KEY, JSON.stringify(recent.slice(0, LAST_VIEWS_MAX))); } catch (e) { /* localStorage no disponible */ }
+      // Backlog #293 — sincroniza entre dispositivos, mismo patrón que
+      // ideaBanks/uiPrefs (documento propio, ver pushBrowsingState más abajo).
+      if (typeof pushBrowsingState === 'function') pushBrowsingState();
     }
     function renderContinueWidget(){
       const section = document.getElementById('continueWhereLeftOff');
@@ -8406,6 +8409,9 @@
       const nowFav = !favs.includes(view);
       favs = nowFav ? favs.concat([view]) : favs.filter(v => v !== view);
       try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs)); } catch (e) { /* localStorage no disponible */ }
+      // Backlog #293 — sincroniza entre dispositivos, mismo patrón que
+      // ideaBanks/uiPrefs (documento propio, ver pushBrowsingState más abajo).
+      if (typeof pushBrowsingState === 'function') pushBrowsingState();
       if (btnEl) {
         btnEl.classList.toggle('is-favorite', nowFav);
         btnEl.textContent = nowFav ? '⭐' : '☆';
@@ -8859,6 +8865,45 @@
           }
         } catch (e) { /* localStorage no disponible: seguimos sin aplicarlo local */ }
         applyingRemoteUIPrefsUpdate = false;
+      }, () => {
+        // onSnapshot en modo error (reglas, red...) — seguimos en local.
+      });
+    }
+
+    // Backlog #293 — sincronizar favoritos (#266) y últimas vistas
+    // (#262/#265) entre dispositivos, mismo patrón exacto que ideaBanks/
+    // uiPrefs (documento propio, pequeño, no mezclado con contenido).
+    let applyingRemoteBrowsingStateUpdate = false;
+    function pushBrowsingState(){
+      if (!firestoreReady() || applyingRemoteBrowsingStateUpdate) return;
+      const { doc, setDoc } = window.firestoreFns;
+      setDoc(doc(window.firestoreDB, 'browsingState', 'state'), {
+        favorites: loadFavorites(),
+        recentViews: getRecentViews(),
+        updatedAt: Date.now()
+      }).catch(() => {
+        // Sin conexión ahora mismo: se queda en local, sin cola de reintentos.
+      });
+    }
+    let browsingStateRealtimeStarted = false;
+    async function initBrowsingStateRealtime(){
+      if (!firestoreReady() || browsingStateRealtimeStarted) return;
+      browsingStateRealtimeStarted = true;
+      const { doc, onSnapshot } = window.firestoreFns;
+      const ref = doc(window.firestoreDB, 'browsingState', 'state');
+      onSnapshot(ref, (snap) => {
+        if (!snap.exists()) { pushBrowsingState(); return; }
+        const data = snap.data() || {};
+        applyingRemoteBrowsingStateUpdate = true;
+        try {
+          if (Array.isArray(data.favorites)) localStorage.setItem(FAVORITES_KEY, JSON.stringify(data.favorites));
+          if (Array.isArray(data.recentViews)) localStorage.setItem(LAST_VIEW_KEY, JSON.stringify(data.recentViews));
+        } catch (e) { /* localStorage no disponible: seguimos sin aplicarlo local */ }
+        applyingRemoteBrowsingStateUpdate = false;
+        // Repintar lo que esté abierto ahora mismo y dependa de esto.
+        if (typeof renderFavoritesSection === 'function') renderFavoritesSection();
+        if (typeof renderContinueWidget === 'function') renderContinueWidget();
+        if (document.getElementById('settingsPanel') && !document.getElementById('settingsPanel').hidden && typeof renderRecentViewsList === 'function') renderRecentViewsList();
       }, () => {
         // onSnapshot en modo error (reglas, red...) — seguimos en local.
       });
@@ -11251,6 +11296,7 @@
     initContentReviewRealtime();
     initRankingScheduleRealtime();
     initUIPrefsRealtime();
+    initBrowsingStateRealtime();
     initAudioGenRealtime();
     maybeRunWeeklyBackup();
 
