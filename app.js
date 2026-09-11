@@ -9245,6 +9245,7 @@
       if (!promptsList || !banksList) return;
       renderMasterHubSummary();
       renderFavoritesSection();
+      if (typeof renderAllIdeasList === 'function') renderAllIdeasList();
 
       const index = buildSiteIndex();
 
@@ -10229,6 +10230,55 @@
         });
       });
       return pending;
+    }
+
+    // Backlog #286 — "Todas las ideas": junta lo pendiente de los 6
+    // bancos en una sola lista filtrable, reutilizando exactamente la
+    // misma función normalizadora y las mismas acciones reales
+    // (toggleIdeaDone/toggleIdeaDiscard) que ya usa el swipe — no
+    // duplica la lógica de decisión, solo cambia cómo se enseña.
+    const ALL_IDEAS_BANK_LABELS = {
+      rincon: '🦸 Rincón del Friki', helquid: '🎮 HELQUIDGAMES', lab: '🧪 Charkuma Lab',
+      ia: '🤖 IA & Experimentos', creator: '🖥️ Creator Tools', hecho: '🧶 Hecho a Mano'
+    };
+    function allIdeasToggleDone(bank, id, btnEl){
+      toggleIdeaDone(bank, id, btnEl);
+      renderAllIdeasList();
+    }
+    function allIdeasToggleDiscard(bank, id){
+      toggleIdeaDiscard(bank, id);
+      renderAllIdeasList();
+    }
+    function renderAllIdeasList(){
+      const el = document.getElementById('allIdeasList');
+      const filterSel = document.getElementById('allIdeasFilter');
+      if (!el) return;
+      const filterBank = filterSel ? filterSel.value : '';
+      const banks = filterBank ? [filterBank] : Object.keys(ALL_IDEAS_BANK_LABELS);
+      const items = [];
+      banks.forEach(bank => {
+        getPendingIdeasForBank(bank).forEach(idea => {
+          const typeLabel = (IDEA_TYPE_LABELS_BY_BANK[bank] || {})[idea.type] || idea.type;
+          items.push(Object.assign({bank, typeLabel}, idea));
+        });
+      });
+      el.innerHTML = items.length
+        ? items.map(it => `
+            <div class="geek-card">
+              <div class="geek-thumb">${(ALL_IDEAS_BANK_LABELS[it.bank] || '').split(' ')[0] || '💡'}</div>
+              <div class="geek-info">
+                <div class="geek-badges">
+                  <span class="type-chip chip-purple">${escapeHTML(ALL_IDEAS_BANK_LABELS[it.bank] || it.bank)}</span>
+                  <span class="type-chip type-${it.type}">${escapeHTML(it.typeLabel)}</span>
+                </div>
+                <p>${escapeHTML(it.text)}</p>
+                <div class="review-controls" style="margin-top:8px">
+                  <button type="button" class="btn btn-secondary" onclick="allIdeasToggleDiscard('${it.bank}','${it.id}')">❌ Descartar</button>
+                  <button type="button" class="btn btn-primary" onclick="allIdeasToggleDone('${it.bank}','${it.id}', this)">✅ Hecha</button>
+                </div>
+              </div>
+            </div>`).join('')
+        : `<p class="yt-empty">${filterBank ? 'Ningún banco tiene ideas sin decidir con ese filtro.' : '¡No queda ninguna idea sin decidir en ningún banco!'}</p>`;
     }
 
     function renderIdeaSwipeStage(){

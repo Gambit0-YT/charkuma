@@ -2272,6 +2272,26 @@
           <h3 class="subheading" style="margin-top:30px">💡 Bancos secretos de ideas</h3>
           <div id="hubIdeaBanksList" class="template-grid"></div>
 
+          <!-- Backlog #286 — panel único con las ideas sin decidir de los
+               6 bancos a la vez, filtrable por banco. Distinto del "🃏
+               Swipe de ideas" (que decide una a una, banco por banco):
+               esto es la vista de lista completa, para repasar de un
+               vistazo cuántas hay y de qué tipo antes de ponerte a
+               decidir. Reutiliza getPendingIdeasForBank/toggleIdeaDone/
+               toggleIdeaDiscard — mismas funciones reales que ya usa el
+               swipe, no una copia de la lógica. -->
+          <h3 class="subheading" style="margin-top:30px">📋 Todas las ideas</h3>
+          <select id="allIdeasFilter" style="margin-bottom:14px" onchange="renderAllIdeasList()">
+            <option value="">Todos los bancos</option>
+            <option value="rincon">🦸 Rincón del Friki</option>
+            <option value="helquid">🎮 HELQUIDGAMES</option>
+            <option value="lab">🧪 Charkuma Lab</option>
+            <option value="ia">🤖 IA & Experimentos</option>
+            <option value="creator">🖥️ Creator Tools</option>
+            <option value="hecho">🧶 Hecho a Mano</option>
+          </select>
+          <div id="allIdeasList" class="recent-list"></div>
+
           <h3 class="subheading" style="margin-top:30px">📅 Todos los proyectos, por fecha</h3>
           <div class="note" style="margin-bottom:16px">
             <strong>Nota:</strong> la fecha es la de creación/decisión de cada contenido
