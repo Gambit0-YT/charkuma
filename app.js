@@ -9121,9 +9121,22 @@
         return sum + Math.max(0, total - doneOrDiscarded);
       }, 0);
 
+      // Backlog #260 — "resumen ejecutivo": guiones totales y sagas
+      // cubiertas, con datos reales de lo que ya existe en el código (no
+      // se añade "fotos pendientes" — distinguir "sin foto a propósito"
+      // de "le falta una" solo vive en comentarios, no en un dato real
+      // consultable, y fabricar esa cifra sería justo lo que #150 evitó).
+      const guionesTotal = buildAllGuionItems().length;
+      // `saga` es un campo propio de geekContent (Rincón del Friki) — no
+      // pasa por buildSiteIndex(), que no lo copia al aplanar las 6
+      // secciones en un índice común.
+      const sagasCubiertas = new Set(geekContent.map(i => i.saga).filter(Boolean)).size;
+
       statsEl.innerHTML = `
         <div class="vidiq-stat"><span class="vidiq-stat-value">${guionesPendientes}</span><span class="vidiq-stat-label">Guiones pendientes de grabar</span></div>
-        <div class="vidiq-stat"><span class="vidiq-stat-value">${ideasNuevas}</span><span class="vidiq-stat-label">Ideas sin usar en los bancos</span></div>`;
+        <div class="vidiq-stat"><span class="vidiq-stat-value">${ideasNuevas}</span><span class="vidiq-stat-label">Ideas sin usar en los bancos</span></div>
+        <div class="vidiq-stat"><span class="vidiq-stat-value">${guionesTotal}</span><span class="vidiq-stat-label">Guiones totales en el sitio</span></div>
+        <div class="vidiq-stat"><span class="vidiq-stat-value">${sagasCubiertas}</span><span class="vidiq-stat-label">Sagas cubiertas</span></div>`;
 
       // Misma prioridad que ya usa la propia Bandeja de Guiones: fecha
       // límite real primero. Solo se enseña la primera — el resto sigue
