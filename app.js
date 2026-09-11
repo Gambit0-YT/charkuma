@@ -255,23 +255,21 @@
     // ahora). Preferencia guardada — "alternable" y persistente, tal
     // como se pidió.
     // ──────────────────────────────────────────────────────────
-    // El mismo botón 📌 controla dos cosas a la vez: oculta/muestra las
-    // columnas laterales Y fija/suelta la cabecera (nav-pinned). Desde
+    // El mismo interruptor 📌 controla dos cosas a la vez: oculta/muestra
+    // las columnas laterales Y fija/suelta la cabecera (nav-pinned). Desde
     // 2026-09-07, a petición del usuario, el estado POR DEFECTO es
     // "normal" = columnas visibles + cabecera SIEMPRE fija (visible todo
-    // el rato, como antes de tocar nada). Pulsar el botón pasa al "modo
+    // el rato, como antes de tocar nada). Activarlo pasa al "modo
     // compacto" = columnas ocultas + cabecera oculta sola, que aparece al
     // acercar el ratón arriba (ver initAutoHideNav más abajo) — para
-    // quien alguna vez quiera ese aspecto más minimalista.
+    // quien alguna vez quiera ese aspecto más minimalista. Vivía como
+    // icono aparte en la barra de arriba; mudado a un checkbox dentro de
+    // Ajustes el 11 sep (backlog "web sobrecargada").
     const SIDEBARS_HIDDEN_KEY = 'charkuma_sidebars_hidden';
     function updateSidebarsToggleIcon(){
-      const btn = document.getElementById('navSidebarsBtn');
-      if (!btn) return;
-      const hidden = document.body.classList.contains('sidebars-hidden');
-      btn.classList.toggle('is-active', hidden);
-      btn.title = hidden
-        ? 'Mostrar columnas laterales y fijar la cabecera siempre visible'
-        : 'Modo compacto: ocultar columnas laterales y dejar que la cabecera se oculte sola';
+      const checkbox = document.getElementById('sidebarsHiddenToggle');
+      if (!checkbox) return;
+      checkbox.checked = document.body.classList.contains('sidebars-hidden');
     }
     function toggleSidebarsVisibility(){
       const hidden = document.body.classList.toggle('sidebars-hidden');
