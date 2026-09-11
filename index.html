@@ -499,6 +499,17 @@
     .home-retro-progress{margin-top:16px;max-width:340px;cursor:pointer}
     .home-retro-progress .progress-track{height:8px}
     .home-retro-progress:hover .progress-fill{filter:brightness(1.15)}
+    /* Backlog #262 — widget "Continuar donde lo dejaste" */
+    .continue-widget{
+      display:flex;flex-direction:column;gap:4px;text-decoration:none;
+      padding:14px 18px;border-radius:14px;margin-top:-6px;margin-bottom:8px;
+      background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.3);
+      transition:border-color .2s ease,background .2s ease
+    }
+    .continue-widget:hover{border-color:var(--purple);background:rgba(139,92,246,.14)}
+    .continue-widget-kicker{font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--purple)}
+    .continue-widget-label{font-size:15px;font-weight:700;color:var(--text)}
+    #continueWhereLeftOff[hidden]{display:none}
     .hero-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center
     }
@@ -1081,6 +1092,14 @@
     }
     .vidiq-stat-value{font-size:22px;font-weight:800;color:var(--purple);font-variant-numeric:tabular-nums}
     .vidiq-stat-label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+    /* Backlog #275/#277 — accesos directos del dashboard del Panel */
+    .hub-quick-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .hub-quick-links a{
+      font-size:12.5px;font-weight:700;padding:7px 13px;border-radius:999px;
+      background:var(--panel2);border:1px solid var(--line);color:var(--text);
+      text-decoration:none
+    }
+    .hub-quick-links a:hover{border-color:var(--purple);color:var(--purple)}
     .ret-good{color:var(--green)}
     .ret-mid{color:var(--yellow)}
     .ret-low{color:var(--red)}
@@ -2130,6 +2149,19 @@
 
       <section class="detail-section">
         <div class="container">
+          <!-- Backlog #275/#276/#277 — dashboard al entrar en el Panel:
+               mismo patrón "de un vistazo" que ya usa Voz en Off (backlog
+               Fase 2 #189), más una única acción sugerida (la más urgente,
+               nunca varias a la vez — si sugiere todo, no sugiere nada) y
+               accesos directos a lo que más se usa desde aquí. Todo con
+               datos reales, calculado en `renderMasterHubSummary()`. -->
+          <div class="panel vidiq-stats-panel" id="hubSummaryPanel" style="margin-bottom:22px">
+            <strong>📊 De un vistazo</strong>
+            <div class="vidiq-stat-grid" id="hubSummaryStats" style="margin-top:10px"></div>
+            <div class="retro-next-suggestion" id="hubNextAction" style="margin:14px 0 0"></div>
+            <div class="hub-quick-links" id="hubQuickLinks"></div>
+          </div>
+
           <!-- Backlog #102 — mapa del sitio VISUAL: a diferencia del resto
                de esta página (que es funcional — prompts, ideas, proyectos
                por fecha), esto es solo estructura de navegación: las
@@ -2646,6 +2678,20 @@
             </div>
             <div class="tag tag-b">🧪 IDEAS EN PROCESO</div>
           </div>
+        </div>
+      </section>
+
+      <!-- Backlog #262 — "Continuar donde lo dejaste": enlace directo a la
+           última vista real visitada. Oculto por defecto; se rellena y se
+           muestra solo con JS, y solo si hay algo real que continuar (no en
+           la primera visita, no apunta nunca al propio inicio). No toca la
+           portada de arriba (hero) — va justo debajo, igual que #312. -->
+      <section id="continueWhereLeftOff" hidden>
+        <div class="container">
+          <a href="javascript:void(0)" class="continue-widget" id="continueWhereLeftOffLink">
+            <span class="continue-widget-kicker">▶️ CONTINUAR DONDE LO DEJASTE</span>
+            <span class="continue-widget-label" id="continueWhereLeftOffLabel"></span>
+          </a>
         </div>
       </section>
 

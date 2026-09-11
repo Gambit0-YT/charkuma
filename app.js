@@ -1215,6 +1215,13 @@
       if (id === 'detras-camaras' && typeof renderPhotoCreditsPage === 'function') {
         try { renderPhotoCreditsPage(); } catch (e) { /* ver comentario arriba */ }
       }
+      // Backlog #262 — guarda esta vista como "la última real visitada"
+      // (para el widget de la home), y si estamos ENTRANDO en la home,
+      // pinta el widget con lo que se guardó la vez anterior.
+      try { recordLastView(id); } catch (e) { /* ver comentario arriba */ }
+      if (id === 'home' && typeof renderContinueWidget === 'function') {
+        try { renderContinueWidget(); } catch (e) { /* ver comentario arriba */ }
+      }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
       // ya está gestionando esa entrada) ni antes de fijar el estado base.
@@ -1304,6 +1311,32 @@
       } else {
         flash('No se pudo copiar');
       }
+    }
+
+    // Backlog #262 — "Continuar donde lo dejaste": guarda la última vista
+    // REAL (no el propio inicio, no el buscador — ninguno de los dos es
+    // "un sitio" al que volver) y su título ya calculado por
+    // updateViewChrome, para no tener que repetir la lógica de kicker/título.
+    const LAST_VIEW_KEY = 'charkuma_lastRealView';
+    const LAST_VIEW_EXCLUDED = new Set(['home', 'buscar']);
+    function recordLastView(id){
+      if (LAST_VIEW_EXCLUDED.has(id)) return;
+      const label = document.title.replace(/\s*·\s*CHARKUMA$/, '').trim();
+      if (!label) return;
+      try { localStorage.setItem(LAST_VIEW_KEY, JSON.stringify({id, label})); } catch (e) { /* localStorage no disponible */ }
+    }
+    function renderContinueWidget(){
+      const section = document.getElementById('continueWhereLeftOff');
+      if (!section) return;
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(LAST_VIEW_KEY) || 'null'); } catch (e) { saved = null; }
+      // Si la vista guardada ya no existe (contenido retirado desde
+      // entonces), no mostramos un enlace roto.
+      if (!saved || !saved.id || !document.getElementById('view-' + saved.id)) { section.hidden = true; return; }
+      document.getElementById('continueWhereLeftOffLabel').textContent = saved.label;
+      const link = document.getElementById('continueWhereLeftOffLink');
+      link.onclick = () => showView(saved.id);
+      section.hidden = false;
     }
 
     function goHome(anchorId){
@@ -8989,10 +9022,70 @@
       }).join('');
     }
 
+    // Backlog #275/#276/#277 — dashboard "de un vistazo" al entrar en el
+    // Panel: mismo patrón que ya usa Voz en Off (Fase 2 #189), más UNA
+    // única acción sugerida (la más urgente — sugerir varias a la vez es
+    // lo mismo que no sugerir ninguna) y accesos directos a lo que más se
+    // usa desde aquí. Todo con datos reales, nada inventado.
+    function renderMasterHubSummary(){
+      const statsEl = document.getElementById('hubSummaryStats');
+      const nextActionEl = document.getElementById('hubNextAction');
+      const linksEl = document.getElementById('hubQuickLinks');
+      if (!statsEl || !nextActionEl || !linksEl) return;
+
+      const guionesPendientes = buildGuionesBandeja('todos').length;
+      // Mismo cálculo por banco que usan las tarjetas de "Bancos secretos
+      // de ideas" más abajo — no se duplica la lógica, se suma el mismo dato.
+      const banks = [
+        { bank:'rincon', ideas:rinconSecretIdeas },
+        { bank:'retro365planned', ideas:{planned:Object.keys(plannedGames)} },
+        { bank:'helquid', ideas:helquidSecretIdeas },
+        { bank:'lab', ideas:labSecretIdeas },
+        { bank:'ia', ideas:iaSecretIdeas },
+        { bank:'creator', ideas:creatorSecretIdeas },
+        { bank:'hecho', ideas:hechoSecretIdeas }
+      ];
+      const allBanksState = loadIdeaBanks();
+      const ideasNuevas = banks.reduce((sum, b) => {
+        const total = Object.values(b.ideas).reduce((s, arr) => s + arr.length, 0);
+        const state = allBanksState[b.bank] || {};
+        const doneOrDiscarded = Object.values(state).filter(s => s.done || s.discarded).length;
+        return sum + Math.max(0, total - doneOrDiscarded);
+      }, 0);
+
+      statsEl.innerHTML = `
+        <div class="vidiq-stat"><span class="vidiq-stat-value">${guionesPendientes}</span><span class="vidiq-stat-label">Guiones pendientes de grabar</span></div>
+        <div class="vidiq-stat"><span class="vidiq-stat-value">${ideasNuevas}</span><span class="vidiq-stat-label">Ideas sin usar en los bancos</span></div>`;
+
+      // Misma prioridad que ya usa la propia Bandeja de Guiones: fecha
+      // límite real primero. Solo se enseña la primera — el resto sigue
+      // disponible en la Bandeja si hace falta.
+      const pendientes = buildGuionesBandeja('todos');
+      if (pendientes.length) {
+        const next = pendientes[0];
+        const days = guionDeadlineDays(next.view);
+        const urgencyNote = days === null ? '' :
+          days < 0 ? ` — fecha límite pasada hace ${Math.abs(days)} día${Math.abs(days) === 1 ? '' : 's'}` :
+          days === 0 ? ' — fecha límite HOY' :
+          ` — publicar antes de ${days} día${days === 1 ? '' : 's'}`;
+        nextActionEl.innerHTML = `<strong>▶️ Siguiente acción sugerida:</strong> termina de grabar <a href="javascript:void(0)" onclick="showView('${next.view}')">"${escapeAttr(next.title)}"</a>${urgencyNote}.`;
+      } else {
+        nextActionEl.innerHTML = `<strong>✅ Todo al día</strong> — no hay ningún guion pendiente de grabar ahora mismo.`;
+      }
+
+      linksEl.innerHTML = [
+        ['guiones-bandeja', '🎙️ Bandeja de guiones'],
+        ['mis-proyectos', '🚀 Proyectos'],
+        ['idea-swipe', '🃏 Swipe de ideas'],
+        ['master-control', '🕹️ Control Maestro']
+      ].map(([id, label]) => `<a href="javascript:void(0)" onclick="showView('${id}')">${label}</a>`).join('');
+    }
+
     function renderMasterHub(){
       const promptsList = document.getElementById('hubPromptsList');
       const banksList = document.getElementById('hubIdeaBanksList');
       if (!promptsList || !banksList) return;
+      renderMasterHubSummary();
 
       const index = buildSiteIndex();
 
