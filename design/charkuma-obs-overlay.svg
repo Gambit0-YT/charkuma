@@ -1,0 +1,60 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CHARKUMA — Plantilla de overlay para OBS (backlog #122)
+    1920x1080, fondo transparente de verdad (sin <rect> de fondo detrás
+    del centro) — en OBS: Fuentes → Añadir → Imagen → este archivo,
+    encima de tu Captura de juego. El centro queda libre para el juego;
+    solo los bordes llevan marca.
+  -->
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff7a18"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="topFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0812" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#0a0812" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Barra superior: degradado que se desvanece, para que el logo no
+       tape la imagen de fondo pero siga siendo legible. -->
+  <rect x="0" y="0" width="1920" height="140" fill="url(#topFade)"/>
+
+  <!-- Logo / wordmark, esquina superior izquierda -->
+  <g transform="translate(48, 38)">
+    <circle cx="32" cy="32" r="32" fill="#161320" stroke="url(#brandGrad)" stroke-width="3"/>
+    <text x="32" y="43" font-family="Arial, sans-serif" font-size="34" text-anchor="middle">🦎</text>
+    <text x="82" y="30" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#f5f3fa">CHAR<tspan fill="#ff9a4d">KUMA</tspan></text>
+    <text x="82" y="54" font-family="Arial, sans-serif" font-size="15" fill="#b8b3c8" letter-spacing="1">RETRO · GAMING · CULTURA GEEK</text>
+  </g>
+
+  <!-- Indicador de directo, esquina superior derecha -->
+  <g transform="translate(1920, 0)">
+    <rect x="-190" y="30" width="150" height="46" rx="23" fill="#161320" stroke="#e0245e" stroke-width="2"/>
+    <circle cx="-160" cy="53" r="7" fill="#e0245e"/>
+    <text x="-142" y="59" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#f5f3fa">DIRECTO</text>
+  </g>
+
+  <!-- Barra de acento inferior, degradado de marca -->
+  <rect x="0" y="1064" width="1920" height="16" fill="url(#brandGrad)"/>
+
+  <!-- Zona inferior con nombre de usuario / redes, sobre fondo que se
+       desvanece hacia arriba (mismo criterio que la barra superior). -->
+  <rect x="0" y="940" width="1920" height="124" fill="url(#topFade)" transform="rotate(180 960 1002)"/>
+  <text x="48" y="1030" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f3fa">mrChakurma</text>
+  <text x="48" y="1054" font-family="Arial, sans-serif" font-size="16" fill="#b8b3c8">youtube.com/@KiDDCOLORS · gambit0-yt.github.io/charkuma</text>
+
+  <!-- Marco decorativo para la cámara web (esquina inferior derecha) —
+       SOLO el borde: el interior queda transparente para que ahí
+       coloques tu propia Fuente de vídeo de OBS debajo o encima, del
+       tamaño que prefieras. Medida de referencia: 400x300. -->
+  <rect x="1472" y="732" width="400" height="300" rx="16" fill="none" stroke="url(#brandGrad)" stroke-width="4"/>
+  <rect x="1472" y="732" width="400" height="34" rx="16" fill="#161320"/>
+  <text x="1492" y="755" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#b8b3c8">📷 CÁMARA (ajusta a tu gusto)</text>
+
+  <!-- Esquinas con el acento diagonal de la web (motivo repetido en
+       tarjetas de proyecto) -->
+  <path d="M0 0 L64 0 L0 64 Z" fill="#ff7a18" opacity="0.5"/>
+  <path d="M1920 1080 L1856 1080 L1920 1016 Z" fill="#8b5cf6" opacity="0.5"/>
+</svg>
