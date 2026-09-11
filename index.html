@@ -1194,6 +1194,14 @@
     .geek-info h4{margin:0 0 6px;font-size:16px}
     .geek-info h4 a:hover{color:var(--orange2);text-decoration:underline}
     .geek-info p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.55}
+    /* Backlog #266 — botón de favorito (☆/⭐) junto al título de cada tarjeta */
+    .favorite-star-btn{
+      background:none;border:none;cursor:pointer;font-size:16px;line-height:1;
+      padding:2px 4px;vertical-align:middle;color:var(--muted);opacity:.7;
+      transition:transform .15s,opacity .15s
+    }
+    .favorite-star-btn:hover{opacity:1;transform:scale(1.15)}
+    .favorite-star-btn.is-favorite{opacity:1;color:#ffd24d}
 
     /* Backlog #70 — modo compacto de Control Maestro: mismas tarjetas,
        más pequeñas y sin resumen, para ver más elementos de golpe en
@@ -2199,6 +2207,13 @@
             <div class="retro-next-suggestion" id="hubNextAction" style="margin:14px 0 0"></div>
             <div class="hub-quick-links" id="hubQuickLinks"></div>
           </div>
+
+          <!-- Backlog #266 — favoritos: pulsa la ☆ junto a cualquier
+               título (buscador, prompts, proyectos por fecha...) para
+               guardarlo aquí. Vive en el Panel, no en el menú de arriba
+               (mismo criterio que #265/#296). -->
+          <h3 class="subheading">⭐ Favoritos</h3>
+          <div id="hubFavoritesList" class="recent-list" style="margin-bottom:30px"></div>
 
           <!-- Backlog #102 — mapa del sitio VISUAL: a diferencia del resto
                de esta página (que es funcional — prompts, ideas, proyectos

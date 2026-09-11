@@ -8391,6 +8391,33 @@
       return index;
     }
 
+    // Backlog #266 — favoritos: guarda vistas/guiones marcados con ⭐,
+    // con su propia sección en el Panel (no un icono nuevo en la barra
+    // de arriba — mismo criterio que #265/#296 para no reabrir la
+    // sobrecarga del 11 sep). Un solo array plano en localStorage, sin
+    // distinguir tipo — cualquier `view` de `buildSiteIndex()` vale.
+    const FAVORITES_KEY = 'charkuma_favorites';
+    function loadFavorites(){
+      try { return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || []; } catch (e) { return []; }
+    }
+    function isFavorite(view){ return loadFavorites().includes(view); }
+    function toggleFavorite(view, btnEl){
+      let favs = loadFavorites();
+      const nowFav = !favs.includes(view);
+      favs = nowFav ? favs.concat([view]) : favs.filter(v => v !== view);
+      try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs)); } catch (e) { /* localStorage no disponible */ }
+      if (btnEl) {
+        btnEl.classList.toggle('is-favorite', nowFav);
+        btnEl.textContent = nowFav ? '⭐' : '☆';
+        btnEl.title = nowFav ? 'Quitar de favoritos' : 'Marcar como favorito';
+      }
+      if (typeof renderFavoritesSection === 'function') renderFavoritesSection();
+    }
+    function favoriteStarButtonHTML(view){
+      const active = isFavorite(view);
+      return `<button type="button" class="favorite-star-btn${active ? ' is-favorite' : ''}" onclick="event.stopPropagation();toggleFavorite('${escapeAttr(view)}', this)" title="${active ? 'Quitar de favoritos' : 'Marcar como favorito'}" aria-label="Marcar como favorito">${active ? '⭐' : '☆'}</button>`;
+    }
+
     function searchResultCardHTML(item){
       const titleLink = item.external
         ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
@@ -8404,7 +8431,7 @@
               <span class="type-chip chip-purple">${item.sectionEmoji} ${item.section}</span>
               ${tagChips}
             </div>
-            <h4>${titleLink}</h4>
+            <h4>${titleLink} ${favoriteStarButtonHTML(item.view)}</h4>
             <p>${item.summary}</p>
           </div>
         </div>`;
@@ -9197,11 +9224,27 @@
       ].map(([id, label]) => `<a href="javascript:void(0)" onclick="showView('${id}')">${label}</a>`).join('');
     }
 
+    // Backlog #266 — sección de favoritos del Panel: lee `buildSiteIndex()`
+    // en vivo cada vez (no una copia guardada), así un favorito de un
+    // guion que se retire de verdad del sitio desaparece solo, en vez de
+    // dejar un enlace roto.
+    function renderFavoritesSection(){
+      const el = document.getElementById('hubFavoritesList');
+      if (!el) return;
+      const favs = loadFavorites();
+      const index = buildSiteIndex();
+      const items = favs.map(v => index.find(i => i.view === v)).filter(Boolean);
+      el.innerHTML = items.length
+        ? items.map(searchResultCardHTML).join('')
+        : `<p class="yt-empty">Todavía no has marcado ningún favorito — pulsa la ☆ junto a cualquier título para guardarlo aquí.</p>`;
+    }
+
     function renderMasterHub(){
       const promptsList = document.getElementById('hubPromptsList');
       const banksList = document.getElementById('hubIdeaBanksList');
       if (!promptsList || !banksList) return;
       renderMasterHubSummary();
+      renderFavoritesSection();
 
       const index = buildSiteIndex();
 
