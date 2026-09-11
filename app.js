@@ -606,13 +606,17 @@
       const muted = new Set(loadMutedNotifTypes());
       const push = (n) => { if (!muted.has(n.type)) notifs.push(n); };
 
+      // Backlog #283 — si el aviso viene de UN solo elemento, el clic
+      // lleva directo a ESE guion/proyecto (no a la lista genérica). Con
+      // varios, "exacto" no tiene un único destino posible, así que se
+      // mantiene la lista filtrable de siempre.
       const inProgress = index.filter(i => CONTENT_STAGE_ORDER.includes(i.status));
       if (inProgress.length) {
         push({
           id: 'in-progress', type: 'progress',
           title: `🎬 ${inProgress.length} contenido${inProgress.length === 1 ? '' : 's'} en proceso ahora mismo`,
           detail: inProgress.slice(0, 3).map(i => i.title).join(' · '),
-          view: 'master-control'
+          view: inProgress.length === 1 ? inProgress[0].view : 'master-control'
         });
       }
 
@@ -622,17 +626,17 @@
           id: 'waiting-guion', type: 'progress',
           title: `✅ ${waiting.length} aprobado${waiting.length === 1 ? '' : 's'} esperando a que empieces el guion`,
           detail: waiting.slice(0, 3).map(i => i.title).join(' · '),
-          view: 'master-control'
+          view: waiting.length === 1 ? waiting[0].view : 'master-control'
         });
       }
 
-      const pendingCount = index.filter(i => i.status === 'pendiente').length;
-      if (pendingCount) {
+      const pending = index.filter(i => i.status === 'pendiente');
+      if (pending.length) {
         push({
           id: 'pending-review', type: 'review',
-          title: `⏳ ${pendingCount} contenidos pendientes de revisión`,
+          title: `⏳ ${pending.length} contenidos pendientes de revisión`,
           detail: 'Repásalos en el calendario o el control secreto maestro.',
-          view: 'calendario'
+          view: pending.length === 1 ? pending[0].view : 'calendario'
         });
       }
 
@@ -643,7 +647,7 @@
           id: 'stale-content', type: 'stale',
           title: `⚠️ ${stale.length} elemento${stale.length === 1 ? '' : 's'} sin avanzar de fase hace más de ${STALE_STAGE_DAYS} días`,
           detail: stale.slice(0, 3).map(i => i.title).join(' · '),
-          view: 'master-control'
+          view: stale.length === 1 ? stale[0].view : 'master-control'
         });
       }
 
@@ -10816,6 +10820,9 @@
         createdAt: Date.now()
       });
       input.value = '';
+      // Backlog #297 — la nota ya se guardó de verdad, el borrador local
+      // sobra (si no se limpia, "resucitaría" en la próxima carga).
+      try { localStorage.removeItem('charkuma_noteDraft'); } catch (e) { /* localStorage no disponible */ }
       // No hace falta repintar a mano: onSnapshot se entera solo en
       // cuanto Firestore confirma el cambio (y en cualquier otro
       // dispositivo abierto a la vez, también).
@@ -11078,6 +11085,21 @@
     document.getElementById('noteInput').addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) addNote();
     });
+
+    // Backlog #297 — borrador de la nota sin guardar: si escribes algo y
+    // cierras/recargas antes de pulsar "Guardar", no se pierde. Se borra
+    // solo en cuanto la nota se guarda de verdad (addNote la limpia).
+    const NOTE_DRAFT_KEY = 'charkuma_noteDraft';
+    (function initNoteDraft(){
+      const input = document.getElementById('noteInput');
+      if (!input) return;
+      let draft = '';
+      try { draft = localStorage.getItem(NOTE_DRAFT_KEY) || ''; } catch (e) { /* localStorage no disponible */ }
+      if (draft) input.value = draft;
+      input.addEventListener('input', () => {
+        try { localStorage.setItem(NOTE_DRAFT_KEY, input.value); } catch (e) { /* localStorage no disponible */ }
+      });
+    })();
 
     initNotesRealtime();
     initHelpNeededRealtime();
