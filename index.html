@@ -3325,19 +3325,29 @@
           </p>
           <div id="retroCoverGallery" class="cover-gallery"></div>
 
-          <h3 class="subheading" style="margin-top:34px">📋 Plantilla de vídeo (formato TikTok, &lt;1:30-2:00)</h3>
-          <div class="template-grid">
-            <div class="template-card">
-              <div class="template-head"><span class="type-chip chip-orange">🎬 Estructura corta</span></div>
-              <ol>
-                <li>Hook (0-3s): la imagen o momento más icónico del juego, sin texto.</li>
-                <li>Qué es en una frase (género + año/plataforma).</li>
-                <li>Por qué mola / qué lo hace especial.</li>
-                <li>Dificultad + a quién se lo recomiendas.</li>
-                <li>Cierre con el nombre del juego bien grande en pantalla.</li>
-              </ol>
+          <!-- Backlog 11 sep ("compactar lo innecesario"): plantilla de
+               referencia propia, se consulta de vez en cuando al grabar,
+               no cada visita — desplegable en vez de siempre abierta. -->
+          <details class="month" style="margin-top:34px">
+            <summary>
+              <span>📋 Plantilla de vídeo (formato TikTok, &lt;1:30-2:00)</span>
+              <span class="count">tu propia chuleta al grabar</span>
+            </summary>
+            <div class="month-body">
+              <div class="template-grid">
+                <div class="template-card">
+                  <div class="template-head"><span class="type-chip chip-orange">🎬 Estructura corta</span></div>
+                  <ol>
+                    <li>Hook (0-3s): la imagen o momento más icónico del juego, sin texto.</li>
+                    <li>Qué es en una frase (género + año/plataforma).</li>
+                    <li>Por qué mola / qué lo hace especial.</li>
+                    <li>Dificultad + a quién se lo recomiendas.</li>
+                    <li>Cierre con el nombre del juego bien grande en pantalla.</li>
+                  </ol>
+                </div>
+              </div>
             </div>
-          </div>
+          </details>
 
           <div class="panel search-panel">
             <div class="search-row">
@@ -3587,27 +3597,37 @@
             <input type="text" id="rfIdeaSearch" class="idea-bank-search" placeholder="🔎 Buscar en este banco..." oninput="renderRinconSecret()">
           </div>
 
-          <div class="panel json-import-panel">
-            <h4>📥 Añadir ideas desde JSON</h4>
-            <p>
-              Pega aquí un bloque de datos externo y se añade al banco de ideas (se guarda
-              en este navegador, junto a lo demás). Admite un objeto agrupado por tipo o una
-              lista plana:
-            </p>
-            <pre>{"opinion": [{"universe":"marvel","text":"..."}], "batalla": [{"universe":"boys","text":"..."}]}
+          <!-- Backlog 11 sep ("lo que veas innecesario, déjalo compactado
+               para poder ocultarlo a gusto"): esto es un power-tool de
+               uso raro (pegar JSON a mano), no algo que se mire cada
+               visita — pasa a desplegable, igual que el resto de paneles
+               secundarios del sitio. -->
+          <details class="month json-import-panel" style="margin-top:16px">
+            <summary>
+              <span>📥 Añadir ideas desde JSON</span>
+              <span class="count">pegar un lote externo, uso ocasional</span>
+            </summary>
+            <div class="month-body">
+              <p>
+                Pega aquí un bloque de datos externo y se añade al banco de ideas (se guarda
+                en este navegador, junto a lo demás). Admite un objeto agrupado por tipo o una
+                lista plana:
+              </p>
+              <pre>{"opinion": [{"universe":"marvel","text":"..."}], "batalla": [{"universe":"boys","text":"..."}]}
 // o en lista plana:
 [{"type":"opinion","universe":"marvel","text":"..."}, {"type":"batalla","text":"..."}]</pre>
-            <p>
-              Tipos válidos aquí: <code>opinion</code>, <code>curiosidad</code>,
-              <code>fancast</code>, <code>batalla</code>, <code>reaccion</code>.
-              <code>universe</code> es opcional (si no lo pones, se queda como "cine geek").
-            </p>
-            <textarea id="rinconJsonImport" rows="5" placeholder='[{"type":"opinion","universe":"marvel","text":"Tu idea aquí..."}]'></textarea>
-            <div class="json-import-actions">
-              <button type="button" class="btn btn-primary" onclick="importRinconIdeasFromJSON()">➕ Añadir al banco</button>
-              <span id="rinconJsonImportStatus" class="yt-empty"></span>
+              <p>
+                Tipos válidos aquí: <code>opinion</code>, <code>curiosidad</code>,
+                <code>fancast</code>, <code>batalla</code>, <code>reaccion</code>.
+                <code>universe</code> es opcional (si no lo pones, se queda como "cine geek").
+              </p>
+              <textarea id="rinconJsonImport" rows="5" placeholder='[{"type":"opinion","universe":"marvel","text":"Tu idea aquí..."}]'></textarea>
+              <div class="json-import-actions">
+                <button type="button" class="btn btn-primary" onclick="importRinconIdeasFromJSON()">➕ Añadir al banco</button>
+                <span id="rinconJsonImportStatus" class="yt-empty"></span>
+              </div>
             </div>
-          </div>
+          </details>
         </div>
       </section>
 
