@@ -364,6 +364,7 @@
       panel.hidden = !panel.hidden;
       if (!panel.hidden && typeof renderAchievements === 'function') renderAchievements();
       if (!panel.hidden && typeof renderAiCreditLog === 'function') renderAiCreditLog();
+      if (!panel.hidden && typeof renderRecentViewsList === 'function') renderRecentViewsList();
     }
 
     // Backlog #307 — el panel de Ajustes se cerraba solo con la X. Ahora
@@ -955,6 +956,27 @@
       }, {passive:true});
     })();
 
+    // Backlog #263/#264 — mismo umbral y throttle que "volver arriba"
+    // (arriba). Se oculta también si ya estás en una de las 3 vistas de
+    // destino, para no ofrecer un atajo a donde ya estás. `updateQuickAccessBar()`
+    // se llama también desde showView() más abajo, porque cambiar de vista
+    // no siempre dispara scroll (resetScroll:false).
+    const QUICK_ACCESS_TARGETS = ['mis-proyectos', 'guiones-bandeja', 'hub-secreto'];
+    function updateQuickAccessBar(){
+      const bar = document.getElementById('quickAccessBar');
+      if (!bar) return;
+      const active = document.querySelector('.app-view.active');
+      const onTarget = active && QUICK_ACCESS_TARGETS.includes(active.id.replace('view-', ''));
+      bar.hidden = window.scrollY < 500 || !!onTarget;
+    }
+    (function initQuickAccessBar(){
+      if (!document.getElementById('quickAccessBar')) return;
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(updateQuickAccessBar); ticking = true; }
+      }, {passive:true});
+    })();
+
     // Backlog #282 — contador junto a "Proyectos" en el menú. Cuenta las
     // tarjetas reales del grid (no la placeholder "Próximamente", que no
     // es un proyecto) para que se actualice sola si algún día cambia el
@@ -1148,6 +1170,11 @@
       links.forEach(a => a.classList.toggle('nav-active', a.dataset.navSection === id));
     }
 
+    // Backlog #291 — recuerda por dónde ibas al salir de una vista y lo
+    // restaura si vuelves a entrar (en memoria, no localStorage — dura lo
+    // que dura la pestaña, como el scroll restoration nativo del navegador,
+    // no hace falta que sobreviva a un cierre real).
+    const viewScrollPositions = {};
     function showView(id, opts){
       opts = opts || {};
       playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
@@ -1156,6 +1183,9 @@
       const settingsPanelForClose = document.getElementById('settingsPanel');
       if (settingsPanelForClose && !settingsPanelForClose.hidden) settingsPanelForClose.hidden = true;
       if (id === 'mini-juego') startMemoryGame();
+      // Backlog #291 — guarda dónde estabas ANTES de cambiar de vista.
+      const prevActive = document.querySelector('.app-view.active');
+      if (prevActive) viewScrollPositions[prevActive.id.replace('view-', '')] = window.scrollY;
       document.querySelectorAll('.app-view').forEach(v => {
         v.classList.remove('active');
         v.classList.remove('view-visible');
@@ -1168,7 +1198,11 @@
         // "view-visible" en el mismo tick, no hay nada que transicionar.
         requestAnimationFrame(() => requestAnimationFrame(() => target.classList.add('view-visible')));
       }
-      if (opts.resetScroll !== false) window.scrollTo({top:0});
+      // Backlog #291 — si ya habías estado en esta vista, vuelve a esa
+      // posición en vez de al principio (salvo que quien llame a
+      // showView pida explícitamente resetScroll:false, como goHome, que
+      // hace su propio scroll a un ancla).
+      if (opts.resetScroll !== false) window.scrollTo({top: viewScrollPositions[id] || 0});
       updateNavActiveState(id);
       updateSidebar(id);
       updateViewChrome(id, target);
@@ -1221,6 +1255,11 @@
       try { recordLastView(id); } catch (e) { /* ver comentario arriba */ }
       if (id === 'home' && typeof renderContinueWidget === 'function') {
         try { renderContinueWidget(); } catch (e) { /* ver comentario arriba */ }
+      }
+      // Backlog #263/#264 — la barra de accesos directos también depende
+      // de en qué vista estás, no solo del scroll.
+      if (typeof updateQuickAccessBar === 'function') {
+        try { updateQuickAccessBar(); } catch (e) { /* ver comentario arriba */ }
       }
 
       // No tocar el historial cuando venimos de un popstate (el navegador
@@ -1317,26 +1356,51 @@
     // REAL (no el propio inicio, no el buscador — ninguno de los dos es
     // "un sitio" al que volver) y su título ya calculado por
     // updateViewChrome, para no tener que repetir la lógica de kicker/título.
+    // Backlog #265 — ampliado para guardar hasta 5 (no solo la última), y
+    // así poder listar "Tus últimas vistas" en Ajustes sin tocar la lógica
+    // de #262 (que solo usa la primera del array).
     const LAST_VIEW_KEY = 'charkuma_lastRealView';
     const LAST_VIEW_EXCLUDED = new Set(['home', 'buscar']);
+    const LAST_VIEWS_MAX = 5;
+    function getRecentViews(){
+      try {
+        const raw = JSON.parse(localStorage.getItem(LAST_VIEW_KEY) || '[]');
+        // Compatibilidad con el formato viejo de #262 (un objeto suelto,
+        // no un array) — si aparece, se trata como un array de 1.
+        return Array.isArray(raw) ? raw : (raw && raw.id ? [raw] : []);
+      } catch (e) { return []; }
+    }
     function recordLastView(id){
       if (LAST_VIEW_EXCLUDED.has(id)) return;
       const label = document.title.replace(/\s*·\s*CHARKUMA$/, '').trim();
       if (!label) return;
-      try { localStorage.setItem(LAST_VIEW_KEY, JSON.stringify({id, label})); } catch (e) { /* localStorage no disponible */ }
+      const recent = getRecentViews().filter(v => v.id !== id);
+      recent.unshift({id, label});
+      try { localStorage.setItem(LAST_VIEW_KEY, JSON.stringify(recent.slice(0, LAST_VIEWS_MAX))); } catch (e) { /* localStorage no disponible */ }
     }
     function renderContinueWidget(){
       const section = document.getElementById('continueWhereLeftOff');
       if (!section) return;
-      let saved = null;
-      try { saved = JSON.parse(localStorage.getItem(LAST_VIEW_KEY) || 'null'); } catch (e) { saved = null; }
       // Si la vista guardada ya no existe (contenido retirado desde
       // entonces), no mostramos un enlace roto.
+      const saved = getRecentViews()[0];
       if (!saved || !saved.id || !document.getElementById('view-' + saved.id)) { section.hidden = true; return; }
       document.getElementById('continueWhereLeftOffLabel').textContent = saved.label;
       const link = document.getElementById('continueWhereLeftOffLink');
       link.onclick = () => showView(saved.id);
       section.hidden = false;
+    }
+    // Backlog #265 — "Tus últimas 5 vistas", dentro de Ajustes (no un
+    // icono nuevo en la barra — el 11 sep ya se quitaron 2 iconos de ahí
+    // por sobrecarga, así que esto vive como una fila más del panel que
+    // ya existe, en vez de reabrir ese problema).
+    function renderRecentViewsList(){
+      const el = document.getElementById('recentViewsList');
+      if (!el) return;
+      const recent = getRecentViews().filter(v => v.id && document.getElementById('view-' + v.id));
+      el.innerHTML = recent.length
+        ? recent.map(v => `<a href="javascript:void(0)" class="recent-view-chip" onclick="toggleSettingsPanel(); showView('${v.id}')">${escapeAttr(v.label)}</a>`).join('')
+        : `<p class="yt-empty" style="margin:0">Todavía no has visitado ninguna vista esta sesión.</p>`;
     }
 
     function goHome(anchorId){

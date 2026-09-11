@@ -184,6 +184,17 @@
     }
     .back-to-top-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
     .back-to-top-btn[hidden]{display:none}
+    /* Backlog #263/#264 */
+    .quick-access-bar{position:fixed;left:20px;bottom:20px;z-index:120;display:flex;flex-direction:column;gap:10px}
+    .quick-access-bar[hidden]{display:none}
+    .quick-access-btn{
+      width:44px;height:44px;border-radius:50%;
+      background:var(--panel);border:1px solid var(--line3);color:var(--text);font-size:18px;
+      cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.35);transition:transform .15s,border-color .15s;
+      display:flex;align-items:center;justify-content:center
+    }
+    .quick-access-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
+    @media (max-width:760px){ .quick-access-bar{display:none!important} }
     .konami-toast-link{font-size:12px;letter-spacing:normal;text-transform:none;color:var(--orange2);cursor:pointer;font-weight:800}
     .konami-toast-link:hover{text-decoration:underline}
     /* Backlog #48 */
@@ -510,6 +521,14 @@
     .continue-widget-kicker{font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--purple)}
     .continue-widget-label{font-size:15px;font-weight:700;color:var(--text)}
     #continueWhereLeftOff[hidden]{display:none}
+    /* Backlog #265 — chips de "últimas vistas" dentro de Ajustes */
+    .recent-views-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .recent-view-chip{
+      font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px;
+      background:var(--panel);border:1px solid var(--line);color:var(--text);
+      text-decoration:none;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+    }
+    .recent-view-chip:hover{border-color:var(--orange);color:var(--orange)}
     .hero-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center
     }
@@ -1594,6 +1613,16 @@
        controlado desde app.js con un listener de scroll (throttled). -->
   <button type="button" class="back-to-top-btn" id="backToTopBtn" hidden onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
 
+  <!-- Backlog #263/#264 — accesos directos flotantes (Proyectos + Bandeja
+       de Guiones + Panel de ideas), visibles tras bajar un poco, igual
+       que "volver arriba". Solo escritorio — en móvil ya está el menú
+       hamburguesa siempre a mano, y aquí no hay sitio de sobra. -->
+  <div class="quick-access-bar" id="quickAccessBar" hidden>
+    <button type="button" class="quick-access-btn" onclick="showView('mis-proyectos')" title="Ir a Proyectos" aria-label="Ir a Proyectos">🚀</button>
+    <button type="button" class="quick-access-btn" onclick="showView('guiones-bandeja')" title="Ir a Bandeja de Guiones" aria-label="Ir a Bandeja de Guiones">🎙️</button>
+    <button type="button" class="quick-access-btn" onclick="showView('hub-secreto')" title="Ir al Panel (bancos de ideas)" aria-label="Ir al Panel">💡</button>
+  </div>
+
   <!-- Backlog #48 — aviso de datos distintos entre pestañas: la mayoría
        del estado ya sincroniza solo vía Firestore en tiempo real, pero
        lo que sigue siendo solo local (preferencias sueltas) puede
@@ -1668,6 +1697,15 @@
             <p>Oscuro (por defecto) o claro. Se recuerda en este navegador.</p>
           </div>
           <button type="button" class="btn btn-secondary" onclick="toggleTheme()">Cambiar tema</button>
+        </div>
+        <!-- Backlog #265 — últimas vistas, dentro de Ajustes en vez de un
+             icono nuevo en la barra (ver comentario en app.js). -->
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🕘 Tus últimas vistas</strong>
+            <p>Las últimas 5 páginas que has visitado en esta sesión — clic para volver.</p>
+          </div>
+          <div id="recentViewsList" class="recent-views-list"></div>
         </div>
         <div class="settings-row">
           <div>
