@@ -366,6 +366,18 @@
       if (!panel.hidden && typeof renderAiCreditLog === 'function') renderAiCreditLog();
     }
 
+    // Backlog #307 — el panel de Ajustes se cerraba solo con la X. Ahora
+    // también se cierra solo: al tocar fuera de él (clic en cualquier sitio
+    // que no sea el propio panel ni el botón ⚙️ que lo abre) y al cambiar
+    // de vista (ver showView más abajo).
+    document.addEventListener('click', (e) => {
+      const panel = document.getElementById('settingsPanel');
+      if (!panel || panel.hidden) return;
+      const toggleBtn = document.getElementById('navSettingsBtn');
+      if (panel.contains(e.target) || (toggleBtn && toggleBtn.contains(e.target))) return;
+      panel.hidden = true;
+    });
+
     // Backlog #169 — créditos IA gastados: gasto REAL, registrado a mano
     // por Claude cada vez que gasta créditos de verdad (mismo criterio
     // que las constantes VIDIQ_* — foto de un hecho real, no un
@@ -895,8 +907,9 @@
     }, true);
 
     // ──────────────────────────────────────────────────────────
-    // Atajos de teclado: "/" abre el buscador, "Esc" cierra
-    // buscador/ajustes o vuelve al inicio si ya estás en una vista.
+    // Atajos de teclado: "/" abre el buscador, "p" salta a Proyectos,
+    // "Esc" cierra buscador/ajustes o vuelve al inicio si ya estás en
+    // una vista.
     // ──────────────────────────────────────────────────────────
     document.addEventListener('keydown', (e) => {
       const tag = (e.target && e.target.tagName || '').toLowerCase();
@@ -904,6 +917,10 @@
       if (e.key === '/' && !typing) {
         e.preventDefault();
         openSearchView();
+      } else if (e.key === 'p' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        // Backlog #267 — atajo directo a Proyectos desde cualquier pantalla.
+        e.preventDefault();
+        showView('mis-proyectos');
       } else if (e.key === 'Escape') {
         const navLinks = document.getElementById('navLinks');
         if (navLinks && navLinks.classList.contains('mobile-open')) { closeMobileMenu(); return; }
@@ -936,6 +953,18 @@
       window.addEventListener('scroll', () => {
         if (!ticking) { requestAnimationFrame(update); ticking = true; }
       }, {passive:true});
+    })();
+
+    // Backlog #282 — contador junto a "Proyectos" en el menú. Cuenta las
+    // tarjetas reales del grid (no la placeholder "Próximamente", que no
+    // es un proyecto) para que se actualice sola si algún día cambia el
+    // número, en vez de dejar un número fijo a mano.
+    (function initProyectosNavCounter(){
+      const link = document.getElementById('navProyectosLink');
+      const grid = document.getElementById('projectsGrid');
+      if (!link || !grid) return;
+      const count = grid.querySelectorAll('.project:not(.project-soon)').length;
+      if (count > 0) link.textContent = `Proyectos (${count})`;
     })();
 
     // Backlog #134 — easter egg nostálgico: código Konami de toda la
@@ -1122,6 +1151,10 @@
     function showView(id, opts){
       opts = opts || {};
       playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
+      // Backlog #307 — cambiar de vista también cierra el panel de Ajustes
+      // si estaba abierto (antes se quedaba abierto flotando encima).
+      const settingsPanelForClose = document.getElementById('settingsPanel');
+      if (settingsPanelForClose && !settingsPanelForClose.hidden) settingsPanelForClose.hidden = true;
       if (id === 'mini-juego') startMemoryGame();
       document.querySelectorAll('.app-view').forEach(v => {
         v.classList.remove('active');
@@ -9995,11 +10028,38 @@
       if (!item || !item.deadline) return null;
       return Math.ceil((new Date(item.deadline + 'T00:00:00') - new Date()) / 86400000);
     }
-    function buildGuionesBandeja(){
-      return buildSiteIndex()
+    // Backlog #268/#281 — filtro de estado de la Bandeja de Guiones,
+    // recordado entre sesiones vía localStorage. Por defecto "en-curso"
+    // (lo que Iván ya está grabando), no "todos" como antes.
+    const GUIONES_BANDEJA_FILTRO_KEY = 'charkuma_guionesBandejaFiltro';
+    function getGuionesBandejaFiltro(){
+      const sel = document.getElementById('guionesBandejaFilter');
+      if (sel && sel.value) return sel.value;
+      try { return localStorage.getItem(GUIONES_BANDEJA_FILTRO_KEY) || 'en-curso'; } catch (e) { return 'en-curso'; }
+    }
+    function initGuionesBandejaFiltro(){
+      const sel = document.getElementById('guionesBandejaFilter');
+      if (!sel) return;
+      let saved = 'en-curso';
+      try { saved = localStorage.getItem(GUIONES_BANDEJA_FILTRO_KEY) || 'en-curso'; } catch (e) { /* localStorage no disponible */ }
+      sel.value = saved;
+      sel.addEventListener('change', () => {
+        try { localStorage.setItem(GUIONES_BANDEJA_FILTRO_KEY, sel.value); } catch (e) { /* localStorage no disponible */ }
+        renderGuionesBandeja();
+      });
+    }
+    initGuionesBandejaFiltro(); // se llama una sola vez al cargar el script
+
+    function buildGuionesBandeja(filtro){
+      const base = buildSiteIndex()
         .filter(item => findContentItemByView(item.view))
-        .filter(item => item.status === 'aprobado' || item.status === CONTENT_STAGE_ORDER[0])
-        .sort((a, b) => {
+        .filter(item => item.status === 'aprobado' || item.status === CONTENT_STAGE_ORDER[0]);
+      const filtered = filtro === 'sin-empezar'
+        ? base.filter(item => item.status === 'aprobado')
+        : filtro === 'en-curso'
+          ? base.filter(item => item.status === CONTENT_STAGE_ORDER[0])
+          : base; // 'todos'
+      return filtered.sort((a, b) => {
           // Prioridad real: primero por urgencia de fecha límite (el
           // que menos días tenga, o ya pasado, va primero), luego por
           // el criterio de siempre (empezado > sin empezar).
@@ -10051,7 +10111,8 @@
       const countEl = document.getElementById('guionesBandejaCount');
       if (!listEl) return;
       copyGuionTemplateIfPresent();
-      const items = buildGuionesBandeja();
+      const filtro = getGuionesBandejaFiltro();
+      const items = buildGuionesBandeja(filtro);
       // Backlog Fase 2 #172 — cuántos de estos guiones todavía tienen el
       // placeholder "[IVÁN — AÑADIR OPINIÓN..." sin resolver en su beat
       // de Opinión — mirando el DOM real de cada vista, no un número
@@ -10070,9 +10131,15 @@
         const d = guionDeadlineDays(item.view);
         return d !== null && d <= 14;
       }).length;
+      // Backlog #268/#281 — con filtro activo, un resultado vacío no
+      // siempre significa "no hay nada pendiente": puede que sí lo haya,
+      // solo que en otro estado. Distinguimos ambos casos en el mensaje.
+      const totalSinFiltrar = buildGuionesBandeja('todos').length;
       countEl.textContent = items.length
         ? `${items.length} guion${items.length === 1 ? '' : 'es'} listo${items.length === 1 ? '' : 's'} para grabar${pendingOpinion ? ` — ${pendingOpinion} con la Opinión todavía sin escribir` : ''} — ${withContextPhoto} de ${items.length} con foto de contexto.${urgentCount ? ` ⏰ ${urgentCount} con fecha límite real en menos de 14 días.` : ''}`
-        : 'No hay guiones pendientes de grabar ahora mismo — todo lo aprobado ya está en edición o publicado.';
+        : totalSinFiltrar
+          ? 'Ningún guion coincide con este filtro — prueba con "Todos" para ver el resto.'
+          : 'No hay guiones pendientes de grabar ahora mismo — todo lo aprobado ya está en edición o publicado.';
       listEl.innerHTML = items.map(item => {
         const rid = item.view;
         const notStarted = item.status === 'aprobado';

@@ -1597,7 +1597,7 @@
         <span>CHAR<strong>KUMA</strong></span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="javascript:void(0)" data-nav-section="mis-proyectos" onclick="showView('mis-proyectos'); closeMobileMenu()">Proyectos</a>
+        <a href="javascript:void(0)" id="navProyectosLink" data-nav-section="mis-proyectos" onclick="showView('mis-proyectos'); closeMobileMenu()">Proyectos</a>
         <a href="javascript:void(0)" data-nav-section="charkumalab" onclick="showView('charkumalab'); closeMobileMenu()">Laboratorio</a>
         <a href="javascript:void(0)" data-nav-section="helquidgames" onclick="showView('helquidgames'); closeMobileMenu()">Games</a>
         <a href="javascript:void(0)" data-nav-section="redes" onclick="showView('redes'); closeMobileMenu()">Redes Sociales</a>
@@ -2471,6 +2471,16 @@
       <section class="detail-section">
         <div class="container">
           <button type="button" class="btn btn-secondary" id="copyGuionTemplateBtn" style="margin-bottom:18px" onclick="copyTextToClipboard(this)">📑 Copiar plantilla de estructura para un guion nuevo</button>
+          <!-- Backlog #268/#281 — filtro de estado, recuerda el último usado
+               (localStorage) y por defecto entra en "En curso". -->
+          <label for="guionesBandejaFilter" style="display:block;margin-bottom:10px;font-size:.85rem;color:var(--text-dim)">
+            Filtrar por estado:
+            <select id="guionesBandejaFilter" style="margin-left:8px">
+              <option value="en-curso">✍️ En curso</option>
+              <option value="sin-empezar">✅ Sin empezar</option>
+              <option value="todos">📋 Todos</option>
+            </select>
+          </label>
           <p class="yt-empty" id="guionesBandejaCount" style="margin-bottom:16px"></p>
           <div id="guionesBandejaList" class="recent-list"></div>
         </div>
