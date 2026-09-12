@@ -507,6 +507,11 @@
     /* Backlog #116 — sugerencia (nunca decisión) del próximo día libre */
     .retro-next-suggestion{margin:10px 0 0;padding:10px 14px;border-radius:10px;background:rgba(139,92,246,.1);border:1px dashed var(--purple)}
     .retro-next-suggestion[hidden]{display:none}
+    /* Backlog #304 — banner destacado, una sola vez, invitando a activar
+       notificaciones push reales (naranja de marca, distinto del morado
+       de la sugerencia de contenido de arriba, para no confundirlas). */
+    .push-invite-banner{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 14px;border-radius:10px;background:rgba(255,122,24,.1);border:1px dashed var(--orange)}
+    .push-invite-banner[hidden]{display:none}
     .home-retro-progress{margin-top:16px;max-width:340px;cursor:pointer}
     .home-retro-progress .progress-track{height:8px}
     .home-retro-progress:hover .progress-fill{filter:brightness(1.15)}
@@ -1838,6 +1843,21 @@
             Activar
           </label>
         </div>
+        <!-- Backlog #304 — Iván pidió "ambas": lo que SÍ puede activarse
+             solo (sin permiso del navegador) va activado desde el primer
+             segundo; a diferencia del CRT/8-bit (#137/#138, apagados por
+             defecto porque son puramente estéticos), este sonido forma
+             parte del propio sistema de avisos, así que empieza encendido. -->
+        <div class="settings-row">
+          <div>
+            <strong>🔔🔊 Sonido al llegar una notificación nueva</strong>
+            <p>Un tono suave cuando aparece algo nuevo en la campana, con la pestaña abierta. Activado por defecto.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="notifSoundToggle" checked onchange="setNotifSound(this.checked)" aria-label="Activar sonido al llegar una notificación nueva">
+            Activar
+          </label>
+        </div>
         <div class="settings-row settings-row-stack">
           <div>
             <strong>🏅 Logros</strong>
@@ -2209,6 +2229,23 @@
             <strong>📊 De un vistazo</strong>
             <div class="vidiq-stat-grid" id="hubSummaryStats" style="margin-top:10px"></div>
             <div class="retro-next-suggestion" id="hubNextAction" style="margin:14px 0 0"></div>
+            <!-- Backlog #304 — Iván pidió "ambas": como un navegador nunca
+                 puede conceder permiso de notificaciones sin que la
+                 persona lo apruebe en su propio diálogo (ninguna web
+                 puede saltarse eso), lo más parecido a "activado desde
+                 el primer segundo" es destacarlo bien fuerte la primera
+                 vez que entra — un solo aviso, se oculta solo en cuanto
+                 lo activa o lo descarta, nunca vuelve a insistir. -->
+            <div class="push-invite-banner" id="hubPushInvite" hidden style="margin-top:14px">
+              <div>
+                <strong>🔔 Activa los avisos reales</strong>
+                <p style="margin:2px 0 0">Un aviso del sistema operativo aunque no tengas la web abierta. Tu navegador te pedirá confirmarlo una vez.</p>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button type="button" class="btn btn-secondary" onclick="enablePushNotifications();dismissPushInvite()">🔔 Activar</button>
+                <button type="button" class="btn btn-secondary" onclick="dismissPushInvite()">Ahora no</button>
+              </div>
+            </div>
             <div class="hub-quick-links" id="hubQuickLinks"></div>
           </div>
 

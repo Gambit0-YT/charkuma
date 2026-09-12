@@ -454,6 +454,28 @@
     // privada correspondiente guardada solo en la memoria de Claude, nunca
     // en el código público.
     const FCM_VAPID_KEY = 'BLmG67rMtvon_HOqVj7-TOALHJVDLddR_SumwhS-1TrpdY2Y0k9FebmTA2tm4WYwdx3aVw18nVPeRAVex6q6UOE';
+    // Backlog #304 — Iván pidió "ambas": conceder el permiso real de
+    // notificaciones NUNCA puede hacerse sin que la persona lo confirme
+    // en el diálogo propio del navegador (ninguna web puede saltárselo,
+    // ni Claude tiene forma de programarlo). Lo más parecido a "activado
+    // desde el primer segundo" que sí es honesto: destacarlo bien fuerte
+    // la primera vez que entra al Panel, un aviso único que se oculta
+    // solo en cuanto lo activa o lo descarta (nunca vuelve a insistir).
+    const PUSH_INVITE_DISMISSED_KEY = 'charkuma_push_invite_dismissed';
+    function dismissPushInvite(){
+      try { localStorage.setItem(PUSH_INVITE_DISMISSED_KEY, '1'); } catch (e) {}
+      const el = document.getElementById('hubPushInvite');
+      if (el) el.hidden = true;
+    }
+    function renderPushInviteBanner(){
+      const el = document.getElementById('hubPushInvite');
+      if (!el) return;
+      let dismissed = false, alreadyEnabled = false;
+      try { dismissed = localStorage.getItem(PUSH_INVITE_DISMISSED_KEY) === '1'; } catch (e) {}
+      try { alreadyEnabled = localStorage.getItem('charkuma_push_enabled') === '1'; } catch (e) {}
+      const canAsk = ('Notification' in window) && Notification.permission === 'default';
+      el.hidden = dismissed || alreadyEnabled || !canAsk;
+    }
     async function enablePushNotifications(){
       const statusEl = document.getElementById('pushNotifStatus');
       const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg; };
@@ -499,6 +521,7 @@
           );
         }
         localStorage.setItem('charkuma_push_enabled', '1');
+        try { localStorage.setItem(PUSH_INVITE_DISMISSED_KEY, '1'); } catch (e2) {} // #304: ya activadas, no insistir más
         setStatus('✅ Notificaciones activadas en este dispositivo.');
       } catch (e) {
         setStatus('❌ Error activando notificaciones: ' + e.message);
@@ -750,17 +773,22 @@
     }
     function syncNotifHistory(current){
       const history = loadNotifHistory();
+      const hadHistoryBefore = history.length > 0; // primera visita real = sin historial todavía: poblarlo no es "nuevo", es el punto de partida
       const byId = {};
       history.forEach(h => { byId[h.id] = h; });
       const nowIds = new Set();
+      let sawNewId = false;
       current.forEach(n => {
         nowIds.add(n.id);
         if (byId[n.id]) Object.assign(byId[n.id], { title: n.title, detail: n.detail, view: n.view, active: true });
-        else byId[n.id] = { id: n.id, type: n.type, title: n.title, detail: n.detail, view: n.view, firstSeenTs: Date.now(), active: true };
+        else { byId[n.id] = { id: n.id, type: n.type, title: n.title, detail: n.detail, view: n.view, firstSeenTs: Date.now(), active: true }; sawNewId = true; }
       });
       Object.values(byId).forEach(h => { if (!nowIds.has(h.id)) h.active = false; });
       const merged = Object.values(byId).sort((a, b) => b.firstSeenTs - a.firstSeenTs).slice(0, 200);
       saveNotifHistory(merged);
+      // Backlog #304 — un único "ding" por esta llamada aunque hayan
+      // aparecido varias notificaciones nuevas a la vez (nunca una ráfaga).
+      if (hadHistoryBefore && sawNewId) playNotifDing();
       return merged;
     }
 
@@ -1083,6 +1111,37 @@
     function setEightBitSounds(on){
       try { localStorage.setItem(EIGHT_BIT_SOUND_KEY, on ? '1' : '0'); } catch (e) {}
     }
+
+    // Backlog #304 — a diferencia de CRT/8-bit (puramente estéticos,
+    // apagados por defecto), este sonido es parte del propio sistema de
+    // avisos: Iván pidió que lo que se pueda activar por defecto (sin
+    // pasar por el permiso del navegador) empiece encendido. Ausencia de
+    // la clave = activado (nunca escrita todavía = primera visita).
+    const NOTIF_SOUND_KEY = 'charkuma_notif_sound';
+    function isNotifSoundOn(){
+      try { return localStorage.getItem(NOTIF_SOUND_KEY) !== '0'; } catch (e) { return true; }
+    }
+    function setNotifSound(on){
+      try { localStorage.setItem(NOTIF_SOUND_KEY, on ? '1' : '0'); } catch (e) {}
+    }
+    function playNotifDing(){
+      if (!isNotifSoundOn()) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return; // sin soporte de audio: seguimos sin sonido, sin romper nada
+      const t = ctx.currentTime;
+      [660, 880].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, t + i * 0.09);
+        gain.gain.setValueAtTime(0.001, t + i * 0.09);
+        gain.gain.exponentialRampToValueAtTime(0.08, t + i * 0.09 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + i * 0.09 + 0.32);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t + i * 0.09);
+        osc.stop(t + i * 0.09 + 0.35);
+      });
+    }
     function playNavBlip(){
       let on = false;
       try { on = localStorage.getItem(EIGHT_BIT_SOUND_KEY) === '1'; } catch (e) {}
@@ -1110,6 +1169,8 @@
       if (crtCheckbox) crtCheckbox.checked = crtOn;
       const soundCheckbox = document.getElementById('eightBitSoundToggle');
       if (soundCheckbox) soundCheckbox.checked = soundOn;
+      const notifSoundCheckbox = document.getElementById('notifSoundToggle');
+      if (notifSoundCheckbox) notifSoundCheckbox.checked = isNotifSoundOn();
     })();
 
     function playRouletteSound(durationMs){
@@ -9240,6 +9301,7 @@
       const nextActionEl = document.getElementById('hubNextAction');
       const linksEl = document.getElementById('hubQuickLinks');
       if (!statsEl || !nextActionEl || !linksEl) return;
+      renderPushInviteBanner(); // Backlog #304
 
       const guionesPendientes = buildGuionesBandeja('todos').length;
       // Mismo cálculo por banco que usan las tarjetas de "Bancos secretos
