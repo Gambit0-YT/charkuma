@@ -476,7 +476,18 @@
           return;
         }
         setStatus('⏳ Activando...');
-        const token = await window.firebaseMessagingFns.getToken(window.firebaseMessaging, { vapidKey: FCM_VAPID_KEY });
+        // Backlog #305 — Iván reportó "no llegan": getToken() se llamaba
+        // sin decirle a Firebase qué Service Worker usar, así que podía
+        // acabar registrando/usando uno propio distinto del sw.js real
+        // (el que sí tiene el onBackgroundMessage de más abajo). Esperamos
+        // aquí a que el registro de sw.js esté listo y se lo pasamos
+        // explícito — si por lo que sea no está disponible, seguimos sin
+        // él como antes (mismo comportamiento previo, nunca peor).
+        let swRegistration;
+        try { swRegistration = await navigator.serviceWorker.ready; } catch (_) {}
+        const tokenOptions = { vapidKey: FCM_VAPID_KEY };
+        if (swRegistration) tokenOptions.serviceWorkerRegistration = swRegistration;
+        const token = await window.firebaseMessagingFns.getToken(window.firebaseMessaging, tokenOptions);
         if (!token) {
           setStatus('❌ No se pudo obtener el token — reintenta en un momento.');
           return;
