@@ -291,6 +291,10 @@
     .settings-row strong{display:block;font-size:13px;margin-bottom:1px}
     .settings-row p{margin:0;color:var(--muted);font-size:11.5px;line-height:1.45;max-width:52ch}
     .settings-row-stack{flex-basis:100%;flex-direction:column;align-items:stretch}
+    /* Backlog #306 — separador de grupo dentro del mismo panel de Ajustes
+       (Perfil vs Ajustes del sitio), sin convertirlo en pestañas nuevas. */
+    .settings-panel-heading{margin:22px 0 4px;padding-top:14px;border-top:1px solid var(--line2);font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+    .settings-panel-heading:first-child{margin-top:0;padding-top:0;border-top:none}
     .key-summary-list{margin:6px 0 0;padding-left:18px;font-size:12px;color:var(--muted);line-height:1.6;display:flex;flex-direction:column;gap:6px}
     .key-summary-list strong{color:var(--text)}
     .key-summary-list code{background:var(--panel);padding:1px 5px;border-radius:5px;font-size:11px}
@@ -1708,41 +1712,20 @@
 
     <div class="settings-panel" id="settingsPanel" hidden>
       <div class="container settings-panel-inner">
+        <!-- Backlog #306 — Ajustes había crecido demasiado (19 filas en
+             una sola lista); Iván pidió separar un "Perfil" con lo más
+             personal/identidad (apariencia propia, logros, créditos
+             gastados, credenciales, copia de seguridad de SUS datos) del
+             resto, que sigue siendo configuración del comportamiento del
+             sitio. Mismo panel, mismas filas de siempre — solo agrupadas
+             bajo dos cabeceras en vez de una lista plana. -->
+        <h4 class="settings-panel-heading">👤 Perfil</h4>
         <div class="settings-row">
           <div>
             <strong>🌙 Tema</strong>
             <p>Oscuro (por defecto) o claro. Se recuerda en este navegador.</p>
           </div>
           <button type="button" class="btn btn-secondary" onclick="toggleTheme()">Cambiar tema</button>
-        </div>
-        <!-- Backlog #265 — últimas vistas, dentro de Ajustes en vez de un
-             icono nuevo en la barra (ver comentario en app.js). -->
-        <div class="settings-row settings-row-stack">
-          <div>
-            <strong>🕘 Tus últimas vistas</strong>
-            <p>Las últimas 5 páginas que has visitado en esta sesión — clic para volver.</p>
-          </div>
-          <div id="recentViewsList" class="recent-views-list"></div>
-        </div>
-        <div class="settings-row">
-          <div>
-            <strong>🎥 Modo presentación</strong>
-            <p>Oculta easter eggs, badges de revisión y paneles internos — para compartir pantalla o grabar.</p>
-          </div>
-          <label class="hide-discarded-label" style="margin:0">
-            <input type="checkbox" id="presentationModeToggle" onchange="setPresentationMode(this.checked)" aria-label="Activar modo presentación">
-            Activar
-          </label>
-        </div>
-        <div class="settings-row">
-          <div>
-            <strong>📌 Modo compacto</strong>
-            <p>Oculta las columnas laterales y deja que la cabecera se oculte sola al bajar — un aspecto más minimalista. Antes era un icono aparte en la barra de arriba (backlog "web sobrecargada", 11 sep).</p>
-          </div>
-          <label class="hide-discarded-label" style="margin:0">
-            <input type="checkbox" id="sidebarsHiddenToggle" onchange="toggleSidebarsVisibility()" aria-label="Activar modo compacto">
-            Activar
-          </label>
         </div>
         <div class="settings-row">
           <div>
@@ -1777,6 +1760,74 @@
         </div>
         <div class="settings-row settings-row-stack">
           <div>
+            <strong>🏅 Logros</strong>
+            <p>Hitos reales calculados sobre tus propios datos (guiones, ideas, Retro 365) — nunca inventados, se recalculan cada vez que abres esto.</p>
+          </div>
+          <div class="achievements-grid" id="achievementsGrid"></div>
+        </div>
+        <!-- Backlog #169 — créditos IA gastados, por fecha y motivo.
+             Igual que VIDIQ_*: fotos de gasto REAL, no un contador en
+             vivo (la web es estática, no puede consultar el saldo real
+             de Gamma/VidIQ por su cuenta) — actualizado por Claude a
+             mano cada vez que gasta créditos de verdad. Empieza a
+             registrarse el 9 sept 2026; el gasto anterior a esa fecha
+             no se documentó con suficiente detalle como para
+             reconstruirlo con honestidad, así que no se inventa. -->
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🪙 Créditos IA gastados</strong>
+            <p>Registro real de créditos de Gamma/VidIQ gastados por Claude, con fecha y motivo — para que sepas en qué se van sin tener que preguntar. Empieza el 9 de septiembre de 2026; lo de antes no se registró con suficiente detalle como para reconstruirlo con honestidad.</p>
+          </div>
+          <div id="aiCreditLogList" class="recent-list"></div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🔑 Token de YouTube Analytics</strong>
+            <p>
+              Da acceso a los datos privados del canal (retención, ingresos...) que Claude
+              trae de vez en cuando durante un <code>/loop</code>. Vive en un archivo local
+              (<code>.secrets/</code>), nunca en el código de esta web ni en GitHub — la web
+              no puede comprobar por su cuenta si sigue vigente. Última vez que se autorizó:
+              <strong>6 de septiembre de 2026</strong>. Si alguna sección de analítica deja
+              de actualizarse de un <code>/loop</code> a otro, probablemente hay que
+              reautorizarlo — Claude te avisará por chat cuando una llamada real falle por
+              eso, no antes.
+            </p>
+          </div>
+        </div>
+
+        <h4 class="settings-panel-heading">⚙️ Ajustes del sitio</h4>
+        <!-- Backlog #265 — últimas vistas, dentro de Ajustes en vez de un
+             icono nuevo en la barra (ver comentario en app.js). -->
+        <div class="settings-row settings-row-stack">
+          <div>
+            <strong>🕘 Tus últimas vistas</strong>
+            <p>Las últimas 5 páginas que has visitado en esta sesión — clic para volver.</p>
+          </div>
+          <div id="recentViewsList" class="recent-views-list"></div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>🎥 Modo presentación</strong>
+            <p>Oculta easter eggs, badges de revisión y paneles internos — para compartir pantalla o grabar.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="presentationModeToggle" onchange="setPresentationMode(this.checked)" aria-label="Activar modo presentación">
+            Activar
+          </label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <strong>📌 Modo compacto</strong>
+            <p>Oculta las columnas laterales y deja que la cabecera se oculte sola al bajar — un aspecto más minimalista. Antes era un icono aparte en la barra de arriba (backlog "web sobrecargada", 11 sep).</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="sidebarsHiddenToggle" onchange="toggleSidebarsVisibility()" aria-label="Activar modo compacto">
+            Activar
+          </label>
+        </div>
+        <div class="settings-row settings-row-stack">
+          <div>
             <strong>🔕 Silenciar tipos de notificación</strong>
             <p>Deja de mostrarse en la campana y en la bandeja — no borra las que ya tenías guardadas.</p>
           </div>
@@ -1791,6 +1842,21 @@
             <button type="button" class="btn btn-secondary" onclick="enablePushNotifications()">🔔 Activar en este dispositivo</button>
             <span id="pushNotifStatus" class="push-notif-status"></span>
           </div>
+        </div>
+        <!-- Backlog #304 — Iván pidió "ambas": lo que SÍ puede activarse
+             solo (sin permiso del navegador) va activado desde el primer
+             segundo; a diferencia del CRT/8-bit (#137/#138, apagados por
+             defecto porque son puramente estéticos), este sonido forma
+             parte del propio sistema de avisos, así que empieza encendido. -->
+        <div class="settings-row">
+          <div>
+            <strong>🔔🔊 Sonido al llegar una notificación nueva</strong>
+            <p>Un tono suave cuando aparece algo nuevo en la campana, con la pestaña abierta. Activado por defecto.</p>
+          </div>
+          <label class="hide-discarded-label" style="margin:0">
+            <input type="checkbox" id="notifSoundToggle" checked onchange="setNotifSound(this.checked)" aria-label="Activar sonido al llegar una notificación nueva">
+            Activar
+          </label>
         </div>
         <div class="settings-row settings-row-stack">
           <div>
@@ -1843,43 +1909,6 @@
             Activar
           </label>
         </div>
-        <!-- Backlog #304 — Iván pidió "ambas": lo que SÍ puede activarse
-             solo (sin permiso del navegador) va activado desde el primer
-             segundo; a diferencia del CRT/8-bit (#137/#138, apagados por
-             defecto porque son puramente estéticos), este sonido forma
-             parte del propio sistema de avisos, así que empieza encendido. -->
-        <div class="settings-row">
-          <div>
-            <strong>🔔🔊 Sonido al llegar una notificación nueva</strong>
-            <p>Un tono suave cuando aparece algo nuevo en la campana, con la pestaña abierta. Activado por defecto.</p>
-          </div>
-          <label class="hide-discarded-label" style="margin:0">
-            <input type="checkbox" id="notifSoundToggle" checked onchange="setNotifSound(this.checked)" aria-label="Activar sonido al llegar una notificación nueva">
-            Activar
-          </label>
-        </div>
-        <div class="settings-row settings-row-stack">
-          <div>
-            <strong>🏅 Logros</strong>
-            <p>Hitos reales calculados sobre tus propios datos (guiones, ideas, Retro 365) — nunca inventados, se recalculan cada vez que abres esto.</p>
-          </div>
-          <div class="achievements-grid" id="achievementsGrid"></div>
-        </div>
-        <div class="settings-row">
-          <div>
-            <strong>🔑 Token de YouTube Analytics</strong>
-            <p>
-              Da acceso a los datos privados del canal (retención, ingresos...) que Claude
-              trae de vez en cuando durante un <code>/loop</code>. Vive en un archivo local
-              (<code>.secrets/</code>), nunca en el código de esta web ni en GitHub — la web
-              no puede comprobar por su cuenta si sigue vigente. Última vez que se autorizó:
-              <strong>6 de septiembre de 2026</strong>. Si alguna sección de analítica deja
-              de actualizarse de un <code>/loop</code> a otro, probablemente hay que
-              reautorizarlo — Claude te avisará por chat cuando una llamada real falle por
-              eso, no antes.
-            </p>
-          </div>
-        </div>
         <div class="settings-row">
           <div>
             <strong>🌙 Modo de trabajo autónomo</strong>
@@ -1895,21 +1924,6 @@
               siempre al día siguiente.
             </p>
           </div>
-        </div>
-        <!-- Backlog #169 — créditos IA gastados, por fecha y motivo.
-             Igual que VIDIQ_*: fotos de gasto REAL, no un contador en
-             vivo (la web es estática, no puede consultar el saldo real
-             de Gamma/VidIQ por su cuenta) — actualizado por Claude a
-             mano cada vez que gasta créditos de verdad. Empieza a
-             registrarse el 9 sept 2026; el gasto anterior a esa fecha
-             no se documentó con suficiente detalle como para
-             reconstruirlo con honestidad, así que no se inventa. -->
-        <div class="settings-row settings-row-stack">
-          <div>
-            <strong>🪙 Créditos IA gastados</strong>
-            <p>Registro real de créditos de Gamma/VidIQ gastados por Claude, con fecha y motivo — para que sepas en qué se van sin tener que preguntar. Empieza el 9 de septiembre de 2026; lo de antes no se registró con suficiente detalle como para reconstruirlo con honestidad.</p>
-          </div>
-          <div id="aiCreditLogList" class="recent-list"></div>
         </div>
       </div>
     </div>
