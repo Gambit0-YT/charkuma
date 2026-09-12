@@ -1202,6 +1202,10 @@
     }
     .favorite-star-btn:hover{opacity:1;transform:scale(1.15)}
     .favorite-star-btn.is-favorite{opacity:1;color:#ffd24d}
+    /* Backlog #299 — este sitio no tiene reset global de [hidden], cada
+       elemento nuevo que lo use necesita su propia regla (ver checklist
+       permanente de pruebas en charkuma-autonomous-loop-rules.md) */
+    #hubTodayEditsHeading[hidden], #hubTodayEditsList[hidden]{display:none}
 
     /* Backlog #70 — modo compacto de Control Maestro: mismas tarjetas,
        más pequeñas y sin resumen, para ver más elementos de golpe en
@@ -2214,6 +2218,13 @@
                (mismo criterio que #265/#296). -->
           <h3 class="subheading">⭐ Favoritos</h3>
           <div id="hubFavoritesList" class="recent-list" style="margin-bottom:30px"></div>
+
+          <!-- Backlog #299 — qué guiones se tocaron HOY de verdad, usando
+               el mismo historial real de #19/#71 (`charkuma_content_history`,
+               con marca de tiempo por cambio) — nunca "hoy" inventado, si
+               no hay ninguna entrada de hoy la sección se oculta sola. -->
+          <h3 class="subheading" id="hubTodayEditsHeading" hidden>📝 Guiones editados hoy</h3>
+          <div id="hubTodayEditsList" class="recent-list" style="margin-bottom:30px" hidden></div>
 
           <!-- Backlog #102 — mapa del sitio VISUAL: a diferencia del resto
                de esta página (que es funcional — prompts, ideas, proyectos

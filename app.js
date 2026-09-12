@@ -6228,6 +6228,28 @@
       return `<span class="type-chip chip-green" title="Cambió de estado hace menos de 24h">🆕 Recién actualizado</span>`;
     }
 
+    // Backlog #299 — "guiones que edité hoy": mismo historial real de
+    // #19/#71 (`charkuma_content_history`, con marca de tiempo), pero
+    // comparando el DÍA de calendario en vez de "últimas 24h" (que #71
+    // ya cubre) — así "hoy" significa hoy de verdad, no "en la última
+    // vuelta del reloj". Si no hay ninguna entrada de hoy, la sección se
+    // oculta sola en vez de enseñar una lista vacía.
+    function renderTodayEditsSection(){
+      const heading = document.getElementById('hubTodayEditsHeading');
+      const list = document.getElementById('hubTodayEditsList');
+      if (!heading || !list) return;
+      const history = loadContentHistory();
+      const todayStr = new Date().toDateString();
+      const index = buildSiteIndex();
+      const items = Object.keys(history)
+        .filter(rid => history[rid].some(e => new Date(e.ts).toDateString() === todayStr))
+        .map(rid => index.find(i => i.view === rid))
+        .filter(Boolean);
+      heading.hidden = !items.length;
+      list.hidden = !items.length;
+      if (items.length) list.innerHTML = items.map(searchResultCardHTML).join('');
+    }
+
     // Backlog #101 — archivo de publicados filtrable por año/mes: usa la
     // fecha REAL en la que algo se marcó "📤 Marcado como publicado" en
     // el historial de #19 (la última vez, por si se quitó y se puso otra
@@ -9291,6 +9313,7 @@
       renderMasterHubSummary();
       renderFavoritesSection();
       if (typeof renderAllIdeasList === 'function') renderAllIdeasList();
+      if (typeof renderTodayEditsSection === 'function') renderTodayEditsSection();
 
       const index = buildSiteIndex();
 
