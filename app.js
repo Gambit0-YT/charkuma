@@ -10295,6 +10295,28 @@
       if (toggle) toggle.checked = on;
     })();
 
+    // Backlog #301 — abrir por defecto la vista (lista/kanban) que MÁS se
+    // usa de verdad, no solo la última elegida ni un valor fijo a mano.
+    // Cuenta real de veces que se elige cada una en el propio selector
+    // (nunca inventada) — con datos insuficientes o empate, se queda con
+    // "list", el default seguro de siempre.
+    const MASTER_CONTROL_VIEW_COUNTS_KEY = 'charkuma_master_control_view_counts';
+    function loadMasterControlViewCounts(){
+      try { return JSON.parse(localStorage.getItem(MASTER_CONTROL_VIEW_COUNTS_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function trackMasterControlViewChoice(mode){
+      const counts = loadMasterControlViewCounts();
+      counts[mode] = (counts[mode] || 0) + 1;
+      try { localStorage.setItem(MASTER_CONTROL_VIEW_COUNTS_KEY, JSON.stringify(counts)); } catch (e) {}
+    }
+    (function initMasterControlViewDefault(){
+      const select = document.getElementById('masterControlView');
+      if (!select) return;
+      const counts = loadMasterControlViewCounts();
+      if ((counts.kanban || 0) > (counts.list || 0)) select.value = 'kanban';
+    })();
+
     function renderMasterControlList(){
       const listEl = document.getElementById('masterControlProjectsList');
       const countEl = document.getElementById('masterControlCount');

@@ -2545,7 +2545,12 @@
                 <option value="date">Ordenar por fecha</option>
                 <option value="priority">Ordenar por prioridad</option>
               </select>
-              <select id="masterControlView" onchange="renderMasterControlList()">
+              <!-- Backlog #301 — se abre por defecto la que MÁS se usa de
+                   verdad (initMasterControlViewDefault() en app.js, cuenta
+                   real de elecciones, nunca inventada) — "list" sigue
+                   siendo el valor de partida en el HTML mientras no haya
+                   datos suficientes. -->
+              <select id="masterControlView" onchange="trackMasterControlViewChoice(this.value); renderMasterControlList()">
                 <option value="list" selected>📋 Vista lista</option>
                 <option value="kanban">🗂️ Vista Kanban</option>
               </select>
