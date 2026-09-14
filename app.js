@@ -4605,6 +4605,27 @@
         internalView: "rf-cruce-superman-spiderman", reviewed: false, stage: 'creando-guion'
       },
       {
+        // Backlog #230 — "Anacronismos y errores de continuidad": mismo
+        // criterio que #229, solo con un error REAL y OFICIALMENTE
+        // reconocido por Marvel Studios, no una interpretación mía de
+        // fan — verificado con WebSearch 14 sep. El cartel real de
+        // "Spider-Man: Homecoming" (2017) decía "8 años después" de "Los
+        // Vengadores" (2012), pero el resto de la película transcurre
+        // claramente meses después de "Civil War" (2016) — 4 años, no 8.
+        // El propio libro oficial "Marvel Studios' The Marvel Cinematic
+        // Universe: An Official Timeline" lo corrigió años después
+        // (escena inicial: primavera 2012; resto de la película: otoño
+        // 2016), usando a Miss Minutes (de "Loki") para reconocerlo con
+        // humor. Fuentes: screenrant.com, collider.com, thedirect.com.
+        title: "El error de línea temporal que Marvel tardó años en admitir",
+        saga: "marvel",
+        type: "curiosidad",
+        date: "2026-09-14",
+        summary: "El cartel de \"Spider-Man: Homecoming\" decía \"8 años después\" — pero la propia guía oficial de Marvel confirmó, años después, que en realidad eran 4.",
+        thumbnail: "🕰️",
+        internalView: "rf-mcu-homecoming-error", reviewed: false, stage: 'creando-guion'
+      },
+      {
         // Pedido explícito del usuario 2026-09-08 ("sigue creando vídeos
         // para el Rincón del Friki a partir de noticias sobre
         // superhéroes y cultura geek que vayas encontrando") — ya no
@@ -5203,6 +5224,7 @@
     //     llamada real tiene coste de créditos VidIQ.
     const VOZ_GUION_DRIVE_FOLDERS = {
       'rf-cruce-superman-spiderman': '114ZzlsMQzQVyq9on3BrL0ZGt9UvFg45h',
+      'rf-mcu-homecoming-error': '1b-psSF6DtgpkSFjZqJuDQzLpmwBCkDUb',
       'rf-curiosidades-spiderman': '1zcdIn3irnAp9pIKRfysv-ZgOK9n6x3AP',
       'rf-opinion-multiverso': '1XhdC5AuWPeR8RengJR9jjpfj-v96ACLT',
       'rf-fancast-wolverine': '15dLarbPISkITVF5j_0FaUll5BU62x7BY',
