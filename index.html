@@ -636,6 +636,22 @@
     .section-kicker{
       color:var(--orange);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.15em
     }
+    /* Backlog #316 — identidad visual compartida de HELQUIDGAMES: antes
+       cada juego solo llevaba "HELQUIDGAMES · ..." como texto plano del
+       kicker, igual que cualquier otra sección — no se notaba que eran
+       una familia. Degradado propio (cian/violeta), deliberadamente
+       distinto del naranja/morado del resto del sitio — mismo criterio
+       ya usado en los badges de plataforma de Redes Sociales (colores
+       fijos de marca, no ligados al tema claro/oscuro). Aparece igual en
+       las 4 páginas: el hub y sus 3 juegos. */
+    .helquid-brand-tag{
+      display:inline-flex;align-items:center;gap:7px;padding:6px 14px 6px 10px;
+      border-radius:999px;background:linear-gradient(135deg,#22d3ee,#6d5ef5);
+      color:#0a0812;font-size:12px;font-weight:900;letter-spacing:.04em;
+      text-decoration:none;margin-bottom:14px;cursor:pointer;border:none
+    }
+    .helquid-brand-tag .emoji{font-size:15px}
+    .helquid-brand-tag:hover{filter:brightness(1.08)}
     .section-title{
       font-size:clamp(34px,5vw,58px);line-height:1;margin:10px 0 16px;letter-spacing:-.04em
     }
@@ -6404,6 +6420,7 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="goHome('inicio')">← Volver al inicio</a>
+          <a class="helquid-brand-tag" href="javascript:void(0)" onclick="showView('helquidgames')"><span class="emoji">🕹️</span> HELQUIDGAMES</a>
           <div class="section-kicker">PROYECTO 000</div>
           <h2 class="section-title"><span class="secret-trigger" onclick="openHelquidSecretList()" role="button" tabindex="0" aria-label="Abrir el banco secreto de ideas de HELQUIDGAMES">🎮</span> HELQUIDGAMES</h2>
           <p class="section-sub">
@@ -6480,7 +6497,8 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
-          <div class="section-kicker">HELQUIDGAMES · CONCEPTO DE JUEGO</div>
+          <a class="helquid-brand-tag" href="javascript:void(0)" onclick="showView('helquidgames')"><span class="emoji">🕹️</span> HELQUIDGAMES</a>
+          <div class="section-kicker">CONCEPTO DE JUEGO</div>
           <h2 class="section-title">🎴 DRAFT ARENA</h2>
           <p class="section-sub">
             Probablemente el próximo juego que se implemente en HELQUIDGAMES —
@@ -6569,7 +6587,8 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
-          <div class="section-kicker">HELQUIDGAMES · JUEGO 001</div>
+          <a class="helquid-brand-tag" href="javascript:void(0)" onclick="showView('helquidgames')"><span class="emoji">🕹️</span> HELQUIDGAMES</a>
+          <div class="section-kicker">JUEGO 001</div>
           <h2 class="section-title">⚽ RULETA DEL 11</h2>
           <p class="section-sub">
             Gira la ruleta, te toca una posición y un club/selección. Nombra un jugador real que
@@ -6630,7 +6649,8 @@
       <section class="page-head">
         <div class="container">
           <a class="back" href="javascript:void(0)" onclick="showView('helquidgames')">← Volver a HELQUIDGAMES</a>
-          <div class="section-kicker">HELQUIDGAMES · JUEGO 002</div>
+          <a class="helquid-brand-tag" href="javascript:void(0)" onclick="showView('helquidgames')"><span class="emoji">🕹️</span> HELQUIDGAMES</a>
+          <div class="section-kicker">JUEGO 002</div>
           <h2 class="section-title">🎨 CALCARTE</h2>
           <p class="section-sub">
             Tira de la palanca y saca un reto imposible (personaje + acción). Genera la imagen con IA,
