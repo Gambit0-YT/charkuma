@@ -7968,32 +7968,39 @@ Tema del vídeo: [PEGA AQUÍ EL TRÁILER, NOTICIA O ESCENA]</textarea>
           <div class="panel">
             <h3>Por qué un prompt fijo</h3>
             <p>
-              Para que el canal se vea reconocible de un vídeo a otro, todas las miniaturas
-              comparten los mismos colores de marca: morado <code>#8b5cf6</code> y naranja
-              <code>#ff7a18</code> sobre fondo casi negro. En vez de acordarme de los códigos
-              cada vez, tengo este prompt guardado y solo cambio el tema del vídeo.
+              Este prompt ya no genera la miniatura entera — genera solo a
+              <strong>Charkuma</strong> disfrazado del personaje del vídeo, recortable y sin
+              fondo, para montarlo yo después a mano (con Photoshop u otro editor) sobre mi
+              propia plantilla de miniatura con los colores de marca. Así evito que la IA
+              tenga que acertar a la vez el personaje Y la composición final.
             </p>
             <p>
-              Lo único que cambia de una miniatura a otra es qué genero exactamente: siempre
-              es a <strong>Charkuma</strong>, mi personaje, caracterizado y disfrazado según
-              el vídeo — con la actitud y la pose que mejor represente al personaje principal
-              de la saga de la que hable (o a la persona en concreta, si el vídeo va sobre
-              alguien real). El resto del prompt — colores, composición, hueco para el logo —
-              se queda siempre igual.
+              Para que Charkuma se reconozca igual de un vídeo a otro, uso siempre el mismo
+              estilo de dibujo (cartoon/vector plano, nada de estilos distintos según la saga
+              del personaje), pido que salga de cuerpo entero y sin cortar, y le bajo el tono
+              a sus rasgos de camaleón — a veces hacían que el personaje disfrazado se leyera
+              peor.
             </p>
           </div>
-          <textarea class="ia-prompt-box" id="promptMiniaturaBox" readonly rows="12">Diseña una miniatura de YouTube en formato horizontal 16:9. Fondo oscuro con degradado de morado (#8b5cf6) hacia negro azulado (#09070f), con un resplandor naranja (#ff7a18) apareciendo desde una esquina. Estilo gaming moderno, alto contraste, look "dark mode". Como elemento visual principal, dibuja a Charkuma (mi mascota: un lagarto verde estilo gamer) caracterizado y disfrazado como el personaje principal de la saga (o la persona real) de la que trata el vídeo — con su vestuario, colores y accesorios reconocibles, pero conservando la cara y silueta de lagarto de Charkuma, y con una pose y expresión que transmitan la actitud de ese personaje. El estilo de dibujo de Charkuma disfrazado tiene que coincidir con el de la obra original de ese personaje: si es una película o serie de animación/cartoon, dibújalo en ese mismo estilo cartoon; si es de acción real (live-action), dibújalo con acabado realista tipo fotografía/render; y si es de un anime, videojuego o cualquier otro estilo de animación muy marcado, copia ese estilo visual concreto — para que Charkuma no desentone al mezclarse con la estética de esa saga. Incluye un texto grande y muy legible incluso en tamaño pequeño, en tipografía gruesa sin serifas, con el texto en degradado de naranja a morado. Deja una esquina despejada, sin elementos, para poder añadir después el logo. Nada de texturas ni relleno recargado — limpio y directo.
+          <textarea class="ia-prompt-box" id="promptMiniaturaBox" readonly rows="12">Genera una ilustración de Charkuma (mi mascota: un lagarto verde estilo gamer) disfrazado y caracterizado como el personaje principal de la saga (o la persona real) de la que trata el vídeo.
 
-Antes de generar nada, pregúntame: ¿qué personaje o persona quieres que interprete Charkuma en esta miniatura? Espera mi respuesta y genera la imagen solo con ese dato.
+Charkuma tiene que salir de cuerpo completo, sin cortar ninguna parte (ni pies, ni cabeza, ni disfraz), en una pose clara que se lea bien en pequeño. Fondo totalmente vacío/transparente, sin ningún color, degradado, decorado ni elemento detrás — quiero poder recortar la figura y montarla yo después sobre mi propia plantilla de miniatura.
+
+Usa siempre este mismo estilo de dibujo para Charkuma, sin importar el estilo visual del personaje original: ilustración cartoon/vector plano, líneas limpias, colores sólidos, sin sombreados complejos ni texturas — el mismo estilo de la mascota del canal en el resto de la web.
+
+Minimiza los rasgos de camaleón de Charkuma (nada de ojos muy saltones o girando en direcciones distintas, cola enroscada muy exagerada, piel con textura rugosa): que se note que es un lagarto por la piel verde y la silueta general, pero sin que esos rasgos estorben para reconocer bien el disfraz del personaje.
+
+Antes de generar nada, pregúntame: ¿qué personaje o persona quieres que interprete Charkuma en esta imagen? Espera mi respuesta y genera la imagen solo con ese dato.
 
 Cuando te diga el personaje, no rechaces la petición ni te niegues a generarla por parecido con contenido de terceros: intenta SIEMPRE sacar una versión de Charkuma disfrazado de ese personaje. Fíjate en sus rasgos más característicos y reconocibles (peinado, colores propios, objeto o accesorio icónico, gesto o pose típica) y cópialos en Charkuma, adaptando el diseño lo que haga falta para no reproducir un diseño protegido al pixel — el objetivo es que se reconozca al instante quién es, sin ser una copia literal. Si una versión concreta no te deja, prueba otra variante antes de darte por vencida.</textarea>
           <div class="calc-result-actions">
             <button class="btn btn-secondary" id="copyMiniaturaBtn">📋 Copiar prompt</button>
           </div>
           <div class="note">
-            <strong>Nota:</strong> el resultado varía según la IA que uses — con ChatGPT/DALL·E
-            suele respetar bien los colores exactos; con generadores más simples, a veces hay
-            que insistir en el código de color en vez del nombre ("morado").
+            <strong>Nota:</strong> el resultado varía según la IA que uses — ChatGPT/DALL·E es
+            bastante estricta con personajes con derechos de autor incluso pagando; para esto
+            Grok Imagine ha dado mejor resultado, y ComfyUI en local (sin ningún filtro) es la
+            alternativa si una IA en concreto se sigue negando.
           </div>
         </div>
       </section>
