@@ -1395,6 +1395,9 @@
       if (id === 'idea-swipe' && typeof renderIdeaSwipeStage === 'function') {
         try { renderIdeaSwipeStage(); } catch (e) { /* ver comentario arriba */ }
       }
+      if (id === 'detras-camaras' && typeof renderDetrasCamarasIdeas === 'function') {
+        try { renderDetrasCamarasIdeas(); } catch (e) { /* ver comentario arriba */ }
+      }
       // Game Match retirado 9 sep (ver vista view-helquid-game-match) —
       // ya no hace falta refrescar su mazo al entrar.
       if (id === 'notif-inbox' && typeof renderNotifInbox === 'function') {
@@ -8134,6 +8137,46 @@
         "Lo que aprendí generando estrenos en vivo con la API de TMDB por primera vez."
       ]
     };
+    // Backlog #231 — "Detrás de cámaras" como fuente ACTIVA de ideas, no
+    // solo una página que se lee y ya. Estas 3 ideas nacen literalmente
+    // de lo que esa misma página ya cuenta de verdad (nada inventado, ni
+    // una tendencia externa) — el botón las manda de verdad al banco de
+    // Charkuma Lab, reutilizando exactamente el mismo addBankExtraIdeas()
+    // que ya usan los generadores de ideas existentes, con un registro
+    // real de cuáles ya se añadieron para no duplicarlas si se revisita
+    // la página.
+    const DETRAS_CAMARAS_IDEAS = [
+      'Enseño de verdad cuántos commits reales lleva esta web hechos en unos pocos días — la mayoría, mientras dormía.',
+      'La única regla que nunca rompo programando esto con IA: nunca inventar un dato para que "parezca que funciona".',
+      'Cómo decido qué automatizar y qué no cuando trabajo con Claude en modo autónomo (/loop).'
+    ];
+    const DETRAS_CAMARAS_IDEAS_ADDED_KEY = 'charkuma_detras_camaras_ideas_added';
+    function loadDetrasCamarasIdeasAdded(){
+      try { return new Set(JSON.parse(localStorage.getItem(DETRAS_CAMARAS_IDEAS_ADDED_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+    function renderDetrasCamarasIdeas(){
+      const list = document.getElementById('detrasCamarasIdeasList');
+      if (!list) return;
+      const added = loadDetrasCamarasIdeasAdded();
+      list.innerHTML = DETRAS_CAMARAS_IDEAS.map((idea, i) => `
+        <div class="panel" style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+          <span>${escapeAttr(idea)}</span>
+          <button type="button" class="btn btn-secondary" ${added.has(i) ? 'disabled' : ''} onclick="addDetrasCamarasIdeaToLab(${i})">${added.has(i) ? '✅ Añadida' : '➕ Añadir a Charkuma Lab'}</button>
+        </div>`).join('');
+    }
+    function addDetrasCamarasIdeaToLab(i){
+      const idea = DETRAS_CAMARAS_IDEAS[i];
+      if (!idea) return;
+      const added = loadDetrasCamarasIdeasAdded();
+      if (added.has(i)) return; // ya añadida antes, no duplicar
+      addBankExtraIdeas('lab', { bitacora: [idea] });
+      added.add(i);
+      try { localStorage.setItem(DETRAS_CAMARAS_IDEAS_ADDED_KEY, JSON.stringify([...added])); } catch (e) {}
+      if (IDEA_BANK_RENDERERS.lab) IDEA_BANK_RENDERERS.lab();
+      renderDetrasCamarasIdeas();
+    }
+
     IDEA_BANK_RENDERERS.lab = () => renderTypedIdeaBank({
       bank:'lab', ideasByType:getBankIdeasMerged('lab', labSecretIdeas), typeLabels:LAB_TYPE_LABELS,
       containerId:'labSecretContainer', discardCounterId:'labDiscardCounter',
