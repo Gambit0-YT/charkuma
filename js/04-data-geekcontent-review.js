@@ -577,6 +577,31 @@
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
     }
 
+    // Fecha real de publicación: cuando Iván marca algo como publicado
+    // de verdad (con la confirmación de toggleContentPublished), se
+    // guarda aquí la fecha de ESE momento, para que las tarjetas dejen
+    // de mostrar la fecha en la que se apuntó la idea originalmente
+    // (item.date, a veces semanas antes) y muestren cuándo se terminó
+    // de verdad. Se borra si se "quita publicado", volviendo a mostrar
+    // la fecha original.
+    const PUBLISHED_DATE_KEY = 'charkuma_published_date';
+    function loadPublishedDateMap(){
+      try { return JSON.parse(localStorage.getItem(PUBLISHED_DATE_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function setContentPublishedDate(id, isoDateOrNull){
+      const map = loadPublishedDateMap();
+      if (isoDateOrNull) map[id] = isoDateOrNull; else delete map[id];
+      try { localStorage.setItem(PUBLISHED_DATE_KEY, JSON.stringify(map)); }
+      catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
+    }
+    // Fecha a mostrar en tarjetas/listas: la de publicación real si
+    // existe, si no la fecha original del array de contenido.
+    function contentDisplayDate(item){
+      const rid = item.internalView || item.title;
+      return loadPublishedDateMap()[rid] || item.date || null;
+    }
+
     // Busca, en todos los arrays de contenido, el objeto que corresponde
     // a una vista concreta (por su internalView) — para saber si esa
     // página es "contenido revisable" y poder pintar sus controles.

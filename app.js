@@ -4983,6 +4983,31 @@
       catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
     }
 
+    // Fecha real de publicación: cuando Iván marca algo como publicado
+    // de verdad (con la confirmación de toggleContentPublished), se
+    // guarda aquí la fecha de ESE momento, para que las tarjetas dejen
+    // de mostrar la fecha en la que se apuntó la idea originalmente
+    // (item.date, a veces semanas antes) y muestren cuándo se terminó
+    // de verdad. Se borra si se "quita publicado", volviendo a mostrar
+    // la fecha original.
+    const PUBLISHED_DATE_KEY = 'charkuma_published_date';
+    function loadPublishedDateMap(){
+      try { return JSON.parse(localStorage.getItem(PUBLISHED_DATE_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+    function setContentPublishedDate(id, isoDateOrNull){
+      const map = loadPublishedDateMap();
+      if (isoDateOrNull) map[id] = isoDateOrNull; else delete map[id];
+      try { localStorage.setItem(PUBLISHED_DATE_KEY, JSON.stringify(map)); }
+      catch (e) { /* seguimos sin recordarlo, sin romper nada */ }
+    }
+    // Fecha a mostrar en tarjetas/listas: la de publicación real si
+    // existe, si no la fecha original del array de contenido.
+    function contentDisplayDate(item){
+      const rid = item.internalView || item.title;
+      return loadPublishedDateMap()[rid] || item.date || null;
+    }
+
     // Busca, en todos los arrays de contenido, el objeto que corresponde
     // a una vista concreta (por su internalView) — para saber si esa
     // página es "contenido revisable" y poder pintar sus controles.
@@ -6702,7 +6727,19 @@
     }
     function toggleContentPublished(rid){
       const turningOn = !isContentPublished(rid);
+      // Backlog: confirmación antes de marcar como publicado — es un
+      // paso "de verdad terminado", así que pide reconfirmar en vez de
+      // que un clic de más lo marque sin querer. Al quitarlo no hace
+      // falta confirmar (deshacer es inofensivo).
+      if (turningOn && !confirm('¿Seguro de que este vídeo/proyecto está terminado y publicado de verdad?')) {
+        return;
+      }
       setContentPublished(rid, turningOn);
+      // La fecha que se ve en las tarjetas pasa a ser la de AHORA (el
+      // momento real de terminarlo), no la fecha en la que se apuntó la
+      // idea originalmente. Al quitar "publicado" se borra y vuelve a
+      // mostrarse la fecha original.
+      setContentPublishedDate(rid, turningOn ? new Date().toISOString() : null);
       // "Publicado" implica los pasos anteriores: si hacía falta,
       // aprueba y deja la fase en la última ("listo para publicar") en
       // vez de sin fase, para que al "quitar publicado" no vuelva a cero.
@@ -6839,7 +6876,8 @@
     }
 
     function geekCardHTML(item){
-      const date = item.date ? new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short'}) : '';
+      const displayDate = contentDisplayDate(item);
+      const date = displayDate ? new Date(displayDate).toLocaleDateString('es-ES', {day:'numeric', month:'short'}) : '';
       const titleLink = item.internalView
         ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
         : `<a href="${item.videoUrl}" target="_blank" rel="noopener">${item.title} ↗</a>`;
@@ -7964,7 +8002,7 @@
     const HELQUID_GAME_LABELS = { concepto: '💡 Concepto de juego' };
 
     function labCardHTML(item){
-      const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      const date = new Date(contentDisplayDate(item)).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
       const titleLink = item.internalView
         ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
         : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;
@@ -8006,7 +8044,7 @@
     // reutilizado por IA & Experimentos, Creator Tools y Hecho a Mano.
     // ──────────────────────────────────────────────────────────
     function genericCardHTML(item, labelsMap, colorsMap){
-      const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      const date = new Date(contentDisplayDate(item)).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
       const titleLink = item.internalView
         ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
         : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;

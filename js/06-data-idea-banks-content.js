@@ -954,7 +954,7 @@
     const HELQUID_GAME_LABELS = { concepto: '💡 Concepto de juego' };
 
     function labCardHTML(item){
-      const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      const date = new Date(contentDisplayDate(item)).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
       const titleLink = item.internalView
         ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
         : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;
@@ -996,7 +996,7 @@
     // reutilizado por IA & Experimentos, Creator Tools y Hecho a Mano.
     // ──────────────────────────────────────────────────────────
     function genericCardHTML(item, labelsMap, colorsMap){
-      const date = new Date(item.date).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
+      const date = new Date(contentDisplayDate(item)).toLocaleDateString('es-ES', {day:'numeric', month:'short', year:'numeric'});
       const titleLink = item.internalView
         ? `<a href="javascript:void(0)" onclick="showView('${item.internalView}')">${item.title} ↗</a>`
         : `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`;
