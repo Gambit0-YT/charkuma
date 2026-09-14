@@ -1,3 +1,11 @@
+    // ══════════ 01-app-init-nav.js ══════════
+    // Configuración inicial (YouTube/RAWG), estado de /loop, navegación principal (menú, hamburguesa, barra inferior móvil, panel lateral de gestión, guion fijado en la cabecera), campana de notificaciones y widgets de la barra lateral.
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     // ──────────────────────────────────────────────────────────
     // CONFIGURACIÓN DEL WIDGET LATERAL (vídeos de YouTube + noticias).
     // Declarado aquí arriba a propósito: si se entra por un enlace directo
@@ -1749,6 +1757,14 @@
     // Base de datos SECRETA (solo tuya): juegos ya decididos para días
     // futuros pero que aún no tienen vídeo grabado. No se muestran en la
     // lista pública — solo en la "chuleta secreta" del 🎮 easter egg.
+    // ══════════ 02-data-retro365-games.js ══════════
+    // plannedGames — los días de Retro 365 ya decididos, cada uno con su guion completo (HTML) como plantilla. Solo datos, ninguna función.
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     const plannedGames = {
       4: {
         name: "Hades",
@@ -2951,6 +2967,14 @@
       }
       // 42: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
+
+    // ══════════ 03-retro365-home-widgets.js ══════════
+    // Renderizado de Retro 365 (tarjetas de día, vista pública, progreso), Ranking friki, Radar de estrenos (TMDB) y demás widgets del inicio.
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
 
     const DIFF_LABELS = {
       facil: "🟢 Fácil",
@@ -4377,6 +4401,14 @@
     // RINCÓN DEL FRIKI — contenido de Marvel / The Boys / Cruce
     // Añade aquí cada vídeo nuevo que subas (ver nota en la página).
     // ──────────────────────────────────────────────────────────
+    // ══════════ 04-data-geekcontent-review.js ══════════
+    // geekContent — metadatos de todos los guiones de Rincón del Friki (el HTML real de cada uno vive en index.html) — y el sistema de revisión (aprobar/descartar/fase/publicado) que se aplica a todo el contenido del sitio.
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     const geekContent = [
       {
         title: "Reaccionando al tráiler de Los 4 Fantásticos",
@@ -5222,6 +5254,14 @@
     //     Firestore `audioGeneration/state` para que esta página lo
     //     muestre ya listo. Nunca se genera en bloque para los 18: cada
     //     llamada real tiene coste de créditos VidIQ.
+    // ══════════ 05-drive-recording-mode.js ══════════
+    // VOZ_GUION_DRIVE_FOLDERS, Modo grabación (teleprompter, fotos de contexto, Shorts semanales/Un dato un minuto) y el Generador de Voz en Off.
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     const VOZ_GUION_DRIVE_FOLDERS = {
       'rf-cruce-superman-spiderman': '114ZzlsMQzQVyq9on3BrL0ZGt9UvFg45h',
       'rf-mcu-homecoming-error': '1b-psSF6DtgpkSFjZqJuDQzLpmwBCkDUb',
@@ -6965,6 +7005,14 @@
       directores: '🎥 Directores'
     };
 
+    // ══════════ 06-data-idea-banks-content.js ══════════
+    // Los 6 bancos secretos de ideas (Rincón, HELQUIDGAMES, Lab, IA, Creator Tools, Hecho a Mano) y sus arrays de contenido (iaContent/creatorContent/hechoContent/helquidGamesContent).
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     const rinconSecretIdeas = {
       opinion: [
         {universe:'boys', text:"Por qué deberías empezar a ver The Boys ya mismo (presentación sin destripar la trama)."},
@@ -8517,6 +8565,14 @@
     // cualquier modo de trabajo autónomo futuro. Tope de 100 entradas
     // para no crecer sin límite.
     // ──────────────────────────────────────────────────────────
+    // ══════════ 07-master-control-activity.js ══════════
+    // Registro de actividad, generador de ideas del Control Maestro, y buena parte de Control Maestro (lista/kanban, filtros, buscador de ese panel).
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     const ACTIVITY_LOG_KEY = 'charkuma_activity_log';
     function loadActivityLog(){
       try { return JSON.parse(localStorage.getItem(ACTIVITY_LOG_KEY)) || []; }
@@ -10167,6 +10223,14 @@
         { icon:'🔥', label:'3 días seguidos creando', unlocked: guionStreak >= 3 }
       ];
     }
+    // ══════════ 08-stats-search-sync-main.js ══════════
+    // Logros y estadísticas del Panel, buscador global del sitio, sincronización con Firestore, y el resto de funciones de arranque/varios que no encajaban en los bloques anteriores.
+    // Backlog #73 (14 sep) — parte del split de app.js en módulos más
+    // pequeños. Este archivo NUNCA se sirve solo: build.js lo concatena
+    // con el resto, en orden, para generar app.js (que a su vez se
+    // minifica a app.min.js, como siempre). Editar aquí, nunca en
+    // app.js directamente — se sobrescribe en el siguiente build.
+
     function renderAchievements(){
       const container = document.getElementById('achievementsGrid');
       if (!container) return;
