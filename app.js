@@ -4394,7 +4394,7 @@
         date: "2026-08-19",
         summary: "Datos de rodaje y cómic que seguramente se te han pasado por alto.",
         thumbnail: "🕸️",
-        internalView: "rf-curiosidades-spiderman", reviewed: false, stage: 'creando-guion'
+        realPeople: [], internalView: "rf-curiosidades-spiderman", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "La Saga del Multiverso: ¿de verdad ha merecido la pena?",
@@ -4403,7 +4403,7 @@
         date: "2026-08-24",
         summary: "Repaso honesto a lo que Marvel prometió con el multiverso y lo que realmente ha dado.",
         thumbnail: "🌀",
-        internalView: "rf-opinion-multiverso", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Tom Hiddleston"], internalView: "rf-opinion-multiverso", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real verificada con WebSearch 2026-09-09: adelanto
@@ -4418,7 +4418,7 @@
         date: "2026-09-09",
         summary: "En el nuevo adelanto mostrado en el D23 Expo, Doom no solo vence a Thor — resucita a los robots cazamutantes de los X-Men delante de todos.",
         thumbnail: "🤖",
-        internalView: "rf-opinion-doom-centinelas", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Chris Hemsworth","Vanessa Kirby"], internalView: "rf-opinion-doom-centinelas", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Fancast: ¿quién debería ser el próximo Wolverine?",
@@ -4427,7 +4427,7 @@
         date: "2026-08-29",
         summary: "Tres candidatos con argumentos a favor, y mi favorito personal razonado.",
         thumbnail: "🐾",
-        internalView: "rf-fancast-wolverine", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Hugh Jackman","Scott Adkins","Karl Urban","Charlie Hunnam"], internalView: "rf-fancast-wolverine", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "The Boys vs Marvel: por qué esta serie me ha enganchado más",
@@ -4436,7 +4436,7 @@
         date: "2026-09-01",
         summary: "Por qué, pese a lo dura que es, The Boys me está gustando más que el rumbo actual de Marvel.",
         thumbnail: "🩸",
-        internalView: "rf-boys-vs-marvel", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Antony Starr"], internalView: "rf-boys-vs-marvel", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Lo que no sabías sobre Homelander",
@@ -4445,7 +4445,7 @@
         date: "2026-09-04",
         summary: "Inspiración real y detalles de guion detrás del villano más inquietante de la serie.",
         thumbnail: "🦸",
-        internalView: "rf-curiosidades-homelander", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Antony Starr"], internalView: "rf-curiosidades-homelander", reviewed: false, stage: 'creando-guion'
       },
       {
         title: "Homelander vs Thanos: ¿quién ganaría?",
@@ -4470,7 +4470,7 @@
         date: "2026-09-07",
         summary: "Mi ranking real de por dónde empezar en cada universo, sin marear con 30 títulos.",
         thumbnail: "🧭",
-        internalView: "rf-ranking-empezar", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Robert Downey Jr."], internalView: "rf-ranking-empezar", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "opinion-1" del banco secreto, marcada "hecha" — distinta de
@@ -4483,7 +4483,7 @@
         date: "2026-09-07",
         summary: "Análisis de por qué el contraste entre su imagen pública y su psicopatía real lo convierte en uno de los villanos más interesantes de la ficción actual.",
         thumbnail: "🎭",
-        internalView: "rf-opinion-homelander", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Antony Starr"], internalView: "rf-opinion-homelander", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "opinion-6" del banco secreto ("este personaje secundario
@@ -4496,7 +4496,7 @@
         date: "2026-09-07",
         summary: "Por qué el personaje más ridiculizado del grupo se ha convertido en uno de los arcos más interesantes de The Boys.",
         thumbnail: "🐬",
-        internalView: "rf-opinion-deep", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Chace Crawford"], internalView: "rf-opinion-deep", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "opinion-2" del banco secreto ("la peli/serie Marvel del
@@ -4509,7 +4509,7 @@
         date: "2026-09-07",
         summary: "Reparto ampliado, tono más maduro y una recepción real (2.400M$ en taquilla) — por qué merece la pena, sin spoilers.",
         thumbnail: "🕷️",
-        internalView: "rf-opinion-brand-new-day", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Tom Holland","Zendaya","Jon Bernthal","Florence Pugh","Mark Ruffalo"], internalView: "rf-opinion-brand-new-day", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "opinion-11" del banco secreto ("el regreso de una saga
@@ -4523,7 +4523,7 @@
         date: "2026-09-07",
         summary: "Actores clásicos vuelven en Avengers: Doomsday y ya hay un reboot completo confirmado para 2028 — lo bueno y el riesgo real de traer de vuelta una saga tan querida.",
         thumbnail: "🦾",
-        internalView: "rf-opinion-regreso-xmen", reviewed: false, stage: 'creando-guion'
+        realPeople: ["James Marsden","Kelsey Grammer","Rebecca Romijn","Alan Cumming"], internalView: "rf-opinion-regreso-xmen", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "opinion-7" del banco secreto ("el villano de moda ahora
@@ -4537,7 +4537,7 @@
         date: "2026-09-08",
         summary: "El actor que fue Iron Man más de una década ahora es Doctor Doom — por qué el escepticismo inicial se está convirtiendo en curiosidad real.",
         thumbnail: "🎭",
-        internalView: "rf-opinion-doom-rdj", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Robert Downey Jr.","Vanessa Kirby"], internalView: "rf-opinion-doom-rdj", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "curiosidad-0" del banco secreto ("10 datos curiosos sobre
@@ -4553,7 +4553,7 @@
         date: "2026-09-08",
         summary: "Magia, un pacto con un demonio y un error propio que decidió ignorar — el origen real del villano más comentado de Marvel ahora mismo.",
         thumbnail: "🪄",
-        internalView: "rf-curiosidades-doom", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Stan Lee","Jack Kirby"], internalView: "rf-curiosidades-doom", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "curiosidad-3" del banco secreto ("datos curiosos del
@@ -4570,7 +4570,7 @@
         date: "2026-09-08",
         summary: "De bailarín de musical a Spider-Man más joven de la historia — datos reales del protagonista de la película Marvel del momento.",
         thumbnail: "🕷️",
-        internalView: "rf-curiosidades-tom-holland", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Tom Holland"], internalView: "rf-curiosidades-tom-holland", reviewed: false, stage: 'creando-guion'
       },
       {
         // Idea "opinion-4" del banco secreto ("por qué prefiero las
@@ -4582,7 +4582,7 @@
         date: "2026-09-08",
         summary: "Consecuencias reales, héroes que son personas y no símbolos, sátira con intención — por qué prefiero este tono, explicado para quien no ha visto ninguna de las dos cosas.",
         thumbnail: "🩸",
-        internalView: "rf-opinion-superheroes-sucios", reviewed: false, stage: 'creando-guion'
+        realPeople: [], internalView: "rf-opinion-superheroes-sucios", reviewed: false, stage: 'creando-guion'
       },
       {
         // Backlog #229 — "si X e Y se cruzaran": Iván pidió no forzar un
@@ -4641,7 +4641,7 @@
         date: "2026-09-08",
         summary: "No es un reemplazo de T'Challa — es su hijo. Quién es el actor elegido y cómo llegó al papel, sin casting formal de por medio.",
         thumbnail: "🐾",
-        internalView: "rf-nuevo-black-panther", reviewed: false, stage: 'creando-guion'
+        realPeople: ["David Jonsson","Ryan Coogler"], internalView: "rf-nuevo-black-panther", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real encontrada con WebSearch 2026-09-08 (mismo modo de
@@ -4656,7 +4656,7 @@
         date: "2026-09-08",
         summary: "Llevaba años pidiendo el papel en público — cómo una amistad real con el director hizo posible este fichaje para 2028.",
         thumbnail: "🔥",
-        internalView: "rf-ryan-gosling-ghost-rider", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Ryan Gosling","Shawn Levy"], internalView: "rf-ryan-gosling-ghost-rider", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real encontrada con WebSearch 2026-09-08: Avengers:
@@ -4670,7 +4670,7 @@
         date: "2026-09-08",
         summary: "Vengadores, X-Men, Thunderbolts y 4 Fantásticos, todos en la misma película por primera vez — qué hace tan arriesgada esta apuesta.",
         thumbnail: "⚡",
-        internalView: "rf-doomsday-cruce-historico", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Pedro Pascal","Vanessa Kirby","Joseph Quinn","Ebon Moss-Bachrach","James Marsden","Kelsey Grammer","Ryan Gosling"], internalView: "rf-doomsday-cruce-historico", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real encontrada con WebSearch 2026-09-08: precuela real
@@ -4684,7 +4684,7 @@
         date: "2026-09-08",
         summary: "Una precuela ambientada en los 50, y una versión hecha en español en México — lo que se ha confirmado de verdad tras el final de la serie.",
         thumbnail: "🩸",
-        internalView: "rf-vought-rising", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Diego Luna"], internalView: "rf-vought-rising", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real y muy próxima en fecha, encontrada con WebSearch
@@ -4704,7 +4704,7 @@
         deadline: "2026-09-25",
         summary: "4 minutos de metraje inédito y un adelanto exclusivo de Doomsday — todo lo real sobre el reestreno de Endgame este mes.",
         thumbnail: "🎬",
-        internalView: "rf-endgame-encore", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Robert Downey Jr."], internalView: "rf-endgame-encore", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real encontrada con WebSearch 2026-09-08: Chris Evans
@@ -4719,7 +4719,7 @@
         date: "2026-09-08",
         summary: "Ni la propia actriz sabe todos los detalles — todo lo confirmado de verdad sobre el regreso de Steve Rogers y Peggy Carter.",
         thumbnail: "🛡️",
-        internalView: "rf-steve-peggy-regreso", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Chris Evans","Hayley Atwell"], internalView: "rf-steve-peggy-regreso", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real encontrada con WebSearch 2026-09-08: "VisionQuest"
@@ -4734,7 +4734,7 @@
         date: "2026-09-08",
         summary: "El regreso de Ultrón es la sorpresa que nadie esperaba — todo lo confirmado sobre la miniserie que cierra la historia de Visión.",
         thumbnail: "🤖",
-        internalView: "rf-visionquest", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Paul Bettany","James Spader","James D'Arcy","Orla Brady"], internalView: "rf-visionquest", reviewed: false, stage: 'creando-guion'
       },
       {
         // Noticia real y muy próxima en fecha (exactamente una semana),
@@ -4749,7 +4749,7 @@
         deadline: "2026-09-15", // ver nota de #302 en rf-endgame-encore — el más urgente de todos ahora mismo
         summary: "Del mismo estudio que Marvel's Spider-Man — trama, combate y los tres escenarios reales del videojuego que sale en una semana.",
         thumbnail: "🦾",
-        internalView: "rf-marvels-wolverine-game", reviewed: false, stage: 'creando-guion'
+        realPeople: [], internalView: "rf-marvels-wolverine-game", reviewed: false, stage: 'creando-guion'
       },
       {
         // Primer guion de la nueva categoría "dc" (backlog, 9 sep).
@@ -4768,7 +4768,7 @@
         deadline: "2026-10-23", // ver nota de #302 en rf-endgame-encore
         summary: "DC mueve su primera peli de terror corporal de septiembre a octubre — la razón real (y por qué encaja mejor así) detrás del cambio.",
         thumbnail: "🎃",
-        internalView: "rf-dc-clayface", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Mike Flanagan"], internalView: "rf-dc-clayface", reviewed: false, stage: 'creando-guion'
       },
       {
         // Primer guion de la saga "dragonball" (9 sep). Noticia real
@@ -4787,7 +4787,7 @@
         deadline: "2026-10-11", // ver nota de #302 en rf-endgame-encore
         summary: "El arco de Beerus vuelve reconstruido con el guion original de Toriyama — fecha confirmada, qué cambia y quién está detrás.",
         thumbnail: "🐉",
-        internalView: "rf-dragonball-beerus-remake", reviewed: false, stage: 'creando-guion'
+        realPeople: ["Masako Nozawa"], internalView: "rf-dragonball-beerus-remake", reviewed: false, stage: 'creando-guion'
       },
       {
         // Primer guion de la saga "directores" (9 sep). Noticia real
@@ -4805,7 +4805,7 @@
         date: "2026-09-09",
         summary: "Christopher Nolan rodó una película entera sin ni una sola cámara digital — y ya es la R-rated más taquillera de siempre.",
         thumbnail: "🎬",
-        internalView: "rf-directores-nolan-odyssey", reviewed: false, stage: 'creando-guion'
+        realPeople: [], internalView: "rf-directores-nolan-odyssey", reviewed: false, stage: 'creando-guion'
       }
       // { title:"...", saga:"marvel|boys|cruce|dc|dragonball|directores", type:"reaccion|curiosidad|opinion|fancast|batalla",
       //   date:"AAAA-MM-DD", summary:"...", thumbnail:"🎬", videoUrl:"..." },
@@ -6419,9 +6419,16 @@
       // La checklist solo tiene sentido una vez aprobado (hay guion de
       // verdad detrás) y hasta que se publique (después ya no aporta).
       const showChecklist = approved && !published;
+      // Backlog #158 — quién sale de verdad en este guion (personas
+      // reales con foto ya verificada), visible de un vistazo en vez de
+      // tener que abrir el modo grabación para saberlo.
+      const realPeopleHTML = (item.realPeople && item.realPeople.length)
+        ? `<span class="type-chip chip-neutral" title="Personas reales con foto verificada en este guion">🎭 ${item.realPeople.map(escapeAttr).join(', ')}</span>`
+        : '';
       return `
         <div class="review-controls" data-review-id="${rid}">
           ${statusChip}
+          ${realPeopleHTML}
           ${recentlyUpdatedBadgeHTML(rid)}
           <button type="button" class="btn btn-secondary review-approve-btn" onclick="toggleContentApproved('${rid}')">
             ${approved ? '↩️ Quitar aprobación' : '✅ Aprobar'}
@@ -8820,7 +8827,14 @@
           inProgress: isContentInProgress(item.internalView || item.title),
           status: getContentStatus(item),
           tags: [labelsMap && labelsMap[item.type]].filter(Boolean),
-          emoji: item.thumbnail || sectionEmoji
+          emoji: item.thumbnail || sectionEmoji,
+          // Backlog #158 — campo estructurado real (antes solo vivía
+          // dentro de RECORDING_MODE_IMAGES): qué personas reales, con
+          // foto ya verificada, salen en este contenido. `[]` = ya
+          // comprobado y confirmado que no hay ninguna (distinto de "sin
+          // comprobar" — los ítems sin este campo en absoluto son los que
+          // nunca han pasado por este barrido).
+          realPeople: item.realPeople || []
         }));
       };
       addFrom(geekContent, 'Rincón del Friki', '🦸', TYPE_LABELS);
@@ -8908,7 +8922,10 @@
       const results = index.filter(item => {
         if (section && item.section !== section) return false;
         if (!query) return true;
-        const haystack = (item.title + ' ' + item.summary + ' ' + item.tags.join(' ')).toLowerCase();
+        // Backlog #158 — buscar "Robert Downey Jr." (o cualquier otra
+        // persona real verificada) ya encuentra los guiones reales donde
+        // sale, aunque su nombre no aparezca en el título/resumen.
+        const haystack = (item.title + ' ' + item.summary + ' ' + item.tags.join(' ') + ' ' + (item.realPeople || []).join(' ')).toLowerCase();
         return haystack.includes(query);
       });
 
