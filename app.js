@@ -5070,6 +5070,42 @@
       return beats;
     }
 
+    // Backlog #227 — "Shorts semanales": recorte automático de un guion
+    // YA ESCRITO Y APROBADO, nunca contenido nuevo — reutiliza exactamente
+    // el mismo extractGuionBeats()/findGuionPanel() que ya usa el modo
+    // grabación. Se queda con Hook + Giro (el "momento más fuerte" que el
+    // propio guion ya identifica) + CTA; si el guion no tiene beat de
+    // Giro (algunos de opinión no lo llevan), cae a Desarrollo en su
+    // lugar. Ni una palabra reescrita — es el mismo texto tal cual ya
+    // está aprobado, solo mostrado más corto para una versión de Shorts.
+    function extractShortVersionText(rid){
+      const scope = document.querySelector('.app-view.active');
+      const panel = findGuionPanel(scope);
+      if (!panel) return null;
+      const beats = extractGuionBeats(panel).filter(b => b.hasNarration);
+      if (!beats.length) return null;
+      const findBeat = (re) => beats.find(b => re.test(b.heading));
+      const hook = findBeat(/hook/i);
+      const giro = findBeat(/giro/i) || findBeat(/desarrollo/i);
+      const cta = findBeat(/cta/i);
+      const picked = [hook, giro, cta].filter(Boolean);
+      if (!picked.length) return null;
+      return picked.map(b => `${b.heading}\n${b.text}`).join('\n\n');
+    }
+    function openShortVersionModal(rid){
+      const modal = document.getElementById('shortVersionModal');
+      const textarea = document.getElementById('shortVersionText');
+      if (!modal || !textarea) return;
+      const text = extractShortVersionText(rid);
+      if (!text) { alert('No se ha podido recortar este guion — puede que le falten los beats de Hook/Giro/CTA con narración real.'); return; }
+      textarea.value = text;
+      modal.hidden = false;
+    }
+    function closeShortVersionModal(){
+      const modal = document.getElementById('shortVersionModal');
+      if (modal) modal.hidden = true;
+    }
+
     function injectBeatDurationEstimate(target){
       const panel = findGuionPanel(target);
       if (!panel) return;
@@ -6334,6 +6370,7 @@
           ${approved ? priorityControlHTML(rid) : ''}
           ${approved ? costControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
+          ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openShortVersionModal('${rid}')" title="Recorte automático: Hook + Giro + CTA, sin reescribir nada">🎬 Versión corta (Shorts)</button>` : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="window.print()" title="Copia en papel del guion, sin controles ni columnas laterales">🖨️ Imprimir guion</button>` : ''}
           ${showChecklist && flattenContextPhotos(rid).length ? `<button type="button" class="btn btn-secondary" onclick="downloadAllContextPhotos('${rid}')" title="Descarga todas las fotos de contexto de este guion, una a una">⬇️ Descargar fotos (${flattenContextPhotos(rid).length})</button>` : ''}
           ${showChecklist ? contextPhotosPreviewHTML(rid) : ''}
@@ -7729,6 +7766,7 @@
     wireCopyButton('copyReaccionBtn', 'promptReaccionBox', '📋 Copiar prompt');
     wireCopyButton('copyDiscordBtn', 'discordPayloadBox', '📋 Copiar ejemplo');
     wireCopyButton('copyMiniaturaBtn', 'promptMiniaturaBox', '📋 Copiar prompt');
+    wireCopyButton('copyShortVersionBtn', 'shortVersionText', '📋 Copiar'); // Backlog #227
 
     // ──────────────────────────────────────────────────────────
     // CHARKUMA LAB — proyectos, herramientas y bitácora
@@ -9793,6 +9831,13 @@
     document.addEventListener('keydown', (e) => {
       const modal = document.getElementById('masterControlPasswordModal');
       if (modal && !modal.hidden && e.key === 'Escape') closeMasterControlPrompt();
+    });
+    // Backlog #227 — mismo patrón de Escape que los otros modales de esta
+    // página (#287, ya auditado: cada modal/overlay lleva su propio
+    // handler dedicado).
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('shortVersionModal');
+      if (modal && !modal.hidden && e.key === 'Escape') closeShortVersionModal();
     });
 
     // ──────────────────────────────────────────────────────────

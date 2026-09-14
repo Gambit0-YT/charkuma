@@ -2240,6 +2240,20 @@
     </div>
   </div>
 
+  <!-- Backlog #227 — "Shorts semanales": recorte automático (Hook + Giro
+       + CTA) de un guion ya escrito y aprobado, calculado en
+       extractShortVersionText() en app.js — nunca contenido nuevo, ni
+       una palabra reescrita. -->
+  <div class="modal-overlay" id="shortVersionModal" hidden role="dialog" aria-modal="true" aria-labelledby="shortVersionTitle" onclick="if(event.target===this) closeShortVersionModal()">
+    <div class="modal-card" style="max-width:520px">
+      <button type="button" class="modal-close" onclick="closeShortVersionModal()" aria-label="Cerrar">✕</button>
+      <h3 id="shortVersionTitle" style="margin:6px 0 4px">🎬 Versión corta (Shorts)</h3>
+      <p style="color:var(--muted);font-size:13px;margin-top:0">Recorte automático de este guion — Hook + Giro + CTA, tal cual ya están escritos y aprobados. Nada reescrito ni inventado.</p>
+      <textarea id="shortVersionText" readonly rows="9" class="ia-prompt-box" style="width:100%"></textarea>
+      <button type="button" class="btn btn-secondary" id="copyShortVersionBtn" style="margin-top:12px">📋 Copiar</button>
+    </div>
+  </div>
+
   <!-- Backlog #18: modo grabación a pantalla completa (teleprompter) —
        solo la narración de cada beat, en grande, para leer mientras se
        graba la voz en off. -->
