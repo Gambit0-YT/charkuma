@@ -1261,8 +1261,9 @@
 
     // Backlog #273 (9 sep) — resaltar en el menú principal la sección
     // en la que estás, para saber "dónde estoy" de un vistazo. Solo
-    // marca coincidencia EXACTA con uno de los 5 destinos reales del
-    // menú (`data-nav-section` en index.html) — a propósito no intenta
+    // marca coincidencia EXACTA con uno de los destinos reales del
+    // menú (`data-nav-section` en index.html, 3 desde el #313 del 14
+    // sep — "Games" y "Panel" dejaron de ser enlaces de texto ahí) — a propósito no intenta
     // adivinar la sección "padre" de cada guion/subvista individual
     // (Rincón del Friki, un día de Retro 365...), porque acertar mal
     // sería peor que no resaltar nada. Cubre el caso más común: entrar

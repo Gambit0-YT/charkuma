@@ -1668,31 +1668,32 @@
       <div class="nav-links" id="navLinks">
         <a href="javascript:void(0)" id="navProyectosLink" data-nav-section="mis-proyectos" onclick="showView('mis-proyectos'); closeMobileMenu()">Proyectos</a>
         <a href="javascript:void(0)" data-nav-section="charkumalab" onclick="showView('charkumalab'); closeMobileMenu()">Laboratorio</a>
-        <a href="javascript:void(0)" data-nav-section="helquidgames" onclick="showView('helquidgames'); closeMobileMenu()">Games</a>
         <a href="javascript:void(0)" data-nav-section="redes" onclick="showView('redes'); closeMobileMenu()">Redes Sociales</a>
         <a href="javascript:void(0)" onclick="goToIdentity(); closeMobileMenu()">Sobre mí</a>
-        <!-- Pedido 9 sep: el panel de gestión (antes "hub-secreto"/Control
-             Maestro, enmarcado como "🔒 SOLO TÚ") ya era accesible con un
-             clic desde un icono en cualquier página — lo que faltaba era
-             dejar de tratarlo como escondido. Ahora vive como un enlace de
-             texto normal, en la misma zona principal que el resto de
-             secciones. Los "bancos secretos de ideas" (clic en el emoji
-             de cada sección) se dejan tal cual: son un easter egg
-             deliberado de la web, no una herramienta de gestión.
-             Actualizado 11 sep ("web sobrecargada"): el icono 🗺️ que
-             hacía justo lo mismo que este enlace se ha quitado por
-             duplicado — ver comentario en .nav-tools más abajo. -->
-        <a href="javascript:void(0)" data-nav-section="hub-secreto" onclick="showView('hub-secreto'); closeMobileMenu()">Panel</a>
+        <!-- Backlog #313 (14 sep) — Iván pidió simplificar el menú público:
+             "Games" (HELQUIDGAMES) se fusiona dentro de "Proyectos" en vez
+             de tener su propio enlace — ya vive como tarjeta real en la
+             parrilla de Mis Proyectos (ver comentario junto a esa tarjeta).
+             "Panel" deja de ser un enlace de texto a la altura de las
+             secciones públicas — es la consola de gestión de Iván, no algo
+             que un visitante necesite ver primero — y pasa a un icono
+             discreto en .nav-tools (🕹️, más abajo), que además queda
+             visible siempre (nav-tools no se pliega en el hamburguesa) sin
+             depender de la barra flotante de accesos rápidos (#263, solo
+             escritorio y tras hacer scroll). Nada se ha borrado: sigue
+             accesible por el icono nuevo, por Ajustes → Control Maestro y
+             por el 💡 de la barra flotante de siempre. -->
       </div>
       <div class="nav-tools">
         <!-- Backlog 11 sep ("la web se ve sobrecargada"): la barra tenía
-             6 iconos + 6 enlaces + CTA. Se quitan 2 iconos duplicados/
-             secundarios: 🗺️ (iba al mismo sitio que el enlace de texto
-             "Panel", justo arriba) y 📌 modo compacto (mudado a un
-             interruptor más dentro de Ajustes ⚙️, junto al resto de
-             "modos" de la web — modo presentación, alto contraste). Nada
-             se ha borrado de verdad, solo re-ubicado o quitado por ser
-             copia exacta de otra cosa ya visible. -->
+             6 iconos + 6 enlaces + CTA. Se quitaron entonces 2 iconos
+             duplicados/secundarios: 🗺️ y 📌 modo compacto (mudado a un
+             interruptor dentro de Ajustes ⚙️). Actualizado 14 sep (#313):
+             el propio enlace de texto "Panel" que sustituyó a 🗺️ se
+             retira a su vez de `.nav-links` (ver comentario ahí) y su
+             función vuelve a vivir aquí como icono — no es una duplicación
+             como la de entonces, es la única puerta de entrada rápida que
+             queda para "Panel" en la cabecera. -->
         <button type="button" class="nav-icon-btn nav-hamburger-btn" id="navHamburgerBtn" onclick="toggleMobileMenu()" title="Menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
         <button type="button" class="nav-icon-btn" id="navSearchBtn" onclick="openSearchView()" title="Buscar en todo el sitio" aria-label="Buscar en todo el sitio">🔎</button>
         <div style="position:relative" id="notifWrap">
@@ -1705,6 +1706,7 @@
           </div>
         </div>
         <button type="button" class="nav-icon-btn" id="navThemeBtn" onclick="toggleTheme()" title="Cambiar entre modo oscuro y claro" aria-label="Cambiar entre modo oscuro y claro">🌙</button>
+        <button type="button" class="nav-icon-btn" id="navPanelBtn" onclick="showView('hub-secreto')" title="Panel (gestión de contenido)" aria-label="Ir al Panel">🕹️</button>
         <button type="button" class="nav-icon-btn" id="navSettingsBtn" onclick="toggleSettingsPanel()" title="Ajustes del sitio" aria-label="Ajustes del sitio">⚙️</button>
       </div>
       <a class="nav-cta" href="javascript:void(0)" onclick="exploreRandomPending()">Explorar universo ↗</a>
@@ -3404,6 +3406,28 @@
               </svg>
               <h3>🦸 RINCÓN DEL FRIKI</h3>
               <p>Marvel, superhéroes, series, cine y todo lo que merece una charla de varias horas.</p>
+            </a>
+
+            <!-- Backlog #313 — Iván pidió fusionar "Games" dentro de
+                 "Proyectos" en vez de mantenerlo como enlace propio en el
+                 menú principal (demasiadas secciones al mismo nivel). El
+                 hub de HELQUIDGAMES no se toca ni se mueve — sigue en
+                 `view-helquidgames` con sus 3 juegos de siempre — solo
+                 gana esta puerta de entrada nueva, igual que Retro 365 y
+                 Rincón del Friki. El enlace "Games" del menú se retira
+                 justo debajo, en `.nav-links`. -->
+            <a class="project" data-project="helquidgames" href="javascript:void(0)" onclick="showView('helquidgames')">
+              <div class="num">PROYECTO 003</div>
+              <div class="open">↗</div>
+              <svg class="project-gecko" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 62 Q24 40 40 50 Q52 58 46 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <ellipse cx="66" cy="46" rx="22" ry="13" stroke="currentColor" stroke-width="5"/>
+                <ellipse cx="94" cy="38" rx="12" ry="9" stroke="currentColor" stroke-width="5"/>
+                <path d="M56 56 L48 66 M76 56 L82 68 M58 36 L50 26 M82 34 L90 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="98" cy="35" r="2.4" fill="currentColor"/>
+              </svg>
+              <h3>🎮 HELQUIDGAMES</h3>
+              <p>El hub de los juegos que voy creando: Ruleta del 11, CalcArte y Draft Arena.</p>
             </a>
 
             <!-- Backlog #308 (Operación Bikini, 10 sep) — pedido explícito
