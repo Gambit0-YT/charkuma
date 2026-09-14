@@ -270,6 +270,19 @@
       padding:10px 15px;border:1px solid rgba(255,122,24,.38);border-radius:12px;
       color:var(--text);background:rgba(255,122,24,.08);cursor:pointer;text-transform:uppercase;letter-spacing:.02em
     }
+    /* Backlog #292 — pill discreta, mismo criterio visual que el badge de
+       "en directo" de Twitch: oculta por defecto, solo aparece cuando
+       hay de verdad un guion "en proceso" tocado hoy. max-width+ellipsis
+       para que un título largo nunca reviente la cabecera. */
+    .nav-pinned-guion{
+      display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
+      background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.35);
+      color:var(--text);font-size:12px;font-weight:800;white-space:nowrap;
+      max-width:220px;overflow:hidden;text-overflow:ellipsis;cursor:pointer
+    }
+    .nav-pinned-guion:hover{background:rgba(255,122,24,.18)}
+    .nav-pinned-guion[hidden]{display:none}
+    @media (max-width:900px){ .nav-pinned-guion{display:none!important} }
 
     /* ── Herramientas de cabecera: buscador, tema, ajustes ── */
     .nav-tools{display:flex;align-items:center;gap:8px}
@@ -1741,6 +1754,14 @@
              accesible por el icono nuevo, por Ajustes → Control Maestro y
              por el 💡 de la barra flotante de siempre. -->
       </div>
+      <!-- Backlog #292 — "fijar" el guion que se está grabando hoy en la
+           barra superior mientras se trabaja en él: se actualiza sola en
+           cada showView() (updatePinnedGuion() en app.js), usando el
+           mismo historial real de #19/#71/#299 (nunca fabricado — si hoy
+           no se ha tocado ningún guion "en proceso", se queda oculto).
+           Solo escritorio (igual que la barra flotante de #263/#264): en
+           móvil el hueco es demasiado justo para un título variable. -->
+      <a href="javascript:void(0)" id="navPinnedGuion" class="nav-pinned-guion" hidden></a>
       <div class="nav-tools">
         <!-- Backlog 11 sep ("la web se ve sobrecargada"): la barra tenía
              6 iconos + 6 enlaces + CTA. Se quitaron entonces 2 iconos

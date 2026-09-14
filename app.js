@@ -1309,6 +1309,11 @@
       updateNavActiveState(id);
       updateSidebar(id);
       updateViewChrome(id, target);
+      // Backlog #292 — try/catch defensivo por el mismo motivo que el
+      // resto de funciones que dependen de buildSiteIndex()/CONTENT_STAGE_ORDER
+      // más abajo: en una carga en frío por hash puede ejecutarse antes
+      // de que esos arrays existan todavía.
+      try { if (typeof updatePinnedGuion === 'function') updatePinnedGuion(id); } catch (e) { /* ver comentario arriba */ }
       // Backlog #83 — anuncia el cambio de vista a lectores de pantalla
       // (document.title ya lo calcula updateViewChrome, así que no hay
       // que duplicar esa lógica). Pequeño retraso para que el lector no
@@ -6321,6 +6326,41 @@
       heading.hidden = !items.length;
       list.hidden = !items.length;
       if (items.length) list.innerHTML = items.map(searchResultCardHTML).join('');
+    }
+
+    // Backlog #292 — "fijar" el guion que se está grabando hoy en la
+    // barra superior: mismo criterio de "hoy" que #299 (día de calendario
+    // real, nunca una ventana móvil de 24h), pero restringido a
+    // contenido realmente "en proceso" (creando-guion/editando-video/
+    // remates-finales/listo-publicar) — un guion ya aprobado sin tocar o
+    // ya publicado no cuenta como "se está grabando ahora mismo". Si hay
+    // varios tocados hoy, se fija solo el más reciente (nunca una lista).
+    function getTodayPinnedContent(){
+      const history = loadContentHistory();
+      const todayStr = new Date().toDateString();
+      const index = buildSiteIndex();
+      let best = null, bestTs = -1;
+      Object.keys(history).forEach(rid => {
+        const todaysEntries = history[rid].filter(e => new Date(e.ts).toDateString() === todayStr);
+        if (!todaysEntries.length) return;
+        const item = index.find(i => i.view === rid);
+        if (!item || !CONTENT_STAGE_ORDER.includes(item.status)) return;
+        const lastTs = todaysEntries[todaysEntries.length - 1].ts;
+        if (lastTs > bestTs) { bestTs = lastTs; best = item; }
+      });
+      return best;
+    }
+    function updatePinnedGuion(activeViewId){
+      const pill = document.getElementById('navPinnedGuion');
+      if (!pill) return;
+      const item = getTodayPinnedContent();
+      // Oculto también si ya estás justo en esa vista — fijar un acceso
+      // a donde ya estás no aporta nada, mismo criterio que #263/#264.
+      if (!item || item.view === activeViewId) { pill.hidden = true; return; }
+      pill.textContent = `📌 ${item.title}`;
+      pill.title = `Grabando hoy: ${item.title}`;
+      pill.onclick = () => showView(item.view);
+      pill.hidden = false;
     }
 
     // Backlog #101 — archivo de publicados filtrable por año/mes: usa la
