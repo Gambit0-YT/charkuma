@@ -6493,6 +6493,23 @@
       const realPeopleHTML = (item.realPeople && item.realPeople.length)
         ? `<span class="type-chip chip-neutral" title="Personas reales con foto verificada en este guion">🎭 ${item.realPeople.map(escapeAttr).join(', ')}</span>`
         : '';
+      // Backlog: una vez publicado de verdad (con la doble confirmación
+      // de toggleContentPublished), el resto de botones de gestión ya no
+      // aportan nada — el proyecto está terminado. Se deja solo el
+      // estado, el botón para deshacerlo por si acaso, y el historial;
+      // nada de aprobar/fase/descartar/siguiente.
+      if (published) {
+        return `
+          <div class="review-controls" data-review-id="${rid}">
+            ${statusChip}
+            ${realPeopleHTML}
+            ${recentlyUpdatedBadgeHTML(rid)}
+            <button type="button" class="btn btn-secondary review-published-btn" onclick="toggleContentPublished('${rid}')">
+              ↩️ Quitar "publicado"
+            </button>
+            ${contentHistoryHTML(rid)}
+          </div>`;
+      }
       return `
         <div class="review-controls" data-review-id="${rid}">
           ${statusChip}
@@ -6508,7 +6525,7 @@
             ${stageIndex === -1 ? '✍️ Empezar guion' : 'Fase siguiente ▶'}
           </button>
           <button type="button" class="btn btn-secondary review-published-btn" onclick="toggleContentPublished('${rid}')">
-            ${published ? '↩️ Quitar "publicado"' : '📤 Marcar como publicado'}
+            📤 Marcar como publicado
           </button>
           <button type="button" class="btn btn-secondary review-discard-btn" onclick="toggleContentDiscarded('${rid}')">
             ${discarded ? '↩️ Restaurar' : '🗑️ Descartar idea'}
