@@ -1095,6 +1095,11 @@
     /* ── Control Secreto Maestro: "Generar ideas" + registro de actividad ── */
     .generate-ideas-panel{border:1px solid var(--purple);background:rgba(139,92,246,.06)}
     .generate-ideas-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    /* Backlog #284 — resalte breve al llegar aquí desde el acceso directo
+       de la barra flotante, para que quede claro que es justo esto lo que
+       buscaba (el panel ya tiene un borde morado permanente; el naranja
+       aquí es temporal y se quita solo). */
+    .generate-ideas-panel.flash-highlight{outline:2px solid var(--orange);outline-offset:3px}
     .generate-ideas-row > div{flex:1;min-width:220px}
     .generate-ideas-row .btn{flex:0 0 auto}
     .activity-log-panel{margin-top:16px}
@@ -1687,6 +1692,13 @@
     <button type="button" class="quick-access-btn" onclick="showView('mis-proyectos')" title="Ir a Proyectos" aria-label="Ir a Proyectos">🚀</button>
     <button type="button" class="quick-access-btn" onclick="showView('guiones-bandeja')" title="Ir a Bandeja de Guiones" aria-label="Ir a Bandeja de Guiones">🎙️</button>
     <button type="button" class="quick-access-btn" onclick="showView('hub-secreto')" title="Ir al Panel (bancos de ideas)" aria-label="Ir al Panel">💡</button>
+    <!-- Backlog #284 — acceso directo a "Generar ideas" (antes solo se
+         llegaba entrando primero al Panel y bajando hasta encontrarlo).
+         goToGenerateIdeas() navega y desplaza hasta el panel exacto en
+         vez de disparar la generación a ciegas desde fuera de esa vista
+         — generateIdeaBatchFromMasterControl() lee/escribe elementos
+         (select, aviso de estado) que solo existen dentro del Panel. -->
+    <button type="button" class="quick-access-btn" onclick="goToGenerateIdeas()" title="Ir a Generar ideas" aria-label="Ir a Generar ideas">➕</button>
   </div>
 
   <!-- Backlog #48 — aviso de datos distintos entre pestañas: la mayoría
@@ -2460,7 +2472,7 @@
                desactualizado) y las estadísticas/métricas se agrupan en
                dos desplegables — mismo patrón <details class="month"> que
                ya usaban Backups/Línea de tiempo/Registro, más abajo. -->
-          <div class="panel generate-ideas-panel">
+          <div class="panel generate-ideas-panel" id="generateIdeasPanel">
             <div class="generate-ideas-row">
               <div>
                 <strong>➕ Generar ideas</strong>

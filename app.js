@@ -8440,6 +8440,27 @@
       renderMasterControlList();
     }
 
+    // Backlog #284 — acceso directo a "Generar ideas" desde la barra
+    // flotante (antes solo se llegaba entrando primero al Panel). A
+    // propósito NO llama a generateIdeaBatchFromMasterControl() a ciegas
+    // desde fuera de esa vista — esa función lee/escribe el <select> y el
+    // aviso de estado que solo existen dentro del Panel, así que llamarla
+    // sin estar ahí generaría ideas de verdad pero sin ningún feedback
+    // visible (parecería que no ha pasado nada). En su lugar, navega y
+    // desplaza hasta el panel exacto para que el usuario pulse el botón
+    // real con el <select> a la vista, con el mismo resultado pero sin
+    // sorpresas silenciosas.
+    function goToGenerateIdeas(){
+      showView('hub-secreto', {resetScroll:false});
+      setTimeout(() => {
+        const panel = document.getElementById('generateIdeasPanel');
+        if (!panel) return;
+        panel.scrollIntoView({behavior:'smooth', block:'center'});
+        panel.classList.add('flash-highlight');
+        setTimeout(() => panel.classList.remove('flash-highlight'), 1500);
+      }, 60);
+    }
+
     // ──────────────────────────────────────────────────────────
     // BUSCADOR GLOBAL: junta el contenido de todas las secciones (más
     // unas cuantas entradas fijas para las páginas que no vienen de un
