@@ -9188,7 +9188,7 @@
     // que harían el parseo frágil) — se actualiza en el mismo commit que
     // añade la tarjeta nueva, mismo criterio de mantenimiento manual que
     // ya pide el propio comentario HTML de arriba del timeline.
-    const DEVLOG_LAST_UPDATE = new Date(2026, 8, 12);
+    const DEVLOG_LAST_UPDATE = new Date(2026, 8, 14);
     const DEVLOG_STALE_DAYS = 14;
 
     // ──────────────────────────────────────────────────────────
