@@ -4585,6 +4585,26 @@
         internalView: "rf-opinion-superheroes-sucios", reviewed: false, stage: 'creando-guion'
       },
       {
+        // Backlog #229 — "si X e Y se cruzaran": Iván pidió no forzar un
+        // cruce inventado, esperar a un ángulo real. Encontrado 14 sep vía
+        // WebSearch: Marvel y DC llevan desde 2025 publicando un cruce
+        // real de cómics por el 50 aniversario del primer cruce de la
+        // historia (Superman vs. The Amazing Spider-Man, 1976) — incluye
+        // Superman/Spider-Man #1 y Spider-Man/Superman #1 (historia
+        // principal de Brad Meltzer y Pepe Larraz), varias historias
+        // extra, y un recopilatorio "DC/Marvel: The Cosmic Kiss Caper &
+        // Other Stories" que llega el 8 de septiembre de 2026. Fuentes:
+        // dc.com (blog oficial + página del propio cómic), marvel.com
+        // (página oficial del cómic + artículo de variant covers).
+        title: "Superman y Spider-Man, juntos: el cruce más grande entre Marvel y DC en 50 años",
+        saga: "cruce",
+        type: "curiosidad",
+        date: "2026-09-14",
+        summary: "Medio siglo después del primer cruce de la historia entre las dos editoriales, Marvel y DC vuelven a juntar a sus dos héroes más icónicos — qué pasa en el cómic y quién está detrás.",
+        thumbnail: "🕸️",
+        internalView: "rf-cruce-superman-spiderman", reviewed: false, stage: 'creando-guion'
+      },
+      {
         // Pedido explícito del usuario 2026-09-08 ("sigue creando vídeos
         // para el Rincón del Friki a partir de noticias sobre
         // superhéroes y cultura geek que vayas encontrando") — ya no
@@ -5182,6 +5202,7 @@
     //     muestre ya listo. Nunca se genera en bloque para los 18: cada
     //     llamada real tiene coste de créditos VidIQ.
     const VOZ_GUION_DRIVE_FOLDERS = {
+      'rf-cruce-superman-spiderman': '114ZzlsMQzQVyq9on3BrL0ZGt9UvFg45h',
       'rf-curiosidades-spiderman': '1zcdIn3irnAp9pIKRfysv-ZgOK9n6x3AP',
       'rf-opinion-multiverso': '1XhdC5AuWPeR8RengJR9jjpfj-v96ACLT',
       'rf-fancast-wolverine': '15dLarbPISkITVF5j_0FaUll5BU62x7BY',
