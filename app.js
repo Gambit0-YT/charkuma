@@ -1424,6 +1424,13 @@
         `<button type="button" class="share-view-btn" onclick="shareCurrentView('${id}', this)">🔗 Copiar enlace</button>` +
         `<a class="share-view-btn" href="${tweetUrl}" target="_blank" rel="noopener">🐦 Compartir</a>`;
 
+      // Backlog #295 — aviso solo la primera vez que se entra a una vista
+      // "de gestión" real (no todas las 46 vistas del sitio de golpe —
+      // solo unas pocas donde de verdad hace falta explicar algo que no
+      // es obvio a simple vista). Try/catch por el mismo motivo TDZ que
+      // el resto de esta función.
+      try { if (typeof maybeShowFirstTimeHint === 'function') maybeShowFirstTimeHint(id, pageHead); } catch (e) { /* ver comentario arriba */ }
+
       // Controles grandes de "Aprobar / Descartar" para cualquier página
       // que sea contenido revisable (viene de uno de los arrays de
       // contenido) — se pintan siempre debajo de la miga de pan, no solo
@@ -6350,6 +6357,41 @@
       });
       return best;
     }
+    // Backlog #295 — tooltip solo la primera vez que se entra a una vista
+    // nueva, nunca repetido. A propósito NO se aplica a las 46 vistas del
+    // sitio (la mayoría son guiones/proyectos autoexplicativos con su
+    // propio título y resumen) — solo a las herramientas de gestión reales
+    // donde un primer vistazo puede no dejar claro qué hacer. Se marca
+    // "visto" en cuanto aparece (no solo al pulsar "Entendido"): "nunca
+    // repetido" significa eso, no "hasta que lo cierres a mano".
+    const FIRST_TIME_HINT_SEEN_KEY = 'charkuma_hint_seen_views';
+    function loadHintSeenViews(){
+      try { return new Set(JSON.parse(localStorage.getItem(FIRST_TIME_HINT_SEEN_KEY)) || []); }
+      catch (e) { return new Set(); }
+    }
+    function markHintSeen(viewId){
+      const seen = loadHintSeenViews();
+      seen.add(viewId);
+      try { localStorage.setItem(FIRST_TIME_HINT_SEEN_KEY, JSON.stringify([...seen])); } catch (e) {}
+    }
+    const FIRST_TIME_HINTS = {
+      'guiones-bandeja': '💡 Aquí ves los guiones ya aprobados y listos para grabar, ordenados por urgencia real (fecha límite primero, si la tienen). Pulsa "▶️ Empezar a grabar" cuando arranques la voz en off de uno.',
+      'master-control': '💡 Aquí está TODO el contenido del sitio con su estado real — busca, filtra y cambia de fase desde una sola lista, en vez de entrar guion a guion.',
+      'idea-swipe': '💡 Desliza (o usa los botones) para decidir rápido: ✅ para quedártela, 🗑️ para descartarla — funciona sobre cualquiera de los 6 bancos de ideas.',
+    };
+    function maybeShowFirstTimeHint(viewId, pageHead){
+      const hintText = FIRST_TIME_HINTS[viewId];
+      const existing = pageHead && pageHead.querySelector('.first-time-hint');
+      if (existing) existing.remove();
+      if (!hintText || !pageHead) return;
+      if (loadHintSeenViews().has(viewId)) return;
+      const el = document.createElement('div');
+      el.className = 'first-time-hint';
+      el.innerHTML = `<span>${hintText}</span><button type="button" class="btn btn-secondary" onclick="this.closest('.first-time-hint').remove()">Entendido</button>`;
+      pageHead.appendChild(el);
+      markHintSeen(viewId);
+    }
+
     function updatePinnedGuion(activeViewId){
       const pill = document.getElementById('navPinnedGuion');
       if (!pill) return;
