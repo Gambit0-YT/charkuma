@@ -1510,7 +1510,10 @@
       // en cualquier otra navegación posterior ya funciona normal.
       let item = null;
       try { item = findContentItemByView(id); } catch (e) { item = null; }
-      if (item) {
+      // item.isTool = página convertida en herramienta de uso real (ya
+      // no un vídeo pendiente de guion/grabación/publicación) — no tiene
+      // sentido pintarle el panel de aprobar/fase/publicar/descartar.
+      if (item && !item.isTool) {
         const html = reviewControlsHTML(item);
         if (controls) controls.outerHTML = html;
         else crumb.insertAdjacentHTML('afterend', html);

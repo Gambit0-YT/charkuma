@@ -1046,7 +1046,7 @@
         title: "Prompt para miniaturas con estética CHARKUMA",
         type: "prompt", date: "2026-08-15",
         summary: "La receta de prompt que uso para sacar miniaturas con el mismo estilo morado/naranja de la web.",
-        thumbnail: "🎨", internalView: "ia-prompt-miniaturas", reviewed: false, stage: 'creando-guion'
+        thumbnail: "🎨", internalView: "ia-prompt-miniaturas", reviewed: false, isTool: true
       },
       {
         title: "Aviso automático a Discord cuando subo vídeo",
