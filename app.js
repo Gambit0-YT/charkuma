@@ -5881,6 +5881,33 @@
       recordingModeIndex = Math.max(0, Math.min(recordingModeBeats.length - 1, recordingModeIndex + delta));
       renderRecordingModeStep();
     }
+    // Backlog #280 — gestos táctiles (swipe) en el modo grabación: mismo
+    // resultado que los botones ◀ Anterior / Siguiente ▶ de siempre, para
+    // cuando se está leyendo el teleprompter en el móvil sujeto con una
+    // mano, sin soltarlo para buscar el botón. Umbral mínimo de 60px y
+    // exige que el movimiento sea más horizontal que vertical, para no
+    // interferir con el scroll vertical normal del overlay (guiones
+    // largos ya necesitan `overflow-y:auto`, backlog #199).
+    (function initRecordingModeSwipe(){
+      const overlay = document.getElementById('recordingModeOverlay');
+      if (!overlay) return;
+      const SWIPE_THRESHOLD = 60;
+      let startX = 0, startY = 0, tracking = false;
+      overlay.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        tracking = true;
+      }, {passive:true});
+      overlay.addEventListener('touchend', (e) => {
+        if (!tracking) return;
+        tracking = false;
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+        recordingModeStep(dx < 0 ? 1 : -1); // deslizar a la izquierda = Siguiente, a la derecha = Anterior
+      }, {passive:true});
+    })();
     // Backlog Fase 2 #161 — QA de las fotos de contexto: comprueba que
     // cada `key` de RECORDING_MODE_IMAGES coincide con un heading real
     // de ese guion (el bug real que encontramos con `rf-fancast-wolverine`
