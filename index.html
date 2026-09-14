@@ -195,6 +195,36 @@
     }
     .quick-access-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
     @media (max-width:760px){ .quick-access-bar{display:none!important} }
+
+    /* Backlog #278 — barra de navegación inferior fija, SOLO móvil (la
+       barra flotante de #263/#264, justo arriba, sigue siendo la de
+       escritorio). Mismo criterio visual que la cabecera (.nav): fondo
+       semitransparente con blur, borde superior sutil en vez de sombra. */
+    .bottom-nav-bar{display:none}
+    @media (max-width:900px){
+      .bottom-nav-bar{
+        display:flex;position:fixed;left:0;right:0;bottom:0;z-index:110;
+        background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+        border-top:1px solid rgba(255,255,255,.06);
+        padding:6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+      }
+      /* Hueco real al final de la página para que el pie/footer nunca
+         quede tapado detrás de la barra fija. */
+      body{padding-bottom:66px}
+      /* El botón "volver arriba" y el aviso de vincular ideas ya vivían
+         en bottom:20px — se suben para no quedar debajo/detrás de la
+         barra nueva. */
+      .back-to-top-btn{bottom:78px}
+      .idea-linking-banner{bottom:78px}
+    }
+    .bottom-nav-btn{
+      flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+      background:none;border:none;color:var(--muted);font:inherit;cursor:pointer;
+      padding:6px 2px;border-radius:12px;transition:color .15s
+    }
+    .bottom-nav-icon{font-size:20px;line-height:1}
+    .bottom-nav-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+    .bottom-nav-btn.bottom-nav-active{color:var(--orange)}
     .konami-toast-link{font-size:12px;letter-spacing:normal;text-transform:none;color:var(--orange2);cursor:pointer;font-weight:800}
     .konami-toast-link:hover{text-decoration:underline}
     /* Backlog #48 */
@@ -1719,6 +1749,32 @@
          (select, aviso de estado) que solo existen dentro del Panel. -->
     <button type="button" class="quick-access-btn" onclick="goToGenerateIdeas()" title="Ir a Generar ideas" aria-label="Ir a Generar ideas">➕</button>
   </div>
+
+  <!-- Backlog #278 — barra de navegación inferior fija en móvil, pedida
+       expresamente por Iván (14 sep) después de valorar que chocaba con
+       la simplificación del 11 sep — al final SÍ la quiere. Solo móvil
+       (la barra flotante de #263/#264 sigue siendo la de escritorio);
+       5 destinos fijos tipo app nativa, sin duplicar el hamburguesa
+       entero — "Menú" lo abre para lo que no cabe aquí (Laboratorio,
+       Redes Sociales, Sobre mí). updateBottomNavActive() en app.js
+       resalta el destino activo, igual que ya hace el menú de arriba. -->
+  <nav class="bottom-nav-bar" id="bottomNavBar" aria-label="Navegación inferior">
+    <button type="button" class="bottom-nav-btn" data-bottom-nav="home" onclick="goHome('inicio')">
+      <span class="bottom-nav-icon">🏠</span><span class="bottom-nav-label">Inicio</span>
+    </button>
+    <button type="button" class="bottom-nav-btn" data-bottom-nav="mis-proyectos" onclick="showView('mis-proyectos')">
+      <span class="bottom-nav-icon">🚀</span><span class="bottom-nav-label">Proyectos</span>
+    </button>
+    <button type="button" class="bottom-nav-btn" data-bottom-nav="buscar" onclick="openSearchView()">
+      <span class="bottom-nav-icon">🔎</span><span class="bottom-nav-label">Buscar</span>
+    </button>
+    <button type="button" class="bottom-nav-btn" data-bottom-nav="hub-secreto" onclick="showView('hub-secreto')">
+      <span class="bottom-nav-icon">🕹️</span><span class="bottom-nav-label">Panel</span>
+    </button>
+    <button type="button" class="bottom-nav-btn" id="bottomNavMenuBtn" data-bottom-nav="menu" onclick="toggleMobileMenu()">
+      <span class="bottom-nav-icon">☰</span><span class="bottom-nav-label">Menú</span>
+    </button>
+  </nav>
 
   <!-- Backlog #48 — aviso de datos distintos entre pestañas: la mayoría
        del estado ya sincroniza solo vía Firestore en tiempo real, pero

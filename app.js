@@ -423,8 +423,14 @@
     document.addEventListener('click', (e) => {
       const links = document.getElementById('navLinks');
       const btn = document.getElementById('navHamburgerBtn');
+      // Backlog #278 — el botón "Menú" de la barra inferior también abre
+      // este mismo desplegable; sin esta excepción, el propio clic que lo
+      // ABRE llegaría hasta aquí (misma fase de burbujeo) y lo cerraría
+      // de inmediato, porque ese botón no está dentro de `links` ni de
+      // `btn` (los dos únicos que ya se excluían).
+      const bottomNavBtn = document.getElementById('bottomNavMenuBtn');
       if (!links || !links.classList.contains('mobile-open')) return;
-      if (links.contains(e.target) || (btn && btn.contains(e.target))) return;
+      if (links.contains(e.target) || (btn && btn.contains(e.target)) || (bottomNavBtn && bottomNavBtn.contains(e.target))) return;
       closeMobileMenu();
     });
 
@@ -1273,6 +1279,17 @@
       links.forEach(a => a.classList.toggle('nav-active', a.dataset.navSection === id));
     }
 
+    // Backlog #278 — mismo criterio que updateNavActiveState(), para la
+    // barra de navegación inferior (solo móvil). "menu" nunca se resalta:
+    // no navega a ninguna vista, solo abre el desplegable ya existente.
+    function updateBottomNavActive(id){
+      const buttons = document.querySelectorAll('#bottomNavBar .bottom-nav-btn[data-bottom-nav]');
+      buttons.forEach(btn => {
+        const target = btn.dataset.bottomNav;
+        btn.classList.toggle('bottom-nav-active', target !== 'menu' && target === id);
+      });
+    }
+
     // Backlog #291 — recuerda por dónde ibas al salir de una vista y lo
     // restaura si vuelves a entrar (en memoria, no localStorage — dura lo
     // que dura la pestaña, como el scroll restoration nativo del navegador,
@@ -1307,6 +1324,11 @@
       // hace su propio scroll a un ancla).
       if (opts.resetScroll !== false) window.scrollTo({top: viewScrollPositions[id] || 0});
       updateNavActiveState(id);
+      // Backlog #278 — mismo criterio que updateNavActiveState(), pero
+      // para la barra de navegación inferior (solo móvil). "menu" nunca
+      // se resalta: no navega a ninguna vista, solo abre el desplegable
+      // ya existente (toggleMobileMenu()).
+      if (typeof updateBottomNavActive === 'function') updateBottomNavActive(id);
       updateSidebar(id);
       updateViewChrome(id, target);
       // Backlog #292 — try/catch defensivo por el mismo motivo que el
