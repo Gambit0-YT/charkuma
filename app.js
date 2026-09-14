@@ -10621,6 +10621,7 @@
               <div class="review-controls" style="margin-top:10px">
                 <button type="button" class="btn btn-secondary" onclick="showView('${rid}')">📜 Abrir guion</button>
                 <button type="button" class="btn btn-primary" onclick="markGuionVozGrabada('${rid}')">${actionLabel}</button>
+                <button type="button" class="btn btn-secondary review-discard-btn" onclick="discardFromBandeja('${rid}')">🗑️ Descartar</button>
               </div>
             </div>
           </div>`;
@@ -10632,6 +10633,25 @@
     // verdad saca el guion de esta bandeja, al pasar a "editando-vídeo".
     function markGuionVozGrabada(rid){
       advanceContentStage(rid);
+      renderGuionesBandeja();
+    }
+
+    // Pedido directo de Iván (14 sep): "a cada guion añadele el boton
+    // descartar" — la Bandeja ya permitía descartar abriendo cada guion
+    // primero (reviewControlsHTML, inyectado en toda página de contenido
+    // vía updateViewChrome), pero eso obliga a entrar y salir uno a uno.
+    // Este botón vive en la propia tarjeta de la lista. A diferencia de
+    // toggleContentDiscarded() — pensado para descartar DESDE la página
+    // del guion y saltar automáticamente al siguiente sin tocar — este
+    // NO navega a ningún sitio: solo actualiza el estado (mismo campo,
+    // mismo historial, misma sincronización con Firestore) y vuelve a
+    // pintar esta misma lista, para poder seguir repasando el resto de
+    // guiones sin perder el sitio en el que estabas.
+    function discardFromBandeja(rid){
+      setContentDiscarded(rid, true);
+      logContentHistory(rid, '🗑️ Descartado');
+      clearScheduledDate(rid);
+      refreshReviewControls();
       renderGuionesBandeja();
     }
     document.getElementById('masterControlSort').addEventListener('change', renderMasterControlList);
