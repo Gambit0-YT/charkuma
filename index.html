@@ -402,7 +402,7 @@
        sin deformarla) — mismo tamaño y proporción siempre, tamaño real
        visible en vez de un máximo que podía quedarse pequeño. `min(42vw,200px)`
        mantiene 2 fotos por fila incluso en móvil estrecho (375px) sin
-       desbordar. -->
+       desbordar. */
     .recording-mode-figure-item{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;width:min(42vw,200px)}
     .recording-mode-image{width:100%;aspect-ratio:1/1;border-radius:14px;object-fit:cover;border:1px solid var(--line2);box-shadow:0 12px 32px -16px rgba(0,0,0,.6)}
     /* Bug real de Fase 2 #198 encontrado al probar: este color usaba
@@ -867,23 +867,47 @@
     .note strong{color:var(--accent-text)}
     .note code{background:var(--panel);padding:2px 6px;border-radius:6px;font-size:12px}
 
-    /* ── redes sociales ── */
-    .platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-    .platform{padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    /* ── redes sociales ──
+       Backlog #311 — Iván pidió un rediseño y eligió la opción "Bento
+       asimétrico" de las 3 propuestas (ver mockup entregado). YouTube
+       (la red donde de verdad hay dato real y actualizado, #150) pasa a
+       ser la tarjeta protagonista, ancho completo, con su miniatura más
+       grande; las otras 3 se quedan del tamaño de siempre debajo. Cada
+       tarjeta suma un icono de fondo gigante y muy tenue del color de su
+       marca — mismo recurso que ya usan las 4 esquinas del sitio (Mis
+       Proyectos), aquí a mayor escala. Ningún id/clase que use app.js
+       para pintar datos reales (redesYtCard/Thumb/Title/Date,
+       twitchLiveBadge, latest-card, latest-thumb...) se ha tocado —
+       todo lo nuevo es CSS puro más una clase modificadora nueva
+       (.platform-hero) añadida solo en el HTML de la tarjeta de
+       YouTube. */
+    .platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .platform{position:relative;overflow:hidden;isolation:isolate;padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .platform.platform-hero{grid-column:1/-1}
+    .platform::before{content:'';position:absolute;z-index:-1;right:-18px;bottom:-26px;font-size:150px;line-height:1;opacity:.07;pointer-events:none}
+    .platform.youtube::before{content:'▶️'}
+    .platform.tiktok::before{content:'🎵'}
+    .platform.instagram::before{content:'📸'}
+    .platform.twitch::before{content:'🕹️'}
+    .platform.platform-hero::before{font-size:220px;right:-24px;bottom:-40px}
     .platform-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
     .platform-id{display:flex;align-items:center;gap:12px}
     .platform-badge{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,var(--purple),var(--purple2))}
     .platform.tiktok .platform-badge{background:linear-gradient(135deg,#25f4ee,#111)}
     .platform.instagram .platform-badge{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)}
     .platform.twitch .platform-badge{background:linear-gradient(135deg,#9146ff,#5c2ea8)}
+    .platform-hero .platform-badge{width:52px;height:52px;font-size:26px}
     .platform h3{margin:0;font-size:19px}
+    .platform-hero h3{font-size:22px}
     .platform .handle{font-size:12px;color:var(--muted);font-weight:700}
     .visit{padding:8px 13px;border-radius:10px;border:1px solid #332447;background:var(--panel);font-size:12px;font-weight:800;color:var(--text)}
     .visit:hover{border-color:#5a3c7c}
     .latest-label{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
     .latest-card{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:var(--panel);border:1px solid var(--line2);margin-bottom:10px}
     .latest-thumb{width:64px;height:64px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:26px;background:linear-gradient(145deg,#1c1229,var(--panel2));border:1px solid var(--line2)}
+    .platform-hero .latest-thumb{width:104px;height:104px;font-size:38px;border-radius:16px}
     .latest-info strong{display:block;font-size:14px;line-height:1.4}
+    .platform-hero .latest-info strong{font-size:16px}
     .latest-info span{font-size:12px;color:var(--muted)}
     /* Backlog #150 — variante honesta para cuando no hay dato real
        todavía: se distingue a simple vista de una tarjeta con contenido
@@ -892,6 +916,11 @@
     .latest-card.latest-card-placeholder{background:transparent;border-style:dashed;border-color:var(--line)}
     .latest-card-placeholder .latest-thumb{background:none;opacity:.6}
     .latest-card-placeholder .latest-info strong{color:var(--muted)}
+    /* La regla móvil ya existente más abajo (".hero-grid,.about-grid,
+       .roulette,.platforms{grid-template-columns:1fr}", ≤900px) ya deja
+       ".platforms" en una sola columna — con una sola columna,
+       ".platform-hero{grid-column:1/-1}" no hace nada raro, así que no
+       hace falta ninguna regla extra aquí para el móvil. */
 
     /* ── retro 365 ── */
     .progress-panel{padding:26px 28px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);margin-top:30px}
@@ -3499,7 +3528,7 @@
         <div class="container">
           <div class="platforms">
 
-            <div class="platform youtube">
+            <div class="platform youtube platform-hero">
               <div class="platform-head">
                 <div class="platform-id">
                   <div class="platform-badge">▶️</div>
