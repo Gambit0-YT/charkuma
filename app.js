@@ -8213,7 +8213,13 @@
         "Bot que resuma los comentarios nuevos de un vídeo cada mañana.",
         "Automatizar el paso de \"guion aprobado\" a tarea en el calendario de publicación.",
         "Aviso automático cuando una idea aprobada lleva más de dos semanas sin empezar guion.",
-        "Sincronizar el estado a \"publicado\" en cuanto se detecta el vídeo ya subido a YouTube."
+        "Sincronizar el estado a \"publicado\" en cuanto se detecta el vídeo ya subido a YouTube.",
+        // Backlog #233 — refresco real 14 sep, con tendencias de verdad de
+        // 2026 (Forbes España, Microsoft Source EMEA — ver detalle y
+        // fuentes en el commit): agentes que encadenan tareas solas
+        // ("sistemas multiagente"), no solo automatizaciones de un paso.
+        "Probar un agente de IA que encadene varias tareas seguidas sin pedirle cada paso por separado (p. ej. buscar tendencia → generar guion → puntuar título), en vez de automatizaciones de un solo paso.",
+        "Delegar en un asistente de IA con acceso a herramientas externas una tarea completa de principio a fin, para ver hasta dónde llega solo antes de necesitar ayuda."
       ],
       visual: [
         "Generar variaciones del logo de CHARKUMA para distintas estaciones del año.",
@@ -8242,7 +8248,13 @@
         "Generar b-roll genérico (paisajes, texturas) para rellenar cortes de edición.",
         "Probar clonación de voz propia para narrar sin tener que grabar en el momento.",
         "Generar automáticamente capítulos (timestamps) a partir del guion ya escrito.",
-        "Probar edición asistida por IA para el primer corte en bruto de un vídeo largo."
+        "Probar edición asistida por IA para el primer corte en bruto de un vídeo largo.",
+        // Backlog #233 — mismo refresco 14 sep: vídeo generativo cada vez
+        // más maduro y modelos pequeños especializados frente a los
+        // generalistas de siempre (fuentes: Forbes España, Microsoft
+        // Source EMEA, thevalley.es).
+        "Probar un modelo de vídeo generativo para una escena completa de b-roll (varios segundos seguidos), no solo una imagen suelta como hasta ahora.",
+        "Probar un modelo de IA pequeño y especializado en una sola tarea (p. ej. solo miniaturas) y comparar coste/calidad frente a uno generalista de siempre."
       ]
     };
     IDEA_BANK_RENDERERS.ia = () => renderTypedIdeaBank({
