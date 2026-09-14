@@ -5092,12 +5092,43 @@
       if (!picked.length) return null;
       return picked.map(b => `${b.heading}\n${b.text}`).join('\n\n');
     }
-    function openShortVersionModal(rid){
+    // Backlog #228 — "Un dato, un minuto": mismo mecanismo y mismo modal
+    // que #227, pero se queda con un ÚNICO beat (Contexto — "lo mínimo
+    // que hace falta saber para entender el resto", el más parecido a un
+    // dato concreto en la plantilla real de guion; Desarrollo como
+    // alternativa si ese guion no tiene Contexto con narración). Nunca
+    // decide "cuál es EL dato curioso" por su cuenta con una frase suelta
+    // sacada de contexto — eso sí sería un juicio editorial que no le
+    // corresponde tomar solo; se queda con el beat completo tal cual.
+    function extractOneFactVersionText(rid){
+      const scope = document.querySelector('.app-view.active');
+      const panel = findGuionPanel(scope);
+      if (!panel) return null;
+      const beats = extractGuionBeats(panel).filter(b => b.hasNarration);
+      if (!beats.length) return null;
+      const findBeat = (re) => beats.find(b => re.test(b.heading));
+      const beat = findBeat(/contexto/i) || findBeat(/desarrollo/i);
+      if (!beat) return null;
+      return `${beat.heading}\n${beat.text}`;
+    }
+    function openShortVersionModal(rid, mode){
       const modal = document.getElementById('shortVersionModal');
       const textarea = document.getElementById('shortVersionText');
+      const title = document.getElementById('shortVersionTitle');
+      const note = document.getElementById('shortVersionNote');
       if (!modal || !textarea) return;
-      const text = extractShortVersionText(rid);
-      if (!text) { alert('No se ha podido recortar este guion — puede que le falten los beats de Hook/Giro/CTA con narración real.'); return; }
+      const isOneFact = mode === 'un-dato';
+      const text = isOneFact ? extractOneFactVersionText(rid) : extractShortVersionText(rid);
+      if (!text) {
+        alert(isOneFact
+          ? 'No se ha podido sacar un dato de este guion — puede que le falte el beat de Contexto/Desarrollo con narración real.'
+          : 'No se ha podido recortar este guion — puede que le falten los beats de Hook/Giro/CTA con narración real.');
+        return;
+      }
+      if (title) title.textContent = isOneFact ? '⚡ Un dato, un minuto' : '🎬 Versión corta (Shorts)';
+      if (note) note.textContent = isOneFact
+        ? 'Recorte automático de un único dato de este guion (Contexto) — tal cual ya está escrito y aprobado. Nada reescrito ni inventado.'
+        : 'Recorte automático de este guion — Hook + Giro + CTA, tal cual ya están escritos y aprobados. Nada reescrito ni inventado.';
       textarea.value = text;
       modal.hidden = false;
     }
@@ -6371,6 +6402,7 @@
           ${approved ? costControlHTML(rid) : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openRecordingMode('${rid}')">🖥️ Modo grabación</button>` : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openShortVersionModal('${rid}')" title="Recorte automático: Hook + Giro + CTA, sin reescribir nada">🎬 Versión corta (Shorts)</button>` : ''}
+          ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="openShortVersionModal('${rid}', 'un-dato')" title="Recorte automático de un único dato (Contexto), sin reescribir nada">⚡ Un dato, un minuto</button>` : ''}
           ${showChecklist ? `<button type="button" class="btn btn-secondary" onclick="window.print()" title="Copia en papel del guion, sin controles ni columnas laterales">🖨️ Imprimir guion</button>` : ''}
           ${showChecklist && flattenContextPhotos(rid).length ? `<button type="button" class="btn btn-secondary" onclick="downloadAllContextPhotos('${rid}')" title="Descarga todas las fotos de contexto de este guion, una a una">⬇️ Descargar fotos (${flattenContextPhotos(rid).length})</button>` : ''}
           ${showChecklist ? contextPhotosPreviewHTML(rid) : ''}
