@@ -1290,6 +1290,36 @@
       });
     }
 
+    // Backlog #290 — panel lateral fijo y colapsable de "modo gestión":
+    // solo estas vistas cuentan como gestión (nunca las páginas públicas
+    // de contenido — Rincón del Friki, Redes Sociales, guiones sueltos...).
+    const MANAGEMENT_VIEWS = new Set(['hub-secreto', 'master-control', 'guiones-bandeja', 'calendario', 'notif-inbox', 'idea-swipe']);
+    const MGMT_SIDEBAR_COLLAPSED_KEY = 'charkuma_mgmt_sidebar_collapsed';
+    function toggleManagementSidebar(){
+      const el = document.getElementById('managementSidebar');
+      const btn = document.getElementById('managementSidebarToggle');
+      if (!el) return;
+      const collapsed = !el.classList.contains('collapsed');
+      el.classList.toggle('collapsed', collapsed);
+      if (btn) btn.textContent = collapsed ? '»' : '«';
+      try { localStorage.setItem(MGMT_SIDEBAR_COLLAPSED_KEY, collapsed ? '1' : '0'); } catch (e) {}
+    }
+    function updateManagementSidebar(activeViewId){
+      const el = document.getElementById('managementSidebar');
+      if (!el) return;
+      const show = MANAGEMENT_VIEWS.has(activeViewId);
+      el.classList.toggle('active', show);
+      if (!show) return;
+      let collapsed = false;
+      try { collapsed = localStorage.getItem(MGMT_SIDEBAR_COLLAPSED_KEY) === '1'; } catch (e) {}
+      el.classList.toggle('collapsed', collapsed);
+      const btn = document.getElementById('managementSidebarToggle');
+      if (btn) btn.textContent = collapsed ? '»' : '«';
+      el.querySelectorAll('.management-sidebar-link[data-mgmt-link]').forEach(link => {
+        link.classList.toggle('mgmt-link-active', link.dataset.mgmtLink === activeViewId);
+      });
+    }
+
     // Backlog #291 — recuerda por dónde ibas al salir de una vista y lo
     // restaura si vuelves a entrar (en memoria, no localStorage — dura lo
     // que dura la pestaña, como el scroll restoration nativo del navegador,
@@ -1329,6 +1359,9 @@
       // se resalta: no navega a ninguna vista, solo abre el desplegable
       // ya existente (toggleMobileMenu()).
       if (typeof updateBottomNavActive === 'function') updateBottomNavActive(id);
+      // Backlog #290 — panel lateral de "modo gestión": se muestra/oculta
+      // solo, según si la vista activa cuenta como gestión.
+      if (typeof updateManagementSidebar === 'function') updateManagementSidebar(id);
       updateSidebar(id);
       updateViewChrome(id, target);
       // Backlog #292 — try/catch defensivo por el mismo motivo que el

@@ -1643,7 +1643,48 @@
     /* Botón 📌 de la cabecera: oculta las dos columnas laterales a la
        vez (preferencia guardada, no depende del ancho de pantalla). */
     body.sidebars-hidden .sidebar-stack,
-    body.sidebars-hidden .sidebar-stack-left{display:none!important}
+    body.sidebars-hidden .sidebar-stack-left,
+    body.sidebars-hidden .management-sidebar{display:none!important}
+
+    /* Backlog #290 — panel lateral fijo y colapsable con accesos
+       directos, SOLO en las vistas de "modo gestión" reales (Panel,
+       Control Maestro, Bandeja de Guiones, Calendario, Notificaciones,
+       Idea Swipe — ver MANAGEMENT_VIEWS en app.js), nunca en las páginas
+       públicas de contenido. Mismo criterio defensivo que
+       .sidebar-stack-left de arriba: .container mide como mucho 1160px
+       y se centra con márgenes iguales a cada lado, así que hace falta
+       una pantalla realmente ancha (≥1600px) para que este panel (190px
+       expandido) quepa en ese margen sin taparlo — por debajo de eso,
+       sencillamente no aparece, en vez de solaparse con el contenido. */
+    .management-sidebar{display:none}
+    @media (min-width:1600px){
+      .management-sidebar.active{
+        display:flex;flex-direction:column;position:fixed;left:0;top:100px;bottom:20px;z-index:90;
+        width:190px;padding:14px 10px;gap:2px;border-radius:0 18px 18px 0;
+        background:var(--card);border:1px solid var(--line);border-left:none;
+        box-shadow:var(--shadow);overflow-y:auto;transition:width .2s ease,padding .2s ease;
+      }
+      .management-sidebar.active.collapsed{width:50px;padding:14px 6px}
+    }
+    .management-sidebar-toggle{
+      align-self:flex-end;background:none;border:none;color:var(--muted);cursor:pointer;
+      font-size:15px;padding:4px 6px;margin-bottom:8px;border-radius:8px
+    }
+    .management-sidebar-toggle:hover{background:var(--panel2);color:var(--text)}
+    .management-sidebar-title{
+      font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;
+      color:var(--muted);margin:0 0 8px 6px;white-space:nowrap;overflow:hidden
+    }
+    .management-sidebar.collapsed .management-sidebar-title{visibility:hidden;height:0;margin:0}
+    .management-sidebar-link{
+      display:flex;align-items:center;gap:10px;padding:9px 6px;border-radius:10px;
+      color:var(--text);text-decoration:none;font-size:13px;font-weight:700;
+      white-space:nowrap;overflow:hidden;cursor:pointer;background:none;border:none;font-family:inherit;text-align:left
+    }
+    .management-sidebar-link:hover{background:var(--panel2)}
+    .management-sidebar-link.mgmt-link-active{color:var(--orange);background:rgba(255,122,24,.08)}
+    .management-sidebar-link .icon{font-size:16px;flex:none}
+    .management-sidebar.collapsed .management-sidebar-link .label{display:none}
 
     /* Backlog #89 — menú hamburguesa en móvil: antes de esto, por
        debajo de 900px los enlaces de cabecera (Proyectos, Laboratorio,
@@ -1773,6 +1814,37 @@
     </button>
     <button type="button" class="bottom-nav-btn" id="bottomNavMenuBtn" data-bottom-nav="menu" onclick="toggleMobileMenu()">
       <span class="bottom-nav-icon">☰</span><span class="bottom-nav-label">Menú</span>
+    </button>
+  </nav>
+
+  <!-- Backlog #290 — panel lateral fijo y colapsable, solo visible en
+       "modo gestión" (ver MANAGEMENT_VIEWS/updateManagementSidebar() en
+       app.js) y solo en pantallas realmente anchas (≥1600px, ver
+       comentario CSS junto a .management-sidebar). Nunca en las páginas
+       públicas de contenido. -->
+  <nav class="management-sidebar" id="managementSidebar" aria-label="Accesos directos de gestión">
+    <button type="button" class="management-sidebar-toggle" id="managementSidebarToggle" onclick="toggleManagementSidebar()" title="Colapsar/expandir" aria-label="Colapsar o expandir el panel de gestión">«</button>
+    <div class="management-sidebar-title">🧭 Modo gestión</div>
+    <button type="button" class="management-sidebar-link" data-mgmt-link="hub-secreto" onclick="showView('hub-secreto')" title="Panel">
+      <span class="icon">🕹️</span><span class="label">Panel</span>
+    </button>
+    <button type="button" class="management-sidebar-link" data-mgmt-link="master-control" onclick="showView('master-control')" title="Control Maestro">
+      <span class="icon">🗂️</span><span class="label">Control Maestro</span>
+    </button>
+    <button type="button" class="management-sidebar-link" data-mgmt-link="guiones-bandeja" onclick="showView('guiones-bandeja')" title="Bandeja de Guiones">
+      <span class="icon">🎙️</span><span class="label">Bandeja de Guiones</span>
+    </button>
+    <button type="button" class="management-sidebar-link" data-mgmt-link="calendario" onclick="showView('calendario')" title="Calendario">
+      <span class="icon">📅</span><span class="label">Calendario</span>
+    </button>
+    <button type="button" class="management-sidebar-link" data-mgmt-link="notif-inbox" onclick="showView('notif-inbox')" title="Notificaciones">
+      <span class="icon">🔔</span><span class="label">Notificaciones</span>
+    </button>
+    <button type="button" class="management-sidebar-link" data-mgmt-link="idea-swipe" onclick="showView('idea-swipe')" title="Idea Swipe">
+      <span class="icon">🃏</span><span class="label">Idea Swipe</span>
+    </button>
+    <button type="button" class="management-sidebar-link" onclick="goToGenerateIdeas()" title="Generar ideas">
+      <span class="icon">➕</span><span class="label">Generar ideas</span>
     </button>
   </nav>
 
