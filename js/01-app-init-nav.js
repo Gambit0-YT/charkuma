@@ -1516,7 +1516,7 @@
       if (item && !item.isTool) {
         crumb.insertAdjacentHTML('afterend',
           `<div class="manage-in-panel-link" style="margin:10px 0">
-             <button type="button" class="btn btn-secondary" onclick="sessionStorage.setItem('mcExpandRid','${id}'); showView('hub-secreto')">
+             <button type="button" class="btn btn-secondary" onclick="sessionStorage.setItem('mcExpandRid','${id}'); showView('master-control')">
                ⚙️ Gestionar en el Panel
              </button>
            </div>`);

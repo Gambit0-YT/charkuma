@@ -1516,7 +1516,7 @@
       if (item && !item.isTool) {
         crumb.insertAdjacentHTML('afterend',
           `<div class="manage-in-panel-link" style="margin:10px 0">
-             <button type="button" class="btn btn-secondary" onclick="sessionStorage.setItem('mcExpandRid','${id}'); showView('hub-secreto')">
+             <button type="button" class="btn btn-secondary" onclick="sessionStorage.setItem('mcExpandRid','${id}'); showView('master-control')">
                ⚙️ Gestionar en el Panel
              </button>
            </div>`);
@@ -6577,11 +6577,11 @@
           // no navega a la página pública del contenido (ahí no queda
           // ningún botón), abre directamente el panel del próximo ítem
           // sin tocar, en el mismo sitio donde ya estás.
-          if (typeof openMasterControlManagePanel === 'function' && document.getElementById('view-hub-secreto')?.classList.contains('active')) {
+          if (typeof openMasterControlManagePanel === 'function' && document.getElementById('view-master-control')?.classList.contains('active')) {
             openMasterControlManagePanel(next.view, true);
           } else {
             sessionStorage.setItem('mcExpandRid', next.view);
-            showView('hub-secreto');
+            showView('master-control');
           }
           return;
         }

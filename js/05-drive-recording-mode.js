@@ -1281,11 +1281,11 @@
           // no navega a la página pública del contenido (ahí no queda
           // ningún botón), abre directamente el panel del próximo ítem
           // sin tocar, en el mismo sitio donde ya estás.
-          if (typeof openMasterControlManagePanel === 'function' && document.getElementById('view-hub-secreto')?.classList.contains('active')) {
+          if (typeof openMasterControlManagePanel === 'function' && document.getElementById('view-master-control')?.classList.contains('active')) {
             openMasterControlManagePanel(next.view, true);
           } else {
             sessionStorage.setItem('mcExpandRid', next.view);
-            showView('hub-secreto');
+            showView('master-control');
           }
           return;
         }
