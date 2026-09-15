@@ -7999,6 +7999,14 @@
         summary: "Mi flujo real de edición: qué hago en Filmora, qué en CapCut, y por qué Premiere/After Effects siguen esperando.",
         thumbnail: "🎬",
         internalView: "lab-edicion-video", reviewed: true, isTool: true
+      },
+      {
+        title: "Cómo grabo la voz en off",
+        type: "herramienta",
+        date: "2026-09-15",
+        summary: "De momento la grabo yo mismo dentro de Filmora — otros programas no me han funcionado bien. Pendiente: encontrar una IA de voz que valga la pena.",
+        thumbnail: "🎙️",
+        internalView: "lab-voz-en-off", reviewed: true, isTool: true
       }
       // { title:"...", type:"proyecto|herramienta|bitacora", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🧪", link:"..." },
