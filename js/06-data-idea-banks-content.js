@@ -942,6 +942,14 @@
         summary: "De momento la grabo yo mismo dentro de Filmora — otros programas no me han funcionado bien. Pendiente: encontrar una IA de voz que valga la pena.",
         thumbnail: "🎙️",
         internalView: "lab-voz-en-off", reviewed: true, isTool: true
+      },
+      {
+        title: "Cómo saco guiones e ideas",
+        type: "herramienta",
+        date: "2026-09-15",
+        summary: "ChatGPT para las ideas iniciales, Claude para escribir el guion final directamente en la web.",
+        thumbnail: "💡",
+        internalView: "lab-guiones-ideas", reviewed: true, isTool: true
       }
       // { title:"...", type:"proyecto|herramienta|bitacora", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🧪", link:"..." },
