@@ -9,3 +9,10 @@
 
 # Claude Code local config
 .claude/
+
+# Backlog: audio generado por scripts/generate-retro365-audio.js — son
+# archivos de salida (audio), no código fuente, y pesan demasiado para
+# el repo. Se entregan a Iván con SendUserFile, no se commitean.
+retro365-audio/
+retro365-audio.zip
+node_modules/

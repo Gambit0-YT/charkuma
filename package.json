@@ -1,0 +1,8 @@
+{
+  "name": "charkuma-web",
+  "private": true,
+  "description": "Scripts de mantenimiento/automatización del sitio CHARKUMA — el sitio en sí es estático (ver build.js).",
+  "dependencies": {
+    "msedge-tts": "^2.0.7"
+  }
+}
