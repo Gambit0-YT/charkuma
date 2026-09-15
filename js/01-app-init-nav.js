@@ -1497,28 +1497,29 @@
       // el resto de esta función.
       try { if (typeof maybeShowFirstTimeHint === 'function') maybeShowFirstTimeHint(id, pageHead); } catch (e) { /* ver comentario arriba */ }
 
-      // Controles grandes de "Aprobar / Descartar" para cualquier página
-      // que sea contenido revisable (viene de uno de los arrays de
-      // contenido) — se pintan siempre debajo de la miga de pan, no solo
-      // la insignia pequeña del kicker.
+      // /loop V4 (15 sep): el panel grande de Aprobar/Fase/Publicar/
+      // Descartar vivía aquí, en la propia página pública del contenido
+      // — cualquier visitante (no solo Iván) podía verlo y pulsarlo. Se
+      // movió entero a Control Maestro (reviewControlsHTML se sigue
+      // usando tal cual, solo que ahora lo pinta
+      // openMasterControlManagePanel() dentro de #masterControlProjectsList).
+      // Aquí ya no queda ningún control real — solo, si el contenido
+      // sigue vivo (no descartado) y no es una herramienta sin ciclo de
+      // revisión, un enlace directo para saltar a gestionarlo en el
+      // Panel sin tener que buscarlo a mano.
       const controls = pageHead.querySelector('.review-controls');
-      // Si se entra por un enlace directo con hash (#view=...), esto
-      // puede ejecutarse ANTES de que los arrays de contenido
-      // (geekContent, iaContent...) estén inicializados — el try/catch
-      // evita que un ReferenceError por TDZ rompa el resto del script
-      // (navegación, botones...) en ese primer pintado muy concreto;
-      // en cualquier otra navegación posterior ya funciona normal.
+      if (controls) controls.remove();
       let item = null;
       try { item = findContentItemByView(id); } catch (e) { item = null; }
-      // item.isTool = página convertida en herramienta de uso real (ya
-      // no un vídeo pendiente de guion/grabación/publicación) — no tiene
-      // sentido pintarle el panel de aprobar/fase/publicar/descartar.
+      const manageLink = pageHead.querySelector('.manage-in-panel-link');
+      if (manageLink) manageLink.remove();
       if (item && !item.isTool) {
-        const html = reviewControlsHTML(item);
-        if (controls) controls.outerHTML = html;
-        else crumb.insertAdjacentHTML('afterend', html);
-      } else if (controls) {
-        controls.remove();
+        crumb.insertAdjacentHTML('afterend',
+          `<div class="manage-in-panel-link" style="margin:10px 0">
+             <button type="button" class="btn btn-secondary" onclick="sessionStorage.setItem('mcExpandRid','${id}'); showView('hub-secreto')">
+               ⚙️ Gestionar en el Panel
+             </button>
+           </div>`);
       }
       try { injectBeatDurationEstimate(target); } catch (e) { /* ver comentario arriba sobre TDZ */ }
     }

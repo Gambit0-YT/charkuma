@@ -548,6 +548,15 @@
         const titleLink = item.external
           ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
           : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
+        // /loop V4 (15 sep) — el panel grande de Aprobar/Fase/Publicar/
+        // Descartar ya no vive en la página pública del contenido (lo
+        // podía tocar cualquier visitante); solo los proyectos "de
+        // verdad" (kind:'Proyecto', tienen su propia página) llevan aquí
+        // el botón "⚙️ Gestionar" que lo despliega en línea.
+        const manageBtn = (item.kind === 'Proyecto' && !item.external)
+          ? `<button type="button" class="btn btn-secondary" style="padding:2px 10px;font-size:11px" onclick="toggleMasterControlManagePanel('${item.view}')">⚙️ Gestionar</button>`
+          : '';
+        const manageId = 'mc-manage-' + String(item.view).replace(/[^a-zA-Z0-9_-]/g, '_');
         return `
           <div class="geek-card">
             <div class="geek-thumb">${item.emoji}</div>
@@ -560,17 +569,60 @@
                 ${item.priority ? `<span class="type-chip chip-neutral">${PRIORITY_LABELS[item.priority]}</span>` : ''}
                 ${item.cost ? `<span class="type-chip chip-neutral">${COST_LABELS[item.cost]}</span>` : ''}
                 ${item.status === 'pendiente' && !item.external ? `<button type="button" class="btn btn-secondary" style="padding:2px 10px;font-size:11px" onclick="markReviewedFromMasterControl('${item.view}')">✅ Marcar revisado</button>` : ''}
+                ${manageBtn}
               </div>
               <h4>${titleLink}</h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}
+              ${manageBtn ? `<div id="${manageId}" class="mc-manage-panel" hidden></div>` : ''}
             </div>
           </div>`;
       }).join('') : emptyStateHTML('Nada coincide con esos filtros.');
+
+      // Si veníamos de "Gestionar esto" desde la propia página del
+      // contenido (ver el enlace que deja updateViewChrome), o de
+      // "Siguiente" dentro de otro panel de gestión, desplegar y
+      // desplazar hasta ese ítem en cuanto la lista está pintada.
+      const pendingExpand = sessionStorage.getItem('mcExpandRid');
+      if (pendingExpand) {
+        sessionStorage.removeItem('mcExpandRid');
+        openMasterControlManagePanel(pendingExpand, true);
+      }
     }
     document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
     document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlStatus').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlPublishedMonth').addEventListener('change', renderMasterControlList);
+
+    // /loop V4 (15 sep) — panel de gestión (Aprobar/Fase/Publicar/
+    // Descartar/Prioridad/Coste/Modo grabación/Checklist/Historial) que
+    // antes vivía en la propia página pública de cada contenido, ahora
+    // solo aquí, desplegable en línea sobre la fila de Control Maestro.
+    // Reutiliza reviewControlsHTML(item) tal cual — mismo HTML, mismos
+    // botones, mismas funciones reales — solo cambia dónde se pinta.
+    function masterControlManageContainerId(rid){
+      return 'mc-manage-' + String(rid).replace(/[^a-zA-Z0-9_-]/g, '_');
+    }
+    function openMasterControlManagePanel(rid, scrollIntoView){
+      const container = document.getElementById(masterControlManageContainerId(rid));
+      if (!container) return; // el ítem no está en la página filtrada actual
+      const item = findContentItemByView(rid);
+      if (!item) { container.hidden = true; return; }
+      container.innerHTML = reviewControlsHTML(item);
+      container.hidden = false;
+      // Cualquier botón de dentro (Aprobar/Fase/Publicar/Descartar/
+      // Prioridad/Coste...) cambia el estado real y luego este panel se
+      // repinta solo, para que se vea al instante sin cerrar/abrir a mano.
+      container.onclick = () => setTimeout(() => openMasterControlManagePanel(rid), 0);
+      if (scrollIntoView) {
+        container.closest('.geek-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+    function toggleMasterControlManagePanel(rid){
+      const container = document.getElementById(masterControlManageContainerId(rid));
+      if (!container) return;
+      if (!container.hidden) { container.hidden = true; container.onclick = null; return; }
+      openMasterControlManagePanel(rid);
+    }
 
     // ──────────────────────────────────────────────────────────
     // BANDEJA DE GUIONES: todo lo aprobado o ya "creando-guion" de

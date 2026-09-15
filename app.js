@@ -1497,28 +1497,29 @@
       // el resto de esta función.
       try { if (typeof maybeShowFirstTimeHint === 'function') maybeShowFirstTimeHint(id, pageHead); } catch (e) { /* ver comentario arriba */ }
 
-      // Controles grandes de "Aprobar / Descartar" para cualquier página
-      // que sea contenido revisable (viene de uno de los arrays de
-      // contenido) — se pintan siempre debajo de la miga de pan, no solo
-      // la insignia pequeña del kicker.
+      // /loop V4 (15 sep): el panel grande de Aprobar/Fase/Publicar/
+      // Descartar vivía aquí, en la propia página pública del contenido
+      // — cualquier visitante (no solo Iván) podía verlo y pulsarlo. Se
+      // movió entero a Control Maestro (reviewControlsHTML se sigue
+      // usando tal cual, solo que ahora lo pinta
+      // openMasterControlManagePanel() dentro de #masterControlProjectsList).
+      // Aquí ya no queda ningún control real — solo, si el contenido
+      // sigue vivo (no descartado) y no es una herramienta sin ciclo de
+      // revisión, un enlace directo para saltar a gestionarlo en el
+      // Panel sin tener que buscarlo a mano.
       const controls = pageHead.querySelector('.review-controls');
-      // Si se entra por un enlace directo con hash (#view=...), esto
-      // puede ejecutarse ANTES de que los arrays de contenido
-      // (geekContent, iaContent...) estén inicializados — el try/catch
-      // evita que un ReferenceError por TDZ rompa el resto del script
-      // (navegación, botones...) en ese primer pintado muy concreto;
-      // en cualquier otra navegación posterior ya funciona normal.
+      if (controls) controls.remove();
       let item = null;
       try { item = findContentItemByView(id); } catch (e) { item = null; }
-      // item.isTool = página convertida en herramienta de uso real (ya
-      // no un vídeo pendiente de guion/grabación/publicación) — no tiene
-      // sentido pintarle el panel de aprobar/fase/publicar/descartar.
+      const manageLink = pageHead.querySelector('.manage-in-panel-link');
+      if (manageLink) manageLink.remove();
       if (item && !item.isTool) {
-        const html = reviewControlsHTML(item);
-        if (controls) controls.outerHTML = html;
-        else crumb.insertAdjacentHTML('afterend', html);
-      } else if (controls) {
-        controls.remove();
+        crumb.insertAdjacentHTML('afterend',
+          `<div class="manage-in-panel-link" style="margin:10px 0">
+             <button type="button" class="btn btn-secondary" onclick="sessionStorage.setItem('mcExpandRid','${id}'); showView('hub-secreto')">
+               ⚙️ Gestionar en el Panel
+             </button>
+           </div>`);
       }
       try { injectBeatDurationEstimate(target); } catch (e) { /* ver comentario arriba sobre TDZ */ }
     }
@@ -6570,8 +6571,18 @@
       for (const status of priorities) {
         const next = all.find(i => i.status === status && i.view && i.view !== currentRid && i.title !== currentRid);
         if (next) {
-          if (next.external) window.open(next.view, '_blank');
-          else showView(next.view);
+          if (next.external) { window.open(next.view, '_blank'); return; }
+          // /loop V4 (15 sep): este panel ahora vive solo en Control
+          // Maestro (ver openMasterControlManagePanel) — "Siguiente" ya
+          // no navega a la página pública del contenido (ahí no queda
+          // ningún botón), abre directamente el panel del próximo ítem
+          // sin tocar, en el mismo sitio donde ya estás.
+          if (typeof openMasterControlManagePanel === 'function' && document.getElementById('view-hub-secreto')?.classList.contains('active')) {
+            openMasterControlManagePanel(next.view, true);
+          } else {
+            sessionStorage.setItem('mcExpandRid', next.view);
+            showView('hub-secreto');
+          }
           return;
         }
       }
@@ -10860,6 +10871,15 @@
         const titleLink = item.external
           ? `<a href="${item.view}" target="_blank" rel="noopener">${item.title} ↗</a>`
           : `<a href="javascript:void(0)" onclick="showView('${item.view}')">${item.title} ↗</a>`;
+        // /loop V4 (15 sep) — el panel grande de Aprobar/Fase/Publicar/
+        // Descartar ya no vive en la página pública del contenido (lo
+        // podía tocar cualquier visitante); solo los proyectos "de
+        // verdad" (kind:'Proyecto', tienen su propia página) llevan aquí
+        // el botón "⚙️ Gestionar" que lo despliega en línea.
+        const manageBtn = (item.kind === 'Proyecto' && !item.external)
+          ? `<button type="button" class="btn btn-secondary" style="padding:2px 10px;font-size:11px" onclick="toggleMasterControlManagePanel('${item.view}')">⚙️ Gestionar</button>`
+          : '';
+        const manageId = 'mc-manage-' + String(item.view).replace(/[^a-zA-Z0-9_-]/g, '_');
         return `
           <div class="geek-card">
             <div class="geek-thumb">${item.emoji}</div>
@@ -10872,17 +10892,60 @@
                 ${item.priority ? `<span class="type-chip chip-neutral">${PRIORITY_LABELS[item.priority]}</span>` : ''}
                 ${item.cost ? `<span class="type-chip chip-neutral">${COST_LABELS[item.cost]}</span>` : ''}
                 ${item.status === 'pendiente' && !item.external ? `<button type="button" class="btn btn-secondary" style="padding:2px 10px;font-size:11px" onclick="markReviewedFromMasterControl('${item.view}')">✅ Marcar revisado</button>` : ''}
+                ${manageBtn}
               </div>
               <h4>${titleLink}</h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}
+              ${manageBtn ? `<div id="${manageId}" class="mc-manage-panel" hidden></div>` : ''}
             </div>
           </div>`;
       }).join('') : emptyStateHTML('Nada coincide con esos filtros.');
+
+      // Si veníamos de "Gestionar esto" desde la propia página del
+      // contenido (ver el enlace que deja updateViewChrome), o de
+      // "Siguiente" dentro de otro panel de gestión, desplegar y
+      // desplazar hasta ese ítem en cuanto la lista está pintada.
+      const pendingExpand = sessionStorage.getItem('mcExpandRid');
+      if (pendingExpand) {
+        sessionStorage.removeItem('mcExpandRid');
+        openMasterControlManagePanel(pendingExpand, true);
+      }
     }
     document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
     document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlStatus').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlPublishedMonth').addEventListener('change', renderMasterControlList);
+
+    // /loop V4 (15 sep) — panel de gestión (Aprobar/Fase/Publicar/
+    // Descartar/Prioridad/Coste/Modo grabación/Checklist/Historial) que
+    // antes vivía en la propia página pública de cada contenido, ahora
+    // solo aquí, desplegable en línea sobre la fila de Control Maestro.
+    // Reutiliza reviewControlsHTML(item) tal cual — mismo HTML, mismos
+    // botones, mismas funciones reales — solo cambia dónde se pinta.
+    function masterControlManageContainerId(rid){
+      return 'mc-manage-' + String(rid).replace(/[^a-zA-Z0-9_-]/g, '_');
+    }
+    function openMasterControlManagePanel(rid, scrollIntoView){
+      const container = document.getElementById(masterControlManageContainerId(rid));
+      if (!container) return; // el ítem no está en la página filtrada actual
+      const item = findContentItemByView(rid);
+      if (!item) { container.hidden = true; return; }
+      container.innerHTML = reviewControlsHTML(item);
+      container.hidden = false;
+      // Cualquier botón de dentro (Aprobar/Fase/Publicar/Descartar/
+      // Prioridad/Coste...) cambia el estado real y luego este panel se
+      // repinta solo, para que se vea al instante sin cerrar/abrir a mano.
+      container.onclick = () => setTimeout(() => openMasterControlManagePanel(rid), 0);
+      if (scrollIntoView) {
+        container.closest('.geek-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+    function toggleMasterControlManagePanel(rid){
+      const container = document.getElementById(masterControlManageContainerId(rid));
+      if (!container) return;
+      if (!container.hidden) { container.hidden = true; container.onclick = null; return; }
+      openMasterControlManagePanel(rid);
+    }
 
     // ──────────────────────────────────────────────────────────
     // BANDEJA DE GUIONES: todo lo aprobado o ya "creando-guion" de

@@ -397,6 +397,13 @@
     /* ── Controles grandes de Aprobar/Descartar en la propia página ── */
     .review-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 20px;padding:14px 16px;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
     .review-approve-btn, .review-discard-btn{padding:8px 14px;font-size:12px}
+    /* /loop V4 (15 sep) — el panel de arriba ahora se pinta dentro de este
+       contenedor en Control Maestro (ver openMasterControlManagePanel);
+       sin regla [hidden] propia se quedaría visible igual con el
+       atributo puesto (este sitio no tiene reset global de [hidden]). */
+    .mc-manage-panel{display:block;width:100%;margin-top:8px}
+    .mc-manage-panel[hidden]{display:none}
+    .mc-manage-panel .review-controls{margin:0}
 
     /* ── Checklist de grabación (backlog #12) — vive dentro de
        .review-controls, por eso es flex-basis:100% (ocupa su propia

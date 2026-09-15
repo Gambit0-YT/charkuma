@@ -1275,8 +1275,18 @@
       for (const status of priorities) {
         const next = all.find(i => i.status === status && i.view && i.view !== currentRid && i.title !== currentRid);
         if (next) {
-          if (next.external) window.open(next.view, '_blank');
-          else showView(next.view);
+          if (next.external) { window.open(next.view, '_blank'); return; }
+          // /loop V4 (15 sep): este panel ahora vive solo en Control
+          // Maestro (ver openMasterControlManagePanel) — "Siguiente" ya
+          // no navega a la página pública del contenido (ahí no queda
+          // ningún botón), abre directamente el panel del próximo ítem
+          // sin tocar, en el mismo sitio donde ya estás.
+          if (typeof openMasterControlManagePanel === 'function' && document.getElementById('view-hub-secreto')?.classList.contains('active')) {
+            openMasterControlManagePanel(next.view, true);
+          } else {
+            sessionStorage.setItem('mcExpandRid', next.view);
+            showView('hub-secreto');
+          }
           return;
         }
       }
