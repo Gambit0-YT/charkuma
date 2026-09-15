@@ -10909,8 +10909,18 @@
       if (pendingExpand) {
         sessionStorage.removeItem('mcExpandRid');
         openMasterControlManagePanel(pendingExpand, true);
+      } else if (masterControlOpenManageRid) {
+        // Varias acciones DENTRO del propio panel (prioridad, coste...)
+        // llaman a renderMasterControlList() para refrescar sus chips en
+        // la tarjeta — eso reconstruye el HTML entero y cerraría el
+        // panel que Iván tenía abierto en ese mismo instante si no lo
+        // volvemos a abrir aquí (sin scroll, ya está mirando ahí).
+        openMasterControlManagePanel(masterControlOpenManageRid);
       }
     }
+    // Ítem cuyo panel de gestión está abierto ahora mismo (o null) — ver
+    // el comentario de arriba sobre por qué hace falta recordarlo.
+    let masterControlOpenManageRid = null;
     document.getElementById('masterControlSearch').addEventListener('input', renderMasterControlList);
     document.getElementById('masterControlSection').addEventListener('change', renderMasterControlList);
     document.getElementById('masterControlStatus').addEventListener('change', renderMasterControlList);
@@ -10927,14 +10937,18 @@
     }
     function openMasterControlManagePanel(rid, scrollIntoView){
       const container = document.getElementById(masterControlManageContainerId(rid));
-      if (!container) return; // el ítem no está en la página filtrada actual
+      if (!container) { masterControlOpenManageRid = null; return; } // el ítem no está en la página filtrada actual
       const item = findContentItemByView(rid);
-      if (!item) { container.hidden = true; return; }
+      if (!item) { container.hidden = true; masterControlOpenManageRid = null; return; }
       container.innerHTML = reviewControlsHTML(item);
       container.hidden = false;
+      masterControlOpenManageRid = rid;
       // Cualquier botón de dentro (Aprobar/Fase/Publicar/Descartar/
       // Prioridad/Coste...) cambia el estado real y luego este panel se
       // repinta solo, para que se vea al instante sin cerrar/abrir a mano.
+      // Los selects de Prioridad/Coste usan onchange, no clic — de esos
+      // ya se encarga masterControlOpenManageRid arriba (se reabren solos
+      // porque esas funciones ya llaman a renderMasterControlList()).
       container.onclick = () => setTimeout(() => openMasterControlManagePanel(rid), 0);
       if (scrollIntoView) {
         container.closest('.geek-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -10943,7 +10957,7 @@
     function toggleMasterControlManagePanel(rid){
       const container = document.getElementById(masterControlManageContainerId(rid));
       if (!container) return;
-      if (!container.hidden) { container.hidden = true; container.onclick = null; return; }
+      if (!container.hidden) { container.hidden = true; container.onclick = null; masterControlOpenManageRid = null; return; }
       openMasterControlManagePanel(rid);
     }
 
