@@ -926,6 +926,14 @@
         summary: "Comandos básicos, roles automáticos y aviso cuando sube un vídeo nuevo.",
         thumbnail: "🕹️",
         internalView: "lab-bot-discord", reviewed: false, stage: 'creando-guion'
+      },
+      {
+        title: "Cómo edito mis vídeos",
+        type: "herramienta",
+        date: "2026-09-15",
+        summary: "Mi flujo real de edición: qué hago en Filmora, qué en CapCut, y por qué Premiere/After Effects siguen esperando.",
+        thumbnail: "🎬",
+        internalView: "lab-edicion-video", reviewed: true, isTool: true
       }
       // { title:"...", type:"proyecto|herramienta|bitacora", date:"AAAA-MM-DD",
       //   summary:"...", thumbnail:"🧪", link:"..." },
@@ -1052,7 +1060,7 @@
         title: "Aviso automático a Discord cuando subo vídeo",
         type: "automatizacion", date: "2026-08-25",
         summary: "Automatización sencilla que avisa al servidor en cuanto se publica un vídeo nuevo.",
-        thumbnail: "⚙️", internalView: "ia-auto-discord", reviewed: false, stage: 'creando-guion'
+        thumbnail: "⚙️", internalView: "ia-auto-discord", reviewed: true, isTool: true
       },
       {
         title: "Generando personajes retro con IA",
