@@ -397,7 +397,11 @@
     function renderGlobalSearch(){
       const query = document.getElementById('globalSearchInput').value.trim().toLowerCase();
       const section = document.getElementById('globalSearchSection').value;
-      const index = buildSiteIndex();
+      // Backlog #271 — el buscador global también mira dentro de los 6
+      // bancos secretos de ideas (antes solo cubría guiones/proyectos).
+      // Se excluyen las descartadas: buscar no debería sacar a relucir
+      // ideas que Iván ya decidió que no van a ningún lado.
+      const index = buildSiteIndex().concat(buildIdeaBankIndex().filter(i => i.status !== 'descartado'));
 
       const sectionSelect = document.getElementById('globalSearchSection');
       if (sectionSelect.options.length <= 1) {
@@ -1428,16 +1432,12 @@
     // loadIdeaBanks), todo con el mismo formato de 4 estados para poder
     // buscar/filtrar/ordenar en un único sitio.
     // ──────────────────────────────────────────────────────────
-    function buildMasterControlIndex(){
-      const items = buildSiteIndex().map(i => ({
-        title: i.title, summary: i.summary, section: i.section, sectionEmoji: i.sectionEmoji,
-        emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto',
-        priority: getContentPriority(i.view), cost: getContentCost(i.view)
-      }));
-
-      // Fusionamos siempre con las ideas "extra" (importadas por JSON o
-      // generadas con "➕ Generar ideas") — si no, esas ideas nunca
-      // aparecerían aquí, en el Control Secreto Maestro.
+    // Backlog #271 — normaliza las ideas sueltas de los 6 bancos secretos
+    // (cada uno con su propia forma de datos: {universo,texto} en Rincón,
+    // strings sueltos en el resto) a un formato único, reutilizable tanto
+    // por Control Maestro como por el buscador global — antes solo vivía
+    // aquí dentro y el buscador se quedaba sin estas ideas.
+    function buildIdeaBankIndex(){
       const ideaBanks = [
         { bank:'rincon', label:'Rincón del Friki', emoji:'🦸', view:'rf-secret', ideas:getRinconIdeasMerged() },
         { bank:'helquid', label:'HELQUIDGAMES', emoji:'🎮', view:'helquid-secret', ideas:getBankIdeasMerged('helquid', helquidSecretIdeas) },
@@ -1446,6 +1446,7 @@
         { bank:'creator', label:'Creator Tools', emoji:'🖥️', view:'creator-secret', ideas:getBankIdeasMerged('creator', creatorSecretIdeas) },
         { bank:'hecho', label:'Hecho a Mano', emoji:'🧶', view:'hecho-secret', ideas:getBankIdeasMerged('hecho', hechoSecretIdeas) }
       ];
+      const items = [];
       const allBanksState = loadIdeaBanks();
       ideaBanks.forEach(meta => {
         const state = allBanksState[meta.bank] || {};
@@ -1460,11 +1461,28 @@
             const status = s.discarded ? 'descartado' : s.done ? 'aprobado' : 'pendiente';
             items.push({
               title: text, summary: '', section: meta.label, sectionEmoji: meta.emoji,
-              emoji: meta.emoji, date: null, status, view: meta.view, external: false, kind: 'Idea'
+              emoji: meta.emoji, date: null, status, view: meta.view, external: false, kind: 'Idea',
+              // Campos que sí espera el buscador global (renderGlobalSearch)
+              // aunque una idea suelta nunca los tenga de verdad.
+              tags: [], realPeople: []
             });
           });
         });
       });
+      return items;
+    }
+
+    function buildMasterControlIndex(){
+      const items = buildSiteIndex().map(i => ({
+        title: i.title, summary: i.summary, section: i.section, sectionEmoji: i.sectionEmoji,
+        emoji: i.emoji, date: i.date, status: i.status, view: i.view, external: i.external, kind: 'Proyecto',
+        priority: getContentPriority(i.view), cost: getContentCost(i.view)
+      }));
+
+      // Fusionamos siempre con las ideas "extra" (importadas por JSON o
+      // generadas con "➕ Generar ideas") — si no, esas ideas nunca
+      // aparecerían aquí, en el Control Secreto Maestro.
+      items.push(...buildIdeaBankIndex());
       return items;
     }
 
