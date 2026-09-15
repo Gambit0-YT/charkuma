@@ -994,6 +994,7 @@
       const type = document.getElementById('labTypeFilter').value;
 
       const items = labContent
+        .filter(item => !isContentDiscarded(item.internalView || item.title))
         .filter(item => (!type || item.type === type) && (!query || item.title.toLowerCase().includes(query)))
         .sort((a, b) => new Date(b.date) - new Date(a.date)); // más reciente primero
 
@@ -1040,6 +1041,7 @@
         const query = searchEl.value.trim().toLowerCase();
         const type = typeEl.value;
         const items = cfg.data
+          .filter(item => !isContentDiscarded(item.internalView || item.title))
           .filter(item => (!type || item.type === type) && (!query || item.title.toLowerCase().includes(query)))
           .sort((a, b) => new Date(b.date) - new Date(a.date));
 
