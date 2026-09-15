@@ -480,6 +480,17 @@
       document.querySelectorAll(`[data-review-id="${id}"]`).forEach(el => el.remove());
     }
 
+    // /loop V4 (15 sep): el badge "⏳ Pendiente de revisión" vivía visible
+    // y clicable en CUALQUIER página de contenido — cualquier visitante
+    // podía verlo y pulsarlo, no solo Iván. Movido a Control Maestro (ver
+    // el botón "✅ Marcar revisado" en masterControlProjectsList, backlog
+    // #08-stats-search-sync-main.js) — esta función queda como acción de
+    // ese botón, ya no se pinta ningún badge en las páginas públicas.
+    function markReviewedFromMasterControl(id){
+      markReviewed(id);
+      if (typeof renderMasterControlList === 'function') renderMasterControlList();
+    }
+
     // Al cargar la página, oculta las insignias estáticas de las páginas de
     // detalle que ya se marcaron como revisadas en una visita anterior.
     function hideAlreadyReviewedBadges(){

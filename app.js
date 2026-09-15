@@ -4886,6 +4886,17 @@
       document.querySelectorAll(`[data-review-id="${id}"]`).forEach(el => el.remove());
     }
 
+    // /loop V4 (15 sep): el badge "⏳ Pendiente de revisión" vivía visible
+    // y clicable en CUALQUIER página de contenido — cualquier visitante
+    // podía verlo y pulsarlo, no solo Iván. Movido a Control Maestro (ver
+    // el botón "✅ Marcar revisado" en masterControlProjectsList, backlog
+    // #08-stats-search-sync-main.js) — esta función queda como acción de
+    // ese botón, ya no se pinta ningún badge en las páginas públicas.
+    function markReviewedFromMasterControl(id){
+      markReviewed(id);
+      if (typeof renderMasterControlList === 'function') renderMasterControlList();
+    }
+
     // Al cargar la página, oculta las insignias estáticas de las páginas de
     // detalle que ya se marcaron como revisadas en una visita anterior.
     function hideAlreadyReviewedBadges(){
@@ -6883,13 +6894,15 @@
     // Insignia reutilizable: marca contenido generado por Claude que el
     // usuario todavía no ha revisado a mano. Pon reviewed:false en cualquier
     // entrada de cualquier array de contenido para que aparezca aquí.
+    // /loop V4 (15 sep): este badge vivía visible y clicable en cualquier
+    // tarjeta pública (Explorar universo, listados de sección...) — un
+    // visitante cualquiera podía marcar contenido como "revisado", no
+    // solo Iván. Movido a Control Maestro (botón "✅ Marcar revisado",
+    // ver markReviewedFromMasterControl) — esta función ya no pinta nada
+    // en las tarjetas públicas, se deja solo por si algún día hace falta
+    // reactivarla en un contexto no público.
     function reviewBadgeHTML(item){
-      if (item.reviewed !== false) return '';
-      const rid = item.internalView || item.title;
-      if (isReviewed(rid)) return '';
-      return `<button type="button" class="review-badge" data-review-id="${rid}"
-                onclick="event.stopPropagation(); markReviewedAndRerender('${rid}')"
-                title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</button>`;
+      return '';
     }
 
     function geekCardHTML(item){
@@ -10858,6 +10871,7 @@
                 ${statusChip}
                 ${item.priority ? `<span class="type-chip chip-neutral">${PRIORITY_LABELS[item.priority]}</span>` : ''}
                 ${item.cost ? `<span class="type-chip chip-neutral">${COST_LABELS[item.cost]}</span>` : ''}
+                ${item.status === 'pendiente' && !item.external ? `<button type="button" class="btn btn-secondary" style="padding:2px 10px;font-size:11px" onclick="markReviewedFromMasterControl('${item.view}')">✅ Marcar revisado</button>` : ''}
               </div>
               <h4>${titleLink}</h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}

@@ -559,6 +559,7 @@
                 ${statusChip}
                 ${item.priority ? `<span class="type-chip chip-neutral">${PRIORITY_LABELS[item.priority]}</span>` : ''}
                 ${item.cost ? `<span class="type-chip chip-neutral">${COST_LABELS[item.cost]}</span>` : ''}
+                ${item.status === 'pendiente' && !item.external ? `<button type="button" class="btn btn-secondary" style="padding:2px 10px;font-size:11px" onclick="markReviewedFromMasterControl('${item.view}')">✅ Marcar revisado</button>` : ''}
               </div>
               <h4>${titleLink}</h4>
               ${item.summary ? `<p>${item.summary}</p>` : ''}

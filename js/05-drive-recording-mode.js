@@ -1599,13 +1599,15 @@
     // Insignia reutilizable: marca contenido generado por Claude que el
     // usuario todavía no ha revisado a mano. Pon reviewed:false en cualquier
     // entrada de cualquier array de contenido para que aparezca aquí.
+    // /loop V4 (15 sep): este badge vivía visible y clicable en cualquier
+    // tarjeta pública (Explorar universo, listados de sección...) — un
+    // visitante cualquiera podía marcar contenido como "revisado", no
+    // solo Iván. Movido a Control Maestro (botón "✅ Marcar revisado",
+    // ver markReviewedFromMasterControl) — esta función ya no pinta nada
+    // en las tarjetas públicas, se deja solo por si algún día hace falta
+    // reactivarla en un contexto no público.
     function reviewBadgeHTML(item){
-      if (item.reviewed !== false) return '';
-      const rid = item.internalView || item.title;
-      if (isReviewed(rid)) return '';
-      return `<button type="button" class="review-badge" data-review-id="${rid}"
-                onclick="event.stopPropagation(); markReviewedAndRerender('${rid}')"
-                title="Pulsa para marcar como revisado">⏳ Pendiente de revisión</button>`;
+      return '';
     }
 
     function geekCardHTML(item){
