@@ -1720,40 +1720,10 @@
     // los días que ya tienen vídeo publicado; el resto se
     // rellena solo como "bloqueado".
     // ──────────────────────────────────────────────────────────
+    // Se rellena con cada día en cuanto Iván programa o publica su vídeo
+    // de verdad en YouTube (no basta con tenerlo en Oculto/privado en
+    // Studio, porque el enlace no funcionaría para quien visite la web).
     const completedGames = {
-      1: {
-        name: "Celeste",
-        summary: "Plataformas de precisión sobre subir una montaña... y superarse a uno mismo por el camino.",
-        difficulty: "dificil", // facil | media | dificil | muydificil
-        emoji: "🏔️",
-        duration: "1:24", // duración del vídeo, formato m:ss
-        platform: "tiktok", // tiktok | youtube — dónde vive el vídeo
-        dateAdded: "2026-08-15", // fecha real en que se publicó este día (para ordenar Proyectos)
-        steamUrl: "https://store.steampowered.com/app/504230/Celeste/",
-        videoUrl: "#" // sustituye por el enlace real de tu vídeo
-      },
-      2: {
-        name: "Stardew Valley",
-        summary: "Granja, pesca, minas y vida de pueblo. El juego perfecto para desconectar sin darte cuenta de las horas.",
-        difficulty: "facil",
-        emoji: "🌾",
-        duration: "1:47",
-        platform: "tiktok",
-        dateAdded: "2026-08-16",
-        steamUrl: "https://store.steampowered.com/app/413150/Stardew_Valley/",
-        videoUrl: "#"
-      },
-      3: {
-        name: "Hollow Knight",
-        summary: "Metroidvania oscuro y precioso en el reino de los insectos. Explorar da tanto miedo como ganas de seguir.",
-        difficulty: "media",
-        emoji: "🕷️",
-        duration: "1:52",
-        platform: "tiktok",
-        dateAdded: "2026-08-17",
-        steamUrl: "https://store.steampowered.com/app/367520/Hollow_Knight/",
-        videoUrl: "#"
-      }
       // 4: { name:"...", summary:"...", difficulty:"...", emoji:"...", duration:"m:ss",
       //   platform:"tiktok|youtube", dateAdded:"AAAA-MM-DD", steamUrl:"...", videoUrl:"..." },
     };
@@ -14165,6 +14135,7 @@
       if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(RETRO_PLANNED_BANK);
       // El mazo Tinder ya no vive aquí (mudado a HELQUIDGAMES, ver showView).
       renderRetroNextDaySuggestion();
+      if (typeof renderRetroUploadsSidebar === 'function') renderRetroUploadsSidebar();
     }
     IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
 
@@ -14736,8 +14707,49 @@
       }
     }
 
+    // ──────────────────────────────────────────────────────────
+    // BARRA LATERAL "Retro 365 · Por subir" — control rápido, siempre
+    // visible (mismo hueco que "Últimos vídeos"/"Notas rápidas"), de
+    // qué días ya tienen guion escrito (plannedGames) pero todavía no
+    // vídeo real publicado (completedGames). Pedido por Iván 17 sep.
+    // ──────────────────────────────────────────────────────────
+    function renderRetroUploadsSidebar(){
+      const summaryEl = document.getElementById('retroUploadsSummary');
+      const listEl = document.getElementById('retroUploadsList');
+      if (!summaryEl || !listEl) return;
+
+      const pendingDays = Object.keys(plannedGames)
+        .map(Number)
+        .filter(d => !completedGames[d])
+        .sort((a, b) => a - b);
+
+      const publishedCount = Object.keys(completedGames).length;
+
+      summaryEl.textContent = `✅ ${publishedCount} subidos · ✍️ ${pendingDays.length} con guion listo esperando subir`;
+
+      if (!pendingDays.length) {
+        listEl.innerHTML = `<p class="yt-empty">${Object.keys(plannedGames).length ? '¡Todo lo escrito ya está subido!' : 'Todavía no hay guiones escritos.'}</p>`;
+        return;
+      }
+
+      const NEXT_N = 8;
+      listEl.innerHTML = pendingDays.slice(0, NEXT_N).map(day => {
+        const g = plannedGames[day];
+        return `
+          <div class="pending-decision-item">
+            <div class="pending-decision-text">
+              <p>Día ${String(day).padStart(3,'0')} · ${g.emoji || '🎮'} ${g.name}</p>
+              <span>${DIFF_LABELS[g.difficulty] || g.difficulty}</span>
+            </div>
+          </div>`;
+      }).join('') + (pendingDays.length > NEXT_N
+        ? `<p class="yt-sub-count" style="margin:6px 0 0">+ ${pendingDays.length - NEXT_N} día(s) más en la cola</p>`
+        : '');
+    }
+
     renderPublic();
     renderSecret();
+    renderRetroUploadsSidebar();
 
     // ──────────────────────────────────────────────────────────
     // BUSCADOR / FILTRO + "ÚLTIMOS SUBIDOS" (orden inverso: el

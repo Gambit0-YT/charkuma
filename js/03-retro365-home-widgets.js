@@ -824,6 +824,7 @@
       if (hideCheckbox) hideCheckbox.checked = getHideDiscardedPref(RETRO_PLANNED_BANK);
       // El mazo Tinder ya no vive aquí (mudado a HELQUIDGAMES, ver showView).
       renderRetroNextDaySuggestion();
+      if (typeof renderRetroUploadsSidebar === 'function') renderRetroUploadsSidebar();
     }
     IDEA_BANK_RENDERERS[RETRO_PLANNED_BANK] = renderSecret;
 
@@ -1395,8 +1396,49 @@
       }
     }
 
+    // ──────────────────────────────────────────────────────────
+    // BARRA LATERAL "Retro 365 · Por subir" — control rápido, siempre
+    // visible (mismo hueco que "Últimos vídeos"/"Notas rápidas"), de
+    // qué días ya tienen guion escrito (plannedGames) pero todavía no
+    // vídeo real publicado (completedGames). Pedido por Iván 17 sep.
+    // ──────────────────────────────────────────────────────────
+    function renderRetroUploadsSidebar(){
+      const summaryEl = document.getElementById('retroUploadsSummary');
+      const listEl = document.getElementById('retroUploadsList');
+      if (!summaryEl || !listEl) return;
+
+      const pendingDays = Object.keys(plannedGames)
+        .map(Number)
+        .filter(d => !completedGames[d])
+        .sort((a, b) => a - b);
+
+      const publishedCount = Object.keys(completedGames).length;
+
+      summaryEl.textContent = `✅ ${publishedCount} subidos · ✍️ ${pendingDays.length} con guion listo esperando subir`;
+
+      if (!pendingDays.length) {
+        listEl.innerHTML = `<p class="yt-empty">${Object.keys(plannedGames).length ? '¡Todo lo escrito ya está subido!' : 'Todavía no hay guiones escritos.'}</p>`;
+        return;
+      }
+
+      const NEXT_N = 8;
+      listEl.innerHTML = pendingDays.slice(0, NEXT_N).map(day => {
+        const g = plannedGames[day];
+        return `
+          <div class="pending-decision-item">
+            <div class="pending-decision-text">
+              <p>Día ${String(day).padStart(3,'0')} · ${g.emoji || '🎮'} ${g.name}</p>
+              <span>${DIFF_LABELS[g.difficulty] || g.difficulty}</span>
+            </div>
+          </div>`;
+      }).join('') + (pendingDays.length > NEXT_N
+        ? `<p class="yt-sub-count" style="margin:6px 0 0">+ ${pendingDays.length - NEXT_N} día(s) más en la cola</p>`
+        : '');
+    }
+
     renderPublic();
     renderSecret();
+    renderRetroUploadsSidebar();
 
     // ──────────────────────────────────────────────────────────
     // BUSCADOR / FILTRO + "ÚLTIMOS SUBIDOS" (orden inverso: el

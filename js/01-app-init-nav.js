@@ -1720,40 +1720,10 @@
     // los días que ya tienen vídeo publicado; el resto se
     // rellena solo como "bloqueado".
     // ──────────────────────────────────────────────────────────
+    // Se rellena con cada día en cuanto Iván programa o publica su vídeo
+    // de verdad en YouTube (no basta con tenerlo en Oculto/privado en
+    // Studio, porque el enlace no funcionaría para quien visite la web).
     const completedGames = {
-      1: {
-        name: "Celeste",
-        summary: "Plataformas de precisión sobre subir una montaña... y superarse a uno mismo por el camino.",
-        difficulty: "dificil", // facil | media | dificil | muydificil
-        emoji: "🏔️",
-        duration: "1:24", // duración del vídeo, formato m:ss
-        platform: "tiktok", // tiktok | youtube — dónde vive el vídeo
-        dateAdded: "2026-08-15", // fecha real en que se publicó este día (para ordenar Proyectos)
-        steamUrl: "https://store.steampowered.com/app/504230/Celeste/",
-        videoUrl: "#" // sustituye por el enlace real de tu vídeo
-      },
-      2: {
-        name: "Stardew Valley",
-        summary: "Granja, pesca, minas y vida de pueblo. El juego perfecto para desconectar sin darte cuenta de las horas.",
-        difficulty: "facil",
-        emoji: "🌾",
-        duration: "1:47",
-        platform: "tiktok",
-        dateAdded: "2026-08-16",
-        steamUrl: "https://store.steampowered.com/app/413150/Stardew_Valley/",
-        videoUrl: "#"
-      },
-      3: {
-        name: "Hollow Knight",
-        summary: "Metroidvania oscuro y precioso en el reino de los insectos. Explorar da tanto miedo como ganas de seguir.",
-        difficulty: "media",
-        emoji: "🕷️",
-        duration: "1:52",
-        platform: "tiktok",
-        dateAdded: "2026-08-17",
-        steamUrl: "https://store.steampowered.com/app/367520/Hollow_Knight/",
-        videoUrl: "#"
-      }
       // 4: { name:"...", summary:"...", difficulty:"...", emoji:"...", duration:"m:ss",
       //   platform:"tiktok|youtube", dateAdded:"AAAA-MM-DD", steamUrl:"...", videoUrl:"..." },
     };
