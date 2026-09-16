@@ -5368,8 +5368,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Qué poción rara te gustaría crear tú? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      117: {
+        name: "Hollow Knight: Silksong",
+        summary: "La secuela más esperada del metroidvania de Hollow Knight — Hornet como protagonista, un reino nuevo, y dificultad aún mayor.",
+        difficulty: "dificil",
+        emoji: "🕷️",
+        steamUrl: "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 117 de Retro 365, tanda nueva, y hoy por fin ha llegado el juego que llevaba años esperando. Bienvenidos a Hollow Knight: Silksong."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate ágil con Hornet. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La secuela más esperada de los últimos años del metroidvania Hollow Knight, ahora con Hornet como protagonista — hoy os cuento por qué la espera ha merecido muchísimo la pena."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 117 · HOLLOW KNIGHT: SILKSONG" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Hornet es capturada y llevada al reino de Pharloom, un lugar gobernado por seda y canto, y tiene que abrirse camino combatiendo y explorando para descubrir el secreto que esconde la cima de este nuevo reino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona nueva de Pharloom. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Hornet se mueve mucho más ágil que el Caballero del primer juego, usando hilo y aguja en vez de un clavo tradicional, la dificultad de los jefes sube todavía más que en el original, y el diseño artístico dibujado a mano sigue siendo una pasada visual."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra un jefe. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el primer jefe real que me está costando de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Hollow Knight, ¿qué te está pareciendo esta secuela tan esperada?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Después de tantos años de espera, me está pareciendo que ha merecido muchísimo la pena cada minuto de retraso."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una secuela a la altura de las expectativas más altas, con Hornet demostrando que puede llevar el peso de su propio juego — de los metroidvania más esperados que finalmente han cumplido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de zonas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Llevabas años esperando este juego tú también? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      118: {
+        name: "Split Fiction",
+        summary: "Cooperativo puro de los creadores de It Takes Two — dos escritoras atrapadas saltando entre géneros de ciencia ficción y fantasía.",
+        difficulty: "media",
+        emoji: "📖",
+        steamUrl: "https://store.steampowered.com/app/2001120/Split_Fiction/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 118 de Retro 365, y hoy pasé de pilotar una nave espacial a montar un dragón en cuestión de segundos. Bienvenidos a Split Fiction."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del cambio brusco entre ciencia ficción y fantasía. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cooperativo puro de los mismos creadores de It Takes Two, donde dos escritoras quedan atrapadas dentro de sus propias historias — hoy os cuento por qué saltar entre ciencia ficción y fantasía sin previo aviso funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 118 · SPLIT FICTION" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dos escritoras rivales, una de ciencia ficción y otra de fantasía, son conectadas por error a una máquina que las atrapa dentro de sus propios mundos ficticios — y solo pueden escapar trabajando juntas, a pesar de odiarse al principio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo de fantasía en cooperativo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada capítulo cambia por completo de mecánicas y de género sin avisar, ambas jugadoras necesitan comunicarse de verdad para resolver la mayoría de los puzles, y la variedad de ideas nuevas que aparece cada pocos minutos es prácticamente constante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle cooperativo resuelto en equipo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un capítulo nuevo que no tengo ni idea de qué mecánica va a traer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando sorprendida a la mecánica nueva. <strong>🎬 Producción:</strong> SFX sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste It Takes Two, ¿qué te está pareciendo esta nueva propuesta cooperativa?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo que mantienen el listón altísimo de It Takes Two, con todavía más variedad de ideas por capítulo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un cooperativo que no deja de reinventarse capítulo a capítulo — de los mejores juegos para jugar acompañado que han salido en años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de capítulos jugados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién jugarías tú a este cooperativo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      119: {
+        name: "Overcooked! 2",
+        summary: "Cocinar en equipo bajo presión en cocinas cada vez más absurdas — gritar órdenes a tus compañeros es parte del juego.",
+        difficulty: "media",
+        emoji: "🍳",
+        steamUrl: "https://store.steampowered.com/app/728880/Overcooked_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 119 de Retro 365, y hoy se ha quemado la cocina entera mientras le gritaba a mi compañero que cortara las cebollas más rápido. Bienvenidos a Overcooked! 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un incendio en la cocina. <strong>🎬 Producción:</strong> SFX real del juego (fuego + alarma) · corte duro · BGM: sting corto, caótico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cooperativo de cocina bajo presión en escenarios cada vez más absurdos —camiones en movimiento, alfombras mágicas— hoy os cuento por qué gritar órdenes a tus compañeros es literalmente parte del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 119 · OVERCOOKED! 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, caótico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un ejército de pan zombi amenaza el reino de la comida, y solo un equipo de cocineros decididos puede detenerlo preparando pedidos contrarreloj en las cocinas más disparatadas que te puedas imaginar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una cocina absurda antes de empezar el nivel. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nivel exige repartirse tareas de verdad —cortar, cocinar, servir, fregar— la cocina en sí misma puede moverse, partirse, o cambiar de forma mientras cocinas, y un solo despiste puede arruinar el pedido de todo el equipo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una cocina cambiante en movimiento. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el nivel más caótico que hemos intentado hasta ahora, contrarreloj."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo y pedidos en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según pasa el tiempo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con quién jugarías esto y sobreviviría esa amistad al caos de la cocina?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Cualquier amistad que sobreviva a una partida entera de este juego, es una amistad de las buenas de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Caos cooperativo puro, perfecto para discutir con cariño con quien juegues — de los juegos que mejor ponen a prueba amistades y parejas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del nivel jugado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién te atreverías a cocinar bajo presión tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      120: {
+        name: "Grounded",
+        summary: "Encogido al tamaño de una hormiga en tu propio jardín — arañas gigantes, gotas de rocío como piscinas, y supervivencia real.",
+        difficulty: "media",
+        emoji: "🐜",
+        steamUrl: "https://store.steampowered.com/app/962130/Grounded/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 120 de Retro 365, y hoy una araña del tamaño de un coche me acaba de perseguir por mi propio jardín. Bienvenidos a Grounded."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una araña gigante persiguiendo al personaje. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, terror ligero</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de supervivencia donde te encogen al tamaño de una hormiga en tu propio jardín — hoy os cuento por qué un simple patio trasero se convierte en el mundo abierto más aterrador que he explorado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 120 · GROUNDED" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, terror ligero</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un grupo de adolescentes es encogido misteriosamente al tamaño de una hormiga por un dispositivo experimental, y tiene que sobrevivir en un jardín trasero convertido en una jungla gigante llena de insectos hostiles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la hierba gigante del jardín. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada insecto normal del jardín se convierte en una amenaza real a tu escala, construir bases dentro de objetos cotidianos —una lata, un tronco— se siente increíblemente creativo, y una simple gota de rocío puede ser tu piscina o tu perdición según cómo la uses."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de construcción dentro de un objeto cotidiano. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: acercarme a la zona de la araña que llevo evitando desde el principio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al acercarse a la zona peligrosa. <strong>🎬 Producción:</strong> SFX inquietante · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿le tienes miedo real a las arañas, o este juego te lo ha subido todavía más?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Ya les tenía respeto a las arañas antes de este juego, y ahora directamente les tengo pánico."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea sencilla —encogerte en tu propio jardín— ejecutada con una creatividad brutal — de los survival más originales e inquietantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la base construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a sobrevivir encogido en tu propio jardín? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      121: {
+        name: "Core Keeper",
+        summary: "Minería y construcción en un mundo subterráneo generado al azar, con jefes gigantes escondidos bajo tierra por descubrir.",
+        difficulty: "media",
+        emoji: "⛏️",
+        steamUrl: "https://store.steampowered.com/app/1621690/Core_Keeper/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 121 de Retro 365, y hoy he despertado a un jefe gigante solo por cavar en la dirección equivocada. Bienvenidos a Core Keeper."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un jefe despertando bajo tierra. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de minería, construcción y combate ambientado por completo bajo tierra, alrededor de un misterioso Núcleo — hoy os cuento por qué cavar en la dirección equivocada puede ser lo mejor o lo peor que te pase."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 121 · CORE KEEPER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas junto a un misterioso Núcleo enterrado bajo un mundo subterráneo generado al azar, y tienes que excavar, construir tu base, y derrotar a jefes gigantes escondidos en biomas cada vez más profundos y peligrosos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un bioma subterráneo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada bioma tiene su propio estilo visual y sus propios materiales únicos, los jefes gigantes duermen bajo tierra hasta que los despiertas sin querer o a propósito, y construir tu base subterránea da para tanta creatividad como cualquier juego de construcción en superficie."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un jefe subterráneo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver qué hay al otro lado de esta pared que llevo un rato picando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a lo que aparece tras la pared. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál ha sido el bioma que más te ha sorprendido hasta ahora bajo tierra?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he explorado los biomas más profundos, pero ya me ha sorprendido lo distinto que se siente cada zona nueva."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Minería con propósito real y jefes que dan mucho respeto — de los juegos de excavar más completos y adictivos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la base construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Excavarías hacia abajo sin miedo, o irías con cuidado como yo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      122: {
+        name: "Rust",
+        summary: "Supervivencia PvP despiadada donde confiar en un desconocido puede costarte todo lo que has construido en horas.",
+        difficulty: "dificil",
+        emoji: "🏚️",
+        steamUrl: "https://store.steampowered.com/app/252490/Rust/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 122 de Retro 365, y hoy me han asaltado la base entera mientras dormía. Bienvenidos a Rust."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una base asaltada. <strong>🎬 Producción:</strong> SFX real del juego (explosivo contra estructura) · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de supervivencia PvP despiadado donde confiar en un desconocido puede costarte todo lo que has construido — hoy os cuento por qué la paranoia constante es parte esencial de la experiencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 122 · RUST" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Empiezas desnudo y sin nada en una isla hostil compartida con decenas de jugadores reales, y tienes que recolectar, construir una base defendible, y decidir en quién confiar — sabiendo que casi cualquiera puede traicionarte por tus propios recursos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla al empezar sin nada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada base tiene niveles reales de seguridad que hay que ir mejorando poco a poco, otros jugadores pueden raidear tu base con explosivos si baja la guardia, y las alianzas temporales con desconocidos son tan útiles como peligrosas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un enfrentamiento PvP. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un jugador desconocido se acerca a mi base ofreciendo un trato, y no sé si fiarme."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la propuesta del jugador. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿confiarías en un desconocido en este juego, o vas siempre con la guardia alta?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Voy siempre con la guardia bien alta — la confianza en este juego se paga carísima casi siempre."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tensión social y de supervivencia a partes iguales, donde perder todo puede pasar en cualquier momento — de los survival PvP más despiadados y honestos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la base construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Confiarías en un desconocido en un juego así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      123: {
+        name: "PEAK",
+        summary: "Sorpresa cooperativa de 2025: escalar una montaña generada al azar con amigos, gestionando heridas y comida rara por el camino.",
+        difficulty: "media",
+        emoji: "🏔️",
+        steamUrl: "https://store.steampowered.com/app/3527290/PEAK/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 123 de Retro 365, y hoy me he caído desde bastante alto por confiar demasiado en un saliente. Bienvenidos a PEAK."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una caída desde altura. <strong>🎬 Producción:</strong> SFX real del juego (caída + golpe) · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Uno de los cooperativos sorpresa de 2025: escalar una montaña generada al azar con hasta tres amigos más, donde un solo error te puede costar caro — hoy os cuento por qué se ha vuelto viral tan rápido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 123 · PEAK" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un grupo de exploradores perdidos en una isla misteriosa tiene una única esperanza de ser rescatados: escalar la montaña gigante que domina el centro de la isla, atravesando cuatro biomas distintos llenos de peligros propios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el primer bioma de la montaña. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Escalar en primera persona exige cuidado real con cada salto y agarre, gestionar heridas y comida rara que vas encontrando es tan importante como escalar bien, y cada intento genera la montaña de forma distinta, así que nunca repites el mismo camino dos veces."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una escalada cooperativa en equipo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un tramo de escalada que da bastante respeto, sin red de seguridad ninguna."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al tramo peligroso. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con quién intentarías escalar esta montaña, y confías en que llegaríais juntos a la cima?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me lo imagino jugando con amigos y probablemente perdiendo a más de uno por el camino sin querer."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea simple ejecutada con mucha tensión y mucho humor cooperativo — fácil de entender por qué se ha convertido en el fenómeno del año."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la escalada del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién intentarías llegar a la cima de esta montaña? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      124: {
+        name: "Content Warning",
+        summary: "Grabas vídeos de terror cooperativos para hacerte viral en un tubo submarino de otro mundo — cuanto más raro, más visitas.",
+        difficulty: "media",
+        emoji: "📹",
+        steamUrl: "https://store.steampowered.com/app/2881650/Content_Warning/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 124 de Retro 365, y hoy he grabado el vídeo más viral y más aterrador de mi vida a la vez. Bienvenidos a Content Warning."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real grabando con la cámara del juego. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, terror ligero</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cooperativo de terror donde grabas vídeos con amigos para hacerte viral en una plataforma de otro mundo — hoy os cuento por qué cuanto más rara y peligrosa sea la grabación, más visitas consigues."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 124 · CONTENT WARNING" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, terror ligero</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un pueblo pequeño se descubre un misterioso Viejo Mundo bajo el agua, lleno de criaturas aterradoras — y tú y tus amigos os dedicáis a bajar con cámara en mano a grabar contenido para subir a una plataforma de vídeos y hacerse virales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay bajando al Viejo Mundo con el equipo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Grabar bien el momento exacto de peligro es lo que da más visitas, cada monstruo del Viejo Mundo tiene comportamientos y peligros distintos, y las ganancias del vídeo se invierten en mejor equipo para grabaciones todavía más arriesgadas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una grabación con un monstruo cerca. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la grabación más arriesgada que hemos intentado hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al peligro durante la grabación. <strong>🎬 Producción:</strong> SFX de sobresalto · BGM: sube tensión de golpe</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tipo de contenido grabarías tú si tuvieras que hacerte viral en un mundo así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Probablemente intentaría el contenido más arriesgado posible, aunque sé que me arrepentiría en el momento justo del peligro."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Terror cooperativo con un gancho tan original como divertido de jugar con amigos — de las ideas más frescas del género en años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de grabaciones del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué grabarías tú para hacerte viral en un mundo lleno de monstruos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      125: {
+        name: "R.E.P.O.",
+        summary: "Cooperativo de extracción con físicas realistas y monstruos que reaccionan al ruido — llevar el botín con cuidado es la clave.",
+        difficulty: "media",
+        emoji: "📦",
+        steamUrl: "https://store.steampowered.com/app/3241660/REPO/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 125 de Retro 365, y hoy se me ha caído un objeto valiosísimo justo delante de un monstruo por hacer demasiado ruido. Bienvenidos a R.E.P.O."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del objeto cayendo cerca del monstruo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cooperativo de terror y extracción con físicas realistas de verdad, donde llevar bien el botín pesado es tan importante como esquivar monstruos — hoy os cuento por qué el ruido es tu peor enemigo aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 125 · R.E.P.O." con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Formas parte de un equipo de recuperación que entra en entornos abandonados y aterradores para extraer objetos valiosos usando una herramienta de agarre con físicas reales — mientras monstruos que reaccionan al sonido acechan en la oscuridad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un entorno abandonado con el equipo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cargar objetos pesados con físicas realistas hace ruido que los monstruos pueden escuchar, coordinarte con el equipo para transportar botín grande es un reto en sí mismo, y un golpe torpe puede tirar por la borda toda una extracción tranquila."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un transporte de objeto pesado en equipo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: transportar este objeto valiosísimo sin hacer ruido de más."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al riesgo del transporte. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según el riesgo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿confías en tu equipo para transportar objetos pesados, o siempre acabáis liándola por las físicas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Confío en mi equipo hasta que las físicas realistas del juego demuestran que no debería haber confiado tanto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Físicas ridículas mezcladas con terror real, y una tensión que crece con cada objeto que intentas sacar — de los cooperativos más originales de los últimos meses."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la extracción del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Confiarías en tu equipo para transportar algo pesado con físicas reales? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      126: {
+        name: "Schedule I",
+        summary: "De pequeño camello a magnate criminal en una ciudad ficticia — gestión de negocio ilegal con una simulación sorprendentemente profunda.",
+        difficulty: "media",
+        emoji: "💊",
+        steamUrl: "https://store.steampowered.com/app/3164500/Schedule_I/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 126 de Retro 365, y hoy mi pequeño negocio ilegal ya tiene más empleados que una empresa normal. Bienvenidos a Schedule I."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real gestionando el negocio con empleados. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de gestión donde pasas de pequeño vendedor callejero a magnate criminal en una ciudad ficticia — hoy os cuento por qué la simulación de negocio detrás de este juego es muchísimo más profunda de lo que parece."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 126 · SCHEDULE I" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Empiezas como un pequeño vendedor en la ciudad ficticia de Hyland Point, y poco a poco vas ampliando tu operación con propiedades, empleados, y rutas de distribución — gestionando un negocio ilegal completo desde cero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad ficticia. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La producción tiene su propia mecánica de mezcla y calidad, contratar empleados y gestionarlos bien afecta directamente a tus ganancias, y expandirte demasiado rápido puede llamar la atención que no te conviene."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la producción y mezcla de producto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una expansión arriesgada del negocio, a ver si sale bien."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado de la expansión. <strong>🎬 Producción:</strong> SFX dramático o cómico según el resultado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te sorprende más de este juego, lo bien montada que está la simulación, o lo rápido que se ha vuelto tan popular?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me sorprende lo bien montada que está la simulación de negocio detrás de una premisa tan simple en apariencia."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de negocio con más profundidad de la que promete su premisa, y un éxito viral que se entiende en cuanto lo juegas — de las sorpresas más rápidas del año."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del negocio construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te sorprende lo popular que se ha vuelto este juego tan rápido? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      127: {
+        name: "Palworld",
+        summary: "Criaturas coleccionables que también trabajan en tu fábrica — mitad captura de monstruos, mitad supervivencia industrial.",
+        difficulty: "media",
+        emoji: "🏭",
+        steamUrl: "https://store.steampowered.com/app/1623730/Palworld",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 127 de Retro 365, y hoy tengo una criatura tierna trabajando en mi fábrica con un arma en la mano. Bienvenidos a Palworld."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un Pal trabajando en la fábrica. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego que mezcla captura de criaturas al estilo Pokémon con supervivencia y construcción de fábricas — hoy os cuento por qué esta combinación tan rara se ha vuelto tan popular tan rápido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 127 · PALWORLD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Llegas a un mundo abierto habitado por Pals, criaturas con habilidades propias que puedes capturar, criar, y poner a trabajar en tu propia base — mientras sobrevives explorando un mapa lleno de facciones y peligros."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo abierto capturando Pals. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada Pal tiene habilidades que se pueden asignar a tareas concretas de tu base, capturar Pals en combate se siente parecido a un juego de monstruos clásico, y construir una fábrica automatizada con Pals trabajando da para horas y horas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de captura de un Pal en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la captura de un Pal que llevo un rato persiguiendo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la captura del Pal. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué opinas de mezclar captura de criaturas con supervivencia y fábricas de esta forma tan directa?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me sorprende lo bien que funciona la mezcla, aunque el parecido con otras franquicias sea tan evidente."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Captura de criaturas y fábrica automatizada conviviendo mejor de lo que parecía sobre el papel — de los fenómenos más rápidos y comentados de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la fábrica construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué Pal pondrías a trabajar primero en tu fábrica? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      128: {
+        name: "Slay the Princess",
+        summary: "Novela visual de terror psicológico donde una voz en tu cabeza te dice que mates a la princesa — y nada es lo que parece.",
+        difficulty: "media",
+        emoji: "🗡️",
+        steamUrl: "https://store.steampowered.com/app/1989270/Slay_the_Princess/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 128 de Retro 365, y hoy una voz en mi cabeza me acaba de decir que la princesa encerrada en esta cabaña tiene que morir. Bienvenidos a Slay the Princess."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la voz interior hablando al protagonista. <strong>🎬 Producción:</strong> SFX ambiente inquietante real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una novela visual de terror psicológico donde tienes que decidir si matar o no a una princesa encerrada en el bosque — hoy os cuento hasta donde puedo sin destriparlo, porque este juego no es en absoluto lo que promete al principio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 128 · SLAY THE PRINCESS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Una voz te dice que hay una princesa encerrada en una cabaña en el bosque, y que si no la matas, el mundo entero terminará — pero cada decisión que tomas cambia radicalmente la naturaleza de la propia princesa y de la historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el camino hacia la cabaña. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada decisión de diálogo cambia radicalmente el rumbo y hasta el propio arte del juego, una segunda voz interior discute contigo tus propias decisiones en tiempo real, y las múltiples rutas hacen que rejugarlo se sienta como descubrir un juego completamente distinto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un diálogo importante con la princesa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión que sé que va a cambiar el rumbo entero de esta partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión. <strong>🎬 Producción:</strong> SFX dramático suave · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: sin destripar nada, ¿confiarías en la voz que te dice que mates a la princesa, o desconfiarías desde el principio?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Desconfiaría desde el primer segundo — una voz que te pide matar a alguien sin dar explicaciones nunca es buena señal."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una premisa simple que esconde muchísimo más de lo que parece a simple vista — de las novelas visuales más originales y rejugables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones tomadas en el directo, sin spoilers. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "Sin spoilers: ¿matarías a la princesa, o intentarías otra cosa? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      129: {
+        name: "Cassette Beasts",
+        summary: "Captura monstruos grabándolos en cinta y fusiona formas para crear combinaciones únicas — un homenaje con personalidad propia.",
+        difficulty: "media",
+        emoji: "📼",
+        steamUrl: "https://store.steampowered.com/app/1321440/Cassette_Beasts/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 129 de Retro 365, y hoy he fusionado dos monstruos en uno y el resultado no tiene ningún sentido pero es una locura. Bienvenidos a Cassette Beasts."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una fusión de monstruos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de captura de monstruos donde en vez de balones, usas cintas de cassette, y puedes fusionar formas para crear combinaciones únicas — hoy os cuento por qué este homenaje tiene personalidad propia de sobra."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 129 · CASSETTE BEASTS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Quedas atrapado en la Isla Nueva Wirral, un lugar extraño donde los humanos pueden transformarse en Cassette Beasts para luchar entre sí — y tienes que grabar a estas criaturas en cinta para poder transformarte tú mismo en ellas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla en un mundo abierto. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Combatir por turnos como tú mismo transformado en la criatura, en vez de mandar solo a un monstruo a pelear, cambia por completo la sensación de las batallas, fusionar dos criaturas crea formas nuevas con habilidades combinadas, y el mundo abierto se explora sin cargas ni interrupciones."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate por turnos transformado. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una fusión rarísima que no sé si va a ser una genialidad o un desastre total."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado de la fusión. <strong>🎬 Producción:</strong> SFX cómico o dramático según el resultado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si te gustan los juegos de captura de monstruos, ¿qué te parece esta vuelta de tuerca con las fusiones?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Las fusiones son lo que más me está gustando — le dan al género una capa de creatividad que echaba de menos."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje con ideas propias de sobra, sobre todo gracias al sistema de fusiones — de los juegos de captura de monstruos con más personalidad que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de fusiones creadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué dos criaturas fusionarías tú si pudieras? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      130: {
+        name: "Spiritfarer",
+        summary: "Gestión acogedora sobre la muerte — construyes un barco para cuidar espíritus queridos antes de despedirte de ellos para siempre.",
+        difficulty: "facil",
+        emoji: "⛵",
+        steamUrl: "https://store.steampowered.com/app/972660/Spiritfarer_Farewell_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 130 de Retro 365, y hoy he tenido que despedirme para siempre de un espíritu al que le había cogido muchísimo cariño. Bienvenidos a Spiritfarer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una despedida emotiva. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, emotivo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de gestión acogedor sobre la muerte, donde construyes un barco para cuidar espíritus queridos antes de dejarlos ir para siempre — hoy os cuento por qué un juego sobre morir puede ser tan tierno como triste."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 130 · SPIRITFARER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, emotivo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Stella se convierte en la nueva Barquera de los Espíritus, encargada de recoger y cuidar espíritus queridos en forma de animales entrañables, hasta que estén listos para cruzar al más allá — un viaje que ella misma tiene que aprender a aceptar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el barco y hablando con un espíritu. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cuidar a cada espíritu significa cocinarles su comida favorita, construirles una habitación a su gusto, y escuchar su historia personal poco a poco, el barco se va ampliando con talleres y cultivos propios, y cada despedida final está escrita con muchísimo cariño."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión del barco cuidando a un espíritu. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la historia de un espíritu que llevo cuidando un buen rato, y presiento que se acerca su despedida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la conversación emotiva. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono emotivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué espíritu te ha dado más pena despedir hasta ahora, o cuál esperas conocer?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no me ha tocado despedir a ninguno importante, pero ya sé que cuando llegue el momento me va a costar de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de gestión que consigue hacerte llorar sin necesitar ni una sola palabra dramática de más — de las experiencias más emotivas que existen en los videojuegos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del barco construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué espíritu te gustaría cuidar en tu propio barco? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      131: {
+        name: "SIGNALIS",
+        summary: "Terror de supervivencia retro-futurista con estética PS1 — una replicante busca a alguien perdido en una estación abandonada.",
+        difficulty: "dificil",
+        emoji: "🤖",
+        steamUrl: "https://store.steampowered.com/app/1262350/SIGNALIS/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 131 de Retro 365, cierre de esta tanda, y hoy me he quedado sin balas justo cuando algo empezaba a arrastrarse hacia mí. Bienvenidos a SIGNALIS."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una situación de tensión sin munición. <strong>🎬 Producción:</strong> SFX ambiente inquietante real del juego · corte duro · BGM: sting corto, terror</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un terror de supervivencia retro-futurista con estética inspirada en la PS1, donde una replicante busca a alguien perdido en una estación abandonada — hoy os cuento por qué la estética antigua hace que el terror pese todavía más."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 131 · SIGNALIS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, terror</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Elster, una técnica replicante, despierta de un sueño criogénico en una estación espacial abandonada y en ruinas, con un solo objetivo fijo en la cabeza: encontrar a alguien que perdió, sin importar lo que tenga que enfrentar por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando los pasillos abandonados de la estación. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La gestión de inventario limitada obliga a decidir qué llevar y qué dejar atrás en cada momento, los enemigos pueden reaparecer si no los rematas del todo, y la narrativa se cuenta con muchísimo silencio y ambigüedad, dejando que interpretes buena parte de la historia tú mismo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate limitado por recursos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: gestionar el poco inventario que me queda antes de entrar a la siguiente sala."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la gestión del inventario limitado. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta que la historia se cuente con tanto silencio y ambigüedad, o prefieres que te lo expliquen todo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta que me dejen interpretar parte de la historia yo mismo, aunque a veces me deja con más preguntas que respuestas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Terror clásico con una estética que enamora y una historia que se queda pensando en tu cabeza — cierre perfecto y perturbador para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la exploración del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gusta el terror retro-futurista como este? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 117: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 132: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
