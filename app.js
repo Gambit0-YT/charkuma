@@ -11608,8 +11608,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Te consideras bueno resolviendo misterios de observación? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      312: {
+        name: "DOOM",
+        summary: "El reinicio que devolvió la velocidad y la brutalidad al género — combate agresivo donde correr hacia el peligro es la estrategia.",
+        difficulty: "media",
+        emoji: "👹",
+        steamUrl: "https://store.steampowered.com/app/379720/DOOM/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 312 de Retro 365, tanda nueva, y hoy le he arrancado la cabeza a un demonio con las manos desnudas. Bienvenidos a DOOM."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una ejecución brutal cuerpo a cuerpo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, metal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El reinicio que devolvió la velocidad y la brutalidad al género de disparos en primera persona — hoy os cuento por qué correr directamente hacia el peligro es literalmente la mejor estrategia aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 312 · DOOM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, metal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El Doom Slayer despierta en una base marciana invadida por demonios del infierno, tras una investigación científica que salió terriblemente mal, y se abre paso a través de oleadas de criaturas infernales con un arsenal cada vez más brutal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la base marciana infestada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Las ejecuciones brutales recompensan con salud y munición, incentivando la agresividad en vez de esconderse, el movimiento rápido y vertical se siente fluido en todo momento, y cada arma tiene mejoras que cambian por completo su utilidad en combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate agresivo contra una oleada de demonios. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una oleada real de demonios, a ver si consigo mantener el ritmo agresivo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la oleada de demonios. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste algún Doom clásico de los 90, o este reinicio fue tu primera toma de contacto con la saga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No jugué los clásicos en su momento, y este reinicio se convirtió en mi puerta de entrada perfecta a toda la saga."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Velocidad, agresividad, y una banda sonora que se te queda pegada — de los mejores reinicios de una saga clásica que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugaste algún Doom clásico de los 90? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      313: {
+        name: "Wolfenstein II: The New Colossus",
+        summary: "Un solo hombre lidera la resistencia contra un régimen nazi que ganó la guerra — combate brutal con humor negro muy afilado.",
+        difficulty: "media",
+        emoji: "🇺🇸",
+        steamUrl: "https://store.steampowered.com/app/612880/Wolfenstein_II_The_New_Colossus/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 313 de Retro 365, y hoy he liderado una resistencia armada desde una silla de ruedas y ha sido igual de brutal que siempre. Bienvenidos a Wolfenstein II: The New Colossus."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate desde una silla de ruedas mecánica. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, americana distorsionada</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un solo hombre lidera la resistencia contra un régimen nazi que ganó la Segunda Guerra Mundial — hoy os cuento por qué el combate brutal aquí viene acompañado de un humor negro muy afilado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 313 · WOLFENSTEIN II: THE NEW COLOSSUS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, americana distorsionada</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "B.J. Blazkowicz, gravemente herido tras los eventos anteriores, lidera la resistencia contra un régimen nazi que controla Estados Unidos en una línea temporal alternativa, en una lucha desesperada por liberar el país."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un Estados Unidos alternativo ocupado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate combina sigilo y acción directa con un arsenal variado de armas dobles, la historia mezcla momentos brutales con humor negro y sátira política muy afilada, y los personajes secundarios tienen muchísima personalidad propia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate directo contra soldados nazis. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde voy a intentar ir con sigilo antes de que se complique."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al intento de sigilo. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que un shooter use una ucronía así de oscura para hacer sátira política real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un recurso muy efectivo, la exageración de la ucronía deja hablar bastante claro sobre temas reales sin necesidad de ser sutil."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Acción brutal con una sátira política que no se anda con rodeos — de los shooters narrativos más valientes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué opinas de usar ucronías para hacer sátira política en videojuegos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      314: {
+        name: "Apex Legends",
+        summary: "Battle royale de héroes con movimiento fluido y habilidades únicas por personaje — del mismo universo que Titanfall.",
+        difficulty: "media",
+        emoji: "🎯",
+        steamUrl: "https://store.steampowered.com/app/1172470/Apex_Legends/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 314 de Retro 365, y hoy he deslizado por una ladera entera esquivando disparos como si fuera lo más natural del mundo. Bienvenidos a Apex Legends."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un deslizamiento fluido esquivando disparos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, futurista</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un battle royale de héroes con movimiento fluido y habilidades únicas por personaje, del mismo universo que Titanfall — hoy os cuento por qué el movimiento aquí se siente mejor que en la mayoría de battle royale."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 314 · APEX LEGENDS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, futurista</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Leyendas de todo el sistema Frontier compiten en los Apex Games, un espectáculo de combate a muerte en equipos de tres, cada una con habilidades únicas y personalidades muy marcadas, luchando por ser el último equipo en pie."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa antes del combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El movimiento fluido con deslizamientos y trepadas heredado de Titanfall hace que moverse por el mapa sea tan satisfactorio como el propio combate, cada leyenda tiene habilidades tácticas y definitivas propias, y jugar en equipo coordinado marca la diferencia real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando habilidades de leyenda. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real en los últimos equipos de la partida, sin ningún margen de error."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de equipos restantes en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es tu leyenda favorita, o la que más te gustaría probar?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy probando leyendas, pero ya hay una con un kit de movilidad tan bueno que me ha conquistado rápido."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Movimiento espectacular y personajes con personalidad propia — de los battle royale con mejor sensación de juego que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la partida jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu leyenda favorita de Apex? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      315: {
+        name: "Half-Life: Alyx",
+        summary: "El regreso real de Half-Life, hecho exclusivamente para VR — la Combine nunca se había sentido tan aterradoramente cercana.",
+        difficulty: "media",
+        emoji: "🥽",
+        steamUrl: "https://store.steampowered.com/app/546560/HalfLife_Alyx/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 315 de Retro 365, y hoy he cerrado una puerta con mis propias manos en VR mientras algo la golpeaba desde el otro lado. Bienvenidos a Half-Life: Alyx."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real cerrando una puerta bajo amenaza en VR. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El regreso real de Half-Life, hecho exclusivamente para realidad virtual — hoy os cuento por qué la Combine nunca se había sentido tan aterradoramente cercana como en primera persona real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 315 · HALF-LIFE: ALYX" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Ambientado entre los eventos de Half-Life y Half-Life 2, Alyx Vance lucha contra la ocupación alienígena de la Combine en la Ciudad 17, enfrentándose a criaturas terroríficas y descubriendo secretos vitales para la resistencia humana."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la Ciudad 17 ocupada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada objeto se manipula con las manos de forma físicamente realista en VR, el combate contra headcrabs y soldados de la Combine se siente mucho más intenso en primera persona real, y los puzles ambientales aprovechan al máximo el formato de realidad virtual."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate en VR contra la Combine. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una situación real de terror en VR que no me esperaba para nada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando genuinamente asustada. <strong>🎬 Producción:</strong> SFX de sobresalto · BGM: sube tensión de golpe</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría probar Half-Life en VR de verdad, o te parece demasiado intenso para ese formato?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría probarlo en VR de verdad, aunque sospecho que la tensión en primera persona real sería demasiado intensa para mí."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un regreso real a la saga que demuestra el potencial completo de la realidad virtual — de las mejores experiencias VR que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la Ciudad 17 explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a jugar algo así de tenso en VR? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      316: {
+        name: "Black Mesa",
+        summary: "El remake fan hecho oficial de Half-Life original — misma historia icónica, con gráficos y físicas completamente modernizados.",
+        difficulty: "media",
+        emoji: "🔬",
+        steamUrl: "https://store.steampowered.com/app/362890/Black_Mesa/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 316 de Retro 365, y hoy un experimento científico ha salido mal de la forma más icónica de la historia de los videojuegos. Bienvenidos a Black Mesa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del experimento saliendo mal. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El remake hecho por fans que acabó siendo oficial del Half-Life original — hoy os cuento por qué mantiene la misma historia icónica, con gráficos y físicas completamente modernizados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 316 · BLACK MESA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Gordon Freeman, científico del complejo de investigación Black Mesa, sobrevive a una cascada de resonancia que abre un portal a una dimensión alienígena hostil, teniendo que sobrevivir a la invasión resultante y a las fuerzas militares enviadas para silenciar el incidente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el complejo de Black Mesa. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate y los puzles del original se mantienen fieles pero con físicas y gráficos completamente modernizados, la sección final del juego fue rediseñada por completo respecto al original, y el motor Source moderno hace que cada zona luzca espectacular."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate modernizado contra alienígenas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona real que se ve completamente distinta al Half-Life original que muchos recuerdan."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la zona modernizada. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste el Half-Life original en su momento, o esta versión moderna sería tu primera vez con la saga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No jugué el original en su momento, así que esta versión moderna se ha convertido en mi primera toma de contacto real con la saga."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un remake hecho con muchísimo respeto y cariño real por el material original — de los remakes hechos por fans más impresionantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del complejo explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugaste el Half-Life original en su momento? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      317: {
+        name: "SUPERHOT",
+        summary: "El tiempo solo se mueve cuando tú te mueves — un shooter convertido en un puzle de ajedrez brutal a cámara lenta.",
+        difficulty: "media",
+        emoji: "⏸️",
+        steamUrl: "https://store.steampowered.com/app/322500/SUPERHOT/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 317 de Retro 365, y hoy he esquivado seis balas seguidas simplemente quedándome quieto un segundo. Bienvenidos a SUPERHOT."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real esquivando balas al quedarse quieto. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, minimalista</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El tiempo solo se mueve cuando tú te mueves — hoy os cuento por qué esto convierte a un shooter normal en un puzle de ajedrez brutal a cámara lenta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 317 · SUPERHOT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, minimalista</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un mundo minimalista y estilizado en rojo y blanco, te enfrentas a oleadas de enemigos donde el tiempo solo avanza cuando te mueves, convirtiendo cada nivel en un puzle de planificación real sobre cómo moverte, disparar, y esquivar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un nivel minimalista antes del combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Planificar cada movimiento con cuidado porque el tiempo avanza contigo cambia por completo la sensación de un shooter normal, lanzar objetos y desarmar enemigos añade opciones tácticas creativas, y superar un nivel entero se siente como resolver una coreografía perfecta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un nivel resuelto con movimientos precisos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un nivel real que necesita una planificación perfecta de movimientos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la planificación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría tener este poder de controlar el tiempo con tu propio movimiento en la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría tener ese poder, aunque sospecho que acabaría usándolo solo para procrastinar de formas cada vez más creativas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea tan simple como brillante que cambia por completo la sensación de un shooter — de las ideas mecánicas más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de niveles superados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué harías tú si el tiempo solo avanzara con tu movimiento? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      318: {
+        name: "Selaco",
+        summary: "Shooter retro inspirado en Half-Life y Doom, con destructibilidad real y enemigos inteligentes en un mundo sin cortes ni pantallas de carga.",
+        difficulty: "media",
+        emoji: "🔫",
+        steamUrl: "https://store.steampowered.com/app/1592280/Selaco/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 318 de Retro 365, y hoy he destruido literalmente la pared que usaba un enemigo como cobertura. Bienvenidos a Selaco."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una pared destruida en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, retro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter retro inspirado directamente en Half-Life y Doom, con destructibilidad real y enemigos inteligentes en un mundo sin cortes ni pantallas de carga — hoy os cuento por qué esta mezcla de referencias funciona a la perfección."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 318 · SELACO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, retro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dawn Collins, capitana de seguridad de ACE, investiga la turbia historia de la instalación de Selaco, cuando explosiones e invasores armados interrumpen su investigación, obligándola a abrirse paso a través de todo el complejo sin ningún corte narrativo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el complejo de Selaco de forma continua. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los enemigos reaccionan de forma inteligente al combate, buscando cobertura real y flanqueando, el entorno es completamente destructible de verdad, y el ritmo de disparo rápido combina con una historia contada sin interrupciones ni pantallas de carga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un enemigo flanqueando de forma inteligente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde los enemigos están flanqueándome de una forma que no esperaba."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al flanqueo inteligente. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece un shooter retro con enemigos que reaccionan de forma tan inteligente al combate?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una mejora real sobre el género clásico, la inteligencia enemiga le da una capa de exigencia que se agradece."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Nostalgia retro con mecánicas modernas muy bien integradas — de las sorpresas de shooter indie más impresionantes de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres los shooters retro clásicos o los más modernos e inteligentes como este? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      319: {
+        name: "Turbo Overkill",
+        summary: "Un cazarrecompensas cyberpunk con una motosierra en la pierna y cohetes en el brazo limpia una ciudad poseída por una IA renegada.",
+        difficulty: "media",
+        emoji: "🏍️",
+        steamUrl: "https://store.steampowered.com/app/1328350/Turbo_Overkill/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 319 de Retro 365, y hoy he cortado a un enemigo por la mitad con la motosierra que tengo literalmente en la pierna. Bienvenidos a Turbo Overkill."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando la motosierra de la pierna. <strong>🎬 Producción:</strong> SFX real del juego (motosierra) · corte duro · BGM: sting corto, synthwave</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cazarrecompensas cyberpunk con una motosierra en la pierna y cohetes en el brazo limpia una ciudad entera poseída por una inteligencia artificial renegada — hoy os cuento por qué esta locura visual y mecánica funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 319 · TURBO OVERKILL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, synthwave</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Johnny Turbo, cazarrecompensas aumentado cibernéticamente, vuelve a su ciudad natal de Paradise para descubrirla poseída por Syn, una inteligencia artificial renegada que ha convertido a sus habitantes en máquinas de matar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad cyberpunk de Paradise. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El movimiento rápido combina parkour con una moto voladora en secciones concretas, cada arma tiene un modo alternativo todavía más ridículo, y el ritmo de acción se mantiene frenético y sin pausas reales en ningún momento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate frenético usando varias armas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una sección real de moto voladora a toda velocidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la velocidad de la moto voladora. <strong>🎬 Producción:</strong> SFX de velocidad · BGM: sube el ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué mejora cibernética te gustaría tener tú si vivieras en un mundo cyberpunk así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me quedaría con algo relacionado con la velocidad, poder moverme así de rápido por una ciudad suena demasiado bien como para no elegirlo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Velocidad, estilo cyberpunk, y una absurdez constante — de los shooters retro más ridículamente divertidos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué mejora cibernética elegirías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      320: {
+        name: "Ready or Not",
+        summary: "Táctica policial realista donde un solo error puede costar vidas de verdad — cada asalto exige comunicación y disciplina reales.",
+        difficulty: "dificil",
+        emoji: "🚨",
+        steamUrl: "https://store.steampowered.com/app/1144200/Ready_or_Not/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 320 de Retro 365, y hoy un solo grito mal interpretado ha convertido un arresto tranquilo en un tiroteo real. Bienvenidos a Ready or Not."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un arresto que se complica. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una táctica policial realista donde un solo error puede costar vidas de verdad — hoy os cuento por qué cada asalto exige comunicación y disciplina reales entre todo el equipo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 320 · READY OR NOT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como comandante de una unidad SWAT en la ciudad ficticia de Los Sueños, respondes a situaciones críticas cada vez más peligrosas, desde rehenes hasta tiroteos activos, con la vida de civiles y compañeros dependiendo de decisiones tácticas correctas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario antes del asalto táctico. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Dar órdenes precisas al equipo es tan importante como tu propia puntería, identificar correctamente amenazas reales frente a civiles desarmados exige reflejos y juicio real, y un solo disparo mal calculado puede tener consecuencias graves de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un asalto táctico coordinado. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un asalto real donde tengo que decidir en una fracción de segundo si disparar o no."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la decisión bajo presión. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión de golpe</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la exigencia real de identificar amenazas correctamente antes de disparar en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo más tenso que he jugado, esa presión real de no equivocarte cambia por completo cómo te acercas a cada situación."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tensión táctica real sin ningún margen de error — de los shooters tácticos más exigentes y honestos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del asalto del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Aguantarías la presión de decidir en una fracción de segundo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      321: {
+        name: "Insurgency: Sandstorm",
+        summary: "Shooter táctico hardcore de combate moderno donde cada bala cuenta de verdad y morir puede pasar en una fracción de segundo.",
+        difficulty: "dificil",
+        emoji: "🪖",
+        steamUrl: "https://store.steampowered.com/app/581320/Insurgency_Sandstorm/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 321 de Retro 365, y hoy me han matado de un solo disparo sin ni siquiera ver de dónde venía. Bienvenidos a Insurgency: Sandstorm."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una muerte instantánea inesperada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter táctico hardcore de combate moderno donde cada bala cuenta de verdad — hoy os cuento por qué morir puede pasar en una fracción de segundo sin previo aviso alguno."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 321 · INSURGENCY: SANDSTORM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un conflicto moderno ficticio en Oriente Medio, dos facciones armadas luchan en combates cuerpo a cuerpo brutales por el control de zonas urbanas, sin ningún indicador visual que te avise de dónde vienen los disparos enemigos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona urbana en conflicto. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada bala tiene un daño real y letal en casi cualquier parte del cuerpo, la falta de un minimapa o indicadores directos obliga a usar el sonido y la comunicación de equipo, y el combate se siente brutalmente realista de principio a fin."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un intercambio de disparos táctico. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un avance real hacia una posición enemiga, sin saber dónde están escondidos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al avance con cautela. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los shooters realistas donde morir de un solo disparo es una posibilidad constante?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustan bastante, esa tensión real de saber que cualquier esquina puede ser la última hace que cada partida se sienta importante."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Realismo brutal sin ninguna concesión de por medio — de los shooters tácticos más exigentes y tensos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del combate del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los shooters así de realistas y letales? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      322: {
+        name: "Warhammer 40,000: Boltgun",
+        summary: "Un Space Marine masacra herejes y demonios con estética de pixel art brutal — homenaje directo a los shooters clásicos de los 90.",
+        difficulty: "media",
+        emoji: "⚙️",
+        steamUrl: "https://store.steampowered.com/app/2005010/Warhammer_40000_Boltgun/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 322 de Retro 365, y hoy he ejecutado a un hereje con mi propio bólter en pixel art brutal. Bienvenidos a Warhammer 40,000: Boltgun."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una ejecución con el bólter. <strong>🎬 Producción:</strong> SFX real del juego (disparo de bólter) · corte duro · BGM: sting corto, metal épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un Space Marine masacra herejes y demonios con estética de pixel art brutal — hoy os cuento por qué este homenaje directo a los shooters clásicos de los 90 encaja perfecto con el universo de Warhammer 40.000."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 322 · WARHAMMER 40,000: BOLTGUN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, metal épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un Ultramarine del legendario Capítulo de los Space Marines se enfrenta a una invasión hereje y demoníaca en un planeta del sistema Graia, purgando cada nivel con su bólter y su fe inquebrantable en el Emperador."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un nivel infestado de herejes. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate rápido y brutal recuerda directamente a Doom clásico, cada arma del universo Warhammer 40.000 está representada con muchísimo cariño, y el pixel art detallado le da una identidad visual única al género retro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate rápido contra hordas de herejes. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una horda real de herejes, a ver si consigo purgarlos a todos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la horda enemiga. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿conocías el universo de Warhammer 40.000 antes de este juego, o te lo ha descubierto esta entrega?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Conocía el universo por encima, y este juego me ha dado ganas reales de investigar más a fondo el lore de los Space Marines."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Pixel art brutal al servicio de un universo gigantesco y épico — de los homenajes retro más fieles a su propia fuente que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías el universo de Warhammer 40.000 antes de hoy? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      323: {
+        name: "Splitgate",
+        summary: "Shooter competitivo con portales propios como en Portal — teletransportarte a tu enemigo por sorpresa cambia todo el combate.",
+        difficulty: "media",
+        emoji: "🌀",
+        steamUrl: "https://store.steampowered.com/app/677620/Splitgate/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 323 de Retro 365, y hoy he aparecido detrás de un enemigo a través de mi propio portal justo a tiempo para sorprenderlo. Bienvenidos a Splitgate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una emboscada a través de un portal. <strong>🎬 Producción:</strong> SFX real del juego (portal) · corte duro · BGM: sting corto, futurista</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter competitivo con portales propios al estilo Portal — hoy os cuento por qué teletransportarte hacia tu enemigo por sorpresa cambia por completo la dinámica del combate multijugador."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 323 · SPLITGATE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, futurista</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En arenas de combate futuristas, cada jugador puede crear sus propios portales para moverse por el mapa de formas imposibles, sorprendiendo a rivales desde ángulos que en un shooter normal serían completamente inaccesibles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa usando portales. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Crear portales en tiempo real durante el combate exige pensar en tres dimensiones constantemente, cada mapa está diseñado para aprovechar rutas de portal creativas, y dominar los portales da una ventaja táctica real sobre rivales menos experimentados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate usando portales tácticamente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real usando un portal para sorprender a un enemigo real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la sorpresa del portal. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría tener la habilidad de crear portales así en la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría tener esa habilidad, aunque solo fuera para ahorrarme los desplazamientos largos del día a día."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Portales aplicados a un shooter competitivo con muchísimo ingenio — de las ideas más originales del género multijugador que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Dónde pondrías tú un portal si pudieras crear uno ahora mismo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      324: {
+        name: "Destiny 2",
+        summary: "RPG de disparos espacial con lore gigantesco y raids cooperativos legendarios — un universo que lleva años expandiéndose.",
+        difficulty: "media",
+        emoji: "🌌",
+        steamUrl: "https://store.steampowered.com/app/1085660/Destiny_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 324 de Retro 365, y hoy mi equipo entero ha sincronizado un mecanismo de raid tan complejo que hemos tardado horas en entenderlo. Bienvenidos a Destiny 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un mecanismo de raid complejo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico espacial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de disparos espacial con un lore gigantesco y raids cooperativos legendarios — hoy os cuento por qué este universo lleva años expandiéndose sin perder fuelle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 324 · DESTINY 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico espacial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como Guardián, protector de la última ciudad segura de la humanidad, exploras un sistema solar entero luchando contra facciones alienígenas hostiles, mientras desentrañas los misterios de la Luz y la Oscuridad que dan forma a todo el universo del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un planeta del sistema solar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada clase de Guardián tiene habilidades y subclases elementales completamente distintas, los raids cooperativos exigen coordinación real de equipo con mecánicas únicas por encuentro, y el lore acumulado durante años da profundidad a cada misión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando habilidades de subclase. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un encuentro real de raid que necesita coordinación perfecta con el equipo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la coordinación del encuentro. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te atraen los juegos con raids cooperativos complejos, o te parecen demasiado exigentes en tiempo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me atraen bastante, aunque reconozco que la exigencia de tiempo y coordinación puede echar para atrás si no tienes un grupo fijo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un universo espacial gigantesco con raids que exigen lo mejor de cada equipo — de los looter shooter más ambiciosos y longevos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del raid jugado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con qué equipo harías tú un raid tan exigente? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      325: {
+        name: "THE FINALS",
+        summary: "Shooter competitivo con entornos completamente destructibles — derribar un edificio entero puede ser tu mejor jugada táctica.",
+        difficulty: "media",
+        emoji: "💥",
+        steamUrl: "https://store.steampowered.com/app/2073850/THE_FINALS/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 325 de Retro 365, y hoy he derribado un edificio entero encima de un equipo rival como estrategia real. Bienvenidos a THE FINALS."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un edificio derribado sobre enemigos. <strong>🎬 Producción:</strong> SFX real del juego (demolición) · corte duro · BGM: sting corto, televisivo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter competitivo con entornos completamente destructibles de verdad — hoy os cuento por qué derribar un edificio entero puede convertirse en tu mejor jugada táctica de la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 325 · THE FINALS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, televisivo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un game show futurista transmitido en directo, equipos compiten por dinero y fama destruyendo entornos urbanos completamente reales, usando gadgets y habilidades específicas mientras el propio escenario se derrumba a su alrededor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un entorno urbano antes de destruirlo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada estructura del mapa se puede destruir de verdad, creando rutas nuevas o eliminando coberturas enemigas por completo, cada clase tiene gadgets únicos que aprovechan esta destructibilidad, y ningún combate se desarrolla igual dos veces."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de destrucción usada tácticamente en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: destruir esta estructura real a ver qué ventaja táctica me da."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la destrucción de la estructura. <strong>🎬 Producción:</strong> SFX de demolición · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de un game show futurista con destrucción real como espectáculo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una premisa muy entretenida, la destrucción real como parte del espectáculo le da al juego una identidad propia clara."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Destrucción real convertida en estrategia constante — de los shooters competitivos más frescos e impredecibles que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de destrucción del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué destruirías tú primero si pudieras en un combate así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      326: {
+        name: "Marvel Rivals",
+        summary: "Cierre de tanda: héroes y villanos de Marvel se enfrentan en combates por equipos con escenarios que cambian de forma en tiempo real.",
+        difficulty: "media",
+        emoji: "🦸",
+        steamUrl: "https://store.steampowered.com/app/2767030/Marvel_Rivals/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 326 de Retro 365, cierre de esta tanda, y hoy he combatido junto a un héroe y contra un villano que en los cómics jamás se habrían cruzado. Bienvenidos a Marvel Rivals."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate entre héroes y villanos variados. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, heroico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Héroes y villanos de todo el universo Marvel se enfrentan en combates por equipos, con escenarios que cambian de forma en tiempo real — hoy os cuento por qué esta variedad de personajes es un sueño para cualquier fan."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 326 · MARVEL RIVALS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, heroico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Personajes icónicos del universo Marvel, desde héroes clásicos hasta villanos legendarios, se enfrentan en combates por equipos de seis, en escenarios inspirados en localizaciones famosas de los cómics que cambian y evolucionan durante la propia partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario inspirado en los cómics. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje tiene habilidades fieles a su versión de los cómics, combinar sinergias entre héroes concretos desbloquea combos especiales únicos, y los escenarios destructibles cambian la estrategia de cada combate según avanza la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una sinergia especial entre dos héroes. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una sinergia real entre dos héroes que todavía no había probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la sinergia especial. <strong>🎬 Producción:</strong> SFX de poder combinado · BGM: sube en combate</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué héroe o villano de Marvel te gustaría jugar más en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría jugar con algún villano menos conocido de los cómics, siempre tienen habilidades más originales que los héroes principales."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un sueño de fan hecho combate por equipos, con muchísimo respeto al material original — cierre heroico perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué héroe o villano de Marvel jugarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 312: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 327: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
