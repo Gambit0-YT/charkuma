@@ -10325,7 +10325,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Qué héroe o villano de Marvel jugarías tú? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      327: {
+        name: "Fae Farm",
+        summary: "Gestión de granja con magia real en una isla encantada, jugable en cooperativo hasta con tres amigos más a la vez.",
+        difficulty: "facil",
+        emoji: "🧚",
+        steamUrl: "https://store.steampowered.com/app/2230110/Fae_Farm/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 327 de Retro 365, tanda nueva, y hoy he lanzado un hechizo para regar la granja entera de golpe. Bienvenidos a Fae Farm."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un hechizo regando la granja entera. <strong>🎬 Producción:</strong> SFX real del juego (magia) · corte duro · BGM: sting corto, mágico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de granja con magia real en una isla encantada, jugable en cooperativo hasta con tres amigos más a la vez — hoy os cuento por qué la magia cambia por completo las tareas típicas de un juego de granja."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 327 · FAE FARM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mágico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Llegas a la isla encantada de Azoria para restaurar una granja abandonada, aprendiendo hechizos que ayudan tanto en la agricultura como en la exploración de mazmorras mágicas repartidas por toda la isla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla encantada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada hechizo aprendido tiene utilidad tanto en la granja como en el combate de mazmorras, jugar en cooperativo hasta con tres amigos más permite repartirse tareas de la granja, y personalizar tu propio aspecto y hogar tiene muchísima libertad creativa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una mazmorra explorada usando hechizos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una mazmorra real usando un hechizo que todavía no había probado en combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al hechizo en combate. <strong>🎬 Producción:</strong> SFX mágico · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con quién jugarías tú este cooperativo de granja mágica?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría jugarlo con amigos que ya conozcan otros juegos de granja, para repartirnos bien las tareas desde el principio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Magia y agricultura combinadas con muchísima diversión cooperativa — de los juegos de granja más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la granja construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué hechizo te gustaría tener tú en tu propia granja? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      328: {
+        name: "Ooblets",
+        summary: "Coleccionas criaturas tiernas y las enfrentas en dance-offs en vez de combate directo — granja y monstruos con muchísimo encanto.",
+        difficulty: "facil",
+        emoji: "💃",
+        steamUrl: "https://store.steampowered.com/app/593150/Ooblets/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 328 de Retro 365, y hoy he ganado un enfrentamiento entero a base de bailar mejor que mi rival. Bienvenidos a Ooblets."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un dance-off ganado. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Coleccionas criaturas tiernas llamadas Ooblets y las enfrentas en dance-offs en vez de combate directo — hoy os cuento por qué esta idea tan rara y tierna funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 328 · OOBLETS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Te mudas al pueblo de Bortentown, decidido a llevar una vida tranquila cultivando tu propia granja y coleccionando Ooblets, criaturas tiernas y raras que entrenas para competir en dance-offs amistosos en vez de peleas violentas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo de Bortentown. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada Ooblet tiene su propio estilo de baile y personalidad, cultivar la granja da recursos para mejorar el pueblo y a tus propios Ooblets, y la estética tan tierna del juego contrasta con lo extraño y raro de sus propios habitantes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión de la granja y los Ooblets. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un dance-off real contra un Ooblet que todavía no conocía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al dance-off nuevo. <strong>🎬 Producción:</strong> SFX de baile · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué Ooblet te gustaría coleccionar tú por su diseño o su estilo de baile?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los Ooblets, pero ya hay uno con un diseño tan raro que me ha llamado la atención de inmediato."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ternura, extrañeza, y baile sustituyendo al combate tradicional — de los juegos de granja más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de dance-offs del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué Ooblet te gustaría tener tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      329: {
+        name: "Rune Factory 5",
+        summary: "Gestión de granja combinada con combate y mazmorras reales — cultiva de día, lucha contra monstruos de noche, todo en el mismo pueblo.",
+        difficulty: "media",
+        emoji: "⚔️",
+        steamUrl: "https://store.steampowered.com/app/1702330/Rune_Factory_5/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 329 de Retro 365, y hoy he pasado de regar mis cultivos a luchar contra un monstruo gigante en la misma tarde. Bienvenidos a Rune Factory 5."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del cambio entre granja y combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, aventurero</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de granja combinada con combate y mazmorras reales — hoy os cuento por qué cultivar de día y luchar contra monstruos de noche, todo en el mismo pueblo, es una combinación tan rara como adictiva."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 329 · RUNE FACTORY 5" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, aventurero</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tras perder la memoria, te unes a una fuerza de rescate local en el pueblo de Rigbarth, combinando la vida diaria de cultivar tu propia granja con expediciones a mazmorras llenas de monstruos y misterios por resolver."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo de Rigbarth. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate en tiempo real contra monstruos se siente mucho más activo que en un juego de granja tradicional, domesticar monstruos te permite que trabajen en tu propia granja, y las relaciones con los habitantes del pueblo tienen mucha profundidad narrativa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un monstruo en una mazmorra. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una mazmorra real, a ver qué monstruo me encuentro esta vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al monstruo encontrado. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué monstruo domesticarías tú para que trabajara en tu propia granja?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Domesticaría algo grande y fuerte para que se encargara de las tareas más pesadas de la granja sin que yo tuviera que mover un dedo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Granja y aventura combinadas sin que ninguna se sienta de relleno — de los juegos de vida con más contenido real que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la mazmorra y la granja del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres cultivar o luchar contra monstruos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      330: {
+        name: "Sun Haven",
+        summary: "Gestionas tres granjas distintas a la vez mientras crías desde vacas normales hasta bebés grifos y hombres lobo.",
+        difficulty: "media",
+        emoji: "☀️",
+        steamUrl: "https://store.steampowered.com/app/1432860/Sun_Haven/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 330 de Retro 365, y hoy he criado un bebé grifo junto a mis vacas normales como si fuera lo más natural del mundo. Bienvenidos a Sun Haven."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un bebé grifo criado en la granja. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, fantástico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionas tres granjas distintas a la vez mientras crías desde vacas normales hasta bebés grifos y hombres lobo — hoy os cuento por qué la variedad de criaturas fantásticas aquí no tiene límite real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 330 · SUN HAVEN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, fantástico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En el pueblo mágico de Sun Haven, gestionas hasta tres granjas distintas repartidas por diferentes biomas, cultivando, criando animales fantásticos, y explorando mazmorras junto a otros jugadores en un mundo lleno de magia y estaciones."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo mágico de Sun Haven. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Más de cuarenta mesas de crafteo distintas cubren cocina, herrería, construcción y alquimia, gestionar tres granjas con animales fantásticos exige mucha planificación real de tiempo, y el árbol de habilidades permite especializarse en cooperativo con hasta ocho jugadores."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de crafteo en una de las mesas especializadas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: repartir mi tiempo real entre las tres granjas antes de que se acabe el día."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo del día en pantalla. <strong>🎬 Producción:</strong> SFX de tensión suave · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué criatura fantástica te gustaría criar tú en tu propia granja mágica?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría criar un bebé fénix, aunque me imagino que tendría que tener mucho cuidado con el fuego cerca de los cultivos."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Fantasía y granja mezcladas con una escala de contenido enorme — de los juegos de granja más ambiciosos y completos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de las granjas gestionadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué criatura fantástica criarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      331: {
+        name: "Moonstone Island",
+        summary: "Coleccionas espíritus y navegas cien islas flotantes en globo aerostático, combinando alquimia con encuentros de cartas.",
+        difficulty: "media",
+        emoji: "🎈",
+        steamUrl: "https://store.steampowered.com/app/1658150/Moonstone_Island/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 331 de Retro 365, y hoy he capturado un espíritu volando en mi propio globo aerostático entre dos islas flotantes. Bienvenidos a Moonstone Island."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real capturando un espíritu volando en globo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Coleccionas espíritus y navegas cien islas flotantes en tu propio globo aerostático, combinando alquimia con encuentros de cartas — hoy os cuento por qué esta mezcla de géneros es tan generosa en contenido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 331 · MOONSTONE ISLAND" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como aprendiz de alquimista, viajas en tu propio globo aerostático entre cien islas flotantes distintas, coleccionando espíritus, cultivando tu propia granja, y haciendo amistad con los habitantes de cada isla que visitas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una isla flotante nueva. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Capturar espíritus se resuelve con encuentros de combate por cartas en vez de combate directo, la alquimia permite crear pociones con efectos variados, y viajar entre islas flotantes con el globo aerostático se siente como su propia pequeña aventura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un encuentro de cartas capturando un espíritu. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un encuentro de cartas real contra un espíritu que todavía no había visto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al espíritu nuevo. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué espíritu te gustaría coleccionar tú por su diseño o sus poderes?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los espíritus, pero ya hay uno con un diseño tan bonito que me ha llamado la atención de inmediato."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cien islas de contenido combinando granja, cartas, y alquimia sin sentirse recargado — de los juegos de vida más generosos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de islas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué espíritu te gustaría capturar tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      332: {
+        name: "Garden Paws",
+        summary: "Un mundo de animalitos antropomorfos donde gestionas tu propia tienda mientras cultivas y decoras una granja adorable.",
+        difficulty: "facil",
+        emoji: "🐾",
+        steamUrl: "https://store.steampowered.com/app/840010/Garden_Paws/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 332 de Retro 365, y hoy he vendido mi primera cosecha en mi propia tienda decorada con muchísimo cariño. Bienvenidos a Garden Paws."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real vendiendo productos en la tienda propia. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo de animalitos antropomorfos donde gestionas tu propia tienda mientras cultivas y decoras una granja adorable — hoy os cuento por qué combinar granja con negocio propio le da al juego una identidad clara."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 332 · GARDEN PAWS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como un pequeño animal antropomorfo, te mudas a un pueblo pintoresco para gestionar tu propia granja y una tienda personal, cultivando, criando animales, y decorando tanto tu hogar como tu negocio a tu propio gusto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo pintoresco de animales. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar tu propia tienda te permite vender lo que cultivas y fabricas directamente a otros habitantes, la personalización de tu personaje y tu hogar tiene muchísima libertad creativa, y explorar el pueblo revela misiones secundarias con distintos animales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de decoración de la tienda propia. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: decorar esta esquina de mi tienda que llevaba tiempo queriendo mejorar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara decorando la tienda con nuevos objetos. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tipo de tienda te gustaría gestionar tú si vivieras en un pueblo así de animales?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría gestionar una tienda de plantas y decoración, combinar la parte creativa con el negocio suena de lo más satisfactorio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Granja y negocio propio combinados con ternura animal por todas partes — de los juegos de vida más adorables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la tienda decorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué animal serías tú en un mundo así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      333: {
+        name: "Roots of Pacha",
+        summary: "Vives en la Edad de Piedra domesticando los primeros cultivos y animales de la historia humana — granja prehistórica y cooperativa.",
+        difficulty: "media",
+        emoji: "🦣",
+        steamUrl: "https://store.steampowered.com/app/1245560/Roots_of_Pacha/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 333 de Retro 365, y hoy he domesticado el primer animal de la historia de mi tribu. Bienvenidos a Roots of Pacha."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real domesticando un animal prehistórico. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tribal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Vives en la Edad de Piedra domesticando los primeros cultivos y animales de toda la historia humana — hoy os cuento por qué esta granja prehistórica y cooperativa se siente completamente distinta a cualquier otra."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 333 · ROOTS OF PACHA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tribal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En la aldea prehistórica de Pacha, ayudas a tu comunidad a crecer descubriendo 'ideas' innovadoras, domesticando cultivos y animales salvajes por primera vez en la historia, y construyendo los cimientos de la civilización desde cero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la aldea prehistórica de Pacha. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Descubrir nuevas ideas mejora tanto a tu personaje como a toda la aldea entera, domesticar animales salvajes por primera vez se siente como un logro histórico real, y jugar en cooperativo permite construir la aldea junto a otros jugadores."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una idea nueva descubierta beneficiando a la aldea. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: domesticar un animal salvaje real que todavía no había intentado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al intento de domesticación. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de vivir el nacimiento mismo de la agricultura y la domesticación de animales?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una premisa fascinante, le da un contexto histórico real a mecánicas que en otros juegos se dan por sentadas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una premisa prehistórica original con muchísimo respeto por la historia real — de los juegos de granja más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la aldea desarrollada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué animal te gustaría domesticar primero en la Edad de Piedra? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      334: {
+        name: "STORY OF SEASONS: Pioneers of Olive Town",
+        summary: "La saga original que inspiró a Stardew Valley sigue evolucionando, con granjas subterráneas y muchísima personalización.",
+        difficulty: "facil",
+        emoji: "🫒",
+        steamUrl: "https://store.steampowered.com/app/1392960/STORY_OF_SEASONS_Pioneers_of_Olive_Town/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 334 de Retro 365, y hoy he excavado una granja subterránea entera bajo mi propia casa. Bienvenidos a STORY OF SEASONS: Pioneers of Olive Town."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real excavando una granja subterránea. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La saga original que inspiró a Stardew Valley sigue evolucionando, ahora con granjas subterráneas y muchísima personalización — hoy os cuento por qué el origen del género sigue teniendo cosas nuevas que ofrecer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 334 · STORY OF SEASONS: PIONEERS OF OLIVE TOWN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Heredas una granja abandonada en el pueblo de Olive Town, y con la ayuda de un dron especial, la expandes de formas creativas, incluso excavando espacios subterráneos completos para cultivar y criar animales bajo tierra."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la granja heredada en Olive Town. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El dron especial permite excavar y expandir tu granja en direcciones que otros juegos de granja no permiten, criar y cabalgar animales tiene mucha profundidad real, y la saga mantiene el mismo cariño de siempre por los detalles agrícolas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando el dron para expandir la granja. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: expandir la granja real hacia una zona que todavía no había explorado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la expansión de la granja. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿conocías esta saga como el origen real del género de juegos de granja antes de Stardew Valley?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No sabía que esta saga era el origen real del género, y ahora tengo curiosidad por investigar entregas anteriores."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "El origen del género de granja sigue innovando después de tantos años — de las sagas más influyentes del panorama de simulación que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la granja expandida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sabías que esta saga fue el origen del género de granja? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      335: {
+        name: "Cozy Grove",
+        summary: "Acampas en una isla encantada mientras ayudas a fantasmas atrapados a encontrar la paz — sincronizado con el tiempo real.",
+        difficulty: "facil",
+        emoji: "👻",
+        steamUrl: "https://store.steampowered.com/app/1458100/Cozy_Grove/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 335 de Retro 365, y hoy he ayudado a un fantasma osezno a recordar su propio pasado. Bienvenidos a Cozy Grove."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una escena emotiva con un fantasma osezno. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, tierno</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Acampas en una isla encantada mientras ayudas a fantasmas atrapados a encontrar la paz, sincronizado con el tiempo real — hoy os cuento por qué esta idea de contenido diario tan pausado engancha muchísimo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 335 · COZY GROVE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tierno</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un explorador espiritual acampa en la isla encantada de Cozy Grove, ayudando a osos fantasmales atrapados a resolver sus asuntos pendientes y encontrar por fin la paz, mientras la propia isla cambia de color con cada historia resuelta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla encantada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El juego está sincronizado con el tiempo real, ofreciendo entre treinta y sesenta minutos de contenido nuevo cada día, cada oso fantasmal tiene su propia historia emotiva que resolver poco a poco, y la isla recupera color según avanzas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una misión diaria resuelta. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la misión de hoy con uno de los osos fantasmales de la isla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la misión diaria. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono emotivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos que ofrecen contenido diario limitado sincronizado con el tiempo real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustan bastante, convierten al juego en una rutina agradable en vez de una obligación de horas seguidas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Historias emotivas contadas poco a poco, día a día, sin ninguna prisa real — de los juegos más pausados y tiernos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la isla explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los juegos con contenido diario limitado? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      336: {
+        name: "My Time at Sandrock",
+        summary: "Reconstruyes un pueblo desértico post-apocalíptico como constructora, combinando crafteo, combate, y relaciones con vecinos.",
+        difficulty: "media",
+        emoji: "🏜️",
+        steamUrl: "https://store.steampowered.com/app/1084600/My_Time_at_Sandrock/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 336 de Retro 365, y hoy he construido una máquina entera con piezas rescatadas de las ruinas del desierto. Bienvenidos a My Time at Sandrock."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real construyendo una máquina con piezas rescatadas. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Reconstruyes un pueblo desértico post-apocalíptico como constructora, combinando crafteo, combate, y relaciones con vecinos — hoy os cuento por qué esta secuela expande muchísimo la fórmula de la primera entrega."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 336 · MY TIME AT SANDROCK" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como nueva constructora del pueblo desértico de Sandrock, mucho tiempo después de una catástrofe global, cumples encargos para los habitantes locales, explorando ruinas antiguas en busca de piezas y tecnología perdida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo desértico de Sandrock. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Fabricar objetos con física real de crafteo es la base de casi todos los encargos del pueblo, explorar ruinas peligrosas exige combate real contra criaturas hostiles, y las relaciones con los habitantes tienen muchísima escritura y personalidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de fabricación de un objeto complejo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: entregar este encargo importante para el pueblo, a ver qué recompensa me dan."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la recompensa del encargo. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste My Time at Portia, ¿qué te está pareciendo esta secuela ambientada en el desierto?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo una evolución muy sólida, con un pueblo y unos personajes que se sienten todavía más trabajados que en el original."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Crafteo, combate, y relaciones combinados con muchísima personalidad propia — de los juegos de vida más completos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del taller construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué fabricarías tú primero en un pueblo desértico así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      337: {
+        name: "Kynseed",
+        summary: "Un árbol mágico marca tu destino desde niño hasta anciano — vida, familia, y negocio propio en un mundo con envejecimiento real.",
+        difficulty: "media",
+        emoji: "🌰",
+        steamUrl: "https://store.steampowered.com/app/758870/Kynseed/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 337 de Retro 365, y hoy mi propio personaje ha envejecido de verdad, con canas incluidas. Bienvenidos a Kynseed."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del personaje envejecido con canas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un árbol mágico marca tu destino desde niño hasta anciano — hoy os cuento por qué la vida, la familia, y un negocio propio en un mundo con envejecimiento real cambian por completo la fórmula habitual del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 337 · KYNSEED" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Marcado por un árbol mágico llamado Kynseed desde niño, vives una vida entera en el pueblo de Little Marsh, gestionando tu propia granja y negocio, formando una familia, y viendo cómo tu personaje envejece de verdad con el paso del tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo de Little Marsh. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El envejecimiento real de tu personaje afecta a las decisiones vitales que puedes tomar en cada etapa, gestionar un negocio propio da vida al pueblo entero, y formar una familia añade generaciones nuevas de personajes jugables con el tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión del negocio propio. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión vital real que va a afectar al resto de la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión vital. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono reflexivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de un juego de vida donde tu personaje envejece de verdad con el tiempo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una idea muy valiente, le da un peso emocional real a decisiones que en otros juegos de vida no tienen ninguna consecuencia."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una vida entera contada con envejecimiento real y generaciones familiares — de los juegos de vida más ambiciosos y originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del negocio gestionado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué negocio te gustaría gestionar tú a lo largo de toda una vida? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      338: {
+        name: "HARVESTELLA",
+        summary: "JRPG de Square Enix con granja y combate en tiempo real — cada estación trae una calamidad propia que hay que sobrevivir.",
+        difficulty: "media",
+        emoji: "🌾",
+        steamUrl: "https://store.steampowered.com/app/1816300/HARVESTELLA/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 338 de Retro 365, y hoy he tenido que refugiarme de una calamidad estacional real antes de que arrasara mi propia granja. Bienvenidos a HARVESTELLA."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real refugiándose de una calamidad estacional. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un JRPG de Square Enix con granja y combate en tiempo real — hoy os cuento por qué cada estación del año trae una calamidad propia que hay que sobrevivir de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 338 · HARVESTELLA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un mundo fantástico amenazado por calamidades estacionales cada vez más destructivas, cultivas tu propia granja mientras te unes a un grupo de aventureros para investigar el origen real de estos fenómenos y detenerlos antes de que sea tarde."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo fantástico entre calamidades. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate en tiempo real usa distintas clases de trabajo con estilos propios de pelea, gestionar la granja se combina con mazmorras y una historia principal con mucho peso narrativo, y cada calamidad estacional exige prepararse con antelación real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando una clase de trabajo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: prepararme para la calamidad real que se acerca con el tiempo que me queda."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta la calamidad en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la calamidad</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece combinar la tranquilidad de un juego de granja con la urgencia real de una calamidad estacional?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un contraste muy interesante, le da a la rutina tranquila de la granja una razón real para sentirse urgente de vez en cuando."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Granja tranquila y JRPG urgente combinados con mucha ambición narrativa — de las propuestas más originales de Square Enix que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la granja y el combate del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué clase de trabajo elegirías tú para combatir? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      339: {
+        name: "Dinkum",
+        summary: "Supervivencia y granja inspirada en el outback australiano, gestionando tu propio pueblo con muchísima libertad de construcción.",
+        difficulty: "media",
+        emoji: "🦘",
+        steamUrl: "https://store.steampowered.com/app/1062520/Dinkum/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 339 de Retro 365, y hoy un canguro me ha atacado por acercarme demasiado a su territorio en pleno outback. Bienvenidos a Dinkum."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un canguro atacando al jugador. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, australiano</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Supervivencia y granja inspirada directamente en el outback australiano — hoy os cuento por qué gestionar tu propio pueblo aquí viene con muchísima libertad de construcción real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 339 · DINKUM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, australiano</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Llegas a una isla remota inspirada en el outback australiano para fundar un pueblo desde cero, explorando, cazando fauna local, cultivando, y decidiendo tú mismo cómo construir y expandir el pueblo entero según avanza tu aventura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla inspirada en el outback. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La fauna local del outback, desde canguros hasta cocodrilos, tiene comportamientos propios que aprender a base de encuentros, construir el pueblo tiene una libertad casi total de diseño, y explorar minas y cuevas añade su propia capa de aventura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real construyendo una zona del pueblo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: explorar una zona de cuevas real que todavía no había investigado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara explorando la zona de cuevas. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión suave</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué animal del outback australiano te parece más interesante o más peligroso?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parecen fascinantes los canguros, aunque este juego me ha recordado que no hay que subestimarlos para nada."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ambientación australiana única con muchísima libertad de construcción real — de los survival de granja más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del pueblo construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué animal del outback te gustaría encontrarte? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      340: {
+        name: "Wylde Flowers",
+        summary: "Descubres que eres una bruja de verdad mientras gestionas la granja de tu abuela — magia, romance, y actores de voz reconocidos.",
+        difficulty: "facil",
+        emoji: "🔮",
+        steamUrl: "https://store.steampowered.com/app/1896700/Wylde_Flowers/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 340 de Retro 365, y hoy he descubierto que soy literalmente una bruja mientras cuidaba la granja de mi abuela. Bienvenidos a Wylde Flowers."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del descubrimiento de poderes mágicos. <strong>🎬 Producción:</strong> SFX real del juego (magia) · corte duro · BGM: sting corto, mágico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Descubres que eres una bruja de verdad mientras gestionas la granja de tu abuela — hoy os cuento por qué la magia, el romance, y unos actores de voz reconocidos hacen de este juego una sorpresa real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 340 · WYLDE FLOWERS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mágico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tara vuelve a la isla de Fairhaven para cuidar de la granja de su abuela, descubriendo que pertenece a un aquelarre secreto de brujas locales, y aprendiendo a usar magia real mientras gestiona la granja y conoce a los habitantes de la isla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla de Fairhaven. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Aprender hechizos nuevos ayuda tanto en la granja como en misterios locales de la isla, las relaciones románticas están dobladas con actores de voz de verdad reconocidos, y la historia principal sobre el aquelarre da un hilo narrativo fuerte a todo el juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando un hechizo en la granja. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una conversación real con un personaje que puede llevar a un romance."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la conversación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono romántico</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría descubrir que eres parte de un aquelarre secreto de brujas como le pasa a Tara?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría, aunque imagino que tardaría un buen rato en acostumbrarme a tener poderes mágicos reales de la nada."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Magia, romance, y una granja con mucho corazón real — de los juegos de vida con mejor doblaje que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la granja mágica del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué hechizo te gustaría aprender tú si fueras una bruja de verdad? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      341: {
+        name: "Coral Island",
+        summary: "Cierre de tanda: granja tropical reimaginada con multijugador, donde limpiar el arrecife de coral importa tanto como cultivar la tierra.",
+        difficulty: "facil",
+        emoji: "🐠",
+        steamUrl: "https://store.steampowered.com/app/1158160/Coral_Island/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 341 de Retro 365, cierre de esta tanda, y hoy he limpiado un tramo entero de arrecife de coral contaminado. Bienvenidos a Coral Island."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real limpiando el arrecife de coral. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tropical</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una granja tropical reimaginada con multijugador, donde limpiar el arrecife de coral importa tanto como cultivar la tierra — hoy os cuento por qué esta capa submarina le da al género algo realmente nuevo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 341 · CORAL ISLAND" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tropical</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Llegas a la isla tropical de Coral Island para restaurar la granja familiar, cultivando junto a la superficie mientras te sumerges a limpiar y restaurar el arrecife de coral contaminado, conociendo también al misterioso Reino de las Sirenas bajo el agua."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla tropical. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Bucear para restaurar el arrecife de coral añade una dimensión ecológica poco habitual en el género, jugar en multijugador permite compartir la granja entera con amigos, y el elenco de personajes diverso tiene muchísima personalidad propia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de buceo restaurando el arrecife. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona del arrecife real que todavía necesita bastante restauración."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al estado del arrecife. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te preocupa la salud real de los arrecifes de coral en el mundo, o este juego te ha hecho pensar más en el tema?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Este juego me ha hecho pensar bastante más en el tema, es un mensaje ecológico bien integrado sin sentirse forzado en ningún momento."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Granja tropical con una conciencia ecológica real de fondo — cierre perfecto para esta tanda de juegos de vida de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del arrecife restaurado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustaría bucear para restaurar un arrecife de coral de verdad? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 327: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 342: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
