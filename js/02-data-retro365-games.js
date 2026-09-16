@@ -10805,7 +10805,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Te gustaría bucear para restaurar un arrecife de coral de verdad? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      342: {
+        name: "Monster Sanctuary",
+        summary: "Metroidvania de captura de monstruos con combate táctico por turnos usando tres criaturas a la vez en un mismo equipo.",
+        difficulty: "media",
+        emoji: "🐉",
+        steamUrl: "https://store.steampowered.com/app/814370/Monster_Sanctuary/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 342 de Retro 365, tanda nueva, y hoy he combinado tres monstruos en el mismo equipo con una sinergia que ni yo mismo esperaba. Bienvenidos a Monster Sanctuary."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una sinergia entre tres monstruos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania de captura de monstruos con combate táctico por turnos usando tres criaturas a la vez en el mismo equipo — hoy os cuento por qué combinar exploración con estrategia de monstruos funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 342 · MONSTER SANCTUARY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como Guardián de Monstruos en entrenamiento, exploras un mundo interconectado capturando y entrenando criaturas mágicas, formando equipos de tres monstruos con sinergias tácticas para superar combates cada vez más exigentes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo interconectado del santuario. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada monstruo tiene un árbol de habilidades enorme para personalizar su rol en combate, combinar tres monstruos con sinergias elementales cambia por completo la estrategia de cada batalla, y la exploración del mapa premia volver con habilidades nuevas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico con sinergias. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real que necesita una combinación de monstruos que todavía no había probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación de monstruos. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tres monstruos combinarías tú en tu propio equipo si pudieras elegir?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los monstruos, pero ya he encontrado una combinación de tres que se complementa de una forma bastante rota."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Exploración y estrategia de monstruos combinadas con muchísima profundidad — de los metroidvania más originales del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué tres monstruos combinarías tú en un equipo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      343: {
+        name: "Halls of Torment",
+        summary: "Horda de monstruos con estética retro isométrica al estilo Diablo — sobrevivir oleadas se siente como un clásico de los 90 recuperado.",
+        difficulty: "media",
+        emoji: "🏰",
+        steamUrl: "https://store.steampowered.com/app/2218750/Halls_of_Torment/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 343 de Retro 365, y hoy he sobrevivido a una horda tan grande que la pantalla entera era solo enemigos. Bienvenidos a Halls of Torment."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una horda masiva de enemigos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, gótico retro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Horda de monstruos con estética retro isométrica al estilo de los clásicos Diablo — hoy os cuento por qué sobrevivir a oleadas aquí se siente como un clásico de los 90 recuperado con mecánicas modernas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 343 · HALLS OF TORMENT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gótico retro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Desciendes a los Salones del Tormento, un inframundo gótico gobernado por señores demoníacos, sobreviviendo a oleadas cada vez más numerosas de monstruos mientras acumulas poder para enfrentarte a los jefes finales de cada nivel."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el inframundo gótico. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada clase de personaje tiene un estilo de combate automático distinto, acumular experiencia y mejoras en tiempo real hace que tu poder crezca exponencialmente, y la estética isométrica retro le da al género de horda una identidad visual única."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un personaje acumulando poder en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe final de este nivel, a ver si mi build aguanta el combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al combate contra el jefe. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta estética retro isométrica aplicada al género de sobrevivir hordas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un acierto total, le da al género una personalidad visual muy distinta a la mayoría de sus competidores."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Nostalgia isométrica con un ritmo de horda moderno muy bien ejecutado — de los juegos de sobrevivir oleadas más originales visualmente que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los juegos con estética retro isométrica como este? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      344: {
+        name: "Brotato",
+        summary: "Una patata alienígena empuña hasta seis armas a la vez contra oleadas de enemigos — caos absurdo con muchísima variedad de builds.",
+        difficulty: "media",
+        emoji: "🥔",
+        steamUrl: "https://store.steampowered.com/app/1942280/Brotato/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 344 de Retro 365, y hoy una patata con seis armas encima ha aniquilado una oleada entera de alienígenas. Bienvenidos a Brotato."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la patata con seis armas en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una patata alienígena empuña hasta seis armas a la vez contra oleadas de enemigos — hoy os cuento por qué este caos absurdo esconde una variedad de builds sorprendentemente profunda."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 344 · BROTATO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como la última patata superviviente en un planeta alienígena hostil, sobrevives a oleadas de enemigos cronometradas, comprando armas y objetos entre ronda y ronda para construir el build más rentable posible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la tienda entre rondas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje de patata tiene una especialización distinta de armas y estadísticas, combinar hasta seis armas del mismo tipo puede crear builds absurdamente rotos, y cada ronda cronometrada exige sobrevivir con lo que tengas equipado en ese momento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una ronda de combate frenética. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una ronda real donde mi build necesita sobrevivir hasta el final del contador."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo de la ronda en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según pasa el tiempo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál ha sido el build más absurdo que has conseguido armar hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he armado el build más absurdo del todo, pero ya he tenido una ronda donde me sentía prácticamente invencible."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una premisa absurda con una profundidad de builds que no te esperas — de los juegos de sobrevivir oleadas más adictivos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué seis armas combinarías tú en un build así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      345: {
+        name: "20 Minutes Till Dawn",
+        summary: "Sobrevivir a un horror lovecraftiano con puntería manual en vez de disparo automático — cada bala requiere precisión real.",
+        difficulty: "media",
+        emoji: "🌙",
+        steamUrl: "https://store.steampowered.com/app/1966900/20_Minutes_Till_Dawn/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 345 de Retro 365, y hoy he apuntado manualmente a una criatura lovecraftiana justo antes de que me alcanzara. Bienvenidos a 20 Minutes Till Dawn."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un disparo manual preciso. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Sobrevives a un horror lovecraftiano con puntería manual en vez de disparo automático — hoy os cuento por qué cada bala aquí requiere precisión real, a diferencia de la mayoría de juegos similares."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 345 · 20 MINUTES TILL DAWN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Antes del amanecer, tienes que sobrevivir veinte minutos completos contra hordas de criaturas lovecraftianas nocturnas, apuntando manualmente con el ratón mientras te mueves y esquivas en tiempo real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el escenario nocturno. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Apuntar manualmente exige mucha más habilidad real que el disparo automático de otros juegos similares, cada personaje tiene armas y hechizos distintos que combinar, y sobrevivir a los veinte minutos completos se siente como un logro real y ganado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate esquivando y apuntando manualmente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: los últimos minutos reales antes del amanecer, sin ningún margen de error."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta el amanecer en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca el amanecer</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿prefieres el disparo automático o la puntería manual en este tipo de juegos?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Prefiero la puntería manual, le da al género una capa de habilidad real que el disparo automático no consigue igualar."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puntería manual que exige habilidad real en un género dominado por el disparo automático — de las propuestas más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Disparo automático o puntería manual, qué prefieres tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      346: {
+        name: "Soulstone Survivors",
+        summary: "Aniquilas hordas gigantescas con más de doscientas habilidades combinables — jefes colosales y un poder que crece exponencialmente.",
+        difficulty: "media",
+        emoji: "💀",
+        steamUrl: "https://store.steampowered.com/app/2066020/Soulstone_Survivors/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 346 de Retro 365, y hoy he aniquilado una horda tan grande que ya no distinguía mi propio personaje entre tantos efectos visuales. Bienvenidos a Soulstone Survivors."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una horda masiva aniquilada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Aniquilas hordas gigantescas con más de doscientas habilidades combinables — hoy os cuento por qué los jefes colosales y un poder que crece exponencialmente hacen de este uno de los mejores del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 346 · SOULSTONE SURVIVORS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como guerrero forjando su propio destino, te enfrentas a oleadas interminables de enemigos y jefes colosales, acumulando poder exponencial gracias a más de doscientas habilidades combinables entre sí de formas cada vez más creativas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el escenario antes de la horda. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada clase tiene un árbol de habilidades propio para especializarse, combinar habilidades de formas creativas puede crear sinergias absurdamente poderosas, y los jefes colosales exigen builds bien pensados para poder derrotarlos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra un jefe colosal. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe colosal de esta run, a ver si mi build aguanta el combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la escala del jefe colosal. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué habilidad combinarías tú primero si tuvieras doscientas opciones para elegir?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he probado ni la mitad de las habilidades, pero ya he encontrado una combinación que se siente ridículamente poderosa."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Escala y variedad llevadas al extremo dentro del género de sobrevivir hordas — de las propuestas más ambiciosas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del jefe derrotado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué habilidad te gustaría tener tú de las doscientas disponibles? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      347: {
+        name: "Nova Drift",
+        summary: "Nave espacial roguelite con más de una década de desarrollo comunitario — combina mods de nave hasta crear builds imposibles.",
+        difficulty: "media",
+        emoji: "🚀",
+        steamUrl: "https://store.steampowered.com/app/858210/Nova_Drift/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 347 de Retro 365, y hoy mi nave espacial ha acabado disparando proyectiles que ni yo mismo entiendo del todo. Bienvenidos a Nova Drift."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una nave con disparos combinados extraños. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, espacial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una nave espacial roguelite con más de una década de desarrollo comunitario detrás — hoy os cuento por qué combinar mods de nave hasta crear builds imposibles es la esencia real de este juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 347 · NOVA DRIFT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, espacial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Pilotas tu propia nave espacial en un campo de asteroides infinito, sobreviviendo a oleadas de enemigos mientras eliges mods de nave cada vez más extraños que combinan armas, defensas, y sistemas de propulsión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el campo de asteroides. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada mod de nave se puede combinar con otros de formas que a veces ni los propios desarrolladores esperaban, la profundidad de personalización acumulada tras años de desarrollo es enorme, y cada partida se siente completamente distinta según los mods elegidos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una combinación de mods extraña funcionando. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un mod de nave real que no sé cómo va a combinar con lo que ya tengo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado de la combinación. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te sorprende que un juego lleve más de una década de desarrollo comunitario constante?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me sorprende muchísimo, se nota la cantidad de cariño y feedback acumulado en cada pequeño detalle del juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Más de una década de personalización acumulada en una sola nave espacial — de los roguelike más profundos y trabajados que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la nave construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué combinación de mods te gustaría probar en una nave así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      348: {
+        name: "Skul: The Hero Slayer",
+        summary: "Un esqueleto guerrero cambia de cráneo en tiempo real para adoptar habilidades completamente distintas en pleno combate.",
+        difficulty: "dificil",
+        emoji: "💀",
+        steamUrl: "https://store.steampowered.com/app/1147560/Skul_The_Hero_Slayer/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 348 de Retro 365, y hoy he cambiado de cráneo en mitad de un combate para sobrevivir por los pelos. Bienvenidos a Skul: The Hero Slayer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un cambio de cráneo en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un esqueleto guerrero cambia de cráneo en tiempo real para adoptar habilidades completamente distintas en pleno combate — hoy os cuento por qué esta idea tan rara da una flexibilidad táctica enorme."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 348 · SKUL: THE HERO SLAYER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Skul, un pequeño esqueleto guerrero, se enfrenta en solitario al ejército imperial humano para rescatar a su rey capturado, cambiando entre distintos cráneos recolectados que le dan habilidades y estilos de combate completamente diferentes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mapa generado al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada cráneo recolectado tiene un estilo de combate y habilidades únicas para intercambiar en tiempo real, combinar dos cráneos distintos permite alternar tácticas según la situación del combate, y cada run genera un mapa y enemigos distintos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate alternando entre dos cráneos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando toda la sesión, con este cráneo nuevo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál ha sido el cráneo más divertido o más roto que has conseguido hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo cráneos distintos, pero ya hay uno con un estilo de combate tan raro que se ha convertido en mi favorito."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una mecánica de intercambio en tiempo real que da una variedad enorme de estilos de juego — de los roguelike de plataformas más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué cráneo o habilidad rara te gustaría tener tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      349: {
+        name: "Curse of the Dead Gods",
+        summary: "Explorador maldito acumula corrupción real mientras busca la inmortalidad en un templo lleno de trampas y oro maldito.",
+        difficulty: "dificil",
+        emoji: "🗿",
+        steamUrl: "https://store.steampowered.com/app/1123770/Curse_of_the_Dead_Gods/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 349 de Retro 365, y hoy mi propia codicia por el oro maldito casi me cuesta la partida entera. Bienvenidos a Curse of the Dead Gods."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una acumulación de corrupción por codicia. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un explorador maldito acumula corrupción real mientras busca la inmortalidad en un templo lleno de trampas y oro maldito — hoy os cuento por qué la codicia aquí tiene un coste real y medible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 349 · CURSE OF THE DEAD GODS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un explorador solitario se adentra en un templo maldito buscando la inmortalidad real, luchando contra criaturas oscuras y esquivando trampas mortales, mientras la propia codicia por el oro del templo va corrompiendo su cuerpo poco a poco."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el templo maldito lleno de trampas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate exige esquivas y bloqueos precisos con distintas armas, la corrupción acumulada por la codicia otorga poder real pero también maldiciones peligrosas, y purificarse en antorchas sagradas exige un sacrificio real de recursos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra una criatura oscura del templo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: decidir si acepto más corrupción real a cambio de poder extra."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión de corrupción. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te arriesgarías a corromperte a cambio de más poder, o preferirías mantenerte puro aunque seas más débil?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me arriesgaría con moderación, un poco de corrupción a cambio de poder real puede valer la pena si se gestiona con cuidado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Codicia con consecuencias reales convertida en el corazón del riesgo del juego — de los roguelike de acción más inteligentes en su diseño que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del templo explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te arriesgarías por más poder aunque tuviera un coste real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      350: {
+        name: "Death Must Die",
+        summary: "Héroes guiados por un panteón de dioses se enfrentan directamente a la Muerte en persona — bendiciones divinas contra el fin de todo.",
+        difficulty: "dificil",
+        emoji: "☠️",
+        steamUrl: "https://store.steampowered.com/app/2334730/Death_Must_Die/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 350 de Retro 365, y hoy me he enfrentado literalmente a la Muerte en persona con la bendición de todo un panteón de dioses. Bienvenidos a Death Must Die."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra la Muerte. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Héroes guiados por un panteón de dioses se enfrentan directamente a la Muerte en persona — hoy os cuento por qué combinar bendiciones divinas contra el fin de todo es tan épico como suena."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 350 · DEATH MUST DIE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Héroes de un mundo de fantasía se alzan contra la Muerte misma, guiados por las bendiciones de un panteón entero de dioses, sobreviviendo a oleadas cada vez más numerosas para acumular poder suficiente y desafiar a la propia Muerte."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el escenario antes de la horda. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada dios del panteón otorga bendiciones con estilos y sinergias propias, combinar bendiciones de distintos dioses crea builds únicos cada partida, y el combate final contra la Muerte exige haber acumulado poder real durante toda la run."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando bendiciones combinadas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el enfrentamiento real contra la Muerte, a ver si mi build está a la altura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al combate contra la Muerte. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿a qué dios del panteón le pedirías tú una bendición si tuvieras que enfrentarte a la Muerte de verdad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Le pediría una bendición a un dios de la guerra, en un combate así de definitivo prefiero ir directo al ataque."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un enfrentamiento literal contra la Muerte con muchísima escala mitológica — de los roguelike más épicos en su premisa que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del combate final del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué bendición divina te gustaría tener tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      351: {
+        name: "Neon Abyss",
+        summary: "Roguelite de disparos con sinergias de objetos ilimitadas y una mazmorra que evoluciona según tus propias decisiones.",
+        difficulty: "dificil",
+        emoji: "🌈",
+        steamUrl: "https://store.steampowered.com/app/788100/Neon_Abyss/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 351 de Retro 365, y hoy he desbloqueado una sinergia de objetos tan absurda que ni yo entendía lo que estaba pasando en pantalla. Bienvenidos a Neon Abyss."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una sinergia de objetos absurda. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelite de disparos con sinergias de objetos prácticamente ilimitadas y una mazmorra que evoluciona según tus propias decisiones — hoy os cuento por qué cada partida se siente genuinamente distinta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 351 · NEON ABYSS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un inframundo gobernado por dioses griegos convertidos en jefes finales, corres y disparas a través de mazmorras generadas al azar, acumulando objetos y huevos de mascotas que cambian por completo tu forma de jugar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la mazmorra generada al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada objeto acumulado puede combinarse con otros de formas que crean sinergias absurdas y poderosas, las decisiones que tomas afectan a cómo evoluciona la propia mazmorra, y enfrentarte a jefes basados en dioses griegos da un tono muy particular al juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un jefe basado en un dios griego. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión real que va a cambiar cómo evoluciona la mazmorra a partir de ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué dios griego te gustaría enfrentarte como jefe final en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría enfrentarme a algún dios menos conocido de la mitología, siempre tienen historias más raras y menos explotadas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Sinergias absurdas y una mazmorra que reacciona a tus propias decisiones — de los roguelite de disparos más creativos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué dios griego te gustaría enfrentarte como jefe? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      352: {
+        name: "Ravenswatch",
+        summary: "Héroes de cuentos clásicos como Caperucita o el Flautista se enfrentan a pesadillas en un roguelike cooperativo de acción.",
+        difficulty: "dificil",
+        emoji: "📖",
+        steamUrl: "https://store.steampowered.com/app/2071280/Ravenswatch/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 352 de Retro 365, y hoy Caperucita Roja me ha salvado de una pesadilla con un hacha gigante. Bienvenidos a Ravenswatch."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un héroe de cuento en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, fantástico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Héroes de cuentos clásicos como Caperucita o el Flautista de Hamelín se enfrentan a pesadillas en un roguelike cooperativo de acción — hoy os cuento por qué esta reinterpretación oscura de los cuentos funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 352 · RAVENSWATCH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, fantástico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Héroes reinterpretados de cuentos y leyendas clásicas, desde Caperucita hasta el Flautista de Hamelín, se unen contra una amenaza de pesadillas que invade su mundo compartido, luchando en solitario o en cooperativo por toda la noche."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo oscuro de cuentos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada héroe de cuento tiene habilidades reinterpretadas de forma oscura y original, jugar en cooperativo permite combinar habilidades de distintos héroes en el mismo equipo, y el mundo cambia según decisiones tomadas durante la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate cooperativo entre héroes de cuento. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real usando la habilidad reinterpretada de este héroe de cuento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la habilidad reinterpretada. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué personaje de cuento te gustaría ver reinterpretado como héroe de acción?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría ver una reinterpretación oscura de algún personaje menos conocido de los cuentos clásicos españoles."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cuentos clásicos reinterpretados con muchísima acción y oscuridad — de los roguelike cooperativos más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué personaje de cuento te gustaría jugar como héroe de acción? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      353: {
+        name: "Void Bastards",
+        summary: "Prisioneros espaciales desechables exploran naves abandonadas con un estilo de cómic muy marcado y humor británico afilado.",
+        difficulty: "media",
+        emoji: "🛸",
+        steamUrl: "https://store.steampowered.com/app/857980/Void_Bastards/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 353 de Retro 365, y hoy un prisionero desechable ha muerto de la forma más ridícula posible y ni el propio juego se ha inmutado. Bienvenidos a Void Bastards."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una muerte cómica de un prisionero. <strong>🎬 Producción:</strong> SFX cómico real del juego · corte duro · BGM: sting corto, absurdo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Prisioneros espaciales desechables exploran naves abandonadas con un estilo de cómic muy marcado y humor británico afilado — hoy os cuento por qué morir aquí forma parte del propio chiste."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 353 · VOID BASTARDS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, absurdo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Prisioneros desechables de una corporación despiadada son enviados a explorar naves espaciales abandonadas en busca de recursos, sabiendo que morir simplemente significa continuar la misión con el siguiente prisionero de la lista."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una nave espacial abandonada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nave abandonada esconde recursos, enemigos mutados, y peligros distintos que explorar con cuidado, el estilo visual de cómic con colores planos le da al juego una identidad muy propia, y el humor negro británico está presente en cada diálogo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra enemigos mutados en la nave. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: explorar esta nave real sin saber qué mutación me voy a encontrar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la mutación encontrada. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que un juego trate la muerte de tu propio personaje como un chiste recurrente?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un enfoque muy inteligente, quita presión real a morir y convierte el propio fracaso en parte de la diversión."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Humor negro británico con un estilo visual muy marcado — de los shooters roguelike más originales en su tono que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de naves exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo sería tu prisionero desechable ideal? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      354: {
+        name: "Ziggurat 2",
+        summary: "Shooter roguelite en primera persona con magos que combinan armas mágicas y hechizos en mazmorras laberínticas caóticas.",
+        difficulty: "dificil",
+        emoji: "🔮",
+        steamUrl: "https://store.steampowered.com/app/1159560/Ziggurat_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 354 de Retro 365, y hoy he combinado dos hechizos de formas tan raras que ha explotado media mazmorra a la vez. Bienvenidos a Ziggurat 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una explosión mágica combinada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, mágico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter roguelite en primera persona con magos que combinan armas mágicas y hechizos en mazmorras laberínticas caóticas — hoy os cuento por qué el ritmo frenético aquí no da ni un segundo de respiro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 354 · ZIGGURAT 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mágico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como mago aspirante, te abres paso a través de mazmorras laberínticas generadas al azar, usando armas mágicas cada vez más extrañas y hechizos combinables para sobrevivir a hordas de criaturas hostiles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una mazmorra laberíntica generada al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada arma mágica tiene un estilo de disparo completamente distinto y absurdo, combinar hechizos activos con armas pasivas crea builds caóticos y poderosos, y el ritmo del combate se mantiene frenético en todo momento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate frenético usando armas mágicas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una sala real llena de enemigos, a ver si mi combinación de hechizos aguanta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la sala de enemigos. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué combinación de hechizos y armas mágicas te gustaría probar tú en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría probar una combinación centrada en explosiones en cadena, el caos visual que generaría sería bastante satisfactorio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Magia caótica y ritmo frenético combinados sin dar ningún respiro — de los shooters roguelite más locos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la mazmorra explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué combinación de magia probarías tú primero? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      355: {
+        name: "The Binding of Isaac: Rebirth",
+        summary: "El roguelike que redefinió el género — un niño llora mientras explora un sótano lleno de horrores generados de forma distinta cada vez.",
+        difficulty: "dificil",
+        emoji: "😢",
+        steamUrl: "https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 355 de Retro 365, y hoy he encontrado un objeto tan roto que he limpiado el piso entero en cuestión de segundos. Bienvenidos a The Binding of Isaac: Rebirth."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un objeto roto limpiando un piso rápido. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, inquietante</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El roguelike que redefinió el género entero — hoy os cuento por qué un niño llorando mientras explora un sótano lleno de horrores generados de forma distinta cada vez sigue siendo una referencia absoluta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 355 · THE BINDING OF ISAAC: REBIRTH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, inquietante</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Isaac, un niño pequeño que huye de su propia madre bajo la influencia de una visión religiosa perturbadora, se esconde en el sótano de su casa, enfrentándose a criaturas grotescas generadas de forma distinta cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el sótano generado al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada objeto recolectado puede combinarse con cientos de otros de formas absurdas e impredecibles, cada run genera mazmorras, enemigos, y objetos completamente distintos, y la temática oscura y perturbadora del juego no se anda con rodeos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate usando objetos combinados. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe de este piso, a ver si mi build de objetos aguanta el combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿conocías este juego como el origen del género roguelike moderno antes de otros títulos similares?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Sabía que era una referencia importante, pero jugándolo ahora entiendo mucho mejor por qué tantos juegos actuales le deben tanto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "El origen real de gran parte del roguelike moderno, con una temática oscura muy personal — de los juegos más influyentes del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías este juego como el origen del roguelike moderno? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      356: {
+        name: "Boneraiser Minions",
+        summary: "Cierre de tanda: un nigromante recluta un ejército entero de minions esqueléticos en vez de luchar directamente él mismo.",
+        difficulty: "media",
+        emoji: "🦴",
+        steamUrl: "https://store.steampowered.com/app/1944570/Boneraiser_Minions/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 356 de Retro 365, cierre de esta tanda, y hoy mi ejército entero de esqueletos ha limpiado una horda sin que yo tocara un arma. Bienvenidos a Boneraiser Minions."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del ejército de esqueletos en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, gótico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un nigromante recluta un ejército entero de minions esqueléticos en vez de luchar directamente él mismo — hoy os cuento por qué esta idea invierte por completo la fórmula habitual del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 356 · BONERAISER MINIONS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gótico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un nigromante usa los huesos de héroes caídos para levantar un ejército entero de esqueletos minions, sobreviviendo a la cruzada del Rey Gigald reclutando y mejorando cada vez más minions en vez de combatir en primera línea."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el escenario reclutando minions. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada minion esquelético tiene un rol distinto en el ejército, desde ataque directo hasta soporte, gestionar un ejército automático en vez de un solo personaje cambia por completo el estilo de juego, y las reliquias y hechizos potencian a todo el ejército a la vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un ejército de minions mejorado en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una horda real que mi ejército de minions va a intentar aniquilar por sí solo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al ejército actuando por sí solo. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿preferirías luchar tú mismo directamente, o gestionar un ejército de minions como en este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Preferiría gestionar el ejército sin dudarlo, hay algo satisfactorio en ver a tus propias creaciones hacer el trabajo sucio por ti."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un auto-battler gótico que invierte la fórmula habitual del género con muchísimo acierto — cierre perfecto para esta tanda de sobrevivir hordas de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del ejército gestionado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Preferirías luchar tú mismo o gestionar un ejército de esqueletos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 342: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 357: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
