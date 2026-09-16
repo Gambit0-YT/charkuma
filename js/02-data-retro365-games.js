@@ -8885,7 +8885,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Con quién jugarías tú a un juego de reflejos así de rápido? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      282: {
+        name: "Bloodstained: Ritual of the Night",
+        summary: "Sucesor espiritual directo de Castlevania, con una heroína que se convierte en cristal y un castillo gótico gigante por explorar.",
+        difficulty: "media",
+        emoji: "💎",
+        steamUrl: "https://store.steampowered.com/app/692850/Bloodstained_Ritual_of_the_Night/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 282 de Retro 365, tanda nueva, y hoy he sentido que estaba jugando a un Castlevania nuevo de verdad. Bienvenidos a Bloodstained: Ritual of the Night."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando el castillo gótico. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, gótico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El sucesor espiritual directo de Castlevania, con una heroína cuyo cuerpo se va cristalizando poco a poco, y un castillo gótico gigante por explorar — hoy os cuento por qué esto se siente como el Castlevania que muchos llevaban años pidiendo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 282 · BLOODSTAINED: RITUAL OF THE NIGHT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gótico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Miriam, huérfana marcada por una maldición alquímica que va cristalizando lentamente su cuerpo, se adentra en un castillo gótico gigante controlado por demonios, buscando una cura antes de que la maldición la consuma por completo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona nueva del castillo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Absorber almas de demonios derrotados te da nuevas habilidades y hechizos que combinar libremente, la exploración no lineal del castillo premia volver atrás con nuevas capacidades, y el crafteo de objetos añade una capa extra de profundidad al RPG."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando una habilidad absorbida de un enemigo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona nueva del castillo que necesita una habilidad que acabo de conseguir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la nueva zona accesible. <strong>🎬 Producción:</strong> SFX de descubrimiento · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste algún Castlevania clásico, ¿qué te parece este sucesor espiritual tan directo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un homenaje hecho con muchísimo respeto, se nota que quien lo hizo entendía perfectamente qué hacía especial a esos clásicos."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania gótico con toda la fórmula clásica bien resuelta — de los mejores homenajes directos que existen en el género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del castillo explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu Castlevania favorito de siempre? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      283: {
+        name: "Salt and Sanctuary",
+        summary: "Metroidvania en 2D con la exigencia y atmósfera de un souls-like, en un reino maldito lleno de cultos y monstruos grotescos.",
+        difficulty: "dificil",
+        emoji: "⚓",
+        steamUrl: "https://store.steampowered.com/app/283640/Salt_and_Sanctuary/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 283 de Retro 365, y hoy un culto entero me ha recordado por qué este juego tiene fama de durísimo. Bienvenidos a Salt and Sanctuary."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra un grupo de culto. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania en 2D con toda la exigencia y atmósfera de un souls-like, en un reino maldito lleno de cultos y monstruos grotescos — hoy os cuento por qué la mezcla de ambos géneros funciona a la perfección."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 283 · SALT AND SANCTUARY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tras naufragar escoltando a una princesa, despiertas en una isla maldita gobernada por cultos religiosos corruptos y criaturas monstruosas, explorando un reino en 2D interconectado con la misma exigencia que un souls-like clásico."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla maldita. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate exige gestión real de resistencia y posicionamiento como en cualquier souls-like, morir deja tus recursos en el lugar de la muerte, recuperables si sobrevives a volver, y explorar el mapa interconectado recompensa la paciencia y la memoria."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate exigente contra un jefe. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado matando hasta ahora, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan más los souls-like en 3D, o esta versión en 2D te convence igual o más?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me convence igual o más en 2D, la claridad visual del combate se agradece incluso siendo igual de exigente."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Toda la exigencia de un souls-like traducida perfectamente al 2D — de los metroidvania más duros y atmosféricos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Souls-like en 2D o en 3D, cuál prefieres tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      284: {
+        name: "ENDER LILIES: Quietus of the Knights",
+        summary: "Una sacerdotisa purifica caballeros corrompidos por una lluvia maldita, en un metroidvania tan bonito como melancólico.",
+        difficulty: "dificil",
+        emoji: "🕊️",
+        steamUrl: "https://store.steampowered.com/app/1369630/ENDER_LILIES_Quietus_of_the_Knights/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 284 de Retro 365, y hoy he purificado a un caballero corrompido y no he podido evitar sentir pena por él. Bienvenidos a ENDER LILIES: Quietus of the Knights."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una purificación emotiva. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, melancólico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una sacerdotisa purifica caballeros corrompidos por una lluvia maldita, en un metroidvania tan bonito como melancólico — hoy os cuento por qué cada jefe purificado se siente como un pequeño duelo personal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 284 · ENDER LILIES: QUIETUS OF THE KNIGHTS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, melancólico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Lily, una joven sacerdotisa resucitada, explora un reino devastado por una Lluvia Negra que corrompe a todo lo que toca, purificando a caballeros y criaturas corrompidas para conseguir sus habilidades y descubrir el origen de la maldición."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el reino bajo la lluvia negra. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Lily combate a través de los espíritus de caballeros purificados, cada uno con su propio estilo de ataque, la dificultad de los jefes es real y exigente a pesar del tono melancólico visual, y la historia se cuenta con muchísima delicadeza narrativa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate usando espíritus purificados. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando toda la sesión, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece un juego que te hace sentir pena por los mismos enemigos a los que te enfrentas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece muy inteligente narrativamente, cambia por completo cómo te sientes al ganar cada combate."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Belleza melancólica con una exigencia real de combate — de los metroidvania más emotivos y duros a la vez que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sentirías pena por tus propios enemigos en un juego así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      285: {
+        name: "GRIME",
+        summary: "Absorbes enemigos con un agujero negro en el cuerpo, en un mundo orgánico y grotesco de rocas vivas y carne mineral.",
+        difficulty: "dificil",
+        emoji: "🕳️",
+        steamUrl: "https://store.steampowered.com/app/1123050/GRIME/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 285 de Retro 365, y hoy he absorbido a un enemigo entero con un agujero negro que tengo literalmente en el pecho. Bienvenidos a GRIME."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real absorbiendo a un enemigo con el agujero negro. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, orgánico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Absorbes enemigos con un agujero negro incrustado en tu propio cuerpo, en un mundo orgánico y grotesco de rocas vivas y carne mineral — hoy os cuento por qué esta estética tan rara es una de las más originales del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 285 · GRIME" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, orgánico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un ser con la cabeza convertida en un agujero negro explora un mundo orgánico hecho de piedra viva y carne mineral, absorbiendo la materia de sus enemigos para fortalecerse y descubrir la naturaleza de su propia existencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo orgánico y grotesco. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate exige parries precisos que absorben directamente a los enemigos que los reciben, las armas mutan de forma y función a medida que absorbes distintos materiales, y la ambientación orgánica se siente incómoda y fascinante a la vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un parry absorbiendo a un enemigo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un parry real contra un enemigo que da bastante respeto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al parry en directo. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta estética orgánica y grotesca tan poco habitual en un metroidvania?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo más original que he visto en el género, incomoda un poco al principio pero acaba enganchando por lo distinta que es."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una estética orgánica única con un combate de parry muy exigente — de los metroidvania más originales visualmente que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué te parece esta estética tan orgánica y rara? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      286: {
+        name: "Aeterna Noctis",
+        summary: "Un rey caído recorre un universo de fantasía dibujado a mano, con plataformas de precisión extrema nunca vistas en el género.",
+        difficulty: "dificil",
+        emoji: "🌑",
+        steamUrl: "https://store.steampowered.com/app/1517970/Aeterna_Noctis/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 286 de Retro 365, y hoy he muerto veinte veces seguidas en el mismo salto de precisión. Bienvenidos a Aeterna Noctis."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un salto de precisión fallido repetidamente. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un rey caído recorre un universo de fantasía dibujado a mano, con plataformas de precisión extrema nunca vistas antes en el género — hoy os cuento por qué esto pone a prueba tus reflejos como pocos metroidvania se atreven."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 286 · AETERNA NOCTIS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El Rey de la Oscuridad, maldecido a la inmortalidad por la Reina de la Luz tras ser derrotado, explora un vasto universo de fantasía dibujado a mano, buscando venganza y respuestas sobre el propio origen del tiempo y el espacio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un universo de fantasía dibujado a mano. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El modo Noctis añade plataformas de precisión extrema opcionales para quien busque el máximo desafío, cada habilidad de movimiento nueva abre rutas de plataformas cada vez más elaboradas, y el mapa completo es uno de los más grandes del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un tramo de plataformas exigente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el tramo de plataformas que me lleva costando toda la sesión, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te consideras bueno en plataformas de precisión, o se te resisten bastante?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me considero decente, pero este juego en concreto me está demostrando que todavía tengo bastante margen de mejora."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo gigante con una exigencia de plataformas al límite absoluto — de los metroidvania más ambiciosos en tamaño y dificultad que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de tramos superados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te consideras bueno en plataformas de precisión? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      287: {
+        name: "Islets",
+        summary: "Un pequeño mensajero reconecta islas flotantes desconectadas, en un metroidvania tan tierno como sorprendentemente completo.",
+        difficulty: "media",
+        emoji: "🏝️",
+        steamUrl: "https://store.steampowered.com/app/1669420/Islets/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 287 de Retro 365, y hoy he reconectado dos islas flotantes que llevaban siglos separadas. Bienvenidos a Islets."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de dos islas reconectándose. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tierno</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un pequeño mensajero reconecta islas flotantes que llevaban tiempo desconectadas entre sí, en un metroidvania tan tierno como sorprendentemente completo — hoy os cuento por qué esconde muchísimo contenido detrás de su estilo visual tan adorable."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 287 · ISLETS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tierno</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Iko, un pequeño mensajero, viaja en su propio dirigible entre islas flotantes desconectadas tras un cataclismo antiguo, reactivando núcleos magnéticos para reunir las islas de nuevo y haciendo amistad con personajes entrañables por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una isla flotante. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada isla reconectada expande el mapa y revela nuevas zonas de las islas ya visitadas, hacer amigos con los personajes del mundo desbloquea habilidades y mejoras, y el tono tierno convive con un combate y una exploración sorprendentemente sólidos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando una habilidad desbloqueada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: reconectar esta isla real, a ver qué zonas nuevas revela del mapa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a las zonas nuevas reveladas. <strong>🎬 Producción:</strong> SFX de descubrimiento · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué personaje del mundo de Islets te parece más entrañable hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los personajes, pero ya hay uno cuya historia me ha tocado la fibra sensible más de lo esperado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ternura y contenido sorprendentemente denso conviviendo sin ningún problema — de las sorpresas indie más entrañables del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de islas reconectadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué isla flotante te gustaría reconectar tú primero? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      288: {
+        name: "Nine Sols",
+        summary: "Combate de deflexión inspirado en Sekiro, en un mundo de fantasía asiática solarpunk lleno de una raza alienígena extinta.",
+        difficulty: "dificil",
+        emoji: "☀️",
+        steamUrl: "https://store.steampowered.com/app/1809540/Nine_Sols/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 288 de Retro 365, y hoy he desviado un golpe con precisión perfecta justo antes de que me destrozara. Bienvenidos a Nine Sols."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una deflexión perfecta en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, oriental</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un combate de deflexión inspirado directamente en Sekiro, en un mundo de fantasía asiática solarpunk lleno de una raza alienígena extinta — hoy os cuento por qué esta mezcla visual y de combate es tan única."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 288 · NINE SOLS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, oriental</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Yi, un guerrero de una raza alienígena extinta, busca venganza contra los Nueve Sols, gobernantes de una tierra que una vez fue el hogar de su propio pueblo, atravesando un mundo que mezcla fantasía asiática con estética solarpunk avanzada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario solarpunk asiático. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El sistema de deflexión exige timing preciso para desviar ataques enemigos, cada jefe tiene patrones de combate elaborados que hay que aprender a base de intentos, y la narrativa aborda temas filosóficos sobre la propia naturaleza del poder."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate exigente contra un jefe. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando hasta ahora, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste Sekiro, ¿qué te parece esta adaptación del combate de deflexión a un metroidvania 2D?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una adaptación muy inteligente, mantiene esa exigencia sin perder la fluidez propia de un metroidvania."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Combate de precisión con una ambientación visual completamente única — de los metroidvania más originales y exigentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gusta el combate de deflexión al estilo Sekiro? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      289: {
+        name: "Afterimage",
+        summary: "Metroidvania dibujado a mano con más de tres años de desarrollo artístico — combate rápido y un mundo en ruinas precioso.",
+        difficulty: "media",
+        emoji: "🎨",
+        steamUrl: "https://store.steampowered.com/app/1701520/Afterimage/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 289 de Retro 365, y hoy me he detenido un buen rato solo para admirar el fondo de un escenario dibujado a mano. Bienvenidos a Afterimage."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real admirando un escenario detallado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, orquestal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania dibujado a mano con más de tres años de desarrollo artístico dedicado solo a sus escenarios — hoy os cuento por qué el combate rápido y el mundo en ruinas se combinan de forma preciosa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 289 · AFTERIMAGE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, orquestal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Renee, una joven sin recuerdos, investiga la destrucción del reino de Engardin, explorando un mundo dibujado a mano lleno de ruinas de una civilización antigua, mientras descubre poco a poco la verdad sobre su propio pasado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las ruinas dibujadas a mano. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate rápido permite combinar armas y hechizos de formas variadas, la construcción de personaje ofrece muchísima libertad de personalización, y cada escenario esconde un nivel de detalle artístico que invita a pararse a mirarlo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate rápido combinando armas y hechizos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona real que necesita una combinación de arma y hechizo que todavía no he probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué escenario dibujado a mano te ha parecido el más bonito hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he llegado al escenario más bonito del todo, pero ya me ha dejado sin palabras uno con muchísimo detalle."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Arte dibujado a mano al servicio de un combate rápido y satisfactorio — de los metroidvania más bonitos visualmente que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de escenarios explorados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué escenario dibujado a mano te ha parecido más bonito en un videojuego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      290: {
+        name: "Astalon: Tears of the Earth",
+        summary: "Tres hermanos con habilidades complementarias escalan una torre generada de forma semi-aleatoria — pixel art de 16 bits precioso.",
+        difficulty: "dificil",
+        emoji: "🗼",
+        steamUrl: "https://store.steampowered.com/app/1046400/Astalon_Tears_of_the_Earth/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 290 de Retro 365, y hoy he tenido que cambiar entre tres hermanos distintos para resolver el mismo puzle. Bienvenidos a Astalon: Tears of the Earth."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real cambiando entre los tres hermanos jugables. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, 16 bits</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Tres hermanos con habilidades complementarias escalan una torre generada de forma semi-aleatoria — hoy os cuento por qué el pixel art de dieciséis bits de este juego es una auténtica pasada visual."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 290 · ASTALON: TEARS OF THE EARTH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, 16 bits</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tres aventureros exploran la torre de Astalon, buscando un artefacto capaz de detener a un mal ancestral, combinando sus habilidades únicas de combate y movimiento para superar puzles y enemigos cada vez más elaborados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la torre de Astalon. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada hermano tiene un estilo de combate y movimiento distinto, y cambiar entre ellos en tiempo real es clave para resolver puzles, morir permanentemente reinicia parte del progreso pero deja mejoras persistentes, y la torre se genera parcialmente distinta cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto cambiando de hermano. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita usar a los tres hermanos en el orden correcto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el orden de los hermanos. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de los tres hermanos te gusta más controlar hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los tres, pero ya hay uno cuyo estilo de combate me está enganchando más de lo esperado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tres estilos de juego combinados en una torre preciosa de dieciséis bits — de los metroidvania más inteligentes en su diseño que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la torre explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con cuál de los tres hermanos jugarías tú más? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      291: {
+        name: "Momodora: Moonlit Farewell",
+        summary: "La última entrega de la saga Momodora, con una sacerdotisa que se enfrenta a hordas demoníacas en un pixel art precioso.",
+        difficulty: "dificil",
+        emoji: "🌸",
+        steamUrl: "https://store.steampowered.com/app/1747760/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 291 de Retro 365, y hoy una sacerdotisa con una espada corta ha limpiado una sala entera de demonios sin despeinarse. Bienvenidos a Momodora: Moonlit Farewell."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate ágil contra demonios. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La última entrega de la saga Momodora, con una sacerdotisa que se enfrenta a hordas demoníacas en un pixel art precioso — hoy os cuento por qué esta entrega eleva la fórmula de la saga a otro nivel."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 291 · MOMODORA: MOONLIT FAREWELL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Momo, Alta Sacerdotisa del pueblo de Koho, emprende una misión divina para salvar a su gente de la destrucción inminente a manos de hordas demoníacas invocadas por un campanero malvado, atravesando un reino corrompido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el reino corrompido. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate ágil combina espada, arco, y hechizos con un ritmo muy fluido, cada jefe exige aprender patrones concretos a base de intentos, y el pixel art detallado con animaciones fluidas eleva visualmente toda la saga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra un jefe exigente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando toda la sesión, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿conocías la saga Momodora antes de esta entrega, o te la ha descubierto este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No conocía la saga antes de esto, y ahora tengo curiosidad real por investigar las entregas anteriores."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un cierre de saga con un pixel art precioso y un combate muy pulido — de los metroidvania de acción más satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías la saga Momodora antes de hoy? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      292: {
+        name: "Timespinner",
+        summary: "Una joven viaja en el tiempo para destruir un imperio galáctico, en un metroidvania de 16 bits con puzles temporales.",
+        difficulty: "media",
+        emoji: "⏱️",
+        steamUrl: "https://store.steampowered.com/app/368620/Timespinner/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 292 de Retro 365, y hoy he resuelto un puzle real congelando el tiempo en el momento exacto. Bienvenidos a Timespinner."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto congelando el tiempo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, 16 bits</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una joven viaja en el tiempo para destruir un imperio galáctico entero, en un metroidvania de dieciséis bits con puzles temporales — hoy os cuento por qué manipular el tiempo cambia por completo la exploración clásica del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 292 · TIMESPINNER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, 16 bits</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Lunais, guardiana de un artefacto capaz de manipular el tiempo, viaja al pasado tras ver morir a su familia a manos de un imperio expansionista, buscando venganza y descubriendo secretos sobre su propio destino en el proceso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario de dieciséis bits. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Congelar el tiempo permite pausar enemigos y proyectiles para resolver puzles y combates de forma creativa, viajar entre dos épocas distintas del mismo mapa revela cambios narrativos y de escenario reales, y el combate combina orbes mágicos de estilos variados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando orbes mágicos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita congelar el tiempo en el momento perfecto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el momento de congelar. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué momento del pasado te gustaría poder visitar si pudieras viajar en el tiempo de verdad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría visitar algún momento importante de mi propia infancia, aunque solo fuera para verlo con otros ojos."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Manipulación del tiempo aplicada con mucha inteligencia a la fórmula metroidvania — de las ideas más originales del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿A qué momento del pasado viajarías tú si pudieras? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      293: {
+        name: "Environmental Station Alpha",
+        summary: "Homenaje directo a Metroid con exploración pura y mecánicas creativas, hecho por un solo desarrollador finlandés.",
+        difficulty: "dificil",
+        emoji: "🛰️",
+        steamUrl: "https://store.steampowered.com/app/350070/Environmental_Station_Alpha/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 293 de Retro 365, y hoy una estación espacial abandonada me ha recordado exactamente a por qué me encanta este género. Bienvenidos a Environmental Station Alpha."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando la estación abandonada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, retro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje directo a Metroid con exploración pura y mecánicas creativas, hecho por un solo desarrollador finlandés — hoy os cuento por qué es de los homenajes más sinceros y bien ejecutados del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 293 · ENVIRONMENTAL STATION ALPHA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, retro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Explorando una estación espacial abandonada y misteriosa, un pequeño explorador armado descubre secretos y habilidades nuevas que revelan poco a poco rutas alternativas por todo el mapa interconectado de la instalación."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona nueva de la estación. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada habilidad nueva abre rutas alternativas de una forma muy inteligente, los jefes exigen aprender patrones concretos con paciencia real, y el mapa entero está diseñado con un cuidado que recuerda directamente a los mejores Metroid."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un jefe de la estación. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando hasta ahora, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste algún Metroid clásico, o esta sería tu primera aproximación a ese estilo de exploración?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No he jugado mucho Metroid clásico, así que este homenaje se está convirtiendo en mi primera toma de contacto real con esa fórmula."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje hecho con tanto cariño que se siente como un Metroid perdido de verdad — de las sorpresas indie más sinceras que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la estación explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugaste algún Metroid clásico de pequeño? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      294: {
+        name: "Rabi-Ribi",
+        summary: "Metroidvania de disparos tipo bullet hell con una coneja protagonista — dificultad extrema disfrazada de estética adorable.",
+        difficulty: "dificil",
+        emoji: "🐰",
+        steamUrl: "https://store.steampowered.com/app/400910/RabiRibi/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 294 de Retro 365, y hoy una pantalla llena de balas adorables me ha recordado que este juego no es tan tierno como parece. Bienvenidos a Rabi-Ribi."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real esquivando una pantalla llena de balas. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania de disparos al estilo bullet hell con una coneja protagonista adorable — hoy os cuento por qué esconde una dificultad extrema disfrazada de estética completamente tierna."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 294 · RABI-RIBI" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Erina, una coneja convertida mágicamente en humana, explora una isla llena de magia y peligros mientras investiga una amenaza que se cierne sobre todos sus habitantes, combatiendo con disparos de patrones cada vez más complejos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla mágica y colorida. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate combina plataformas ágiles con esquivar patrones de balas al estilo bullet hell, cada jefe tiene fases y patrones cada vez más elaborados y exigentes, y la exploración esconde secretos y personajes con muchísima personalidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un jefe con patrones de balas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando toda la sesión, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te dejarías engañar por la estética tierna de este juego, o ya sabías que escondía una dificultad real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me dejé engañar completamente al principio, no me esperaba para nada la dificultad real que esconde detrás de esa estética."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ternura visual con una exigencia de bullet hell nada disimulada — de los metroidvania más engañosamente difíciles que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los juegos de esquivar balas tipo bullet hell? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      295: {
+        name: "Iconoclasts",
+        summary: "Una mecánica rebelde repara robots en un mundo gobernado por una religión opresiva — siete años de desarrollo en solitario.",
+        difficulty: "media",
+        emoji: "🔧",
+        steamUrl: "https://store.steampowered.com/app/393520/Iconoclasts/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 295 de Retro 365, y hoy he reparado un robot gigante usando solo mi llave inglesa, en un mundo que prohíbe hacer justo eso. Bienvenidos a Iconoclasts."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real reparando un robot gigante. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una mecánica rebelde repara robots en un mundo gobernado por una religión opresiva que considera ilegal la mecánica no autorizada — hoy os cuento por qué este juego llevó siete años de desarrollo en solitario, y cada minuto se nota."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 295 · ICONOCLASTS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Robin, una mecánica no autorizada en un mundo gobernado por la religión opresiva de One Concern, se ve envuelta en una rebelión mayor tras ayudar a los necesitados de su comunidad, usando su llave inglesa tanto para reparar como para combatir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo gobernado por la religión opresiva. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La llave inglesa se usa tanto para combatir enemigos como para resolver puzles ambientales de mecánica real, la historia trata temas de opresión religiosa y rebelión con una madurez sorprendente, y cada personaje tiene una personalidad muy bien escrita."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto con la llave inglesa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita reparar algo antes de poder avanzar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el puzle de reparación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que un juego trate temas de opresión religiosa de una forma tan directa?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un tema tratado con muchísimo cuidado y madurez, sin caer en la caricatura fácil en ningún momento."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Siete años de desarrollo en solitario que se notan en cada detalle — de las obras personales más impresionantes del género indie."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del mundo explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te sorprende que un juego así lleve siete años hecho por una sola persona? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      296: {
+        name: "Record of Lodoss War: Deedlit in Wonder Labyrinth",
+        summary: "Cierre de tanda: Deedlit, la elfa legendaria del anime clásico, explora un laberinto onírico en un metroidvania de anime precioso.",
+        difficulty: "media",
+        emoji: "🧝",
+        steamUrl: "https://store.steampowered.com/app/1203630/Record_of_Lodoss_War_Deedlit_in_Wonder_Labyrinth/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 296 de Retro 365, cierre de esta tanda, y hoy la elfa más icónica del anime clásico me ha recordado por qué su historia sigue siendo tan querida. Bienvenidos a Record of Lodoss War: Deedlit in Wonder Labyrinth."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de Deedlit explorando el laberinto. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, fantástico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Deedlit, la elfa legendaria del anime clásico Record of Lodoss War, explora un laberinto onírico en un metroidvania de anime precioso — hoy os cuento por qué este homenaje respeta muchísimo el material original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 296 · RECORD OF LODOSS WAR: DEEDLIT IN WONDER LABYRINTH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, fantástico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Deedlit, la elfa de alto linaje del clásico anime y novela ligera Record of Lodoss War, despierta atrapada en un laberinto onírico repleto de criaturas fantásticas y magia, buscando la forma de escapar y de reencontrarse con sus aliados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el laberinto onírico. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate combina espadas, arco, y magia elemental con la ayuda de espíritus invocables, el estilo visual de anime de los años 90 se mantiene fiel al material original, y explorar el laberinto revela secretos conectados con la historia clásica."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando magia elemental. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real usando un espíritu invocable que todavía no había probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al espíritu invocado. <strong>🎬 Producción:</strong> SFX mágico · BGM: sube en combate</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿conocías el anime clásico de Record of Lodoss War antes de este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No conocía el anime clásico antes de esto, y este juego me ha dejado con muchas ganas de verlo tras jugarlo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje fiel a un clásico del anime con un metroidvania muy sólido detrás — cierre nostálgico perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del laberinto explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías el anime clásico de Record of Lodoss War? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 282: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 297: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
