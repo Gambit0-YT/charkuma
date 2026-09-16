@@ -11285,7 +11285,294 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Preferirías luchar tú mismo o gestionar un ejército de esqueletos? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      357: {
+        name: "Hades II",
+        summary: "La secuela del roguelike definitivo: Melinoë, la bruja inmortal, se abre paso contra el Titán del Tiempo con muchísima más ambición.",
+        difficulty: "media",
+        emoji: "🔥",
+        steamUrl: "https://store.steampowered.com/app/1145350/Hades_II/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 357 de Retro 365, últimos días del reto, y hoy Melinoë ha caído contra el Titán del Tiempo por segunda vez seguida. Bienvenidos a Hades II."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra el Titán del Tiempo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, mitológico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La secuela del roguelike definitivo, con Melinoë, la bruja inmortal, abriéndose paso contra el Titán del Tiempo — hoy os cuento por qué esta secuela se atreve con muchísima más ambición que la original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 357 · HADES II" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mitológico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Melinoë, princesa del Inframundo, se enfrenta a Cronos y su ejército de titanes para vengar a su familia, combatiendo run tras run con armas, hechizos, y bendiciones de todo un panteón de dioses griegos y ahora también egipcios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el nuevo escenario del Inframundo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada arma tiene un estilo de combate radicalmente distinto al de la primera entrega, combinar bendiciones de dioses griegos y egipcios abre combinaciones completamente nuevas, y la narrativa entre runs sigue siendo tan cuidada como siempre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate usando una bendición nueva. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el intento real contra el Titán del Tiempo, a ver si esta vez consigo pasar de fase."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que se atrevan con una secuela de un juego tan querido como el primer Hades?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un riesgo bien calculado, se nota que han cogido lo mejor del original y lo han llevado un paso más allá."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una secuela que se atreve a ampliar la fórmula sin perder lo que hizo grande al original — de los roguelike más esperados de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de intentos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugaste el primer Hades? ¿Qué te parece esta secuela? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      358: {
+        name: "Slay the Spire",
+        summary: "El deckbuilding roguelike que definió todo un subgénero — cada carta jugada es una decisión que puede salvarte o hundirte.",
+        difficulty: "dificil",
+        emoji: "🃏",
+        steamUrl: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 358 de Retro 365, y hoy una sola carta jugada en el momento exacto ha decidido toda la partida. Bienvenidos a Slay the Spire."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una carta decisiva jugada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, de cartas</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El deckbuilding roguelike que definió todo un subgénero entero — hoy os cuento por qué cada carta jugada aquí es una decisión que puede salvarte o hundirte por completo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 358 · SLAY THE SPIRE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, de cartas</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Ascendiendo una torre misteriosa y peligrosa, construyes un mazo de cartas único combate a combate, eligiendo entre cartas de ataque, defensa, y habilidades especiales para enfrentarte a enemigos y jefes cada vez más letales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa de la torre. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada clase de personaje tiene un mazo inicial y una identidad de juego completamente distinta, construir sinergias entre cartas es la clave real para llegar lejos, y cada decisión de qué carta añadir al mazo tiene consecuencias durante toda la run."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando una sinergia de cartas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión real de qué carta añadir, sabiendo que puede definir el resto de la run."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión de carta. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué clase de mazo te gusta más construir en este tipo de juegos de cartas roguelike?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta construir mazos centrados en defensa y contraataque, prefiero aguantar el golpe antes de devolverlo con intereses."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "El origen real de todo un subgénero de deckbuilding roguelike, todavía vigente años después — una referencia absoluta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué tipo de mazo construirías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      359: {
+        name: "Outer Wilds",
+        summary: "Un bucle temporal de veintidós minutos esconde el misterio de un sistema solar entero condenado a desaparecer una y otra vez.",
+        difficulty: "media",
+        emoji: "🪐",
+        steamUrl: "https://store.steampowered.com/app/753640/Outer_Wilds/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 359 de Retro 365, y hoy he descubierto un secreto en el último minuto del bucle que ha cambiado todo lo que creía saber. Bienvenidos a Outer Wilds."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una revelación en el último minuto. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un bucle temporal de veintidós minutos esconde el misterio de un sistema solar entero condenado a desaparecer una y otra vez — hoy os cuento por qué este juego es una de las experiencias más especiales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 359 · OUTER WILDS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como el explorador espacial más novato de su pueblo, despegas hacia un sistema solar entero que se destruye cada veintidós minutos, atrapado en un bucle temporal que solo tú recuerdas, para descubrir el misterio real detrás de su fin."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un planeta antes del fin del bucle. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "No hay mejoras de personaje ni progreso tradicional, todo el avance real está en el conocimiento que acumulas tú como jugador, y cada planeta esconde secretos que solo tienen sentido combinados con pistas de otros lugares del sistema."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando otro planeta con una pista nueva. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una pista real que llevo persiguiendo varios bucles seguidos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la pista encontrada. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos que basan todo su progreso en el conocimiento del jugador en vez de en mejoras de personaje?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encanta ese enfoque, se siente un progreso mucho más real y personal que subir de nivel un número en pantalla."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un misterio espacial construido enteramente sobre curiosidad real — una de las experiencias más únicas que existen en los videojuegos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de descubrimientos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías el misterio de Outer Wilds? Dímelo en comentarios, sin spoilers."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      360: {
+        name: "Return of the Obra Dinn",
+        summary: "Un reloj mágico rebobina los últimos instantes de vida de una tripulación entera desaparecida para reconstruir su destino real.",
+        difficulty: "dificil",
+        emoji: "⚓",
+        steamUrl: "https://store.steampowered.com/app/653530/Return_of_the_Obra_Dinn/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 360 de Retro 365, y hoy he resuelto la identidad de un tripulante que llevaba media hora atascándome. Bienvenidos a Return of the Obra Dinn."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un momento de resolución de un caso. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un reloj mágico rebobina los últimos instantes de vida de una tripulación entera desaparecida — hoy os cuento por qué reconstruir su destino real es uno de los puzles más satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 360 · RETURN OF THE OBRA DINN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como investigador de seguros enviado al barco fantasma Obra Dinn, usas un reloj mágico capaz de revivir el instante exacto de la muerte de cada tripulante, para reconstruir sus identidades y el destino real de todos ellos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el barco fantasma. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada escena congelada esconde pistas visuales y de audio que hay que combinar con cuidado real, identificar a los sesenta tripulantes exige atención al detalle y deducción pura, y el estilo visual monocromático le da al juego una identidad única."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una escena congelada siendo investigada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: identificar a este tripulante real usando solo las pistas que tengo hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la deducción. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de puzles de deducción pura donde tienes que atar cabos tú mismo sin ayuda del juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, la satisfacción de deducir algo por tu cuenta sin que el juego te lo diga directamente no se compara con casi nada."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un puzle de deducción con un estilo visual y una premisa completamente únicos — de los juegos de misterio más inteligentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de identificaciones resueltas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a intentar resolver un misterio así tú mismo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      361: {
+        name: "Cult of the Lamb",
+        summary: "Un cordero resucitado funda su propia secta y gestiona a sus fieles entre combates roguelike y decisiones de líder cuestionable.",
+        difficulty: "media",
+        emoji: "🐑",
+        steamUrl: "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 361 de Retro 365, y hoy he pedido a mis seguidores un sacrificio que probablemente no debería haber pedido. Bienvenidos a Cult of the Lamb."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión cuestionable de líder de secta. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, siniestro pero adorable</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cordero resucitado funda su propia secta y gestiona a sus fieles entre combates roguelike y decisiones de líder cuestionable — hoy os cuento por qué esta combinación tan extraña funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 361 · CULT OF THE LAMB" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, siniestro pero adorable</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un cordero sacrificado y resucitado por una entidad oscura funda su propia secta religiosa, gestionando el bienestar y la fe de sus seguidores mientras combate a través de mazmorras roguelike para expandir su influencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay gestionando el campamento de la secta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar el campamento exige alimentar, complacer, y a veces sacrificar a tus seguidores para mantener la fe alta, el combate roguelike en las mazmorras se combina con la construcción de base, y las decisiones morales cuestionables son parte central del humor del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate en las mazmorras roguelike. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión real sobre qué hacer con este seguidor descontento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión moral. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿serías un líder de secta benevolente o directamente cuestionable como el juego invita a ser?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Intentaría ser benevolente al principio, pero conociéndome acabaría cediendo a las decisiones más cuestionables por pura curiosidad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ternura y oscuridad combinadas con un humor muy particular — de las mezclas de géneros más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del campamento gestionado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué tipo de líder de secta serías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      362: {
+        name: "Dave the Diver",
+        summary: "Un buceador torpe pesca de día y monta un restaurante de sushi de noche en una combinación de géneros tan rara como adictiva.",
+        difficulty: "facil",
+        emoji: "🐟",
+        steamUrl: "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 362 de Retro 365, y hoy he pescado un pez gigante de día y lo he servido en sushi esa misma noche. Bienvenidos a Dave the Diver."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de pesca convertida en sushi. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un buceador torpe pesca de día y monta un restaurante de sushi de noche — hoy os cuento por qué esta combinación de géneros tan rara resulta tan adictiva de jugar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 362 · DAVE THE DIVER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dave, un buceador de mediana edad nada atlético, explora de día un mar misterioso lleno de criaturas y peligros para pescar ingredientes, y por la noche gestiona el servicio de un restaurante de sushi con esos mismos pescados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el fondo marino de día. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La exploración submarina de día tiene combate, mejoras de equipo, y criaturas cada vez más raras que capturar, gestionar el restaurante de noche añade una capa de gestión frenética muy distinta, y ambas partes se retroalimentan constantemente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un turno de servicio en el restaurante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un servicio real en el restaurante, a ver si doy abasto con los pedidos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de pedidos pendientes en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acumulan pedidos</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta más la parte de buceo y exploración o la de gestionar el restaurante de sushi?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta más la exploración submarina, pero reconozco que el restaurante es el que más me engancha a seguir jugando una hora más."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Dos géneros que no deberían combinar bien y funcionan a la perfección — de las propuestas más originales y divertidas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del día completo jugado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Buceo o restaurante, qué parte te gustaría más a ti? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      363: {
+        name: "Hollow Knight",
+        summary: "Un pequeño caballero insecto explora un reino subterráneo en decadencia en uno de los metroidvania más queridos jamás creados.",
+        difficulty: "dificil",
+        emoji: "🗡️",
+        steamUrl: "https://store.steampowered.com/app/367520/Hollow_Knight/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 363 de Retro 365, y hoy un jefe secundario me ha recordado por qué este juego tiene fama de exigente. Bienvenidos a Hollow Knight."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate exigente contra un jefe secundario. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, melancólico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un pequeño caballero insecto explora un reino subterráneo en decadencia — hoy os cuento por qué este es uno de los metroidvania más queridos jamás creados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 363 · HOLLOW KNIGHT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, melancólico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un pequeño caballero insecto desciende al reino en ruinas de Hallownest, un imperio subterráneo caído en decadencia, explorando cavernas interconectadas repletas de criaturas, secretos, y una historia contada casi sin palabras."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las cavernas interconectadas de Hallownest. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate exige precisión real de plataformas y esquivas, cada habilidad nueva desbloqueada abre zonas del mapa completamente nuevas, y la dirección artística dibujada a mano le da al juego una atmósfera única e inolvidable."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate y plataformas precisas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando toda la sesión, con esta habilidad nueva."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué opinas de la fama de dificultad exigente que tiene este juego dentro del género metroidvania?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Creo que la fama está bien merecida, pero es una dificultad justa, cada muerte se siente como un fallo mío y no del juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo subterráneo dibujado con una belleza melancólica inolvidable — de los metroidvania más influyentes y queridos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Has jugado Hollow Knight? ¿Qué jefe te costó más? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      364: {
+        name: "Vampire Survivors",
+        summary: "El juego que dio nombre a todo un género: sobrevivir minuto a minuto contra hordas cada vez más absurdas de enemigos.",
+        difficulty: "facil",
+        emoji: "🧛",
+        steamUrl: "https://store.steampowered.com/app/1794680/Vampire_Survivors/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 364 de Retro 365, penúltimo día del reto, y hoy la pantalla entera se ha llenado de proyectiles disparados sin que yo tocara ni un botón. Bienvenidos a Vampire Survivors."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la pantalla llena de proyectiles automáticos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, gótico retro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El juego que dio nombre a todo un género entero — hoy os cuento por qué sobrevivir minuto a minuto contra hordas cada vez más absurdas de enemigos sigue siendo tan adictivo como el primer día."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 364 · VAMPIRE SURVIVORS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gótico retro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Con un movimiento simple y ataques completamente automáticos, sobrevives a treinta minutos de hordas cada vez más numerosas de criaturas nocturnas, acumulando armas y mejoras hasta convertirte en una máquina de destrucción absoluta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el escenario antes de la horda masiva. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El ataque automático quita toda la fricción y deja solo la estrategia de qué mejoras elegir, combinar armas evolucionadas crea combos que limpian la pantalla entera de enemigos, y el género entero que ha inspirado se llama literalmente como este juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combo de armas evolucionadas limpiando la pantalla. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: los últimos minutos reales antes de que aparezca la Segadora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta el final de la run. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca el final</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿sabías que este juego le dio nombre a todo el género de "bullet heaven" o sobrevivir hordas automáticas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No lo sabía al principio, pero tiene todo el sentido del mundo jugándolo, se nota por qué se convirtió en la referencia de todo el género."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "El origen real de todo un género que ha explotado en los últimos años — simplicidad convertida en pura adicción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál de los juegos de este reto que le debe algo a Vampire Survivors te ha gustado más? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      365: {
+        name: "Inscryption",
+        summary: "Cierre del reto: un juego de cartas siniestro en una cabaña se convierte en un viaje que ningún resumen le hace justicia.",
+        difficulty: "dificil",
+        emoji: "🕯️",
+        steamUrl: "https://store.steampowered.com/app/1092790/Inscryption/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 365 de Retro 365. El último día. Trescientos sesenta y cinco juegos después, cierro este reto con uno que ningún resumen le hace justicia. Bienvenidos a Inscryption."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la mesa de cartas siniestra al inicio del juego. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, inquietante y ceremonial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de cartas siniestro en una cabaña se convierte en un viaje que ningún resumen le hace justicia — hoy, en el cierre de este reto de trescientos sesenta y cinco días, os cuento por qué merece la pena descubrirlo sin que nadie te cuente nada más."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 365 · INSCRYPTION — CIERRE DEL RETO" con la barra de progreso al cien por cien. <strong>🎬 Producción:</strong> SFX whoosh especial · BGM: entra loop de fondo, ceremonial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Encerrado en una cabaña remota, te sientas frente a un anfitrión misterioso a jugar una partida de cartas que exige sacrificios de sangre real, mientras el propio juego empieza a revelar que esconde muchísimo más de lo que su primera hora sugiere."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la cabaña entre partidas de cartas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El sistema de cartas con sacrificios de sangre y camino de ardillas es único en sí mismo, la cabaña esconde puzles y secretos que conectan con el propio juego de cartas, y cada giro de guion que aparece cambia por completo lo que creías que estabas jugando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate de cartas usando sacrificios de sangre. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo, por última vez en este reto: una partida real contra el anfitrión, sin saber qué sorpresa me espera después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un giro de guion inesperado. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: de los trescientos sesenta y cinco juegos de este reto entero, ¿cuál te ha sorprendido más y qué sientes al terminar el reto?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Terminar trescientos sesenta y cinco días de esto se siente casi tan surrealista como este propio juego, ha sido un viaje que no me esperaba al empezar."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego que se reinventa una y otra vez sin avisar — el cierre perfecto para trescientos sesenta y cinco días de descubrir juegos juntos. Gracias por acompañarme en cada uno de ellos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap final con miniaturas de varios juegos del reto entero. <strong>🎬 Producción:</strong> fundido cruzado especial · BGM: sube emotivamente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál ha sido tu juego favorito de todo el reto Retro 365? Dímelo en comentarios, de verdad quiero leerlos todos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios especial + "RETO COMPLETADO" en pantalla. <strong>🎬 Producción:</strong> SFX stinger de marca extendido · BGM: sube a volumen normal, corte a logo final</p>`
       }
-      // 357: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
