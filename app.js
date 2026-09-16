@@ -9688,8 +9688,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cómo gestionarías tú el agua en una ciudad de castores como esta? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      252: {
+        name: "Unravel Two",
+        summary: "Dos hilos de lana atados entre sí resuelven plataformas cooperativos — cada movimiento de uno afecta directamente al otro.",
+        difficulty: "facil",
+        emoji: "🧶",
+        steamUrl: "https://store.steampowered.com/app/1225570/Unravel_Two/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 252 de Retro 365, tanda nueva, y hoy mi propio hilo de lana ha salvado a mi compañero de una caída segura. Bienvenidos a Unravel Two."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un hilo de lana salvando a un compañero. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tierno</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Dos hilos de lana atados entre sí resuelven plataformas cooperativos en un mundo diminuto y precioso — hoy os cuento por qué cada movimiento de uno afecta directamente al otro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 252 · UNRAVEL TWO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tierno</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dos pequeñas criaturas de lana, conectadas por un hilo compartido, atraviesan paisajes naturales preciosos usando su propio hilo para balancearse, formar puentes, y ayudarse mutuamente a superar cada obstáculo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un paisaje natural precioso. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El hilo compartido entre ambos personajes es la base de todos los puzles, un jugador puede sostener al otro mientras resuelve un puzle en solitario también, y la dirección artística consigue transmitir mucha emoción sin ningún diálogo real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle cooperativo con el hilo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita coordinación perfecta entre los dos hilos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la coordinación del puzle. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con quién te gustaría jugar este cooperativo tan tierno?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría jugarlo con alguien pequeño de la familia, parece perfecto para introducir a alguien a los videojuegos cooperativos."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ternura y cooperación real en cada puzle, sin necesitar ni una palabra — de los cooperativos más bonitos y emotivos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién jugarías este cooperativo tan tierno? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      253: {
+        name: "Trine 4: The Nightmare Prince",
+        summary: "Tres héroes con poderes mágicos distintos resuelven puzles de física combinando sus habilidades — cooperativo de fantasía precioso.",
+        difficulty: "media",
+        emoji: "🧙",
+        steamUrl: "https://store.steampowered.com/app/690640/Trine_4_The_Nightmare_Prince/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 253 de Retro 365, y hoy he creado una caja de la nada solo para resolver un puzle de física. Bienvenidos a Trine 4: The Nightmare Prince."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real creando una caja mágica para un puzle. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, mágico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Tres héroes con poderes mágicos completamente distintos resuelven puzles de física combinando sus habilidades — hoy os cuento por qué este cooperativo de fantasía es tan precioso como inteligente en su diseño."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 253 · TRINE 4: THE NIGHTMARE PRINCE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mágico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Amadeus la maga, Pontius el caballero, y Zoya la ladrona se unen para detener a un príncipe cuyas pesadillas amenazan con destruir el reino entero, explorando paisajes de fantasía dibujados a mano y resolviendo puzles con sus habilidades combinadas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un paisaje de fantasía dibujado a mano. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Amadeus puede crear objetos y mover cosas con telequinesis, Pontius bloquea y golpea con su escudo y espada, y Zoya dispara flechas con cuerdas, así que combinar los tres poderes es la clave de cada puzle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto combinando los tres poderes. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita combinar los tres poderes de una forma que todavía no he probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación de poderes. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de los tres héroes te gustaría controlar más si jugaras esto en cooperativo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me quedaría con la maga sin dudarlo, la posibilidad de crear objetos a voluntad da para las soluciones más creativas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Fantasía dibujada a mano con puzles de física muy bien pensados — de los cooperativos más bonitos y creativos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Maga, caballero, o ladrona, con quién jugarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      254: {
+        name: "Rogue Legacy 2",
+        summary: "Roguelike de plataformas donde cada héroe muerto pasa el testigo a su descendiente, con rasgos genéticos cada vez más absurdos.",
+        difficulty: "dificil",
+        emoji: "🏰",
+        steamUrl: "https://store.steampowered.com/app/1253920/Rogue_Legacy_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 254 de Retro 365, y hoy me ha tocado jugar con un heredero daltónico y con vértigo, y aun así he llegado más lejos que nunca. Bienvenidos a Rogue Legacy 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un heredero con un rasgo genético raro. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike de plataformas donde cada héroe muerto pasa el testigo a su propio descendiente, con rasgos genéticos cada vez más absurdos — hoy os cuento por qué esta idea tan rara sigue siendo brillante en la secuela."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 254 · ROGUE LEGACY 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Cada vez que tu héroe muere en el castillo generado al azar, eliges a uno de sus tres descendientes para continuar la aventura, cada uno con rasgos genéticos aleatorios que pueden ser una ventaja o un obstáculo cómico añadido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el castillo generado al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada clase de héroe tiene un estilo de combate completamente distinto, los rasgos genéticos aleatorios como el daltonismo o la miopía cambian visualmente el propio juego, y las mejoras permanentes entre muertes hacen que cada intento se sienta como progreso real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando una clase concreta. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando toda la sesión, con este heredero tan raro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál ha sido el rasgo genético más ridículo que te ha tocado hasta ahora en tu propio heredero?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no me ha tocado el rasgo más ridículo del todo, pero ya he tenido un heredero con una condición que me ha complicado bastante las cosas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea genética tan rara como divertida convertida en el corazón mismo del roguelike — de las secuelas más sólidas del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué rasgo genético raro te gustaría tener en un heredero así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      255: {
+        name: "Have a Nice Death",
+        summary: "Eres la Muerte en persona, agotada de gestionar una empresa de almas que se le ha ido completamente de las manos.",
+        difficulty: "media",
+        emoji: "💀",
+        steamUrl: "https://store.steampowered.com/app/1740720/Have_a_Nice_Death/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 255 de Retro 365, y hoy la Muerte en persona ha tenido que despedir a un empleado a base de guadañazos. Bienvenidos a Have a Nice Death."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate con la guadaña. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, cómico y oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Eres la Muerte en persona, agotada de gestionar una empresa de recolección de almas que se le ha ido completamente de las manos — hoy os cuento por qué ser un jefe sobrecargado de trabajo nunca había sido tan divertido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 255 · HAVE A NICE DEATH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, cómico y oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "La Muerte, sobrecargada de trabajo tras siglos gestionando el más allá, descubre que sus propios empleados departamentales han descontrolado el equilibrio de almas, y tiene que bajar personalmente a poner orden departamento por departamento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando uno de los departamentos del más allá. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate roguelike combina armas y hechizos que se mejoran entre intentos, cada departamento tiene su propio jefe y estética temática distinta, y el humor corporativo y burocrático aplicado a la Muerte misma es constante y muy afilado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un jefe departamental. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe de este departamento, a ver si consigo ponerlo en su sitio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de convertir a la Muerte en una jefa corporativa quemada de trabajo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una idea genial y muy identificable, cualquiera que haya trabajado en una gran empresa reconoce ese tipo de burocracia."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Humor corporativo aplicado a la Muerte misma, con un combate roguelike muy sólido — de las ideas más originales del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué departamento te gustaría dirigir si fueras la Muerte? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      256: {
+        name: "Children of Morta",
+        summary: "Una familia entera de héroes defiende una montaña sagrada de una corrupción antigua — cada miembro se juega y se siente distinto.",
+        difficulty: "media",
+        emoji: "👨‍👩‍👧‍👦",
+        steamUrl: "https://store.steampowered.com/app/330020/Children_of_Morta/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 256 de Retro 365, y hoy toda una familia entera se ha turnado para defender su propia casa de la corrupción. Bienvenidos a Children of Morta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un miembro de la familia en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, familiar</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una familia entera de héroes defiende una montaña sagrada de una corrupción antigua que amenaza con destruirlo todo — hoy os cuento por qué cada miembro de la familia se juega y se siente completamente distinto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 256 · CHILDREN OF MORTA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, familiar</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "La familia Bergson, guardianes tradicionales de la Montaña Morta, se enfrenta a una corrupción que amenaza con extenderse por todo el mundo, turnándose entre sus distintos miembros para explorar mazmorras y proteger su hogar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la mazmorra bajo la montaña. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada miembro de la familia tiene un estilo de combate y una personalidad narrativa completamente distintos, la historia familiar se desarrolla con escenas entre expediciones que dan mucho corazón al juego, y la progresión se comparte entre todos los personajes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate con un miembro concreto de la familia. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una escena familiar real que me tiene con ganas de saber más de esta familia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la escena familiar. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono emotivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué miembro de la familia te gusta más hasta ahora por su forma de combatir o su personalidad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a la familia, pero ya hay un miembro cuya historia personal me ha enganchado más de lo esperado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike con muchísimo corazón familiar detrás de cada combate — de las historias con más alma del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la mazmorra explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué miembro de tu propia familia elegirías para defender tu casa? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      257: {
+        name: "Sable",
+        summary: "Una joven planea un viaje de descubrimiento personal a lomos de una moto flotante por un desierto precioso e inmenso.",
+        difficulty: "facil",
+        emoji: "🏍️",
+        steamUrl: "https://store.steampowered.com/app/757310/Sable/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 257 de Retro 365, y hoy he cruzado un desierto entero en mi propia moto flotante solo para ver el atardecer desde una duna concreta. Bienvenidos a Sable."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real conduciendo hacia una duna al atardecer. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una joven planea su propio viaje de descubrimiento personal a lomos de una moto flotante por un desierto precioso e inmenso — hoy os cuento por qué esta aventura tan tranquila engancha sin necesitar ninguna prisa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 257 · SABLE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Sable, una joven de su comunidad nómada, emprende un viaje de descubrimiento tradicional para encontrar su propia máscara y decidir quién quiere ser, explorando un desierto lleno de restos de una civilización antigua y avanzada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el desierto con restos de naves. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Explorar el desierto en tu propia moto flotante se siente relajante y sin ninguna prisa real, cada misión secundaria conecta con distintas comunidades y sus propias historias, y el estilo visual de cómic dibujado a mano tiene una personalidad única."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando ruinas de la civilización antigua. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: escalar una estructura real que llevaba tiempo queriendo explorar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la vista desde lo alto. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué máscara elegirías tú si tuvieras que hacer un viaje de descubrimiento personal así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no sé qué máscara elegiría, y creo que esa incertidumbre es precisamente la gracia de un viaje así de personal."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un viaje sin prisa por un mundo precioso, sobre encontrarte a ti mismo — de las aventuras más tranquilas y bonitas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del desierto explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué máscara elegirías tú para definir quién eres? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      258: {
+        name: "Solar Ash",
+        summary: "Patinas a máxima velocidad por planetas que colapsan hacia un vacío gigante — de los creadores de Hyper Light Drifter.",
+        difficulty: "media",
+        emoji: "🛼",
+        steamUrl: "https://store.steampowered.com/app/1867530/Solar_Ash/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 258 de Retro 365, y hoy he patinado por el borde de un planeta que se está desmoronando hacia el vacío. Bienvenidos a Solar Ash."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real patinando por el borde de un planeta colapsando. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, etéreo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Patinas a máxima velocidad por planetas enteros que colapsan hacia un vacío gigante — hoy os cuento por qué esto viene de los creadores de Hyper Light Drifter, y se nota su estilo visual único."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 258 · SOLAR ASH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, etéreo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Rei, una Voidrunner determinada a salvar su planeta, se adentra en el Vacío Ultravoide, un vacío gigante que va devorando mundos enteros, patinando a gran velocidad para explorar restos de planetas y enfrentarse a criaturas colosales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un planeta a gran velocidad. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El movimiento fluido de patinaje se combina con saltos y ganchos aéreos que dan una sensación de velocidad constante, los combates contra jefes colosales exigen escalar sus propios cuerpos mientras se mueven, y la estética visual sigue el estilo minimalista y colorido de sus creadores."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra un jefe colosal. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: escalar el cuerpo de un jefe colosal real mientras se mueve."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al combate colosal. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste Hyper Light Drifter, ¿qué te está pareciendo este cambio hacia la velocidad y el patinaje?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo un cambio de ritmo interesante, mantiene esa estética única mientras se atreve a jugar con la velocidad de otra forma."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Velocidad y belleza cósmica en cada patinaje — de los juegos de acción y exploración más originales visualmente que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del planeta explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustaría patinar a esta velocidad por el espacio? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      259: {
+        name: "Sea of Stars",
+        summary: "JRPG por turnos inspirado en los clásicos de 16 bits, con magia solar y lunar combinada en un combate lleno de personalidad.",
+        difficulty: "media",
+        emoji: "🌙",
+        steamUrl: "https://store.steampowered.com/app/1244090/Sea_of_Stars/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 259 de Retro 365, y hoy he combinado magia solar y lunar en el mismo turno para acabar con un enemigo de un solo golpe. Bienvenidos a Sea of Stars."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una combinación de magia solar y lunar. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un JRPG por turnos inspirado claramente en los clásicos de dieciséis bits, con magia solar y lunar combinada en un combate lleno de personalidad — hoy os cuento por qué se siente como el mejor homenaje posible a esa era."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 259 · SEA OF STARS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dos Hijos del Solsticio, capaces de combinar los poderes del sol y la luna en la Magia del Eclipse, viajan por un mundo colorido para enfrentarse al Alquimista de Carne, un ser malvado empeñado en crear monstruos cada vez más terribles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo colorido de 16 bits. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate por turnos exige esquivar y parar ataques en tiempo real, combinar magia solar y lunar consecutiva rompe defensas enemigas especiales, y la exploración fuera de combate tiene puzles de plataformas muy bien integrados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate por turnos con esquiva. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde necesito combinar bien la magia solar y lunar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la tensión del combate. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los JRPG que rinden homenaje directo a la era de los 16 bits?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, y este en concreto consigue capturar esa magia sin sentirse anticuado ni un solo momento."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje a los JRPG clásicos con ideas mecánicas propias muy bien pensadas — de los mejores JRPG indie de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres el poder solar o el lunar? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      260: {
+        name: "Chained Echoes",
+        summary: "JRPG de 16 bits con mechas pilotables y un continente en guerra entre tres reinos — hecho por una sola persona con muchísimo cariño.",
+        difficulty: "media",
+        emoji: "🐉",
+        steamUrl: "https://store.steampowered.com/app/1229240/Chained_Echoes/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 260 de Retro 365, y hoy he pilotado un mecha gigante en mitad de una guerra entre reinos. Bienvenidos a Chained Echoes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real pilotando un mecha en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un JRPG de dieciséis bits con mechas pilotables y un continente entero en guerra entre tres reinos rivales — hoy os cuento por qué este juego hecho por una sola persona tiene un cariño increíble en cada detalle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 260 · CHAINED ECHOES" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En el continente de Valandis, un grupo de mercenarios se ve envuelto en una guerra de décadas entre tres reinos, descubriendo poco a poco una conspiración mayor que amenaza con acabar con toda la magia y tecnología del mundo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el continente de Valandis. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate por turnos tiene un sistema de sobrecarga que castiga usar habilidades demasiado fuertes sin control, pilotar mechas añade un tipo de combate completamente distinto al de a pie, y la historia trata temas de guerra con una madurez sorprendente para el estilo visual retro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate por turnos gestionando la sobrecarga. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: gestionar la sobrecarga con cuidado en este combate real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de sobrecarga en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te sorprende que un juego con tanta ambición esté hecho por una sola persona?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me sorprende muchísimo, la cantidad de contenido y cuidado narrativo que tiene parece cosa de un estudio entero, no de una sola persona."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un JRPG con guerra, mechas, y muchísima ambición narrativa — de las sorpresas indie más impresionantes de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿A qué reino apoyarías tú en esta guerra? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      261: {
+        name: "CrossCode",
+        summary: "Acción de ciencia ficción con combate de bola de energía tipo pinball, dentro de un videojuego de un futuro lejano dentro del juego.",
+        difficulty: "media",
+        emoji: "🌐",
+        steamUrl: "https://store.steampowered.com/app/368340/CrossCode/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 261 de Retro 365, y hoy he rebotado una bola de energía contra tres enemigos seguidos como si fuera un pinball. Bienvenidos a CrossCode."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un rebote de bola de energía en cadena. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, ciencia ficción</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una acción de ciencia ficción con combate de bola de energía al estilo pinball, ambientada dentro de un videojuego de un futuro lejano — hoy os cuento por qué esta capa de metaficción le da personalidad propia al juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 261 · CROSSCODE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, ciencia ficción</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Lea, una jugadora atrapada dentro de un videojuego de realidad virtual futurista llamado CrossWorlds, investiga un misterio sobre su propia identidad mientras explora este mundo lleno de puzles y combate ágil basado en física de bola."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo virtual futurista. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate exige lanzar y rebotar una bola de energía con física real de pinball, los puzles ambientales combinan plataformas con esa misma mecánica de la bola, y la estética de 16 bits mezclada con ciencia ficción se siente muy fresca."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle usando la bola de energía. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde los rebotes precisos de la bola lo son todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al rebote preciso. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de un juego ambientado dentro de otro videojuego virtual futurista?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una idea con mucho potencial narrativo, le da una capa extra de misterio a algo que ya sería interesante sin ella."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Combate de física de bola muy original, con una capa narrativa de ciencia ficción interesante — de los JRPG de acción más creativos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustaría vivir atrapado dentro de un videojuego virtual? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      262: {
+        name: "Eastward",
+        summary: "Un minero y una niña con poderes misteriosos viajan por una sociedad al borde del colapso, en un pixel art precioso y detallado.",
+        difficulty: "media",
+        emoji: "⛏️",
+        steamUrl: "https://store.steampowered.com/app/977880/Eastward/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 262 de Retro 365, y hoy una niña pequeña ha resuelto un puzle usando poderes que ni ella misma entiende del todo. Bienvenidos a Eastward."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la niña usando sus poderes misteriosos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un minero y una niña con poderes misteriosos viajan juntos por una sociedad al borde del colapso, en un pixel art precioso y detallado — hoy os cuento por qué la relación entre ambos se siente tan real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 262 · EASTWARD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "John, un minero solitario, encuentra a Sam, una niña con poderes misteriosos, y juntos abandonan su comunidad subterránea para viajar por la superficie, en una sociedad diezmada en población y llena de secretos por descubrir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un pueblo de la superficie. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "John combate cuerpo a cuerpo mientras Sam usa poderes especiales para resolver puzles ambientales, la relación entre ambos se construye con muchísimo cariño a través de pequeños detalles, y el pixel art está trabajado con un nivel de detalle sorprendente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto combinando ambos personajes. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita combinar el combate de John con los poderes de Sam."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación de personajes. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la relación entre John y Sam hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo mejor del juego, se nota el cariño real puesto en cada pequeño gesto entre los dos personajes."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Pixel art precioso al servicio de una relación entrañable — de las aventuras indie con más corazón y detalle que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la exploración del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué poder misterioso te gustaría que tuviera Sam? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      263: {
+        name: "OCTOPATH TRAVELER",
+        summary: "Ocho protagonistas con historias completamente independientes se cruzan en un mismo mundo con estética HD-2D preciosa.",
+        difficulty: "media",
+        emoji: "🎭",
+        steamUrl: "https://store.steampowered.com/app/921570/OCTOPATH_TRAVELER/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 263 de Retro 365, y hoy he empezado la historia de un personaje completamente distinto al que llevaba jugando hasta ahora. Bienvenidos a OCTOPATH TRAVELER."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un nuevo protagonista empezando su historia. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, orquestal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Ocho protagonistas con historias completamente independientes entre sí se cruzan en un mismo mundo con estética HD-2D preciosa — hoy os cuento por qué elegir el orden de las historias cambia por completo tu experiencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 263 · OCTOPATH TRAVELER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, orquestal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Ocho viajeros —un guerrero, una bailarina, un clérigo, entre otros— recorren el continente de Orsterra cada uno con su propia búsqueda personal, cruzándose ocasionalmente entre ellos mientras el jugador decide en qué orden vivir cada historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el continente de Orsterra. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate por turnos usa un sistema de romper defensas y potenciar ataques muy satisfactorio, cada protagonista tiene una habilidad de campo única para interactuar con los NPCs, y la estética HD-2D mezcla pixel art con efectos de luz e iluminación modernos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate rompiendo defensas enemigas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde voy a intentar romper la defensa del enemigo del todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de puntos de ruptura en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿por qué historia de los ocho viajeros empezarías tú primero?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Empezaría por el personaje cuya habilidad de campo me pareciera más divertida de usar desde el principio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ocho historias con un estilo visual precioso que redefine el género — de los JRPG más ambiciosos visualmente que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál de los ocho viajeros jugarías tú primero? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      264: {
+        name: "Cyber Shadow",
+        summary: "Plataformas ninja de acción brutal con estética de NES pura — precisión absoluta al estilo de los clásicos más exigentes de los 8 bits.",
+        difficulty: "dificil",
+        emoji: "🥷",
+        steamUrl: "https://store.steampowered.com/app/861250/Cyber_Shadow/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 264 de Retro 365, y hoy he muerto quince veces seguidas en el mismo tramo, tal y como se sentían los clásicos de verdad. Bienvenidos a Cyber Shadow."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una muerte rápida en un tramo exigente. <strong>🎬 Producción:</strong> SFX real del juego (retro) · corte duro · BGM: sting corto, chiptune</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un plataformas ninja de acción brutal con estética de NES pura — hoy os cuento por qué exige la misma precisión absoluta que los clásicos más exigentes de los ocho bits."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 264 · CYBER SHADOW" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, chiptune</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un ninja cibernético despierta en una ciudad futurista devastada por fuerzas robóticas hostiles, tratando de salvar los restos de su propio clan mientras se abre paso a través de niveles cada vez más exigentes y hostiles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad futurista devastada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate ninja exige precisión absoluta de espada y esquiva, cada nueva habilidad desbloqueada abre caminos alternativos por niveles anteriores, y la estética visual y sonora recrea fielmente la sensación de los clásicos de NES más queridos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate ninja preciso. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el tramo que me lleva costando toda la sesión, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los plataformas exigentes de precisión absoluta como los clásicos de NES?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustan bastante, aunque reconozco que a veces me frustro más de lo que admito con este nivel de exigencia."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje a los clásicos más difíciles ejecutado con precisión moderna — de los plataformas retro más exigentes y satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de tramos superados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es el juego más difícil de NES que recuerdas? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      265: {
+        name: "ULTRAKILL",
+        summary: "Shooter ultraviolento estilo character action, donde sangrar a tus enemigos te cura a ti mismo — velocidad y estilo por encima de todo.",
+        difficulty: "dificil",
+        emoji: "🩸",
+        steamUrl: "https://store.steampowered.com/app/1229490/ULTRAKILL/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 265 de Retro 365, y hoy me he curado a mí mismo bebiendo la sangre de un enemigo que acababa de matar. Bienvenidos a ULTRAKILL."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real curándose con sangre enemiga. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, metal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter ultraviolento con estilo de character action, donde sangrar a tus propios enemigos te cura a ti mismo — hoy os cuento por qué la velocidad y el estilo importan por encima de cualquier otra cosa aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 265 · ULTRAKILL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, metal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un futuro donde la humanidad se ha extinguido, máquinas alimentadas por sangre luchan en el infierno para conseguir suficiente sangre y sobrevivir — con V1, una de estas máquinas, abriéndose paso de la forma más violenta y estilosa posible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario infernal. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada arma tiene múltiples modos de disparo combinables entre sí, el sistema de puntuación premia la velocidad y la variedad de ejecuciones, y curarte requiere atacar agresivamente en vez de esconderte, invirtiendo la lógica de los shooters tradicionales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate agresivo puntuando alto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo la puntuación más alta posible en este nivel."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de puntuación de estilo en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según sube la puntuación</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta la idea de un shooter donde atacar te cura, en vez de esconderte a recuperar vida?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encanta esa inversión de la lógica habitual, obliga a jugar de una forma mucho más agresiva y satisfactoria."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Velocidad, sangre, y estilo llevados al extremo absoluto — de los shooters más originales y exigentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la puntuación conseguida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres jugar agresivo o a la defensiva en los shooters? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      266: {
+        name: "Prodeus",
+        summary: "Cierre de tanda: shooter retro reimaginado con gráficos modernos y gore exagerado — la nostalgia de los 90 con la calidad de hoy.",
+        difficulty: "media",
+        emoji: "👹",
+        steamUrl: "https://store.steampowered.com/app/964800",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 266 de Retro 365, cierre de esta tanda, y hoy he despedazado a un demonio de una forma tan exagerada que me ha hecho hasta gracia. Bienvenidos a Prodeus."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un enemigo destruido de forma exagerada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, metal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter retro reimaginado con gráficos modernos y gore exagerado — hoy os cuento por qué combina la nostalgia de los años 90 con la calidad técnica de hoy en día."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 266 · PRODEUS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, metal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Inspirado directamente en los shooters clásicos de los años 90, avanzas por niveles llenos de demonios y criaturas infernales usando un arsenal variado de armas, en escenarios que mezclan pixel art clásico con iluminación y efectos completamente modernos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un nivel infernal con estética mixta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada arma tiene un peso y una sensación satisfactoria muy trabajada, el ritmo de combate se mantiene frenético en todo momento sin pausas reales, y el editor de niveles integrado permite crear y compartir contenido de la comunidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate frenético contra varios demonios. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una oleada real de demonios, a ver si consigo sobrevivir sin perder el ritmo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la oleada de demonios. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste algún shooter clásico de los 90 en su momento, o los conoces solo por este tipo de homenajes?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Los conozco sobre todo por homenajes como este, y me está dando bastantes ganas de investigar los clásicos originales."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Nostalgia bien ejecutada con calidad técnica moderna — cierre perfecto y sangriento para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu shooter retro favorito de los 90? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 252: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 267: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
