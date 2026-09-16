@@ -7972,7 +7972,7 @@
           <p><strong>🎙️ Off:</strong> "Día 198 de Retro 365, y hoy he hablado con un robot de seguridad que citaba poesía sin ningún motivo aparente. Bienvenidos a NORCO."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un diálogo surrealista con un robot. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, sureño</p>
           <h4>🎯 Promesa</h4>
-          <p><strong>🎙️ Off:</strong> "Un point & click narrativo ambientado en el sur de Louisiana industrial, con un tono surrealista y muy centrado en el diálogo — hoy os cuento por qué esta historia de una hermana buscando a su hermano se queda en la cabeza."</p>
+          <p><strong>🎙️ Off:</strong> "Un point and click narrativo ambientado en el sur de Louisiana industrial, con un tono surrealista y muy centrado en el diálogo — hoy os cuento por qué esta historia de una hermana buscando a su hermano se queda en la cabeza."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 198 · NORCO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sureño</p>
           <h4>📍 Contexto</h4>
           <p><strong>🎙️ Off:</strong> "Kay vuelve a su pueblo natal de Norco, Louisiana, tras la muerte de su madre, para buscar a su hermano desaparecido — adentrándose en un paisaje industrial distorsionado por la petroquímica y lleno de misterios sobrenaturales."</p>
