@@ -44,13 +44,13 @@
             <div class="day-thumb" data-game="${escapeAttr(game.name)}">${game.emoji || "🎮"}</div>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · 🔓 DESBLOQUEADO</div>
-              <h4><a href="${game.steamUrl}" target="_blank" rel="noopener">${game.name} ↗</a></h4>
+              <h4><a href="${game.videoUrl}" target="_blank" rel="noopener">▶ ${game.name}</a></h4>
               <p>${game.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${game.difficulty}">${DIFF_LABELS[game.difficulty] || game.difficulty}</span>
                 ${game.duration ? `<span class="diff-chip chip-neutral">⏱️ ${game.duration}</span>` : ''}
                 ${game.platform ? `<span class="diff-chip chip-neutral">${PLATFORM_LABELS[game.platform] || game.platform}</span>` : ''}
-                <a class="video-link" href="${game.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
+                <a class="diff-chip chip-neutral" href="${game.steamUrl}" target="_blank" rel="noopener">🛒 Steam ↗</a>
               </div>
             </div>
           </div>`;
@@ -709,13 +709,13 @@
             <div class="day-thumb" data-game="${escapeAttr(published.name)}">${published.emoji || "🎮"}</div>
             <div class="day-info">
               <div class="day-badge">DÍA ${String(day).padStart(3,"0")} · ✅ PUBLICADO</div>
-              <h4><a href="${published.steamUrl}" target="_blank" rel="noopener">${published.name} ↗</a></h4>
+              <h4><a href="${published.videoUrl}" target="_blank" rel="noopener">▶ ${published.name}</a></h4>
               <p>${published.summary}</p>
               <div class="day-meta">
                 <span class="diff-chip diff-${published.difficulty}">${DIFF_LABELS[published.difficulty] || published.difficulty}</span>
                 ${published.duration ? `<span class="diff-chip chip-neutral">⏱️ ${published.duration}</span>` : ''}
                 ${published.platform ? `<span class="diff-chip chip-neutral">${PLATFORM_LABELS[published.platform] || published.platform}</span>` : ''}
-                <a class="video-link" href="${published.videoUrl}" target="_blank" rel="noopener">▶ Ver vídeo</a>
+                <a class="diff-chip chip-neutral" href="${published.steamUrl}" target="_blank" rel="noopener">🛒 Steam ↗</a>
               </div>
             </div>
           </div>`, difficulty: published.difficulty };
