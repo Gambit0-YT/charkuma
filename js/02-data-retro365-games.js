@@ -5525,7 +5525,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cómo repartirías tú tu día entre estudiar, entrenar, y socializar? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      177: {
+        name: "Death's Door",
+        summary: "Un cuervo funcionario recolector de almas se enfrenta a jefes gigantes en un mundo tan bonito como melancólico.",
+        difficulty: "media",
+        emoji: "🦅",
+        steamUrl: "https://store.steampowered.com/app/894020/Deaths_Door/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 177 de Retro 365, tanda nueva, y hoy un cuervo funcionario me acaba de dar más ganas de llorar que cualquier drama con actores reales. Bienvenidos a Death's Door."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del cuervo protagonista explorando. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, melancólico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un cuervo funcionario recolector de almas se enfrenta a jefes gigantes en un mundo tan bonito como melancólico — hoy os cuento por qué esta premisa tan rara esconde muchísimo corazón."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 177 · DEATH'S DOOR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, melancólico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como cuervo funcionario de una oficina burocrática encargada de recolectar almas, tu misión rutinaria se complica cuando alguien te roba el alma que debías recoger — obligándote a perseguirla a través de mundos cada vez más extraños."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo colorido y melancólico. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate mezcla espada, arco, y hechizos con una precisión exigente al estilo souls-like en miniatura, cada jefe tiene una historia melancólica propia detrás de su furia, y la dirección artística logra transmitir tristeza sin dejar de ser adorable."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un jefe gigante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el jefe que me ha estado costando hasta ahora, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué jefe de este juego te ha dado más pena en vez de miedo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he llegado al jefe que más pena me va a dar, pero ya intuyo por dónde va a ir la cosa."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Combate exigente con una tristeza de fondo bien contada — de las sorpresas indie más completas de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustaría ser funcionario recolector de almas en la vida real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      178: {
+        name: "Ori and the Will of the Wisps",
+        summary: "La secuela de Ori: plataformas y combate más pulido, con una belleza visual y una banda sonora que rompen el corazón.",
+        difficulty: "media",
+        emoji: "✨",
+        steamUrl: "https://store.steampowered.com/app/1057090/Ori_and_the_Will_of_the_Wisps/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 178 de Retro 365, y hoy la banda sonora de este juego me ha dejado sin palabras un buen rato. Bienvenidos a Ori and the Will of the Wisps."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una secuencia emotiva con música. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, orquestal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La secuela directa de Ori and the Blind Forest, con plataformas y combate todavía más pulidos — hoy os cuento por qué la belleza visual y la banda sonora de este juego rompen el corazón sin esfuerzo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 178 · ORI AND THE WILL OF THE WISPS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, orquestal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Ori, el pequeño espíritu del bosque, se embarca en un nuevo viaje para salvar un reino en decadencia, encontrando nuevas criaturas y enfrentando amenazas cada vez mayores en un mundo dibujado a mano con un cuidado exquisito."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un bosque dibujado a mano. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate ahora tiene armas y habilidades mucho más variadas que en el original, el movimiento fluido por el escenario se siente todavía más ágil, y cada secuencia de escape contra un peligro se convierte en pura tensión visual y sonora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una secuencia de escape tensa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una secuencia de escape real, sin ningún margen de error."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la secuencia de escape. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión de golpe</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Ori, ¿qué mejora de esta secuela te está gustando más?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El combate mejorado es lo que más noto distinto, se siente muchísimo más satisfactorio que en el primero."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una secuela que mejora casi todo sin perder la magia emocional del original — de los plataformas más bonitos y emotivos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la exploración del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué banda sonora de videojuego te ha emocionado más en tu vida? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      179: {
+        name: "Bugsnax",
+        summary: "Investigas criaturas mitad comida, mitad bicho, en una isla misteriosa — capturarlas de la forma correcta es todo un puzle.",
+        difficulty: "facil",
+        emoji: "🍿",
+        steamUrl: "https://store.steampowered.com/app/674140/Bugsnax/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 179 de Retro 365, y hoy he capturado un bicho que es literalmente mitad fresa, mitad grillo. Bienvenidos a Bugsnax."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una captura de un Bugsnax raro. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una aventura de investigación sobre criaturas mitad comida, mitad bicho, que habitan una isla misteriosa — hoy os cuento por qué capturar cada uno de forma correcta es todo un puzle en sí mismo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 179 · BUGSNAX" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un periodista viaja a la isla de Snaktooth para investigar la desaparición de un explorador legendario, descubriendo por el camino una isla llena de Bugsnax, criaturas extrañas mitad comida que los habitantes locales llevan comiendo con consecuencias raras."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla colorida. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada Bugsnax tiene su propio comportamiento y trampa específica para capturarlo, comer estas criaturas transforma físicamente el cuerpo de los habitantes de formas absurdas, y detrás del tono tierno se esconde una historia más profunda de lo esperado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una trampa ingeniosa para un Bugsnax. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una captura que necesita una trampa que todavía no he probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la trampa. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué combinación de comida y bicho te parece la más rara o la más apetecible de este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he visto la combinación más rara del todo, pero ya hay una que no me esperaba para nada."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una premisa tan absurda como entrañable, con más profundidad de la que aparenta — de las sorpresas más originales de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de capturas del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué combinación de comida y bicho inventarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      180: {
+        name: "A Hat in Time",
+        summary: "Plataformas 3D adorable donde una niña recolecta fragmentos de tiempo por mundos llenos de personalidad y humor.",
+        difficulty: "facil",
+        emoji: "🎩",
+        steamUrl: "https://store.steampowered.com/app/253230/A_Hat_in_Time/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 180 de Retro 365, y hoy me he puesto un sombrero que me ha dado la capacidad de congelar el tiempo. Bienvenidos a A Hat in Time."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando un sombrero especial. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un plataformas 3D adorable donde una niña viajera espacial recolecta fragmentos de tiempo por mundos llenos de personalidad — hoy os cuento por qué recuerda tanto a los clásicos de plataformas de siempre sin sentirse anticuado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 180 · A HAT IN TIME" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Hat Kid, una pequeña viajera espacial, pierde sus fragmentos de tiempo por accidente sobre un planeta extraño, y tiene que recuperarlos explorando mundos completamente distintos entre sí, cada uno con su propio tono y personajes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo colorido y variado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada sombrero que consigues da una habilidad distinta, desde congelar el tiempo hasta convertirte en un pez explosivo, cada mundo cambia de género por completo, desde un musical hasta una investigación de misterio, y el movimiento se siente fluido y satisfactorio en todo momento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un nivel con tono distinto al anterior. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un nivel real con un tono que no me esperaba para nada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando divertida al cambio de tono. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te recuerda este juego a algún plataformas clásico de tu infancia?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me recuerda muchísimo a los plataformas 3D clásicos de siempre, con ese toque de nostalgia que se siente muy bien traído."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Nostalgia hecha con muchísimo cariño y personalidad propia — de los plataformas 3D indie más queridos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de niveles explorados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu plataformas 3D favorito de la infancia? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      181: {
+        name: "Psychonauts 2",
+        summary: "Entras literalmente dentro de la mente de otras personas, con niveles que representan sus miedos y traumas de forma creativa.",
+        difficulty: "media",
+        emoji: "🧠",
+        steamUrl: "https://store.steampowered.com/app/607080/Psychonauts_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 181 de Retro 365, y hoy he entrado literalmente dentro de la mente de alguien y he visto sus miedos hechos plataformas. Bienvenidos a Psychonauts 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando un nivel dentro de una mente. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, surrealista</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un plataformas de acción donde entras literalmente dentro de la mente de otras personas, con niveles que representan sus miedos y traumas de forma creativa — hoy os cuento por qué esta idea sigue siendo única años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 181 · PSYCHONAUTS 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, surrealista</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Razputin, un joven psíquico en entrenamiento, se une a los Psiconautas, una agencia de espías con poderes mentales, e investiga una conspiración interna mientras entra en las mentes de sus propios compañeros para ayudarlos con sus problemas personales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la sede de los Psiconautas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada mente que exploras tiene un diseño visual completamente distinto que representa la psicología de esa persona, los poderes psíquicos se combinan de formas creativas para resolver puzles, y el humor y la ternura conviven con temas serios como la ansiedad o la adicción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle usando poderes psíquicos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una mente nueva que no sé qué tema va a tratar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al descubrir el tema de la mente. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono emotivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que un videojuego trate temas de salud mental de una forma tan creativa?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece admirable, se nota que han tratado estos temas con cuidado real en vez de usarlos como simple decoración."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Creatividad visual al servicio de temas humanos de verdad — de las secuelas más esperadas y merecidas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de mentes exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo te imaginas que sería el nivel dentro de tu propia mente? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      182: {
+        name: "TUNIC",
+        summary: "Un zorrito explora un mundo isométrico precioso, guiado por un manual de instrucciones escrito en un idioma que no entiendes.",
+        difficulty: "dificil",
+        emoji: "🦊",
+        steamUrl: "https://store.steampowered.com/app/553420/TUNIC/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 182 de Retro 365, y hoy he encontrado una página de manual escrita en un idioma que no entiendo ni un poco. Bienvenidos a TUNIC."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real encontrando una página del manual. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un pequeño zorro explora un mundo isométrico precioso, guiado por un manual de instrucciones escrito en un idioma completamente inventado — hoy os cuento por qué juntar las piezas de ese manual se convierte en su propio juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 182 · TUNIC" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un zorrito despierta sin recuerdos en una playa extraña, en un mundo lleno de secretos, criaturas hostiles, y ruinas antiguas — con un manual de instrucciones desperdigado por el mapa como única guía, escrito en un idioma completamente extraño."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la playa inicial. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate exige esquivar y parar con precisión al estilo souls-like en miniatura, el manual encontrado esconde pistas visuales que hay que interpretar sin traducción directa, y el propio mapa guarda secretos que solo se descubren observando con muchísima atención."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate exigente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una página nueva del manual, a ver qué pista escondida encuentro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara examinando la nueva página del manual. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos que no te explican nada directamente y te dejan descubrirlo todo tú mismo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, aunque reconozco que este en concreto me ha hecho sentir bastante perdido más de una vez."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje precioso a los clásicos de aventuras con un misterio real por descubrir — de los indies más ingeniosos de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de secretos encontrados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a jugar algo sin ningún tutorial real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      183: {
+        name: "DEATH STRANDING 2: ON THE BEACH",
+        summary: "Sam Porter Bridges vuelve para conectar Australia entera — carga, terreno, y una filosofía sobre conexión humana muy particular.",
+        difficulty: "media",
+        emoji: "📦",
+        steamUrl: "https://store.steampowered.com/app/3280350/DEATH_STRANDING_2_ON_THE_BEACH/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 183 de Retro 365, y hoy he cruzado un terreno imposible cargando un paquete que pesaba más que yo. Bienvenidos a Death Stranding 2: On the Beach."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real cargando peso por terreno difícil. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Sam Porter Bridges vuelve para conectar Australia entera a una red global — hoy os cuento por qué esta secuela sigue defendiendo su filosofía tan particular sobre la conexión humana."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 183 · DEATH STRANDING 2: ON THE BEACH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Once meses después de los eventos del primer juego, Sam retoma su labor de repartidor conectando comunidades aisladas, esta vez expandiendo la red por Australia entera, enfrentándose a terrenos hostiles y criaturas sobrenaturales por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un terreno hostil australiano. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar el peso y el equilibrio de la carga sigue siendo el corazón del gameplay, las herramientas y vehículos nuevos dan más opciones para cruzar terrenos imposibles, y las estructuras que dejan otros jugadores siguen ayudando de formas asíncronas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real cruzando un terreno usando herramientas nuevas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: cruzar este terreno imposible sin perder el equilibrio de la carga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al riesgo de perder el equilibrio. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Death Stranding, ¿qué te está pareciendo esta secuela?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo una evolución natural, con la misma filosofía extraña sobre conectar a la gente que hizo especial al primero."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una secuela que se atreve a mantener su identidad tan particular sin diluirla — de las propuestas más originales de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la entrega explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué opinas de la filosofía de conexión humana detrás de este juego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      184: {
+        name: "Ghostrunner",
+        summary: "Parkour cyberpunk en primera persona donde mueres de un solo golpe — precisión absoluta a máxima velocidad, sin margen de error.",
+        difficulty: "dificil",
+        emoji: "🗡️",
+        steamUrl: "https://store.steampowered.com/app/1139900/Ghostrunner/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 184 de Retro 365, y hoy he muerto de un solo golpe por décima vez en el mismo tramo. Bienvenidos a Ghostrunner."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una muerte instantánea de un solo golpe. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, cyberpunk</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de acción y parkour cyberpunk en primera persona donde tanto tú como los enemigos morís de un solo golpe — hoy os cuento por qué la precisión absoluta a máxima velocidad lo es todo aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 184 · GHOSTRUNNER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, cyberpunk</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En una megaestructura vertical llamada Dharma Tower, uno de los últimos supervivientes de una guerra tecnológica escala la torre combatiendo con una katana, buscando vengarse del tirano que controla la ciudad desde arriba."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la torre cyberpunk. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El parkour y el combate se fusionan en un mismo flujo constante de movimiento, morir de un solo golpe obliga a memorizar cada tramo con precisión total, y el ritmo frenético del juego se siente como una danza mortal muy bien coreografiada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un tramo de parkour y combate fluido. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el tramo que me lleva costando toda la sesión, otra vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de una sola vida por golpe, o te generan demasiada frustración?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me generan bastante frustración al principio, pero cuando por fin memorizo un tramo entero, la satisfacción compensa con creces."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Velocidad, precisión, y una tensión constante que no da ni un respiro — de los shooters de acción más exigentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de tramos superados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a jugar algo donde un solo golpe te mata? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      185: {
+        name: "Sifu",
+        summary: "Combate de kung fu realista donde cada muerte te envejece un poco más — venganza a costa de tu propia juventud.",
+        difficulty: "dificil",
+        emoji: "🥋",
+        steamUrl: "https://store.steampowered.com/app/2138710/Sifu/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 185 de Retro 365, y hoy he muerto tantas veces que mi personaje ya tiene canas que no tenía al empezar. Bienvenidos a Sifu."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del personaje envejeciendo tras una muerte. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, kung fu</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de combate de kung fu realista donde cada muerte te envejece un poco más de verdad — hoy os cuento por qué buscar venganza aquí tiene un precio literal sobre tu propia juventud."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 185 · SIFU" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, kung fu</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un joven estudiante de kung fu busca venganza contra los asesinos de su familia, usando un amuleto mágico que le permite resucitar tras cada muerte — pero cada resurrección le hace envejecer, acercándolo cada vez más a la vejez definitiva."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una localización antes de un combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate cuerpo a cuerpo exige precisión real de bloqueo y contraataque contra grupos enteros de enemigos, envejecer te da más fuerza pero acorta tu margen real de vida en la partida, y cada nivel se puede rejugar buscando llegar más joven al jefe final."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un grupo de enemigos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde no me puedo permitir morir muchas más veces."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de edad del personaje en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te compensaría envejecer a cambio de más poder en un combate real así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Probablemente no me compensaría, pero entiendo perfectamente la tentación cuando estás a punto de perder un combate."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Combate exigente con una mecánica de riesgo real detrás de cada resurrección — de los juegos de kung fu más originales y duros que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Hasta qué edad te arriesgarías a envejecer por venganza? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      186: {
+        name: "Devil May Cry 5",
+        summary: "Acción estilosa al máximo con demonios, motosierras convertidas en espada, y combos que suben de rango cuanto más elegante juegas.",
+        difficulty: "dificil",
+        emoji: "😈",
+        steamUrl: "https://store.steampowered.com/app/601150/Devil_May_Cry_5/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 186 de Retro 365, y hoy he encadenado un combo tan largo que el propio juego me ha puesto de rango SSS. Bienvenidos a Devil May Cry 5."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combo de rango SSS. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, rockero</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de acción estilosa al máximo con demonios, motosierras convertidas en espada, y combos que suben de rango cuanto más elegante juegas — hoy os cuento por qué la elegancia importa tanto como sobrevivir aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 186 · DEVIL MAY CRY 5" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, rockero</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tres cazadores de demonios, Dante, Nero, y el misterioso V, se enfrentan a una invasión demoníaca liderada por un árbol gigante que amenaza con devorar toda la humanidad, cada uno con su propio estilo de combate único."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una ciudad invadida por demonios. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje jugable tiene un estilo de combate completamente distinto, encadenar combos variados sin repetirte sube tu rango de estilo en tiempo real, y el propio juego te premia visualmente por jugar de la forma más creativa posible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combo variado en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo mantener el rango de estilo alto en este combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de rango de estilo en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según sube el rango</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de los tres personajes jugables te llama más la atención por su estilo de combate?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy probando personajes, pero uno de ellos tiene un estilo tan raro y satisfactorio que ya me ha conquistado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Acción estilosa llevada al extremo, con un sistema de combate que premia la creatividad de verdad — de los mejores hack and slash que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué personaje elegirías tú, Dante, Nero, o V? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      187: {
+        name: "Metal Gear Rising: Revengeance",
+        summary: "Cortas absolutamente todo en cámara lenta con una katana — un spin-off de acción tan estiloso como ridículamente satisfactorio.",
+        difficulty: "media",
+        emoji: "⚔️",
+        steamUrl: "https://store.steampowered.com/app/235460/METAL_GEAR_RISING_REVENGEANCE/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 187 de Retro 365, y hoy he cortado una sandía en cámara lenta con más satisfacción de la que voy a admitir. Bienvenidos a Metal Gear Rising: Revengeance."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un corte en cámara lenta. <strong>🎬 Producción:</strong> SFX real del juego (corte de katana) · corte duro · BGM: sting corto, rockero</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un spin-off de acción de la saga Metal Gear donde puedes cortar absolutamente todo lo que veas en cámara lenta con una katana — hoy os cuento por qué es tan estiloso como ridículamente satisfactorio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 187 · METAL GEAR RISING: REVENGEANCE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, rockero</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Raiden, cyborg ninja y ex-soldado infantil, trabaja ahora para una empresa de seguridad privada, enfrentándose a una organización que usa niños soldados cyborg — todo mientras cuestiona su propia identidad como arma humana."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario militar futurista. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El modo Corte Zandatsu te permite ralentizar el tiempo para cortar enemigos con precisión quirúrgica en cualquier ángulo, cada jefe tiene diálogos tan exagerados como memorables, y el ritmo de combate es puro heavy metal convertido en videojuego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del modo Corte Zandatsu en acción. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un jefe con unos diálogos tan exagerados que da hasta gracia en mitad del combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando divertida a los diálogos del jefe. <strong>🎬 Producción:</strong> SFX dramático y cómico a la vez · BGM: sube en combate</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué objeto cortarías tú primero en cámara lenta si tuvieras una katana así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Probablemente empezaría cortando cosas de la cocina, aunque seguro que acabaría metiéndome en algún lío."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ridículo, estiloso, y con una banda sonora que se te queda pegada — de los spin-off de acción más memorables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de cortes del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es el diálogo de jefe final más exagerado que recuerdas de un videojuego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      188: {
+        name: "Prey",
+        summary: "Estación espacial infestada de alienígenas que imitan objetos cotidianos — no puedes fiarte ni de una simple taza de café.",
+        difficulty: "dificil",
+        emoji: "☕",
+        steamUrl: "https://store.steampowered.com/app/480490/Prey/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 188 de Retro 365, y hoy una simple taza de café me acaba de atacar sin ningún aviso. Bienvenidos a Prey."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un objeto cotidiano transformándose en enemigo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de terror y acción inmersiva en una estación espacial infestada de alienígenas capaces de imitar objetos cotidianos — hoy os cuento por qué no puedes fiarte ni de una simple taza de café aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 188 · PREY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas en la estación espacial Talos I, orbitando la Luna, para descubrir que una especie alienígena llamada Typhon ha infestado toda la instalación — y algunos de ellos pueden transformarse en cualquier objeto del entorno."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la estación espacial. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada objeto del escenario puede ser en realidad un Mimic disfrazado esperando a atacar, los poderes alienígenas que puedes adquirir cambian por completo tu forma de resolver problemas, y la propia estación se explora con una libertad total, sin caminos obligados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate contra un Mimic disfrazado. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: esta habitación llena de objetos, sin saber cuál de ellos es real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara examinando con cautela los objetos de la habitación. <strong>🎬 Producción:</strong> SFX inquietante · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿le tendrías miedo a un objeto cotidiano cualquiera después de jugar a esto?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Después de esto le tendría manía a cualquier taza sospechosamente bien colocada durante un buen tiempo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Terror y libertad de exploración mezclados con una paranoia constante — de las mejores propuestas de terror inmersivo que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la estación explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué objeto cotidiano te daría más miedo que fuera en realidad un alienígena? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      189: {
+        name: "Dishonored 2",
+        summary: "Sigilo sobrenatural con poderes de asesino, en una ciudad donde cada nivel se puede resolver de decenas de formas distintas.",
+        difficulty: "media",
+        emoji: "🎭",
+        steamUrl: "https://store.steampowered.com/app/403640/Dishonored_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 189 de Retro 365, y hoy me he teletransportado por un tejado entero sin que ni un solo guardia se enterara. Bienvenidos a Dishonored 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un teletransporte sigiloso por tejados. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de sigilo sobrenatural con poderes de asesino, en una ciudad donde cada nivel se puede resolver de decenas de formas distintas — hoy os cuento por qué la libertad creativa aquí es prácticamente ilimitada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 189 · DISHONORED 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Emily Kaldwin o Corvo Attano, dependiendo de a quién elijas, luchan por recuperar el trono usurpado por una bruja, viajando a una ciudad costera llena de tecnología extraña y magia sobrenatural para conseguirlo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad costera. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje jugable tiene poderes sobrenaturales completamente distintos entre sí, cada misión se puede resolver con sigilo total, violencia directa, o una mezcla de ambas, y algunos niveles concretos son verdaderas obras maestras de diseño de niveles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un nivel resuelto con sigilo creativo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un plan de sigilo improvisado que puede salir muy bien o muy mal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al plan en directo. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugarías con Emily o con Corvo, y por qué?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he decidido con quién jugar, pero me atraen bastante los poderes propios de Emily."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Libertad creativa real para resolver cada situación como quieras — de los mejores juegos de sigilo sobrenatural que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de eliminaciones sigilosas del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Emily o Corvo, con quién jugarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      190: {
+        name: "DEATHLOOP",
+        summary: "Dos asesinos rivales atrapados en un bucle temporal eterno en una isla — repetir el mismo día se convierte en el propio puzle.",
+        difficulty: "media",
+        emoji: "🔁",
+        steamUrl: "https://store.steampowered.com/app/1252330/DEATHLOOP/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 190 de Retro 365, y hoy he repetido el mismo día por sexta vez seguida, y cada vez aprendo algo nuevo del mismo escenario. Bienvenidos a DEATHLOOP."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del reinicio del bucle temporal. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, funk retro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter de sigilo donde dos asesinos rivales quedan atrapados en un bucle temporal eterno en una misteriosa isla — hoy os cuento por qué repetir el mismo día se convierte en el propio puzle a resolver."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 190 · DEATHLOOP" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, funk retro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Colt, atrapado en un bucle temporal en la isla de Blackreef, tiene que eliminar a ocho objetivos clave en un solo día repetido para romper el ciclo para siempre — mientras Julianna, su némesis, hace todo lo posible por detenerlo cada vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona de la isla en un momento concreto del día. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada zona de la isla cambia según la hora del día, obligando a planificar rutas y objetivos con cuidado, la información que descubres en un intento se queda contigo para el siguiente, y Julianna puede invadir tu partida en cualquier momento, controlada por otro jugador real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una invasión de Julianna. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: planificar la ruta perfecta para eliminar a dos objetivos en el mismo intento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la ruta planificada. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría repetir el mismo día para siempre si eso significara aprenderlo todo perfectamente?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Al principio suena tentador, pero creo que acabaría volviéndome loco bastante más rápido de lo que pienso."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un puzle de sigilo con estilo, música, y una premisa de bucle temporal muy bien resuelta — de los shooters más inteligentes de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la ruta planificada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustaría vivir el mismo día para siempre? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      191: {
+        name: "Vampyr",
+        summary: "Cierre de tanda: un médico convertido en vampiro debe elegir entre curar Londres o alimentarse de sus propios pacientes.",
+        difficulty: "media",
+        emoji: "🩸",
+        steamUrl: "https://store.steampowered.com/app/427290/Vampyr/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 191 de Retro 365, cierre de esta tanda, y hoy he tenido que decidir si curaba a un paciente o me alimentaba de él. Bienvenidos a Vampyr."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la decisión con un paciente. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, sombrío</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de acción donde un médico convertido en vampiro debe elegir entre curar el Londres de 1918 azotado por la gripe, o alimentarse de sus propios pacientes — hoy os cuento por qué cada decisión moral pesa de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 191 · VAMPYR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sombrío</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El doctor Jonathan Reid despierta convertido en vampiro tras ser atacado misteriosamente, en un Londres devastado por la gripe española de 1918 — obligado a decidir entre su juramento hipocrático y su nueva y cruel naturaleza."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un Londres oscuro y enfermo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Investigar la vida personal de cada ciudadano de Londres te permite decidir si vale la pena alimentarte de ellos o no, hacerlo te da poder real pero reduce la población y afecta al propio distrito, y el combate mezcla armas médicas con poderes vampíricos oscuros."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando poderes vampíricos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión moral difícil con un ciudadano que llevo un rato investigando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión moral. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿podrías mantenerte fiel a tu juramento como médico si fueras un vampiro hambriento de verdad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría pensar que sí, pero este juego demuestra rápido lo difícil que sería mantener esa promesa de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Dilemas morales de verdad envueltos en una ambientación histórica sombría — cierre perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones tomadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Curarías o te alimentarías de tus pacientes si fueras un vampiro médico? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 177: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 192: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
