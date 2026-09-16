@@ -11128,8 +11128,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Conocías el anime clásico de Record of Lodoss War? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      297: {
+        name: "A Way Out",
+        summary: "Dos presos planean su fuga juntos, jugable exclusivamente en cooperativo — el guionista de It Takes Two antes de It Takes Two.",
+        difficulty: "media",
+        emoji: "⛓️",
+        steamUrl: "https://store.steampowered.com/app/1222700/A_Way_Out/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 297 de Retro 365, tanda nueva, y hoy mi compañero de fuga casi nos delata a los dos por una decisión precipitada. Bienvenidos a A Way Out."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un momento tenso de la fuga. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Dos presos planean su fuga juntos, jugable exclusivamente en cooperativo, sin ninguna opción de un jugador — hoy os cuento por qué esto viene del mismo guionista de It Takes Two, antes de It Takes Two."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 297 · A WAY OUT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Leo y Vincent, dos presos encerrados por razones distintas, deciden aliarse para planear una fuga conjunta de la cárcel, y una vez fuera, buscar venganza contra quienes los llevaron hasta ahí en primer lugar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la cárcel planificando la fuga. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada escena cambia de género constantemente, desde sigilo hasta persecuciones en coche, la pantalla dividida obliga a coordinarse en tiempo real con tu compañero, y las decisiones de diálogo cambian pequeños matices de la historia entre ambos personajes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una escena de pantalla dividida coordinada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión real que va a cambiar cómo se relacionan ambos personajes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con quién harías tú una fuga de prisión así de arriesgada?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Elegiría a alguien con quien confíe ciegamente, una fuga así solo funciona si te fías al cien por cien de tu compañero."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un cooperativo obligatorio con un ritmo cinematográfico constante — de las semillas más claras de lo que luego sería It Takes Two."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la fuga explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién intentarías tú una fuga de prisión así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      298: {
+        name: "Brothers: A Tale of Two Sons",
+        summary: "Controlas a dos hermanos a la vez con cada mano del mando, en un viaje emotivo sin ningún diálogo hablado real.",
+        difficulty: "facil",
+        emoji: "🌳",
+        steamUrl: "https://store.steampowered.com/app/225080/Brothers__A_Tale_of_Two_Sons/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 298 de Retro 365, y hoy he tenido que mover dos hermanos a la vez con cada mano del mando, cada uno hacia un lado distinto. Bienvenidos a Brothers: A Tale of Two Sons."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real controlando a los dos hermanos por separado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, emotivo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Controlas a dos hermanos a la vez con cada mano del mando, en un viaje emotivo sin ningún diálogo hablado real — hoy os cuento por qué este control tan poco habitual se convierte en parte esencial de la propia historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 298 · BROTHERS: A TALE OF TWO SONS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, emotivo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Dos hermanos emprenden un viaje para conseguir la cura de un árbol sagrado que pueda salvar a su padre enfermo, atravesando un mundo de fantasía lleno de peligros que solo pueden superar cooperando el uno con el otro."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo de fantasía. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada hermano tiene su propia fuerza y habilidad distinta que combinar para resolver puzles, controlar a ambos con el mismo mando exige coordinación mental real por tu propia cuenta, y la ausencia de diálogo real da todo el peso emocional al lenguaje corporal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto combinando a ambos hermanos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita coordinar a los dos hermanos con mucha precisión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la coordinación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece contar una historia tan emotiva sin usar ningún diálogo hablado real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo más valiente que puede hacer un videojuego, y aquí consigue emocionar sin necesitar ni una sola palabra clara."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un control único al servicio de una historia emotiva sobre hermandad y pérdida — de las experiencias más innovadoras y emocionantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del viaje explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué harías tú por salvar a un familiar enfermo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      299: {
+        name: "The Talos Principle 2",
+        summary: "Robots filosóficos resuelven puzles de perspectiva y luz, mientras el juego pregunta qué significa ser una civilización consciente.",
+        difficulty: "media",
+        emoji: "🤖",
+        steamUrl: "https://store.steampowered.com/app/835960/The_Talos_Principle_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 299 de Retro 365, y hoy he resuelto un puzle real usando un rayo de luz reflejado desde tres ángulos distintos. Bienvenidos a The Talos Principle 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle de luz resuelto. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, filosófico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Robots filosóficos resuelven puzles de perspectiva y luz, mientras el juego pregunta qué significa ser una civilización consciente de verdad — hoy os cuento por qué esta secuela expande la filosofía del original a una escala mucho mayor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 299 · THE TALOS PRINCIPLE 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, filosófico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Una nueva civilización de robots conscientes, heredera del legado de la humanidad, envía a uno de los suyos a explorar territorios desconocidos y resolver puzles ancestrales que ponen a prueba tanto su ingenio como su propia filosofía como especie."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un territorio desconocido con puzles. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los puzles combinan rayos de luz, conectores, y perspectiva en niveles cada vez más elaborados, la narrativa filosófica se desarrolla a través de conversaciones profundas con otros personajes robóticos, y el mundo abierto conecta todos los puzles de forma orgánica."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle complejo con varios rayos de luz. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita combinar varios elementos de formas que todavía no he probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿crees que una inteligencia artificial podría desarrollar consciencia y filosofía propia algún día?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Es una pregunta que me genera muchísima curiosidad real, y este juego consigue plantearla de una forma muy inteligente sin dar respuestas fáciles."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puzles brillantes con una filosofía real detrás de cada pregunta — de los mejores juegos de puzles filosóficos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Crees que una IA podría tener consciencia propia algún día? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      300: {
+        name: "The Witness",
+        summary: "Día 300 de Retro 365 — una isla entera llena de puzles de laberintos, donde nadie te explica nada y todo lo tienes que descubrir tú.",
+        difficulty: "dificil",
+        emoji: "🌀",
+        steamUrl: "https://store.steampowered.com/app/210970/The_Witness/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 300 de Retro 365 — trescientos días seguidos de esto — y hoy he resuelto un puzle que llevaba media hora mirándome fijamente sin darme ninguna pista. Bienvenidos a The Witness."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay épico de un puzle de laberinto resuelto. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting especial, celebración del día 300</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una isla entera llena de puzles de laberintos, donde nadie te explica absolutamente nada y todo lo tienes que descubrir tú mismo — hoy, en el día 300 de este reto, os cuento por qué este silencio total es parte de su genialidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 300 · THE WITNESS" con la barra de progreso especial de celebración. <strong>🎬 Producción:</strong> SFX whoosh especial · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas solo en una isla misteriosa llena de más de quinientos puzles de laberintos repartidos por distintas zonas temáticas, sin ningún tutorial real ni explicación directa, aprendiendo las reglas de cada zona a base de observación pura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona temática de la isla. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada zona de la isla introduce una nueva regla de puzle sin explicarla directamente, el propio entorno natural esconde pistas visuales conectadas con los puzles, y el momento de entender por fin una regla nueva se siente como un logro real y personal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto tras entender la regla. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo, en este día especial: un puzle real que llevo un buen rato sin entender del todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el puzle. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: en el día 300 de Retro 365, ¿te gustan los juegos que no te explican nada y confían en tu propia observación?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Trescientos días dando caña a Retro 365 y sigo prefiriendo estos juegos, la sensación de descubrir algo por ti mismo no la da cualquier otro tipo de diseño."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Trescientos días de Retro 365 dan para mucho, y una isla de puzles silenciosa encaja perfecto con la reflexión de este número redondo — gracias por seguir aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap especial de highlights del reto hasta el día 300. <strong>🎬 Producción:</strong> fundido cruzado especial · BGM: sube, tono celebración</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los juegos sin ningún tutorial real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365 marcando 300. <strong>🎬 Producción:</strong> SFX stinger de marca especial · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      301: {
+        name: "Patrick's Parabox",
+        summary: "Puzles de cajas dentro de cajas dentro de cajas, con un sistema recursivo que se retuerce hasta límites que parecen imposibles.",
+        difficulty: "dificil",
+        emoji: "📦",
+        steamUrl: "https://store.steampowered.com/app/1260520/Patricks_Parabox/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 301 de Retro 365, y hoy he empujado una caja dentro de sí misma y mi cabeza todavía no se recupera. Bienvenidos a Patrick's Parabox."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una caja empujada dentro de sí misma. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, minimalista</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Puzles de cajas dentro de cajas dentro de cajas, con un sistema recursivo que se retuerce hasta límites que parecen imposibles — hoy os cuento por qué esta idea tan simple en apariencia se vuelve mentalmente agotadora de la mejor forma."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 301 · PATRICK'S PARABOX" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, minimalista</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Sin ninguna historia real, empujas cajas hacia sus objetivos correspondientes en un sistema donde las propias cajas pueden contener mundos enteros dentro de sí mismas, y esos mundos pueden a su vez contener más cajas recursivamente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el primer nivel del sistema recursivo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada puzle introduce una nueva capa de la recursión de forma muy bien guiada, más de trescientos cincuenta niveles hechos a mano exploran esta idea desde ángulos completamente distintos, y el momento de entender un truco recursivo nuevo se siente revelador."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle recursivo complejo resuelto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita varias capas de recursión para resolverse."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta las capas del puzle. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los puzles que ponen a prueba tu forma de pensar de una manera tan poco convencional?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, aunque este en concreto me ha hecho sentir que mi cerebro necesitaba un descanso más de una vez."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea recursiva tan simple como mentalmente agotadora de la mejor forma posible — de los puzles más inteligentes y originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué contendría una caja dentro de otra caja si pudieras elegir? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      302: {
+        name: "The Room",
+        summary: "Manipulas objetos misteriosos con mecanismos ocultos, en una caja de rompecabezas que esconde secretos dentro de secretos.",
+        difficulty: "media",
+        emoji: "🔒",
+        steamUrl: "https://store.steampowered.com/app/288160/The_Room/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 302 de Retro 365, y hoy he abierto un compartimento secreto dentro de otro compartimento secreto que ya me parecía imposible de resolver. Bienvenidos a The Room."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real abriendo un compartimento oculto. <strong>🎬 Producción:</strong> SFX real del juego (mecanismo) · corte duro · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Manipulas objetos misteriosos con mecanismos ocultos, en una caja de rompecabezas que esconde secretos dentro de secretos — hoy os cuento por qué examinar cada objeto con lupa se convierte en una obsesión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 302 · THE ROOM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Recibes una misteriosa caja de rompecabezas de un familiar desaparecido, con notas que sugieren la existencia de una energía oculta y peligrosa dentro de ella, y tienes que resolver sus mecanismos internos capa a capa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la caja de rompecabezas por primera vez. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada objeto se examina rotando y manipulando libremente con muchísimo detalle táctil, los mecanismos ocultos revelan compartimentos secretos dentro de otros compartimentos secretos, y una lupa especial revela pistas invisibles a simple vista."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando la lupa especial para encontrar una pista. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un mecanismo real que necesita una pista que todavía no he encontrado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara examinando el objeto con atención. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los puzles de escape room y cajas misteriosas en la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan los escape rooms de verdad, y este juego consigue capturar esa misma sensación de misterio sin salir de casa."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una caja de rompecabezas con más profundidad de la que aparenta a primera vista — de los puzles táctiles más satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de mecanismos resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los escape rooms en la vida real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      303: {
+        name: "Q.U.B.E. 2",
+        summary: "Una arqueóloga varada en ruinas alienígenas manipula cubos de colores para abrirse camino a través de puzles de física.",
+        difficulty: "media",
+        emoji: "🧊",
+        steamUrl: "https://store.steampowered.com/app/359100/QUBE_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 303 de Retro 365, y hoy he creado un cubo elevador justo a tiempo para no caer a un abismo. Bienvenidos a Q.U.B.E. 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real creando un cubo elevador de emergencia. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una arqueóloga varada en ruinas alienígenas manipula cubos de colores para abrirse camino a través de puzles de física — hoy os cuento por qué esta premisa recuerda a Portal sin perder identidad propia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 303 · Q.U.B.E. 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Amelia Cross, una arqueóloga, despierta varada entre las ruinas de un paisaje alienígena antiguo, usando unos guantes especiales capaces de manipular cubos de colores para resolver puzles y encontrar el camino de vuelta a casa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las ruinas alienígenas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada color de cubo tiene una función distinta, desde crear elevadores hasta puentes o resortes, los puzles combinan física real con lógica espacial cada vez más compleja, y la narrativa se revela poco a poco a través del entorno mismo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle combinando distintos cubos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita combinar varios cubos de colores distintos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación de cubos. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece esta propuesta frente a otros puzles de física en primera persona como Portal?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece que consigue diferenciarse bien a pesar de las comparaciones obvias, la mecánica de colores le da su propia identidad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puzles de física inteligentes con una ambientación misteriosa muy bien lograda — de los mejores herederos del género que dejó Portal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué color de cubo usarías tú primero en un puzle así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      304: {
+        name: "Turing Complete",
+        summary: "Construyes un ordenador entero desde cero, empezando por una simple puerta NAND hasta llegar a una CPU completa funcional.",
+        difficulty: "dificil",
+        emoji: "🖥️",
+        steamUrl: "https://store.steampowered.com/app/1444480/Turing_Complete/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 304 de Retro 365, y hoy he construido literalmente un procesador funcional desde una sola puerta lógica. Bienvenidos a Turing Complete."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un procesador construido funcionando. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, técnico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Construyes un ordenador entero desde cero, empezando por una simple puerta lógica NAND hasta llegar a una CPU completa funcional — hoy os cuento por qué este juego te enseña arquitectura de ordenadores de verdad sin darte ni cuenta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 304 · TURING COMPLETE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, técnico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Partiendo de una única puerta lógica NAND, tienes que construir progresivamente componentes cada vez más complejos —sumadores, memoria, registros— hasta ensamblar una arquitectura de CPU completa y funcional, capaz de ejecutar programas reales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el primer nivel construyendo puertas lógicas básicas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada componente que construyes se puede reutilizar como pieza para el siguiente nivel, más de setenta niveles guían el aprendizaje desde lo más básico hasta una CPU real, y entender cada concepto se siente como aprender de verdad, no solo jugar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un componente complejo construido con piezas reutilizadas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: construir un componente real que necesita varias piezas anteriores combinadas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la construcción del componente. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te interesa la arquitectura de ordenadores, o este juego te descubre un mundo completamente nuevo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me interesa bastante, pero este juego me está enseñando detalles reales que no sabía ni que existían."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego que enseña arquitectura de ordenadores real disfrazada de puzle adictivo — de las propuestas educativas más impresionantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de componentes construidos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te interesa la informática a este nivel técnico? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      305: {
+        name: "Taiji",
+        summary: "Mundo abierto de puzles conectados entre sí, donde cada símbolo activado revela nuevas capas de un misterio mayor.",
+        difficulty: "dificil",
+        emoji: "☯️",
+        steamUrl: "https://store.steampowered.com/app/1141580/Taiji/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 305 de Retro 365, y hoy un símbolo que activé hace horas ha cobrado sentido de repente en una zona completamente distinta. Bienvenidos a Taiji."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una conexión entre zonas distintas del mapa. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo abierto de puzles conectados entre sí, donde cada símbolo activado revela nuevas capas de un misterio mucho mayor — hoy os cuento por qué la sensación de conexión entre zonas distantes es una de las más satisfactorias del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 305 · TAIJI" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Exploras un mundo abierto lleno de puzles basados en activar y desactivar símbolos en una cuadrícula, donde cada zona conecta con otras de formas que solo se revelan según avanzas, formando un mundo de puzles interconectado gigante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona del mundo abierto. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada zona introduce una variante nueva de la mecánica de símbolos sin ninguna explicación directa, resolver un puzle en una zona a menudo revela consecuencias en zonas completamente distintas, y descubrir estas conexiones ocultas es la mayor recompensa del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto revelando una conexión. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que sospecho conectado con una zona que exploré hace bastante rato."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la posible conexión. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de puzles que conectan zonas distantes de formas inesperadas como este?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, esa sensación de que todo está conectado de alguna forma que todavía no entiendo del todo me tiene enganchado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo de puzles interconectado con muchísima inteligencia de diseño — de los juegos de puzles más ambiciosos y satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de conexiones descubiertas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los juegos que conectan todo de formas inesperadas? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      306: {
+        name: "Manifold Garden",
+        summary: "Arquitectura imposible al estilo Escher donde el mundo se repite infinitamente y la gravedad cambia según hacia dónde mires.",
+        difficulty: "media",
+        emoji: "🔷",
+        steamUrl: "https://store.steampowered.com/app/473950/Manifold_Garden/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 306 de Retro 365, y hoy he caído desde un edificio y he vuelto a aparecer en el mismo edificio, infinitamente. Bienvenidos a Manifold Garden."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una caída infinita repitiéndose. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, etéreo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Arquitectura imposible al estilo de Escher, donde el mundo se repite infinitamente y la gravedad cambia según hacia dónde mires — hoy os cuento por qué esto rompe por completo tu forma habitual de entender el espacio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 306 · MANIFOLD GARDEN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, etéreo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un mundo de arquitectura imposible que se repite infinitamente en todas direcciones, resuelves puzles físicos redescubriendo el concepto mismo de la gravedad, capaz de cambiar de dirección según el muro o superficie hacia la que mires."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la arquitectura imposible e infinita. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cambiar la dirección de la gravedad a voluntad abre posibilidades de movimiento que al principio cuesta asimilar del todo, la repetición infinita del mundo se usa como herramienta real de los puzles, y transportar cubos de colores completa cada solución."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real cambiando la gravedad para resolver un puzle. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita cambiar de gravedad varias veces seguidas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al cambio de gravedad en directo. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te ha costado adaptarte a la idea de una gravedad que cambia según hacia dónde mires?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me costó bastante al principio, pero en cuanto mi cerebro lo asimiló, empezó a sentirse de lo más natural."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea visual y mecánica que redefine por completo tu forma de pensar el espacio — de los puzles más originales y hermosos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo te imaginas vivir en un mundo con gravedad cambiante como este? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      307: {
+        name: "Antichamber",
+        summary: "Un laberinto psicológico donde los pasillos no obedecen ninguna lógica espacial normal — nada aquí es lo que parece a simple vista.",
+        difficulty: "dificil",
+        emoji: "🌀",
+        steamUrl: "https://store.steampowered.com/app/219890/Antichamber/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 307 de Retro 365, y hoy he caminado hacia adelante y he acabado detrás de donde empecé. Bienvenidos a Antichamber."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un pasillo que se retuerce sobre sí mismo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, extraño</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un laberinto psicológico donde los pasillos no obedecen ninguna lógica espacial normal — hoy os cuento por qué nada aquí es lo que parece a simple vista, ni siquiera caminar en línea recta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 307 · ANTICHAMBER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, extraño</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Explorando un laberinto psicológico no lineal donde los espacios se reconfiguran a sí mismos constantemente, tienes que aprender a pensar de forma completamente distinta para avanzar, sin poder dar nada por sentado sobre las reglas del espacio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un pasillo imposible. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada zona del laberinto reta una asunción distinta sobre cómo funciona el espacio, una pistola especial capaz de crear y destruir bloques de colores añade su propia capa de puzle, y el propio mapa del juego cambia según cómo lo explores."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando la pistola de bloques de colores. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un pasillo real que no tiene ningún sentido espacial aparente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando confundida al pasillo imposible. <strong>🎬 Producción:</strong> SFX extraño · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te sueles orientar bien en laberintos reales, o este juego te haría perder la cabeza por completo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me suelo orientar bastante bien normalmente, pero este juego está diseñado precisamente para romper esa confianza desde el primer minuto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un laberinto que juega con tu propia percepción de la realidad — de los puzles más mentalmente desafiantes y originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de zonas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te consideras bueno orientándote en laberintos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      308: {
+        name: "The Talos Principle",
+        summary: "El original: robots filosóficos resuelven puzles de rayos láser mientras una voz misteriosa cuestiona su propia obediencia.",
+        difficulty: "media",
+        emoji: "⚡",
+        steamUrl: "https://store.steampowered.com/app/257510/The_Talos_Principle/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 308 de Retro 365, y hoy una voz misteriosa me ha preguntado directamente por qué obedezco sus órdenes sin cuestionarlas. Bienvenidos a The Talos Principle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una conversación con la voz misteriosa. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, filosófico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El original: robots filosóficos resuelven puzles de rayos láser mientras una voz misteriosa cuestiona su propia obediencia — hoy os cuento por qué este juego mezcla puzles brillantes con preguntas filosóficas de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 308 · THE TALOS PRINCIPLE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, filosófico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un robot despierta en unas ruinas antiguas llenas de tecnología imposible, guiado por una voz que se hace llamar Elohim, resolviendo puzles de rayos láser mientras descubre pistas sobre la verdadera naturaleza de su propia existencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las ruinas antiguas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los puzles combinan rayos láser, conectores, y cajas en niveles cada vez más elaborados, desobedecer las instrucciones de la voz misteriosa abre rutas narrativas alternativas, y los textos filosóficos escondidos por el mundo invitan a una reflexión real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle de rayos láser resuelto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: desobedecer una instrucción real de la voz misteriosa a ver qué consecuencia tiene."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la consecuencia de desobedecer. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿obedecerías siempre las instrucciones de una autoridad misteriosa, o cuestionarías todo como en este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Cuestionaría todo desde el primer momento, la curiosidad puede más que la obediencia ciega casi siempre."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puzles brillantes con una filosofía profunda de fondo — de los mejores juegos de puzles filosóficos que existen, y el origen de toda la saga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Obedecerías o cuestionarías a una voz misteriosa que te da órdenes? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      309: {
+        name: "FEZ",
+        summary: "Un mundo 2D que en realidad es 3D — girar la perspectiva revela caminos y secretos que antes no existían en absoluto.",
+        difficulty: "media",
+        emoji: "🟦",
+        steamUrl: "https://store.steampowered.com/app/224760/FEZ/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 309 de Retro 365, y hoy he girado la cámara y una plataforma que no existía ha aparecido de la nada. Bienvenidos a FEZ."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real girando la perspectiva revelando una plataforma. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, onírico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo aparentemente 2D que en realidad es tridimensional del todo — hoy os cuento por qué girar la perspectiva revela caminos y secretos que antes literalmente no existían."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 309 · FEZ" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, onírico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Gomez, un habitante de un mundo plano en 2D, descubre la existencia de una tercera dimensión gracias a un misterioso sombrero mágico, y tiene que recolectar fragmentos de cubo explorando su mundo desde perspectivas nunca vistas antes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo plano en 2D. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Girar la cámara noventa grados revela plataformas y caminos que antes eran invisibles desde otra perspectiva, algunos puzles esconden un código cifrado real que la propia comunidad tardó tiempo en descifrar, y la estética pixel art tiene una personalidad única."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto girando la perspectiva. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: girar la cámara en esta zona a ver qué aparece que no veía antes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a lo revelado tras girar. <strong>🎬 Producción:</strong> SFX de descubrimiento · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría poder ver una nueva dimensión de la realidad como le pasa a Gomez?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me fascinaría poder ver algo así de nuevo en el mundo real, aunque probablemente me volvería un poco loco al principio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea de perspectiva tan simple como reveladora — de los puzles más originales e influyentes del panorama indie que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de zonas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustaría descubrir una nueva dimensión de la realidad? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      310: {
+        name: "Baba Is You",
+        summary: "Reescribes las reglas del propio juego moviendo bloques de texto — el puzle no está en el nivel, está en cambiar sus normas.",
+        difficulty: "dificil",
+        emoji: "📝",
+        steamUrl: "https://store.steampowered.com/app/736260/Baba_Is_You/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 310 de Retro 365, y hoy he cambiado la regla de que las rocas son sólidas, y de repente he podido atravesarlas caminando. Bienvenidos a Baba Is You."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real cambiando una regla del propio juego. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Reescribes las reglas del propio juego moviendo bloques de texto físicos — hoy os cuento por qué el puzle real aquí no está en el nivel, está en cambiar sus propias normas fundamentales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 310 · BABA IS YOU" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nivel presenta bloques de texto que forman reglas físicas del propio juego, como 'Baba es tú' o 'roca es empujable', y mover estos bloques para reescribir las reglas es la única forma real de resolver cada puzle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el primer nivel con reglas básicas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada regla se puede combinar y contradecir de formas cada vez más creativas, más de doscientos niveles exploran esta idea desde ángulos completamente distintos, y el momento de encontrar una solución que rompe las expectativas del propio nivel es único."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto reescribiendo varias reglas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita reescribir varias reglas a la vez para resolverse."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la reescritura de reglas. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué regla de la vida real cambiarías tú si pudieras reescribirla como en este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Cambiaría alguna regla de la física para poder volar, aunque solo fuera por curiosidad de ver cómo cambiaría todo lo demás."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea tan simple de explicar como infinita de explotar — de los mejores puzles jamás diseñados que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de reglas reescritas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué regla de la realidad reescribirías tú si pudieras? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      311: {
+        name: "The Case of the Golden Idol",
+        summary: "Cierre de tanda: reconstruyes doce muertes extrañas a través de escenas congeladas llenas de pistas visuales sutiles.",
+        difficulty: "dificil",
+        emoji: "🏺",
+        steamUrl: "https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 311 de Retro 365, cierre de esta tanda, y hoy he reconstruido una muerte extraña solo observando una escena congelada con muchísima atención. Bienvenidos a The Case of the Golden Idol."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real reconstruyendo una escena de muerte. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Reconstruyes doce muertes extrañas a través de escenas congeladas llenas de pistas visuales sutiles — hoy os cuento por qué cada escena se convierte en su propio pequeño misterio que resolver con muchísima atención."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 311 · THE CASE OF THE GOLDEN IDOL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Investigas doce muertes extrañas y aparentemente inconexas relacionadas con un misterioso ídolo dorado maldito, examinando escenas congeladas en el tiempo para reconstruir exactamente qué pasó y quién es el responsable de cada una."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una escena congelada de muerte. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada escena esconde pistas visuales sutiles que hay que combinar con palabras clave para rellenar un informe final, no hay ningún combate ni ninguna prisa real, solo observación pura, y cada caso conecta con los demás formando una trama mayor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real rellenando un informe con palabras clave. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un caso real que necesita una pista que todavía no he encontrado en la escena."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara examinando la escena con atención. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te consideras bueno observando detalles, o se te suelen escapar pistas importantes?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me considero bastante observador, pero este juego me ha demostrado que siempre hay algún detalle que se me pasa por alto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Deducción pura basada solo en observación real, sin ningún relleno — cierre perfecto para esta tanda de puzles de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de casos resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te consideras bueno resolviendo misterios de observación? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 297: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 312: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
