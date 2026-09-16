@@ -9208,8 +9208,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Prefieres los metroidvania con combate, o te gustaría probar uno sin él como este? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      237: {
+        name: "Firewatch",
+        summary: "Un vigilante forestal solitario en Wyoming se comunica solo por walkie-talkie con su supervisora — misterio narrativo muy humano.",
+        difficulty: "facil",
+        emoji: "🔥",
+        steamUrl: "https://store.steampowered.com/app/383870/Firewatch/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 237 de Retro 365, tanda nueva, y hoy una conversación por walkie-talkie me ha dejado más pensativo de lo que esperaba. Bienvenidos a Firewatch."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una conversación por walkie-talkie. <strong>🎬 Producción:</strong> SFX real del juego (estática de radio) · corte duro · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un vigilante forestal solitario en Wyoming se comunica únicamente por walkie-talkie con su supervisora — hoy os cuento por qué este misterio narrativo se siente tan humano de principio a fin."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 237 · FIREWATCH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Henry, huyendo de problemas personales complicados, acepta un trabajo de vigilante forestal en un bosque remoto de Wyoming, comunicándose solo por walkie-talkie con Delilah, su supervisora, mientras empiezan a pasar cosas extrañas en la zona."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el bosque de Wyoming. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Toda la relación entre Henry y Delilah se construye a través del diálogo por radio, sin verse nunca cara a cara, la exploración del bosque se siente relajante hasta que el misterio empieza a inquietar de verdad, y las decisiones de diálogo dan mucha personalidad a Henry."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión de diálogo importante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una pista real que ha aparecido en mitad del bosque y no me esperaba para nada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la pista descubierta. <strong>🎬 Producción:</strong> SFX inquietante · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría un trabajo así de solitario en mitad de un bosque, o te volverías loco de aislamiento?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me atrae la idea al principio, pero sospecho que me volvería loco de aislamiento bastante antes de lo que imagino."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una relación construida solo con voces y un misterio que engancha sin necesitar nada sobrenatural — de las narrativas más humanas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del bosque explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a un trabajo tan solitario como este? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      238: {
+        name: "The Long Dark",
+        summary: "Supervivencia realista en la naturaleza canadiense tras un apagón global — el frío y el hambre son tus verdaderos enemigos.",
+        difficulty: "dificil",
+        emoji: "🥶",
+        steamUrl: "https://store.steampowered.com/app/305620/The_Long_Dark/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 238 de Retro 365, y hoy la hipotermia ha estado a punto de matarme antes que cualquier animal salvaje. Bienvenidos a The Long Dark."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una barra de temperatura crítica. <strong>🎬 Producción:</strong> SFX real del juego (viento helado) · corte duro · BGM: sting corto, gélido</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una supervivencia realista en la naturaleza canadiense tras un apagón geomagnético global — hoy os cuento por qué el frío y el hambre son verdaderamente tus peores enemigos aquí, no los lobos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 238 · THE LONG DARK" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gélido</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tras un misterioso apagón geomagnético global que deja inservible toda la tecnología moderna, un piloto superviviente tiene que sobrevivir en la naturaleza helada de la región canadiense, gestionando frío, hambre, y fatiga como amenazas constantes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un paisaje nevado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar temperatura corporal, hambre, sed, y fatiga a la vez exige planificación constante, cada tormenta de nieve puede dejarte perdido y desorientado sin previo aviso, y los animales salvajes son un peligro real pero secundario frente al propio clima."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real refugiándose de una tormenta de nieve. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo llegar a un refugio antes de que la temperatura me pase factura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de temperatura corporal en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según baja la temperatura</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿le tienes más miedo al frío extremo o a los animales salvajes en un survival así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Le tengo más respeto al frío extremo, un lobo lo puedes evitar, pero una tormenta de nieve te puede pillar sin avisar."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Supervivencia realista sin concesiones, donde el propio clima es el villano principal — de los survival más honestos y exigentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la expedición del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sobrevivirías tú a un apagón global en la naturaleza helada? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      239: {
+        name: "Green Hell",
+        summary: "Supervivencia realista en la selva amazónica con técnicas de supervivencia reales — hasta las heridas se curan de forma auténtica.",
+        difficulty: "dificil",
+        emoji: "🌴",
+        steamUrl: "https://store.steampowered.com/app/815370/Green_Hell/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 239 de Retro 365, y hoy he tenido que sacarme un parásito real de la piel con mis propias manos. Bienvenidos a Green Hell."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de curar una herida o parásito. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una supervivencia realista en la selva amazónica con técnicas de supervivencia auténticas — hoy os cuento por qué hasta curar tus propias heridas se hace de una forma sorprendentemente real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 239 · GREEN HELL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Jake Higgins, un antropólogo, queda varado en la selva amazónica buscando a su esposa desaparecida, teniendo que sobrevivir usando técnicas de supervivencia reales mientras su propia salud mental se ve puesta a prueba por el aislamiento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la densa selva amazónica. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada herida, parásito, o infección se trata con procedimientos médicos realistas y a veces bastante desagradables, la salud mental se ve afectada de verdad por el aislamiento prolongado, y la fauna y flora venenosa de la selva exigen conocimiento real para sobrevivir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un tratamiento médico realista. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: tratar una herida real antes de que se infecte del todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al tratamiento de la herida. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿aguantarías el nivel de realismo médico que tiene este juego, o te resultaría demasiado desagradable?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Aguanto bastante, pero reconozco que algunos momentos de este juego me han hecho apartar la vista de la pantalla."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Supervivencia con un realismo casi incómodo, y una historia personal detrás que da mucho más peso al viaje — de los survival más crudos y honestos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la expedición del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sobrevivirías tú en la selva amazónica de verdad? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      240: {
+        name: "Subnautica: Below Zero",
+        summary: "Vuelves a las profundidades alienígenas, esta vez en zonas heladas — buscas respuestas sobre la muerte de tu hermana.",
+        difficulty: "media",
+        emoji: "❄️",
+        steamUrl: "https://store.steampowered.com/app/848450/Subnautica_Below_Zero/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 240 de Retro 365, y hoy he tenido que bucear en agua helada mientras algo enorme se movía justo debajo de mí. Bienvenidos a Subnautica: Below Zero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real buceando en agua helada con algo grande cerca. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Vuelves a las profundidades alienígenas del planeta 4546B, esta vez en zonas heladas y mucho más hostiles — hoy os cuento por qué esta secuela añade el frío como un nuevo peligro real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 240 · SUBNAUTICA: BELOW ZERO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Robin Ayou viaja a las gélidas regiones árticas del planeta 4546B buscando respuestas sobre la misteriosa muerte de su hermana, investigadora de la corporación Alterra, mientras descubre una nueva forma de vida inteligente bajo el hielo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la superficie helada del planeta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Ahora hay zonas de tierra helada que explorar además del océano, gestionar la temperatura corporal se suma a la gestión de oxígeno y hambre de siempre, y la historia personal sobre la hermana desaparecida da un hilo narrativo más fuerte que en el juego original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando una zona de tierra helada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: bajar a una zona helada que todavía no he explorado, sin saber qué me voy a encontrar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a algo inesperado bajo el hielo. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión de golpe</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Subnautica, ¿qué te está pareciendo el añadido de las zonas heladas terrestres?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo un buen añadido, le da variedad a la exploración sin perder la sensación de misterio del original."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Belleza y terror bajo el hielo, con una historia personal que engancha más que en el original — de las secuelas de survival mejor construidas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de zonas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres el original o esta secuela helada? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      241: {
+        name: "ARK: Survival Ascended",
+        summary: "Domesticas dinosaurios y criaturas prehistóricas en una isla remota — supervivencia, construcción, y bestias gigantes por todas partes.",
+        difficulty: "dificil",
+        emoji: "🦖",
+        steamUrl: "https://store.steampowered.com/app/2399830/ARK_Survival_Ascended/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 241 de Retro 365, y hoy he domesticado a mi primer dinosaurio y ya no sé cómo he vivido sin él. Bienvenidos a ARK: Survival Ascended."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un dinosaurio recién domesticado. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, prehistórico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Domesticas dinosaurios y criaturas prehistóricas en una isla remota llena de peligros — hoy os cuento por qué tener a tu propio dinosaurio de compañía cambia por completo la experiencia de supervivencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 241 · ARK: SURVIVAL ASCENDED" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, prehistórico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas sin recuerdos en una isla misteriosa llena de dinosaurios y criaturas prehistóricas, teniendo que sobrevivir cazando, construyendo, y domesticando a las bestias más peligrosas para que trabajen a tu favor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla prehistórica. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Domesticar a cada criatura requiere estrategia y paciencia reales según su especie, cada dinosaurio domesticado se puede usar para transporte, combate, o recolección de recursos, y construir una base que resista tanto a dinosaurios como a otros jugadores es todo un reto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate contra un dinosaurio salvaje. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: intentar domesticar a un dinosaurio real que da bastante respeto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al intento de domesticación. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué dinosaurio te gustaría domesticar primero si tuvieras la oportunidad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría domesticar algo grande y volador, la idea de explorar la isla entera desde el aire suena demasiado bien."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Dinosaurios, supervivencia, y construcción a gran escala — de los survival más ambiciosos y queridos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la base construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué dinosaurio domesticarías tú primero? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      242: {
+        name: "ICARUS",
+        summary: "Expediciones de supervivencia con límite de tiempo real a un planeta hostil — cada misión termina, para bien o para mal.",
+        difficulty: "dificil",
+        emoji: "🪂",
+        steamUrl: "https://store.steampowered.com/app/1149460/ICARUS/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 242 de Retro 365, y hoy se me ha acabado el tiempo de la expedición con recursos valiosísimos todavía por recoger. Bienvenidos a ICARUS."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del contador de tiempo de expedición agotándose. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Expediciones de supervivencia con límite de tiempo real a un planeta hostil, tras un proceso de terraformado que salió mal — hoy os cuento por qué cada misión termina de verdad, para bien o para mal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 242 · ICARUS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Prospectores descienden a la superficie de Icarus, un planeta cuyo terraformado fracasó a medias, en expediciones con tiempo límite real para recolectar recursos valiosos antes de tener que volver a la órbita, sin poder quedarse para siempre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la superficie del planeta hostil. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada expedición tiene un límite de tiempo real que obliga a priorizar objetivos concretos, morir en la superficie significa perder todo lo recolectado en esa expedición, y volver con éxito permite mejorar tu equipo para la siguiente misión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una recolección de recursos contrarreloj. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo llegar al punto de extracción con todo lo recolectado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta la extracción en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la extracción</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta que un survival tenga un límite de tiempo real en vez de ser infinito?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta bastante esa presión añadida, obliga a tomar decisiones reales en vez de explorar sin ningún objetivo claro."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Supervivencia con un principio y un final reales en cada expedición — de los survival más originales en su estructura que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la expedición del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Priorizarías recolectar recursos, o volver siempre a salvo aunque sea con las manos vacías? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      243: {
+        name: "Enshrouded",
+        summary: "Construyes y sobrevives en un mundo de fantasía cubierto por una niebla mortal — moldear el terreno es tan libre como en Minecraft.",
+        difficulty: "media",
+        emoji: "🌫️",
+        steamUrl: "https://store.steampowered.com/app/1203620/Enshrouded/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 243 de Retro 365, y hoy he construido una base entera dentro de una montaña excavada a mano. Bienvenidos a Enshrouded."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real excavando y construyendo dentro de una montaña. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, fantástico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Construyes y sobrevives en un mundo de fantasía cubierto por una niebla mortal llamada el Enshroud — hoy os cuento por qué la libertad de moldear el terreno aquí recuerda a los mejores sandbox de construcción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 243 · ENSHROUDED" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, fantástico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un reino de fantasía cubierto por una niebla corrupta y mortal llamada el Enshroud, un guerrero despierta sin recuerdos y tiene que sobrevivir, explorar, y ayudar a reconstruir la civilización que la niebla ha ido destruyendo poco a poco."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la zona límite de la niebla. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Excavar y construir libremente en 3D permite crear bases dentro de montañas o en cualquier forma imaginable, adentrarte en el Enshroud es necesario para avanzar pero tiene un límite de tiempo real antes de que te haga daño, y reconstruir aldeas para reclutar aliados desbloquea nuevas mejoras."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real adentrándose en la niebla contrarreloj. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: adentrarme en la niebla a ver hasta dónde consigo llegar con el tiempo que tengo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo dentro de la niebla en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según pasa el tiempo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tipo de base construirías tú si pudieras excavar libremente cualquier montaña?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría construir una base entera oculta dentro de una montaña, con la entrada camuflada del todo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Construcción libre de verdad dentro de un mundo de fantasía con una amenaza constante — de los survival de construcción más creativos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la base construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué construirías tú dentro de una montaña excavada a mano? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      244: {
+        name: "V Rising",
+        summary: "Eres un vampiro recién despertado que debe esconderse del sol mientras construye su propio castillo y caza a otros jugadores.",
+        difficulty: "dificil",
+        emoji: "🧛",
+        steamUrl: "https://store.steampowered.com/app/1604030/V_Rising/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 244 de Retro 365, y hoy he tenido que correr a esconderme de la luz del sol como si me fuera la vida en ello, porque literalmente así era. Bienvenidos a V Rising."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real huyendo del sol hacia la sombra. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, gótico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Eres un vampiro recién despertado que debe esconderse del sol mientras construye su propio castillo y caza a otros jugadores reales — hoy os cuento por qué esta mezcla de supervivencia y PvP vampírico engancha de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 244 · V RISING" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gótico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un antiguo vampiro despierta débil tras siglos de sueño forzado, y tiene que reconstruir su poder cazando humanos y otros vampiros por la noche, mientras construye su propio castillo gótico como refugio durante las horas de luz solar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo de noche. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La luz solar es letal de verdad, así que planificar rutas y horarios de exploración es una parte esencial del juego, construir y decorar tu propio castillo tiene mucha libertad creativa, y enfrentarte a otros jugadores vampiros añade un peligro social constante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un enfrentamiento PvP entre vampiros. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo volver al castillo antes de que salga el sol."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta el amanecer en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca el amanecer</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cómo diseñarías tú tu propio castillo vampírico si tuvieras que construir uno?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Le daría muchísima importancia a un ataúd bien escondido y protegido, lo último que quiero es que me pillen dormido durante el día."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ser un vampiro nunca se había sentido tan bien construido en un videojuego — de los survival PvP más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del castillo construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo sería tu castillo vampírico ideal? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      245: {
+        name: "Conan Exiles",
+        summary: "Sobrevives desnudo y desterrado en las tierras hostiles de Hyboria — construcción masiva y combate brutal al estilo Conan el Bárbaro.",
+        difficulty: "dificil",
+        emoji: "🗡️",
+        steamUrl: "https://store.steampowered.com/app/440900/Conan_Exiles_Enhanced/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 245 de Retro 365, y hoy he empezado desnudo, desterrado, y sin absolutamente nada en un desierto hostil. Bienvenidos a Conan Exiles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del personaje empezando desnudo en el desierto. <strong>🎬 Producción:</strong> SFX real del juego (viento del desierto) · corte duro · BGM: sting corto, bárbaro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Sobrevives desnudo y desterrado en las tierras hostiles de Hyboria, ambientado en el universo de Conan el Bárbaro — hoy os cuento por qué la construcción masiva y el combate brutal aquí encajan a la perfección con esa fantasía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 245 · CONAN EXILES" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, bárbaro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un exiliado sentenciado a muerte en el desierto es rescatado por Conan el Bárbaro en persona, y desde ahí tiene que sobrevivir, construir su propio imperio, y hacerse un nombre en las brutales tierras de Hyboria."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el desierto hostil de Hyboria. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La construcción de bases permite crear fortalezas masivas con muchísima libertad, el combate cuerpo a cuerpo exige aprender combos reales de cada arma, y tanto la fauna salvaje como otros jugadores pueden convertir cualquier expedición en un peligro constante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate cuerpo a cuerpo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real contra un enemigo que da bastante respeto en este mundo tan hostil."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al combate en directo. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿conocías el universo de Conan el Bárbaro antes de este juego, por las películas o los cómics?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Conocía el personaje sobre todo por las películas clásicas, y este juego captura bastante bien esa esencia bárbara y cruda."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Supervivencia brutal con toda la esencia del universo de Conan bien representada — de los survival de construcción masiva más completos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la fortaleza construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías el universo de Conan el Bárbaro antes de hoy? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      246: {
+        name: "Frostpunk 2",
+        summary: "Treinta años después de la primera ciudad helada, gestionas facciones políticas enteras en un consejo que puede acabar en guerra civil.",
+        difficulty: "dificil",
+        emoji: "🏛️",
+        steamUrl: "https://store.steampowered.com/app/1601580/Frostpunk_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 246 de Retro 365, y hoy una votación en el consejo casi termina en guerra civil dentro de mi propia ciudad. Bienvenidos a Frostpunk 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una votación tensa en el consejo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, sombrío</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Treinta años después de la primera ciudad helada, ahora gestionas facciones políticas enteras en un consejo que puede acabar en guerra civil real — hoy os cuento por qué la política aquí pesa tanto como la propia supervivencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 246 · FROSTPUNK 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sombrío</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Treinta años después del cataclismo climático original, la ciudad ha crecido lo suficiente como para desarrollar facciones políticas propias con intereses enfrentados, y tu labor como gobernante pasa por negociar leyes en un consejo cada vez más dividido."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad crecida alrededor del generador. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada facción política tiene intereses reales que hay que equilibrar sin favorecer demasiado a ninguna, aprobar leyes en el consejo exige negociación y consenso real entre bandos enfrentados, y la escala de gestión ahora abarca la ciudad y sus recursos a una escala mucho mayor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una negociación política en el consejo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una ley polémica que va a dividir al consejo entero, sin ninguna opción tranquila."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión de ley. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Frostpunk, ¿qué te parece este giro hacia la política de facciones?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una evolución interesante, cambia el dilema moral individual por uno colectivo que se siente igual de pesado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de ciudad con una capa política que añade todavía más peso a cada decisión — de las secuelas de estrategia más ambiciosas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la ciudad gestionada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué facción apoyarías tú en un consejo así de dividido? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      247: {
+        name: "7 Days to Die",
+        summary: "Sobrevives a oleadas de zombis cada semana de juego, mientras construyes fortalezas y gestionas un mundo destructible entero.",
+        difficulty: "dificil",
+        emoji: "🧟",
+        steamUrl: "https://store.steampowered.com/app/251570/7_Days_to_Die/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 247 de Retro 365, y hoy se acerca la luna llena y con ella la horda de zombis más peligrosa de la semana. Bienvenidos a 7 Days to Die."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real preparando la defensa antes de la horda. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Sobrevives a oleadas de zombis cada siete días de juego, construyendo fortalezas en un mundo completamente destructible — hoy os cuento por qué esa cuenta atrás semanal genera una tensión constante muy real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 247 · 7 DAYS TO DIE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un mundo devastado por un apocalipsis zombi, tienes que sobrevivir explorando, saqueando ciudades abandonadas, y construyendo defensas cada vez más elaboradas antes de que llegue la temida horda de sangre cada séptima noche."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una ciudad abandonada infestada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El mundo entero es destructible, así que puedes excavar, derribar, y reconstruir libremente cualquier estructura, la horda de sangre semanal exige defensas cada vez más elaboradas, y gestionar hambre, sed, y enfermedad se suma constantemente a la amenaza zombi."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una defensa contra la horda de sangre. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: terminar esta defensa antes de que llegue la horda de esta noche."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta la horda en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la horda</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tipo de fortaleza construirías tú para sobrevivir a una horda semanal de zombis?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Construiría algo en altura con un solo punto de acceso bien defendido, cuanto menos flancos tenga que vigilar, mejor."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo destructible entero con una cuenta atrás semanal que no da tregua — de los survival zombi más completos y desafiantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la defensa del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo sería tu fortaleza perfecta contra una horda de zombis? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      248: {
+        name: "Stranded Deep",
+        summary: "Náufrago tras un accidente de avión en el Pacífico, sobrevives entre islas mientras algo con muchos dientes ronda tu balsa.",
+        difficulty: "media",
+        emoji: "🦈",
+        steamUrl: "https://store.steampowered.com/app/313120/Stranded_Deep/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 248 de Retro 365, y hoy un tiburón ha estado rondando mi balsa mucho más tiempo del que me gustaría admitir. Bienvenidos a Stranded Deep."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un tiburón rondando la balsa. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Náufrago tras un accidente de avión en mitad del océano Pacífico, sobrevives saltando entre islas mientras algo con muchos dientes ronda tu propia balsa — hoy os cuento por qué esta sensación de estar completamente solo en el mar da tanto respeto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 248 · STRANDED DEEP" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tras un accidente de avión, quedas varado en mitad del Pacífico con solo una balsa salvavidas, teniendo que saltar entre islas cercanas buscando recursos, comida, y agua potable mientras exploras las profundidades cercanas con mucha cautela."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una isla tropical cercana. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada isla cercana tiene sus propios recursos únicos que explorar con cuidado, bucear cerca de la superficie da acceso a más recursos pero también a más peligro, y la construcción de embarcaciones cada vez mejores te permite explorar más lejos con el tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de buceo cerca de la superficie con cautela. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: bucear cerca de la superficie sabiendo que el tiburón sigue rondando por aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la tensión del buceo. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿le tienes más miedo a los tiburones o a quedarte sin comida y agua en un survival así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Le tengo más respeto a los tiburones — al menos el hambre y la sed las puedo gestionar con calma, un tiburón aparece cuando menos lo esperas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una sensación real de aislamiento en mitad del océano con un peligro constante rondando — de los survival de mar más tensos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de islas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Sobrevivirías tú a un naufragio real en el Pacífico? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      249: {
+        name: "The Planet Crafter",
+        summary: "Terraformas un planeta hostil hasta convertirlo en un paraíso habitable — de atmósfera tóxica a bosques y océanos en tus propias manos.",
+        difficulty: "media",
+        emoji: "🌱",
+        steamUrl: "https://store.steampowered.com/app/1284190/The_Planet_Crafter/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 249 de Retro 365, y hoy he visto caer la primera lluvia real en un planeta que hasta hace poco era un desierto tóxico. Bienvenidos a The Planet Crafter."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la primera lluvia cayendo en el planeta. <strong>🎬 Producción:</strong> SFX real del juego (lluvia) · corte duro · BGM: sting corto, esperanzador</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Terraformas un planeta hostil hasta convertirlo en un paraíso habitable con tus propias manos — hoy os cuento por qué ver evolucionar la atmósfera tóxica hacia bosques y océanos reales es tremendamente satisfactorio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 249 · THE PLANET CRAFTER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, esperanzador</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como prisionero convertido en colono espacial, aterrizas en un planeta completamente hostil con la misión de terraformarlo poco a poco, subiendo niveles de oxígeno, calor, y presión hasta hacerlo habitable para la vida humana."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el planeta hostil inicial. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada máquina que construyes contribuye a mejorar los índices atmosféricos del planeta entero de forma medible, ver el paisaje transformarse visualmente con el tiempo es la mayor recompensa del juego, y la progresión te lleva desde sobrevivir apenas hasta gestionar un ecosistema completo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una máquina de terraformado funcionando. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un hito real de terraformado que va a cambiar visualmente el planeta entero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al cambio visual del planeta. <strong>🎬 Producción:</strong> SFX de logro · BGM: sube tono esperanzador</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de terraformar un planeta entero con tus propias manos, poco a poco?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una de las progresiones más satisfactorias que existen, ver el paisaje cambiar de verdad da una sensación de logro única."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Ver un mundo hostil convertirse en un paraíso gracias a tu propio esfuerzo — de los survival más esperanzadores y satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la terraformación lograda en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué sería lo primero que terraformarías tú de un planeta hostil? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      250: {
+        name: "Techtonica",
+        summary: "Automatizas fábricas enteras dentro de un planeta alienígena subterráneo, resolviendo un misterio mientras construyes cintas y máquinas.",
+        difficulty: "media",
+        emoji: "⚙️",
+        steamUrl: "https://store.steampowered.com/app/1457320/Techtonica/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 250 de Retro 365, y hoy mi fábrica subterránea ya se extiende más de lo que puedo abarcar de un vistazo. Bienvenidos a Techtonica."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una fábrica subterránea extensa. <strong>🎬 Producción:</strong> SFX real del juego (maquinaria) · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Automatizas fábricas enteras dentro de un planeta alienígena subterráneo, resolviendo un misterio mientras construyes cintas y máquinas — hoy os cuento por qué la mezcla de misterio y automatización funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 250 · TECHTONICA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas en las profundidades de un planeta alienígena tras un aterrizaje forzoso, descubriendo una civilización antigua desaparecida mientras construyes fábricas cada vez más complejas para sobrevivir y desvelar los secretos que esconde el subsuelo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las cavernas alienígenas iniciales. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Automatizar la extracción y fabricación de recursos con cintas transportadoras se siente muy satisfactorio, explorar las cavernas revela tecnología antigua y misterios narrativos por descubrir, y jugarlo en cooperativo multiplica la escala de la fábrica que podéis construir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una cadena de producción automatizada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: resolver un cuello de botella real en mi cadena de producción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la solución al cuello de botella. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te atrae más de este juego, el misterio de la civilización desaparecida o la propia automatización de fábricas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me atrae más la automatización, aunque el misterio de fondo consigue que quiera seguir excavando más profundo de lo esperado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Automatización subterránea con un misterio narrativo real de por medio — de los juegos de fábricas más originales en su ambientación que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la fábrica construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Automatización o misterio narrativo, qué te engancha más en un juego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      251: {
+        name: "Timberborn",
+        summary: "Cierre de tanda: castores lumberpunk gestionan una ciudad vertical en un mundo tras la extinción humana, luchando contra la sequía.",
+        difficulty: "media",
+        emoji: "🦫",
+        steamUrl: "https://store.steampowered.com/app/1062090/Timberborn/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 251 de Retro 365, cierre de esta tanda, y hoy mis castores han construido una presa que ha salvado a toda la colonia de una sequía real. Bienvenidos a Timberborn."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una presa salvando la colonia de la sequía. <strong>🎬 Producción:</strong> SFX real del juego (agua) · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Castores lumberpunk gestionan una ciudad vertical entera en un mundo mucho tiempo después de la extinción humana — hoy os cuento por qué la lucha constante contra la sequía es el verdadero reto de este juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 251 · TIMBERBORN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Mucho después de la desaparición de la humanidad, colonias de castores inteligentes construyen ciudades verticales de madera, gestionando el agua con presas y canales propios para sobrevivir a ciclos alternos de lluvias intensas y sequías devastadoras."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad vertical de castores. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La construcción vertical real aprovecha el espacio en altura de una forma poco habitual en el género, la física del agua es completamente real y afecta a cada decisión de construcción, y sobrevivir a las sequías exige almacenar agua con muchísima antelación."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión de agua con presas y canales. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: prepararme para la sequía que se acerca con el agua almacenada hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de reservas de agua en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la sequía</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de un mundo post-humano gestionado enteramente por castores inteligentes?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una premisa tan tierna como original, y la construcción vertical le da al género de gestión de ciudades un giro que se agradece."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de ciudad con física de agua real y una premisa entrañable — cierre perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la ciudad construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo gestionarías tú el agua en una ciudad de castores como esta? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 237: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 252: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
