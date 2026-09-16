@@ -7768,8 +7768,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Curarías o te alimentarías de tus pacientes si fueras un vampiro médico? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      192: {
+        name: "Persona 5 Royal",
+        summary: "Instituto de día, robos de corazones corruptos por la noche — la versión definitiva de uno de los mejores JRPG jamás hechos.",
+        difficulty: "media",
+        emoji: "🎭",
+        steamUrl: "https://store.steampowered.com/app/1687950/Persona_5_Royal/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 192 de Retro 365, tanda nueva, y hoy he robado el corazón corrupto de un profesor con mi propio grupo de ladrones fantasma. Bienvenidos a Persona 5 Royal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un robo de corazón en el Palacio. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, jazz</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Instituto de día, robos de corazones corruptos de noche — hoy os cuento por qué esta versión definitiva se considera uno de los mejores JRPG jamás hechos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 192 · PERSONA 5 ROYAL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, jazz</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un estudiante trasladado a Tokio forma un grupo de Ladrones Fantasma con sus compañeros, capaces de entrar en los Palacios, versiones distorsionadas de la mente de adultos corruptos, para robar sus deseos podridos y hacerlos cambiar de actitud."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la vida de instituto en Tokio. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El calendario social obliga a repartir cada día entre estudiar, fortalecer vínculos, y explorar los Palacios, el combate por turnos con Personas invocables premia explotar debilidades elementales, y el estilo visual y musical tiene una personalidad arrolladora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate por turnos estiloso. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver cómo reparto el día de hoy entre todas las opciones disponibles."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta cómo repartir el día. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué personaje del grupo de Ladrones Fantasma te gusta más hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo al grupo, pero ya hay un personaje cuyo estilo me tiene completamente enganchado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estilo, música, y una historia sobre rebelarse contra la injusticia que engancha de principio a fin — de los mejores JRPG que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del día jugado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué corazón corrupto te gustaría robar si pudieras? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      193: {
+        name: "Like a Dragon: Infinite Wealth",
+        summary: "Kiryu y Ichiban unen fuerzas entre Japón y Hawái — RPG por turnos con combate absurdo y una historia sorprendentemente emotiva.",
+        difficulty: "media",
+        emoji: "🌺",
+        steamUrl: "https://store.steampowered.com/app/2072450/Like_a_Dragon_Infinite_Wealth/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 193 de Retro 365, y hoy he ganado un combate por turnos golpeando a un enemigo con una bicicleta encontrada en la calle. Bienvenidos a Like a Dragon: Infinite Wealth."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate absurdo por turnos. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Kiryu y Ichiban unen fuerzas en una aventura que va de Japón a Hawái — hoy os cuento por qué el combate absurdo por turnos esconde una historia sorprendentemente emotiva."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 193 · LIKE A DRAGON: INFINITE WEALTH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Ichiban Kasuga viaja a Hawái buscando pistas sobre su madre biológica, cruzándose por el camino con Kazuma Kiryu, leyenda del mundo criminal japonés — juntos investigan una conspiración que conecta ambos lados del Pacífico."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las calles de Hawái. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate por turnos usa el escenario y objetos absurdos como parte de las estrategias de ataque, misiones secundarias tan ridículas como memorables aparecen constantemente, y la relación entre Kiryu e Ichiban se construye con muchísimo cariño."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una misión secundaria absurda. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la misión secundaria más ridícula que me haya encontrado hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la misión secundaria. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿Kiryu o Ichiban, con cuál de los dos protagonistas te quedas tú?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me quedo con Ichiban, su optimismo desmedido contrasta genial con la seriedad clásica de Kiryu."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Comedia absurda y drama serio conviviendo sin chocar en ningún momento — de las mejores entregas de esta saga tan particular."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates y misiones del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Kiryu o Ichiban, con quién te quedas tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      194: {
+        name: "DELTARUNE",
+        summary: "La historia paralela de Undertale, con capítulos gratuitos que se van publicando — el mismo humor y el mismo corazón de siempre.",
+        difficulty: "facil",
+        emoji: "💛",
+        steamUrl: "https://store.steampowered.com/app/1671210/DELTARUNE/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 194 de Retro 365, y hoy un personaje de este juego me ha hecho reír y llorar en la misma escena. Bienvenidos a DELTARUNE."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una escena cómica y emotiva a la vez. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La historia paralela de Undertale, publicada en capítulos gratuitos según se van terminando — hoy os cuento por qué mantiene el mismo humor y el mismo corazón de siempre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 194 · DELTARUNE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Kris, un estudiante de un pueblo tranquilo, cae junto a un compañero de clase a un mundo subterráneo paralelo llamado el Reino Oscuro, donde tiene que sellar grietas junto a un grupo variopinto de nuevos aliados."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el Reino Oscuro. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate por turnos mezcla balas esquivables al estilo bullet hell con decisiones de perdonar o luchar, el humor absurdo convive con momentos genuinamente emotivos, y cada capítulo nuevo se libera gratis para quien ya tiene el juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate esquivando balas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate donde voy a intentar resolverlo sin hacer daño a nadie."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al intento pacífico. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste Undertale, ¿qué te está pareciendo esta historia paralela?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo tan especial como el original, aunque me está costando esperar a que salgan los capítulos siguientes."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "El mismo corazón de Undertale, con nuevas ideas mecánicas de por medio — de las historias más queridas y esperadas por capítulos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la aventura explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Perdonarías o lucharías en los combates de este juego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      195: {
+        name: "Return to Monkey Island",
+        summary: "El regreso real de Guybrush Threepwood de la mano de su creador original — humor absurdo pirata y puzles de aventura clásicos.",
+        difficulty: "facil",
+        emoji: "🏝️",
+        steamUrl: "https://store.steampowered.com/app/2060130/Return_to_Monkey_Island/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 195 de Retro 365, y hoy he vuelto a insultar a un pirata usando un insulto de esgrima tan absurdo como recordado. Bienvenidos a Return to Monkey Island."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un duelo de insultos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, pirata</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El regreso real de Guybrush Threepwood, de la mano de su creador original Ron Gilbert — hoy os cuento por qué el humor absurdo pirata y los puzles clásicos siguen intactos años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 195 · RETURN TO MONKEY ISLAND" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, pirata</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Guybrush Threepwood, pirata torpe y con más suerte que habilidad, retoma su búsqueda del secreto de Monkey Island, décadas después de sus primeras aventuras, enfrentándose de nuevo a su némesis, el pirata fantasma LeChuck."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una isla pirata colorida. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los puzles de aventura clásicos mezclan objetos de inventario de formas ingeniosas y absurdas, los duelos de insultos siguen siendo tan memorables como en los juegos originales, y el humor absurdo pirata se mantiene fiel a la saga entera."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto combinando objetos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle que necesita una combinación de objetos que todavía no he encontrado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste los Monkey Island originales de pequeño, o es tu primera vez con la saga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Es mi primera vez con la saga completa, y me está haciendo entender por qué tanta gente le tiene tanto cariño."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un regreso real y con todo el corazón de la saga original — de las mejores vueltas de un clásico que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu mejor insulto de esgrima pirata? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      196: {
+        name: "Citizen Sleeper",
+        summary: "Tu conciencia vive en un cuerpo sintético alquilado que se degrada — dados en vez de combate, y una estación espacial llena de gente real.",
+        difficulty: "media",
+        emoji: "🎲",
+        steamUrl: "https://store.steampowered.com/app/1578650/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 196 de Retro 365, y hoy he tenido que decidir en qué gastar mis dados sabiendo que mi cuerpo se está degradando poco a poco. Bienvenidos a Citizen Sleeper."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real gestionando dados y recursos del día. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, melancólico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Tu conciencia vive dentro de un cuerpo sintético alquilado que se degrada con el tiempo, en una estación espacial llena de gente con sus propias historias — hoy os cuento por qué usar dados en vez de combate cambia por completo la sensación de un RPG."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 196 · CITIZEN SLEEPER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, melancólico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Escapas de una corporación que transplantó tu conciencia a un cuerpo sintético alquilado, y encuentras refugio en Erlin's Eye, una estación espacial decadente llena de habitantes con sus propias historias y problemas que resolver juntos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la estación espacial decadente. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada día tiras un número de dados que reparte entre distintas acciones de la estación, tu cuerpo sintético se va degradando obligándote a buscar formas de estabilizarlo, y cada historia de los habitantes se desarrolla poco a poco según cómo les ayudes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una conversación importante con un habitante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: repartir los dados de hoy sabiendo que cada elección tiene su propio riesgo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el reparto de dados. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué historia de los habitantes de la estación te ha enganchado más hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los habitantes, pero ya hay una historia que me tiene con muchas ganas de saber cómo acaba."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG que sustituye el combate por decisiones humanas de verdad, con muchísimo corazón detrás — de las narrativas de ciencia ficción más sensibles que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la estación explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué harías tú si tu cuerpo se estuviera degradando poco a poco como aquí? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      197: {
+        name: "The Outer Worlds",
+        summary: "RPG espacial satírico donde una megacorporación gestiona hasta el sistema solar entero — decisiones que cambian planetas enteros.",
+        difficulty: "media",
+        emoji: "🛸",
+        steamUrl: "https://store.steampowered.com/app/578650/The_Outer_Worlds/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 197 de Retro 365, y hoy una megacorporación me acaba de cobrar por respirar el aire de su propio planeta. Bienvenidos a The Outer Worlds."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un diálogo satírico corporativo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG espacial satírico donde megacorporaciones gestionan literalmente el sistema solar entero — hoy os cuento por qué tus decisiones aquí pueden cambiar planetas enteros de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 197 · THE OUTER WORLDS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Despiertas de un sueño criogénico décadas después de lo previsto, en una colonia espacial gobernada por completo por megacorporaciones satíricas, y te embarcas en una aventura para decidir el destino de esta colonia perdida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una colonia corporativa. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada decisión de diálogo y misión tiene consecuencias reales sobre facciones enteras, el combate en tiempo real se puede ralentizar tácticamente para apuntar con precisión, y la sátira sobre el capitalismo corporativo está presente en cada rincón del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate ralentizado tácticamente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión que va a afectar a toda una facción de la colonia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la sátira sobre el capitalismo corporativo que hace este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece bastante acertada, aunque a veces exagere para hacer reír, no se aleja tanto de la realidad como debería."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG espacial con humor afilado y decisiones que pesan de verdad — de los mejores RPG satíricos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones tomadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué facción de la colonia apoyarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      198: {
+        name: "NORCO",
+        summary: "Point & click surrealista en el sur de Louisiana industrial — una hermana busca a su hermano en un mundo distorsionado por el petróleo.",
+        difficulty: "media",
+        emoji: "🏭",
+        steamUrl: "https://store.steampowered.com/app/1221250/NORCO/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 198 de Retro 365, y hoy he hablado con un robot de seguridad que citaba poesía sin ningún motivo aparente. Bienvenidos a NORCO."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un diálogo surrealista con un robot. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, sureño</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un point & click narrativo ambientado en el sur de Louisiana industrial, con un tono surrealista y muy centrado en el diálogo — hoy os cuento por qué esta historia de una hermana buscando a su hermano se queda en la cabeza."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 198 · NORCO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sureño</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Kay vuelve a su pueblo natal de Norco, Louisiana, tras la muerte de su madre, para buscar a su hermano desaparecido — adentrándose en un paisaje industrial distorsionado por la petroquímica y lleno de misterios sobrenaturales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el paisaje industrial de Louisiana. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La narrativa se centra por completo en el diálogo y la exploración, sin ningún combate real de por medio, el mundo mezcla realismo social con elementos surrealistas de ciencia ficción, y la crítica social sobre la industria petroquímica está presente en cada esquina."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una conversación narrativa importante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una pista nueva sobre el hermano desaparecido de Kay."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la pista descubierta. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que un videojuego use la ciencia ficción para hablar de crítica social real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo más interesante que puede hacer un videojuego, sobre todo cuando se hace con la sutileza que tiene este."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una historia rara, sureña, y con muchísima personalidad propia — de las narrativas más originales del panorama indie."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del misterio investigado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué crees que le ha pasado al hermano de Kay? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      199: {
+        name: "Pentiment",
+        summary: "Novela gráfica medieval dibujada como un manuscrito iluminado — tus decisiones de hoy pesan generaciones después.",
+        difficulty: "media",
+        emoji: "🖋️",
+        steamUrl: "https://store.steampowered.com/app/1205520/Pentiment/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 199 de Retro 365, y hoy una decisión que tomé hace horas de juego ha cambiado por completo el futuro de todo un pueblo. Bienvenidos a Pentiment."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una consecuencia tardía de una decisión. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, medieval</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una novela gráfica de misterio ambientada en la Baviera del siglo dieciséis, dibujada como si fuera un manuscrito medieval iluminado — hoy os cuento por qué tus decisiones de hoy pesan generaciones después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 199 · PENTIMENT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, medieval</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Andreas Maler, un artista formado en un monasterio bávaro, investiga un asesinato acusando injustamente a un amigo suyo, en una historia que se extiende a lo largo de décadas y afecta a generaciones enteras del mismo pueblo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo bávaro medieval. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La investigación se resuelve hablando con los habitantes y examinando pistas, sin ningún combate real de por medio, cada acusación tiene consecuencias reales para inocentes y culpables por igual, y la historia salta décadas después mostrando el peso de tus decisiones pasadas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una investigación con pistas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: acusar a alguien sin estar completamente seguro de su culpabilidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la acusación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te costaría acusar a alguien sin estar completamente seguro de su culpabilidad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me costaría muchísimo, y este juego demuestra bien lo injusto que puede ser precipitarse con una acusación así."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una historia sobre las consecuencias reales de la justicia precipitada, contada con un arte precioso — de las narrativas más maduras que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la investigación del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿A quién acusarías tú en un misterio así de complicado? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      200: {
+        name: "Griftlands",
+        summary: "Día 200 de Retro 365 — roguelike donde negocias, robas, o luchas para salirte con la tuya, con cartas de combate y de persuasión.",
+        difficulty: "media",
+        emoji: "🃏",
+        steamUrl: "https://store.steampowered.com/app/601840/Griftlands/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 200 de Retro 365 — dos siglos de días seguidos, literalmente hablando — y hoy he ganado una negociación con las mismas cartas que uso para pelear. Bienvenidos a Griftlands."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay épico de una negociación por cartas. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting especial, celebración del día 200</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike de cartas donde negocias, robas, o luchas para salirte con la tuya — hoy, en el día 200 de este reto, os cuento por qué usar cartas tanto para pelear como para persuadir es una idea brillante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 200 · GRIFTLANDS" con la barra de progreso especial de celebración. <strong>🎬 Producción:</strong> SFX whoosh especial · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un estafador espacial navega por un mundo lleno de facciones rivales, resolviendo conflictos tanto en combate directo como en negociaciones sociales, ambas resueltas con las mismas mecánicas de cartas pero con mazos completamente distintos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo de facciones. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El mazo de combate y el mazo de negociación se construyen y mejoran por separado, cada decisión con las facciones tiene consecuencias reales en cómo te reciben después, y combinar ambos estilos de resolución da una libertad enorme para cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión de facción importante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo, en este día especial: a ver si consigo resolver este conflicto sin necesidad de pelear."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la estrategia de negociación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: en el día 200 de Retro 365, ¿prefieres resolver los conflictos negociando o luchando, tanto en este juego como en la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Doscientos días dando caña a Retro 365 y sigo prefiriendo negociar siempre que pueda, aunque a veces el combate directo sea inevitable."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Doscientos días de Retro 365 dan para mucho, y esta doble baraja de combate y persuasión encaja perfecto con el número redondo — gracias por seguir aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap especial de highlights del reto hasta el día 200. <strong>🎬 Producción:</strong> fundido cruzado especial · BGM: sube, tono celebración</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Negociar o pelear, qué prefieres tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365 marcando 200. <strong>🎬 Producción:</strong> SFX stinger de marca especial · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      201: {
+        name: "Monster Train",
+        summary: "Roguelike de cartas defendiendo un tren infernal en varios pisos verticales a la vez — combinar clanes rotos es la clave.",
+        difficulty: "dificil",
+        emoji: "🚂",
+        steamUrl: "https://store.steampowered.com/app/1102190",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 201 de Retro 365, y hoy he defendido tres pisos de un tren al infierno a la vez sin perder ni uno. Bienvenidos a Monster Train."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real defendiendo varios pisos verticales. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike de cartas donde defiendes un tren infernal en varios pisos verticales al mismo tiempo — hoy os cuento por qué combinar dos clanes de monstruos rotos entre sí es la clave de cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 201 · MONSTER TRAIN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "La última llama del infierno viaja en un tren hacia la superficie, y tienes que defender sus distintos pisos de oleadas de ángeles decididos a apagarla para siempre, combinando dos clanes de monstruos distintos en tu mazo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el tren antes de un combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada piso del tren es un campo de batalla independiente que hay que defender a la vez, combinar dos clanes de monstruos crea sinergias rotas que cambian cada partida, y decidir dónde colocar cada monstruo exige pensar en varias capas verticales a la vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate en varios pisos simultáneos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una oleada real en varios pisos a la vez, a ver si consigo defenderlos todos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de vida de la llama en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué combinación de dos clanes te gustaría probar en una partida?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy probando combinaciones, pero ya he encontrado una pareja de clanes que se complementa de una forma bastante rota."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia vertical con combinaciones rotas y muy satisfactorias de descubrir — de los roguelike de cartas más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué dos clanes de monstruos combinarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      202: {
+        name: "Wildfrost",
+        summary: "Roguelike de cartas tácticas en un tundra congelado — la posición exacta de cada carta en el tablero lo cambia absolutamente todo.",
+        difficulty: "dificil",
+        emoji: "🧊",
+        steamUrl: "https://store.steampowered.com/app/1811990/Wildfrost/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 202 de Retro 365, y hoy he ganado un combate solo por colocar una carta en la posición exacta correcta. Bienvenidos a Wildfrost."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una colocación táctica ganadora. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, invernal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike de cartas tácticas ambientado en una tundra congelada eterna — hoy os cuento por qué la posición exacta de cada carta en el tablero cambia absolutamente todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 202 · WILDFROST" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, invernal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un grupo de guerreros viaja a través de una tundra congelada eterna, buscando reunir la chispa capaz de derretir el hielo perpetuo que ha condenado al mundo, combatiendo contra criaturas invernales a base de cartas colocadas con muchísima intención."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la tundra congelada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada carta ocupa una posición concreta en una fila que afecta directamente a cómo ataca y a quién protege, los objetos secundarios dan efectos pasivos que se combinan de formas creativas, y perder unidades importantes de verdad duele a mitad de una run."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico con posiciones. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una colocación táctica real que puede decidir todo el combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la colocación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los roguelike de cartas que además exigen pensar en posiciones tácticas como en este?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, le añade una capa extra de estrategia que muchos juegos de cartas se quedan cortos en ofrecer."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cartas y posicionamiento táctico combinados con muchísimo estilo visual — de los roguelike de cartas más exigentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gusta más un roguelike de cartas simple o uno con posicionamiento táctico? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      203: {
+        name: "Roboquest",
+        summary: "Shooter roguelite en primera persona con robots, movimiento vertical fluido, y armas cada vez más ridículamente rotas.",
+        difficulty: "media",
+        emoji: "🤖",
+        steamUrl: "https://store.steampowered.com/app/692890/Roboquest/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 203 de Retro 365, y hoy llevo un arma tan rota que ya ni sé por qué sigo esquivando en vez de simplemente disparar sin parar. Bienvenidos a Roboquest."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un arma rota disparando sin parar. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter roguelite en primera persona contra robots, con movimiento vertical fluido y armas cada vez más ridículamente rotas — hoy os cuento por qué acumular mejoras aquí se siente tan bien."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 203 · ROBOQUEST" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En un futuro post-apocalíptico dominado por robots, un pequeño ejército de resistencia lucha por reclamar el mundo, corriendo por escenarios generados al azar mientras acumula armas y habilidades cada vez más absurdas por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario generado al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El movimiento vertical con doble salto y propulsores hace que cada combate se sienta ágil de verdad, las armas y mejoras se combinan de formas cada vez más rotas, y jugarlo en cooperativo multiplica el caos por cada jugador que se une."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate vertical fluido. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver hasta dónde consigo llegar con esta combinación de armas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de progreso de la run en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube el ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál ha sido la combinación de armas más rota que has conseguido hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he conseguido la combinación más rota del todo, pero ya he tenido una run donde me sentía prácticamente invencible."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Velocidad, caos, y armas cada vez más absurdas — de los shooters roguelite más divertidos y adictivos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién jugarías este cooperativo caótico? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      204: {
+        name: "Wildermyth",
+        summary: "RPG táctico donde tus héroes envejecen, se casan, pierden extremidades, y se convierten literalmente en leyenda con el tiempo.",
+        difficulty: "media",
+        emoji: "🌳",
+        steamUrl: "https://store.steampowered.com/app/763890/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 204 de Retro 365, y hoy a uno de mis héroes le ha crecido literalmente un brazo hecho de madera. Bienvenidos a Wildermyth."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una transformación de héroe. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG táctico de narrativa procedural donde tus héroes envejecen, se casan, pierden extremidades, y se convierten literalmente en leyenda — hoy os cuento por qué cada partida cuenta una historia distinta y muy personal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 204 · WILDERMYTH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un grupo de héroes cualquiera, desde granjeros hasta herreros, se enfrenta a monstruos sobrenaturales a lo largo de toda su vida — envejeciendo, formando relaciones, y transformándose físicamente por las heridas y decisiones tomadas por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo entre combates. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate táctico usa el propio escenario para empujar y aplastar enemigos de formas creativas, cada héroe desarrolla una historia personal única con eventos generados de forma procedural, y las heridas de guerra pueden transformar físicamente a tus personajes para siempre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico usando el escenario. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un evento personal de uno de mis héroes que no sé cómo va a acabar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al evento personal del héroe. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono emotivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué transformación rara te gustaría que le pasara a uno de tus héroes en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me haría gracia que a alguno le crecieran alas de verdad después de tantas batallas sobrevividas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cada partida cuenta una historia irrepetible sobre héroes que envejecen de verdad — de los RPG tácticos con más corazón que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la historia de los héroes en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué historia le gustaría vivir a tu propio héroe con el tiempo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      205: {
+        name: "Roadwarden",
+        summary: "RPG de texto donde exploras tierras fronterizas como mercenario errante — cada elección de diálogo importa de verdad.",
+        difficulty: "media",
+        emoji: "📖",
+        steamUrl: "https://store.steampowered.com/app/1155970/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 205 de Retro 365, y hoy una decisión de texto me ha costado la confianza de todo un pueblo. Bienvenidos a Roadwarden."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión de texto con consecuencias. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de texto e ilustraciones donde exploras tierras fronterizas peligrosas como mercenario errante — hoy os cuento por qué cada elección de diálogo importa de verdad, sin ningún relleno de por medio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 205 · ROADWARDEN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un mercenario errante contratado por un reino lejano explora unas tierras fronterizas aisladas y llenas de peligros, ayudando a comunidades locales con sus problemas mientras investiga los verdaderos secretos de esta región olvidada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa de las tierras fronterizas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Toda la narrativa se basa en texto con ilustraciones estáticas cuidadas al detalle, cada decisión de diálogo abre o cierra caminos de verdad, sin ninguna opción claramente correcta, y el tiempo limitado te obliga a decidir qué historias merece la pena investigar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión narrativa importante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: decidir qué historia investigar sabiendo que el tiempo es limitado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión de prioridad. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los RPG basados en texto, o prefieres siempre algo más visual y con combate directo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustan bastante, la imaginación rellena huecos que a veces un juego totalmente visual no consigue transmitir igual."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de texto con muchísima densidad y decisiones que se sienten reales — de las mejores sorpresas narrativas indie que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones tomadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué historia investigarías tú primero si el tiempo fuera limitado? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      206: {
+        name: "Vagrus - The Riven Realms",
+        summary: "Cierre de tanda: lideras una caravana comercial por un mundo devastado y extraño — estrategia, narrativa, y supervivencia mercantil.",
+        difficulty: "dificil",
+        emoji: "🐫",
+        steamUrl: "https://store.steampowered.com/app/909660/Vagrus__The_Riven_Realms/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 206 de Retro 365, cierre de esta tanda, y hoy mi caravana entera casi no sobrevive a una tormenta de un mundo devastado. Bienvenidos a Vagrus - The Riven Realms."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la caravana sobreviviendo a una tormenta. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de estrategia y narrativa donde lideras una caravana comercial por un mundo devastado y extraño — hoy os cuento por qué la supervivencia mercantil aquí es tan importante como cualquier combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 206 · VAGRUS - THE RIVEN REALMS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como un Vagrus, líder de una caravana comercial, viajas por un mundo devastado por una catástrofe antigua, comerciando, reclutando tripulación, y navegando conflictos entre facciones extrañas para sobrevivir y prosperar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo devastado con la caravana. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar la economía de la caravana es tan importante como cualquier combate táctico, cada decisión narrativa con las facciones locales tiene consecuencias reales en el comercio, y sobrevivir a los peligros del camino exige planificación real de recursos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión de la caravana y su comercio. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: negociar con una facción real que puede cambiar el rumbo de todo el viaje."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la negociación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te atraen los juegos de gestión de caravanas y comercio en mundos de fantasía?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me atrae bastante, hay algo satisfactorio en gestionar bien los recursos de un viaje tan largo e incierto."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia, narrativa, y comercio mezclados en un mundo extraño y devastado — cierre perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del viaje explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué llevarías tú en tu propia caravana comercial? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 192: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 207: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
