@@ -6965,7 +6965,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Qué facción alienígena rara te gustaría liderar tú? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      222: {
+        name: "Yoku's Island Express",
+        summary: "Un escarabajo pelotero cartero explora una isla entera usando mecánicas de pinball — metroidvania con una idea rarísima y brillante.",
+        difficulty: "facil",
+        emoji: "🎱",
+        steamUrl: "https://store.steampowered.com/app/334940/Yokus_Island_Express/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 222 de Retro 365, tanda nueva, y hoy he cruzado media isla dándole a una bola de pinball. Bienvenidos a Yoku's Island Express."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un tiro de pinball atravesando el escenario. <strong>🎬 Producción:</strong> SFX real del juego (pinball) · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un escarabajo pelotero cartero explora una isla entera usando mecánicas de pinball en vez de saltos normales — hoy os cuento por qué esta idea tan rara funciona de maravilla en un metroidvania."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 222 · YOKU'S ISLAND EXPRESS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Yoku, un escarabajo pelotero recién contratado como cartero de la isla de Mokumana, tiene que entregar cartas mientras investiga la desaparición de un dios protector, empujando su propia bola pegada al cuerpo por toda la isla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la isla colorida. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Moverte por la isla depende de flippers de pinball repartidos por todo el mapa en vez de saltos tradicionales, cada nueva habilidad abre rutas y minijuegos de pinball completamente nuevos, y la isla entera funciona como una única mesa de pinball gigante y conectada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un minijuego de pinball dentro del mapa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un tiro de pinball complicado que necesita bastante precisión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al resultado del tiro. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta el pinball de verdad, o esta sería tu primera aproximación al género?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Nunca me ha llamado mucho el pinball tradicional, pero mezclado con exploración de esta forma me ha conquistado rápido."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una mezcla de géneros tan rara como bien ejecutada — de las ideas más originales que ha dado el género metroidvania."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la isla explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gusta el pinball tradicional? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      223: {
+        name: "Axiom Verge",
+        summary: "Metroidvania de ciencia ficción retro con glitches como arma real — corromper el propio juego es parte de las mecánicas.",
+        difficulty: "media",
+        emoji: "👾",
+        steamUrl: "https://store.steampowered.com/app/332200/Axiom_Verge/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 223 de Retro 365, y hoy he roto literalmente un enemigo con un arma de glitches. Bienvenidos a Axiom Verge."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un enemigo glitcheado por un arma especial. <strong>🎬 Producción:</strong> SFX real del juego (glitch) · corte duro · BGM: sting corto, retro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania de ciencia ficción con estética retro, donde una de tus armas literalmente corrompe y glitchea a los enemigos — hoy os cuento por qué esta idea se siente única incluso años después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 223 · AXIOM VERGE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, retro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Trace, un científico que sobrevive a una explosión de laboratorio, despierta en un mundo alienígena tecnológicamente avanzado, explorando ruinas de una civilización antigua mientras descubre armas cada vez más extrañas por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las ruinas alienígenas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El Glitch Gun corrompe visualmente a enemigos y escenarios, revelando pasajes y debilidades ocultas, la exploración no lineal premia volver a zonas anteriores con nuevas habilidades, y el diseño de nivel esconde secretos por todas partes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando el Glitch Gun para revelar un pasaje oculto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: usar el Glitch Gun en una zona que no sabía que escondía un secreto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al secreto revelado. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de un arma que literalmente rompe las reglas visuales del propio juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una idea brillante, se nota que el creador entendía muy bien cómo jugar con las expectativas del jugador."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania retro con una idea mecánica que todavía se siente fresca — de los indies más influyentes del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de secretos descubiertos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué te gustaría poder glitchear en la vida real si tuvieras un arma así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      224: {
+        name: "Blasphemous 2",
+        summary: "Metroidvania de terror religioso español con tres armas distintas — la secuela mejora casi todo lo que hacía bien el original.",
+        difficulty: "dificil",
+        emoji: "✝️",
+        steamUrl: "https://store.steampowered.com/app/2114740/Blasphemous_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 224 de Retro 365, y hoy he cambiado de arma en mitad de un combate justo a tiempo para sobrevivir. Bienvenidos a Blasphemous 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un cambio de arma en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, gótico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania de terror religioso con estética española muy marcada, ahora con tres armas distintas para combinar — hoy os cuento por qué esta secuela mejora casi todo lo que hacía bien el original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 224 · BLASPHEMOUS 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, gótico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El Penitente vuelve a un mundo de fantasía oscura inspirado en la iconografía religiosa española, enfrentándose a criaturas grotescas y culto extremo, esta vez con la posibilidad de dominar tres armas completamente distintas entre sí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario gótico español. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada una de las tres armas tiene su propio estilo de combate y utilidad de exploración, cambiar entre ellas en tiempo real da mucha flexibilidad táctica en combate, y la dirección artística sigue siendo tan inquietante y hermosa como en el primer juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate combinando las tres armas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un jefe real donde voy a necesitar combinar las tres armas para sobrevivir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece que un estudio español use su propia iconografía religiosa de una forma tan cruda y artística?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece valiente y muy bien ejecutado, se nota el respeto y el conocimiento real detrás de cada referencia visual."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una secuela que multiplica opciones de combate sin perder la identidad visual del original — de los metroidvania españoles más importantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Conocías este juego español antes de hoy? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      225: {
+        name: "Guacamelee! 2",
+        summary: "Metroidvania mexicano de lucha libre con humor absurdo — combos de lucha, plataformas, y referencias culturales por todas partes.",
+        difficulty: "media",
+        emoji: "🐔",
+        steamUrl: "https://store.steampowered.com/app/534550/Guacamelee_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 225 de Retro 365, y hoy me he convertido en pollo para colarme por un hueco diminuto. Bienvenidos a Guacamelee! 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la transformación en pollo. <strong>🎬 Producción:</strong> SFX cómico real del juego · corte duro · BGM: sting corto, mexicano</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania mexicano de lucha libre con humor absurdo constante — hoy os cuento por qué combinar combos de lucha con plataformas y referencias culturales funciona tan bien."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 225 · GUACAMELEE! 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mexicano</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Juan, un luchador retirado, vuelve a la acción para salvar el mundo de Mexiverso de una amenaza cósmica, viajando entre el mundo de los vivos y el de los muertos usando técnicas de lucha libre cada vez más ridículas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el Mexiverso colorido. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate mezcla combos de lucha libre con plataformas que exigen precisión real, moverte entre el mundo de los vivos y de los muertos abre rutas nuevas constantemente, y las referencias culturales mexicanas y a videojuegos están por todas partes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate usando combos de lucha libre. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona de plataformas real que exige cambiar entre mundos constantemente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al cambio de mundos en plataformas. <strong>🎬 Producción:</strong> SFX real del juego · BGM: sube el ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué referencia cultural o de videojuegos te ha hecho más gracia hasta ahora en este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he visto la referencia más graciosa del todo, pero ya me ha sacado más de una carcajada por sorpresa."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Comedia, cultura mexicana, y combate satisfactorio conviviendo sin ningún problema — de los metroidvania más divertidos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué máscara de luchador usarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      226: {
+        name: "The Messenger",
+        summary: "Plataformas de ninja que empieza como un homenaje a NES y se transforma poco a poco en algo completamente distinto.",
+        difficulty: "media",
+        emoji: "🥷",
+        steamUrl: "https://store.steampowered.com/app/764790",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 226 de Retro 365, y hoy el juego que empezó pareciendo un clásico de NES se ha convertido en algo que no me esperaba para nada. Bienvenidos a The Messenger."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del cambio de estilo visual del juego. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, chiptune</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un plataformas de ninja que empieza como un homenaje directo a los clásicos de NES, y se transforma poco a poco en algo completamente distinto — hoy os cuento hasta dónde puedo sin destriparlo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 226 · THE MESSENGER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, chiptune</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un joven ninja tiene que entregar un pergamino vital para la supervivencia de su clan a través de un mundo maldito, en una aventura que arranca como un plataformas de acción clásico y que se expande de formas inesperadas con el tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un nivel de estilo retro NES. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El movimiento de plataformas se siente ajustado y satisfactorio desde el primer minuto, la banda sonora chiptune cambia de estilo según el momento de la historia, y el propio juego juega con las expectativas de género de una forma muy inteligente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un tramo de plataformas exigente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un tramo de plataformas que exige precisión real de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al tramo exigente. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos que empiezan siendo una cosa y se transforman en otra completamente distinta?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, cuando se hace bien como aquí, ese giro se convierte en una de las mejores sorpresas que puede dar un videojuego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un plataformas que respeta sus raíces retro mientras se atreve a crecer sin avisar — de las sorpresas más ingeniosas del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de tramos superados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu clásico de NES favorito de siempre? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      227: {
+        name: "Prince of Persia: The Lost Crown",
+        summary: "El regreso de Prince of Persia como metroidvania, con manipulación del tiempo y un combate ágil y muy bien pulido.",
+        difficulty: "media",
+        emoji: "⏳",
+        steamUrl: "https://store.steampowered.com/app/2751000/Prince_of_Persia_The_Lost_Crown/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 227 de Retro 365, y hoy he rebobinado el tiempo justo antes de caer a un precipicio. Bienvenidos a Prince of Persia: The Lost Crown."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando la manipulación del tiempo antes de una caída. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, mitológico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "El regreso de Prince of Persia reinventado como metroidvania, con manipulación del tiempo y un combate ágil muy bien pulido — hoy os cuento por qué esta vuelta al género le sienta de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 227 · PRINCE OF PERSIA: THE LOST CROWN" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, mitológico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Sargon, un joven guerrero de élite, viaja a la montaña mítica de Qaf para rescatar a un príncipe secuestrado, descubriendo que el tiempo mismo se ha distorsionado dentro de la propia montaña, llena de peligros mitológicos persas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la montaña mítica de Qaf. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate combina espadas, arco, y habilidades temporales con una fluidez muy trabajada, poder rebobinar el tiempo cambia por completo la forma de resolver puzles y plataformas, y el mapa se conecta con muchísima inteligencia de diseño."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de combate ágil usando varias armas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que necesita manipular el tiempo con precisión."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el puzle temporal. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿jugaste algún Prince of Persia clásico de pequeño, o esta es tu primera vez con la saga?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Es mi primera vez con la saga completa, y me está sorprendiendo lo bien que se ha adaptado al formato metroidvania."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una reinvención que respeta la saga y se atreve a cambiar de género con muchísimo acierto — de los metroidvania mejor pulidos de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la montaña explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugaste algún Prince of Persia clásico de pequeño? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      228: {
+        name: "GRIS",
+        summary: "Plataformas sin combate ni muerte sobre el duelo, contado a través del color y la acuarela — pura poesía visual jugable.",
+        difficulty: "facil",
+        emoji: "🎨",
+        steamUrl: "https://store.steampowered.com/app/683320/GRIS/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 228 de Retro 365, y hoy el color ha vuelto poco a poco a un mundo que empezaba completamente gris. Bienvenidos a GRIS."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del color regresando a la escena. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, orquestal</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un plataformas sin combate ni posibilidad de morir, sobre el duelo, contado a través del color y la acuarela — hoy os cuento por qué esto se siente más como poesía visual jugable que como un videojuego tradicional."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 228 · GRIS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, orquestal</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Gris, una joven que ha perdido la voz tras una experiencia dolorosa, atraviesa un mundo pintado a acuarela que va recuperando el color poco a poco, mientras ella misma procesa su propio duelo a través del viaje."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario de acuarela. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada color que recuperas desbloquea una habilidad nueva de movimiento, sin ningún enemigo real ni posibilidad de morir en todo el juego, y la banda sonora acompaña cada emoción del viaje con una sensibilidad enorme."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una nueva habilidad desbloqueada por color. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una secuencia visual real que me tiene sin palabras."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la belleza de la escena. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono emotivo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece contar una historia sobre el duelo sin usar ni una sola palabra?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo más valiente que puede hacer un videojuego, y aquí se consigue transmitir muchísimo sin necesitar ni un diálogo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Arte, color, y emoción sin necesidad de una sola palabra — de las experiencias más bellas y sensibles que existen en los videojuegos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de escenarios explorados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué color asociarías tú con tus propias emociones? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      229: {
+        name: "Chicory: A Colorful Tale",
+        summary: "Coges el pincel de una artista desaparecida para devolver el color a todo un reino — pintar es literalmente tu única herramienta.",
+        difficulty: "facil",
+        emoji: "🖌️",
+        steamUrl: "https://store.steampowered.com/app/1123450/Chicory_A_Colorful_Tale/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 229 de Retro 365, y hoy he pintado un puente entero para poder cruzar un río. Bienvenidos a Chicory: A Colorful Tale."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real pintando un puente para cruzar. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Recoges el pincel de Chicory, artista superestrella desaparecida, para devolver el color a todo un reino que lo ha perdido por completo — hoy os cuento por qué pintar aquí es literalmente tu única herramienta de juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 229 · CHICORY: A COLORFUL TALE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Chicory, la artista más famosa del reino y portadora mágica del Pincel, desaparece justo cuando todo el color del mundo se desvanece — y a ti, su mayor fan, te toca recoger el Pincel y devolver el color a cada rincón."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el reino sin color todavía. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El Pincel se usa tanto para pintar libremente el escenario como para resolver puzles ambientales, personalizar tu propio estilo de pintura es parte constante de la diversión, y la historia trata temas serios sobre el bloqueo creativo y la salud mental con muchísima sensibilidad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto pintando el escenario. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona nueva por pintar a mi gusto, sin ninguna regla real de por medio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pintando libremente el escenario. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te sientes identificado con temas como el bloqueo creativo que trata este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me siento bastante identificado, cualquiera que se dedique a crear algo entiende perfectamente ese miedo a no estar a la altura."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Creatividad libre al servicio de una historia sensible sobre el arte mismo — de los indies más originales y honestos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de zonas pintadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué pintarías tú si tuvieras el Pincel mágico? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      230: {
+        name: "COCOON",
+        summary: "Puzles de mundos dentro de mundos, cargando orbes que contienen realidades enteras a tu espalda — de los creadores de LIMBO e INSIDE.",
+        difficulty: "media",
+        emoji: "🥚",
+        steamUrl: "https://store.steampowered.com/app/1497440/COCOON/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 230 de Retro 365, y hoy he entrado dentro de un orbe que a su vez contenía un mundo entero. Bienvenidos a COCOON."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real entrando dentro de un orbe-mundo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de puzles sobre mundos dentro de mundos, donde cargas orbes que contienen realidades enteras en tu propia espalda — hoy os cuento por qué viene de los creadores de LIMBO e INSIDE, y se nota."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 230 · COCOON" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Una criatura misteriosa recolecta orbes que contienen mundos completos dentro de sí mismos, saltando entre estas realidades anidadas para resolver puzles que solo tienen sentido si combinas las propiedades de cada mundo distinto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el primer mundo del juego. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada orbe-mundo tiene sus propias reglas físicas y visuales distintas, resolver un puzle a veces exige entrar y salir de varios mundos anidados seguidos, y la escala del concepto crece de formas que sorprenden constantemente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle usando varios mundos anidados. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle que necesita combinar propiedades de dos mundos distintos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación de mundos. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste LIMBO o INSIDE, ¿qué te está pareciendo este cambio hacia los puzles de mundos anidados?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo un cambio de género arriesgado que mantiene esa misma sensación de misterio silencioso de sus juegos anteriores."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un concepto de puzles tan simple de explicar como difícil de imaginar hasta que lo juegas — de las ideas más originales de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de mundos explorados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué mundo llevarías tú dentro de un orbe en tu espalda? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      231: {
+        name: "ANIMAL WELL",
+        summary: "Metroidvania minimalista con animales pixelados y secretos escondidos hasta límites absurdos — nada es lo que parece a simple vista.",
+        difficulty: "dificil",
+        emoji: "🐰",
+        steamUrl: "https://store.steampowered.com/app/813230/ANIMAL_WELL/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 231 de Retro 365, y hoy he descubierto un secreto tan escondido que dudo que lo hubiera encontrado sin ayuda. Bienvenidos a ANIMAL WELL."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real descubriendo un secreto muy escondido. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, ambiental</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un metroidvania minimalista con animales pixelados y secretos escondidos hasta límites absurdos — hoy os cuento por qué en este juego nada es lo que parece a simple vista."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 231 · ANIMAL WELL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, ambiental</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Explorando un mundo subterráneo lleno de criaturas extrañas y misteriosas, un pequeño ser sin nombre descubre herramientas curiosas que interactúan con el entorno de formas nada obvias, revelando secretos ocultos en capas y capas dentro del propio mapa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo subterráneo minimalista. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada herramienta que consigues tiene usos mucho menos obvios de lo que parece a primera vista, el mapa esconde secretos dentro de secretos que solo la comunidad entera ha conseguido descifrar del todo, y el minimalismo visual esconde una densidad de contenido sorprendente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando una herramienta de forma no obvia. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una zona que sospecho esconde un secreto que todavía no he encontrado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara examinando la zona con atención. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos con secretos tan bien escondidos que necesitan a toda una comunidad para descifrarlos?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, aunque también admito que algunos secretos de este juego en concreto parecen directamente imposibles sin ayuda."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Minimalismo con una densidad de secretos casi absurda — de los metroidvania más misteriosos y desafiantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de secretos encontrados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a intentar descubrir sus secretos más escondidos sin ninguna ayuda? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      232: {
+        name: "Botany Manor",
+        summary: "Botánica retirada resuelve puzles ambientales en su mansión victoriana para descubrir las condiciones ideales de flores olvidadas.",
+        difficulty: "facil",
+        emoji: "🌷",
+        steamUrl: "https://store.steampowered.com/app/1425350/Botany_Manor/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 232 de Retro 365, y hoy he tenido que descubrir a qué temperatura exacta florece una planta olvidada hace siglos. Bienvenidos a Botany Manor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una planta floreciendo tras un puzle resuelto. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una botánica retirada resuelve puzles ambientales en su propia mansión victoriana para descubrir las condiciones ideales de flores completamente olvidadas — hoy os cuento por qué este puzle tan tranquilo engancha más de lo esperado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 232 · BOTANY MANOR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Arabella Greene, una botánica retirada del siglo diecinueve, investiga cómo hacer florecer semillas de plantas mágicas olvidadas, explorando su propia mansión y jardines en busca de pistas escondidas en libros, cartas, y objetos del entorno."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la mansión victoriana. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada planta necesita condiciones muy específicas de luz, temperatura, o sonido para florecer, las pistas están escondidas en la propia narrativa ambiental de la mansión, y no hay ninguna prisa ni presión real en todo el juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto encontrando pistas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una planta nueva cuyas condiciones todavía no he conseguido descifrar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta las condiciones de la planta. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta la jardinería o la botánica en la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No tengo mucha experiencia real con la jardinería, pero este juego me está dando ganas de intentarlo alguna vez."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puzles tranquilos con una temática tan poco habitual como agradable — de los juegos más relajantes y curiosos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de plantas florecidas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué planta te gustaría cultivar tú si tuvieras tu propio jardín? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      233: {
+        name: "Lorelei and the Laser Eyes",
+        summary: "Misterio no lineal con cientos de puzles hechos a mano en un hotel de la Europa central — nada es tan sencillo como aparenta.",
+        difficulty: "dificil",
+        emoji: "🏨",
+        steamUrl: "https://store.steampowered.com/app/2008920/Lorelei_and_the_Laser_Eyes/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 233 de Retro 365, y hoy un puzle que parecía sencillo ha resultado ser mucho más retorcido de lo que aparentaba. Bienvenidos a Lorelei and the Laser Eyes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle revelando una capa oculta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un misterio no lineal con cientos de puzles hechos completamente a mano en un hotel misterioso de la Europa central — hoy os cuento por qué nada en este juego es tan sencillo como aparenta a primera vista."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 233 · LORELEI AND THE LASER EYES" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Una mujer es convocada por un excéntrico artista para participar en un proyecto misterioso dentro de un antiguo hotel, viéndose envuelta en un juego de ilusiones cada vez más peligroso y surrealista según avanza la investigación."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el hotel misterioso. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada puzle está hecho completamente a mano, sin generación aleatoria de por medio, la exploración no lineal te deja abordar los misterios del hotel en el orden que prefieras, y el estilo visual en blanco y negro con destellos de color acompaña la atmósfera perfectamente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle complejo resuelto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle real que llevo un buen rato sin conseguir resolver del todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el puzle. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los misterios donde puedes elegir el orden de investigación tú mismo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta bastante esa libertad, aunque a veces me hace dudar si estoy abordando las pistas en el orden más lógico posible."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cientos de puzles hechos con muchísimo cuidado, sin ni un solo relleno aleatorio — de los mejores juegos de puzles y misterio de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te gustan los misterios de hotel con secretos escondidos? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      234: {
+        name: "Mouthwashing",
+        summary: "Terror psicológico sobre una tripulación espacial atrapada tras un accidente — el verdadero horror es la propia convivencia humana.",
+        difficulty: "media",
+        emoji: "🚀",
+        steamUrl: "https://store.steampowered.com/app/2475490/Mouthwashing/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 234 de Retro 365, y hoy he entendido que el monstruo real de este juego no es ningún alien, es la propia tripulación. Bienvenidos a Mouthwashing."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una tensión entre miembros de la tripulación. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, inquietante</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un terror psicológico sobre una tripulación espacial atrapada tras un accidente en su propia nave — hoy os cuento por qué el verdadero horror aquí es la convivencia humana, no ningún monstruo exterior."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 234 · MOUTHWASHING" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, inquietante</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Cinco tripulantes de la nave de carga Tulpar quedan varados en el espacio tras un accidente deliberado, sin esperanza real de rescate, y tienen que sobrevivir juntos al hambre, el aislamiento, y sobre todo, entre ellos mismos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la nave dañada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La narrativa salta entre distintos momentos de la historia, revelando poco a poco cómo se llegó a la situación actual, cada personaje tiene sus propios secretos y responsabilidades en el desastre, y la tensión psicológica crece sin necesitar ningún monstruo real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una revelación narrativa importante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una escena real entre dos tripulantes que se está poniendo bastante tensa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la tensión entre personajes. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece un terror que da más miedo por las decisiones humanas que por cualquier monstruo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece de lo más inquietante que puede haber, porque ese tipo de horror se siente muchísimo más real y posible."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Terror psicológico construido sobre decisiones humanas, sin necesitar nada sobrenatural — de las narrativas de terror más perturbadoras de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la historia explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué crees que darías más miedo, un monstruo real o tus propios compañeros? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      235: {
+        name: "UFO 50",
+        summary: "Cincuenta juegos retro completos de una supuesta compañía ficticia de los 80 — una colección tan ambiciosa como sorprendentemente genial.",
+        difficulty: "media",
+        emoji: "👽",
+        steamUrl: "https://store.steampowered.com/app/1147860/UFO_50/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 235 de Retro 365, y hoy llevo tres horas seguidas jugando a uno solo de los cincuenta juegos que trae este pack. Bienvenidos a UFO 50."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de uno de los 50 minijuegos. <strong>🎬 Producción:</strong> SFX real del juego (retro) · corte duro · BGM: sting corto, chiptune</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Cincuenta juegos retro completos, presentados como el catálogo de una supuesta compañía ficticia de los años 80 — hoy os cuento por qué esta colección es tan ambiciosa como sorprendentemente genial de principio a fin."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 235 · UFO 50" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, chiptune</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "UFO Soft, una compañía de videojuegos ficticia de los años 80, supuestamente produjo estos cincuenta juegos completos, cada uno con su propio género, estética, y filosofía de diseño, todos jugables desde el primer minuto sin desbloqueos previos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el menú de selección de los 50 juegos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada uno de los cincuenta juegos tiene una calidad y una identidad propia sorprendente, algunos son plataformas cortos y otros roguelikes con decenas de horas de contenido, y descubrir cada nuevo juego se siente como abrir un regalo distinto cada vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de otro de los minijuegos completamente distinto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un juego de la colección que todavía no he probado, a ver qué sorpresa me llevo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al nuevo juego descubierto. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál de los cincuenta juegos te ha sorprendido más hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he probado ni la mitad de la colección, pero ya hay uno que me ha enganchado bastante más de lo que esperaba."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cincuenta juegos completos con una calidad casi imposible de mantener a esa escala — de las colecciones retro más ambiciosas y sorprendentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los juegos probados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué tipo de juego retro te gustaría que tuviera esta colección? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      236: {
+        name: "Axiom Verge 2",
+        summary: "Cierre de tanda con la secuela de Axiom Verge, sin combate real, centrada en exploración pura y puzles ambientales muy inteligentes.",
+        difficulty: "media",
+        emoji: "🧊",
+        steamUrl: "https://store.steampowered.com/app/946030/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 236 de Retro 365, cierre de esta tanda, y hoy he resuelto un puzle real sin necesitar ni una sola arma. Bienvenidos a Axiom Verge 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto sin combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, misterioso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "La secuela de Axiom Verge, esta vez sin combate real de ningún tipo, centrada por completo en exploración pura y puzles ambientales muy inteligentes — hoy os cuento por qué este cambio de enfoque funciona sorprendentemente bien."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 236 · AXIOM VERGE 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, misterioso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Indra, una magnate tecnológica, viaja a la Antártida investigando la desaparición de su hija, y termina descubriendo un mundo alienígena alternativo completamente distinto al del primer juego, donde la exploración y los puzles priman sobre cualquier tipo de combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo alienígena alternativo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Sin armas reales de combate, cada obstáculo se resuelve con herramientas de exploración e ingenio puro, el mapa esconde secretos en capas tan profundas como en el primer juego, y la ausencia de combate cambia por completo el ritmo respecto a la primera entrega."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una herramienta de exploración usada de forma creativa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un secreto real que sospecho que esconde esta zona del mapa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara examinando la zona con atención. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Axiom Verge, ¿qué te parece este cambio hacia un enfoque sin combate?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece un cambio arriesgado que se agradece, se nota que quisieron hacer algo distinto en vez de repetir la misma fórmula."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Exploración pura sin distracciones de combate, con secretos que premian la observación real — cierre perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del mundo explorado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres los metroidvania con combate, o te gustaría probar uno sin él como este? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 222: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 237: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
