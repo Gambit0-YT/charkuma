@@ -8248,8 +8248,488 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Qué llevarías tú en tu propia caravana comercial? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      207: {
+        name: "Pillars of Eternity II: Deadfire",
+        summary: "RPG clásico de fantasía con tu propio barco pirata — persigues a un dios rebelde por un archipiélago entero por explorar.",
+        difficulty: "dificil",
+        emoji: "⛵",
+        steamUrl: "https://store.steampowered.com/app/560130/Pillars_of_Eternity_II_Deadfire",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 207 de Retro 365, tanda nueva, y hoy mi propio barco pirata acaba de hundir a otro en alta mar. Bienvenidos a Pillars of Eternity II: Deadfire."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate naval. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG clásico de fantasía donde persigues a un dios rebelde por un archipiélago entero, con tu propio barco pirata como base de operaciones — hoy os cuento por qué la exploración marítima le da una capa extra a la fórmula clásica."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 207 · PILLARS OF ETERNITY II: DEADFIRE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El Guardián de las Almas persigue a Eothas, un dios rebelde que ha resucitado con un propósito desconocido, navegando por el archipiélago de Deadfire, lleno de facciones rivales, piratas, y secretos antiguos por descubrir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una isla del archipiélago. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Navegar por el mar abierto entre islas es tan importante como explorar cada localización a pie, el combate táctico por turnos o en tiempo real exige gestionar bien a todo el grupo, y las decisiones con las facciones cambian de verdad el equilibrio de poder del archipiélago."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico en tierra. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión de facción real que va a cambiar el equilibrio de poder de la zona."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los RPG clásicos con tanto texto y decisiones, o prefieres algo más directo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustan bastante, aunque reconozco que a veces la cantidad de texto puede abrumar un poco al principio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG clásico con muchísima profundidad y un escenario marítimo que lo distingue del resto — de los mejores CRPG modernos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de islas exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué bandera pondrías tú en tu propio barco pirata? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      208: {
+        name: "Pathfinder: Wrath of the Righteous",
+        summary: "RPG táctico basado en el sistema Pathfinder donde puedes convertirte en un ángel, un demonio, o incluso un dios menor.",
+        difficulty: "dificil",
+        emoji: "😇",
+        steamUrl: "https://store.steampowered.com/app/1184370/Pathfinder_Wrath_of_the_Righteous__Enhanced_Edition/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 208 de Retro 365, y hoy me han ofrecido la posibilidad de convertirme literalmente en un dios menor. Bienvenidos a Pathfinder: Wrath of the Righteous."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la elección de camino mítico. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG táctico basado en el sistema de reglas Pathfinder, donde puedes convertirte en un ángel, un demonio, o incluso un dios menor — hoy os cuento por qué la libertad de personalización aquí es abrumadora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 208 · PATHFINDER: WRATH OF THE RIGHTEOUS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "En la región de Sarkoris, invadida por un ejército demoníaco surgido de una grieta hacia el Abismo, lideras una cruzada para cerrar la invasión — con la posibilidad de transformarte con el tiempo en un ser mucho más poderoso que un simple mortal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la región invadida por demonios. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate táctico se basa en un sistema de reglas de rol de mesa muy completo y complejo, los caminos míticos que eliges cambian por completo tus habilidades y tu propia historia, y gestionar una cruzada entera a gran escala se suma a la gestión de tu propio grupo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico complejo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: decidir qué camino mítico seguir, sabiendo que esto define el resto de la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión del camino mítico. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te convertirías en ángel, demonio, o algo completamente distinto si pudieras elegir?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me tienta bastante alguno de los caminos más raros y menos obvios, en vez de ir directo a ángel o demonio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Profundidad mecánica llevada al extremo, con una libertad narrativa casi ilimitada — de los CRPG más ambiciosos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la cruzada explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Ángel, demonio, o algo distinto, qué elegirías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      209: {
+        name: "Solasta: Crown of the Magister",
+        summary: "RPG táctico fiel a las reglas de Dungeons and Dragons, con una cámara que aprovecha la verticalidad de las mazmorras.",
+        difficulty: "dificil",
+        emoji: "🎲",
+        steamUrl: "https://store.steampowered.com/app/1096530/Solasta_Crown_of_the_Magister/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 209 de Retro 365, y hoy he tirado un dado de verdad para saber si mi personaje sobrevivía a una caída. Bienvenidos a Solasta: Crown of the Magister."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una tirada de dado visible en pantalla. <strong>🎬 Producción:</strong> SFX real del juego (dado rodando) · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG táctico fiel de verdad a las reglas de Dungeons and Dragons, con una cámara que aprovecha la verticalidad real de las mazmorras — hoy os cuento por qué se siente como jugar una partida de mesa auténtica."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 209 · SOLASTA: CROWN OF THE MAGISTER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un grupo de aventureros creado desde cero investiga la desaparición de una civilización antigua en el continente de Solasta, explorando mazmorras verticales llenas de trampas, puzles, y secretos por descubrir en cada nivel."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una mazmorra vertical. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La verticalidad real de las mazmorras se aprovecha para escalar, saltar, y usar el terreno táctico a tu favor, las reglas de combate siguen fielmente el sistema de reglas de mesa original, y cada tirada de dado se muestra en pantalla como en una partida real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico usando verticalidad. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una tirada de dado real que va a decidir si sobrevivo a este combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la tirada de dado. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿has jugado alguna vez a rol de mesa de verdad, o esta sería tu primera aproximación al sistema?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Nunca he jugado a rol de mesa de verdad, así que este juego se está convirtiendo en mi primera toma de contacto real con esas reglas."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Fidelidad total a las reglas de mesa, con una verticalidad táctica muy bien aprovechada — de los CRPG más fieles al rol de mesa que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de mazmorras exploradas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Has jugado alguna vez a rol de mesa de verdad? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      210: {
+        name: "Tyranny",
+        summary: "RPG donde el villano ya ganó la guerra hace tiempo — tú decides cómo se administra la tiranía desde dentro del propio poder.",
+        difficulty: "dificil",
+        emoji: "👁️",
+        steamUrl: "https://store.steampowered.com/app/362960/Tyranny/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 210 de Retro 365, y hoy he tenido que decidir cómo de cruel quería ser gestionando territorios ya conquistados. Bienvenidos a Tyranny."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión administrativa sobre territorios. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, sombrío</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG donde el villano ya ganó la guerra hace tiempo, y tú decides cómo se administra la tiranía desde dentro del propio poder — hoy os cuento por qué esta premisa invierte por completo la fórmula clásica del género."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 210 · TYRANNY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sombrío</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un despiadado señor supremo ya ha conquistado el mundo entero, y tú eres su Árbitro, encargado de imponer la ley en las últimas tierras rebeldes — con libertad real para decidir cuánta crueldad o clemencia aplicar en cada caso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un territorio recién conquistado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Las decisiones tomadas antes incluso de empezar a jugar ya han moldeado el estado del mundo, el combate táctico se combina con un sistema de hechizos que puedes crear combinando runas libremente, y la moralidad gris está presente en cada decisión posible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate usando hechizos combinados. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión de crueldad o clemencia con un territorio real bajo mi control."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión moral. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿serías un tirano cruel o intentarías gobernar con algo de clemencia si tuvieras ese poder?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Intentaría gobernar con algo de clemencia, aunque este juego demuestra rápido que esa decisión tiene su propio coste real."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una premisa que invierte la fórmula del RPG de fantasía con inteligencia real — de las propuestas más originales del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones tomadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Tirano cruel o gobernante clemente, qué serías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      211: {
+        name: "Torment: Tides of Numenera",
+        summary: "RPG de ciencia ficción y fantasía donde la pregunta central es qué importa una sola vida en un universo de miles de millones de años.",
+        difficulty: "dificil",
+        emoji: "🌌",
+        steamUrl: "https://store.steampowered.com/app/272270/Torment_Tides_of_Numenera/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 211 de Retro 365, y hoy me he preguntado en serio qué importa una sola vida cuando el universo tiene miles de millones de años. Bienvenidos a Torment: Tides of Numenera."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una reflexión narrativa profunda. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, filosófico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de ciencia ficción y fantasía ambientado en un futuro tan lejano que se siente como magia — hoy os cuento por qué la pregunta central sobre el valor de una sola vida atraviesa cada decisión del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 211 · TORMENT: TIDES OF NUMENERA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, filosófico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El Último Vestido, uno de los muchos cuerpos abandonados por un ser inmortal que salta de forma en forma, despierta con una nueva conciencia propia, y tiene que descubrir quién es realmente mientras un cazador de otra dimensión le persigue sin descanso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un mundo de ciencia ficción y fantasía mezcladas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El combate directo es opcional casi siempre, priorizando resolver conflictos con diálogo e ingenio, cada decisión moral se clasifica en Mareas que reflejan tu verdadera naturaleza, y la narrativa filosófica del juego invita a reflexionar de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un conflicto resuelto con diálogo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un conflicto real que voy a intentar resolver sin recurrir a la violencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la resolución pacífica. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué crees tú que importa más, una sola vida individual o el bien mayor de muchas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no tengo una respuesta clara, y creo que esa es precisamente la gracia de la pregunta que plantea este juego."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG que se atreve a preguntar en vez de solo entretener — de las narrativas más filosóficas y ambiciosas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de decisiones tomadas en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué importa más para ti, una vida individual o el bien mayor? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      212: {
+        name: "Songs of Conquest",
+        summary: "Estrategia por turnos inspirada en los clásicos Heroes, con héroes mágicos, ejércitos, y un pixel art precioso y detallado.",
+        difficulty: "media",
+        emoji: "🏰",
+        steamUrl: "https://store.steampowered.com/app/867210/Songs_of_Conquest/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 212 de Retro 365, y hoy mi héroe mágico acaba de invocar un ejército entero de la nada. Bienvenidos a Songs of Conquest."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un ejército invocado. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una estrategia por turnos inspirada claramente en los clásicos Heroes of Might and Magic, con héroes mágicos, ejércitos, y un pixel art precioso y detallado — hoy os cuento por qué es la mejor vuelta a esa fórmula clásica en años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 212 · SONGS OF CONQUEST" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Distintas facciones mágicas luchan por el control de un mundo de fantasía, cada una liderada por sus propios Wielders, héroes capaces de invocar y comandar ejércitos enteros mientras exploran el mapa y construyen sus propios castillos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa del mundo con el héroe. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada facción tiene un estilo de magia y unidades completamente distintas, gestionar el castillo y la economía es tan importante como cualquier batalla, y el combate táctico por turnos exige planificar bien cada movimiento del ejército."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico entre ejércitos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una batalla real entre ejércitos, a ver si mi estrategia funciona."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la batalla en directo. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste algún Heroes of Might and Magic de pequeño, ¿qué te está pareciendo esta vuelta al género?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo un homenaje con muchísimo respeto por la fórmula clásica, sin sentirse anticuado en ningún momento."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un pixel art precioso al servicio de una estrategia clásica muy bien ejecutada — de las mejores vueltas al género de estrategia por turnos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la batalla jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Jugaste algún Heroes of Might and Magic de pequeño? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      213: {
+        name: "Terra Invicta",
+        summary: "Estrategia geopolítica global tras un primer contacto alienígena — controlas naciones enteras en la carrera espacial más real posible.",
+        difficulty: "dificil",
+        emoji: "🌍",
+        steamUrl: "https://store.steampowered.com/app/1176470/Terra_Invicta/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 213 de Retro 365, y hoy he tenido que decidir la política espacial de un país entero en tiempo real. Bienvenidos a Terra Invicta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión política de un país. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una estrategia geopolítica global ambientada tras un primer contacto alienígena, donde controlas naciones enteras en la carrera espacial más realista posible — hoy os cuento por qué la escala de este juego es directamente abrumadora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 213 · TERRA INVICTA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tras el contacto secreto de una especie alienígena con la humanidad, distintas facciones humanas compiten por el control geopolítico de la Tierra y por el acceso al espacio, en una simulación que abarca desde la política de cada país hasta la conquista del sistema solar entero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa geopolítico mundial. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nación tiene su propia política interna que gestionar con agentes reales, la carrera espacial exige investigación tecnológica realista basada en física de verdad, y la escala del juego crece desde un país concreto hasta el sistema solar entero según avanza la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una misión espacial. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión política real que va a afectar a toda mi facción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión política. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te atraen los juegos de estrategia con este nivel de escala y complejidad realista?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me atraen bastante, aunque reconozco que la curva de entrada de un juego así puede echar para atrás al principio."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Escala planetaria con una simulación política y espacial abrumadoramente ambiciosa — de las estrategias más complejas y realistas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la partida jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué facción elegirías tú en una invasión alienígena real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      214: {
+        name: "Stellaris",
+        summary: "Gran estrategia espacial donde exploras la galaxia, descubres civilizaciones alienígenas, y decides si conquistar o cooperar.",
+        difficulty: "dificil",
+        emoji: "🌌",
+        steamUrl: "https://store.steampowered.com/app/281990/Stellaris/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 214 de Retro 365, y hoy he descubierto una anomalía espacial que ha cambiado por completo el rumbo de mi partida. Bienvenidos a Stellaris."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una anomalía espacial descubierta. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, espacial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una gran estrategia espacial donde exploras la galaxia entera, descubres civilizaciones alienígenas, y decides si conquistar o cooperar con ellas — hoy os cuento por qué cada partida cuenta una historia espacial completamente distinta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 214 · STELLARIS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, espacial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Diseñas tu propia especie alienígena y la lideras al descubrir viajes espaciales, explorando una galaxia generada al azar llena de civilizaciones vecinas, anomalías misteriosas, y amenazas cósmicas cada vez mayores según avanza la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la galaxia generada al azar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada especie tiene rasgos y ética propios que definen su forma de gobierno, la diplomacia con civilizaciones vecinas puede llevar tanto a alianzas como a guerras enteras, y los eventos narrativos aleatorios hacen que cada galaxia se sienta única de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión diplomática con otra civilización. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un primer contacto real con una civilización alienígena desconocida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al primer contacto. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué tipo de especie alienígena diseñarías tú si tuvieras que liderar tu propio imperio espacial?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría diseñar una especie pacifista centrada en la investigación, aunque sé que eso me pondría en desventaja frente a imperios más agresivos."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una galaxia entera de posibilidades narrativas y estratégicas — de las grandes estrategias espaciales más completas y rejugables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del imperio construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo sería tu especie alienígena ideal? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      215: {
+        name: "Crusader Kings III",
+        summary: "Gestionas una dinastía medieval entera durante generaciones — intrigas, matrimonios, y herencias que definen siglos de historia.",
+        difficulty: "dificil",
+        emoji: "👑",
+        steamUrl: "https://store.steampowered.com/app/1158310/Crusader_Kings_III/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 215 de Retro 365, y hoy mi heredero ha resultado ser bastante peor gobernante que su padre. Bienvenidos a Crusader Kings III."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la sucesión a un nuevo heredero. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, medieval</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de gran estrategia donde gestionas una dinastía medieval entera durante generaciones — hoy os cuento por qué las intrigas, matrimonios, y herencias definen siglos de historia de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 215 · CRUSADER KINGS III" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, medieval</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como gobernante de un territorio medieval, tu objetivo no es solo tu propio reinado, sino asegurar el legado de tu dinastía entera a través de matrimonios estratégicos, intrigas cortesanas, y la educación cuidadosa de tus herederos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa medieval de tu territorio. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje tiene rasgos de personalidad que afectan directamente a cómo gobierna, las intrigas cortesanas incluyen desde alianzas matrimoniales hasta asesinatos discretos, y perder a tu gobernante actual no acaba la partida, sino que continúa con su heredero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una intriga cortesana en curso. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una intriga real que puede consolidar o arruinar el futuro de mi dinastía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la intriga. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué rasgo de personalidad te gustaría que tuviera tu propio gobernante en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gustaría un gobernante astuto por encima de todo, aunque eso normalmente venga acompañado de rasgos bastante turbios también."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Historia real convertida en drama familiar interactivo generación tras generación — de las grandes estrategias con más profundidad narrativa que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la dinastía gestionada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué legado te gustaría dejar si fueras un gobernante medieval? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      216: {
+        name: "Europa Universalis IV",
+        summary: "Gestionas una nación entera desde 1444 hasta 1821 — colonización, comercio, y guerras que reescriben el mapa del mundo entero.",
+        difficulty: "dificil",
+        emoji: "🗺️",
+        steamUrl: "https://store.steampowered.com/app/236850/Europa_Universalis_IV/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 216 de Retro 365, y hoy he cambiado el mapa del mundo entero solo colonizando una isla pequeña. Bienvenidos a Europa Universalis IV."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una colonización expandiendo el territorio. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de gran estrategia donde gestionas una nación entera desde 1444 hasta 1821 — hoy os cuento por qué la colonización, el comercio, y las guerras aquí pueden reescribir el mapa del mundo entero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 216 · EUROPA UNIVERSALIS IV" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como gobernante de cualquier nación del mundo conocido en 1444, gestionas su desarrollo durante casi cuatro siglos de historia alternativa, decidiendo entre colonización, comercio, diplomacia, o conquista militar directa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa mundial de 1444. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada decisión de gobierno afecta a la estabilidad interna y a las relaciones internacionales de tu nación, las rutas comerciales globales se pueden monopolizar con la estrategia adecuada, y cada partida reescribe la historia del mundo de una forma completamente distinta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una guerra territorial en curso. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión de guerra real que puede cambiar las fronteras del continente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión de guerra. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué nación de la historia te gustaría gobernar en un juego así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me llamaría la atención gobernar una nación pequeña y ver si consigo convertirla en una gran potencia contra todo pronóstico."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Cuatro siglos de historia alternativa en tus propias manos — de las grandes estrategias históricas más completas y ambiciosas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la nación gestionada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué nación gobernarías tú desde 1444? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      217: {
+        name: "Total War: WARHAMMER III",
+        summary: "Batallas masivas en tiempo real con demonios, magia, y ejércitos gigantescos del universo de fantasía de Warhammer.",
+        difficulty: "dificil",
+        emoji: "⚔️",
+        steamUrl: "https://store.steampowered.com/app/1142710/Total_War_WARHAMMER_III/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 217 de Retro 365, y hoy un demonio gigante ha arrasado con la mitad de mi ejército en cuestión de segundos. Bienvenidos a Total War: WARHAMMER III."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un demonio gigante en batalla. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, épico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Batallas masivas en tiempo real con demonios, magia, y ejércitos gigantescos del universo de fantasía de Warhammer — hoy os cuento por qué la escala de este juego es simplemente abrumadora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 217 · TOTAL WAR: WARHAMMER III" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Distintas facciones del universo de Warhammer, desde humanos hasta demonios del Caos, luchan por controlar un mundo de fantasía al borde del colapso, gestionando su imperio en el mapa y librando batallas masivas en tiempo real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa de campaña por turnos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada facción tiene unidades y estilos de combate completamente distintos entre sí, las batallas masivas en tiempo real exigen posicionamiento táctico real de miles de unidades, y la magia y los monstruos gigantes cambian por completo el ritmo de cada enfrentamiento."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una batalla masiva en tiempo real. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una batalla masiva real con miles de unidades en juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la escala de la batalla. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué facción del universo Warhammer te llama más la atención por su estilo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo las facciones, pero ya hay una con un estilo visual tan raro que me ha llamado la atención de inmediato."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Escala masiva y fantasía desatada en cada batalla — de las estrategias de guerra más espectaculares que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la batalla jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué facción de fantasía elegirías tú para liderar un ejército? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      218: {
+        name: "Age of Wonders 4",
+        summary: "Estrategia de fantasía por turnos donde puedes crear tu propia facción combinando cualquier estilo y tono que te apetezca.",
+        difficulty: "dificil",
+        emoji: "🔮",
+        steamUrl: "https://store.steampowered.com/app/1669000/Age_of_Wonders_4/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 218 de Retro 365, y hoy he creado una facción propia que mezcla cosas que ni yo sabía que podían combinarse. Bienvenidos a Age of Wonders 4."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real creando una facción personalizada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una estrategia de fantasía por turnos donde puedes crear tu propia facción combinando cualquier estilo y tono que se te ocurra — hoy os cuento por qué la libertad de personalización aquí no tiene comparación."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 218 · AGE OF WONDERS 4" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como gobernante de un reino de fantasía completamente personalizado, exploras y conquistas un mundo generado al azar, combinando temas culturales, unidades mágicas, y estilos de gobierno para crear una civilización única con cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mundo de fantasía generado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El editor de facciones te permite combinar razas, temas culturales, y unidades mágicas prácticamente sin límites, la magia y los hechizos globales cambian el terreno mismo del mapa, y cada partida se siente como jugar con una civilización completamente distinta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate táctico con unidades personalizadas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un hechizo global que va a cambiar el terreno del mapa entero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al cambio de terreno global. <strong>🎬 Producción:</strong> SFX mágico · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué combinación rara de razas y temas culturales harías tú si crearas tu propia facción?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me haría gracia combinar algo tan pacífico como elfos con un estilo militarista agresivo, solo por ver qué resultado tan raro sale de eso."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Libertad creativa casi ilimitada dentro de una estrategia de fantasía muy sólida — de las estrategias más personalizables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la facción creada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué combinación rara de facción crearías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      219: {
+        name: "Norland",
+        summary: "Gestión medieval de un feudo con simulación individual de cada habitante — intrigas, guerras, y una dinastía que hay que mantener viva.",
+        difficulty: "dificil",
+        emoji: "🏘️",
+        steamUrl: "https://store.steampowered.com/app/1857090/Norland/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 219 de Retro 365, y hoy uno de mis habitantes ha empezado una disputa familiar que ha puesto en riesgo todo mi feudo. Bienvenidos a Norland."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una disputa entre habitantes. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, medieval</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una gestión medieval de un feudo con simulación individual real de cada habitante — hoy os cuento por qué las intrigas y disputas familiares pueden poner en riesgo todo tu feudo entero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 219 · NORLAND" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, medieval</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como cabeza de una dinastía medieval, gestionas un feudo entero simulando individualmente a cada uno de tus habitantes, con sus propias relaciones, ambiciones, y conflictos, mientras defiendes tus tierras de amenazas externas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el feudo medieval. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada habitante tiene su propia personalidad, relaciones, y ambiciones que pueden generar conflictos internos reales, mantener viva la dinastía a través de generaciones es tan importante como la propia gestión económica, y las guerras con reinos vecinos exigen defensas bien planificadas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una defensa contra un ataque enemigo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: resolver esta disputa entre habitantes antes de que se descontrole del todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta cómo resolver la disputa. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de gestión donde cada personaje individual tiene su propia vida simulada?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan, le dan al feudo una sensación de vida real que muchos juegos de gestión más abstractos no consiguen igualar."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un feudo medieval que se siente vivo de verdad, habitante a habitante — de las gestiones medievales más profundas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del feudo gestionado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo gestionarías tú las disputas familiares en tu propio feudo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      220: {
+        name: "Going Medieval",
+        summary: "Construyes un asentamiento medieval fortificado en 3D, gestionando colonos individuales que sobreviven a bandidos y al clima.",
+        difficulty: "media",
+        emoji: "🏯",
+        steamUrl: "https://store.steampowered.com/app/1029780/Going_Medieval/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 220 de Retro 365, y hoy he construido una muralla entera justo a tiempo antes de que llegaran los bandidos. Bienvenidos a Going Medieval."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una muralla terminada justo a tiempo. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, medieval</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de construcción de asentamientos medievales fortificados en 3D, gestionando colonos individuales que sobreviven a bandidos y al clima — hoy os cuento por qué construir en altura y en profundidad cambia por completo la estrategia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 220 · GOING MEDIEVAL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, medieval</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un grupo de supervivientes de una plaga que ha devastado la civilización busca un nuevo hogar en tierras reclamadas por la naturaleza, construyendo un asentamiento fortificado desde cero mientras enfrentan bandidos, hambre, y el paso de las estaciones."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el terreno antes de construir. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La construcción en 3D real permite levantar murallas, torres, y estructuras en varias plantas de altura, cada colono tiene habilidades y necesidades propias que gestionar, y defenderse de bandidos exige planificar bien las defensas antes de que lleguen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una defensa contra bandidos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: terminar esta defensa antes de que lleguen los bandidos que ya se acercan."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta el ataque en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca el ataque</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿construirías en altura para defenderte mejor, o preferirías una fortaleza más extendida a nivel del suelo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Construiría en altura sin dudarlo, la ventaja táctica de tener torres altas parece demasiado buena como para no aprovecharla."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Construcción real en tres dimensiones con una gestión de colonos muy completa — de los juegos de gestión medieval más satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del asentamiento construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Construirías en altura o a nivel del suelo tu propia fortaleza? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      221: {
+        name: "Endless Space 2",
+        summary: "Cierre de tanda: ópera espacial estratégica con facciones extrañísimas y una narrativa de fondo tan rica como su propia estrategia.",
+        difficulty: "dificil",
+        emoji: "🛰️",
+        steamUrl: "https://store.steampowered.com/app/392110/ENDLESS_Space_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 221 de Retro 365, cierre de esta tanda, y hoy me he cruzado con una facción de plantas conscientes que ni yo mismo sabía que existían. Bienvenidos a Endless Space 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un primer contacto con una facción extraña. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, espacial</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una ópera espacial estratégica por turnos con facciones extrañísimas entre sí — hoy os cuento por qué la narrativa de fondo es tan rica como la propia estrategia de conquistar la galaxia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 221 · ENDLESS SPACE 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, espacial</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Distintas facciones alienígenas, desde imperios humanos hasta civilizaciones de plantas conscientes, exploran una galaxia llena de restos de una civilización antigua desaparecida, compitiendo por recursos, territorio, y el control del propio destino galáctico."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la galaxia con restos antiguos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada facción tiene una forma de vida y una filosofía completamente distinta que afecta a su forma de jugar, la gestión económica y diplomática pesa tanto como la conquista militar directa, y descubrir los secretos de la civilización antigua da un hilo narrativo constante a cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate espacial entre flotas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un descubrimiento real sobre la civilización antigua desaparecida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al descubrimiento. <strong>🎬 Producción:</strong> SFX misterioso · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué facción alienígena rara te gustaría liderar en una ópera espacial así?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me llamaría mucho la atención liderar la facción de plantas conscientes, es de las ideas más raras y originales que he visto en un juego de estrategia."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Estrategia espacial con una imaginación desbordante en cada facción — cierre perfecto y ambicioso para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del imperio construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué facción alienígena rara te gustaría liderar tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 207: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 222: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
     // ══════════ 03-retro365-home-widgets.js ══════════
