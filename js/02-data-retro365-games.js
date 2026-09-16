@@ -8405,7 +8405,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Cuál es tu shooter retro favorito de los 90? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      267: {
+        name: "Slime Rancher 2",
+        summary: "Vuelves al Rango Lejano con un nuevo archipiélago por explorar y slimes todavía más raros y coloridos que descubrir.",
+        difficulty: "facil",
+        emoji: "🟣",
+        steamUrl: "https://store.steampowered.com/app/1657630/Slime_Rancher_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 267 de Retro 365, tanda nueva, y hoy he encontrado un tipo de slime que no sabía ni que existía. Bienvenidos a Slime Rancher 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real descubriendo un slime nuevo y raro. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Vuelves al Rango Lejano con un archipiélago completamente nuevo por explorar, y slimes todavía más raros y coloridos que descubrir — hoy os cuento por qué esta secuela expande todo lo que hacía bien el original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 267 · SLIME RANCHER 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Beatrix LeBeau viaja a un nuevo archipiélago desconocido del Rango Lejano, expandiendo su negocio de cría de slimes mientras descubre nuevas especies, tecnología, y secretos escondidos por todo el nuevo territorio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el nuevo archipiélago. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada nueva especie de slime tiene comportamientos y necesidades propias que aprender, la exploración del archipiélago se siente más vertical y variada que en el original, y gestionar un rancho cada vez más grande sigue dando esa satisfacción relajante de siempre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión del rancho ampliado. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver qué hay en esta zona del archipiélago que todavía no he explorado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a lo que hay en la zona nueva. <strong>🎬 Producción:</strong> SFX de sorpresa · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si jugaste el primer Slime Rancher, ¿qué añadido de esta secuela te está gustando más?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está gustando bastante la nueva verticalidad de la exploración, le da al mundo una sensación distinta al original."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Más slimes, más color, y la misma relajación de siempre — de las secuelas más fieles y expansivas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del rancho construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué nuevo tipo de slime te gustaría que existiera? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      268: {
+        name: "Cat Cafe Manager",
+        summary: "Gestionas la cafetería de gatos de tu abuela en un pueblo pintoresco — servir mesas, cuidar gatos, y conocer a todo el vecindario.",
+        difficulty: "facil",
+        emoji: "🐈",
+        steamUrl: "https://store.steampowered.com/app/1354830/Cat_Cafe_Manager/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 268 de Retro 365, y hoy un gato se ha subido a mi cabeza justo cuando iba a servir un café. Bienvenidos a Cat Cafe Manager."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un gato interrumpiendo el servicio. <strong>🎬 Producción:</strong> SFX real del juego (maullido) · corte duro · BGM: sting corto, tierno</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionas la cafetería de gatos abandonada de tu abuela en un pueblo pintoresco — hoy os cuento por qué servir mesas, cuidar gatos, y conocer a todo el vecindario se combina de forma tan tierna."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 268 · CAT CAFE MANAGER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tierno</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Heredas la cafetería de gatos abandonada de tu abuela en el pueblo de Caterwaul Way, y tienes que restaurarla, rescatar gatos callejeros para que vivan allí, y conocer a los habitantes del pueblo mientras la cafetería vuelve a florecer."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo pintoresco. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Servir a los clientes de la cafetería exige gestionar tiempo y prioridades con cuidado, cada gato rescatado tiene su propia personalidad y necesidades, y las relaciones con los habitantes del pueblo se construyen poco a poco con conversaciones y regalos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real sirviendo mesas en la cafetería. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una hora punta real en la cafetería, a ver si doy abasto con todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al caos de la hora punta. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube el ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué gato rescatarías tú primero si tuvieras tu propia cafetería de gatos?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Rescataría primero al gato con la personalidad más difícil, siempre acaban siendo los que más cariño terminan dando."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión tranquila con gatos por todas partes, ¿qué más se puede pedir? — de los juegos de vida más entrañables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la cafetería gestionada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo se llamaría tu propio gato de cafetería? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      269: {
+        name: "Two Point Hospital",
+        summary: "Gestionas hospitales absurdos con enfermedades tan ridículas como Lightheadedness o Cubism — humor británico en cada diagnóstico.",
+        difficulty: "media",
+        emoji: "🏥",
+        steamUrl: "https://store.steampowered.com/app/535930/Two_Point_Hospital/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 269 de Retro 365, y hoy he tenido que curar a un paciente que literalmente tenía la cabeza convertida en un cubo. Bienvenidos a Two Point Hospital."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un paciente con una enfermedad absurda. <strong>🎬 Producción:</strong> SFX cómico real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionas hospitales absurdos con enfermedades tan ridículas como el Cubismo o el Mareo Ligero — hoy os cuento por qué el humor británico está metido en cada diagnóstico de este juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 269 · TWO POINT HOSPITAL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como administrador de hospitales del extraño Two Point County, diseñas y gestionas centros médicos completos, contratando personal, diseñando salas de tratamiento absurdas, y curando enfermedades que no existirían en ningún hospital real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el hospital construido. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada enfermedad absurda tiene su propia sala de tratamiento con máquinas todavía más absurdas, gestionar personal contento y bien pagado afecta directamente a la calidad del hospital, y el humor está presente en cada nombre de enfermedad y cada diálogo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una sala de tratamiento absurda funcionando. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una avalancha real de pacientes con la enfermedad más absurda que he visto hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando divertida a la avalancha de pacientes. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube el ritmo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál es la enfermedad más absurda que te has encontrado hasta ahora en este juego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía no he visto la más absurda del todo, pero ya me ha tocado una que no me esperaba para nada."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de hospitales con un sentido del humor absurdo constante — de los juegos de gestión más divertidos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del hospital construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué enfermedad absurda te gustaría inventar para este juego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      270: {
+        name: "Two Point Campus",
+        summary: "Diriges una universidad con carreras tan absurdas como Caballerismo o Ciencia del Espionaje — de los mismos creadores del hospital.",
+        difficulty: "media",
+        emoji: "🎓",
+        steamUrl: "https://store.steampowered.com/app/1649080/Two_Point_Campus/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 270 de Retro 365, y hoy he abierto una carrera universitaria de caballerismo medieval en pleno siglo veintiuno. Bienvenidos a Two Point Campus."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una clase de caballerismo absurda. <strong>🎬 Producción:</strong> SFX cómico real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Diriges una universidad entera con carreras tan absurdas como Caballerismo o Ciencia del Espionaje — hoy os cuento por qué viene de los mismos creadores del hospital, y se nota clarísimo su sentido del humor."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 270 · TWO POINT CAMPUS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como rector de universidades en el extraño Two Point County, diseñas campus completos con carreras absurdas y aulas cada vez más disparatadas, gestionando estudiantes, profesores, y las necesidades de toda una comunidad universitaria."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el campus universitario. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada carrera absurda tiene sus propias aulas y equipamiento específico y disparatado, gestionar la felicidad y las calificaciones de los estudiantes afecta directamente a la reputación del campus, y las instalaciones extracurriculares añaden mucha personalidad al campus."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una clase absurda funcionando. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: diseñar una clase real para la carrera más absurda que tengo en el campus."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el diseño de la clase. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué carrera universitaria absurda te gustaría que existiera de verdad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me apuntaría sin dudarlo a una carrera de Ciencia del Espionaje, suena demasiado divertida como para no intentarlo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión universitaria con el mismo humor absurdo británico de siempre — de las secuelas espirituales más divertidas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del campus construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿A qué carrera absurda te apuntarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      271: {
+        name: "PowerWash Simulator",
+        summary: "Limpias con manguera a presión casas, vehículos, y objetos cada vez más sucios — satisfacción visual pura sin ninguna presión real.",
+        difficulty: "facil",
+        emoji: "🚿",
+        steamUrl: "https://store.steampowered.com/app/1290000/PowerWash_Simulator/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 271 de Retro 365, y hoy he limpiado una casa entera de suciedad y no puedo explicar lo bien que me ha sentado. Bienvenidos a PowerWash Simulator."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real limpiando una fachada sucia con la manguera. <strong>🎬 Producción:</strong> SFX real del juego (agua a presión) · corte duro · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Limpias con manguera a presión casas, vehículos, y objetos cada vez más sucios — hoy os cuento por qué esto genera una satisfacción visual pura sin ninguna presión real de por medio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 271 · POWERWASH SIMULATOR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Trabajas para una pequeña empresa de limpieza a presión, viajando de trabajo en trabajo para limpiar casas, vehículos, parques infantiles, y toda clase de objetos cubiertos de suciedad acumulada durante años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un objeto muy sucio antes de limpiarlo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Ver la suciedad desaparecer progresivamente con cada pasada de la manguera es tremendamente satisfactorio, distintas boquillas y presiones se adaptan mejor a según qué superficies, y no hay ninguna prisa ni presión real más allá de disfrutar el proceso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una limpieza casi completa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la última esquina sucia que me queda por limpiar de este trabajo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la limpieza final. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te resulta tan satisfactorio a ti como a mí ver la suciedad desaparecer poco a poco?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me resulta muchísimo más satisfactorio de lo que esperaba, tiene algo casi terapéutico ver el progreso tan claro."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Simplicidad pura convertida en una de las experiencias más relajantes que existen — de los juegos más terapéuticos de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la limpieza completada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué te gustaría limpiar tú si tuvieras una manguera a presión así de potente? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      272: {
+        name: "House Flipper 2",
+        summary: "Restauras y decoras casas destrozadas para venderlas por el mejor precio posible — de la limpieza al diseño de interiores real.",
+        difficulty: "facil",
+        emoji: "🏠",
+        steamUrl: "https://store.steampowered.com/app/1190970/House_Flipper_2/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 272 de Retro 365, y hoy he convertido una casa destrozada en algo que enseñaría con orgullo en una revista de decoración. Bienvenidos a House Flipper 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la transformación completa de una casa. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Restauras y decoras casas completamente destrozadas para venderlas por el mejor precio posible — hoy os cuento por qué esta secuela lleva la limpieza y el diseño de interiores a otro nivel de detalle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 272 · HOUSE FLIPPER 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como emprendedor de renovación de casas, compras propiedades destrozadas y abandonadas, las limpias, reparas, y decoras a tu propio gusto, para después venderlas por el mejor precio posible en el mercado inmobiliario."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una casa destrozada antes de empezar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada casa exige limpieza real, reparaciones de fontanería y electricidad, y decoración con libertad creativa casi total, la comunidad comparte diseños increíbles que se pueden importar directamente, y ver el resultado final antes y después da mucha satisfacción."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de decoración con libertad creativa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: decidir el estilo de decoración final para esta habitación real."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta el estilo de decoración. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué estilo de decoración te gusta más para tu propia casa en la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta un estilo minimalista y luminoso, aunque reconozco que en este juego me tienta bastante experimentar con algo más recargado."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Renovación y decoración con muchísima libertad creativa real — de los juegos de simulación más satisfactorios que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la casa renovada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué estilo de decoración usarías tú para tu casa ideal? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      273: {
+        name: "Little Kitty, Big City",
+        summary: "Un gato callejero explora una ciudad entera desde su propia perspectiva, causando el caos más tierno y absurdo posible.",
+        difficulty: "facil",
+        emoji: "🐱",
+        steamUrl: "https://store.steampowered.com/app/1177980/Little_Kitty_Big_City/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 273 de Retro 365, y hoy he tirado una planta de una ventana solo porque soy un gato y puedo hacerlo. Bienvenidos a Little Kitty, Big City."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un gato tirando una planta. <strong>🎬 Producción:</strong> SFX real del juego (maullido + objeto cayendo) · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un gato callejero explora una ciudad entera desde su propia perspectiva, causando el caos más tierno y absurdo posible — hoy os cuento por qué ser un gato en un videojuego nunca se había sentido tan libre."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 273 · LITTLE KITTY, BIG CITY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un pequeño gato callejero cae accidentalmente desde su balcón a las calles de la ciudad, y tiene que encontrar el camino de vuelta a casa mientras explora, conoce a otros animales, y causa todo el caos posible por el camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las calles de la ciudad. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El mundo abierto está lleno de misiones opcionales dadas por otros animales de la ciudad, cada rincón esconde algo con lo que interactuar de forma cómica, y la libertad de explorar sin ninguna prisa real hace que perderse por la ciudad se sienta natural."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una interacción cómica con un objeto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver cuánto caos soy capaz de causar en los próximos minutos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando divertida al caos causado. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si tienes gato, ¿reconoces ese comportamiento tan travieso en el tuyo propio?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Cualquiera que haya tenido un gato reconoce ese comportamiento al instante, este juego ha clavado la personalidad felina."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Libertad felina pura sin ninguna prisa ni presión real — de los mundos abiertos más tiernos y relajantes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la ciudad explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo se llama tu gato, o cómo lo llamarías si tuvieras uno? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      274: {
+        name: "Tiny Glade",
+        summary: "Construyes castillos y aldeas en miniatura sin ningún objetivo real, solo por el placer estético de crear algo bonito.",
+        difficulty: "facil",
+        emoji: "🏯",
+        steamUrl: "https://store.steampowered.com/app/2198150/Tiny_Glade/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 274 de Retro 365, y hoy llevo veinte minutos ajustando un solo muro solo porque me gusta cómo queda. Bienvenidos a Tiny Glade."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real ajustando un detalle de construcción. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Construyes castillos y aldeas en miniatura sin ningún objetivo real, solo por el placer estético de crear algo bonito — hoy os cuento por qué la ausencia total de reglas o metas hace que esto sea tan relajante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 274 · TINY GLADE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Sin ninguna historia, combate, ni objetivo real que cumplir, construyes castillos, cabañas acogedoras, y ruinas románticas en un pequeño diorama, dejando que un prado olvidado se convierta en el pueblo diminuto que tú quieras."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el diorama vacío al empezar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "La construcción sin cuadrícula real permite ajustes orgánicos y naturales en cada estructura, un sistema de detalle procedural añade hiedra, musgo, y textura automáticamente, y no existe ningún fallo posible, solo estética que ajustar a tu gusto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una construcción con detalle procedural. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: añadir el último detalle a esta construcción antes de darla por terminada."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara admirando el resultado final. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tono relajante</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te resulta relajante crear algo sin ningún objetivo real, o necesitas siempre una meta clara en un videojuego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me resulta muchísimo más relajante de lo esperado, la ausencia de presión hace que perder el tiempo aquí se sienta bien de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un diorama sin reglas donde solo importa la belleza del resultado — de los juegos más relajantes y meditativos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del pueblo construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué construirías tú si no tuvieras ninguna regla ni objetivo real? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      275: {
+        name: "Supermarket Simulator",
+        summary: "Gestionas tu propio supermercado desde cero — reponer estantes, poner precios, y lidiar con ladrones de tienda de forma realista.",
+        difficulty: "media",
+        emoji: "🛒",
+        steamUrl: "https://store.steampowered.com/app/2670630/Supermarket_Simulator/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 275 de Retro 365, y hoy he pillado a un ladrón de tienda con las manos en la masa dentro de mi propio supermercado. Bienvenidos a Supermarket Simulator."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un ladrón de tienda siendo pillado. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionas tu propio supermercado desde cero, reponiendo estantes, poniendo precios, y lidiando con ladrones de tienda de forma realista — hoy os cuento por qué la simulación de negocio aquí engancha muchísimo más de lo esperado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 275 · SUPERMARKET SIMULATOR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como dueño de un supermercado pequeño, gestionas cada aspecto del negocio, desde pedir mercancía a proveedores y reponer estantes hasta atender la caja y diseñar el propio layout de la tienda, expandiendo el negocio poco a poco."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay reponiendo estantes en el supermercado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Fijar precios competitivos afecta directamente a la afluencia de clientes, gestionar el stock y evitar productos caducados es una tarea constante, y algunos clientes intentan robar mercancía, así que vigilar la tienda tiene su propia importancia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real atendiendo la caja registradora. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: reponer estos estantes antes de que abra la tienda con clientes esperando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta la apertura en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la apertura</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustaría gestionar tu propio negocio en la vida real, o prefieres quedarte solo con la versión de videojuego?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Prefiero quedarme con la versión de videojuego, la responsabilidad real de un negocio así suena bastante más estresante que divertida."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Simulación de negocio sorprendentemente completa y adictiva — de las sorpresas de gestión más populares de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del supermercado gestionado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo llamarías tú a tu propio supermercado? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      276: {
+        name: "Cooking Simulator",
+        summary: "Cocinas con física real de ingredientes y herramientas — cada movimiento de la sartén afecta de verdad al plato que preparas.",
+        difficulty: "media",
+        emoji: "🍳",
+        steamUrl: "https://store.steampowered.com/app/641320/Cooking_Simulator/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 276 de Retro 365, y hoy he prendido fuego a la cocina entera solo por dejar el aceite demasiado tiempo al fuego. Bienvenidos a Cooking Simulator."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un incendio en la cocina. <strong>🎬 Producción:</strong> SFX real del juego (fuego) · corte duro · BGM: sting corto, caótico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Cocinas con física real de ingredientes y herramientas de cocina — hoy os cuento por qué cada movimiento de la sartén afecta de verdad al resultado final del plato que preparas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 276 · COOKING SIMULATOR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como chef de tu propia cocina, preparas más de ochenta platos distintos usando ingredientes con física realista, desde cortar verduras hasta saltear con precisión, en un modo carrera profesional o en un modo sandbox sin ninguna regla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la cocina antes de empezar a cocinar. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada ingrediente reacciona con física real al calor, al corte, y al movimiento de las herramientas, quemarte o prender fuego a la cocina es un riesgo constante y real, y el modo sandbox permite experimentar con combinaciones absurdas sin ninguna consecuencia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un plato preparado con precisión. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: preparar este plato complicado sin quemar nada en el proceso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al riesgo de quemar el plato. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te consideras bueno cocinando en la vida real, o este juego se te da mejor que la cocina de verdad?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me defiendo bastante bien en la cocina real, aunque aquí también he prendido fuego a las cosas más veces de las que admito."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Física de cocina real llevada al extremo, con caos garantizado incluido — de los simuladores de cocina más completos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de platos preparados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué plato te gustaría intentar preparar en un simulador así de realista? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      277: {
+        name: "Farming Simulator 25",
+        summary: "Gestionas una granja moderna entera con maquinaria agrícola real — cultivar, criar ganado, y expandir el negocio poco a poco.",
+        difficulty: "media",
+        emoji: "🚜",
+        steamUrl: "https://store.steampowered.com/app/2300320/Farming_Simulator_25/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 277 de Retro 365, y hoy he cosechado un campo entero con una máquina que ni sabía que existía en la vida real. Bienvenidos a Farming Simulator 25."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una cosechadora real trabajando. <strong>🎬 Producción:</strong> SFX real del juego (maquinaria agrícola) · corte duro · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionas una granja moderna entera con maquinaria agrícola real, con licencias oficiales de marcas de verdad — hoy os cuento por qué cultivar, criar ganado, y expandir el negocio poco a poco engancha más de lo que imaginas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 277 · FARMING SIMULATOR 25" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como agricultor con una granja propia, gestionas cultivos, ganado, y maquinaria agrícola real con licencias oficiales, expandiendo el negocio desde una pequeña parcela hasta una operación agrícola completa a gran escala."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la granja y sus campos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada cultivo tiene su propio ciclo de siembra y cosecha que gestionar con maquinaria real, criar ganado añade su propia gestión de alimentación y cuidados, y jugarlo en cooperativo permite repartirse las tareas de una granja gigante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de siembra usando maquinaria licenciada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: cosechar este campo real antes de que cambie el tiempo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al cambio de tiempo mientras cosecha. <strong>🎬 Producción:</strong> SFX de tensión suave · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿tienes alguna relación con la agricultura en la vida real, o este juego sería tu primera aproximación?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "No tengo mucha relación real con la agricultura, pero este juego me está dando un respeto nuevo por todo el trabajo que conlleva."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Simulación agrícola con maquinaria real y una progresión tranquila y satisfactoria — de los simuladores más completos y queridos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la granja gestionada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué cultivarías tú si tuvieras tu propia granja? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      278: {
+        name: "Thief Simulator",
+        summary: "Investigas objetivos reales antes de robarles — observar rutinas, buscar contraseñas, y planificar el golpe perfecto.",
+        difficulty: "media",
+        emoji: "🕵️",
+        steamUrl: "https://store.steampowered.com/app/704850/Thief_Simulator/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 278 de Retro 365, y hoy he encontrado la contraseña de una caja fuerte escrita en un post-it, como en la vida real. Bienvenidos a Thief Simulator."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real encontrando la contraseña en un post-it. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, sigiloso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Investigas objetivos reales antes de robarles, observando rutinas, buscando contraseñas, y planificando el golpe perfecto — hoy os cuento por qué la parte de investigación es tan importante como el propio robo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 278 · THIEF SIMULATOR" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sigiloso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como ladrón en un barrio residencial de mundo abierto, investigas a tus objetivos observando sus rutinas y pistas del entorno antes de decidir cuándo y cómo entrar a robar en sus casas sin ser descubierto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el vecindario observando objetivos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada casa esconde pistas reales sobre contraseñas y objetos de valor si investigas con atención, forzar cerraduras y desactivar alarmas exige herramientas específicas, y vender el botín robado en el mercado negro completa el ciclo del juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un robo sigiloso en curso. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: entrar a robar en esta casa real antes de que vuelvan sus dueños."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo antes de que vuelvan los dueños. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según pasa el tiempo</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de investigar a fondo a un objetivo antes de un robo, como en las películas de atracos?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una parte fundamental del juego, la planificación previa le da un toque de película de atracos que se agradece."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Investigación y sigilo combinados en un simulador de robos sorprendentemente completo — de las propuestas más originales del género que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del robo planificado en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué película de atracos te gusta más? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      279: {
+        name: "I Am Bread",
+        summary: "Eres literalmente una rebanada de pan cuyo sueño es convertirse en tostada — física absurda al servicio de la comedia pura.",
+        difficulty: "media",
+        emoji: "🍞",
+        steamUrl: "https://store.steampowered.com/app/327890/I_Am_Bread/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 279 de Retro 365, y hoy he tardado diez minutos en cruzar una cocina siendo literalmente una rebanada de pan. Bienvenidos a I Am Bread."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del pan moviéndose torpemente por la cocina. <strong>🎬 Producción:</strong> SFX cómico real del juego · corte duro · BGM: sting corto, absurdo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Eres literalmente una rebanada de pan cuyo único sueño en la vida es convertirse en tostada — hoy os cuento por qué esta física absurda al servicio de la comedia pura, de los creadores de Surgeon Simulator, funciona de maravilla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 279 · I AM BREAD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, absurdo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como una rebanada de pan con conciencia propia, tu única misión es llegar a una tostadora, sartén, o cualquier superficie capaz de tostarte, atravesando la cocina, la casa, y hasta el mundo exterior con controles deliberadamente torpes."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la cocina buscando la tostadora. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Controlar cada esquina del pan por separado hace que cada movimiento sea deliberadamente incómodo y cómico, mantener un nivel de frescura mientras te mueves añade su propia presión absurda, y cada nivel del juego añade escenarios cada vez más ridículos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un movimiento torpe fallando. <strong>🎬 Producción:</strong> SFX cómico real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo llegar a la tostadora antes de perder toda la frescura."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de frescura del pan en pantalla. <strong>🎬 Producción:</strong> SFX de tensión cómica · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta el pan tostado, o prefieres alguna otra forma de desayunar?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta bastante el pan tostado, aunque este juego me ha hecho apreciar de una forma rarísima el proceso de conseguirlo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Comedia absurda con controles deliberadamente incómodos por diseño — de los juegos más ridículos y divertidos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los intentos fallidos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cómo te gusta el pan tostado a ti? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      280: {
+        name: "Fashion Police Squad",
+        summary: "Shooter retro absurdo donde luchas contra el crimen de la moda con armas que enseñan a vestir bien a la fuerza.",
+        difficulty: "media",
+        emoji: "👔",
+        steamUrl: "https://store.steampowered.com/app/1319460/Fashion_Police_Squad/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 280 de Retro 365, y hoy he arreglado el crimen de moda más grave que he visto: calcetines con sandalias. Bienvenidos a Fashion Police Squad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real disparando a un enemigo con calcetines y sandalias. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, disco</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter retro absurdo donde luchas contra el crimen de la moda con armas que enseñan a vestir bien a la fuerza — hoy os cuento por qué esta premisa tan ridícula funciona como shooter de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 280 · FASHION POLICE SQUAD" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, disco</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "El sargento Des, agente de la Policía de la Moda, limpia las calles de crímenes de moda literales, transformando a los peor vestidos en ciudadanos elegantes a base de disparos, en una ciudad al borde del colapso estético."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad llena de crímenes de moda. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada arma tiene un efecto de moda específico, desde corbatas que estrangulan hasta perfume corrosivo, el diseño de niveles homenajea claramente a los shooters clásicos de los 90, y el humor sobre la moda está presente en cada esquina."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando un arma temática de moda. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: el crimen de moda más absurdo que me he encontrado hasta ahora."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando divertida al crimen de moda. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿cuál te parece a ti el crimen de moda más grave de la vida real?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Para mí sigue siendo el de calcetines blancos con sandalias, este juego no exagera nada con esa elección de villano."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un homenaje a los shooters clásicos con un sentido del humor absurdo propio — de las ideas más divertidas y originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de combates del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es el crimen de moda más grave para ti? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      281: {
+        name: "Lethal League Blaze",
+        summary: "Cierre de tanda: fútbol de pelota mortal donde golpeas una bola cada vez más rápida hasta que se vuelve imposible de esquivar.",
+        difficulty: "dificil",
+        emoji: "⚾",
+        steamUrl: "https://store.steampowered.com/app/553310/Lethal_League_Blaze/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 281 de Retro 365, cierre de esta tanda, y hoy una bola se movía tan rápido que ni la he visto venir hasta que ya me había golpeado. Bienvenidos a Lethal League Blaze."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una bola a máxima velocidad golpeando. <strong>🎬 Producción:</strong> SFX real del juego (impacto) · corte duro · BGM: sting corto, urbano</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de pelota mortal donde golpeas una bola cada vez más rápida hasta que se vuelve prácticamente imposible de esquivar — hoy os cuento por qué esta tensión creciente engancha muchísimo en cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 281 · LETHAL LEAGUE BLAZE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, urbano</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Personajes callejeros con estilo urbano se enfrentan golpeando una única bola entre ellos, donde cada golpe la acelera más y más, hasta que esquivarla o devolverla se convierte en un reto de reflejos casi imposible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el escenario urbano antes del combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada personaje tiene un estilo de golpe distinto que afecta a la trayectoria de la bola, la velocidad creciente obliga a reaccionar cada vez más rápido según avanza la partida, y jugarlo en cuatro jugadores multiplica el caos por completo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un intercambio de golpes a máxima velocidad. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube el ritmo</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: la bola ya va tan rápido que no sé si voy a conseguir devolverla."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la velocidad extrema de la bola. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿tienes buenos reflejos para juegos así de rápidos, o se te suelen resistir?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Se me resisten bastante al principio, pero en cuanto coges el ritmo del juego empieza a fluir de una forma muy satisfactoria."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tensión creciente y reflejos al límite en cada partida — cierre perfecto y frenético para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de intercambios del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con quién jugarías tú a un juego de reflejos así de rápido? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 267: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 282: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
