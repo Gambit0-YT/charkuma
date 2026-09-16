@@ -4565,7 +4565,487 @@
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "¿Conocías alguna criatura del folclore nórdico antes de este vídeo? Dímelo en comentarios."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      147: {
+        name: "LIMBO",
+        summary: "Un niño busca a su hermana en un bosque monocromo lleno de trampas mortales — puzles de plataformas con una tensión constante.",
+        difficulty: "media",
+        emoji: "🌑",
+        steamUrl: "https://store.steampowered.com/app/48000/LIMBO/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 147 de Retro 365, tanda nueva, y hoy una trampa que no vi venir me acaba de matar por segunda vez seguida. Bienvenidos a LIMBO."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una muerte por trampa oculta. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, inquietante</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de puzles y plataformas en blanco y negro donde un niño pequeño busca a su hermana en un bosque lleno de trampas mortales — hoy os cuento por qué la tensión aquí no baja ni un segundo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 147 · LIMBO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, inquietante</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un niño despierta solo en el límite de un bosque oscuro, sin explicaciones, y se adentra en él buscando a su hermana perdida — atravesando un mundo monocromo lleno de peligros silenciosos y trampas que no avisan antes de matarte."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el bosque monocromo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada puzle de plataformas exige ensayo y error real, muriendo más de una vez para entender la trampa, el estilo visual en blanco y negro con siluetas crea una atmósfera única, y la ausencia total de diálogo o música explicativa deja que el propio ambiente cuente la historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto tras varios intentos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle que ya me ha matado dos veces y voy a intentar resolver bien esta vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de intentos en pantalla. <strong>🎬 Producción:</strong> SFX sting dramático en cada muerte · BGM: caída breve tras cada muerte, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gusta que un juego no te explique nada de la historia y te deje interpretarla tú mismo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta bastante, aunque reconozco que a veces me deja con más preguntas de las que esperaba al terminar."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un clásico que sigue funcionando perfectamente años después, con una atmósfera que muy pocos juegos han conseguido igualar — de los puzles de plataformas más influyentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la exploración del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué crees tú que significa el final de este juego? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      148: {
+        name: "FTL: Faster Than Light",
+        summary: "Comandas una nave espacial en tiempo real gestionando tripulación y sistemas — cada decisión de segundo cuenta de verdad.",
+        difficulty: "dificil",
+        emoji: "🚀",
+        steamUrl: "https://store.steampowered.com/app/212680/FTL_Faster_Than_Light/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 148 de Retro 365, y hoy he perdido a toda mi tripulación por priorizar mal los escudos en el momento equivocado. Bienvenidos a FTL: Faster Than Light."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate espacial con la nave dañada. <strong>🎬 Producción:</strong> SFX real del juego (alarma de nave) · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike de gestión de naves espaciales en tiempo real donde comandas tripulación y sistemas a la vez — hoy os cuento por qué cada decisión de un segundo puede costarte la nave entera."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 148 · FTL: FASTER THAN LIGHT" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Comandas una nave espacial huyendo de una flota enemiga, saltando de sector en sector con información vital para la Federación — gestionando energía, tripulación, y sistemas de la nave en tiempo real durante cada combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa de sectores del juego. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada sistema de la nave —escudos, motores, armas— consume energía limitada que hay que repartir con cuidado, la tripulación puede apagar incendios o reparar daños en tiempo real, y una sola mala decisión puede acabar con toda la partida de golpe."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión de energía durante un combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un combate real donde tengo que decidir en segundos a qué sistema mandar la energía."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la decisión bajo presión. <strong>🎬 Producción:</strong> SFX dramático · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿priorizarías siempre los escudos, o te arriesgarías con las armas para acabar rápido el combate?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Siempre prioricé los escudos hasta que aprendí por las malas que a veces acabar rápido el combate es la opción más segura."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Tensión constante y decisiones que se sienten reales en cada segundo — de los roguelikes de gestión más exigentes que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la run jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Escudos, armas, o motores, a qué le darías prioridad tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      149: {
+        name: "Into the Breach",
+        summary: "Estrategia por turnos con información perfecta — ves exactamente lo que va a pasar antes de mover, y aun así puede salir mal.",
+        difficulty: "dificil",
+        emoji: "🤖",
+        steamUrl: "https://store.steampowered.com/app/590380/Into_the_Breach/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 149 de Retro 365, y hoy sabía exactamente lo que iba a pasar y aun así lo he hecho mal. Bienvenidos a Into the Breach."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un turno mal calculado a pesar de la información visible. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una estrategia por turnos con mechs gigantes donde ves exactamente lo que va a hacer el enemigo antes de mover — hoy os cuento por qué tener toda la información no te libra de equivocarte igual."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 149 · INTO THE BREACH" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Pilotos del futuro viajan atrás en el tiempo para pilotar mechs gigantes y defender ciudades de un enjambre de criaturas gigantes llamado el Vek, en batallas por turnos pequeñas pero letales en tableros diminutos."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el tablero de batalla antes de mover. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "El juego te muestra exactamente qué va a atacar el enemigo antes de que muevas tú, proteger a los civiles importa tanto como sobrevivir tú mismo, y cada partida corta obliga a pensar cada turno como si fuera un puzle perfecto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un turno resuelto perfectamente. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un turno con toda la información delante, a ver si consigo la jugada perfecta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la jugada. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de estrategia que te dan toda la información por adelantado, o prefieres algo de incertidumbre?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta bastante tener toda la información, aunque a veces eso hace que fallar duela todavía más porque no hay excusa."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Puzles tácticos pequeños con decisiones enormes detrás — de las estrategias por turnos más inteligentes y ajustadas que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la batalla jugada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Prefieres información total, o algo de incertidumbre en tus juegos de estrategia? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      150: {
+        name: "Loop Hero",
+        summary: "Construyes el mundo mismo colocando cartas mientras un héroe lo recorre en bucle automáticamente — estrategia rarísima y adictiva.",
+        difficulty: "media",
+        emoji: "🔄",
+        steamUrl: "https://store.steampowered.com/app/1282730/Loop_Hero/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 150 de Retro 365, y hoy he construido literalmente el mundo por el que camina mi propio héroe. Bienvenidos a Loop Hero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real colocando cartas de terreno en el bucle. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de estrategia rarísimo donde colocas cartas para construir el propio mundo mientras un héroe lo recorre en bucle automáticamente — hoy os cuento por qué esta idea tan extraña engancha muchísimo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 150 · LOOP HERO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un Lich ha sumido al mundo en un bucle temporal sin fin, borrando toda la realidad, y tu único héroe recorre un camino circular combatiendo automáticamente, mientras tú decides qué terreno y qué enemigos colocar en su camino."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el bucle con el héroe recorriéndolo. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada carta de terreno que colocas cambia las reglas del bucle, dando recursos pero también más peligro, el héroe combate solo mientras tú gestionas el mazo y el campamento base, y equilibrar riesgo y recompensa es la clave de cada partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión del mazo de cartas de terreno. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: colocar una carta arriesgada a ver si el héroe sobrevive a lo que traiga."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al riesgo de la carta colocada. <strong>🎬 Producción:</strong> SFX de tensión · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué te parece la idea de un juego donde tú construyes el peligro que tu propio héroe va a enfrentar?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me parece una idea rarísima que funciona muchísimo mejor de lo que esperaba la primera vez que lo probé."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una vuelta de tuerca original al género de estrategia, con un bucle que engancha sin darte cuenta — de las ideas más originales que he probado en Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del bucle construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te arriesgarías colocando cartas peligrosas, o irías siempre a lo seguro? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      151: {
+        name: "Backpack Hero",
+        summary: "Roguelike donde el orden y la orientación de tus objetos dentro de la mochila determina literalmente tu poder de combate.",
+        difficulty: "media",
+        emoji: "🎒",
+        steamUrl: "https://store.steampowered.com/app/1970580/Backpack_Hero/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 151 de Retro 365, y hoy he ganado un combate solo por reorganizar bien mi propia mochila. Bienvenidos a Backpack Hero."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real reorganizando objetos en la mochila. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un roguelike donde el orden y la orientación de tus objetos dentro de la mochila determina literalmente tu poder de combate — hoy os cuento por qué hacer inventario aquí es tan importante como pelear."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 151 · BACKPACK HERO" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Exploras mazmorras y combates enemigos usando los objetos que llevas en tu mochila, donde cada arma, poción, o armadura ocupa un espacio y una forma concreta que hay que encajar como en un puzle antes de cada combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la mazmorra antes de un combate. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada objeto interactúa con los objetos adyacentes en la mochila, potenciándose o combinándose de formas inesperadas, la forma y orientación de cada pieza importa tanto como en un tetris real, y una mochila bien organizada puede ser la diferencia entre ganar o perder un combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un combate usando objetos combinados. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: reorganizar la mochila entera antes de este combate que da bastante respeto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la reorganización. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los puzles de organizar espacio como en un inventario tipo Tetris?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantan este tipo de puzles de organización, tienen algo satisfactorio que no sabría explicar del todo."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea de inventario convertida en el corazón mismo del combate — de los roguelikes con la mecánica más original que he probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la mochila organizada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Eres de los que organiza bien su inventario en los juegos, o de los que lo deja todo tirado? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      152: {
+        name: "My Time At Portia",
+        summary: "Restauras el taller de tu padre en un pueblo post-apocalíptico entrañable — crafteo, granja, y amistades a partes iguales.",
+        difficulty: "facil",
+        emoji: "🔨",
+        steamUrl: "https://store.steampowered.com/app/666140/My_Time_At_Portia/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 152 de Retro 365, y hoy he fabricado mi primera máquina propia con piezas encontradas en unas ruinas antiguas. Bienvenidos a My Time At Portia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real fabricando una máquina en el taller. <strong>🎬 Producción:</strong> SFX real del juego (herramientas) · corte duro · BGM: sting corto, alegre</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de vida y crafteo donde restauras el taller abandonado de tu padre en un pueblo post-apocalíptico entrañable — hoy os cuento por qué mezcla crafteo, granja y amistades sin que ninguna parte se sienta de relleno."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 152 · MY TIME AT PORTIA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, alegre</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Llegas al pueblo de Portia para hacerte cargo del taller abandonado de tu padre, mucho tiempo después de una catástrofe que acabó con la civilización moderna — reconstruyendo, fabricando encargos, y conociendo a los habitantes del pueblo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el pueblo de Portia. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Explorar ruinas antiguas te da piezas y planos únicos para fabricar, cada encargo del pueblo ayuda a mejorar tu reputación y tu taller, y las relaciones con los habitantes se construyen poco a poco con regalos y conversaciones."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real explorando unas ruinas antiguas. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: entregar este encargo importante para el pueblo, a ver qué recompensa me dan."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la recompensa del encargo. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de vida tipo Stardew Valley, o prefieres que tengan un enfoque más de crafteo como este?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me gusta bastante el enfoque de crafteo de este, se siente un poco distinto a los típicos juegos de granja."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un pueblo entrañable con mucho que fabricar y mucha gente que conocer — de los juegos de vida más completos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del taller construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué fabricarías tú primero si heredaras un taller así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      153: {
+        name: "Fields of Mistria",
+        summary: "Sucesor espiritual de los juegos de granja clásicos, con magia que va reformando poco a poco todo el valle donde vives.",
+        difficulty: "facil",
+        emoji: "🌾",
+        steamUrl: "https://store.steampowered.com/app/2142790/Fields_of_Mistria/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 153 de Retro 365, y hoy la magia de este valle ha transformado mi granja de una forma que no me esperaba. Bienvenidos a Fields of Mistria."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la magia transformando el valle. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tranquilo</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un sucesor espiritual de los juegos de granja clásicos, ambientado en un valle idílico entre bosque y mar tras un terremoto — hoy os cuento por qué su magia reformando poco a poco el valle lo hace especial."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 153 · FIELDS OF MISTRIA" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tranquilo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Llegas al pueblo de Mistria justo después de un terremoto que ha devastado la zona, y te haces cargo de una granja abandonada — cultivando, criando animales, y descubriendo poco a poco la magia que empieza a reformar el propio valle."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la granja recién heredada. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cultivar, criar animales, y pescar se sienten pulidos y con calidad de vida cuidada al detalle, la magia que vas descubriendo cambia visualmente el pueblo con el tiempo, y las relaciones con los habitantes tienen escritura y personalidad reales."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de cultivo y conversación con un habitante. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una conversación importante con uno de los habitantes del pueblo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a la conversación. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: si te gusta Stardew Valley, ¿qué te está pareciendo esta alternativa más nueva?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me está pareciendo una alternativa con muchísimo cariño puesto en los detalles, sin sentirse una simple copia."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un pixel art precioso y un pueblo con magia real de por medio — de los juegos de granja más pulidos y cuidados que han salido últimamente."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la granja construida en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Cuál es tu juego de granja favorito hasta ahora? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      154: {
+        name: "Kingdom Two Crowns",
+        summary: "Defiende y expande tu reino de izquierda a derecha, reclutando súbditos con monedas mientras la noche trae peligro real.",
+        difficulty: "media",
+        emoji: "👑",
+        steamUrl: "https://store.steampowered.com/app/701160/Kingdom_Two_Crowns/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 154 de Retro 365, y hoy mi reino entero ha caído en una sola noche por no prepararme bien. Bienvenidos a Kingdom Two Crowns."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una defensa nocturna fallida. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de estrategia y construcción de reino de izquierda a derecha, donde reclutas súbditos con monedas mientras la noche trae oleadas de peligro real — hoy os cuento por qué gestionar bien el oro lo es todo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 154 · KINGDOM TWO CROWNS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como monarca a caballo, expandes tu reino hacia ambos lados del mapa, reclutando campesinos como soldados, construyendo murallas y torres, mientras criaturas monstruosas amenazan con destruirlo todo cada noche que cae."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el reino de día reclutando súbditos. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada moneda que consigues de día se invierte en defensas y súbditos para sobrevivir la noche, expandirte demasiado rápido sin defensas suficientes puede costarte la corona entera, y cada partida se siente como un ciclo real de riesgo y recompensa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una defensa nocturna exitosa. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión de noche</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: prepararme para la noche que se acerca con el oro que me queda."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de monedas y tiempo hasta la noche en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la noche</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿expandirías tu reino rápido arriesgándote, o preferirías fortificar bien antes de crecer?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Prefiero fortificar bien antes de expandir, aunque eso signifique crecer más lento que otros jugadores."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Simple de aprender, con una tensión real cada vez que cae la noche — de los juegos de estrategia con más personalidad visual que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del reino construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Expansión rápida o fortificación segura, qué elegirías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      155: {
+        name: "Superliminal",
+        summary: "Puzles de perspectiva forzada donde el tamaño de un objeto depende de cómo lo mires — la lógica normal deja de aplicar.",
+        difficulty: "media",
+        emoji: "🧩",
+        steamUrl: "https://store.steampowered.com/app/1049410/Superliminal/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 155 de Retro 365, y hoy he agrandado una ficha de ajedrez hasta hacerla más grande que una puerta entera. Bienvenidos a Superliminal."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real agrandando un objeto con perspectiva forzada. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, onírico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de puzles en primera persona basado en perspectiva forzada e ilusiones ópticas — hoy os cuento por qué el tamaño de un objeto aquí depende literalmente de cómo lo estés mirando."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 155 · SUPERLIMINAL" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, onírico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Quedas atrapado dentro de un experimento de terapia de sueños que empieza a comportarse de forma extraña, y tienes que resolver puzles usando el tamaño aparente de los objetos según la perspectiva desde la que los mires."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando un escenario onírico surrealista. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Un objeto agarrado se queda del tamaño con el que lo ves en ese momento, así que acercarlo o alejarlo cambia su tamaño real, cada nivel juega con esta idea de formas cada vez más creativas, y la sensación de resolver un puzle imposible es constante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle de perspectiva resuelto. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle que llevo un rato sin conseguir ver desde el ángulo correcto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara buscando el ángulo correcto del puzle. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿se te dan bien los puzles de perspectiva y percepción, o se te resisten un poco?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Se me resisten bastante al principio, pero en cuanto entiendo la lógica del juego empiezan a fluir mejor."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea tan simple como mareante ejecutada con muchísima creatividad — de los puzles en primera persona más originales que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué objeto agrandarías tú primero si pudieras cambiar su tamaño así? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      156: {
+        name: "The Stanley Parable",
+        summary: "Una narración en off te cuenta lo que vas a hacer — y todo el juego consiste en decidir si obedecer o desobedecer esa voz.",
+        difficulty: "facil",
+        emoji: "🚪",
+        steamUrl: "https://store.steampowered.com/app/221910/The_Stanley_Parable/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 156 de Retro 365, y hoy una voz en off me acaba de decir exactamente por qué puerta tenía que pasar, así que he ido por la otra. Bienvenidos a The Stanley Parable."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real desobedeciendo la narración yendo por la puerta contraria. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting corto, cómico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de exploración en primera persona donde una narración en off te cuenta constantemente lo que vas a hacer — hoy os cuento por qué obedecer o desobedecer esa voz es literalmente todo el juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 156 · THE STANLEY PARABLE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, cómico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Stanley, un oficinista cualquiera, descubre un día que toda su oficina ha desaparecido sin explicación, y una voz narradora empieza a contar la historia de lo que Stanley 'va a hacer' — mientras tú decides si seguirle el juego o llevarle la contraria en cada paso."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la oficina vacía. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada decisión de obedecer o desobedecer la narración lleva a un final completamente distinto, la propia voz reacciona en tiempo real a tus decisiones más raras, y rejugarlo desde cero descubre finales que ni te imaginabas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la narración reaccionando a una decisión inesperada. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: voy a intentar llevarle la contraria a la narración lo máximo posible."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando divertida a la respuesta de la narración. <strong>🎬 Producción:</strong> SFX cómico · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿tú sueles obedecer las instrucciones de un juego al pie de la letra, o te gusta desobedecer y explorar por tu cuenta?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Reconozco que siempre acabo desobedeciendo un poco por curiosidad, aunque el juego me diga exactamente qué hacer."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego que se ríe de sí mismo y de las convenciones del propio medio como pocos — de las experiencias más ingeniosas y rejugables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de finales descubiertos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Obedecerías la narración, o le llevarías la contraria como yo? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      157: {
+        name: "Viewfinder",
+        summary: "Fotografías que se convierten en escenarios reales al colocarlas — la realidad y la imagen se confunden por completo.",
+        difficulty: "media",
+        emoji: "📷",
+        steamUrl: "https://store.steampowered.com/app/1382070/Viewfinder/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 157 de Retro 365, y hoy he colocado una foto de un puente y el puente se ha vuelto real delante de mí. Bienvenidos a Viewfinder."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una foto convirtiéndose en escenario real. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, onírico</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de aventuras y puzles en primera persona donde puedes traer fotografías a la vida colocándolas en el mundo — hoy os cuento por qué la realidad y la imagen se confunden de una forma alucinante."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 157 · VIEWFINDER" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, onírico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Exploras una serie de islas misteriosas donde una cámara especial te permite tomar fotos de cualquier escena y luego colocarlas físicamente en el mundo, convirtiendo la imagen fotografiada en parte real del escenario."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una isla y tomando una foto. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Puedes fotografiar un dibujo, una postal, o incluso una parte del propio escenario para duplicarla, cada puzle se resuelve combinando fotos de formas cada vez más ingeniosas, y el propio concepto se retuerce más y más a medida que avanzas."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un puzle resuelto combinando fotos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: un puzle que necesita una combinación de fotos que todavía no he encontrado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la combinación de fotos. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué foto de la vida real te gustaría poder traer a la vida así si pudieras?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encantaría traer a la vida alguna foto de un viaje real que hice, aunque sea solo para revivir ese momento un rato."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Una idea original que se retuerce cada vez más a medida que avanza — de los puzles en primera persona más creativos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de puzles resueltos en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Qué foto traerías tú a la vida real si pudieras? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      158: {
+        name: "Manor Lords",
+        summary: "Estrategia medieval con construcción de ciudad orgánica y batallas tácticas — gestionar bien la economía importa más que la guerra.",
+        difficulty: "dificil",
+        emoji: "🏘️",
+        steamUrl: "https://store.steampowered.com/app/1363080/Manor_Lords/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 158 de Retro 365, y hoy mi pequeño pueblo medieval ya tiene su propio mercado funcionando solo. Bienvenidos a Manor Lords."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real del mercado del pueblo funcionando. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, medieval</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una estrategia medieval con construcción de ciudad orgánica y batallas tácticas a gran escala — hoy os cuento por qué gestionar bien la economía importa más aquí que ganar cualquier guerra."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 158 · MANOR LORDS" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, medieval</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como señor feudal en la Franconia del siglo catorce, fundas y haces crecer un asentamiento medieval, gestionando cadenas de producción reales, comercio, y política local, mientras expandes tus tierras mediante conquista cuando hace falta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el mapa antes de fundar el asentamiento. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Las calles y edificios se construyen de forma orgánica, sin una cuadrícula fija como en otros juegos del género, cada cadena de producción depende de recursos reales del terreno, y las batallas tácticas usan formaciones históricas de verdad."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una batalla táctica medieval. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: resolver un problema de producción que está frenando el crecimiento del pueblo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la solución. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: continúa</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿te gustan los juegos de gestión medieval con este nivel de detalle histórico?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Me encanta el nivel de detalle histórico, se nota muchísimo el cariño puesto en la ambientación medieval."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión medieval con una organicidad que pocos juegos del género consiguen — de las mejores sorpresas de estrategia de los últimos años."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del pueblo construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Preferirías gobernar con guerra o con comercio? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      159: {
+        name: "Against the Storm",
+        summary: "Reconstruyes civilización bajo una lluvia apocalíptica que nunca termina — cada asentamiento tiene fecha de caducidad real.",
+        difficulty: "dificil",
+        emoji: "🌧️",
+        steamUrl: "https://store.steampowered.com/app/1336490/Against_the_Storm/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 159 de Retro 365, y hoy la lluvia ha vuelto a caer sobre mi asentamiento antes de que estuviera listo del todo. Bienvenidos a Against the Storm."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la lluvia apocalíptica cayendo sobre el asentamiento. <strong>🎬 Producción:</strong> SFX real del juego (lluvia intensa) · corte duro · BGM: sting corto, tenso</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un city builder de fantasía oscura donde reconstruyes la civilización bajo una lluvia apocalíptica que nunca termina de verdad — hoy os cuento por qué cada asentamiento tiene fecha de caducidad marcada desde el principio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 159 · AGAINST THE STORM" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Como Virrey de la Reina Escarlata, fundas asentamientos temporales en un bosque maldecido por una tormenta eterna, gestionando distintas razas de trabajadores —castores, lagartos, humanos— antes de que la próxima tormenta borre tu asentamiento del mapa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando el bosque antes de fundar el asentamiento. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada raza de trabajadores tiene necesidades y preferencias distintas que gestionar a la vez, cada partida es un ciclo corto contra el tiempo antes de que llegue la próxima tormenta, y las decisiones aleatorias del bioma cambian cómo hay que jugar cada vez."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de gestión de distintas razas de trabajadores. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver si consigo estabilizar el asentamiento antes de que caiga la próxima tormenta."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> contador de tiempo hasta la próxima tormenta en pantalla. <strong>🎬 Producción:</strong> SFX de tensión creciente · BGM: sube según se acerca la tormenta</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué raza de trabajadores gestionarías tú con más cuidado, o cuál te resulta más interesante?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a cada raza, pero ya hay una con unas necesidades tan específicas que me tiene todo el rato pendiente de ella."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de ciudad con una presión constante y un mundo que da mucho respeto — de los city builders más originales y atmosféricos que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap del asentamiento construido en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreverías a fundar un asentamiento con fecha de caducidad marcada? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      160: {
+        name: "Frostpunk",
+        summary: "La última ciudad de la Tierra en un mundo helado — cada decisión de gobierno tiene un coste humano real y difícil de asumir.",
+        difficulty: "dificil",
+        emoji: "❄️",
+        steamUrl: "https://store.steampowered.com/app/323190/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 160 de Retro 365, y hoy he tenido que decidir si mandar a niños a trabajar para que mi ciudad sobreviva. Bienvenidos a Frostpunk."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de una decisión de ley difícil. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, sombrío</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un juego de supervivencia y gestión de ciudad donde gobiernas la última ciudad de la Tierra en un mundo completamente helado — hoy os cuento por qué cada decisión de gobierno tiene un coste humano real y difícil de asumir."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 160 · FROSTPUNK" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, sombrío</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Tras un cataclismo climático que ha helado el mundo entero, gobiernas la última ciudad superviviente alrededor de un generador gigante — teniendo que decidir leyes cada vez más extremas para mantener a la población con vida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando la ciudad alrededor del generador. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Gestionar el calor del generador es cuestión de vida o muerte constante, cada ley que aprueba tiene consecuencias sociales y morales reales, y mantener la esperanza de la población es tan importante como mantenerlos con vida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de la gestión del generador de calor. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una ley difícil de aprobar, sin ninguna opción que se sienta del todo bien."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión de ley. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿gobernarías con mano dura para sobrevivir, o intentarías mantener la ética aunque cueste más vidas?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Intento mantener la ética el máximo tiempo posible, aunque este juego demuestra rápido lo difícil que es sostener eso de verdad."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Gestión de ciudad con dilemas morales de verdad, sin ninguna decisión fácil — de los juegos de estrategia más duros y memorables que existen."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la ciudad gestionada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Mano dura o ética a toda costa, qué elegirías tú para sobrevivir? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      161: {
+        name: "Vampire: The Masquerade - Bloodlines 2",
+        summary: "Cierre de tanda con vampiros modernos en Seattle — política de clanes, decisiones morales, y una sed de sangre que hay que controlar.",
+        difficulty: "media",
+        emoji: "🧛",
+        steamUrl: "https://store.steampowered.com/app/532790/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 161 de Retro 365, cierre de esta tanda, y hoy casi pierdo el control frente a una víctima inocente por culpa de mi propia sed. Bienvenidos a Vampire: The Masquerade - Bloodlines 2."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real de un momento de tentación de sangre. <strong>🎬 Producción:</strong> SFX real del juego · corte duro · BGM: sting corto, oscuro</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un RPG de acción sobre vampiros modernos en la ciudad de Seattle, con política de clanes y decisiones morales de por medio — hoy os cuento por qué controlar la propia sed de sangre es tan importante como cualquier combate."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 161 · VAMPIRE: THE MASQUERADE - BLOODLINES 2" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, oscuro</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Un vampiro recién convertido despierta en Seattle en medio de una guerra política entre clanes vampíricos, teniendo que aprender a controlar sus nuevos poderes y su sed de sangre mientras decide con qué facción alinearse."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando las calles nocturnas de Seattle. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Cada disciplina vampírica te da poderes distintos según el clan que elijas, gestionar la sed de sangre sin romper la Mascarada que oculta a los vampiros del mundo humano es un reto constante, y las decisiones políticas entre clanes cambian de verdad el rumbo de la historia."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay real usando poderes vampíricos en combate. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en combate</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: una decisión política entre clanes que va a definir bastante el resto de la partida."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara pensando en voz alta la decisión política. <strong>🎬 Producción:</strong> sin SFX destacado · BGM: sube tensión</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con qué clan vampírico te alinearías tú, o qué poder vampírico te gustaría tener más?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Todavía estoy conociendo a los clanes, pero ya hay uno cuyo estilo de poderes me está llamando bastante la atención."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Política vampírica, sed de sangre, y decisiones que pesan de verdad — cierre atmosférico y oscuro perfecto para esta tanda de Retro 365."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de la política de clanes explorada en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con qué clan vampírico te quedarías tú? Dímelo en comentarios."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       }
-      // 147: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
+      // 162: { name: "...", summary: "...", difficulty: "...", emoji: "...", steamUrl: "..." },
     };
 
