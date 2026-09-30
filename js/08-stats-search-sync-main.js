@@ -1134,15 +1134,20 @@
           subCountEl.hidden = false;
         }
 
+        // maxResults=15 (no 5): checkRetro365AutoPublish() necesita ver
+        // más que solo el último vídeo para no perderse un día si Iván
+        // sube varios sin visitar la web entre medias — el sidebar
+        // visible de "Últimos vídeos" se recorta a 5 más abajo, esto
+        // solo amplía lo que se comprueba para marcar días como hechos.
         const videosRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${uploadsId}&key=${YT_API_KEY}`
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId=${uploadsId}&key=${YT_API_KEY}`
         ).then(r => r.json());
 
         const videos = videosRes.items || [];
         latestVideosRaw = videos;
         checkRetro365AutoPublish();
         cachedVideosHTML = videos.length
-          ? videos.map(v => {
+          ? videos.slice(0, 5).map(v => {
               const s = v.snippet;
               const videoId = s.resourceId.videoId;
               const thumb = (s.thumbnails.medium || s.thumbnails.default).url;
