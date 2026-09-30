@@ -684,13 +684,13 @@
       ].filter(Boolean).join('\n');
     }
 
-    // Fecha real en la que arranca de nuevo la grabación/subida de
-    // Retro 365 (los días ya publicados quedan como están; esto solo
-    // afecta a cuándo se reparten en el calendario los días "decididos,
-    // sin grabar todavía"). Construida con año/mes(0-indexado)/día en
-    // vez de un string ISO, para no depender de cómo cada navegador
-    // interprete la zona horaria de "2026-11-10".
-    const RETRO365_START_DATE = new Date(2026, 10, 10);
+    // RETRO365_START_DATE se declara en 03-retro365-home-widgets.js (no
+    // aquí) — renderPublic() de ese archivo la necesita en cuanto se
+    // carga la página, de forma síncrona, y build.js concatena los
+    // módulos en orden (01→08): si la declaración viviera aquí, en el
+    // 07, renderPublic() la usaría antes de que existiera y reventaría
+    // con un ReferenceError de TDZ real (pasó el 1 oct 2026 al mover el
+    // lanzamiento a 2027 — quedó documentado en el commit que lo arregló).
 
     // Backlog #256 — fecha real de la última tarjeta añadida al Diario
     // de construcción (#devLogTimeline). A mano, no parseada del texto

@@ -729,7 +729,7 @@
         push({
           id: 'retro-countdown', type: 'retro365',
           title: `📅 Quedan ${daysToRetro} día${daysToRetro === 1 ? '' : 's'} para retomar Retro 365`,
-          detail: 'Arranca el 10 de noviembre de 2026.',
+          detail: 'Arranca el 1 de enero de 2027.',
           view: 'calendario'
         });
       } else {

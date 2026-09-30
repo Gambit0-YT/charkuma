@@ -32,7 +32,9 @@ function extractDays(src) {
   while ((m = re.exec(src))) {
     const [, dayNum, name, script] = m;
     const offs = [...script.matchAll(/<strong>🎙️ Off:<\/strong>\s*"([^"]+)"/g)].map(x => x[1]);
-    const text = offs.join(' ').replace(/\s+/g, ' ').trim();
+    // Edge TTS falla en silencio (stream cerrado sin terminar) si el texto lleva un "&" sin escapar
+    // — encontrado 28 sep 2026 con el día 68 ("Dungeons & Dragons"). Escapar antes de sintetizar.
+    const text = offs.join(' ').replace(/\s+/g, ' ').trim().replace(/&/g, '&amp;');
     if (text) days.push({ day: Number(dayNum), name, text });
   }
   return days.sort((a, b) => a.day - b.day);

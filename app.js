@@ -729,7 +729,7 @@
         push({
           id: 'retro-countdown', type: 'retro365',
           title: `📅 Quedan ${daysToRetro} día${daysToRetro === 1 ? '' : 's'} para retomar Retro 365`,
-          detail: 'Arranca el 10 de noviembre de 2026.',
+          detail: 'Arranca el 1 de enero de 2027.',
           view: 'calendario'
         });
       } else {
@@ -1740,6 +1740,102 @@
     // app.js directamente — se sobrescribe en el siguiente build.
 
     const plannedGames = {
+      1: {
+        name: "Half-Life",
+        summary: "El shooter de ciencia ficción que reinventó cómo se cuenta una historia en un videojuego, sin cortar nunca la cámara.",
+        difficulty: "media",
+        emoji: "🧪",
+        steamUrl: "https://store.steampowered.com/app/70/HalfLife/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 1 de Retro 365, y arrancamos con el juego que cambió las reglas de los shooters para siempre. Bienvenidos a Half-Life."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay abriendo con el trayecto en tranvía hacia Black Mesa. <strong>🎬 Producción:</strong> SFX ambiente industrial · corte duro · BGM: sting corto, entra en silencio</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un shooter de ciencia ficción que jamás corta la cámara, ni siquiera en las cinemáticas — hoy arranca oficialmente el reto de los 365 días con él."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 001 · HALF-LIFE" con la barra de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Gordon Freeman, científico en el complejo de investigación de Black Mesa, cuando un experimento sale mal y abre la puerta a una invasión alienígena — y a ti te toca salir de ahí como sea."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando pasillos del complejo justo después del accidente. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Nunca ves un cambio de plano, nunca pierdes el control — toda la historia pasa delante de tus ojos en tiempo real, algo que en su momento nadie había hecho así."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado combinando combate y plataformeo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: empezar el reto entero de 365 días con el juego sin el que, probablemente, ninguno de los que vienen después existiría igual."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando al peso del momento. <strong>🎬 Producción:</strong> SFX sting de tensión · BGM: sube ligeramente</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿por qué elegiste este juego para abrir el reto de los 365 días?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Quería empezar por la raíz — un juego que no solo se juega bien hoy, sino que explica por qué el resto del medio se mueve como se mueve."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "El primer día de 365, y ya tocaba un clásico de verdad — de esos que sientan las bases de todo lo que viene después."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap rápido del recorrido jugado. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Con qué juego te gustaría que cerrara este reto dentro de 365 días? Dímelo en comentarios, que hay tiempo de sobra para decidirlo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      2: {
+        name: "The Last of Us Part I",
+        summary: "Una historia de supervivencia entre un contrabandista curtido y una niña inmune a una infección que ha destrozado el mundo.",
+        difficulty: "dificil",
+        emoji: "🍄",
+        steamUrl: "https://store.steampowered.com/app/1888930/The_Last_of_Us_Part_I/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 2 de Retro 365, y hoy toca uno de los golpes más duros que os voy a dar en todo el reto. Bienvenidos a The Last of Us."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un momento silencioso, sigiloso, entre ruinas. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: sting emotivo, entra en silencio</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Una historia de supervivencia entre un contrabandista curtido y una niña inmune a una infección que ha arrasado el mundo — hoy os cuento por qué esta pareja se ha metido a tanta gente en el bolsillo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 002 · THE LAST OF US PART I" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono serio</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Joel tiene que escoltar a Ellie a través de un Estados Unidos devastado por una infección de hongos — y lo que empieza como un trabajo más, se convierte en la relación que sostiene todo el juego."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una zona urbana tomada por la naturaleza. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los recursos escasean de verdad, cada encuentro con infectados o con otros supervivientes puede torcerse en segundos, y el juego no te deja olvidar ni un momento lo que cuesta seguir con vida aquí."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate tenso con pocos recursos. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en la tensión</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver cómo aguanto emocionalmente ciertos tramos de esta historia delante de todos vosotros."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un momento narrativo fuerte. <strong>🎬 Producción:</strong> sin SFX · BGM: baja para dar protagonismo a la escena</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué momento de la historia te ha marcado más hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "Hay una escena en concreto que no esperaba que me afectara tanto — y eso que ya sabía, en teoría, lo que venía."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Duro de jugar y más duro todavía de digerir — de las mejores narrativas que vais a ver en todo este reto."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de momentos clave del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "Si ya lo has jugado, dime en comentarios si te afectó tanto como a mí — sin spoilers para quien no lo haya probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      3: {
+        name: "Dead Space",
+        summary: "Terror espacial de verdad: una nave a la deriva, criaturas que no mueren como esperas, y silencio absoluto entre disparo y disparo.",
+        difficulty: "dificil",
+        emoji: "🛸",
+        steamUrl: "https://store.steampowered.com/app/1693980/Dead_Space/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 3 de Retro 365, y hoy tocan pasillos vacíos, silencio absoluto... y algo que definitivamente no está muerto del todo. Bienvenidos a Dead Space."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay caminando por un pasillo oscuro de la nave. <strong>🎬 Producción:</strong> SFX ambiente de nave + crujidos metálicos · corte duro · BGM: sting corto, entra en silencio</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Terror espacial de verdad, donde disparar a la cabeza no sirve de nada — hoy os cuento por qué este remake ha vuelto a meter miedo como el original en su día."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 003 · DEAD SPACE" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono tenso</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres Isaac Clarke, ingeniero enviado a reparar una nave minera que ha dejado de responder — y en cuanto pones un pie dentro, entiendes por qué nadie contesta al radio."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay mostrando la nave desde fuera y luego el interior abandonado. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Los enemigos solo caen de verdad si les cortas las extremidades, la interfaz entera está integrada en el traje sin pausar nunca la acción, y la nave se convierte en un personaje más, tan opresiva como cualquier monstruo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay de un combate usando desmembramiento estratégico. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop, sube en los sustos</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver cuántos sustos de verdad me lleváis grabados antes de que acabe el vídeo."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un jumpscare real. <strong>🎬 Producción:</strong> SFX sting de terror · BGM: corte brusco, luego vuelve</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿qué criatura o momento del juego te ha dado más miedo hasta ahora?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "El silencio me pone más nervioso que cualquier monstruo — sabes que algo va a pasar, y precisamente por eso tarda una eternidad en llegar."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Terror espacial clásico hecho con mimo — de los remakes que respetan de verdad lo que hizo grande al original."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los sustos del directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Te atreves con este juego con las luces apagadas? Dímelo en comentarios, a ver quién aguanta más."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
       4: {
         name: "Hades",
         summary: "Roguelike de mazmorras del inframundo: ritmo endiablado y una historia que se cuenta muriendo una y otra vez.",
@@ -1802,6 +1898,38 @@
           <p class="script-prod"><strong>🎥 Visual:</strong> recap de las mudanzas jugadas. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
           <h4>📣 CTA</h4>
           <p><strong>🎙️ Off:</strong> "Si ya lo has jugado, cuéntame en comentarios qué crees que le pasó a la protagonista — sin spoilers para quien no lo haya probado."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
+      },
+      6: {
+        name: "Assassin's Creed Odyssey",
+        summary: "Un mundo abierto entero ambientado en la Antigua Grecia, tan grande que perderte en él es parte del plan.",
+        difficulty: "media",
+        emoji: "🏛️",
+        steamUrl: "https://store.steampowered.com/app/812140/Assassins_Creed_Odyssey/",
+        script: `
+          <h4>🪝 Hook (0-10s)</h4>
+          <p><strong>🎙️ Off:</strong> "Día 6 de Retro 365, y hoy el mapa es tan grande que ni sé por dónde vamos a empezar. Bienvenidos a la Antigua Grecia de Assassin's Creed Odyssey."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay aéreo mostrando el mapa completo del juego desde lo alto. <strong>🎬 Producción:</strong> SFX viento/águila · corte duro · BGM: sting corto, entra en silencio</p>
+          <h4>🎯 Promesa</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo abierto entero ambientado en la Antigua Grecia, tan grande que perderte en él es literalmente parte del plan — hoy os cuento por qué aquí sobra contenido para meses."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> texto "DÍA 006 · ASSASSIN'S CREED ODYSSEY" con la barra de progreso. <strong>🎬 Producción:</strong> SFX whoosh · BGM: entra loop de fondo, tono épico</p>
+          <h4>📍 Contexto</h4>
+          <p><strong>🎙️ Off:</strong> "Eres un mercenario espartano en plena Guerra del Peloponeso, con Atenas y Esparta enfrentadas — y tú decides de qué lado, o de ningún lado, quieres estar."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay explorando una ciudad griega llena de vida. <strong>🎬 Producción:</strong> sin SFX destacado · corte suave · BGM: continúa</p>
+          <h4>🎬 Desarrollo</h4>
+          <p><strong>🎙️ Off:</strong> "Casi cualquier misión se puede resolver hablando, luchando o a escondidas, hay un barco propio para saquear la costa entera, y prácticamente cada diálogo cambia algo, por pequeño que sea, en cómo te ven los demás."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> gameplay variado — combate naval, diálogo con opciones, sigilo. <strong>🎬 Producción:</strong> SFX real del juego · corte seco entre ejemplos · BGM: mismo loop</p>
+          <h4>🔀 Giro / momento del directo</h4>
+          <p><strong>🎙️ Off:</strong> "Y aquí toca vivirlo en directo: a ver cuánto tardo en desviarme de la misión principal por seguir una distracción cualquiera del mapa."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> cámara reaccionando a un punto de interés random en el mapa. <strong>🎬 Producción:</strong> SFX cómico de distracción · BGM: baja un poco</p>
+          <h4>💬 Opinión</h4>
+          <p>[IVÁN — AÑADIR OPINIÓN: ¿con Atenas, con Esparta, o sin bando fijo?]</p>
+          <p class="script-suggestion"><strong>💡 Sugerencia de Claude (no es tu opinión real — edítala, sustitúyela o dicta la tuya):</strong> "De momento voy sin bando fijo — cambio de opinión cada vez que una misión secundaria me convence de lo contrario."</p>
+          <h4>🏁 Conclusión</h4>
+          <p><strong>🎙️ Off:</strong> "Un mundo abierto gigantesco de verdad, de los que devoran horas sin que te des ni cuenta — perfecto para un reto de 365 días."</p>
+          <p class="script-prod"><strong>🎥 Visual:</strong> recap de los lugares visitados en el directo. <strong>🎬 Producción:</strong> fundido cruzado · BGM: sube ligeramente</p>
+          <h4>📣 CTA</h4>
+          <p><strong>🎙️ Off:</strong> "¿Atenas o Esparta? Dime tu bando en comentarios, que igual me convences de cambiar el mío."</p>
           <p class="script-prod"><strong>🎥 Visual:</strong> animación de comentarios + contador de progreso de Retro 365. <strong>🎬 Producción:</strong> SFX stinger de marca · BGM: sube a volumen normal, corte a logo</p>`
       },
       // Backlog Fase 2 (2026-09-08, /loop autónomo): el usuario pidió
@@ -13346,6 +13474,35 @@
     const lastUnlocked = unlockedDays.length ? Math.max(...unlockedDays) : 0;
     const nextDay = lastUnlocked + 1;
 
+    // Fecha real de lanzamiento del reto (confirmada por Iván 1 oct 2026,
+    // reemplaza la fecha provisional del 10 nov 2026 que tenía antes):
+    // Día 1 = 1 ene 2027, un día por fecha real desde ahí. Declarada AQUÍ
+    // (no en 07-master-control-activity.js, donde vivía antes) porque
+    // renderPublic() de este mismo archivo la necesita de forma síncrona
+    // en cuanto carga la página — build.js concatena los módulos en
+    // orden (01→08), así que si la declaración viviera en un archivo
+    // posterior, esta función la usaría antes de que existiera y
+    // reventaría con un ReferenceError de TDZ real (pasó exactamente eso
+    // al cambiar la fecha; quedó documentado aquí para no repetirlo).
+    // Construida con año/mes(0-indexado)/día en vez de un string ISO,
+    // para no depender de cómo cada navegador interprete la zona
+    // horaria de "2027-01-01". Usada también desde 01-app-init-nav.js y
+    // 07-master-control-activity.js (esas sí son seguras: se ejecutan
+    // diferidas, tras cargar el script entero, nunca en el primer pase).
+    const RETRO365_START_DATE = new Date(2027, 0, 1);
+
+    // Fecha desde la que un día "decidido pero sin grabar" (plannedGames)
+    // se enseña públicamente — antes de esa fecha, aunque el guion ya
+    // esté escrito, la tarjeta se muestra bloqueada igual que un día sin
+    // decidir todavía. Sustituye el "modo borrador" (todo visible sin
+    // filtro) que pidió Iván el 9 sep, por petición suya del 1 oct 2026
+    // de pasar a revelar día a día según se acerca la fecha real.
+    function isRetroPlannedRevealed(day){
+      const date = new Date(RETRO365_START_DATE);
+      date.setDate(date.getDate() + (day - 1));
+      return date <= new Date();
+    }
+
     function dayCardHTML(day){
       const game = completedGames[day];
 
@@ -13367,17 +13524,17 @@
           </div>`;
       }
 
-      // Backlog/pedido explícito de Iván (9 sep): revelar también los
-      // días ya DECIDIDOS aunque el vídeo todavía no se haya grabado ni
-      // publicado — a sabiendas de que esto rompe la sorpresa del reto
-      // de cara a la audiencia real (se lo advertí antes de tocar esto,
-      // confirmó que lo quiere igualmente). Se etiqueta con honestidad
-      // como "decidido, sin grabar" — nunca como si ya estuviera
-      // publicado — y solo se enseña la identidad del juego (nombre,
-      // resumen, dificultad), NUNCA el guion completo con opiniones y
-      // chistes todavía sin grabar: eso se queda solo en la chuleta
-      // secreta, que es donde vive el guion de verdad.
-      const planned = plannedGames[day];
+      // Días ya DECIDIDOS (guion escrito) pero todavía sin grabar: solo
+      // se revelan públicamente a partir de su fecha real (ver
+      // isRetroPlannedRevealed más arriba). Antes de esa fecha caen al
+      // bloque bloqueado/próximo de más abajo, igual que un día sin
+      // decidir. Se etiqueta con honestidad como "decidido, sin grabar"
+      // — nunca como si ya estuviera publicado — y solo se enseña la
+      // identidad del juego (nombre, resumen, dificultad), NUNCA el
+      // guion completo con opiniones y chistes todavía sin grabar: eso
+      // se queda solo en la chuleta secreta, que es donde vive el guion
+      // de verdad.
+      const planned = plannedGames[day] && isRetroPlannedRevealed(day) ? plannedGames[day] : null;
       if (planned) {
         return `
           <div class="day-card planned">
@@ -13421,7 +13578,7 @@
         let cards = "";
         for (let d = start; d <= end; d++){
           if (completedGames[d]) monthUnlocked++;
-          else if (plannedGames[d]) monthPlanned++;
+          else if (plannedGames[d] && isRetroPlannedRevealed(d)) monthPlanned++;
           cards += dayCardHTML(d);
         }
         const openAttr = (nextDay >= start && nextDay <= end) || i === 0 ? " open" : "";
@@ -13535,7 +13692,7 @@
 
     // Backlog #4 — vista de calendario mensual REAL para Retro 365: los
     // mismos 365 días de siempre, pero mapeados a fechas de verdad desde
-    // RETRO365_START_DATE (10 nov 2026), en una rejilla semana a semana
+    // RETRO365_START_DATE (1 ene 2027), en una rejilla semana a semana
     // (lunes primero) en vez de la lista plana de arriba. Llamada al
     // final del script (ver comentario junto a RETRO365_START_DATE) para
     // evitar el TDZ de esa constante.
@@ -13563,7 +13720,7 @@
         // Lunes = 0 ... domingo = 6 (getDay() da domingo = 0, lo rotamos)
         const leadingBlanks = (firstDate.getDay() + 6) % 7;
         const unlockedInMonth = entries.filter(e => completedGames[e.day]).length;
-        const plannedInMonth = entries.filter(e => !completedGames[e.day] && plannedGames[e.day]).length;
+        const plannedInMonth = entries.filter(e => !completedGames[e.day] && plannedGames[e.day] && isRetroPlannedRevealed(e.day)).length;
         const containsNext = entries.some(e => e.day === nextDay);
         const openAttr = (containsNext || !firstOpenDone) ? ' open' : '';
         if (containsNext || !firstOpenDone) firstOpenDone = true;
@@ -13572,7 +13729,7 @@
         for (let i = 0; i < leadingBlanks; i++) cells += `<div class="retro-cal-cell empty"></div>`;
         entries.forEach(({ day, date }) => {
           const game = completedGames[day];
-          const planned = !game && plannedGames[day];
+          const planned = !game && plannedGames[day] && isRetroPlannedRevealed(day) ? plannedGames[day] : null;
           const isNext = day === nextDay;
           const cls = game ? 'unlocked' : (planned ? 'planned' : (isNext ? 'locked next' : 'locked'));
           const title = game
@@ -19738,13 +19895,13 @@
       ].filter(Boolean).join('\n');
     }
 
-    // Fecha real en la que arranca de nuevo la grabación/subida de
-    // Retro 365 (los días ya publicados quedan como están; esto solo
-    // afecta a cuándo se reparten en el calendario los días "decididos,
-    // sin grabar todavía"). Construida con año/mes(0-indexado)/día en
-    // vez de un string ISO, para no depender de cómo cada navegador
-    // interprete la zona horaria de "2026-11-10".
-    const RETRO365_START_DATE = new Date(2026, 10, 10);
+    // RETRO365_START_DATE se declara en 03-retro365-home-widgets.js (no
+    // aquí) — renderPublic() de ese archivo la necesita en cuanto se
+    // carga la página, de forma síncrona, y build.js concatena los
+    // módulos en orden (01→08): si la declaración viviera aquí, en el
+    // 07, renderPublic() la usaría antes de que existiera y reventaría
+    // con un ReferenceError de TDZ real (pasó el 1 oct 2026 al mover el
+    // lanzamiento a 2027 — quedó documentado en el commit que lo arregló).
 
     // Backlog #256 — fecha real de la última tarjeta añadida al Diario
     // de construcción (#devLogTimeline). A mano, no parseada del texto

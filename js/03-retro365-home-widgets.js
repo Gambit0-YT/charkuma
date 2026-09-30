@@ -35,6 +35,35 @@
     const lastUnlocked = unlockedDays.length ? Math.max(...unlockedDays) : 0;
     const nextDay = lastUnlocked + 1;
 
+    // Fecha real de lanzamiento del reto (confirmada por Iván 1 oct 2026,
+    // reemplaza la fecha provisional del 10 nov 2026 que tenía antes):
+    // Día 1 = 1 ene 2027, un día por fecha real desde ahí. Declarada AQUÍ
+    // (no en 07-master-control-activity.js, donde vivía antes) porque
+    // renderPublic() de este mismo archivo la necesita de forma síncrona
+    // en cuanto carga la página — build.js concatena los módulos en
+    // orden (01→08), así que si la declaración viviera en un archivo
+    // posterior, esta función la usaría antes de que existiera y
+    // reventaría con un ReferenceError de TDZ real (pasó exactamente eso
+    // al cambiar la fecha; quedó documentado aquí para no repetirlo).
+    // Construida con año/mes(0-indexado)/día en vez de un string ISO,
+    // para no depender de cómo cada navegador interprete la zona
+    // horaria de "2027-01-01". Usada también desde 01-app-init-nav.js y
+    // 07-master-control-activity.js (esas sí son seguras: se ejecutan
+    // diferidas, tras cargar el script entero, nunca en el primer pase).
+    const RETRO365_START_DATE = new Date(2027, 0, 1);
+
+    // Fecha desde la que un día "decidido pero sin grabar" (plannedGames)
+    // se enseña públicamente — antes de esa fecha, aunque el guion ya
+    // esté escrito, la tarjeta se muestra bloqueada igual que un día sin
+    // decidir todavía. Sustituye el "modo borrador" (todo visible sin
+    // filtro) que pidió Iván el 9 sep, por petición suya del 1 oct 2026
+    // de pasar a revelar día a día según se acerca la fecha real.
+    function isRetroPlannedRevealed(day){
+      const date = new Date(RETRO365_START_DATE);
+      date.setDate(date.getDate() + (day - 1));
+      return date <= new Date();
+    }
+
     function dayCardHTML(day){
       const game = completedGames[day];
 
@@ -56,17 +85,17 @@
           </div>`;
       }
 
-      // Backlog/pedido explícito de Iván (9 sep): revelar también los
-      // días ya DECIDIDOS aunque el vídeo todavía no se haya grabado ni
-      // publicado — a sabiendas de que esto rompe la sorpresa del reto
-      // de cara a la audiencia real (se lo advertí antes de tocar esto,
-      // confirmó que lo quiere igualmente). Se etiqueta con honestidad
-      // como "decidido, sin grabar" — nunca como si ya estuviera
-      // publicado — y solo se enseña la identidad del juego (nombre,
-      // resumen, dificultad), NUNCA el guion completo con opiniones y
-      // chistes todavía sin grabar: eso se queda solo en la chuleta
-      // secreta, que es donde vive el guion de verdad.
-      const planned = plannedGames[day];
+      // Días ya DECIDIDOS (guion escrito) pero todavía sin grabar: solo
+      // se revelan públicamente a partir de su fecha real (ver
+      // isRetroPlannedRevealed más arriba). Antes de esa fecha caen al
+      // bloque bloqueado/próximo de más abajo, igual que un día sin
+      // decidir. Se etiqueta con honestidad como "decidido, sin grabar"
+      // — nunca como si ya estuviera publicado — y solo se enseña la
+      // identidad del juego (nombre, resumen, dificultad), NUNCA el
+      // guion completo con opiniones y chistes todavía sin grabar: eso
+      // se queda solo en la chuleta secreta, que es donde vive el guion
+      // de verdad.
+      const planned = plannedGames[day] && isRetroPlannedRevealed(day) ? plannedGames[day] : null;
       if (planned) {
         return `
           <div class="day-card planned">
@@ -110,7 +139,7 @@
         let cards = "";
         for (let d = start; d <= end; d++){
           if (completedGames[d]) monthUnlocked++;
-          else if (plannedGames[d]) monthPlanned++;
+          else if (plannedGames[d] && isRetroPlannedRevealed(d)) monthPlanned++;
           cards += dayCardHTML(d);
         }
         const openAttr = (nextDay >= start && nextDay <= end) || i === 0 ? " open" : "";
@@ -224,7 +253,7 @@
 
     // Backlog #4 — vista de calendario mensual REAL para Retro 365: los
     // mismos 365 días de siempre, pero mapeados a fechas de verdad desde
-    // RETRO365_START_DATE (10 nov 2026), en una rejilla semana a semana
+    // RETRO365_START_DATE (1 ene 2027), en una rejilla semana a semana
     // (lunes primero) en vez de la lista plana de arriba. Llamada al
     // final del script (ver comentario junto a RETRO365_START_DATE) para
     // evitar el TDZ de esa constante.
@@ -252,7 +281,7 @@
         // Lunes = 0 ... domingo = 6 (getDay() da domingo = 0, lo rotamos)
         const leadingBlanks = (firstDate.getDay() + 6) % 7;
         const unlockedInMonth = entries.filter(e => completedGames[e.day]).length;
-        const plannedInMonth = entries.filter(e => !completedGames[e.day] && plannedGames[e.day]).length;
+        const plannedInMonth = entries.filter(e => !completedGames[e.day] && plannedGames[e.day] && isRetroPlannedRevealed(e.day)).length;
         const containsNext = entries.some(e => e.day === nextDay);
         const openAttr = (containsNext || !firstOpenDone) ? ' open' : '';
         if (containsNext || !firstOpenDone) firstOpenDone = true;
@@ -261,7 +290,7 @@
         for (let i = 0; i < leadingBlanks; i++) cells += `<div class="retro-cal-cell empty"></div>`;
         entries.forEach(({ day, date }) => {
           const game = completedGames[day];
-          const planned = !game && plannedGames[day];
+          const planned = !game && plannedGames[day] && isRetroPlannedRevealed(day) ? plannedGames[day] : null;
           const isNext = day === nextDay;
           const cls = game ? 'unlocked' : (planned ? 'planned' : (isNext ? 'locked next' : 'locked'));
           const title = game
