@@ -63,24 +63,25 @@
     }
 
     // Backlog #49 — gráfica real de evolución de visitas: los últimos 30
-    // días de verdad, vía vidiq_channel_stats (consultado 2026-09-07).
-    // Los suscriptores se quedan planos en 396 todo el mes (sin
-    // movimiento real que graficar), así que la gráfica se centra en
-    // visitas, que sí tienen recorrido. Es una foto, no un dato en
-    // directo — se actualiza a mano de vez en cuando, igual que el
-    // resto del panel de VidIQ.
+    // días de verdad, vía vidiq_channel_stats (actualizado 2026-10-01).
+    // El salto del 10 al 11 de sept (116.459 -> 146.277) es real, no un
+    // error: coincide con la tanda de 50 Shorts del backlog retro
+    // programados ese día. La gráfica se centra en visitas porque los
+    // suscriptores se mueven mucho menos (396 -> 406 en el mes). Es una
+    // foto, no un dato en directo — se actualiza a mano de vez en
+    // cuando, igual que el resto del panel de VidIQ.
     const VIDIQ_VIEWS_HISTORY = [
-      {date:"2026-08-08",views:116022},{date:"2026-08-09",views:116036},{date:"2026-08-10",views:116052},
-      {date:"2026-08-11",views:116060},{date:"2026-08-12",views:116062},{date:"2026-08-13",views:116074},
-      {date:"2026-08-14",views:116075},{date:"2026-08-15",views:116081},{date:"2026-08-16",views:116092},
-      {date:"2026-08-17",views:116103},{date:"2026-08-18",views:116118},{date:"2026-08-19",views:116135},
-      {date:"2026-08-20",views:116148},{date:"2026-08-21",views:116151},{date:"2026-08-22",views:116159},
-      {date:"2026-08-23",views:116209},{date:"2026-08-24",views:116214},{date:"2026-08-25",views:116221},
-      {date:"2026-08-26",views:116233},{date:"2026-08-27",views:116247},{date:"2026-08-28",views:116268},
-      {date:"2026-08-29",views:116280},{date:"2026-08-30",views:116290},{date:"2026-08-31",views:116321},
       {date:"2026-09-01",views:116324},{date:"2026-09-02",views:116338},{date:"2026-09-03",views:116343},
       {date:"2026-09-04",views:116359},{date:"2026-09-05",views:116377},{date:"2026-09-06",views:116393},
-      {date:"2026-09-07",views:116407}
+      {date:"2026-09-07",views:116407},{date:"2026-09-08",views:116426},{date:"2026-09-09",views:116437},
+      {date:"2026-09-10",views:116459},{date:"2026-09-11",views:146277},{date:"2026-09-12",views:146335},
+      {date:"2026-09-13",views:147588},{date:"2026-09-14",views:148817},{date:"2026-09-15",views:148834},
+      {date:"2026-09-16",views:149628},{date:"2026-09-17",views:151220},{date:"2026-09-18",views:151502},
+      {date:"2026-09-19",views:151589},{date:"2026-09-20",views:151496},{date:"2026-09-21",views:151539},
+      {date:"2026-09-22",views:151580},{date:"2026-09-23",views:151611},{date:"2026-09-24",views:151622},
+      {date:"2026-09-25",views:151674},{date:"2026-09-26",views:151702},{date:"2026-09-27",views:151710},
+      {date:"2026-09-28",views:151737},{date:"2026-09-29",views:151878},{date:"2026-09-30",views:152023},
+      {date:"2026-10-01",views:152082}
     ];
     function renderViewsEvolutionChart(){
       const container = document.getElementById('viewsEvolutionChart');
@@ -120,13 +121,15 @@
     }
 
     // Backlog #50 — comparativa mes a mes automática: dos ventanas
-    // reales de 30 días consecutivas (vía vidiq_channel_stats,
-    // consultado 2026-09-07) — "automática" en el mismo sentido que el
-    // resto del panel de VidIQ: Claude la trae en cada refresco, la web
-    // no puede pedirla sola por ser estática.
+    // reales de ~30 días (vía vidiq_channel_stats, actualizado
+    // 2026-10-01; se solapan unos días porque la API solo da los
+    // últimos 30 días exactos, no un rango a elección — "previous" es
+    // la ventana que antes figuraba como "current") — "automática" en
+    // el mismo sentido que el resto del panel de VidIQ: Claude la trae
+    // en cada refresco, la web no puede pedirla sola por ser estática.
     const VIDIQ_MONTH_COMPARISON = {
-      previous: { from: "2026-07-09", to: "2026-08-07", viewsGained: 394, subscribersGained: -1 },
-      current: { from: "2026-08-08", to: "2026-09-07", viewsGained: 385, subscribersGained: 0 }
+      previous: { from: "2026-08-08", to: "2026-09-07", viewsGained: 385, subscribersGained: 0 },
+      current: { from: "2026-09-01", to: "2026-10-01", viewsGained: 35758, subscribersGained: 10 }
     };
     function renderMonthComparison(){
       const container = document.getElementById('monthComparisonStat');
@@ -340,7 +343,7 @@
       container.innerHTML = `
         <p class="section-sub" style="margin:4px 0 10px">
           Sobre los 3 vídeos reales más vistos del canal, vía vidIQ (<code>vidiq_video_earnings_estimate</code>).
-          ${allZero ? 'Los tres dan $0 — resultado real, no un fallo: con 396 suscriptores el canal está por debajo del umbral que vidIQ considera normalmente monetizado, así que todavía no hay ganancias reales que estimar.' : ''}
+          ${allZero ? 'Los tres dan $0 — resultado real, no un fallo: con 406 suscriptores el canal está por debajo del umbral que vidIQ considera normalmente monetizado, así que todavía no hay ganancias reales que estimar.' : ''}
         </p>
         ${rows}`;
     }
