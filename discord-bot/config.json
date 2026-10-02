@@ -1,0 +1,52 @@
+{
+  "zonaHoraria": "Europe/Madrid",
+  "creador": "mrChakurma",
+
+  "redes": {
+    "YouTube": "https://www.youtube.com/@mrchakurma",
+    "Twitch": "https://www.twitch.tv/kiddcolors",
+    "TikTok": "https://www.tiktok.com/@kiddcolors",
+    "Instagram": "https://www.instagram.com/kiddcolors",
+    "X / Twitter": "",
+    "Web": "https://charkuma.es"
+  },
+
+  "youtube": {
+    "channelId": "UCMxeCf-_CpgmmIiyHCwMeYw",
+    "intervaloMin": 5
+  },
+
+  "twitch": {
+    "usuario": "kiddcolors",
+    "intervaloMin": 2
+  },
+
+  "social": {
+    "intervaloMin": 10,
+    "incluirRetweets": false
+  },
+
+  "juegosGratis": {
+    "intervaloMin": 30,
+    "plataformas": ["PC", "Steam", "Epic Games Store", "GOG", "Ubisoft", "Itch.io", "PS4", "PS5", "Xbox One", "Xbox Series X|S", "Nintendo Switch"]
+  },
+
+  "ofertas": {
+    "activo": true,
+    "hora": 18,
+    "precioMaxUSD": 15,
+    "descuentoMin": 70,
+    "valoracionSteamMin": 80,
+    "maxPorDia": 8
+  },
+
+  "minecraft": {
+    "edicion": "java",
+    "intervaloMin": 5,
+    "avisarAlAbrir": false
+  },
+
+  "bienvenida": {
+    "darRolMiembro": true
+  }
+}
