@@ -38,6 +38,7 @@ const channels = new Collection([
   ['c3', fakeChannel('c3', 'tweets')],
   ['c4', fakeChannel('c4', 'juegos-gratis')],
   ['c5', fakeChannel('c5', 'estado-servidor')],
+  ['c6', fakeChannel('c6', 'clips')],
 ]);
 const roles = new Collection([['r1', { id: 'r1', name: '🔴 Directos', toString: () => '<@&r1>' }]]);
 const guild = { id: 'g1', channels: { cache: channels }, roles: { cache: roles } };
@@ -129,6 +130,18 @@ test('Twitch: avisa al empezar (mencionando el rol), una sola vez, y edita al te
   await tw.check(client);
   assert.match(msg.edited.content, /ha terminado/);
   assert.match(msg.edited.embeds[0].toJSON().footer.text, /duró 3 h/);
+});
+
+test('Clips de Twitch: publica los nuevos, del más antiguo al más nuevo, sin mencionar', async () => {
+  const clips = require('../src/alerts/twitchClips');
+  const clip = (id, mins) => ({ id, url: `https://clips.twitch.tv/${id}`, title: `Clip ${id}`, creator_name: 'fan', created_at: new Date(Date.now() - mins * 60e3).toISOString() });
+  routes['helix/clips'] = { data: [clip('A', 300)] };
+  await clips.check(client); // siembra
+  const before = sent.length;
+  routes['helix/clips'] = { data: [clip('C', 5), clip('A', 300), clip('B', 20)] }; // Twitch los ordena por visitas
+  await clips.check(client);
+  assert.deepStrictEqual(sent.slice(before).map((m) => m.content.match(/clips\.twitch\.tv\/(\w)/)[1]), ['B', 'C']);
+  assert.ok(sent.slice(before).every((m) => m.channelId === 'c6' && !m.allowedMentions.roles.length));
 });
 
 test('X/Twitter: publica tweets nuevos con fxtwitter y salta retweets', async () => {

@@ -14,6 +14,7 @@ module.exports = {
     guildId: env('GUILD_ID'),
     twitchClientId: env('TWITCH_CLIENT_ID'),
     twitchClientSecret: env('TWITCH_CLIENT_SECRET'),
+    youtubeApiKey: env('YOUTUBE_API_KEY'),
   },
   feeds: {
     tiktok: env('TIKTOK_FEED_URL'),
@@ -21,5 +22,10 @@ module.exports = {
     twitter: env('TWITTER_FEED_URL'),
   },
   minecraftServer: env('MINECRAFT_SERVER'),
+  rcon: {
+    host: env('MINECRAFT_RCON_HOST') || env('MINECRAFT_SERVER').replace(/:\d+$/, ''),
+    port: Number(env('MINECRAFT_RCON_PORT')) || 25575,
+    password: env('MINECRAFT_RCON_PASSWORD'),
+  },
   dataDir: env('DATA_DIR') || path.join(__dirname, '..', 'data'),
 };

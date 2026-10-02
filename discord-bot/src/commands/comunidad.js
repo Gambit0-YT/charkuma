@@ -67,13 +67,14 @@ module.exports = [
     async execute(i) {
       const embed = new EmbedBuilder().setColor(0x5865f2).setTitle('🤖 Comandos').setDescription([
         '**Para todos**',
-        '`/redes` · `/sugerencia` · `/juegos-gratis` · `/minecraft`',
+        '`/redes` · `/sugerencia` · `/juegos-gratis` · `/minecraft` · `/retro365`',
+        '`/nivel` · `/ranking` · `/cumple` · `/whitelist`',
         '',
         '**Moderación**',
         '`/limpiar` · `/aislar` · `/expulsar` · `/banear`',
         '',
         '**Admin**',
-        '`/setup` · `/canal` · `/panel-roles` · `/probar-alerta`',
+        '`/setup` · `/canal` · `/panel-roles` · `/panel-tickets` · `/sorteo` · `/xp` · `/probar-alerta`',
       ].join('\n'));
       await i.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     },

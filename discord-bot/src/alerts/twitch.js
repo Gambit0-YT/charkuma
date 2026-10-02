@@ -31,6 +31,16 @@ async function helix(path) {
   }
 }
 
+/** ID numérico del canal de Twitch configurado (se cachea). */
+let broadcasterId = null;
+async function getBroadcasterId() {
+  if (broadcasterId) return broadcasterId;
+  const { data: [user] = [] } = await helix(`users?login=${encodeURIComponent(config.twitch.usuario)}`);
+  if (!user) throw new Error(`No existe el usuario de Twitch "${config.twitch.usuario}"`);
+  broadcasterId = user.id;
+  return broadcasterId;
+}
+
 function duration(fromIso) {
   const mins = Math.max(0, Math.round((Date.now() - Date.parse(fromIso)) / 60000));
   const h = Math.floor(mins / 60);
@@ -56,6 +66,8 @@ async function buildLive(stream) {
 }
 
 module.exports = {
+  helix,
+  getBroadcasterId,
   name: 'twitch',
   enabled: () => Boolean(config.twitch.usuario && config.secrets.twitchClientId && config.secrets.twitchClientSecret),
   intervalMin: () => config.twitch.intervaloMin,

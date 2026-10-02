@@ -1,9 +1,19 @@
-// Eventos de Discord: comandos, botones, bienvenidas y despedidas.
+// Eventos de Discord: comandos, botones, mensajes (XP), bienvenidas y despedidas.
 const { EmbedBuilder, Events, MessageFlags } = require('discord.js');
 const config = require('./config');
 const log = require('./log');
 const commands = require('./commands');
+const levels = require('./features/levels');
+const giveaways = require('./features/giveaways');
+const tickets = require('./features/tickets');
 const { findChannel, findRole, logToStaff } = require('./guild');
+
+// customId "prefijo:resto" → manejador del botón
+const BUTTONS = {
+  rol: (i, rest) => commands.get('panel-roles').button(i, rest),
+  sorteo: (i) => giveaways.button(i),
+  ticket: (i, rest) => tickets.button(i, rest),
+};
 
 function register(client) {
   client.on(Events.InteractionCreate, async (interaction) => {
@@ -12,8 +22,9 @@ function register(client) {
       if (interaction.isChatInputCommand()) {
         const cmd = commands.get(interaction.commandName);
         if (cmd) await cmd.execute(interaction);
-      } else if (interaction.isButton() && interaction.customId.startsWith('rol:')) {
-        await commands.get('panel-roles').button(interaction, interaction.customId.slice(4));
+      } else if (interaction.isButton()) {
+        const [prefix, ...rest] = interaction.customId.split(':');
+        await BUTTONS[prefix]?.(interaction, rest.join(':'));
       }
     } catch (err) {
       log.error(`Error en la interacción ${interaction.commandName || interaction.customId}:`, err);
@@ -21,6 +32,10 @@ function register(client) {
       if (interaction.deferred || interaction.replied) await interaction.followUp(reply).catch(() => {});
       else await interaction.reply(reply).catch(() => {});
     }
+  });
+
+  client.on(Events.MessageCreate, (message) => {
+    levels.onMessage(message).catch((err) => log.warn('XP:', err.message));
   });
 
   client.on(Events.GuildMemberAdd, async (member) => {
@@ -39,7 +54,7 @@ function register(client) {
         .setDescription([
           `Hola ${member}, eres el miembro **#${guild.memberCount}**.`,
           roles ? `Pásate por ${roles} para elegir de qué quieres recibir avisos.` : null,
-          'Usa `/redes` para ver todas las redes del canal.',
+          'Usa `/redes` para ver todas las redes del canal y `/cumple poner` para que te felicitemos. 🎂',
         ].filter(Boolean).join('\n'))
         .setThumbnail(member.user.displayAvatarURL({ size: 256 }));
       await channel.send({ content: `${member}`, embeds: [embed], allowedMentions: { users: [member.id] } }).catch(() => {});

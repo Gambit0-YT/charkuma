@@ -6,17 +6,10 @@ const config = require('../config');
 const state = require('../state');
 const { getJson } = require('../http');
 const { sendAlert } = require('../guild');
+const { localNow } = require('../time');
 
 const STORES = { 1: 'Steam', 7: 'GOG', 11: 'Humble', 15: 'Fanatical', 25: 'Epic' };
 const NO_REPETIR_DIAS = 7;
-
-/** Fecha (AAAA-MM-DD) y hora locales en la zona horaria configurada. */
-function localNow(date = new Date()) {
-  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
-    timeZone: config.zonaHoraria, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23',
-  }).formatToParts(date).map((p) => [p.type, p.value]));
-  return { date: `${parts.year}-${parts.month}-${parts.day}`, hour: Number(parts.hour) };
-}
 
 async function loadDeals(recent = {}) {
   const o = config.ofertas;

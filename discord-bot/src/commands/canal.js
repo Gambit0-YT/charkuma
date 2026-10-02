@@ -6,9 +6,11 @@ const { findChannel } = require('../guild');
 const state = require('../state');
 
 const LABELS = {
-  bienvenida: 'Bienvenidas', roles: 'Panel de avisos', sugerencias: 'Sugerencias',
-  youtube: 'Vídeos de YouTube', directos: 'Directos de Twitch', tiktok: 'TikTok', instagram: 'Instagram', twitter: 'X / Twitter',
-  juegosGratis: 'Juegos gratis', ofertas: 'Ofertas', minecraftEstado: 'Estado de Minecraft', logs: 'Registro del staff',
+  bienvenida: 'Bienvenidas', roles: 'Panel de avisos', general: 'Chat general (cumpleaños)', memes: 'Memes (meme de la semana)',
+  sugerencias: 'Sugerencias', niveles: 'Subidas de nivel', sorteos: 'Sorteos',
+  youtube: 'Vídeos de YouTube', directos: 'Directos de Twitch', clips: 'Clips de Twitch', tiktok: 'TikTok', instagram: 'Instagram',
+  twitter: 'X / Twitter', retro365: 'Retro 365', juegosGratis: 'Juegos gratis', ofertas: 'Ofertas',
+  minecraftEstado: 'Estado de Minecraft', tickets: 'Panel de tickets', logs: 'Registro del staff',
 };
 
 module.exports = {

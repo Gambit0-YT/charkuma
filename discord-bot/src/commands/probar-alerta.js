@@ -10,6 +10,7 @@ module.exports = {
     .addStringOption((o) => o.setName('tipo').setDescription('Qué alerta probar').setRequired(true).addChoices(
       { name: 'YouTube', value: 'youtube' },
       { name: 'Directo de Twitch', value: 'directos' },
+      { name: 'Clips de Twitch', value: 'clips' },
       { name: 'TikTok', value: 'tiktok' },
       { name: 'Instagram', value: 'instagram' },
       { name: 'X / Twitter', value: 'twitter' },

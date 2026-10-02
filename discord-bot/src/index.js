@@ -4,6 +4,7 @@ const config = require('./config');
 const log = require('./log');
 const events = require('./events');
 const alerts = require('./alerts');
+const features = require('./features');
 
 for (const key of ['discordToken', 'guildId']) {
   if (!config.secrets[key]) {
@@ -15,7 +16,9 @@ for (const key of ['discordToken', 'guildId']) {
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers, // intent privilegiado: actívalo en el Developer Portal (para las bienvenidas)
+    GatewayIntentBits.GuildMembers, // intent privilegiado: actívalo en el Developer Portal (bienvenidas, contadores, cumpleaños)
+    GatewayIntentBits.GuildMessages, // XP por mensajes (no lee el texto, solo cuenta)
+    GatewayIntentBits.GuildVoiceStates, // XP por estar en voz
   ],
 });
 
@@ -32,6 +35,7 @@ client.once(Events.ClientReady, async (c) => {
   await guild.roles.fetch();
   c.user.setActivity(`a ${config.creador}`, { type: ActivityType.Watching });
   alerts.start(c);
+  features.start(c);
 });
 
 process.on('unhandledRejection', (err) => log.error('Promesa sin gestionar:', err));
