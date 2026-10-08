@@ -1,0 +1,5 @@
+# Credenciales: NUNCA al repo (es público).
+.env
+# Estado local del bot (últimos vídeos vistos, IDs de canales asignados...).
+data/
+node_modules/

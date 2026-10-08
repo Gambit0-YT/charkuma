@@ -1,0 +1,19 @@
+{
+  "name": "charkuma-discord-bot",
+  "private": true,
+  "description": "Bot del servidor de Discord de CHARKUMA: alertas automáticas (YouTube, Twitch, TikTok, Instagram, X, juegos gratis, ofertas, Minecraft) y gestión del servidor.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "registrar-comandos": "node src/deploy-commands.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^16.6.1",
+    "fast-xml-parser": "^4.5.3"
+  }
+}

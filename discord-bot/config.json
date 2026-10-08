@@ -1,0 +1,93 @@
+{
+  "zonaHoraria": "Europe/Madrid",
+  "creador": "mrChakurma",
+  "redes": {
+    "YouTube": "https://www.youtube.com/@mrchakurma",
+    "Twitch": "https://www.twitch.tv/kiddcolors",
+    "TikTok": "https://www.tiktok.com/@kiddcolors",
+    "Instagram": "https://www.instagram.com/kiddcolors",
+    "X / Twitter": "",
+    "Web": "https://charkuma.es"
+  },
+  "youtube": {
+    "channelId": "UCMxeCf-_CpgmmIiyHCwMeYw",
+    "intervaloMin": 5
+  },
+  "twitch": {
+    "usuario": "kiddcolors",
+    "intervaloMin": 2
+  },
+  "social": {
+    "intervaloMin": 10,
+    "incluirRetweets": false
+  },
+  "juegosGratis": {
+    "intervaloMin": 30,
+    "plataformas": [
+      "PC",
+      "Steam",
+      "Epic Games Store",
+      "GOG",
+      "Ubisoft",
+      "Itch.io",
+      "PS4",
+      "PS5",
+      "Xbox One",
+      "Xbox Series X|S",
+      "Nintendo Switch"
+    ]
+  },
+  "ofertas": {
+    "activo": true,
+    "hora": 18,
+    "precioMaxUSD": 15,
+    "descuentoMin": 70,
+    "valoracionSteamMin": 80,
+    "maxPorDia": 8
+  },
+  "minecraft": {
+    "edicion": "java",
+    "intervaloMin": 5,
+    "avisarAlAbrir": false
+  },
+  "bienvenida": {
+    "darRolMiembro": true
+  },
+  "niveles": {
+    "activo": true,
+    "xpMensajeMin": 15,
+    "xpMensajeMax": 25,
+    "esperaSegundos": 60,
+    "xpVozPorMinuto": 10,
+    "soloRolMasAlto": true,
+    "mencionarAlSubir": true,
+    "canalesSinXp": []
+  },
+  "clips": {
+    "intervaloMin": 15
+  },
+  "contadores": {
+    "intervaloMin": 10
+  },
+  "cumples": {
+    "hora": 9
+  },
+  "memeSemana": {
+    "activo": true,
+    "diaSemana": 0,
+    "hora": 20
+  },
+  "retro365": {
+    "activo": true,
+    "inicio": "2027-01-01",
+    "hora": 10,
+    "urlDatos": "https://charkuma.es/js/02-data-retro365-games.js",
+    "urlWeb": "https://charkuma.es/#view=retro365"
+  },
+  "whitelist": {
+    "nivelMinimo": 0
+  },
+  "tickets": {
+    "mencionarStaff": true
+  }
+}
