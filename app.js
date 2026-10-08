@@ -56,7 +56,26 @@
       try { localStorage.setItem(GAME_COVER_CACHE_KEY, JSON.stringify(cache)); }
       catch (e) { /* seguimos sin guardar */ }
     }
+    // Portada oficial de Steam (header.jpg) para los juegos de Retro 365 que
+    // tienen steamUrl en plannedGames: sin API, sin clave y sin esperar a RAWG.
+    // Los juegos sin Steam (Nintendo, etc.) devuelven null y siguen por RAWG.
+    let steamCoverByName = null;
+    function steamCoverForName(name){
+      if (!steamCoverByName){
+        steamCoverByName = {};
+        if (typeof plannedGames !== 'undefined'){
+          Object.keys(plannedGames).forEach(k => {
+            const g = plannedGames[k];
+            const m = g && g.steamUrl && g.steamUrl.match(/\/app\/(\d+)/);
+            if (m) steamCoverByName[g.name] = 'https://cdn.akamai.steamstatic.com/steam/apps/' + m[1] + '/header.jpg';
+          });
+        }
+      }
+      return steamCoverByName[name] || null;
+    }
     async function fetchGameCoverUrl(name){
+      const steamUrl = steamCoverForName(name);
+      if (steamUrl) return steamUrl;
       const cache = loadGameCoverCache();
       if (name in cache) return cache[name]; // ya buscado antes, incluso si fue "no hay" (null)
       if (!RAWG_API_KEY || RAWG_API_KEY.indexOf('PON_AQUI') === 0) return null;
@@ -13736,7 +13755,10 @@
             ? `Día ${day} · ${game.name}`
             : planned ? `Día ${day} · ${planned.name} (decidido, sin grabar)`
             : (isNext ? `Día ${day} · próximo a publicarse` : `Día ${day} · todavía sin anunciar`);
-          cells += `<div class="retro-cal-cell ${cls}" title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${game ? (game.emoji || '🎮') : planned ? (planned.emoji || '📝') : (isNext ? '🟠' : '🔒')}</div>`;
+          // Portada real de Steam como fondo cuando el día ya está revelado (nunca para días sin anunciar).
+          const coverUrl = (game || planned) ? steamCoverForName((game || planned).name) : null;
+          const coverStyle = coverUrl ? ` style="background-image:linear-gradient(rgba(9,7,15,.35),rgba(9,7,15,.6)),url('${coverUrl}')"` : '';
+          cells += `<div class="retro-cal-cell ${cls}${coverUrl ? ' has-cover' : ''}"${coverStyle} title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${coverUrl ? '' : (game ? (game.emoji || '🎮') : planned ? (planned.emoji || '📝') : (isNext ? '🟠' : '🔒'))}</div>`;
         });
 
         html += `

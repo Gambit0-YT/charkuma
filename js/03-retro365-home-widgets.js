@@ -297,7 +297,10 @@
             ? `Día ${day} · ${game.name}`
             : planned ? `Día ${day} · ${planned.name} (decidido, sin grabar)`
             : (isNext ? `Día ${day} · próximo a publicarse` : `Día ${day} · todavía sin anunciar`);
-          cells += `<div class="retro-cal-cell ${cls}" title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${game ? (game.emoji || '🎮') : planned ? (planned.emoji || '📝') : (isNext ? '🟠' : '🔒')}</div>`;
+          // Portada real de Steam como fondo cuando el día ya está revelado (nunca para días sin anunciar).
+          const coverUrl = (game || planned) ? steamCoverForName((game || planned).name) : null;
+          const coverStyle = coverUrl ? ` style="background-image:linear-gradient(rgba(9,7,15,.35),rgba(9,7,15,.6)),url('${coverUrl}')"` : '';
+          cells += `<div class="retro-cal-cell ${cls}${coverUrl ? ' has-cover' : ''}"${coverStyle} title="${escapeAttr(title)}" onclick="scrollToRetroDay(${day})"><span class="retro-cal-daynum">${date.getDate()}</span>${coverUrl ? '' : (game ? (game.emoji || '🎮') : planned ? (planned.emoji || '📝') : (isNext ? '🟠' : '🔒'))}</div>`;
         });
 
         html += `

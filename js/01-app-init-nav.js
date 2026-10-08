@@ -56,7 +56,26 @@
       try { localStorage.setItem(GAME_COVER_CACHE_KEY, JSON.stringify(cache)); }
       catch (e) { /* seguimos sin guardar */ }
     }
+    // Portada oficial de Steam (header.jpg) para los juegos de Retro 365 que
+    // tienen steamUrl en plannedGames: sin API, sin clave y sin esperar a RAWG.
+    // Los juegos sin Steam (Nintendo, etc.) devuelven null y siguen por RAWG.
+    let steamCoverByName = null;
+    function steamCoverForName(name){
+      if (!steamCoverByName){
+        steamCoverByName = {};
+        if (typeof plannedGames !== 'undefined'){
+          Object.keys(plannedGames).forEach(k => {
+            const g = plannedGames[k];
+            const m = g && g.steamUrl && g.steamUrl.match(/\/app\/(\d+)/);
+            if (m) steamCoverByName[g.name] = 'https://cdn.akamai.steamstatic.com/steam/apps/' + m[1] + '/header.jpg';
+          });
+        }
+      }
+      return steamCoverByName[name] || null;
+    }
     async function fetchGameCoverUrl(name){
+      const steamUrl = steamCoverForName(name);
+      if (steamUrl) return steamUrl;
       const cache = loadGameCoverCache();
       if (name in cache) return cache[name]; // ya buscado antes, incluso si fue "no hay" (null)
       if (!RAWG_API_KEY || RAWG_API_KEY.indexOf('PON_AQUI') === 0) return null;
