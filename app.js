@@ -56,6 +56,22 @@
       try { localStorage.setItem(GAME_COVER_CACHE_KEY, JSON.stringify(cache)); }
       catch (e) { /* seguimos sin guardar */ }
     }
+    // Modo propietario: el botón del Panel (🕹️) y la campana de notificaciones
+    // son herramientas de gestión de Iván, no del visitante. Se muestran solo si
+    // el navegador ya tiene datos de gestión (revisión de contenido o bancos de
+    // ideas) o si se abrió la web con ?owner=1 (se recuerda). ?owner=0 lo quita.
+    // El Panel sigue accesible siempre por la URL directa #view=hub-secreto.
+    (function applyOwnerMode(){
+      try {
+        const q = new URLSearchParams(location.search).get('owner');
+        if (q === '1') localStorage.setItem('charkuma_owner', '1');
+        if (q === '0') localStorage.removeItem('charkuma_owner');
+        const owner = localStorage.getItem('charkuma_owner') === '1' ||
+          !!localStorage.getItem('charkuma_idea_banks') || !!localStorage.getItem('charkuma_content_history');
+        document.body.classList.toggle('is-owner', owner);
+      } catch (e) { document.body.classList.add('is-owner'); }
+    })();
+
     // Portada oficial de Steam (header.jpg) para los juegos de Retro 365 que
     // tienen steamUrl en plannedGames: sin API, sin clave y sin esperar a RAWG.
     // Los juegos sin Steam (Nintendo, etc.) devuelven null y siguen por RAWG.
