@@ -58,18 +58,17 @@
     }
     // Modo propietario: el botón del Panel (🕹️) y la campana de notificaciones
     // son herramientas de gestión de Iván, no del visitante. Se muestran solo si
-    // el navegador ya tiene datos de gestión (revisión de contenido o bancos de
-    // ideas) o si se abrió la web con ?owner=1 (se recuerda). ?owner=0 lo quita.
+    // se abrió la web con ?owner=1 (se recuerda en ese navegador). ?owner=0 lo quita.
     // El Panel sigue accesible siempre por la URL directa #view=hub-secreto.
     (function applyOwnerMode(){
       try {
         const q = new URLSearchParams(location.search).get('owner');
         if (q === '1') localStorage.setItem('charkuma_owner', '1');
         if (q === '0') localStorage.removeItem('charkuma_owner');
-        const owner = localStorage.getItem('charkuma_owner') === '1' ||
-          !!localStorage.getItem('charkuma_idea_banks') || !!localStorage.getItem('charkuma_content_history');
+        // Solo la marca explícita: los datos de gestión se sincronizan por Firestore a cualquier visitante, así que no sirven para distinguir al propietario.
+        const owner = localStorage.getItem('charkuma_owner') === '1';
         document.body.classList.toggle('is-owner', owner);
-      } catch (e) { document.body.classList.add('is-owner'); }
+      } catch (e) { /* sin almacenamiento: se queda como visitante, nunca como propietario */ }
     })();
 
     // Portada oficial de Steam (header.jpg) para los juegos de Retro 365 que
