@@ -1764,7 +1764,10 @@
         retro365: latestDate(Object.values(completedGames), 'dateAdded'),
         rincon: latestDate(geekContent, 'date'),
         helquidgames: new Date(HELQUIDGAMES_LAST_UPDATE).getTime(),
-        charkumalab: latestDate(labContent, 'date')
+        charkumalab: latestDate(labContent, 'date'),
+        serodys: new Date('2026-10-13').getTime(),
+        servidor: new Date('2026-10-12').getTime(),
+        iagratis: new Date('2026-10-13').getTime()
       };
 
       const grid = document.getElementById('projectsGrid');
