@@ -326,7 +326,8 @@
           realPeople: item.realPeople || []
         }));
       };
-      addFrom(geekContent, 'Rincón del Friki', '🦸', TYPE_LABELS);
+      // Rincón del Friki en pausa: sus guiones solo salen en el buscador para el propietario.
+      if (document.body.classList.contains('is-owner')) addFrom(geekContent, 'Rincón del Friki', '🦸', TYPE_LABELS);
       addFrom(iaContent, 'IA & Experimentos', '🤖', IA_LABELS);
       addFrom(creatorContent, 'Creator Tools', '🛠️', CREATOR_LABELS);
       addFrom(hechoContent, 'Hecho a Mano', '🧶', HECHO_LABELS);

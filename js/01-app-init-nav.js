@@ -1370,6 +1370,10 @@
     const viewScrollPositions = {};
     function showView(id, opts){
       opts = opts || {};
+      // Rincón del Friki en pausa (oct 2026): los guiones sueltos (rf-*) son borradores
+      // con marcadores internos. Un visitante va a la página 'Próximamente'; con el
+      // modo propietario (clase is-owner) se siguen abriendo como siempre.
+      if (typeof id === 'string' && id.indexOf('rf-') === 0 && !document.body.classList.contains('is-owner')) id = 'rincon';
       playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
       // Backlog #307 — cambiar de vista también cierra el panel de Ajustes
       // si estaba abierto (antes se quedaba abierto flotando encima).

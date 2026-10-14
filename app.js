@@ -1370,6 +1370,10 @@
     const viewScrollPositions = {};
     function showView(id, opts){
       opts = opts || {};
+      // Rincón del Friki en pausa (oct 2026): los guiones sueltos (rf-*) son borradores
+      // con marcadores internos. Un visitante va a la página 'Próximamente'; con el
+      // modo propietario (clase is-owner) se siguen abriendo como siempre.
+      if (typeof id === 'string' && id.indexOf('rf-') === 0 && !document.body.classList.contains('is-owner')) id = 'rincon';
       playNavBlip(); // Backlog #138 — no-op si el usuario no lo ha activado
       // Backlog #307 — cambiar de vista también cierra el panel de Ajustes
       // si estaba abierto (antes se quedaba abierto flotando encima).
@@ -19575,7 +19579,8 @@
           realPeople: item.realPeople || []
         }));
       };
-      addFrom(geekContent, 'Rincón del Friki', '🦸', TYPE_LABELS);
+      // Rincón del Friki en pausa: sus guiones solo salen en el buscador para el propietario.
+      if (document.body.classList.contains('is-owner')) addFrom(geekContent, 'Rincón del Friki', '🦸', TYPE_LABELS);
       addFrom(iaContent, 'IA & Experimentos', '🤖', IA_LABELS);
       addFrom(creatorContent, 'Creator Tools', '🛠️', CREATOR_LABELS);
       addFrom(hechoContent, 'Hecho a Mano', '🧶', HECHO_LABELS);
