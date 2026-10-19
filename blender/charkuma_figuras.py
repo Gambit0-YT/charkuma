@@ -304,8 +304,27 @@ FIGURAS = {"mascota": crear_mascota, "mando": crear_mando, "trofeo": crear_trofe
 
 # ---------------------------------------------------------------- escena
 def limpiar_escena():
-    bpy.ops.wm.read_factory_settings(use_empty=True)
+    # Borrar datos a mano en vez de recargar el archivo: recargarlo mientras
+    # el script corre desde el editor de texto de Blender puede cerrarlo.
+    if bpy.context.object and bpy.context.object.mode != "OBJECT":
+        bpy.ops.object.mode_set(mode="OBJECT")
+    for obj in list(bpy.data.objects):
+        bpy.data.objects.remove(obj)
+    for col in list(bpy.data.collections):
+        bpy.data.collections.remove(col)
+    for datos in (bpy.data.meshes, bpy.data.curves, bpy.data.materials,
+                  bpy.data.lights, bpy.data.cameras, bpy.data.worlds):
+        for d in list(datos):
+            datos.remove(d)
     _materiales.clear()
+
+
+def ver_con_colores():
+    """En la interfaz, pasa las vistas 3D a "Material Preview" para ver los colores."""
+    for ventana in bpy.context.window_manager.windows:
+        for area in ventana.screen.areas:
+            if area.type == "VIEW_3D":
+                area.spaces.active.shading.type = "MATERIAL"
 
 
 def montar_escena(centro_z, ancho_total):
@@ -433,6 +452,8 @@ def main():
         colecciones.append(col)
 
     montar_escena(max(alturas) * 0.5, (len(nombres) - 1) * separacion)
+    if not bpy.app.background:
+        ver_con_colores()
 
     if STL:
         exportar_stl(colecciones, bpy.path.abspath(STL))
