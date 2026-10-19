@@ -32,3 +32,12 @@ El STL sale como **una sola malla cerrada** (las piezas se unen con un voxel
 remesh) y escalada a `ALTURA_MM` de alto. Si el script avisa de aristas no
 manifold, baja `VOXEL` en el script. Los colores solo existen en el render:
 la pieza impresa sale de un color y se pinta a mano.
+
+## Mejorar una figura que ya tienes
+
+`mejorar_figura.py` trabaja sobre la escena abierta **sin borrar nada**:
+suaviza el sombreado, añade un bisel pequeño a cada pieza, pone una
+iluminación de estudio de tres luces (y oculta las que hubiera) y deja el
+render listo con EEVEE. Se deshace con Ctrl+Z y se puede ejecutar varias
+veces sin duplicar nada. Las opciones (tamaño del bisel, motor, color de
+fondo…) están al principio del archivo.
