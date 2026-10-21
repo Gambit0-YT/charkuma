@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "pack_format": 48,
+    "supported_formats": { "min_inclusive": 48, "max_inclusive": 80 },
+    "description": "Limpieza de mobs: más de 3 muertes en menos de 1 minuto"
+  }
+}
